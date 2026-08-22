@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ars Grammatica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f0e1; --paper2:#efe6cf; --card:#fffdf4; --ink:#2b2118; --ink-soft:#5a4a38;
+  --gold:#a67c2e; --gold-soft:#c9a45c; --line:#d9c9a3; --wine:#7b2d26; --sage:#48664c;
+  --good-text:#48664c; --bad-text:#7b2d26; --sel-text:#f3e9cf;
+  --panel:#f4ecd8; --panel2:#fbf6e8; --track:#e6dcc2;
+  --arc:#7b2d26; --arc2:#48664c; --mode:#a67c2e;
+  --glow:#fbf7ea;
+  --shadow:0 2px 14px rgba(74,58,32,.10);
+}
+body.dark{
+  --paper:#0d141e; --paper2:#090e15; --card:#111b2a; --ink:#e9dfc8; --ink-soft:#b4a583;
+  --gold:#c9a45c; --gold-soft:#a67c2e; --line:#1f3452; --wine:#8a3a31; --sage:#4f7355;
+  --good-text:#8fbf95; --bad-text:#e08373; --sel-text:#0d141e;
+  --panel:#142236; --panel2:#121f30; --track:#18273b;
+  --arc:#e08373; --arc2:#8fbf95; --mode:#c9a45c;
+  --glow:#0f1a29;
+  --shadow:0 2px 14px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{
+  min-height:100%;
+  background:#f6f0e1;
+  color-scheme:light;
+  scrollbar-color:#c9a45c #e6dcc2;
+  scrollbar-width:thin;
+}
+html:has(body.dark){
+  background:#0d141e;
+  color-scheme:dark;
+  scrollbar-color:#8a7a55 #0f1a29;
+}
+::-webkit-scrollbar{width:12px; height:12px}
+::-webkit-scrollbar-track{background:#e6dcc2}
+::-webkit-scrollbar-thumb{background:#c9a45c; border-radius:8px; border:3px solid #e6dcc2}
+::-webkit-scrollbar-thumb:hover{background:#a67c2e}
+html:has(body.dark)::-webkit-scrollbar-track{background:#0f1a29}
+html:has(body.dark)::-webkit-scrollbar-thumb{background:#1f3452; border-color:#0f1a29}
+html:has(body.dark)::-webkit-scrollbar-thumb:hover{background:#c9a45c}
+body{
+  font-family:'EB Garamond', Georgia, 'Times New Roman', serif;
+  color:var(--ink); min-height:100vh; font-size:19px; line-height:1.5;
+  transition:color .25s;
+  background:var(--paper);
+}
+#dark-toggle{
+  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--line); background:var(--card); color:var(--gold); font-size:20px;
+  cursor:pointer; box-shadow:var(--shadow); z-index:50; transition:transform .15s;
+}
+#dark-toggle:hover{transform:scale(1.08)}
+@media (max-width:420px){ #dark-toggle{right:12px; width:40px; height:40px; font-size:18px} }
+
+.wrap{max-width:880px; margin:0 auto; padding:34px 22px 90px}
+.screen{display:none}
+.screen.active{display:block; animation:fade .4s ease}
+@keyframes fade{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+
+/* ------- header ------- */
+header{text-align:center; margin-bottom:26px}
+.ornament{color:var(--gold); font-size:22px; letter-spacing:.4em; margin:6px 0}
+h1{
+  font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:.06em;
+  color:var(--ink);
+}
+@media (max-width:560px){ h1{font-size:32px} }
+.subtitle{font-style:italic; color:var(--ink-soft); font-size:20px; margin-top:2px}
+.rule{
+  display:flex; align-items:center; gap:12px; margin:22px auto; max-width:520px;
+  color:var(--gold); font-size:15px; letter-spacing:.12em; user-select:none;
+}
+.rule::before,.rule::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold-soft))}
+.rule::after{background:linear-gradient(90deg,var(--gold-soft),transparent)}
+
+/* ------- home ------- */
+.section-label{
+  font-family:'Cinzel', serif; font-size:15px; letter-spacing:.22em; color:var(--gold);
+  text-transform:uppercase; text-align:center; margin:30px 0 14px;
+}
+.section-gloss{
+  text-align:center; font-style:italic; color:var(--ink-soft); font-size:16px;
+  margin:-8px auto 14px; max-width:600px;
+}
+.act-label{
+  font-family:'Cinzel',serif; font-size:21px; font-weight:600; letter-spacing:.12em;
+  color:var(--ink); text-transform:uppercase; text-align:center; margin:52px 0 4px;
+}
+.act-label::before{content:"❧\00a0\00a0"; color:var(--gold); font-size:18px}
+.act-label::after{content:"\00a0\00a0❧"; color:var(--gold); font-size:18px}
+.act-latin{
+  text-align:center; font-style:italic; color:var(--gold); font-size:17px;
+  letter-spacing:.04em; margin:0 0 12px;
+}
+.act-gloss{
+  text-align:center; color:var(--ink-soft); font-size:16px; font-style:italic;
+  margin:-4px auto 16px; max-width:620px; line-height:1.45;
+}
+.intro-note{
+  text-align:center; font-style:italic; color:var(--ink-soft); font-size:16px;
+  margin:24px auto 6px; max-width:640px; padding:15px 20px; line-height:1.5;
+  border:1px solid var(--line); border-radius:12px; background:var(--card); box-shadow:var(--shadow);
+}
+.intro-note::before{content:"❧\00a0"; color:var(--gold)}
+.intro-note strong{color:var(--ink)}
+
+.diff-row{display:flex; justify-content:center; gap:14px; flex-wrap:wrap}
+.diff-btn{
+  width:58px; height:58px; border-radius:50%; border:1.5px solid var(--line); background:var(--card);
+  font-family:'Cinzel', serif; font-size:20px; color:var(--ink-soft); cursor:pointer;
+  transition:all .18s ease; box-shadow:var(--shadow);
+}
+.diff-btn:hover{border-color:var(--gold); transform:translateY(-2px)}
+.diff-btn.sel{background:var(--ink); color:var(--sel-text); border-color:var(--ink)}
+.diff-desc{text-align:center; color:var(--ink-soft); font-style:italic; margin-top:12px; min-height:28px}
+
+/* ------- language picker ------- */
+.lang-box{
+  border:1px solid var(--line); background:var(--card); border-radius:12px;
+  box-shadow:var(--shadow); padding:18px 20px; max-width:640px;
+  margin:6px auto 0; text-align:center;
+}
+.lang-box h4{font-family:'Cinzel',serif; font-size:14px; letter-spacing:.18em; color:var(--gold);
+  text-transform:uppercase; font-weight:600; margin-bottom:6px}
+.lang-fixed{font-style:italic; color:var(--ink-soft); font-size:16px; margin-bottom:12px}
+.lang-row{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
+.lang-btn{
+  font-family:'EB Garamond',serif; font-size:17px; padding:8px 16px; cursor:pointer;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink-soft);
+  border-radius:9px; transition:all .15s;
+}
+.lang-btn:hover{border-color:var(--gold-soft); color:var(--ink)}
+.lang-btn.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
+.lang-note{font-style:italic; color:var(--ink-soft); font-size:15px; margin-top:11px; line-height:1.45}
+
+/* ------- cards ------- */
+.set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
+.set-card{
+  background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 24px;
+  cursor:pointer; transition:all .18s ease; box-shadow:var(--shadow);
+  position:relative; display:flex; flex-direction:column;
+}
+.set-card:hover{transform:translateY(-3px); border-color:var(--gold-soft); box-shadow:0 6px 20px rgba(74,58,32,.16)}
+.set-card.wide{grid-column:1 / -1}
+.set-card.soon{opacity:.5; cursor:default}
+.set-card.soon:hover{transform:none; border-color:var(--line)}
+.set-num{
+  font-family:'Cinzel', serif; color:var(--gold); font-size:15px; letter-spacing:.18em;
+  text-transform:uppercase; margin-bottom:6px;
+}
+.set-card h3{font-family:'Cinzel',serif; font-size:21px; font-weight:600; margin:4px 0 8px; line-height:1.25}
+.set-card p{font-size:17px; color:var(--ink-soft); line-height:1.45; flex:1}
+.begin{
+  display:inline-block; margin-top:12px; font-family:'Cinzel',serif; font-size:14px;
+  letter-spacing:.14em; color:var(--bad-text);
+}
+.soon-flag{
+  display:inline-block; margin-top:12px; font-family:'Cinzel',serif; font-size:12px;
+  letter-spacing:.16em; color:var(--ink-soft); font-style:normal;
+}
+.set-flag{
+  position:absolute; top:14px; right:16px; font-size:13px; font-family:'Cinzel',serif;
+  letter-spacing:.1em; color:var(--gold-soft);
+}
+
+/* ------- panels (study decks) ------- */
+.panel{
+  border:1px solid var(--line); background:var(--card); border-radius:14px;
+  padding:26px 28px; box-shadow:var(--shadow); margin-bottom:18px;
+}
+.panel p{margin-bottom:13px}
+.panel p:last-child{margin-bottom:0}
+.panel strong{color:var(--ink)}
+.panel em{color:var(--ink-soft)}
+.panel .lat{font-style:italic; color:var(--gold)}
+.modern{
+  display:block; margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+  font-size:16px; font-style:italic; color:var(--ink-soft);
+}
+.modern::before{content:"Modern books call this — "; font-style:normal; letter-spacing:.04em; color:var(--gold); font-size:14px; font-family:'Cinzel',serif}
+.deck-nav{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:20px}
+.deck-count{font-style:italic; color:var(--ink-soft); font-size:16px}
+
+/* ------- buttons ------- */
+.btn{
+  font-family:'Cinzel',serif; font-size:14px; letter-spacing:.12em; padding:11px 22px;
+  border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:9px;
+  cursor:pointer; box-shadow:var(--shadow); transition:all .15s; text-transform:uppercase;
+}
+.btn:hover{border-color:var(--gold-soft)}
+.btn.primary{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
+.btn.primary:hover{background:var(--gold-soft)}
+.btn:disabled{opacity:.4; cursor:default}
+.btn-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px}
+
+/* ------- question screen ------- */
+.q-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; flex-wrap:wrap; gap:8px}
+.q-title{font-family:'Cinzel',serif; font-size:17px; letter-spacing:.1em; color:var(--gold); text-transform:uppercase}
+.q-score{font-style:italic; color:var(--ink-soft); font-size:16px}
+.q-instr{font-style:italic; color:var(--ink-soft); text-align:center; margin-bottom:16px; font-size:17px}
+.q-box{
+  border:1px solid var(--line); background:var(--card); border-radius:14px;
+  padding:26px 28px; box-shadow:var(--shadow);
+}
+.q-prompt{font-size:20px; margin-bottom:18px; line-height:1.45}
+.q-specimen{
+  text-align:center; font-size:34px; letter-spacing:.02em; color:var(--ink);
+  margin:10px 0 22px; font-family:'EB Garamond',serif;
+}
+.q-specimen .lemma{display:block; font-size:16px; font-style:italic; color:var(--ink-soft); letter-spacing:0; margin-top:8px}
+.q-sentence{
+  text-align:center; font-size:23px; line-height:1.6; margin:8px 0 20px; color:var(--ink);
+}
+.q-sentence .target{
+  border-bottom:2px solid var(--gold); padding-bottom:1px; color:var(--wine); font-weight:600;
+}
+.q-gloss{text-align:center; font-style:italic; color:var(--ink-soft); font-size:16.5px; margin:-12px 0 20px}
+
+.opts{display:flex; flex-direction:column; gap:10px}
+.opt{
+  text-align:left; font-family:'EB Garamond',serif; font-size:18px; padding:13px 18px;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:10px;
+  cursor:pointer; transition:all .13s; line-height:1.4;
+}
+.opt:hover:not(:disabled){border-color:var(--gold-soft); background:var(--panel)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--sage); color:#fff; border-color:var(--sage)}
+.opt.wrong{background:var(--wine); color:#fff; border-color:var(--wine)}
+.opt.reveal{border-color:var(--sage); border-width:2px}
+
+/* accident selector chips */
+.acc-grid{display:flex; flex-direction:column; gap:14px}
+.acc-line{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.acc-lab{
+  font-family:'Cinzel',serif; font-size:12px; letter-spacing:.14em; color:var(--gold);
+  text-transform:uppercase; min-width:82px;
+}
+.chip{
+  font-family:'EB Garamond',serif; font-size:16.5px; padding:6px 13px; cursor:pointer;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink-soft);
+  border-radius:8px; transition:all .13s;
+}
+.chip:hover:not(:disabled){border-color:var(--gold-soft); color:var(--ink)}
+.chip.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
+.chip.right{background:var(--sage); color:#fff; border-color:var(--sage)}
+.chip.wrong{background:var(--wine); color:#fff; border-color:var(--wine)}
+.chip.reveal{border-color:var(--sage); border-width:2px; color:var(--ink)}
+.chip:disabled{cursor:default}
+
+.answer-in{
+  font-family:'EB Garamond',serif; font-size:21px; padding:11px 16px; width:100%;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:10px;
+}
+.answer-in:focus{outline:none; border-color:var(--gold)}
+
+.feedback{margin-top:18px; padding:16px 20px; border-radius:11px; border:1px solid var(--line); background:var(--panel); line-height:1.5; font-size:17px}
+.feedback.good{border-color:var(--sage)}
+.feedback.bad{border-color:var(--wine)}
+.feedback .verdict{font-family:'Cinzel',serif; font-size:14px; letter-spacing:.14em; text-transform:uppercase; display:block; margin-bottom:7px}
+.feedback.good .verdict{color:var(--good-text)}
+.feedback.bad .verdict{color:var(--bad-text)}
+.feedback .also{display:block; margin-top:10px; padding-top:9px; border-top:1px dashed var(--line); font-style:italic; color:var(--ink-soft); font-size:16px}
+
+/* ------- the congruity bar ------- */
+.cong-bar{
+  display:flex; justify-content:center; gap:26px; margin-top:20px; padding-top:14px;
+  border-top:1px dashed var(--line);
+}
+.lamp{display:flex; align-items:center; gap:8px; font-family:'Cinzel',serif; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); opacity:.42; transition:opacity .25s}
+.lamp .dot{width:11px; height:11px; border-radius:50%; border:1px solid var(--line); background:transparent}
+.lamp.on{opacity:1}
+.lamp.yes .dot{background:var(--sage); border-color:var(--sage)}
+.lamp.no  .dot{background:var(--wine); border-color:var(--wine)}
+.lamp.na{opacity:.25}
+.cong-why{text-align:center; font-style:italic; color:var(--ink-soft); font-size:15px; margin-top:9px}
+
+/* ------- tables ------- */
+.para-wrap{overflow-x:auto; margin:16px 0}
+table.para{border-collapse:collapse; width:100%; font-size:17px}
+table.para th, table.para td{border:1px solid var(--line); padding:7px 12px; text-align:left}
+table.para th{font-family:'Cinzel',serif; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; background:var(--panel)}
+table.para td.f{font-size:18px}
+table.para tr:nth-child(even) td{background:var(--panel2)}
+
+/* ------- progress ------- */
+.prog-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:18px 0}
+.prog-cell{border:1px solid var(--line); background:var(--card); border-radius:12px; padding:16px; text-align:center; box-shadow:var(--shadow)}
+.prog-cell .n{font-family:'Cinzel',serif; font-size:29px; color:var(--gold)}
+.prog-cell .l{font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); font-family:'Cinzel',serif}
+.bar{height:9px; background:var(--track); border-radius:5px; overflow:hidden; margin-top:8px}
+.bar > i{display:block; height:100%; background:var(--gold); border-radius:5px}
+
+.mistake{border:1px solid var(--line); background:var(--card); border-radius:12px; padding:15px 18px; margin-bottom:12px; box-shadow:var(--shadow)}
+.mistake .mq{font-size:17.5px; margin-bottom:6px}
+.mistake .mn{font-size:16px; color:var(--ink-soft); font-style:italic}
+
+.empty-note{text-align:center; font-style:italic; color:var(--ink-soft); padding:30px 10px}
+
+/* ------- modal ladder ------- */
+.ladder{margin:18px auto; max-width:520px; display:block}
+.ladder text{font-family:'EB Garamond',serif}
+
+@media print{
+  #dark-toggle{display:none}
+  .set-card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<button id="dark-toggle" title="Light / dark">☾</button>
+
+<div class="wrap">
+
+  <!-- ============ HOME ============ -->
+  <div class="screen active" id="scr-home">
+    <header>
+      <div class="ornament">❦</div>
+      <h1>Ars Grammatica</h1>
+      <div class="subtitle">The first road of the trivium</div>
+    </header>
+
+    <div class="intro-note">
+      <strong>Grammar is the art of putting words together rightly.</strong> It is the first of the
+      three roads because logic works upon statements, and a statement is made of words. This course
+      assumes none of it. It builds from the letter to the sentence, gives the traditional names as
+      they come, and asks at every step the question the medieval masters asked and we have mostly
+      stopped asking: <em>why are the parts of speech what they are, and not something else?</em>
+    </div>
+
+    <div class="rule" aria-hidden="true">❧</div>
+
+    <div class="section-label">The Partner Language</div>
+    <div class="lang-box">
+      <div class="lang-fixed">English and <strong>Latin</strong> run through every part of this course.
+        Latin is the tradition’s own language, and every technical term here is a Latin term.
+        You may add one further witness.</div>
+      <h4>A third language</h4>
+      <div class="lang-row" id="lang-row"></div>
+      <div class="lang-note" id="lang-note"></div>
+    </div>
+
+    <div class="section-label">Difficulty</div>
+    <div class="diff-row" id="diff-row"></div>
+    <div class="diff-desc" id="diff-desc"></div>
+
+    <div class="rule" aria-hidden="true">❧</div>
+
+    <div id="home-acts"></div>
+
+    <div class="btn-row" style="margin-top:40px">
+      <button class="btn" id="btn-progress">Progress</button>
+      <button class="btn" id="btn-syll">Ars Syllogistica ⟶</button>
+    </div>
+  </div>
+
+  <!-- ============ STUDY DECK ============ -->
+  <div class="screen" id="scr-deck">
+    <header>
+      <div class="ornament">❦</div>
+      <h1 id="deck-title" style="font-size:32px"></h1>
+      <div class="subtitle" id="deck-sub"></div>
+    </header>
+    <div id="deck-body"></div>
+    <div class="deck-nav">
+      <button class="btn" id="deck-back">← Back</button>
+      <span class="deck-count" id="deck-count"></span>
+      <button class="btn primary" id="deck-next">Next →</button>
+    </div>
+  </div>
+
+  <!-- ============ EXERCISE ============ -->
+  <div class="screen" id="scr-ex">
+    <div class="q-head">
+      <span class="q-title" id="ex-title"></span>
+      <span class="q-score" id="ex-score"></span>
+    </div>
+    <div class="q-instr" id="ex-instr"></div>
+    <div class="q-box" id="ex-box"></div>
+    <div class="btn-row">
+      <button class="btn" id="ex-quit">End</button>
+      <button class="btn primary" id="ex-submit">Submit</button>
+      <button class="btn primary" id="ex-next" style="display:none">Next →</button>
+    </div>
+  </div>
+
+  <!-- ============ PROGRESS ============ -->
+  <div class="screen" id="scr-prog">
+    <header>
+      <div class="ornament">❦</div>
+      <h1 style="font-size:32px">PROGRESS</h1>
+    </header>
+    <div id="prog-body"></div>
+    <div class="btn-row">
+      <button class="btn" id="prog-back">← Home</button>
+      <button class="btn" id="prog-reset">Erase all progress</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ====================================================================
+   LATIN MORPHOLOGY ENGINE
+   --------------------------------------------------------------------
+   Paradigms are never stored as flat lists. A declension is a stem plus
+   a table of endings; a conjugation is three stems plus tables. From
+   four principal parts the engine produces every synthetic form of the
+   verb, and can therefore ask an inexhaustible supply of parsing
+   questions and mark them exactly.
+
+   It also builds the inverse map, form -> [analyses]. Latin is full of
+   forms that admit more than one analysis (puellae is genitive singular,
+   dative singular, nominative plural and vocative plural; regam is both
+   future indicative and present subjunctive). The engine discovers these
+   for itself, accepts any correct analysis, and tells the student what
+   else the form could have been. That is not a concession — it is half
+   of what parsing teaches.
+   ==================================================================== */
+
+const CASES = ['nom','gen','dat','acc','abl','voc'];
+const CASE_NAME = {nom:'Nominative', gen:'Genitive', dat:'Dative',
+                   acc:'Accusative', abl:'Ablative', voc:'Vocative'};
+const CASE_SHORT = {nom:'Nom.', gen:'Gen.', dat:'Dat.', acc:'Acc.', abl:'Abl.', voc:'Voc.'};
+const CASE_JOB = {
+  nom:'the subject — what the sentence is about, and what a linking verb attaches to',
+  gen:'of — possession, and the whole of which something is a part',
+  dat:'to or for — the one to whom or for whom the thing is done',
+  acc:'the direct object — what the action falls upon; and motion toward',
+  abl:'by, with, from, in — means, manner, accompaniment, separation, place where',
+  voc:'the one addressed — calling someone by name'
+};
+const NUMS = ['sg','pl'];
+const NUM_NAME = {sg:'Singular', pl:'Plural'};
+const GEN_NAME = {m:'masculine', f:'feminine', n:'neuter'};
+
+/* ---------- noun ending tables ---------- */
+/* Nominative singular is supplied by the lexicon (third declension makes
+   it unpredictable, and second-declension -er drops the e). Everything
+   else is stem + ending. '=nom' copies the nominative singular. */
+const N_END = {
+  d1: { sg:{gen:'ae', dat:'ae', acc:'am', abl:'ā', voc:'=nom'},
+        pl:{nom:'ae', gen:'ārum', dat:'īs', acc:'ās', abl:'īs', voc:'ae'} },
+  d2m:{ sg:{gen:'ī', dat:'ō', acc:'um', abl:'ō', voc:'*2voc'},
+        pl:{nom:'ī', gen:'ōrum', dat:'īs', acc:'ōs', abl:'īs', voc:'ī'} },
+  d2n:{ sg:{gen:'ī', dat:'ō', acc:'=nom', abl:'ō', voc:'=nom'},
+        pl:{nom:'a', gen:'ōrum', dat:'īs', acc:'a', abl:'īs', voc:'a'} },
+  d3: { sg:{gen:'is', dat:'ī', acc:'em', abl:'e', voc:'=nom'},
+        pl:{nom:'ēs', gen:'um', dat:'ibus', acc:'ēs', abl:'ibus', voc:'ēs'} },
+  d3i:{ sg:{gen:'is', dat:'ī', acc:'em', abl:'e', voc:'=nom'},
+        pl:{nom:'ēs', gen:'ium', dat:'ibus', acc:'ēs', abl:'ibus', voc:'ēs'} },
+  d3n:{ sg:{gen:'is', dat:'ī', acc:'=nom', abl:'e', voc:'=nom'},
+        pl:{nom:'a', gen:'um', dat:'ibus', acc:'a', abl:'ibus', voc:'a'} },
+  d3ni:{sg:{gen:'is', dat:'ī', acc:'=nom', abl:'ī', voc:'=nom'},
+        pl:{nom:'ia', gen:'ium', dat:'ibus', acc:'ia', abl:'ibus', voc:'ia'} },
+  d4: { sg:{gen:'ūs', dat:'uī', acc:'um', abl:'ū', voc:'=nom'},
+        pl:{nom:'ūs', gen:'uum', dat:'ibus', acc:'ūs', abl:'ibus', voc:'ūs'} },
+  d4n:{ sg:{gen:'ūs', dat:'ū', acc:'=nom', abl:'ū', voc:'=nom'},
+        pl:{nom:'ua', gen:'uum', dat:'ibus', acc:'ua', abl:'ibus', voc:'ua'} },
+  d5: { sg:{gen:'*5gd', dat:'*5gd', acc:'em', abl:'ē', voc:'=nom'},
+        pl:{nom:'ēs', gen:'ērum', dat:'ēbus', acc:'ēs', abl:'ēbus', voc:'ēs'} }
+};
+
+const DECL_NAME = {d1:'first', d2m:'second', d2n:'second', d3:'third', d3i:'third',
+                   d3n:'third', d3ni:'third', d4:'fourth', d4n:'fourth', d5:'fifth'};
+const DECL_NOTE = {
+  d1:'first declension — the <i>a</i>-stems, overwhelmingly feminine',
+  d2m:'second declension — the <i>o</i>-stems, masculine',
+  d2n:'second declension — the <i>o</i>-stems, neuter',
+  d3:'third declension — consonant stem',
+  d3i:'third declension — <i>i</i>-stem (genitive plural in <i>-ium</i>)',
+  d3n:'third declension — consonant stem, neuter',
+  d3ni:'third declension — <i>i</i>-stem, neuter (ablative singular in <i>-ī</i>)',
+  d4:'fourth declension — the <i>u</i>-stems',
+  d4n:'fourth declension — neuter',
+  d5:'fifth declension — the <i>ē</i>-stems'
+};
+
+const VOWELS = 'aeiouāēīōūyȳ';
+const isVowel = c => VOWELS.indexOf(c) >= 0;
+
+function nounEnding(entry, cs, num){
+  const t = N_END[entry.d];
+  let e = (num === 'sg') ? (cs === 'nom' ? null : t.sg[cs]) : t.pl[cs];
+  if(num === 'sg' && cs === 'nom') return entry.nom;
+  if(e === '=nom') return entry.nom;
+  if(e === '*2voc'){
+    if(/ius$/.test(entry.nom)) return entry.nom.slice(0,-3) + 'ī';
+    if(/us$/.test(entry.nom))  return entry.stem + 'e';
+    return entry.nom;                       /* puer, ager, magister */
+  }
+  if(e === '*5gd'){
+    const last = entry.stem.slice(-1);
+    return entry.stem + (isVowel(last) ? 'ēī' : 'eī');
+  }
+  return entry.stem + e;
+}
+
+function latNounForms(entry){
+  const out = [];
+  NUMS.forEach(num => CASES.forEach(cs => {
+    out.push({form: nounEnding(entry, cs, num), cs, num, entry});
+  }));
+  return out;
+}
+
+/* ---------- the noun lexicon ---------- */
+/* stem = the oblique stem; nom = nominative singular as it actually stands. */
+const LAT_NOUNS = [
+  /* first */
+  {nom:'puella',  stem:'puell',   d:'d1',  g:'f', gloss:'girl'},
+  {nom:'mēnsa',   stem:'mēns',    d:'d1',  g:'f', gloss:'table'},
+  {nom:'silva',   stem:'silv',    d:'d1',  g:'f', gloss:'wood, forest'},
+  {nom:'terra',   stem:'terr',    d:'d1',  g:'f', gloss:'land, earth'},
+  {nom:'aqua',    stem:'aqu',     d:'d1',  g:'f', gloss:'water'},
+  {nom:'rēgīna',  stem:'rēgīn',   d:'d1',  g:'f', gloss:'queen'},
+  {nom:'nauta',   stem:'naut',    d:'d1',  g:'m', gloss:'sailor', note:'masculine, though it declines like the feminines'},
+  {nom:'poēta',   stem:'poēt',    d:'d1',  g:'m', gloss:'poet',   note:'masculine, though it declines like the feminines'},
+  /* second masculine */
+  {nom:'dominus', stem:'domin',   d:'d2m', g:'m', gloss:'master, lord'},
+  {nom:'servus',  stem:'serv',    d:'d2m', g:'m', gloss:'slave, servant'},
+  {nom:'amīcus',  stem:'amīc',    d:'d2m', g:'m', gloss:'friend'},
+  {nom:'equus',   stem:'equ',     d:'d2m', g:'m', gloss:'horse'},
+  {nom:'puer',    stem:'puer',    d:'d2m', g:'m', gloss:'boy'},
+  {nom:'ager',    stem:'agr',     d:'d2m', g:'m', gloss:'field'},
+  {nom:'magister',stem:'magistr', d:'d2m', g:'m', gloss:'teacher, master'},
+  {nom:'fīlius',  stem:'fīli',    d:'d2m', g:'m', gloss:'son'},
+  /* second neuter */
+  {nom:'bellum',  stem:'bell',    d:'d2n', g:'n', gloss:'war'},
+  {nom:'dōnum',   stem:'dōn',     d:'d2n', g:'n', gloss:'gift'},
+  {nom:'verbum',  stem:'verb',    d:'d2n', g:'n', gloss:'word'},
+  {nom:'templum', stem:'templ',   d:'d2n', g:'n', gloss:'temple'},
+  {nom:'oppidum', stem:'oppid',   d:'d2n', g:'n', gloss:'town'},
+  {nom:'signum',  stem:'sign',    d:'d2n', g:'n', gloss:'sign'},
+  /* third, consonant, m/f */
+  {nom:'rēx',     stem:'rēg',     d:'d3',  g:'m', gloss:'king'},
+  {nom:'lēx',     stem:'lēg',     d:'d3',  g:'f', gloss:'law'},
+  {nom:'homō',    stem:'homin',   d:'d3',  g:'m', gloss:'human being, man'},
+  {nom:'virtūs',  stem:'virtūt',  d:'d3',  g:'f', gloss:'virtue, excellence'},
+  {nom:'pater',   stem:'patr',    d:'d3',  g:'m', gloss:'father'},
+  {nom:'mīles',   stem:'mīlit',   d:'d3',  g:'m', gloss:'soldier'},
+  {nom:'ōrātor',  stem:'ōrātōr',  d:'d3',  g:'m', gloss:'speaker, orator'},
+  /* third, consonant, neuter */
+  {nom:'corpus',  stem:'corpor',  d:'d3n', g:'n', gloss:'body'},
+  {nom:'nōmen',   stem:'nōmin',   d:'d3n', g:'n', gloss:'name'},
+  {nom:'tempus',  stem:'tempor',  d:'d3n', g:'n', gloss:'time'},
+  {nom:'opus',    stem:'oper',    d:'d3n', g:'n', gloss:'work'},
+  /* third, i-stem, m/f */
+  {nom:'cīvis',   stem:'cīv',     d:'d3i', g:'m', gloss:'citizen'},
+  {nom:'urbs',    stem:'urb',     d:'d3i', g:'f', gloss:'city'},
+  {nom:'pars',    stem:'part',    d:'d3i', g:'f', gloss:'part'},
+  {nom:'ars',     stem:'art',     d:'d3i', g:'f', gloss:'art, skill'},
+  {nom:'mors',    stem:'mort',    d:'d3i', g:'f', gloss:'death'},
+  /* third, i-stem, neuter */
+  {nom:'mare',    stem:'mar',     d:'d3ni',g:'n', gloss:'sea'},
+  {nom:'animal',  stem:'animāl',  d:'d3ni',g:'n', gloss:'animal'},
+  /* fourth */
+  {nom:'manus',   stem:'man',     d:'d4',  g:'f', gloss:'hand', note:'feminine, though it looks like the masculines'},
+  {nom:'exercitus',stem:'exercit',d:'d4',  g:'m', gloss:'army'},
+  {nom:'senātus', stem:'senāt',   d:'d4',  g:'m', gloss:'senate'},
+  {nom:'frūctus', stem:'frūct',   d:'d4',  g:'m', gloss:'fruit, profit'},
+  {nom:'cornū',   stem:'corn',    d:'d4n', g:'n', gloss:'horn'},
+  {nom:'genū',    stem:'gen',     d:'d4n', g:'n', gloss:'knee'},
+  /* fifth */
+  {nom:'rēs',     stem:'r',       d:'d5',  g:'f', gloss:'thing, matter'},
+  {nom:'diēs',    stem:'di',      d:'d5',  g:'m', gloss:'day'},
+  {nom:'fidēs',   stem:'fid',     d:'d5',  g:'f', gloss:'faith, trust'},
+  {nom:'speciēs', stem:'speci',   d:'d5',  g:'f', gloss:'appearance, species'}
+];
+
+/* ---------- verb ending tables ---------- */
+const PERSONS = [1,2,3];
+const TENSES = ['pres','impf','fut','perf','plup','futp'];
+const TENSE_NAME = {pres:'Present', impf:'Imperfect', fut:'Future',
+                    perf:'Perfect', plup:'Pluperfect', futp:'Future perfect'};
+const MOODS = ['ind','subj','imp'];
+const MOOD_NAME = {ind:'Indicative', subj:'Subjunctive', imp:'Imperative'};
+const VOICES = ['act','pass'];
+const VOICE_NAME = {act:'Active', pass:'Passive'};
+const CONJ_NAME = {'1':'first', '2':'second', '3':'third', '3io':'third (-iō)', '4':'fourth'};
+
+/* present system: endings appended to the base (infinitive minus its ending) */
+const V_PRES = {
+  'pres.ind.act': {
+    '1':  ['ō','ās','at','āmus','ātis','ant'],
+    '2':  ['eō','ēs','et','ēmus','ētis','ent'],
+    '3':  ['ō','is','it','imus','itis','unt'],
+    '3io':['iō','is','it','imus','itis','iunt'],
+    '4':  ['iō','īs','it','īmus','ītis','iunt'] },
+  'impf.ind.act': {
+    '1':  ['ābam','ābās','ābat','ābāmus','ābātis','ābant'],
+    '2':  ['ēbam','ēbās','ēbat','ēbāmus','ēbātis','ēbant'],
+    '3':  ['ēbam','ēbās','ēbat','ēbāmus','ēbātis','ēbant'],
+    '3io':['iēbam','iēbās','iēbat','iēbāmus','iēbātis','iēbant'],
+    '4':  ['iēbam','iēbās','iēbat','iēbāmus','iēbātis','iēbant'] },
+  'fut.ind.act': {
+    '1':  ['ābō','ābis','ābit','ābimus','ābitis','ābunt'],
+    '2':  ['ēbō','ēbis','ēbit','ēbimus','ēbitis','ēbunt'],
+    '3':  ['am','ēs','et','ēmus','ētis','ent'],
+    '3io':['iam','iēs','iet','iēmus','iētis','ient'],
+    '4':  ['iam','iēs','iet','iēmus','iētis','ient'] },
+  'pres.subj.act': {
+    '1':  ['em','ēs','et','ēmus','ētis','ent'],
+    '2':  ['eam','eās','eat','eāmus','eātis','eant'],
+    '3':  ['am','ās','at','āmus','ātis','ant'],
+    '3io':['iam','iās','iat','iāmus','iātis','iant'],
+    '4':  ['iam','iās','iat','iāmus','iātis','iant'] },
+  'impf.subj.act': {
+    '1':  ['ārem','ārēs','āret','ārēmus','ārētis','ārent'],
+    '2':  ['ērem','ērēs','ēret','ērēmus','ērētis','ērent'],
+    '3':  ['erem','erēs','eret','erēmus','erētis','erent'],
+    '3io':['erem','erēs','eret','erēmus','erētis','erent'],
+    '4':  ['īrem','īrēs','īret','īrēmus','īrētis','īrent'] },
+  'pres.ind.pass': {
+    '1':  ['or','āris','ātur','āmur','āminī','antur'],
+    '2':  ['eor','ēris','ētur','ēmur','ēminī','entur'],
+    '3':  ['or','eris','itur','imur','iminī','untur'],
+    '3io':['ior','eris','itur','imur','iminī','iuntur'],
+    '4':  ['ior','īris','ītur','īmur','īminī','iuntur'] },
+  'impf.ind.pass': {
+    '1':  ['ābar','ābāris','ābātur','ābāmur','ābāminī','ābantur'],
+    '2':  ['ēbar','ēbāris','ēbātur','ēbāmur','ēbāminī','ēbantur'],
+    '3':  ['ēbar','ēbāris','ēbātur','ēbāmur','ēbāminī','ēbantur'],
+    '3io':['iēbar','iēbāris','iēbātur','iēbāmur','iēbāminī','iēbantur'],
+    '4':  ['iēbar','iēbāris','iēbātur','iēbāmur','iēbāminī','iēbantur'] },
+  'fut.ind.pass': {
+    '1':  ['ābor','āberis','ābitur','ābimur','ābiminī','ābuntur'],
+    '2':  ['ēbor','ēberis','ēbitur','ēbimur','ēbiminī','ēbuntur'],
+    '3':  ['ar','ēris','ētur','ēmur','ēminī','entur'],
+    '3io':['iar','iēris','iētur','iēmur','iēminī','ientur'],
+    '4':  ['iar','iēris','iētur','iēmur','iēminī','ientur'] },
+  'pres.subj.pass': {
+    '1':  ['er','ēris','ētur','ēmur','ēminī','entur'],
+    '2':  ['ear','eāris','eātur','eāmur','eāminī','eantur'],
+    '3':  ['ar','āris','ātur','āmur','āminī','antur'],
+    '3io':['iar','iāris','iātur','iāmur','iāminī','iantur'],
+    '4':  ['iar','iāris','iātur','iāmur','iāminī','iantur'] },
+  'impf.subj.pass': {
+    '1':  ['ārer','ārēris','ārētur','ārēmur','ārēminī','ārentur'],
+    '2':  ['ērer','ērēris','ērētur','ērēmur','ērēminī','ērentur'],
+    '3':  ['erer','erēris','erētur','erēmur','erēminī','erentur'],
+    '3io':['erer','erēris','erētur','erēmur','erēminī','erentur'],
+    '4':  ['īrer','īrēris','īrētur','īrēmur','īrēminī','īrentur'] }
+};
+
+/* perfect system, active: one table for every conjugation, on the perfect stem */
+const V_PERF = {
+  'perf.ind.act': ['ī','istī','it','imus','istis','ērunt'],
+  'plup.ind.act': ['eram','erās','erat','erāmus','erātis','erant'],
+  'futp.ind.act': ['erō','eris','erit','erimus','eritis','erint'],
+  'perf.subj.act':['erim','erīs','erit','erīmus','erītis','erint'],
+  'plup.subj.act':['issem','issēs','isset','issēmus','issētis','issent']
+};
+
+/* imperative, present active */
+const V_IMP = {'1':['ā','āte'], '2':['ē','ēte'], '3':['e','ite'], '3io':['e','ite'], '4':['ī','īte']};
+
+function latVerbForms(entry){
+  const out = [];
+  const idx = i => ({per: (i % 3) + 1, num: i < 3 ? 'sg' : 'pl'});
+
+  for(const key in V_PRES){
+    const [tense, mood, voice] = key.split('.');
+    /* Some verbs have no personal passive: faciō borrows fīō, and the plainly
+       intransitive ones never form one. Better to leave a gap than to teach a
+       form that does not exist. */
+    if(voice === 'pass' && entry.noPass) continue;
+    const ends = V_PRES[key][entry.conj];
+    ends.forEach((e, i) => {
+      const p = idx(i);
+      out.push({form: entry.base + e, per:p.per, num:p.num, tense, mood, voice, entry});
+    });
+  }
+  if(entry.perf){
+    for(const key in V_PERF){
+      const [tense, mood, voice] = key.split('.');
+      V_PERF[key].forEach((e, i) => {
+        const p = idx(i);
+        out.push({form: entry.perf + e, per:p.per, num:p.num, tense, mood, voice, entry});
+      });
+    }
+  }
+  if(!entry.noImp){
+    V_IMP[entry.conj].forEach((e, i) => {
+      out.push({form: entry.base + e, per:2, num: i === 0 ? 'sg' : 'pl',
+                tense:'pres', mood:'imp', voice:'act', entry});
+    });
+  }
+  return out;
+}
+
+/* ---------- the verb lexicon ---------- */
+/* base = infinitive minus its ending; perf = third principal part minus -ī */
+const LAT_VERBS = [
+  {lemma:'amō, amāre, amāvī, amātum',        base:'am',    perf:'amāv',  conj:'1', gloss:'to love'},
+  {lemma:'laudō, laudāre, laudāvī, laudātum',base:'laud',  perf:'laudāv',conj:'1', gloss:'to praise'},
+  {lemma:'portō, portāre, portāvī, portātum',base:'port',  perf:'portāv',conj:'1', gloss:'to carry'},
+  {lemma:'vocō, vocāre, vocāvī, vocātum',    base:'voc',   perf:'vocāv', conj:'1', gloss:'to call'},
+  {lemma:'parō, parāre, parāvī, parātum',    base:'par',   perf:'parāv', conj:'1', gloss:'to prepare'},
+  {lemma:'nārrō, nārrāre, nārrāvī, nārrātum',base:'nārr',  perf:'nārrāv',conj:'1', gloss:'to tell, relate'},
+  {lemma:'moneō, monēre, monuī, monitum',    base:'mon',   perf:'monu',  conj:'2', gloss:'to warn, advise'},
+  {lemma:'videō, vidēre, vīdī, vīsum',       base:'vid',   perf:'vīd',   conj:'2', gloss:'to see'},
+  {lemma:'teneō, tenēre, tenuī, tentum',     base:'ten',   perf:'tenu',  conj:'2', gloss:'to hold'},
+  {lemma:'habeō, habēre, habuī, habitum',    base:'hab',   perf:'habu',  conj:'2', gloss:'to have'},
+  {lemma:'timeō, timēre, timuī',             base:'tim',   perf:'timu',  conj:'2', gloss:'to fear'},
+  {lemma:'doceō, docēre, docuī, doctum',     base:'doc',   perf:'docu',  conj:'2', gloss:'to teach'},
+  {lemma:'regō, regere, rēxī, rēctum',       base:'reg',   perf:'rēx',   conj:'3', gloss:'to rule, guide'},
+  {lemma:'dūcō, dūcere, dūxī, ductum',       base:'dūc',   perf:'dūx',   conj:'3', gloss:'to lead', noImp:true},
+  {lemma:'scrībō, scrībere, scrīpsī, scrīptum',base:'scrīb',perf:'scrīps',conj:'3',gloss:'to write'},
+  {lemma:'mittō, mittere, mīsī, missum',     base:'mitt',  perf:'mīs',   conj:'3', gloss:'to send'},
+  {lemma:'dīcō, dīcere, dīxī, dictum',       base:'dīc',   perf:'dīx',   conj:'3', gloss:'to say', noImp:true},
+  {lemma:'agō, agere, ēgī, āctum',           base:'ag',    perf:'ēg',    conj:'3', gloss:'to do, drive'},
+  {lemma:'legō, legere, lēgī, lēctum',       base:'leg',   perf:'lēg',   conj:'3', gloss:'to read, choose'},
+  {lemma:'vincō, vincere, vīcī, victum',     base:'vinc',  perf:'vīc',   conj:'3', gloss:'to conquer'},
+  {lemma:'capiō, capere, cēpī, captum',      base:'cap',   perf:'cēp',   conj:'3io',gloss:'to take, seize'},
+  {lemma:'faciō, facere, fēcī, factum',      base:'fac',   perf:'fēc',   conj:'3io',gloss:'to make, do', noImp:true, noPass:true},
+  {lemma:'iaciō, iacere, iēcī, iactum',      base:'iac',   perf:'iēc',   conj:'3io',gloss:'to throw'},
+  {lemma:'fugiō, fugere, fūgī, fugitum',     base:'fug',   perf:'fūg',   conj:'3io',gloss:'to flee', noPass:true},
+  {lemma:'audiō, audīre, audīvī, audītum',   base:'aud',   perf:'audīv', conj:'4', gloss:'to hear'},
+  {lemma:'veniō, venīre, vēnī, ventum',      base:'ven',   perf:'vēn',   conj:'4', gloss:'to come', noPass:true},
+  {lemma:'sciō, scīre, scīvī, scītum',       base:'sc',    perf:'scīv',  conj:'4', gloss:'to know'},
+  {lemma:'mūniō, mūnīre, mūnīvī, mūnītum',   base:'mūn',   perf:'mūnīv', conj:'4', gloss:'to fortify'},
+  {lemma:'sentiō, sentīre, sēnsī, sēnsum',   base:'sent',  perf:'sēns',  conj:'4', gloss:'to feel, perceive'}
+];
+
+/* ---------- adjectives: first/second declension, and third ---------- */
+const LAT_ADJS = [
+  {nom:'bonus',  stem:'bon',   cl:'12', gloss:'good'},
+  {nom:'magnus', stem:'magn',  cl:'12', gloss:'great, large'},
+  {nom:'parvus', stem:'parv',  cl:'12', gloss:'small'},
+  {nom:'malus',  stem:'mal',   cl:'12', gloss:'bad'},
+  {nom:'longus', stem:'long',  cl:'12', gloss:'long'},
+  {nom:'altus',  stem:'alt',   cl:'12', gloss:'high, deep'},
+  {nom:'novus',  stem:'nov',   cl:'12', gloss:'new'},
+  {nom:'clārus', stem:'clār',  cl:'12', gloss:'bright, famous'},
+  {nom:'fortis', stem:'fort',  cl:'3',  gloss:'brave, strong'},
+  {nom:'omnis',  stem:'omn',   cl:'3',  gloss:'every, all'},
+  {nom:'gravis', stem:'grav',  cl:'3',  gloss:'heavy, serious'},
+  {nom:'brevis', stem:'brev',  cl:'3',  gloss:'short'},
+  {nom:'facilis',stem:'facil', cl:'3',  gloss:'easy'}
+];
+
+/* Adjective forms follow the noun tables: a 1st/2nd-declension adjective is
+   d1 in the feminine, d2m in the masculine, d2n in the neuter; a third-
+   declension adjective of two terminations is d3i / d3ni. Same tables,
+   no new machinery — which is itself the point the tradition makes when it
+   files the adjective under the noun. */
+function latAdjForm(adj, cs, num, g){
+  if(adj.cl === '12'){
+    if(g === 'f') return nounEnding({nom: adj.stem+'a',  stem: adj.stem, d:'d1'},  cs, num);
+    if(g === 'n') return nounEnding({nom: adj.stem+'um', stem: adj.stem, d:'d2n'}, cs, num);
+    return nounEnding({nom: adj.nom, stem: adj.stem, d:'d2m'}, cs, num);
+  }
+  if(g === 'n') return nounEnding({nom: adj.stem+'e', stem: adj.stem, d:'d3ni'}, cs, num);
+  /* third-declension adjectives take -ī in the ablative singular and -ium
+     in the genitive plural, like the i-stems, but -is in the nominative */
+  if(cs === 'abl' && num === 'sg') return adj.stem + 'ī';
+  return nounEnding({nom: adj.nom, stem: adj.stem, d:'d3i'}, cs, num);
+}
+
+/* ---------- the ambiguity map ---------- */
+/* Built once, lazily, per lemma: form -> every analysis that yields it. */
+const _formCache = new Map();
+function analysesOf(entry, kind){
+  const key = kind + ':' + (entry.nom || entry.lemma);
+  if(_formCache.has(key)) return _formCache.get(key);
+  const forms = kind === 'noun' ? latNounForms(entry) : latVerbForms(entry);
+  const map = new Map();
+  forms.forEach(f => {
+    if(!map.has(f.form)) map.set(f.form, []);
+    map.get(f.form).push(f);
+  });
+  _formCache.set(key, map);
+  return map;
+}
+
+/* ---------- orthography ---------- */
+const MACRONS = {'ā':'a','ē':'e','ī':'i','ō':'o','ū':'u','ȳ':'y',
+                 'Ā':'A','Ē':'E','Ī':'I','Ō':'O','Ū':'U'};
+function stripMacrons(s){ return String(s).replace(/[āēīōūȳĀĒĪŌŪ]/g, c => MACRONS[c]); }
+/* Answers are compared without macrons and without case: a student should be
+   learning grammar, not fighting his keyboard. The correct spelling is always
+   shown back to him, macrons and all. */
+function normLat(s){
+  return stripMacrons(String(s || '').trim().toLowerCase())
+    .replace(/[^a-z]/g, '')
+    .replace(/j/g, 'i').replace(/v/g, 'u');
+}
+/* ====================================================================
+   CORE — state, storage, the language registry, the router
+   ==================================================================== */
+const $ = id => document.getElementById(id);
+const ROMAN = ['','I','II','III','IV','V','VI','VII','VIII','IX','X'];
+const rand = a => a[Math.floor(Math.random() * a.length)];
+function sample(arr, n){
+  const c = arr.slice();
+  for(let i = c.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i+1)); [c[i],c[j]] = [c[j],c[i]]; }
+  return c.slice(0, n);
+}
+function shuffle(a){ return sample(a, a.length); }
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const art = w => /^[aeiou]/i.test(w) ? 'an' : 'a';
+
+/* ---------- the language registry ---------- */
+/* English and Latin are always present. One further language may be added.
+   Every module supplies the same shape; an exercise for which the chosen
+   language has no data falls back to Latin and says so. The app never
+   generates a form in a language it cannot vouch for. */
+const LANGS = {
+  grc: {
+    key:'grc', name:'Ancient Greek', adj:'Greek',
+    cases:['nominative','genitive','dative','accusative','vocative'],
+    caseCount:5, order:'flexible SOV',
+    note:'Five cases; the ablative’s work is shared out among the genitive and dative. Tense is aspect first and time second — a fact the modists never had to reckon with.',
+    caseFor:{subject:'nominative', dObject:'accusative', iObject:'dative',
+             possess:'genitive', means:'dative', address:'vocative',
+             from:'genitive', with:'dative'},
+    caseNote:{means:'Greek has no ablative: means and instrument go to the dative.',
+              from:'Greek has no ablative: separation and source go to the genitive.',
+              with:'Greek has no ablative: accompaniment goes to the dative, usually with σύν.'}
+  },
+  de: {
+    key:'de', name:'German', adj:'German',
+    cases:['nominative','genitive','dative','accusative'],
+    caseCount:4, order:'V2 main, SOV subordinate',
+    note:'Four cases, carried chiefly on the article rather than the noun — which is worth noticing: the case is still there, it has merely moved to a different word.',
+    caseFor:{subject:'nominative', dObject:'accusative', iObject:'dative',
+             possess:'genitive', means:'dative', address:'nominative',
+             from:'dative', with:'dative'},
+    caseNote:{means:'German uses the dative after <i>mit</i>.',
+              from:'German uses the dative after <i>von</i> and <i>aus</i>.',
+              address:'German has no vocative; one addresses in the nominative.'}
+  },
+  fr: {
+    key:'fr', name:'French', adj:'French',
+    cases:['(no case on nouns)'],
+    caseCount:0, order:'SVO',
+    note:'French has lost case on the noun altogether and keeps it only in the pronouns (<i>je / me / moi</i>). It marks the same functions by word order and by prepositions — which is exactly what English does, and exactly the question the modists would ask: has the <i>mode</i> gone, or only the ending?',
+    caseFor:{subject:'subject position (no ending)', dObject:'object position (no ending)',
+             iObject:'<i>à</i> + noun', possess:'<i>de</i> + noun',
+             means:'<i>avec</i> / <i>par</i> + noun', address:'no marking',
+             from:'<i>de</i> + noun', with:'<i>avec</i> + noun'},
+    caseNote:{subject:'French marks the subject by its place before the verb, not by an ending.',
+              dObject:'French marks the object by its place after the verb, not by an ending.'}
+  }
+};
+
+const LAT_CASE_FOR = {
+  subject:'nominative', dObject:'accusative', iObject:'dative',
+  possess:'genitive', means:'ablative', address:'vocative',
+  from:'ablative', with:'ablative'
+};
+
+/* ---------- difficulty ---------- */
+const DIFF = {
+  1:{label:'The first steps — the plainest cases, and nothing hidden.', gain:10, loss:4},
+  2:{label:'Settled ground — the ordinary run of the material.',        gain:12, loss:6},
+  3:{label:'Harder — the forms that look alike, and the contested parses.', gain:15, loss:8},
+  4:{label:'Severe — rare declensions, the whole verb, no hints.',      gain:18, loss:10},
+  5:{label:'The master’s drill — everything at once, and no quarter.',  gain:22, loss:12}
+};
+
+/* ---------- state and storage ---------- */
+const KEY = 'arsgram.v1';
+const state = {
+  diff:1, lang3:null, dark:false,
+  ex:null, q:null, locked:false, score:0, answered:0, correct:0,
+  streak:0, bestStreak:0, mistakes:[], sessionSeen:[]
+};
+const store = {
+  totals:{},          /* exId -> {seen, right, best} */
+  score:0, bestStreak:0,
+  mistakes:[],
+  lang3:null, dark:null, diff:1
+};
+
+function save(){
+  try{
+    localStorage.setItem(KEY, JSON.stringify({
+      totals: store.totals, score: store.score, bestStreak: store.bestStreak,
+      mistakes: store.mistakes.slice(-60), lang3: state.lang3, dark: state.dark, diff: state.diff
+    }));
+  }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return;
+    const o = JSON.parse(raw);
+    store.totals = o.totals || {};
+    store.score = o.score || 0;
+    store.bestStreak = o.bestStreak || 0;
+    store.mistakes = o.mistakes || [];
+    if(o.lang3 !== undefined) state.lang3 = o.lang3;
+    if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
+    if(o.diff) state.diff = o.diff;
+  }catch(e){ /* corrupt or unreadable — start clean rather than break */ }
+}
+
+function recordAnswer(exId, right){
+  const t = store.totals[exId] || (store.totals[exId] = {seen:0, right:0, best:0});
+  t.seen++;
+  if(right) t.right++;
+  save();
+}
+
+/* ---------- router ---------- */
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+/* ---------- dark mode ---------- */
+function setDark(on){
+  state.dark = on;
+  document.body.classList.toggle('dark', on);
+  $('dark-toggle').textContent = on ? '☀' : '☾';
+  save();
+}
+/* ====================================================================
+   STUDY DECKS
+   --------------------------------------------------------------------
+   Panels with a question apiece, validated in place. Nothing scored.
+   The pattern is Ars Syllogistica's ORIENT deck: read, answer, be told
+   why the others fail, go on.
+   ==================================================================== */
+
+const DECKS = {};
+
+/* -------------------------------------------------------------- */
+DECKS.prelim = {
+  title:'What Grammar Is',
+  sub:'An orientation — not scored',
+  panels:[
+
+{ h:`<p><strong>THE FIRST ROAD.</strong> The old course of study put three arts together and
+called them the <span class="lat">trivium</span>, the three roads: <strong>grammar</strong>,
+which is putting words together rightly; <strong>logic</strong>, which is reasoning rightly;
+and <strong>rhetoric</strong>, which is persuading well. They come in that order for a reason.
+Logic works on statements, and a statement is made of words. If you do not know what a word
+is doing in a sentence, you cannot say what the sentence asserts.</p>
+<p>This course assumes you have had no grammar at all. It builds from the beginning, in
+ordinary language, and gives the traditional names as they come — Latin beside the English,
+never instead of it.</p>` },
+
+{ h:`<p><strong>An art, and also a science.</strong> Grammar is first an <em>art</em>: a skill
+you acquire by practice, like joinery or medicine, whose end is a well-made thing — here, a
+well-formed sentence. But the medieval masters insisted it is also a <em>science</em>: a body
+of sure knowledge about <em>why</em> sentences are formed as they are.</p>
+<p>Boethius of Dacia, writing at Paris in the 1270s, argued the point at length. A science
+must have a subject that stays the same for everyone. Grammar has one. Its subject is the
+<span class="lat">oratio congrua</span> — the well-formed utterance. Not the word taken
+alone, and not the truth of what is said. The construction.</p>`,
+  q:{ prompt:`What is the subject of grammar — the thing it is about?`,
+      options:['The truth of what is said','The well-formed utterance — the construction',
+               'The individual word and its history','The persuasive effect of speech'],
+      correct:1,
+      explain:`Grammar is about the <span class="lat">oratio congrua</span>, the construction that is well formed. Whether what it says is true belongs to logic; whether it moves the hearer belongs to rhetoric; the history of individual words is a different study again.` } },
+
+{ h:`<p><strong>Where grammar stops.</strong> This is the hardest thing in the whole course to
+hold on to, and everything else depends on it. Grammar asks whether the sentence is
+<strong>well formed</strong>. Logic asks whether what it says is <strong>true</strong>. These
+are two entirely separate questions, and you can have either without the other.</p>
+<p><em>The moon is made of green cheese</em> — perfectly well formed, and false.<br>
+<em>Him go store yesterday</em> — badly formed, and might well be true.</p>
+<p>So grammar cannot tell you what is true. But logic cannot begin without grammar, because
+until the sentence is well formed there is nothing definite for logic to judge.</p>`,
+  q:{ prompt:`<em>Him go store yesterday.</em> Judge it.`,
+      options:['Ungrammatical, and therefore false','Ungrammatical, but it may perfectly well be true',
+               'Grammatical, because the meaning comes through','Neither grammatical nor meaningful'],
+      correct:1,
+      explain:`The construction is faulty — that is grammar's verdict, and grammar's verdict is all it is. Whether the man in question did go to the store yesterday is a separate question, and the sentence may be perfectly true. Meaning coming through is not the same as being well formed; that is exactly why the two arts are two.`,
+      wrong:`Ungrammatical does not mean false, and being understandable does not make a construction correct.` },
+  cong:{c:false, t:null} },
+
+{ h:`<p><strong>The four causes of a sentence.</strong> You will meet this fourfold analysis
+everywhere in this tradition, so meet it here. Of any made thing one may ask four questions,
+and of a sentence the answers are these.</p>
+<p><strong>Matter</strong> — what it is made of: the words.<br>
+<strong>Form</strong> — what makes it <em>this</em> rather than a heap: the construction, and
+underneath the construction, the modes of signifying.<br>
+<strong>Efficient cause</strong> — what made it: the mind of the speaker.<br>
+<strong>Final cause</strong> — what it is for: to bring a concept of one mind before another.</p>
+<p>Thomas of Erfurt names that last one twice over. The near end
+(<span class="lat">finis propinquus</span>) is to express a composite concept of the mind; the
+far end (<span class="lat">finis remotus</span>) is <span class="lat">generare perfectum
+sensum in animo auditoris</span> — to generate complete understanding in the mind of the
+hearer. Every rule in this course is finally in service of that.</p>`,
+  q:{ prompt:`The <em>form</em> of a sentence — what makes it one thing rather than a heap of words — is…`,
+      options:['The words it is made of','The construction, and the modes of signifying beneath it',
+               'The speaker’s intention','The truth it conveys'],
+      correct:1,
+      explain:`The words are the matter; the speaker's mind is the efficient cause; the truth is not grammar's business at all. The form is the construction — and the whole of this course is an inquiry into what the construction rests on.` } },
+
+{ h:`<p><strong>The magnitudes of speech.</strong> The Roman grammarians — Donatus in the
+fourth century, Priscian in the sixth — organise the whole art by ascending size, and this
+course follows them, because it is both traditional and the right order for learning.</p>
+<p><span class="lat">littera</span> — the letter, the least part of a composite sound<br>
+<span class="lat">syllaba</span> — the syllable<br>
+<span class="lat">dictio</span> — the word<br>
+<span class="lat">oratio</span> — the sentence</p>
+<p>Notice something about that list: signification does not begin until the third rung. A
+letter signifies nothing. A syllable signifies nothing. Only at the word does meaning enter,
+and only at the sentence can there be truth or falsity. Letters and syllables are the
+<em>matter</em> of speech and nothing more.</p>`,
+  q:{ prompt:`At which rung does signification first appear?`,
+      options:['<span class="lat">littera</span> — the letter','<span class="lat">syllaba</span> — the syllable',
+               '<span class="lat">dictio</span> — the word','<span class="lat">oratio</span> — the sentence'],
+      correct:2,
+      explain:`The word is the least thing that signifies. Letters and syllables are matter only — which is why the modists have nothing to say about them, and why this course spends only one act on them. Truth and falsity wait until the fourth rung, the sentence.`,
+      wrong:`Letters and syllables signify nothing at all; and the sentence is where truth begins, which is later than where <em>meaning</em> begins.` } },
+
+{ h:`<p><strong>The question this course is really about.</strong> Anyone can be taught that
+there are nouns and verbs. The medieval masters at Paris asked something harder, and it is
+the question that makes grammar a liberal art rather than a set of rules to memorise:</p>
+<p style="text-align:center; font-style:italic; font-size:21px; margin:16px 0">
+Why are the parts of speech what they are, and not something else?</p>
+<p>Why should <em>every</em> language have something like a noun and something like a verb? It
+is plainly a matter of convention that <em>this</em> particular sound means <em>horse</em>.
+Is it also a convention that there is such a thing as a noun at all?</p>
+<p>Their answer was no — and their reason was that <strong>grammar follows the shape of
+things</strong>. We take that answer up in the next deck, and we test it against what the
+last hundred years of linguistics has actually found, in the final act.</p>` },
+
+{ h:`<p><strong>A very short history, so you know where you are.</strong></p>
+<p><strong>Dionysius Thrax</strong> (2nd c. BC) fixes the list of the parts of speech for
+Greek. <strong>Donatus</strong> (4th c.) and <strong>Priscian</strong> (6th c.) do the same
+for Latin and rule the schools for a thousand years — but they <em>describe</em>; they do not
+explain. <strong>The modists</strong> at Paris, roughly 1270–1310 — Martin and Boethius of
+Dacia, Radulphus Brito, Siger of Courtrai, and finally Thomas of Erfurt, whose
+<span class="lat">Grammatica speculativa</span> around 1300 is the school's summit — turn
+grammar into a science by asking for the reasons.</p>
+<p>Then <strong>Ockham</strong> and the nominalists take the school apart, and the humanists
+finish it. <strong>Port-Royal</strong> (1660) revives a general grammar; the nineteenth
+century turns to comparative philology and the history of languages;
+<strong>Saussure</strong> and the structuralists to system; and
+<strong>Chomsky</strong> — who wrote a book called <em>Cartesian Linguistics</em> tracing
+himself back to Port-Royal — returns to universal grammar, but grounds it in the mind rather
+than in the world.</p>
+<p>So the question is still open, and both sides of it are still being argued. That is why it
+is worth your time.</p>`,
+  q:{ prompt:`What is the essential difference between Priscian and the modists?`,
+      options:['Priscian wrote on Latin, the modists on Greek',
+               'Priscian describes the rules; the modists ask for the reasons behind them',
+               'Priscian was a philosopher, the modists were schoolmasters',
+               'The modists rejected the parts of speech altogether'],
+      correct:1,
+      explain:`Both work on Latin, and the modists take Priscian's descriptions almost entirely for granted. What they add is the demand that a science must <em>explain</em> its facts by giving reasons, not merely record them. That demand is what turns a school subject into a liberal art.`,
+      wrong:`They kept Priscian's parts of speech; what they would not keep was the bare list.` } },
+
+{ h:`<p><strong>How to use this course.</strong> The study decks — this one, and the ones on
+the modes — are not scored. Read the panel, answer the question, read the answer given, and go
+on. The exercises <em>are</em> scored, and they generate fresh questions each time rather than
+drawing on a fixed list, so you cannot exhaust them.</p>
+<p>Beneath every exercise you will find two small lamps: <strong>congruous</strong> and
+<strong>true</strong>. Most exercises light only the first, because most of grammar has no
+opinion about truth. When both are lit, look at them, and notice that they move
+independently. That is the whole course in two lamps.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.modes = {
+  title:'The Three Modes',
+  sub:'Why the parts of speech are what they are — not scored',
+  panels:[
+
+{ h:`<p><strong>THE MODIST ANSWER.</strong> Take a thing — say, a running horse. There are
+three quite different ways of considering it, and the whole of speculative grammar is the
+working out of their order.</p>
+<p><strong>1. The way it is</strong> — <span class="lat">modus essendi</span>, the mode of
+being. The horse really is a settled, standing thing; its running really is something going
+on, unfolding in time. Neither fact is up to us.</p>
+<p><strong>2. The way the mind takes it</strong> — <span class="lat">modus intelligendi</span>,
+the mode of understanding. The mind grasps the horse as something stable with a nature, and
+the running as something happening to it.</p>
+<p><strong>3. The way the word signifies it</strong> — <span class="lat">modus
+significandi</span>, the mode of signifying. The word <em>horse</em> signifies it as something
+at rest; the word <em>runs</em> signifies it as something in flow.</p>
+<p>Being is first. Understanding is drawn from being. Signifying is drawn from understanding.
+Each rests on the one before, and the arrows run one way only.</p>`,
+  ladder:true },
+
+{ h:`<p><strong>The arrows run one way.</strong> This is the load-bearing claim, and it is
+worth pausing on. Being does not depend on our understanding it; our understanding does not
+depend on our having a word for it. The dependence goes upward and never back down.</p>
+<p>Which yields a warning the tradition repeats constantly, and which you will need in logic:
+<strong>you may never argue straight from the shape of a word to the shape of a thing.</strong>
+The word mirrors the thing, but it is an imperfect mirror. Reasoning from the grammar of a
+word to the metaphysics of its object is a fallacy with a name —
+<span class="lat">figura dictionis</span>, the figure of speech.</p>`,
+  q:{ prompt:`On the modist account, which depends on which?`,
+      options:['The way a thing is depends on the word we have for it',
+               'The way we signify depends on the way we understand, which depends on the way things are',
+               'All three are independent of one another',
+               'Understanding depends on signifying, and signifying on being'],
+      correct:1,
+      explain:`Being first, then understanding drawn from being, then signifying drawn from understanding. Reverse any step and the doctrine collapses into the claim that things are as we happen to describe them — which is precisely what the modists denied.`,
+      wrong:`If signification came first, grammar would be pure convention and there would be nothing to explain.` },
+  ladder:true },
+
+{ h:`<p><strong>Active and passive.</strong> A refinement, and it saves the doctrine from a
+bad misreading. Each mode has two sides.</p>
+<p>The <span class="lat">modus significandi <strong>activus</strong></span> is the word's way of
+signifying — something on the side of the word. The <span class="lat">modus significandi
+<strong>passivus</strong></span> is the thing's way of <em>being signified</em> — something on
+the side of the thing. They are two aspects of one relation, not two items.</p>
+<p>Why it matters: without the distinction, one starts to imagine that the mode of signifying
+is a little extra property glued onto the sound. Ockham will accuse the modists of exactly
+that, and we will hear him out in due course. The distinction is their defence.</p>` },
+
+{ h:`<p><strong>Essential and accidental modes.</strong> Now the machinery that organises
+everything else in this course.</p>
+<p>A <strong>modus significandi essentialis</strong> is what makes a word the part of speech
+it is. It is why <em>horse</em> is a noun.</p>
+<p>A <strong>modus significandi accidentalis</strong> is what gives it its accidents — its
+case, number, gender, tense, mood, voice. It is why <em>horse</em> is singular rather than
+plural, and why <em>horses’</em> is possessive.</p>
+<p>So: the essential mode fixes the <em>part of speech</em>; the accidental modes ride on top
+of it and fix the <em>form</em>. When you reach the exercises on parsing, you are working
+entirely among the accidental modes — and you will know why they cluster as they do, which is
+a thing the ordinary grammar book cannot tell you.</p>`,
+  q:{ prompt:`<em>Regēs</em> is a noun, and it is nominative plural. Which of these does the <em>essential</em> mode of signifying account for?`,
+      options:['That it is nominative','That it is plural',
+               'That it is a noun at all','That it comes from <span class="lat">rēx</span>'],
+      correct:2,
+      explain:`The essential mode makes the part of speech — here, that it signifies in the manner of a being at rest, and so is a noun. Nominative and plural are accidental modes riding on that essential one.`,
+      wrong:`Case and number are accidents: the word stays the same word, and the same part of speech, when they change.` } },
+
+{ h:`<p><strong>The noun and the verb.</strong> The two on which everything rests, and the
+place where the doctrine pays for itself.</p>
+<p>Thomas of Erfurt defines the <strong>noun</strong> as the part of speech signifying
+<span class="lat">per modum entis, vel determinatae apprehensionis</span> — in the manner of a
+being, or of determinate apprehension. Martin of Dacia's older formula is more vivid:
+<span class="lat">per modum habitus et quietis</span>, in the manner of a settled state and of
+rest.</p>
+<p>The <strong>verb</strong> signifies <span class="lat">per modum esse distantis a
+substantia</span> — in the manner of being-in-act <em>standing apart from</em> the substance.
+Siger of Courtrai says <span class="lat">per modum fluxus, fieri seu motus</span>: in the
+manner of flow, of becoming, of motion.</p>
+<p>And now the payoff. <strong>Why does the verb carry tense and the noun not?</strong> Not
+because someone decided so. Time belongs to what becomes and is in motion. The verb signifies
+its thing as becoming; so time comes with it necessarily. The noun signifies its thing as at
+rest; so time has no purchase. The accident follows from the essential mode.</p>`,
+  q:{ prompt:`Why does the verb carry tense and the noun not?`,
+      options:['Because Latin and Greek happen to inflect verbs for time',
+               'Because the verb signifies its thing as becoming, and time belongs to what becomes',
+               'Because verbs are more important than nouns',
+               'Because nouns already carry case instead'],
+      correct:1,
+      explain:`Time belongs to what is in motion. The verb's essential mode is the mode of becoming and flowing; tense follows from it necessarily. This is the doctrine's best single result — an accident of a word explained rather than merely listed.`,
+      wrong:`If it were a fact about Latin, we should expect languages without it; and case is not an alternative to tense but an accident of a different part of speech.` } },
+
+{ h:`<p><strong>The same thing, signified twice.</strong> A test of all this that you can run
+in English without knowing any Latin at all.</p>
+<p><em>Running is good exercise.</em> &nbsp;·&nbsp; <em>The horse runs.</em></p>
+<p>One and the same activity. But <em>running</em> presents it as a settled thing one may talk
+about — you can put <em>the</em> in front of it, make it the subject, hang adjectives on it.
+<em>Runs</em> presents it as something under way. The <span class="lat">modus essendi</span>
+has not changed at all. The <span class="lat">modus significandi</span> has.</p>
+<p>This is why the tradition can say that grammar follows the shape of things without saying
+anything so crude as that each thing has exactly one grammatical form. The world offers the
+running; the mind may take it either way; the language has a form for each.</p>`,
+  q:{ prompt:`In <em>Running is good exercise</em>, what has changed as against <em>The horse runs</em>?`,
+      options:['The mode of being — running is now a different activity',
+               'The mode of signifying — the same activity is now signified as something at rest',
+               'Nothing has changed; these are the same word',
+               'The activity has become a substance in reality'],
+      correct:1,
+      explain:`The activity is identical. What has changed is the way it is signified: as something settled, which one may name and talk about, rather than as something under way. The modes of signifying are ways of presenting, not descriptions of different things.`,
+      wrong:`Nothing in the world altered when you changed the word — and that is precisely the point being made.` } },
+
+{ h:`<p><strong>The four declinable parts, in one square.</strong> Now watch the doctrine do
+real work. Thomas derives the four parts of speech that inflect from just two distinctions.</p>
+<p>Along one axis, <span class="lat">ens</span> against <span class="lat">esse</span> — being
+at rest, against being-in-act. Along the other, for the <span class="lat">ens</span> side,
+determinate against indeterminate apprehension; and for the <span class="lat">esse</span> side,
+standing apart from substance against not standing apart.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th><span class="lat">ens</span> — at rest</th><th><span class="lat">esse</span> — in flow</th></tr>
+<tr><td><b>determinate / apart</b></td>
+    <td><b>NOUN</b><br><span class="lat">per modum entis, vel determinatae apprehensionis</span></td>
+    <td><b>VERB</b><br><span class="lat">per modum esse distantis a substantia</span></td></tr>
+<tr><td><b>indeterminate / not apart</b></td>
+    <td><b>PRONOUN</b><br><span class="lat">per modum entis, et indeterminatae apprehensionis</span></td>
+    <td><b>PARTICIPLE</b><br><span class="lat">per modum esse indistantis a substantia</span></td></tr>
+</table></div>
+<p>The <strong>pronoun</strong> has the noun's very mode of being — but indeterminate. It names
+without describing; it points without saying what. Thomas compares it to prime matter, which
+"neither includes nor excludes form."</p>
+<p>The <strong>participle</strong> has the verb's mode of becoming — but not standing apart.
+<em>Running</em> again: the flow is there, but it does not stand off from its subject to be
+said of it, and so it behaves like a noun and can stand where a noun stands.</p>`,
+  q:{ prompt:`What separates the participle from the verb, on this account?`,
+      options:['The participle signifies rest, the verb becoming',
+               'Both signify becoming; the verb signifies it as standing apart from substance, the participle as not standing apart',
+               'The participle is indeclinable and the verb is not',
+               'The participle has no relation to time at all'],
+      correct:1,
+      explain:`Both are on the <span class="lat">esse</span> side of the square — both signify becoming. The difference is <span class="lat">distantia</span>: the verb's becoming stands off from the substance so as to be predicated of it; the participle's does not, which is why it sits in a sentence where a noun would.`,
+      wrong:`If the participle signified rest it would simply be a noun; and it does carry time, which is exactly its inheritance from the verb.` } },
+
+{ h:`<p><strong>And the four that do not inflect.</strong> The same method, more briefly.</p>
+<p><strong>Adverb</strong> — <span class="lat">per modum adiacentis alteri, quod per modum esse
+significat</span>: lying alongside that which signifies by the mode of being — that is,
+alongside the verb — and determining it.</p>
+<p><strong>Preposition</strong> — <span class="lat">per modum adiacentis alteri casuali ipsum
+contrahens, et ad actum retorquens</span>: lying alongside a case-word, narrowing it, and
+<em>bending it back toward the act</em>. That last image is the best thing in the whole list:
+<em>by the fire</em> takes a naming word and turns it round to face the verb.</p>
+<p><strong>Conjunction</strong> — <span class="lat">per modum coniungentis duo extrema</span>:
+in the manner of joining two extremes.</p>
+<p><strong>Interjection</strong> — <span class="lat">per modum … affectus vel motus animae
+repraesentans</span>: representing a feeling or motion of the soul. Donatus had said it
+signifies the mind's feeling <span class="lat">voce incondita</span>, in an unshaped cry;
+Thomas glosses that as a concept of the mind uttered "not deliberated, but as it were abruptly
+thrown out."</p>` },
+
+{ h:`<p><strong>Where is the article?</strong> An honest difficulty, and you should have it now
+rather than later. Latin has no article. The modists' list therefore has eight parts, and
+never had occasion to derive a ninth.</p>
+<p>English has <em>the</em> and <em>a</em>, and they are certainly doing something — pointing
+at one thing among many, or at any one. So either the modists' framework can derive an
+article's mode of signifying and simply never needed to, or the framework was built on the
+shape of one language and its universality is a claim it has not earned.</p>
+<p>That is a real question, not a rhetorical one. Hold on to it: it comes back with force in
+the final act, when we set the modists against modern typology and ask whether the variety
+between languages is as superficial as they needed it to be.</p>`,
+  q:{ prompt:`Why does the modists’ list of the parts of speech contain no article?`,
+      options:['They thought articles were beneath the notice of grammar',
+               'Because Latin has none, and Latin was the language they worked in',
+               'Because the article is really a kind of conjunction',
+               'They did include one; it was lost from the manuscripts'],
+      correct:1,
+      explain:`They worked on Latin, and Latin has no article. Which raises the question the app keeps returning to: how much of a "universal" grammar built out of one language is really universal? Bursill-Hall, the modern authority on the modists, presses exactly this charge — that their syntax was ultimately shaped by the favourite sentence-type of Latin.`,
+      wrong:`Nothing in their doctrine dismisses the article; the point is that their language gave them no occasion to consider one.` } }
+]};
+/* ====================================================================
+   EXERCISES
+   --------------------------------------------------------------------
+   Every exercise supplies gen(d) -> a question object. The question
+   carries its own check(), so the loop below knows nothing about
+   grammar. Wrong answers get a note in the house voice: not
+   "incorrect", but what you have done and why it was a natural thing
+   to have done.
+
+   q = { kind:'mc'|'chips'|'text', prompt, specimen?, sentence?, gloss?,
+         options?, correct?, rows?, answer?, check(ans), cong? }
+   ==================================================================== */
+
+const EX = {};
+
+/* ---------- shared English lexicon ---------- */
+const EN_N = [['dog','dogs'],['horse','horses'],['sailor','sailors'],['city','cities'],
+              ['king','kings'],['farmer','farmers'],['river','rivers'],['book','books'],
+              ['soldier','soldiers'],['teacher','teachers'],['field','fields'],['ship','ships']];
+const EN_V = [['sleeps','sleep'],['runs','run'],['waits','wait'],['works','work'],
+              ['sings','sing'],['rests','rest'],['arrives','arrive'],['listens','listen']];
+const EN_ADJ = ['old','brave','quiet','tall','weary','faithful','narrow','ancient'];
+const EN_ADV = ['quietly','slowly','often','gladly','yesterday','badly','soon','carefully'];
+const EN_PREP = ['by','under','near','after','through','beside'];
+const EN_PRON = ['he','she','they','we'];
+const POS = ['noun','verb','adjective','adverb','preposition','conjunction','pronoun','article','participle'];
+const POS_WHY = {
+  noun:'It names something — a person, a place, a thing, or something you cannot touch. The test: can you put <em>the</em> or <em>a</em> in front of it and still have English?',
+  verb:'It says what is done or what is going on, and it is the only part of speech that carries time in itself.',
+  adjective:'It depends on a noun and tells what sort of thing the noun names. It cannot stand alone — the mode of <span class="lat">adiacentis</span>, adhering to another.',
+  adverb:'It depends on a verb or an adjective, and says how, when, or where — lying alongside what signifies by the mode of being, and determining it.',
+  preposition:'It stands before a naming word and bends it back toward the act — <span class="lat">ad actum retorquens</span>.',
+  conjunction:'It joins two extremes — two words, two phrases, or two whole statements.',
+  pronoun:'It stands in for a noun. It has the noun’s very mode of being, but indeterminate: it points without saying what.',
+  article:'It points at one thing among many — <em>the</em> at a particular one, <em>a</em> at any one. Latin has none, which is why the medieval list has eight parts and not nine.',
+  participle:'It signifies becoming, like a verb, but not standing apart from its subject — so it sits where a noun or adjective would sit.'
+};
+
+/* ============================================================
+   I · The Parts of Speech
+   ============================================================ */
+const POS_HARD = [
+  {s:'The soldiers held the <b>narrow</b> pass until nightfall.', a:'adjective',
+   note:'It is telling you what sort of pass. An adjective depends on a noun; take the noun away and <em>narrow</em> names nothing.'},
+  {s:'He drove the cart <b>fast</b> along the road.', a:'adverb',
+   note:'The same word is an adjective in <em>a fast horse</em>. Here it is not telling you what sort of cart but how the driving went — and how belongs to the verb. The word has not changed; its function has, and the parts of speech are a list of functions.'},
+  {s:'<b>Running</b> is good exercise.', a:'noun',
+   note:'The <em>-ing</em> form is doing a noun’s work: it is the subject, and you could put <em>the</em> before it. The tradition calls this the gerund. Notice what has happened — the same activity, signified now in the manner of something at rest.'},
+  {s:'The <b>running</b> horse cleared the wall.', a:'participle',
+   note:'Now the same <em>-ing</em> form leans on a noun and qualifies it, while keeping the verb’s sense of something under way. That is the participle exactly — <span class="lat">per modum esse indistantis a substantia</span>, becoming, but not standing apart from its subject.'},
+  {s:'I know <b>that</b> he arrived.', a:'conjunction',
+   note:'Here <em>that</em> joins one whole statement to another. In <em>I know that man</em> it points at a particular one and is an adjective; in <em>that is mine</em> it stands in for a noun and is a pronoun. Three functions, one sound.'},
+  {s:'<b>That</b> is the very book I wanted.', a:'pronoun',
+   note:'It is standing in for a noun — it is the subject of <em>is</em>, and names nothing itself. In <em>I know that he arrived</em> the same sound joins two statements and is a conjunction.'},
+  {s:'They arrived <b>before</b> the storm.', a:'preposition',
+   note:'It stands before a naming word and ties it to the arriving. In <em>they arrived before the storm broke</em> it would be joining two statements — a conjunction; in <em>he had seen it before</em> it stands alone and is an adverb.'},
+  {s:'He had seen the place <b>before</b>.', a:'adverb',
+   note:'Nothing follows it, so it is not governing a noun — it is telling you <em>when</em>, and when belongs to the verb.'},
+  {s:'We bought fresh <b>paint</b> for the door.', a:'noun',
+   note:'The very same word is a verb in <em>we paint the door</em>. The list of the parts of speech is not a list of words but of the work words do.'},
+  {s:'The senate voted to <b>paint</b> the doors again.', a:'verb',
+   note:'Here it says what is done. In <em>fresh paint</em> the same sound names a thing.'},
+  {s:'<b>The</b> ancient city fell at last.', a:'article',
+   note:'It points at one particular city among all the cities there might be. Latin has no word for this at all — which is worth pausing on, since the medieval derivation of the parts of speech was built out of Latin and so never had to derive an article.'},
+  {s:'The horse ran <b>through</b> the field.', a:'preposition',
+   note:'It stands before a naming word and bends it back toward the running — <span class="lat">ad actum retorquens</span>, in Thomas of Erfurt’s phrase.'},
+  {s:'She was <b>weary</b>, but she went on.', a:'adjective',
+   note:'It qualifies <em>she</em> across the verb <em>was</em> — a predicate adjective. It is still telling you what sort, which is an adjective’s whole business.'},
+  {s:'The book was long <b>but</b> good.', a:'conjunction',
+   note:'It joins two extremes — here two adjectives. Joining is its entire mode of signifying: <span class="lat">per modum coniungentis duo extrema</span>.'}
+];
+
+EX.pos = {
+  id:'pos', act:'II', title:'The Parts of Speech',
+  desc:'A sentence appears with one word marked. Name the part of speech it is doing the work of — and remember that the list is a list of functions, not of words: the same sound may be a noun in one sentence and a verb in the next.',
+  instr:'Name the part of speech of the marked word.',
+  gen(d){
+    const hard = d >= 3 || (d === 2 && Math.random() < 0.5);
+    let sentence, ans, note;
+    if(hard){
+      const it = rand(POS_HARD);
+      sentence = it.s; ans = it.a; note = it.note;
+    }else{
+      const n1 = rand(EN_N), n2 = rand(EN_N), v = rand(EN_V);
+      const adj = rand(EN_ADJ), adv = rand(EN_ADV), prep = rand(EN_PREP);
+      const parts = [
+        {t:'The', a:'article'}, {t:adj, a:'adjective'}, {t:n1[0], a:'noun'},
+        {t:v[0], a:'verb'}, {t:adv, a:'adverb'}, {t:prep, a:'preposition'},
+        {t:'the', a:'article'}, {t:n2[0], a:'noun'}
+      ];
+      const pick = Math.floor(Math.random() * parts.length);
+      ans = parts[pick].a;
+      note = POS_WHY[ans];
+      sentence = parts.map((p,i) => i === pick ? `<b>${p.t}</b>` : p.t).join(' ') + '.';
+    }
+    const pool = POS.filter(p => p !== ans);
+    const nOpt = d <= 1 ? 3 : 4;
+    const options = shuffle([ans, ...sample(pool, nOpt - 1)]);
+    return {
+      kind:'mc',
+      prompt:'Which part of speech is the marked word?',
+      sentence: sentence.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+      options, correct: options.indexOf(ans),
+      cong:{c:true, t:null},
+      check(i){
+        if(i === options.indexOf(ans)) return {right:true, note};
+        return {right:false,
+          note:`It is <strong>${ans}</strong>. ${note}`,
+          also:`You said <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   II · The Modes of Signifying
+   ============================================================ */
+const MODE_ITEMS = [
+  {tier:1, q:'A word signifies its thing <span class="lat">per modum entis</span> — in the manner of a being at rest. Which part of speech is it?',
+   a:'Noun', ds:['Verb','Adverb','Conjunction'],
+   why:'The noun’s essential mode is the mode of a being at rest: <span class="lat">per modum entis, vel determinatae apprehensionis</span> (Thomas of Erfurt). Martin of Dacia puts it as <span class="lat">per modum habitus et quietis</span> — the manner of a settled state and of rest.'},
+  {tier:1, q:'A word signifies <span class="lat">per modum esse distantis a substantia</span> — in the manner of being-in-act, standing apart from the substance. Which part of speech?',
+   a:'Verb', ds:['Noun','Participle','Preposition'],
+   why:'That is Thomas of Erfurt’s definition of the verb. Because it signifies becoming, it carries time; because it stands <em>apart</em> from the substance, it can be said of it — which is why a sentence is not complete without one.'},
+  {tier:2, q:'A word has the noun’s very mode of being, but with <em>indeterminate</em> apprehension — it names without describing. Which part of speech?',
+   a:'Pronoun', ds:['Proper noun','Article','Adjective'],
+   why:'<span class="lat">Per modum entis, et indeterminatae apprehensionis</span>. Thomas compares the pronoun to prime matter, which "neither includes nor excludes form". <em>He</em> points at a substance and tells you nothing about it.'},
+  {tier:2, q:'A word signifies becoming, like the verb, but <em>not</em> standing apart from the substance. Which part of speech?',
+   a:'Participle', ds:['Gerund','Adverb','Infinitive'],
+   why:'<span class="lat">Per modum esse indistantis a substantia</span>. The flow is there — so it keeps tense — but it does not stand off to be predicated, and so it sits where a noun or adjective sits: <em>the running horse</em>.'},
+  {tier:2, q:'A word lies alongside a case-word, narrows it, and bends it back toward the act. Which part of speech?',
+   a:'Preposition', ds:['Adverb','Conjunction','Article'],
+   why:'<span class="lat">Per modum adiacentis alteri casuali ipsum contrahens, et ad actum retorquens</span>. <em>By the fire</em> takes a naming word and turns it round to face the verb — which is the best image in the whole list.'},
+  {tier:2, q:'A word signifies <span class="lat">per modum coniungentis duo extrema</span>. Which part of speech?',
+   a:'Conjunction', ds:['Preposition','Adverb','Relative pronoun'],
+   why:'In the manner of joining two extremes. Joining is not something a conjunction does <em>besides</em> signifying; it is the whole of what it signifies.'},
+  {tier:3, q:'Thomas takes the <em>substantive</em> from a property of a determinate essence, and the <em>adjective</em> from a property "adhering to another according to being." What follows about the adjective?',
+   a:'That it cannot stand alone — it requires a noun to adhere to', ds:['That it is a kind of verb','That it must precede its noun','That it carries no accidents of its own'],
+   why:'<span class="lat">Modus per se stantis</span> against <span class="lat">modus adiacentis</span>. The adjective’s inability to stand alone is not a rule of usage but a consequence of what it signifies — a property belonging to something else. This is also why the tradition files the adjective under the noun rather than beside it.'},
+  {tier:3, q:'<em>Running is good exercise</em> against <em>The horse runs</em>. What has changed?',
+   a:'The mode of signifying — one and the same activity signified as at rest, then as under way',
+   ds:['The mode of being — the activity itself is different','The mode of understanding only','Nothing: they are the same word in the same function'],
+   why:'The world offers one running. The mind may take it either way, and the language has a form for each. This is how the doctrine avoids the crude claim that each thing has exactly one grammatical form.'},
+  {tier:3, q:'Why, on this account, does the verb carry tense and the noun not?',
+   a:'Because time belongs to what becomes, and the verb signifies its thing as becoming',
+   ds:['Because Latin and Greek inflect verbs for time','Because the noun carries case instead','Because tense is a convention of the schools'],
+   why:'The accident is derived from the essential mode rather than listed. That derivation is what makes speculative grammar a science rather than a description — and it is the single best result the school produced.'},
+  {tier:4, q:'Ockham objects that to say vocal expressions "have" different modes of signifying is merely a metaphorical manner of speaking. What is he denying?',
+   a:'That the mode of signifying is a real quality added to the sound — <span class="lat">dictioni superadditum</span>',
+   ds:['That languages differ in their words','That the mind forms concepts','That grammar has any rules at all'],
+   why:'What is really meant, Ockham says, is only that different words signify what they signify in different ways. John Aurifaber presses it further: <span class="lat">significare est accidens intellectus; sed vox est illud quo significat intellectus</span> — signifying is an accident of the intellect, and the voice is only that <em>by which</em> the intellect signifies. This is the objection that ended the school, and it deserves an answer rather than a dismissal.'},
+  {tier:4, q:'If the noun signifies <span class="lat">per modum entis</span>, what shall we say of <em>blindness</em>, <em>nothing</em>, and <em>chimaera</em>?',
+   a:'Thomas answers that privations and negations are positive beings <em>according to the soul</em>, though not outside it',
+   ds:['That they are not really nouns','That the modes of signifying do not apply to them','That they prove grammar is pure convention'],
+   why:'Citing <em>Metaphysics</em> IV: <span class="lat">licet privationes et negationes non sint entia positiva extra animam posita; sunt tamen entia positiva secundum animam</span>. Whether that saves the doctrine is a fair question — Bursill-Hall, the modern authority on the modists, thinks it does not, and says it would be hard to sustain that <span class="lat">figmentum</span> is a noun by possessing a mode of substance. Hold both in view.'}
+];
+
+EX.modes = {
+  id:'modes', act:'II', title:'The Modes of Signifying',
+  desc:'The doctrine itself, put to work. Given a mode of signifying, name the part of speech it constitutes — and given a part of speech, say what mode it rests on. The objections to the doctrine are drilled alongside it, because a liberal art is not a catechism.',
+  instr:'The modes of signifying.',
+  gen(d){
+    const tiers = d <= 1 ? [1] : d === 2 ? [1,2] : d === 3 ? [2,3] : d === 4 ? [2,3,4] : [3,4];
+    const pool = MODE_ITEMS.filter(i => tiers.indexOf(i.tier) >= 0);
+    const it = rand(pool.length ? pool : MODE_ITEMS);
+    const options = shuffle([it.a, ...sample(it.ds, Math.min(3, it.ds.length))]);
+    return {
+      kind:'mc', prompt: it.q, options, correct: options.indexOf(it.a),
+      cong:{c:null, t:null},
+      check(i){
+        const right = i === options.indexOf(it.a);
+        return right ? {right:true, note: it.why}
+                     : {right:false, note:`The answer is <strong>${it.a}</strong>. ${it.why}`};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   III · Latin nouns — parsing
+   ============================================================ */
+function nounPool(d){
+  if(d <= 1) return LAT_NOUNS.filter(n => ['d1','d2m','d2n'].indexOf(n.d) >= 0);
+  if(d === 2) return LAT_NOUNS.filter(n => ['d1','d2m','d2n','d3','d3n'].indexOf(n.d) >= 0);
+  if(d === 3) return LAT_NOUNS.filter(n => n.d !== 'd4n' && n.d !== 'd5');
+  return LAT_NOUNS;
+}
+function joinAn(list){
+  if(list.length === 1) return list[0];
+  return list.slice(0,-1).join(', ') + ' and ' + list[list.length-1];
+}
+function describeCase(a){ return `${CASE_NAME[a.cs].toLowerCase()} ${NUM_NAME[a.num].toLowerCase()}`; }
+
+EX.latnoun = {
+  id:'latnoun', act:'III', title:'Parsing the Latin Noun',
+  desc:'A form is thrown up; give its case and number. The forms are generated from the declension tables, not drawn from a list, so they do not run out. Where a form admits more than one analysis — and Latin is full of them — any correct one is accepted, and you are told what else it could have been.',
+  instr:'Give the case and number of the form.',
+  gen(d){
+    const e = rand(nounPool(d));
+    const map = analysesOf(e, 'noun');
+    let forms = Array.from(map.keys());
+    if(d <= 2) forms = forms.filter(f => map.get(f).length <= 2);
+    if(d >= 4) forms = forms.filter(f => f !== e.nom);
+    const form = rand(forms.length ? forms : Array.from(map.keys()));
+    const an = map.get(form);
+    const showHelp = d <= 2;
+    return {
+      kind:'chips',
+      prompt:'Parse the form.',
+      specimen:`${form}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]} — ${e.gloss}${showHelp ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
+      rows:[
+        {key:'cs', label:'Case', opts: CASES.map(c => ({v:c, label: CASE_SHORT[c]}))},
+        {key:'num', label:'Number', opts: NUMS.map(n => ({v:n, label: NUM_NAME[n]}))}
+      ],
+      cong:{c:true, t:null},
+      check(ans){
+        const hit = an.find(a => a.cs === ans.cs && a.num === ans.num);
+        const all = an.map(describeCase);
+        const others = an.filter(a => !(a.cs === ans.cs && a.num === ans.num)).map(describeCase);
+        if(hit){
+          return {right:true, mark:{cs:hit.cs, num:hit.num},
+            note:`<strong>${form}</strong> — ${describeCase(hit)} of <em>${e.nom}</em>, ${e.gloss}.${e.note ? ' Note: ' + e.note + '.' : ''}`,
+            also: others.length ? `The same form is also the ${joinAn(others)}. Only the sentence around it could tell you which.` : null};
+        }
+        const said = `${CASE_NAME[ans.cs].toLowerCase()} ${NUM_NAME[ans.num].toLowerCase()}`;
+        const right = an[0];
+        const wouldBe = nounEnding(e, ans.cs, ans.num);
+        return {right:false, mark:{cs:right.cs, num:right.num},
+          note:`<strong>${form}</strong> is the ${joinAn(all)} of <em>${e.nom}</em> (${DECL_NAME[e.d]} declension, ${GEN_NAME[e.g]}) — ${e.gloss}.`,
+          also:`You gave the ${said}. That would have been <strong>${wouldBe}</strong>.${e.note ? ' Also worth knowing: ' + e.note + '.' : ''}`};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   IV · Latin verbs — parsing
+   ============================================================ */
+function verbPool(d){
+  if(d <= 1) return LAT_VERBS.filter(v => v.conj === '1' || v.conj === '2');
+  if(d === 2) return LAT_VERBS.filter(v => v.conj !== '3io');
+  return LAT_VERBS;
+}
+const ORD = {1:'first', 2:'second', 3:'third'};
+function describeVerb(a){
+  const head = `${ORD[a.per]} person ${a.num === 'sg' ? 'singular' : 'plural'}`;
+  if(a.mood === 'imp') return `${head} present imperative active`;
+  return `${head} ${TENSE_NAME[a.tense].toLowerCase()} ${MOOD_NAME[a.mood].toLowerCase()} ${VOICE_NAME[a.voice].toLowerCase()}`;
+}
+
+EX.latverb = {
+  id:'latverb', act:'III', title:'Parsing the Latin Verb',
+  desc:'Person, number, tense, mood, voice — the classic drill, generated from the conjugation tables rather than listed, and therefore inexhaustible. Only the single-word forms are asked; the perfect passive is built from a participle and <em>sum</em>, and belongs to syntax rather than to parsing.',
+  instr:'Give every accident of the form.',
+  gen(d){
+    const e = rand(verbPool(d));
+    const map = analysesOf(e, 'verb');
+    let forms = Array.from(map.keys());
+    const allow = a =>
+      d <= 1 ? (a.mood === 'ind' && a.voice === 'act' && ['pres','impf','fut'].indexOf(a.tense) >= 0)
+    : d === 2 ? (a.mood === 'ind')
+    : d === 3 ? (a.mood !== 'imp')
+    : true;
+    forms = forms.filter(f => map.get(f).some(allow));
+    const form = rand(forms.length ? forms : Array.from(map.keys()));
+    const an = map.get(form).filter(allow);
+    const rows = [
+      {key:'per', label:'Person', opts:[{v:1,label:'First'},{v:2,label:'Second'},{v:3,label:'Third'}]},
+      {key:'num', label:'Number', opts: NUMS.map(n => ({v:n, label: NUM_NAME[n]}))},
+      {key:'tense', label:'Tense', opts: TENSES.map(t => ({v:t, label: TENSE_NAME[t]}))},
+      {key:'mood', label:'Mood', opts:(d >= 4 ? MOODS : ['ind','subj']).map(m => ({v:m, label: MOOD_NAME[m]}))},
+      {key:'voice', label:'Voice', opts: VOICES.map(v => ({v, label: VOICE_NAME[v]}))}
+    ];
+    return {
+      kind:'chips',
+      prompt:'Parse the form.',
+      specimen:`${form}<span class="lemma">${e.lemma} — ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
+      rows,
+      cong:{c:true, t:null},
+      check(ans){
+        const eq = (a) => a.per === ans.per && a.num === ans.num && a.tense === ans.tense
+                       && a.mood === ans.mood && a.voice === ans.voice;
+        const hit = an.find(eq);
+        const all = an.map(describeVerb);
+        const others = an.filter(a => !eq(a)).map(describeVerb);
+        if(hit){
+          return {right:true, mark:hit,
+            note:`<strong>${form}</strong> — ${describeVerb(hit)}, from <em>${e.lemma}</em>.`,
+            also: others.length ? `The same form is also the ${joinAn(others)}. Latin does not always distinguish them, and the sentence must.` : null};
+        }
+        const r = an[0];
+        const said = describeVerb({per:ans.per, num:ans.num, tense:ans.tense, mood:ans.mood, voice:ans.voice});
+        const wouldBe = latVerbForms(e).find(f => f.per === ans.per && f.num === ans.num
+                        && f.tense === ans.tense && f.mood === ans.mood && f.voice === ans.voice);
+        return {right:false, mark:r,
+          note:`<strong>${form}</strong> is the ${joinAn(all)} of <em>${e.lemma}</em> (${CONJ_NAME[e.conj]} conjugation).`,
+          also:`You gave the ${said}.` + (wouldBe ? ` That would have been <strong>${wouldBe.form}</strong>.` : ' Latin has no such form of this verb.')};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   V · Case and its work
+   ============================================================ */
+const CASE_ITEMS = [
+  {s:'The <b>farmer</b> praises the girl.', role:'subject'},
+  {s:'The farmer praises the <b>girl</b>.', role:'dObject'},
+  {s:'The queen gave the <b>sailor</b> a reward.', role:'iObject'},
+  {s:'This is the <b>king’s</b> horse.', role:'possess'},
+  {s:'He cut the rope with a <b>sword</b>.', role:'means'},
+  {s:'<b>Master</b>, the ship has come in.', role:'address'},
+  {s:'The soldiers came out of the <b>city</b>.', role:'from'},
+  {s:'The teacher walked with his <b>friend</b>.', role:'with'},
+  {s:'The <b>soldiers</b> held the wall.', role:'subject'},
+  {s:'The boy carried the <b>book</b> home.', role:'dObject'},
+  {s:'She told the <b>children</b> a story.', role:'iObject'},
+  {s:'The roof of the <b>temple</b> had fallen.', role:'possess'},
+  {s:'They opened the gate with a <b>key</b>.', role:'means'},
+  {s:'<b>Friends</b>, hear me.', role:'address'},
+  {s:'The messenger rode from the <b>camp</b>.', role:'from'},
+  {s:'He fought alongside his <b>brother</b>.', role:'with'}
+];
+const ROLE_NAME = {
+  subject:'the subject', dObject:'the direct object', iObject:'the indirect object',
+  possess:'the possessor', means:'the means or instrument', address:'the one addressed',
+  from:'the source — motion or separation from', with:'accompaniment'
+};
+
+EX.cases = {
+  id:'cases', act:'III', title:'Case and its Work',
+  desc:'English marks the work a word is doing by where it stands in the sentence; Latin marks it by the ending. Read an English sentence, see what job the marked word is doing, and say what case Latin would put it in. This teaches case as a <em>function</em> rather than as a set of endings, which is the only way it ever sticks.',
+  instr:'What case would Latin use here?',
+  gen(d){
+    const it = rand(CASE_ITEMS);
+    const ans = LAT_CASE_FOR[it.role];
+    const options = shuffle([ans, ...sample(CASES.map(c => CASE_NAME[c].toLowerCase()).filter(c => c !== ans),
+                                            d <= 1 ? 2 : 3)]);
+    const L = state.lang3 ? LANGS[state.lang3] : null;
+    let third = '';
+    if(L){
+      const f = L.caseFor[it.role];
+      const n = L.caseNote && L.caseNote[it.role];
+      third = `<span class="also">In ${L.name}: <strong>${f}</strong>.${n ? ' ' + n : ''}</span>`;
+    }
+    return {
+      kind:'mc',
+      prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
+      sentence: it.s.replace('<b>','<span class="target">').replace('</b>','</span>'),
+      options, correct: options.indexOf(ans),
+      cong:{c:true, t:null},
+      check(i){
+        const base = `<strong>${cap(ans)}.</strong> ${cap(CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === ans)])}.`;
+        if(i === options.indexOf(ans)) return {right:true, note: base + third};
+        return {right:false,
+          note: base + third,
+          also:`You said the ${options[i]}, whose work is: ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   VI · Agreement
+   ============================================================ */
+const AGREE_OPTS = ['A sound construction',
+                    'The adjective disagrees in <b>gender</b>',
+                    'The adjective disagrees in <b>number</b>',
+                    'The adjective disagrees in <b>case</b>'];
+const FAULT_KEY = [null, 'g', 'num', 'cs'];
+
+/* Latin forms are ambiguous, and a naive corruption can accidentally produce a
+   phrase that is congruous after all: corrupt the case of the adjective beside
+   the neuter <i>bellum</i> and you may land on "bonum bellum", which is a
+   perfectly good accusative. So the generator does not trust its own
+   corruption. It works out every analysis the noun form admits and every
+   analysis the adjective form admits, compares them all, and keeps the item
+   only when exactly one accident fails across every closest pairing. Anything
+   ambiguous is thrown away and drawn again. */
+function adjAnalyses(adj, form){
+  const out = [];
+  ['m','f','n'].forEach(g => NUMS.forEach(num => CASES.forEach(cs => {
+    if(latAdjForm(adj, cs, num, g) === form) out.push({cs, num, g});
+  })));
+  return out;
+}
+function agreeVerdict(adj, adjForm, entry, nounForm){
+  const na = Array.from(analysesOf(entry, 'noun').get(nounForm) || []);
+  const aa = adjAnalyses(adj, adjForm);
+  if(!na.length || !aa.length) return null;
+  let best = 4, faults = new Set();
+  na.forEach(n => aa.forEach(a => {
+    const miss = [];
+    if(a.cs !== n.cs) miss.push('cs');
+    if(a.num !== n.num) miss.push('num');
+    if(a.g !== entry.g) miss.push('g');
+    if(miss.length < best){ best = miss.length; faults = new Set(miss); }
+    else if(miss.length === best) miss.forEach(m => faults.add(m));
+  }));
+  if(best === 0) return {fault:0};                       /* congruous */
+  if(best > 1 || faults.size !== 1) return null;         /* ambiguous — discard */
+  return {fault: FAULT_KEY.indexOf(Array.from(faults)[0])};
+}
+
+EX.agree = {
+  id:'agree', act:'IV', title:'Agreement',
+  desc:'An adjective and its noun, congruous or not. The rule is not arbitrary: the adjective signifies by the mode of <em>adhering to another</em>, and so, says Thomas of Erfurt, it <em>requires</em> in its subject the mode of standing by itself, proportionate to it. Agreement is derived, not memorised.',
+  instr:'Is the phrase congruous? If not, in what?',
+  gen(d){
+    const nouns = nounPool(d).filter(n => n.d !== 'd4n');
+    let e, adj, cs, num, fault, form, adjForm;
+    for(let tries = 0; ; tries++){
+      e = rand(nouns);
+      adj = rand(d <= 2 ? LAT_ADJS.filter(a => a.cl === '12') : LAT_ADJS);
+      cs = rand(d <= 1 ? ['nom','acc'] : CASES.filter(c => c !== 'voc'));
+      num = rand(NUMS);
+      form = nounEnding(e, cs, num);
+      const right = latAdjForm(adj, cs, num, e.g);
+      if(Math.random() < 0.4){
+        adjForm = right; fault = 0; break;                    /* sound */
+      }
+      const kind = rand([1,2,3]);
+      if(kind === 1){
+        adjForm = latAdjForm(adj, cs, num, rand(['m','f','n'].filter(g => g !== e.g)));
+      }else if(kind === 2){
+        adjForm = latAdjForm(adj, cs, num === 'sg' ? 'pl' : 'sg', e.g);
+      }else{
+        adjForm = latAdjForm(adj, rand(CASES.filter(c => c !== cs && c !== 'voc')), num, e.g);
+      }
+      const v = agreeVerdict(adj, adjForm, e, form);
+      /* keep it only if the corruption really is a single, unambiguous fault */
+      if(v && v.fault !== 0){ fault = v.fault; break; }
+      if(tries > 60){ adjForm = right; fault = 0; break; }
+    }
+
+    const phrase = `${adjForm} ${form}`;
+    const rightForm = latAdjForm(adj, cs, num, e.g);
+    const options = AGREE_OPTS.slice();
+    return {
+      kind:'mc',
+      prompt:'Judge the phrase.',
+      specimen:`${phrase}<span class="lemma">${adj.nom}, ${adj.gloss} &nbsp;·&nbsp; ${e.nom}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
+      options, correct: fault,
+      cong:{c: fault === 0, t:null},
+      check(i){
+        const want = `<em>${e.nom}</em> is here ${describeCase({cs,num})} and ${GEN_NAME[e.g]}, so the adjective must be <strong>${rightForm}</strong>.`;
+        if(i === fault){
+          return {right:true,
+            note: fault === 0
+              ? `Congruous. ${want} ${e.note ? '<br>Note: ' + cap(e.note) + '.' : ''}`
+              : `Just so. ${want} ${e.note ? '<br>This one catches people out: ' + e.note + '.' : ''}`};
+        }
+        return {right:false,
+          note: fault === 0 ? `It is sound. ${want}` : `${AGREE_OPTS[fault].replace(/<\/?b>/g,'')}. ${want}`,
+          also: e.note ? `Worth knowing: ${e.note}.` : `Congruity, Thomas insists, is caused by the conformity of the <em>modes of signifying</em> — not by the meanings agreeing. That second thing, he says, is the logician’s business.`};
+      }
+    };
+  }
+};
+
+/* ============================================================
+   VII · Congruity and Truth
+   ============================================================ */
+const CT_ITEMS = [
+  {s:'The moon is made of green cheese.', c:true, t:false},
+  {s:'Him go store yesterday.', c:false, t:null},
+  {s:'Every triangle has three sides.', c:true, t:true},
+  {s:'The sleeps dog quietly the.', c:false, t:null},
+  {s:'Some men are just.', c:true, t:true},
+  {s:'No stone is alive.', c:true, t:true},
+  {s:'Rome is the capital of Portugal.', c:true, t:false},
+  {s:'Water freezes at a hundred degrees Celsius.', c:true, t:false},
+  {s:'The book on the table are heavy.', c:false, t:null},
+  {s:'Colourless green ideas sleep furiously.', c:true, t:false,
+   note:'Chomsky’s famous sentence, and it is famous for exactly this reason: it is impeccably well formed and says nothing that could be so. Grammar passes it; the world does not.'},
+  {s:'Two and two make four.', c:true, t:true},
+  {s:'Between you and I, the plan failed.', c:false, t:null,
+   note:'A preposition governs the accusative — <em>between you and <strong>me</strong></em>. This one is common enough in speech that many will defend it, which raises a real question about who decides: usage, the best authors, or reason.'},
+  {s:'Man is a rational animal.', c:true, t:true},
+  {s:'The senate have not yet arrived their decision.', c:false, t:null},
+  {s:'All swans are white.', c:true, t:false},
+  {s:'A square has four equal sides.', c:true, t:true}
+];
+const CT_OPTS = ['Congruous and true', 'Congruous but false',
+                 'Incongruous — grammar has failed, and truth does not arise'];
+
+EX.congtruth = {
+  id:'congtruth', act:'VII', title:'Congruity and Truth',
+  desc:'The exercise the whole course has been building toward. Two questions are asked of every sentence, and they are entirely independent: is it well formed, and is what it says so? Get used to answering them separately, and you will never again confuse the work of grammar with the work of logic.',
+  instr:'Judge the sentence on both counts.',
+  gen(d){
+    const it = rand(CT_ITEMS);
+    const ans = !it.c ? 2 : (it.t ? 0 : 1);
+    return {
+      kind:'mc',
+      prompt:'How does this sentence stand?',
+      sentence: it.s,
+      options: CT_OPTS.slice(), correct: ans,
+      cong:{c: it.c, t: it.c ? it.t : null},
+      check(i){
+        const verdict = !it.c
+          ? 'The construction fails, so there is no proposition yet for logic to judge. Grammar has stopped the sentence before truth becomes a question at all.'
+          : (it.t ? 'Well formed, and what it says is so. Both lamps lit — and note that they were lit by two different arts.'
+                  : 'Well formed, and false. Grammar has done its entire work here and has no opinion whatever about the falsehood. That is not a defect in grammar; it is the division of labour.');
+        if(i === ans) return {right:true, note: verdict + (it.note ? '<br><br>' + it.note : '')};
+        return {right:false, note: verdict + (it.note ? '<br><br>' + it.note : ''),
+          also: i === 2 ? 'You judged the construction faulty. Read it again as a construction only, ignoring entirely whether it is so.'
+              : (ans === 2 ? 'You judged the truth of it — but the construction has failed, and until it is well formed there is nothing definite to be true or false.'
+                           : 'The construction is sound either way. The question you missed is the second one, and it is not grammar’s question.')};
+      }
+    };
+  }
+};
+
+/* ---------- the act structure of the home page ---------- */
+const ACTS = [
+  {key:'prelim', roman:'', name:'Preliminary', latin:'',
+   gloss:'Begin here. What grammar is, what it is about, and where it stops — then the doctrine that runs through everything after.',
+   items:[
+     {kind:'deck', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
+      desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from letter to sentence; and the boundary between grammar and logic. Not scored.'},
+     {kind:'deck', deck:'modes', tag:'STUDY · THE DOCTRINE', title:'The Three Modes',
+      desc:'The way a thing is, the way the mind takes it, the way a word signifies it — and the derivation of every part of speech from a mode of being. Learned here, at the start, so that no part of speech is ever a bare item on a list. Not scored.'}
+   ]},
+  {key:'I', roman:'I', name:'The Matter of Speech', latin:'Littera et Syllaba',
+   gloss:'Letter, sound, syllable, quantity, accent. The matter of speech, which signifies nothing by itself.',
+   items:[{kind:'soon', title:'Letter and Sound', desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — which is the modern grapheme and phoneme under older names.'},
+          {kind:'soon', title:'Syllable, Quantity and Accent', desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent and breathing; German initial stress; the French phrase-final beat.'}]},
+  {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
+   gloss:'The word, and the kinds of work a word can do — each learned together with the mode of signifying that constitutes it.',
+   items:[{kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'},
+          {kind:'soon', title:'Declinable and Indeclinable', desc:'The tradition’s own first cut through the eight parts, and the ground of everything in Act III.'}]},
+  {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
+   gloss:'Case, number, gender, person, tense, mood, voice — the accidental modes, and the place where the languages bite.',
+   items:[{kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'},
+          {kind:'soon', title:'Producing the Form', desc:'The inverse drill: given the lemma and the accidents required, write the form. Harder than parsing, and the one that proves possession.'}]},
+  {key:'IV', roman:'IV', name:'Construction', latin:'Oratio',
+   gloss:'Syntax: how constructibles are joined, when the joining is congruous, and when it is complete.',
+   items:[{kind:'ex', ex:'agree'},
+          {kind:'soon', title:'Government', desc:'<span class="lat">Regimen</span> — the verb governing its object’s case, the preposition its complement’s. German’s two-way prepositions are the finest teaching case there is.'},
+          {kind:'soon', title:'Congruity and Completeness', desc:'<span class="lat">Congruitas et perfectio</span>. <em>Socrates album</em> is incongruous; <em>homo albus</em> is congruous but incomplete; only <em>homo est albus</em> rests the hearer’s mind. Three ways to fail, and the student must sort them.'},
+          {kind:'soon', title:'The Sentence Workshop', desc:'Mark up any sentence yourself — dependent to terminant, as the modists drew it and as dependency grammar draws it still — and read back what your markup asserts.'}]},
+  {key:'V', roman:'V', name:'Speculative Grammar', latin:'Grammatica Speculativa',
+   gloss:'The doctrine at full strength, with its objections put honestly. Thomas of Erfurt, Boethius of Dacia, and the nominalists who ended the school.',
+   items:[{kind:'soon', title:'Active and Passive Modes', desc:'<span class="lat">Modus significandi activus</span> against <span class="lat">passivus</span> — the distinction that keeps the doctrine from collapsing into psychologism, and the modists’ answer to Ockham.'},
+          {kind:'soon', title:'The Great Objections', desc:'The chimaera and the privations; grammatical gender; Ockham’s <span class="lat">dictioni superadditum</span>; Aurifaber on signification as an accident of the intellect. Put as objections, and answered as far as they can be.'}]},
+  {key:'VI', roman:'VI', name:'The Vices of Speech', latin:'Barbarismus et Soloecismus',
+   gloss:'A fault in one word, and a fault in the construction — the negative definition of congruity.',
+   items:[{kind:'soon', title:'Barbarism and Solecism', desc:'Donatus’s own division: <span class="lat">barbarismus</span> is a fault in a single word, <span class="lat">soloecismus</span> a fault in the joining. Name the kind. (The tropes go to a future <em>Ars Rhetorica</em>.)'}]},
+  {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
+   gloss:'The boundary, and the crossing into the second art.',
+   items:[{kind:'ex', ex:'congtruth'},
+          {kind:'soon', title:'Signification and Supposition', desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions. The exact point at which grammar hands over to logic.'},
+          {kind:'soon', title:'The Figure of Speech', desc:'<span class="lat">Figura dictionis</span> — arguing from the shape of the word to the shape of the thing. The mirror is imperfect, and this is the fallacy of forgetting it.'}]},
+  {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
+   gloss:'The ancient question and the modern: two universal grammars, and the evidence that must judge between them.',
+   items:[{kind:'soon', title:'Typology', desc:'Word order, case-marking against configurational order, agglutinating and fusional and isolating. The empirical test of the modist claim: if grammar follows the modes of being, the variation must be superficial. Is it?'},
+          {kind:'soon', title:'Two Universal Grammars', desc:'Chomsky and the modists both hold a universal grammar and ground it in opposite places — the innate structure of the mind, against the modes of being. Where they agree, where they part, and what a Thomist should say about the parting.'}]}
+];
+/* ====================================================================
+   UI — home, decks, the question loop, progress
+   ==================================================================== */
+
+/* ---------- the modal ladder ---------- */
+function ladderSvg(){
+  return `<svg class="ladder" viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The three modes: being, understanding, signifying, each resting on the one below">
+  <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="var(--gold)"/></marker></defs>
+  ${[['modus significandi','the way the word signifies it','runs',18],
+     ['modus intelligendi','the way the mind takes it','runs',88],
+     ['modus essendi','the way the thing is','runs',158]].map(([a,b,,y]) => `
+    <rect x="96" y="${y}" width="288" height="52" rx="9" fill="var(--panel2)" stroke="var(--line)"/>
+    <text x="240" y="${y+21}" text-anchor="middle" font-size="16" font-style="italic" fill="var(--gold)">${a}</text>
+    <text x="240" y="${y+40}" text-anchor="middle" font-size="14.5" fill="var(--ink-soft)">${b}</text>`).join('')}
+  <line x1="240" y1="156" x2="240" y2="144" stroke="var(--gold)" stroke-width="1.6" marker-end="url(#ah)"/>
+  <line x1="240" y1="86"  x2="240" y2="74"  stroke="var(--gold)" stroke-width="1.6" marker-end="url(#ah)"/>
+  <text x="392" y="120" font-size="13.5" font-style="italic" fill="var(--ink-soft)">founded</text>
+  <text x="392" y="136" font-size="13.5" font-style="italic" fill="var(--ink-soft)">upon</text>
+  <text x="240" y="222" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--ink-soft)">
+    the arrows run upward only</text>
+</svg>`;
+}
+
+/* ---------- home ---------- */
+function buildLangRow(){
+  const row = $('lang-row');
+  row.innerHTML = '';
+  const opts = [{key:null, name:'None'}, ...Object.values(LANGS)];
+  opts.forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'lang-btn' + (state.lang3 === o.key ? ' sel' : '');
+    b.textContent = o.name;
+    b.onclick = () => { state.lang3 = o.key; save(); buildLangRow(); };
+    row.appendChild(b);
+  });
+  const L = state.lang3 ? LANGS[state.lang3] : null;
+  $('lang-note').innerHTML = L
+    ? `<strong>${L.name}</strong> — ${L.cases.length === 1 ? L.cases[0] : L.caseCount + ' cases'}; word order ${L.order}. ${L.note}`
+    : 'No third language chosen. English and Latin alone — which is a perfectly good course, and the one the tradition itself ran.';
+}
+
+function buildDiffRow(){
+  const row = $('diff-row');
+  row.innerHTML = '';
+  for(let d = 1; d <= 5; d++){
+    const b = document.createElement('button');
+    b.className = 'diff-btn' + (d === state.diff ? ' sel' : '');
+    b.textContent = ROMAN[d];
+    b.onclick = () => { state.diff = d; save(); buildDiffRow(); };
+    row.appendChild(b);
+  }
+  $('diff-desc').textContent = DIFF[state.diff].label;
+}
+
+function buildHome(){
+  const host = $('home-acts');
+  host.innerHTML = '';
+  ACTS.forEach(act => {
+    if(act.roman){
+      const h = document.createElement('div');
+      h.className = 'act-label';
+      h.textContent = `Act ${act.roman} · ${act.name}`;
+      host.appendChild(h);
+      if(act.latin){
+        const l = document.createElement('div');
+        l.className = 'act-latin'; l.textContent = act.latin;
+        host.appendChild(l);
+      }
+    }else{
+      const h = document.createElement('div');
+      h.className = 'section-label'; h.textContent = act.name;
+      host.appendChild(h);
+    }
+    const g = document.createElement('div');
+    g.className = 'act-gloss'; g.innerHTML = act.gloss;
+    host.appendChild(g);
+
+    const grid = document.createElement('div');
+    grid.className = 'set-grid';
+    act.items.forEach(item => {
+      const c = document.createElement('div');
+      if(item.kind === 'deck'){
+        c.className = 'set-card wide';
+        c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
+          <p>${item.desc}</p><span class="begin">BEGIN ⟶</span>`;
+        c.onclick = () => openDeck(item.deck);
+      }else if(item.kind === 'ex'){
+        const e = EX[item.ex];
+        const t = store.totals[e.id];
+        c.className = 'set-card';
+        c.innerHTML = `<div class="set-num">EXERCISE</div><h3>${e.title}</h3>
+          <p>${e.desc}</p><span class="begin">BEGIN ⟶</span>
+          ${t && t.seen ? `<div class="set-flag">${t.right}/${t.seen}</div>` : ''}`;
+        c.onclick = () => startEx(e);
+      }else{
+        c.className = 'set-card soon';
+        c.innerHTML = `<div class="set-num">EXERCISE</div><h3>${item.title}</h3>
+          <p>${item.desc}</p><span class="soon-flag">IN PREPARATION</span>`;
+      }
+      grid.appendChild(c);
+    });
+    host.appendChild(grid);
+  });
+}
+
+/* ---------- study decks ---------- */
+let deck = null, deckI = 0, deckAnswered = false;
+
+function openDeck(key){
+  deck = DECKS[key]; deckI = 0;
+  $('deck-title').textContent = deck.title;
+  $('deck-sub').textContent = deck.sub;
+  renderDeck();
+  show('scr-deck');
+}
+function renderDeck(){
+  const p = deck.panels[deckI];
+  deckAnswered = !p.q;
+  const body = $('deck-body');
+  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}</div>`;
+  if(p.q){
+    const box = document.createElement('div');
+    box.className = 'panel';
+    box.innerHTML = `<div class="q-prompt">${p.q.prompt}</div><div class="opts" id="deck-opts"></div>
+                     <div id="deck-fb"></div>`;
+    body.appendChild(box);
+    const opts = box.querySelector('#deck-opts');
+    p.q.options.forEach((o, i) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.innerHTML = o;
+      b.onclick = () => {
+        opts.querySelectorAll('.opt').forEach((x, j) => {
+          x.disabled = true;
+          if(j === p.q.correct) x.classList.add(j === i ? 'right' : 'reveal');
+          else if(j === i) x.classList.add('wrong');
+        });
+        const good = i === p.q.correct;
+        box.querySelector('#deck-fb').innerHTML =
+          `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Just so' : 'Not quite'}</span>
+           ${p.q.explain}${!good && p.q.wrong ? `<span class="also">${p.q.wrong}</span>` : ''}</div>`;
+        deckAnswered = true;
+        $('deck-next').disabled = false;
+      };
+      opts.appendChild(b);
+    });
+  }
+  $('deck-count').textContent = `${deckI + 1} of ${deck.panels.length}`;
+  $('deck-next').disabled = !deckAnswered;
+  $('deck-next').textContent = deckI === deck.panels.length - 1 ? 'Finish' : 'Next →';
+  $('deck-back').textContent = deckI === 0 ? '← Home' : '← Back';
+  window.scrollTo(0, 0);
+}
+$('deck-next').onclick = () => {
+  if(deckI === deck.panels.length - 1){ show('scr-home'); buildHome(); }
+  else { deckI++; renderDeck(); }
+};
+$('deck-back').onclick = () => {
+  if(deckI === 0) show('scr-home');
+  else { deckI--; renderDeck(); }
+};
+
+/* ---------- the congruity bar ---------- */
+function congBar(c, t){
+  const lamp = (label, v) => {
+    if(v === null || v === undefined) return `<span class="lamp na"><span class="dot"></span>${label}</span>`;
+    return `<span class="lamp on ${v ? 'yes' : 'no'}"><span class="dot"></span>${label}</span>`;
+  };
+  return `<div class="cong-bar">${lamp('Congruous', c)}${lamp('True', t)}</div>`;
+}
+
+/* ---------- the question loop ---------- */
+let chipSel = {};
+
+function startEx(e){
+  state.ex = e;
+  state.score = 0; state.answered = 0; state.correct = 0; state.streak = 0;
+  $('ex-title').textContent = e.title;
+  $('ex-instr').textContent = e.instr;
+  nextQ();
+  show('scr-ex');
+}
+
+function nextQ(){
+  state.q = state.ex.gen(state.diff);
+  state.locked = false;
+  chipSel = {};
+  renderQ();
+  updateScore();
+}
+
+function updateScore(){
+  $('ex-score').textContent =
+    `${state.correct} of ${state.answered} · ${state.score} points` +
+    (state.streak > 1 ? ` · streak ${state.streak}` : '');
+}
+
+function renderQ(){
+  const q = state.q;
+  const box = $('ex-box');
+  let html = '';
+  if(q.specimen) html += `<div class="q-specimen">${q.specimen}</div>`;
+  if(q.sentence) html += `<div class="q-sentence">${q.sentence}</div>`;
+  if(q.gloss) html += `<div class="q-gloss">${q.gloss}</div>`;
+  html += `<div class="q-prompt">${q.prompt}</div>`;
+  if(q.kind === 'mc'){
+    html += `<div class="opts" id="q-opts"></div>`;
+  }else if(q.kind === 'chips'){
+    html += `<div class="acc-grid" id="q-chips"></div>`;
+  }
+  html += `<div id="q-fb"></div>`;
+  html += congBar(q.cong ? q.cong.c : null, q.cong ? q.cong.t : null);
+  box.innerHTML = html;
+
+  if(q.kind === 'mc'){
+    const host = box.querySelector('#q-opts');
+    q.options.forEach((o, i) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.innerHTML = o;
+      b.onclick = () => { if(!state.locked) submit(i); };
+      host.appendChild(b);
+    });
+    $('ex-submit').style.display = 'none';
+  }else{
+    const host = box.querySelector('#q-chips');
+    q.rows.forEach(r => {
+      const line = document.createElement('div');
+      line.className = 'acc-line';
+      line.innerHTML = `<span class="acc-lab">${r.label}</span>`;
+      r.opts.forEach(o => {
+        const b = document.createElement('button');
+        b.className = 'chip'; b.textContent = o.label;
+        b.dataset.row = r.key; b.dataset.val = String(o.v);
+        b.onclick = () => {
+          if(state.locked) return;
+          chipSel[r.key] = o.v;
+          line.querySelectorAll('.chip').forEach(x => x.classList.toggle('sel', x === b));
+          $('ex-submit').disabled = q.rows.some(rr => chipSel[rr.key] === undefined);
+        };
+        line.appendChild(b);
+      });
+      host.appendChild(line);
+    });
+    $('ex-submit').style.display = '';
+    $('ex-submit').disabled = true;
+  }
+  $('ex-next').style.display = 'none';
+}
+
+function submit(ansMC){
+  const q = state.q;
+  const ans = q.kind === 'mc' ? ansMC : Object.assign({}, chipSel);
+  const res = q.check(ans);
+  state.locked = true;
+  state.answered++;
+  const gain = DIFF[state.diff].gain, loss = DIFF[state.diff].loss;
+  if(res.right){ state.correct++; state.streak++; state.score += gain;
+                 if(state.streak > store.bestStreak){ store.bestStreak = state.streak; } }
+  else { state.streak = 0; state.score = Math.max(0, state.score - loss); }
+  store.score += res.right ? gain : 0;
+  recordAnswer(state.ex.id, res.right);
+  if(!res.right){
+    store.mistakes.push({ex: state.ex.title,
+      q: (q.specimen || q.sentence || q.prompt).replace(/<span class="lemma">[\s\S]*?<\/span>/,''),
+      note: res.note});
+    if(store.mistakes.length > 60) store.mistakes.shift();
+    save();
+  }
+
+  const box = $('ex-box');
+  if(q.kind === 'mc'){
+    box.querySelectorAll('#q-opts .opt').forEach((x, j) => {
+      x.disabled = true;
+      if(j === q.correct) x.classList.add(j === ansMC ? 'right' : 'reveal');
+      else if(j === ansMC) x.classList.add('wrong');
+    });
+  }else{
+    box.querySelectorAll('#q-chips .chip').forEach(x => {
+      x.disabled = true;
+      const row = x.dataset.row, val = x.dataset.val;
+      const chosen = String(chipSel[row]) === val;
+      const correct = res.mark && String(res.mark[row]) === val;
+      x.classList.remove('sel');
+      if(correct) x.classList.add(chosen ? 'right' : 'reveal');
+      else if(chosen) x.classList.add('wrong');
+    });
+  }
+  box.querySelector('#q-fb').innerHTML =
+    `<div class="feedback ${res.right ? 'good' : 'bad'}">
+       <span class="verdict">${res.right ? 'Right' : 'Not so'}</span>${res.note}
+       ${res.also ? `<span class="also">${res.also}</span>` : ''}</div>`;
+  $('ex-submit').style.display = 'none';
+  $('ex-next').style.display = '';
+  updateScore();
+}
+
+$('ex-submit').onclick = () => { if(!state.locked) submit(null); };
+$('ex-next').onclick = () => nextQ();
+$('ex-quit').onclick = () => { show('scr-home'); buildHome(); };
+
+/* keyboard: 1-4 to answer a multiple choice, Enter to go on */
+document.addEventListener('keydown', ev => {
+  if(!$('scr-ex').classList.contains('active')) return;
+  if(ev.key === 'Enter'){
+    if(state.locked) nextQ();
+    else if(state.q.kind === 'chips' && !$('ex-submit').disabled) submit(null);
+    ev.preventDefault(); return;
+  }
+  if(state.locked || state.q.kind !== 'mc') return;
+  const n = parseInt(ev.key, 10);
+  if(n >= 1 && n <= state.q.options.length) submit(n - 1);
+});
+
+/* ---------- progress ---------- */
+function renderProgress(){
+  const ids = Object.keys(store.totals);
+  let seen = 0, right = 0;
+  ids.forEach(k => { seen += store.totals[k].seen; right += store.totals[k].right; });
+  let html = `<div class="prog-grid">
+    <div class="prog-cell"><div class="n">${seen}</div><div class="l">Answered</div></div>
+    <div class="prog-cell"><div class="n">${seen ? Math.round(right / seen * 100) : 0}%</div><div class="l">Correct</div></div>
+    <div class="prog-cell"><div class="n">${store.bestStreak}</div><div class="l">Best streak</div></div>
+    <div class="prog-cell"><div class="n">${store.score}</div><div class="l">Points</div></div>
+  </div>`;
+
+  html += `<div class="section-label">By exercise</div>`;
+  const listed = [];
+  ACTS.forEach(a => a.items.forEach(i => { if(i.kind === 'ex') listed.push(EX[i.ex]); }));
+  if(!listed.some(e => store.totals[e.id])){
+    html += `<div class="empty-note">Nothing yet. The exercises generate fresh questions each time, so there is no list to work through — only practice.</div>`;
+  }else{
+    listed.forEach(e => {
+      const t = store.totals[e.id];
+      if(!t || !t.seen) return;
+      const pct = Math.round(t.right / t.seen * 100);
+      html += `<div class="mistake"><div class="mq"><strong>${e.title}</strong> — ${t.right} of ${t.seen} (${pct}%)</div>
+               <div class="bar"><i style="width:${pct}%"></i></div></div>`;
+    });
+  }
+
+  html += `<div class="section-label">What you have missed</div>`;
+  if(!store.mistakes.length){
+    html += `<div class="empty-note">Nothing recorded. Either you have made no mistakes, or you have not yet begun.</div>`;
+  }else{
+    store.mistakes.slice().reverse().slice(0, 20).forEach(m => {
+      html += `<div class="mistake"><div class="mq">${m.q} <em style="color:var(--ink-soft)">— ${m.ex}</em></div>
+               <div class="mn">${m.note}</div></div>`;
+    });
+  }
+  $('prog-body').innerHTML = html;
+}
+
+$('btn-progress').onclick = () => { renderProgress(); show('scr-prog'); };
+$('prog-back').onclick = () => { show('scr-home'); buildHome(); };
+$('prog-reset').onclick = () => {
+  store.totals = {}; store.score = 0; store.bestStreak = 0; store.mistakes = [];
+  save(); renderProgress();
+};
+$('btn-syll').onclick = () => {
+  alert('Ars Syllogistica is the companion application — the second and third acts of the mind.\n\nPut its index.html beside this one and this button will open it.');
+};
+$('dark-toggle').onclick = () => setDark(!state.dark);
+
+/* ---------- go ---------- */
+load();
+setDark(state.dark);
+buildLangRow();
+buildDiffRow();
+buildHome();
+</script>
+</body>
+</html>
