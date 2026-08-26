@@ -53,12 +53,25 @@ body{
   background:var(--paper);
 }
 #dark-toggle{
-  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
+  position:fixed; top:14px; right:68px; width:44px; height:44px; border-radius:50%;
   border:1px solid var(--line); background:var(--card); color:var(--gold); font-size:20px;
   cursor:pointer; box-shadow:var(--shadow); z-index:50; transition:transform .15s;
 }
 #dark-toggle:hover{transform:scale(1.08)}
-@media (max-width:420px){ #dark-toggle{right:12px; width:40px; height:40px; font-size:18px} }
+#speak-toggle{
+  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--line); background:var(--card); color:var(--gold); font-size:18px;
+  cursor:pointer; box-shadow:var(--shadow); z-index:50; transition:transform .15s, background .15s, color .15s;
+  line-height:1; display:flex; align-items:center; justify-content:center;
+}
+#speak-toggle:hover{transform:scale(1.08)}
+#speak-toggle.speaking{
+  background:var(--gold); color:#fff; border-color:var(--gold);
+}
+@media (max-width:420px){
+  #dark-toggle{right:58px; width:40px; height:40px; font-size:18px}
+  #speak-toggle{right:12px; width:40px; height:40px; font-size:16px}
+}
 
 .wrap{max-width:880px; margin:0 auto; padding:34px 22px 90px}
 .screen{display:none}
@@ -329,7 +342,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .ladder text{font-family:'EB Garamond',serif}
 
 @media print{
-  #dark-toggle{display:none}
+  #dark-toggle, #speak-toggle{display:none}
   .set-card{break-inside:avoid}
 }
 
@@ -384,6 +397,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 </head>
 <body>
 <button id="dark-toggle" title="Light / dark">☾</button>
+<button id="speak-toggle" type="button" title="Read this screen aloud" aria-label="Read this screen aloud">🔊</button>
 
 <div class="wrap">
 
@@ -1004,6 +1018,7 @@ function recordAnswer(exId, right){
 
 /* ---------- router ---------- */
 function show(id){
+  if(window.__arsStopSpeak) window.__arsStopSpeak();
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   $(id).classList.add('active');
   window.scrollTo(0, 0);
@@ -4252,6 +4267,7 @@ function openDeck(key){
   show('scr-deck');
 }
 function renderDeck(){
+  if(window.__arsStopSpeak) window.__arsStopSpeak();
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
@@ -4321,6 +4337,7 @@ function startEx(e){
 }
 
 function nextQ(){
+  if(window.__arsStopSpeak) window.__arsStopSpeak();
   state.q = state.ex.gen(state.diff);
   state.locked = false;
   chipSel = {};
@@ -4528,6 +4545,279 @@ $('btn-syll').onclick = () => {
   alert('Ars Syllogistica is the companion application — the second and third acts of the mind.\n\nPut its index.html beside this one and this button will open it.');
 };
 $('dark-toggle').onclick = () => setDark(!state.dark);
+
+/* ---- text-to-speech (browser voice) ----
+   Reads study panels, question text, instructions, and multiple-choice
+   answers. Skips exercise names, scores, difficulty, and navigation. */
+(function speechReader(){
+  const btn = $('speak-toggle');
+  if(!btn) return;
+  const supported = !!(window.speechSynthesis && window.SpeechSynthesisUtterance);
+  if(!supported){
+    btn.title = 'Speech is not available in this browser';
+    btn.setAttribute('aria-disabled','true');
+    btn.style.opacity = '.45';
+    btn.style.cursor = 'default';
+    return;
+  }
+
+  let speaking = false;
+  let queue = [];
+
+  function setSpeakingUI(on){
+    speaking = on;
+    btn.classList.toggle('speaking', on);
+    btn.textContent = on ? '⏹' : '🔊';
+    btn.title = on ? 'Stop reading' : 'Read this screen aloud';
+    btn.setAttribute('aria-label', btn.title);
+  }
+  function stopSpeak(){
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    queue = [];
+    setSpeakingUI(false);
+  }
+  window.__arsStopSpeak = stopSpeak;
+
+  function normalizeText(s){
+    return String(s || '')
+      .replace(/\u00a0/g, ' ')
+      .replace(/[❧❦⟶⟵]/g, ' ')
+      .replace(/[·•]/g, ', ')
+      .replace(/\s+/g, ' ')
+      .replace(/\s+([,.;:!?])/g, '$1')
+      .trim();
+  }
+  function pushText(parts, t){
+    t = normalizeText(t);
+    if(t) parts.push(t);
+  }
+  function joinParts(parts){
+    const out = [];
+    parts.forEach(p => { if(out[out.length - 1] !== p) out.push(p); });
+    return out.join('. ').replace(/\.\s*\./g, '.').replace(/\s+/g, ' ').trim();
+  }
+
+  function shouldSkip(el){
+    if(!el || el.nodeType !== 1) return true;
+    const tag = el.tagName;
+    if(tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'SVG') return true;
+    if(el.getAttribute && el.getAttribute('aria-hidden') === 'true') return true;
+    if(el.id === 'dark-toggle' || el.id === 'speak-toggle') return true;
+    if(!el.classList) return false;
+    return el.classList.contains('ornament')
+        || el.classList.contains('src')
+        || el.classList.contains('feedback')
+        || el.classList.contains('cong-bar')
+        || el.classList.contains('btn-row')
+        || el.classList.contains('deck-nav')
+        || el.classList.contains('q-head')
+        || el.classList.contains('orig-toggle')
+        || el.classList.contains('begin')
+        || el.classList.contains('soon-flag')
+        || el.classList.contains('set-flag')
+        || el.classList.contains('diff-row')
+        || el.classList.contains('diff-desc')
+        || el.classList.contains('lang-row');
+  }
+
+  function walk(el, parts, opts){
+    if(!el) return;
+    if(el.nodeType === 3){ pushText(parts, el.nodeValue); return; }
+    if(el.nodeType !== 1) return;
+    if(shouldSkip(el)) return;
+    if(el.tagName === 'BUTTON'){
+      if(opts && opts.skipButtons) return;
+      if(el.classList.contains('btn')) return;
+      const lab = normalizeText(el.textContent);
+      if(lab) pushText(parts, lab);
+      return;
+    }
+    if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
+      if(el.value) pushText(parts, el.value);
+      else if(el.getAttribute('placeholder')) pushText(parts, el.getAttribute('placeholder'));
+      return;
+    }
+    Array.from(el.childNodes).forEach(ch => walk(ch, parts, opts));
+  }
+
+  function collectHomeText(){
+    const home = $('scr-home');
+    if(!home) return '';
+    const parts = [];
+    const add = t => pushText(parts, t);
+
+    const hdr = home.querySelector('header');
+    if(hdr){
+      const h1 = hdr.querySelector('h1');
+      const sub = hdr.querySelector('.subtitle');
+      if(h1) add(h1.textContent);
+      if(sub) add(sub.textContent);
+    }
+    const intro = home.querySelector('.intro-note');
+    if(intro) add(intro.innerText || intro.textContent);
+
+    const langLabel = Array.from(home.querySelectorAll(':scope > .section-label'))
+      .find(el => /partner language/i.test(el.textContent || ''));
+    if(langLabel) add(langLabel.textContent);
+    const langBox = home.querySelector('.lang-box');
+    if(langBox){
+      const fixed = langBox.querySelector('.lang-fixed');
+      const note = langBox.querySelector('.lang-note');
+      if(fixed) add(fixed.innerText || fixed.textContent);
+      if(note) add(note.innerText || note.textContent);
+    }
+
+    const acts = $('home-acts');
+    if(acts){
+      acts.querySelectorAll('.act-label, .section-label, .act-latin, .act-gloss').forEach(el => add(el.innerText || el.textContent));
+      acts.querySelectorAll('.set-card').forEach(card => {
+        const bits = [];
+        const num = card.querySelector('.set-num');
+        const h3 = card.querySelector('h3');
+        const p = card.querySelector('p');
+        if(num) bits.push(normalizeText(num.textContent));
+        if(h3) bits.push(normalizeText(h3.textContent));
+        if(p) bits.push(normalizeText(p.innerText || p.textContent));
+        if(bits.length) add(bits.join('. '));
+      });
+    }
+    return joinParts(parts);
+  }
+
+  function collectDeckText(){
+    const body = $('deck-body');
+    if(!body) return '';
+    const parts = [];
+    body.querySelectorAll('.panel').forEach(panel => {
+      walk(panel, parts, {skipButtons:false});
+    });
+    return joinParts(parts);
+  }
+
+  function collectExText(){
+    const parts = [];
+    const instr = $('ex-instr');
+    if(instr && instr.style.display !== 'none') pushText(parts, instr.innerText || instr.textContent);
+    const box = $('ex-box');
+    if(!box) return joinParts(parts);
+
+    ['.q-specimen', '.q-passage', '.q-source', '.q-original:not([hidden])',
+     '.q-sentence', '.q-gloss', '.q-prompt'].forEach(sel => {
+      box.querySelectorAll(sel).forEach(el => {
+        if(el.hidden) return;
+        pushText(parts, el.innerText || el.textContent);
+      });
+    });
+
+    const opts = box.querySelector('#q-opts');
+    if(opts){
+      opts.querySelectorAll('.opt').forEach(b => pushText(parts, b.innerText || b.textContent));
+    }
+    box.querySelectorAll('.acc-line').forEach(line => {
+      const lab = line.querySelector('.acc-lab');
+      const chips = Array.from(line.querySelectorAll('.chip')).map(c => normalizeText(c.textContent)).filter(Boolean);
+      const name = lab ? normalizeText(lab.textContent) : '';
+      if(name && chips.length) pushText(parts, name + ': ' + chips.join(', '));
+      else if(chips.length) chips.forEach(c => pushText(parts, c));
+    });
+    const inp = box.querySelector('#q-text');
+    if(inp){
+      if(inp.value) pushText(parts, inp.value);
+      else if(inp.placeholder) pushText(parts, inp.placeholder);
+    }
+    return joinParts(parts);
+  }
+
+  function collectPlainScreen(scr){
+    const parts = [];
+    const hdr = scr.querySelector('header');
+    if(hdr){
+      const h1 = hdr.querySelector('h1');
+      const sub = hdr.querySelector('.subtitle');
+      if(h1) pushText(parts, h1.textContent);
+      if(sub) pushText(parts, sub.textContent);
+    }
+    scr.querySelectorAll('.intro-note, #src-body, #prog-body').forEach(el => {
+      walk(el, parts, {skipButtons:true});
+    });
+    return joinParts(parts);
+  }
+
+  function collectSpeakText(){
+    const scr = document.querySelector('.screen.active');
+    if(!scr) return '';
+    if(scr.id === 'scr-home') return collectHomeText();
+    if(scr.id === 'scr-deck') return collectDeckText();
+    if(scr.id === 'scr-ex') return collectExText();
+    return collectPlainScreen(scr);
+  }
+
+  function pickVoice(){
+    try{
+      const voices = window.speechSynthesis.getVoices() || [];
+      return voices.find(v => /^en(-|_)/i.test(v.lang) && /english/i.test(v.name))
+          || voices.find(v => /^en(-|_)/i.test(v.lang))
+          || voices[0]
+          || null;
+    }catch(e){ return null; }
+  }
+
+  function chunkText(text){
+    const max = 280;
+    const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    const chunks = [];
+    let buf = '';
+    sentences.forEach(s => {
+      s = s.trim();
+      if(!s) return;
+      if((buf + ' ' + s).length > max && buf){
+        chunks.push(buf.trim());
+        buf = s;
+      } else buf = buf ? buf + ' ' + s : s;
+    });
+    if(buf.trim()) chunks.push(buf.trim());
+    return chunks.length ? chunks : [text];
+  }
+
+  function speakChunks(chunks){
+    queue = chunks.slice();
+    setSpeakingUI(true);
+    const voice = pickVoice();
+    function next(){
+      if(!speaking) return;
+      if(!queue.length){ setSpeakingUI(false); return; }
+      const u = new SpeechSynthesisUtterance(queue.shift());
+      if(voice) u.voice = voice;
+      u.rate = 0.95;
+      u.pitch = 1;
+      u.onend = next;
+      u.onerror = () => { setSpeakingUI(false); };
+      try{ window.speechSynthesis.speak(u); }
+      catch(e){ setSpeakingUI(false); }
+    }
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    setTimeout(next, 40);
+  }
+
+  function startSpeak(){
+    const text = collectSpeakText();
+    if(!text){
+      speakChunks(['There is nothing to read on this screen.']);
+      return;
+    }
+    speakChunks(chunkText(text));
+  }
+
+  btn.onclick = () => {
+    if(speaking) stopSpeak();
+    else startSpeak();
+  };
+
+  try{
+    window.speechSynthesis.onvoiceschanged = function(){};
+    window.speechSynthesis.getVoices();
+  }catch(e){}
+})();
 
 /* ---------- go ---------- */
 load();
