@@ -149,6 +149,12 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 
 /* ------- cards ------- */
 .set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
+.set-pair{
+  grid-column:1 / -1;
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  align-items:stretch;
+}
+@media (max-width:700px){ .set-pair{grid-template-columns:1fr} }
 .set-card{
   border:1px solid var(--line); background:var(--card); border-radius:14px; padding:20px 22px;
   cursor:pointer; box-shadow:var(--shadow); transition:transform .15s, border-color .15s;
@@ -161,6 +167,11 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .set-num{
   font-family:'Cinzel',serif; font-size:12px; letter-spacing:.2em; color:var(--gold);
   text-transform:uppercase; margin-bottom:6px;
+}
+.ex-mark{
+  display:inline-block; border:1px solid var(--gold); color:var(--gold);
+  padding:2px 8px 1px; border-radius:3px; letter-spacing:.16em; font-size:11px;
+  line-height:1.4;
 }
 .set-card h3{font-family:'Cinzel',serif; font-size:21px; font-weight:600; margin-bottom:8px; line-height:1.25}
 .set-card p{font-size:16.5px; color:var(--ink-soft); line-height:1.45; flex:1}
@@ -2127,6 +2138,92 @@ one leaning at a time, which is how the construction is actually built.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
+DECKS.oratio = {
+  title:'Construction',
+  sub:'What a sentence is, before the joining is judged — not scored',
+  panels:[
+
+{ src:['te','helias'], h:`<p><strong>CONSTRUCTION.</strong> The sentence is not a heap of words. It is a
+<span class="lat">constructio</span>: a joining of words that can be joined, caused
+by their modes of signifying and by the mind of the speaker, for the sake of
+expressing a composite thought.</p>
+<p>Peter Helias’s four magnitudes end here. Letter and syllable were matter.
+The word was the first thing that signifies. The sentence is the first thing that
+can be well or ill formed as a whole — and, if it is complete, the first thing
+that can be true or false.</p>
+<p>This act asks how the joining is made, when it fits, and when it is finished.</p>`,
+  q:{ prompt:`What is a construction?`,
+      options:['Any list of words','A joining of words that can be joined, made to express a composite thought',
+               'A true statement','A verse of poetry'],
+      correct:1,
+      explain:`The joining is the form of the sentence. Truth waits until the joining is complete. Verse is a further question, for metre and for rhetoric.` } },
+
+{ src:['te','appown'], h:`<p><strong>What the sentence is about, and what is said of it.</strong> The
+tradition names two roles in a complete construction.</p>
+<p>The <strong>suppositum</strong> is what the sentence is about — the thing that
+stands under the saying. In <em>the sailor waits</em>, the sailor.</p>
+<p>The <strong>appositum</strong> is what is put with it — the verb, and whatever
+hangs on the verb. Here, <em>waits</em>.</p>
+<p>These are grammar’s names. They are close to logic’s subject and predicate,
+and they are not the same. Grammar asks whether the two are well joined.
+Logic asks, of a complete joining, what is affirmed, and whether it is so.</p>`,
+  q:{ prompt:`In <em>the old road bends</em>, the suppositum is…`,
+      options:['<em>bends</em>','<em>the old road</em>','<em>old</em>','the whole sentence'],
+      correct:1,
+      explain:`The sentence is about the old road. <em>Bends</em> is put with it. <em>Old</em> is not the suppositum; it leans on <em>road</em> and is already joined before the verb arrives.` } },
+
+{ src:['te','arist_int'], h:`<p><strong>Why the distinction matters.</strong> A logician may say “subject and
+predicate” and mean terms in a proposition. A grammarian saying
+<span class="lat">suppositum</span> and <span class="lat">appositum</span> is
+talking about words in a construction — before truth has a chance to arise.</p>
+<p><em>The moon is made of green cheese</em> has a suppositum and an appositum
+as surely as <em>two and two make four</em>. Grammar has already finished with
+both. The rest of this act stays on grammar’s side of that line: agreement,
+government, congruity, the kinds of clause, and the leanings that make a
+sentence one thing rather than a list.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.agree = {
+  title:'Agreement',
+  sub:'When one word must match another — not scored',
+  panels:[
+
+{ src:['te','ag'], h:`<p><strong>CONCORD.</strong> Some words do not merely sit near others. They
+<strong>agree</strong> with them. The tradition’s name is
+<span class="lat">concordantia</span>.</p>
+<p>An adjective agrees with its noun in <strong>gender</strong>,
+<strong>number</strong>, and <strong>case</strong>.
+<em>bonus nauta</em> — the good sailor. <em>bona nauta</em> fails in gender;
+<em>boni nauta</em> fails in number; <em>bonum nauta</em>, if <em>nauta</em> is
+the subject, fails in case.</p>
+<p>The rule is not a custom glued on afterwards. The adjective signifies by
+adhering to another. It therefore needs, in that other, a matching mode of
+standing by itself. Thomas of Erfurt derives the agreement from the mode,
+rather than listing it.</p>`,
+  q:{ prompt:`An adjective agrees with its noun in…`,
+      options:['Tense only','Gender, number, and case','Person and mood','Nothing: adjectives do not inflect'],
+      correct:1,
+      explain:`Those three accidents are the ones the noun carries and the adjective must share, because the adjective is not standing by itself.` } },
+
+{ src:['ag','appown'], h:`<p><strong>The verb, and the relative.</strong> A finite verb agrees with its
+subject in <strong>number</strong> and <strong>person</strong>.
+<em>nauta exspectat</em>, <em>nautae exspectant</em>. English still marks the
+third-person singular: <em>the sailor waits</em>, <em>the sailors wait</em>.</p>
+<p>A relative pronoun agrees with its antecedent in gender and number, and takes
+its case from its own clause: <em>the sailor whom we praised</em> —
+<em>whom</em> is accusative because it is the object of <em>praised</em>, not
+because <em>sailor</em> is.</p>
+<p>The exercise that follows plants a single fault in an adjective–noun pair and
+asks you to name it. One accident at a time.</p>`,
+  q:{ prompt:`In <em>the sailor whom we praised</em>, why is it <em>whom</em> and not <em>who</em>?`,
+      options:['Because <em>sailor</em> is the object of the whole sentence','Because in its own clause <em>whom</em> is the object of <em>praised</em>',
+               'Because relatives are always accusative','Because English has no nominative relative'],
+      correct:1,
+      explain:`The relative matches <em>sailor</em> in number, and takes its case from the clause it sits in. <em>We praised him</em> — so <em>whom</em>.` } }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.actpass = {
   title:'Active and Passive Modes',
   sub:'The word’s way of signifying, and the thing’s way of being signified — not scored',
@@ -4080,46 +4177,57 @@ const ACTS = [
    items:[
      {kind:'deck', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — name, shape, and power. Vowel and consonant. Not scored.'},
+     {kind:'ex', ex:'letter'},
      {kind:'deck', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat. Not scored.'},
-     {kind:'ex', ex:'letter'}, {kind:'ex', ex:'syllable'}
+     {kind:'ex', ex:'syllable'}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
    gloss:'The word, and the kinds of work a word can do — each learned together with the mode of signifying that constitutes it.',
    items:[
+     {kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'},
      {kind:'deck', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
       desc:'The tradition’s first cut through the eight parts, and the ground of Act III. What takes endings, and what keeps one form. Not scored.'},
-     {kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'}, {kind:'ex', ex:'decline'}
+     {kind:'ex', ex:'decline'}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'Case, number, gender, person, tense, mood, voice — the accidental modes, and where the languages differ.',
    items:[
+     {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'},
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form. How to go about it, and what the drill is asking. Not scored.'},
-     {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'}, {kind:'ex', ex:'produce'}
+     {kind:'ex', ex:'produce'}
    ]},
   {key:'IV', roman:'IV', name:'Construction', latin:'Oratio',
    gloss:'Syntax: how constructibles are joined, when the joining is congruous, and when it is complete.',
    items:[
-     {kind:'deck', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
-      desc:'Independent and subordinate; purpose against result; indirect speech and the indirect question; time, cause, condition, concession; the relative, and the trap of English <em>that</em>. Then the same kinds in the authors. Not scored.'},
+     {kind:'deck', deck:'oratio', tag:'STUDY', title:'Construction',
+      desc:'The sentence as a joining, not a heap. <span class="lat">Suppositum</span> and <span class="lat">appositum</span> — what the sentence is about, and what is said of it — and why these are not yet logic’s subject and predicate. Not scored.'},
+     {kind:'deck', deck:'agree', tag:'STUDY', title:'Agreement',
+      desc:'<span class="lat">Concordantia</span>. The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent. Derived from the mode of adhering, not listed as a custom. Not scored.'},
+     {kind:'ex', ex:'agree'},
      {kind:'deck', deck:'govern', tag:'STUDY', title:'Government',
       desc:'<span class="lat">Regimen</span> — the verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions. Not scored.'},
+     {kind:'ex', ex:'govern'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'<span class="lat">Congruitas et perfectio</span>. <em>Percutio album</em> is incongruous; <em>homo albus</em> is congruous but incomplete; only <em>homo est albus</em> rests the hearer’s mind. Not scored.'},
+     {kind:'ex', ex:'cong'},
+     {kind:'deck', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
+      desc:'Independent and subordinate; purpose against result; indirect speech and the indirect question; time, cause, condition, concession; the relative, and the trap of English <em>that</em>. Then the same kinds in the authors. Not scored.'},
+     {kind:'ex', ex:'clauses'},
      {kind:'deck', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
       desc:'Dependent to terminant, as the modists drew it and as dependency grammar draws it still. Read back what a markup asserts. Not scored.'},
-     {kind:'ex', ex:'agree'}, {kind:'ex', ex:'clauses'}, {kind:'ex', ex:'govern'},
-     {kind:'ex', ex:'cong'}, {kind:'ex', ex:'workshop'}
+     {kind:'ex', ex:'workshop'}
    ]},
   {key:'V', roman:'V', name:'Speculative Grammar', latin:'Grammatica Speculativa',
    gloss:'The Parisian theory, with its objections. Thomas of Erfurt, Boethius of Dacia, and the nominalists who ended the school.',
    items:[
      {kind:'deck', deck:'actpass', tag:'STUDY', title:'Active and Passive Modes',
       desc:'<span class="lat">Modus significandi activus</span> against <span class="lat">passivus</span> — the distinction that answers Ockham’s charge of a quality added to the sound. Not scored.'},
+     {kind:'ex', ex:'actpass'},
      {kind:'deck', deck:'objections', tag:'STUDY', title:'The Great Objections',
       desc:'The chimaera and the privations; grammatical gender; Ockham’s <span class="lat">dictioni superadditum</span>; Aurifaber; why languages differ. Put as objections, and answered as far as they can be. Not scored.'},
-     {kind:'ex', ex:'actpass'}, {kind:'ex', ex:'objections'}
+     {kind:'ex', ex:'objections'}
    ]},
   {key:'VI', roman:'VI', name:'The Vices of Speech', latin:'Barbarismus et Soloecismus',
    gloss:'A fault in one word, and a fault in the construction — the negative definition of congruity.',
@@ -4133,9 +4241,11 @@ const ACTS = [
    items:[
      {kind:'deck', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
       desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions. Not scored.'},
+     {kind:'ex', ex:'suppos'},
      {kind:'deck', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
       desc:'<span class="lat">Figura dictionis</span> — arguing from the shape of the word to the shape of the thing. The word follows the thing imperfectly. Not scored.'},
-     {kind:'ex', ex:'congtruth'}, {kind:'ex', ex:'suppos'}, {kind:'ex', ex:'figura'}
+     {kind:'ex', ex:'figura'},
+     {kind:'ex', ex:'congtruth'}
    ]},
   {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
    gloss:'The ancient question and the modern: two universal grammars, and the evidence that must judge between them.',
@@ -4144,9 +4254,10 @@ const ACTS = [
       desc:'Speculative grammar, humanist philology, and linguistics since Saussure. What each can see; what the school already granted; and a Thomist’s reply: <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops. Not scored.'},
      {kind:'deck', deck:'typo', tag:'STUDY', title:'Typology',
       desc:'Word order, case-marking against configurational order, agglutinating and fusional and isolating. The empirical test of the modist claim: if grammar follows the modes of being, the variation must be superficial. Not scored.'},
+     {kind:'ex', ex:'typo'},
      {kind:'deck', deck:'ug', tag:'STUDY', title:'Two Universal Grammars',
       desc:'Chomsky and the modists both hold a universal grammar and ground it in opposite places — the innate structure of the mind, against the modes of being. Where they agree, where they part, and what a Thomist should say about the parting. Not scored.'},
-     {kind:'ex', ex:'typo'}, {kind:'ex', ex:'ug'}
+     {kind:'ex', ex:'ug'}
    ]}
 ];
 /* ====================================================================
@@ -4230,27 +4341,48 @@ function buildHome(){
 
     const grid = document.createElement('div');
     grid.className = 'set-grid';
-    act.items.forEach(item => {
+
+    function makeCard(item, paired){
       const c = document.createElement('div');
       if(item.kind === 'deck'){
-        c.className = 'set-card wide';
+        c.className = 'set-card' + (paired ? '' : ' wide');
         c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
           <p>${item.desc}</p><span class="begin">BEGIN ⟶</span>`;
         c.onclick = () => openDeck(item.deck);
       }else if(item.kind === 'ex'){
         const e = EX[item.ex];
         const t = store.totals[e.id];
-        c.className = 'set-card';
-        c.innerHTML = `<div class="set-num">EXERCISE</div><h3>${e.title}</h3>
+        c.className = 'set-card' + (paired ? '' : ' wide');
+        c.innerHTML = `<div class="set-num"><span class="ex-mark">Exercise</span></div><h3>${e.title}</h3>
           <p>${e.desc}</p><span class="begin">BEGIN ⟶</span>
           ${t && t.seen ? `<div class="set-flag">${t.right}/${t.seen}</div>` : ''}`;
         c.onclick = () => startEx(e);
       }else{
-        c.className = 'set-card soon';
-        c.innerHTML = `<div class="set-num">EXERCISE</div><h3>${item.title}</h3>
+        c.className = 'set-card soon' + (paired ? '' : ' wide');
+        c.innerHTML = `<div class="set-num"><span class="ex-mark">Exercise</span></div><h3>${item.title}</h3>
           <p>${item.desc}</p><span class="soon-flag">IN PREPARATION</span>`;
       }
-      grid.appendChild(c);
+      return c;
+    }
+
+    const items = act.items;
+    const used = new Set();
+    items.forEach((item, i) => {
+      if(used.has(i)) return;
+      if(item.kind === 'deck'){
+        const j = items.findIndex((x, xi) => !used.has(xi) && x.kind === 'ex' && x.ex === item.deck);
+        if(j >= 0){
+          used.add(i); used.add(j);
+          const row = document.createElement('div');
+          row.className = 'set-pair';
+          row.appendChild(makeCard(item, true));
+          row.appendChild(makeCard(items[j], true));
+          grid.appendChild(row);
+          return;
+        }
+      }
+      used.add(i);
+      grid.appendChild(makeCard(item, false));
     });
     host.appendChild(grid);
   });
@@ -4577,6 +4709,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     setSpeakingUI(false);
   }
   window.__arsStopSpeak = stopSpeak;
+  window.__arsCollectSpeak = collectSpeakText;
 
   function normalizeText(s){
     return String(s || '')
@@ -4669,16 +4802,22 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 
     const acts = $('home-acts');
     if(acts){
-      acts.querySelectorAll('.act-label, .section-label, .act-latin, .act-gloss').forEach(el => add(el.innerText || el.textContent));
-      acts.querySelectorAll('.set-card').forEach(card => {
-        const bits = [];
-        const num = card.querySelector('.set-num');
-        const h3 = card.querySelector('h3');
-        const p = card.querySelector('p');
-        if(num) bits.push(normalizeText(num.textContent));
-        if(h3) bits.push(normalizeText(h3.textContent));
-        if(p) bits.push(normalizeText(p.innerText || p.textContent));
-        if(bits.length) add(bits.join('. '));
+      Array.from(acts.children).forEach(el => {
+        if(el.classList.contains('act-label') || el.classList.contains('section-label')
+           || el.classList.contains('act-latin') || el.classList.contains('act-gloss')){
+          add(el.innerText || el.textContent);
+        }else if(el.classList.contains('set-grid')){
+          el.querySelectorAll('.set-card').forEach(card => {
+            const bits = [];
+            const num = card.querySelector('.set-num');
+            const h3 = card.querySelector('h3');
+            const p = card.querySelector('p');
+            if(num) bits.push(normalizeText(num.textContent));
+            if(h3) bits.push(normalizeText(h3.textContent));
+            if(p) bits.push(normalizeText(p.innerText || p.textContent));
+            if(bits.length) add(bits.join('. '));
+          });
+        }
       });
     }
     return joinParts(parts);
