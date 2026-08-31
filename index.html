@@ -164,6 +164,10 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .set-card.wide{grid-column:1 / -1}
 .set-card.soon{opacity:.5; cursor:default}
 .set-card.soon:hover{transform:none; border-color:var(--line)}
+.auctor-badge{
+  display:inline-block; margin-top:8px; font-family:'Cinzel',serif; font-size:11px;
+  letter-spacing:.12em; color:var(--gold); text-transform:uppercase;
+}
 .set-num{
   font-family:'Cinzel',serif; font-size:12px; letter-spacing:.2em; color:var(--gold);
   text-transform:uppercase; margin-bottom:6px;
@@ -423,7 +427,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
     <div class="intro-note">
       <strong>Grammar is the art of putting words together rightly.</strong> It is the first of the
       three roads because logic works upon statements, and a statement is made of words. This course
-      assumes none of it. It builds from the letter to the sentence, gives the traditional names as
+      assumes none of it. It builds from the voice to the sentence, gives the traditional names as
       they come, and asks at every step the question the medieval masters asked and we have mostly
       stopped asking: <em>why are the parts of speech what they are, and not something else?</em>
     </div>
@@ -468,6 +472,18 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
       <span class="deck-count" id="deck-count"></span>
       <button class="btn primary" id="deck-next">Next →</button>
     </div>
+  </div>
+
+  <!-- ============ AUCTOR CHOOSER ============ -->
+  <div class="screen" id="scr-pick">
+    <header>
+      <div class="ornament">❦</div>
+      <h1 id="pick-title" style="font-size:32px"></h1>
+      <div class="subtitle" id="pick-sub"></div>
+    </header>
+    <div class="intro-note" id="pick-note"></div>
+    <div class="set-grid" id="pick-grid"></div>
+    <div class="btn-row"><button class="btn" id="pick-back">← Home</button></div>
   </div>
 
   <!-- ============ EXERCISE ============ -->
@@ -988,7 +1004,7 @@ const KEY = 'arsgram.v1';
 const state = {
   diff:1, lang3:null, dark:false,
   ex:null, q:null, locked:false, score:0, answered:0, correct:0,
-  streak:0, bestStreak:0, mistakes:[], sessionSeen:[]
+  streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null
 };
 const store = {
   totals:{},          /* exId -> {seen, right, best} */
@@ -1171,6 +1187,31 @@ const SRC = {
        note:'The point at which grammar hands the term to logic.'},
   greenberg:{kind:'modern', short:'Greenberg, <i>Universals of Language</i>',
        full:'Joseph H. Greenberg, ed., <i>Universals of Language</i> (1963), and the implicational universals later numbered from that programme — used here only for the typological facts the last act asks the student to notice.',
+       note:''},
+
+  quint:{kind:'primary', short:'Quintilian, <i>Institutio oratoria</i> I.4–9',
+       full:'Quintilian, <i>Institutio oratoria</i> I.4–9 (ed. Winterbottom; English from Butler’s Loeb, public domain). The grammarian’s work is treated as the science of speaking correctly and the interpretation of the poets. Later school lists name the same offices <i>lectio, emendatio, enarratio, iudicium</i>. I.4.2 divides the profession <i>in duas partes, recte loquendi scientiam et poetarum enarrationem</i>.',
+       note:'Why an auctor belongs in a grammar course, and not only in rhetoric.'},
+  cassiod:{kind:'primary', short:'Cassiodorus, <i>Institutiones</i> II.1',
+       full:'Cassiodorus, <i>Institutiones</i> II.1: <i>Grammatica est peritia pulchre loquendi ex poetis illustribus auctoribusque collecta</i>; and <i>origo et fundamentum liberalium litterarum</i>. Quoted as given in Copeland &amp; Sluiter and in the standard text of Mynors.',
+       note:'Grammar as origin and foundation of the liberal letters.'},
+  isidore:{kind:'primary', short:'Isidore, <i>Etymologiae</i> I',
+       full:'Isidore of Seville, <i>Etymologiae</i> I.5: <i>Grammatica est scientia recte loquendi, et origo et fundamentum liberalium litterarum</i>. The name from <i>gramma</i>, the letter. Isidore here follows Cassiodorus closely.',
+       note:'Name and office of grammar in the encyclopedic tradition.'},
+  salisbury:{kind:'primary', short:'John of Salisbury, <i>Metalogicon</i> I',
+       full:'John of Salisbury, <i>Metalogicon</i> I (1159), against the Cornificians who would skip the arts of language and go straight to disputation. Quoted as given in Copeland &amp; Sluiter and in McGarry’s translation of the Latin.',
+       note:'Why logic on ill-formed speech is not yet logic.'},
+  servius:{kind:'primary', short:'Servius, commentary on the <i>Aeneid</i>',
+       full:'Servius, <i>In Vergilii Aeneidos commentarii</i>. Grammatical notes only, cited by lemma and line, from the text as printed on Perseus (Thilo–Hagen). Antiquarian, ritual, and moral remarks are not used.',
+       note:'The school commentary on Virgil: case, government, order, and the joining of clauses.'},
+  verg_pd:{kind:'primary', short:'Virgil, <i>Aeneid</i>, trans. Dryden',
+       full:'Virgil, <i>Aeneid</i> I.1–11 and IV (selected). Latin from the Oxford text as printed on Perseus. English from John Dryden’s <i>Aeneis</i> (1697), public domain. Latin is the working text of the construction drills; English is shown on request.',
+       note:''},
+  dcc:{kind:'study', short:'Dickinson College Commentaries',
+       full:'Dickinson College Commentaries: notes on Virgil, <i>Aeneid</i> I, and on Cicero, <i>In Catilinam</i> I, used only where they treat case, government, agreement, order, or clause-joining. Named school notes, not this course’s invention.',
+       note:''},
+  smyth:{kind:'study', short:'Smyth, <i>Greek Grammar</i>',
+       full:'Herbert Weir Smyth, <i>A Greek Grammar for Colleges</i>. Used only for the Greek shelf of the auctor drill, and only when Ancient Greek is the partner language.',
        note:''}
 };
 
@@ -1270,30 +1311,31 @@ hearer.</p>`,
       correct:1,
       explain:`The words are the matter; the speaker’s mind is the efficient cause; the truth is not grammar’s business. The form is the construction.` } },
 
-{ src:['helias','priscian','donatus'], h:`<p><strong>The magnitudes of speech.</strong> The medieval schools divide the whole
-art by ascending size, and this course follows them, because it is both traditional and the
-right order for learning. Peter Helias, in the twelfth century, gives the division its
-standard form: <span class="lat">partes huius artis sunt quatuor</span> — the parts of this
-art are four.</p>
-<p><span class="lat">littera</span> — the letter, the least part of a composite sound<br>
+{ src:['helias','priscian','donatus'], h:`<p><strong>The magnitudes of speech.</strong> The art is divided by ascending size.
+Donatus and Priscian begin from <span class="lat">vox</span> — living sound. Peter Helias,
+in the twelfth century, then gives a tidy fourfold cut of what follows:
+<span class="lat">partes huius artis sunt quatuor</span>.</p>
+<p><span class="lat">vox</span> — the voice, sound as such<br>
+<span class="lat">littera</span> — the letter, the least part of a composite sound<br>
 <span class="lat">syllaba</span> — the syllable<br>
 <span class="lat">dictio</span> — the word<br>
 <span class="lat">oratio</span> — the sentence</p>
-<p>A caution about where this comes from, since it matters for reading the tradition: the
-fourfold division is <em>medieval</em>, arranged out of Priscian. Donatus himself has only
-<span class="lat">vox, littera, syllaba</span>, and Priscian treats <span class="lat">vox</span>
-and <span class="lat">littera</span> in his first book and <span class="lat">syllaba, dictio,
-oratio</span> in his second. The tidy ladder is the schools’ work on the Romans, not the
-Romans’ own.</p>
-<p>Signification does not begin until the third rung. A letter signifies nothing. A syllable
-signifies nothing. Only at the word does meaning enter, and only at the sentence can there
-be truth or falsity. Letters and syllables are the <em>matter</em> of speech.</p>`,
+<p>A caution: Donatus himself has only <span class="lat">vox, littera, syllaba</span>,
+and Priscian treats <span class="lat">vox</span> and <span class="lat">littera</span>
+in his first book and <span class="lat">syllaba, dictio, oratio</span> in his second.
+Helias’s four parts are <em>littera, syllaba, dictio, oratio</em>. The five-rung ladder
+this course uses puts their <span class="lat">vox</span> back at the start, because
+grammar is an art of speech before it is an art of marks. The tidy fourfold cut without
+voice is medieval.</p>
+<p>Signification does not begin at the voice, the letter, or the syllable. Only at the
+word does meaning enter, and only at the sentence can there be truth or falsity. Voice,
+letter, and syllable are the <em>matter</em> of speech.</p>`,
   q:{ prompt:`At which rung does signification first appear?`,
-      options:['<span class="lat">littera</span> — the letter','<span class="lat">syllaba</span> — the syllable',
+      options:['<span class="lat">vox</span> — the voice','<span class="lat">littera</span> — the letter',
                '<span class="lat">dictio</span> — the word','<span class="lat">oratio</span> — the sentence'],
       correct:2,
-      explain:`The word is the least thing that signifies. Letters and syllables are matter only — which is why the modists have nothing to say about them, and why this course spends only one act on them. Truth and falsity wait until the fourth rung, the sentence.`,
-      wrong:`Letters and syllables signify nothing at all; and the sentence is where truth begins, which is later than where <em>meaning</em> begins.` } },
+      explain:`The word is the least thing that signifies. Voice, letter, and syllable are matter only. Truth and falsity wait until the sentence.`,
+      wrong:`A groan is a voice and signifies nothing as a word does. The sentence is where truth begins, which is later than where <em>meaning</em> begins.` } },
 
 { src:['bh'], h:`<p><strong>The question of the art.</strong> Anyone can be taught that there are nouns
 and verbs. The medieval masters at Paris asked something harder, and it is the question that
@@ -1793,19 +1835,252 @@ function makeMC(it, nOpt){
 }
 
 /* -------------------------------------------------------------- */
+DECKS.accessus = {
+  title:'Why There Is an Art',
+  sub:'The accessus: what the art is for — not scored',
+  panels:[
+
+{ src:['cassiod','isidore','boethiusd'], h:`<p><strong>GENUS.</strong> Grammar is a liberal art of language — one of the three
+roads. Cassiodorus and Isidore call it the origin and foundation of the liberal
+letters: <span class="lat">origo et fundamentum liberalium litterarum</span>.</p>
+<p>Some of the medieval masters at Paris also treated it as an introductory
+<span class="lat">scientia</span> of congruous discourse. That is a further claim,
+and it is not required in order to practise the art. The accessus here is older
+and wider than the Parisian theory. The modes of signifying wait in the next
+deck.</p>`,
+  q:{ prompt:`What kind of thing is grammar, in the older schoolbooks?`,
+      options:['A natural science of the throat','A liberal art of language, and the foundation of the other letters',
+               'A branch of mathematics','Only a list of spelling rules'],
+      correct:1,
+      explain:`Cassiodorus and Isidore put it at the root of the liberal letters. It is an art of speech, not a physics of sound, and not yet logic.` } },
+
+{ src:['donatus','priscian','arist_int'], h:`<p><strong>MATERIA.</strong> The matter of the art is <span class="lat">voces</span>
+— vocal sounds, as they can be formed into speech. Not things in the world, and
+not thoughts as such. Aristotle’s opening of the <em>De interpretatione</em>
+already separates vocal sound from the affections of the soul and from the
+things those affections are of.</p>
+<p>A groan is matter of a sort, and so is a letter. Grammar takes them up only
+as they bear on human speech.</p>`,
+  q:{ prompt:`What is the matter of grammar?`,
+      options:['Things in the world','Thoughts, taken by themselves','Vocal sounds as they enter speech','The truth of propositions'],
+      correct:2,
+      explain:`The matter is <span class="lat">voces</span>. Things belong to the world; thoughts as thoughts belong to the mind; truth belongs to logic.` } },
+
+{ src:['helias','donatus','quint'], h:`<p><strong>PARTES.</strong> The art is cut by size: voice, letter, syllable, word,
+sentence. Later it treats the vices of a word and of a joining, and — in the old
+division — the figures. The figures as persuasion wait for rhetoric. Here a
+figure is asked only as a fact of construction, if it is asked at all.</p>
+<p>Quintilian divides the grammarian’s profession in two: the science of speaking
+correctly, and the interpretation of the poets. Both belong to this art. That is
+why an <span class="lat">auctor</span> will appear in Act IV, and not as a
+literature lesson.</p>` },
+
+{ src:['quint'], h:`<p><strong>OFFICIUM.</strong> Quintilian, <em>Institutio</em> I.4–9, sets out what
+the grammarian actually does. The later school names the same offices in four
+words:</p>
+<p><span class="lat">lectio</span> — reading the text aloud, and rightly<br>
+<span class="lat">emendatio</span> — correcting what is corrupt or wrongly formed<br>
+<span class="lat">enarratio</span> — explaining the poets: what the construction is<br>
+<span class="lat">iudicium</span> — judging whether the joining is sound</p>
+<p>I.4.2 gives the two parts in Quintilian’s own words: <span class="lat">recte
+loquendi scientiam et poetarum enarrationem</span>. An auctor is in the course
+because <span class="lat">enarratio</span> is an office of grammar, not a visit
+to another faculty.</p>`,
+  q:{ prompt:`Why does a grammar course read Virgil at all?`,
+      options:['To move the reader, which is rhetoric’s office','Because <span class="lat">enarratio</span> — explaining the poets’ construction — is one of the grammarian’s offices',
+               'Because Virgil is easier than made examples','Because the modes of signifying require epic'],
+      correct:1,
+      explain:`Quintilian’s grammarian interprets the poets as construction. How the passage moves the hearer is not yet asked.` } },
+
+{ src:['te','cassiod','appown'], h:`<p><strong>FINIS.</strong> The end of the art is ranked, not flattened.</p>
+<p><strong>1.</strong> Proximate: a congruous utterance — speech well joined.<br>
+<strong>2.</strong> Of the art: the habit of making and judging such speech.<br>
+<strong>3.</strong> Remote: <span class="lat">generare perfectum sensum in animo
+auditoris</span> — to generate complete understanding in the hearer’s mind
+(Thomas of Erfurt, of the construction).<br>
+<strong>4.</strong> Further: fitness for logic and for rhetoric, which cannot
+begin on a heap of words.<br>
+<strong>5.</strong> Last: a servant of wisdom, and of sacred doctrine where that
+is studied — not a rival to them. Cassiodorus places grammar as foundation of
+the letters, not as their crown.</p>`,
+  q:{ prompt:`The proximate end of grammar is…`,
+      options:['Persuasion','A congruous utterance','Knowledge of God','The history of words'],
+      correct:1,
+      explain:`First the joining, well made. The rest of the list depends on that. Persuasion is rhetoric’s end; wisdom is further on.` } },
+
+{ src:['quint','donatus','appown'], h:`<p><strong>INSTRUMENTUM and ARTIFEX.</strong> The tools of the art are definition,
+example, parsing, the comparison of tongues, and the auctor. You will use all
+five in this course.</p>
+<p>The <span class="lat">artifex</span> is first the grammarian — Donatus,
+Priscian, Quintilian’s teacher of the poets. Then it is the student who has
+acquired the habit: who can make a joining, and judge one, without being told
+each time.</p>` },
+
+{ src:['isidore'], h:`<p><strong>NOMEN.</strong> Isidore takes the name from <span class="lat">gramma</span>,
+the letter. That is why the art is named for writing, even though it begins in
+the voice. A letter is a sound that can be written. If there were no voice, there
+would be nothing for the letter to mark.</p>
+<p>This is why Act I now starts from <span class="lat">vox</span>, and only then
+treats the letter. The name of the art looks at the mark; the matter of the art
+is first the sound.</p>`,
+  q:{ prompt:`Why does this course treat voice before the letter, if the art is named from <span class="lat">gramma</span>?`,
+      options:['Because letters came later in history','Because a letter is a sound that can be written, and voice is that sound',
+               'Because Isidore rejected writing','Because Quintilian forbade letters'],
+      correct:1,
+      explain:`The name looks at the mark. The mark is of a sound. Donatus and Priscian therefore start from <span class="lat">vox</span>.` } },
+
+{ src:['cassiod','quint','salisbury'], h:`<p><strong>UTILITAS.</strong> The use of the art is not polish, and not a mark of
+class. It is to hear a sentence as one thing rather than a heap; to read the
+poets and the historians as construction; and to keep logic from arguing about
+what has not yet been joined.</p>
+<p>Cassiodorus’s foundation of the letters, and Quintilian’s reading of the poets,
+are this use under older names.</p>` },
+
+{ src:['salisbury','arist_int'], h:`<p><strong>AGAINST SKIPPING.</strong> John of Salisbury wrote the
+<em>Metalogicon</em> against those who would skip the arts of language and go
+straight to disputation. The point is simple, and it is the same point already
+made from Aristotle: until the utterance is well formed, there is nothing
+definite for logic to judge. Rhetoric without construction is noise that may
+happen to persuade.</p>
+<p>This course will not skip. The reasons have been named. The practice starts
+in the next act, with the voice.</p>`,
+  q:{ prompt:`Why is logic on ill-formed speech not yet logic?`,
+      options:['Because logic is only for Latin','Because until the utterance is well formed there is nothing definite to be true or false',
+               'Because John of Salisbury forbade all argument','Because rhetoric has already judged it'],
+      correct:1,
+      explain:`Aristotle puts truth in composition. A heap of words has not yet composed. Salisbury’s complaint is that skipping the arts leaves disputation without an object.` } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.vox = {
+  title:'Voice Articulate and Inarticulate',
+  sub:'Living sound, before the letter — not scored',
+  panels:[
+
+{ src:['donatus','priscian'], h:`<p><strong>VOX.</strong> Donatus: <span class="lat">vox est aer ictus, sensibilis
+auditu</span> — voice is air struck, perceptible to hearing. Priscian reports the
+philosophers’ definition: a very fine air that has been struck. This is living
+sound, breath, not yet a letter and not yet a word.</p>
+<p>The letter will be the least part of this sound that can be written. First the
+sound itself must be distinguished from marks, and from mere noise that is not
+speech.</p>`,
+  q:{ prompt:`What is <span class="lat">vox</span>, in Donatus?`,
+      options:['A written mark','Air struck, perceptible to hearing','A complete sentence','A thought in the soul'],
+      correct:1,
+      explain:`Voice is living sound. The mark comes after. A sentence and a thought are later still.` } },
+
+{ src:['donatus','priscian'], h:`<p><strong>Inarticulate voice.</strong> Donatus divides voice:
+<span class="lat">articulata</span> and <span class="lat">inarticulata</span>.
+Inarticulate voice cannot be written, and is not ordered into letters: a cough,
+a groan, the bark of a dog.</p>
+<p>Such sound may indicate by nature — pain, warning — as animal cries do. It is
+not speech. It cannot be barbarous, because barbarism is a fault in a word, and
+there is not yet a word.</p>`,
+  q:{ prompt:`Why can a groan never be a barbarism?`,
+      options:['Because groans are always well formed','Because barbarism is a fault in a word, and a groan is not a word',
+               'Because Donatus forbade the term','Because only writing can be barbarous'],
+      correct:1,
+      explain:`Barbarism waits on <span class="lat">dictio</span>. Inarticulate voice never reaches that rung.` } },
+
+{ src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> Articulate voice can be divided into letters,
+or — what is the same fact from the mind’s side — is sound ordered toward
+signifying. It is still not yet a word. It is the kind of sound words are made of.</p>
+<p>Aristotle, <em>De interpretatione</em> 1, separates animal sounds, which indicate
+by nature, from names, which signify <span class="lat">ad placitum</span> — by
+institution. A bark may indicate. A name is imposed.</p>
+<p>Some articulate sound is never written: a working cry, a call. The tradition
+still distinguishes <span class="lat">vox litterata</span> — voice that has
+letters — from articulate sound that happens not to be marked. Grammar’s written
+art takes the former; it does not deny the latter.</p>`,
+  q:{ prompt:`Is a groan a <span class="lat">vox</span>? Is it articulate?`,
+      options:['It is not a voice at all','It is a voice, and articulate','It is a voice, and inarticulate','It is a word'],
+      correct:2,
+      explain:`It is air struck, so it is voice. It cannot be divided into letters, so it is inarticulate. It is not a word.` } },
+
+{ src:['donatus','priscian','helias'], h:`<p><strong>Why grammar begins here.</strong> The art is of human speech. Marks
+without sound are not yet this art; noise without articulation is not speech.
+Signification still does not begin at <span class="lat">vox</span>. It begins at
+<span class="lat">dictio</span>, the word. Voice is the matter.</p>
+<p>The next deck takes the letter: the least written part of this sound.</p>`,
+  q:{ prompt:`Why does signification not begin at <span class="lat">vox</span>?`,
+      options:['Because voice is not real','Because voice is matter only — meaning waits for the word',
+               'Because Aristotle denied all sound','Because letters come first in every author'],
+      correct:1,
+      explain:`A voice may be a groan. A word is the least thing that signifies by institution. The letter sits between them, still without meaning.` } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.period = {
+  title:'The Period: how clauses stand',
+  sub:'Syntaxis as joining, not as persuasion — not scored',
+  panels:[
+
+{ src:['priscian','te'], h:`<p><strong>SYNTAXIS.</strong> The word is Greek for arranging together. In the
+Latin schools it is the joining itself — Priscian’s construction, the
+<span class="lat">constructio</span> already named in this act. It is not a new
+art. It is the same joining, now seen across a whole period, not only in a
+pair of words.</p>
+<p>A <strong>period</strong> is a complete stretch of speech that rests the mind:
+often several clauses, joined until the sense is done.</p>`,
+  q:{ prompt:`<span class="lat">Syntaxis</span> in this course means…`,
+      options:['How a passage moves the reader','The joining of constructibles, now across a period',
+               'The history of a word','The metres of verse'],
+      correct:1,
+      explain:`The joining is grammar’s question. Persuasion is not asked yet. Metre is another art.` } },
+
+{ src:['priscian','ag','appown'], h:`<p><strong>Two modes of joining.</strong> Later grammar named them, and the names
+are useful if they are kept in their place.</p>
+<p><strong>Parataxis</strong> — clauses side by side, of equal rank:
+<em>venit et vidit</em>. Neither leans; they are joined as companions.</p>
+<p><strong>Hypotaxis</strong> — one clause leans on another:
+<em>venit ut videret</em>. The purpose-clause waits on <em>venit</em>.</p>
+<p>These are two modes of <span class="lat">constructio</span>. They do not
+replace congruity. A paratactic joining can be ill formed; a hypotactic joining
+can be congruous and incomplete until the period closes.</p>`,
+  q:{ prompt:`<em>venit ut videret</em> is…`,
+      options:['Paratactic: two equals','Hypotactic: the second clause leans on the first',
+               'Not a construction','A barbarism'],
+      correct:1,
+      explain:`<em>Ut videret</em> cannot stand alone. It waits on <em>venit</em>. That is hypotaxis — one mode of joining, still to be judged for congruity.` } },
+
+{ src:['ag','priscian','quint'], h:`<p><strong>Order.</strong> There is an order the schools called natural: what the
+sentence is about, then what is said of it, then what hangs on the verb. Latin
+does not have to keep that order. Poetic order may still be congruous, because
+the endings carry the work.</p>
+<p><em>Arma virumque cano</em> puts the objects first. The construction is sound:
+<em>cano</em> governs <em>arma</em> and <em>virum</em>. Quintilian’s grammarian
+explains that joining. He does not yet ask whether the opening moves you.</p>
+<p>This act stays on that side of the line. Rhetoric will take the same verses
+later, under another office.</p>`,
+  q:{ prompt:`<em>Arma virumque cano</em> puts the objects first. Is the joining still congruous?`,
+      options:['No: Latin must go subject–verb–object','Yes: <em>cano</em> governs both accusatives, wherever they sit',
+               'Only if the line persuades','Only in prose'],
+      correct:1,
+      explain:`Government is not position. The endings mark the objects. Congruity holds. Whether the line moves the reader is not grammar’s question.` } },
+
+{ src:['quint','appown'], h:`<p><strong>What you will do.</strong> The next drills take a period as one
+construction. Latin is the text. English is there to be shown, not to be parsed
+in place of the Latin.</p>
+<p>You will be asked: what part each word is playing; what it governs or agrees
+with; how the period divides into cola; whether a joining is paratactic or
+hypotactic; what a dependent waits upon. The explanation will be a named note —
+Priscian, Servius, or a school commentary — not a lecture on the story.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.letter = {
   title:'Letter and Sound',
   sub:'The least part of speech — not scored',
   panels:[
 
-{ src:['priscian','donatus','helias'], h:`<p><strong>THE LETTER.</strong> The tradition begins below meaning. Priscian’s definition
-is the one the schools kept: the letter is the least part of a composite sound —
+{ src:['priscian','donatus','helias'], h:`<p><strong>THE LETTER.</strong> Living sound has been treated. The letter is the least
+part of that sound that can be written — Priscian’s
 <span class="lat">pars minima vocis compositae</span>. Donatus says much the same of
 articulated sound, sound that can be written.</p>
 <p>A letter is not yet a word. It names nothing, asks nothing, and cannot be true or false.
-Peter Helias places it as the first of the four parts of the art, before the syllable,
-the word, and the sentence. This course follows that order because it is the right order
-for learning: you cannot hear a word until you can hear the pieces it is made of.</p>`,
+Helias, after the Romans’ <span class="lat">vox</span>, places the letter as the first of
+his four parts of the art, before the syllable, the word, and the sentence. You cannot
+hear a word until you can hear the pieces it is made of.</p>`,
   q:{ prompt:`What does a letter signify?`,
       options:['A small meaning, less than a word','Nothing at all',
                'The same as a syllable','Whatever the writer intends'],
@@ -4162,19 +4437,508 @@ EX.ug = {
   }
 };
 
+EX.vox = {
+  id:'vox', src:['donatus','priscian','arist_int'], act:'I', title:'Voice Articulate and Inarticulate',
+  desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification still waits for the word.',
+  instr:'Voice, articulate or not — and why grammar begins here.',
+  gen(d){
+    const items = [
+      {id:'vx1', src:['donatus'], q:'Donatus: <span class="lat">vox est aer ictus, sensibilis auditu</span>. What is he defining?',
+       a:'Living sound — breath struck, heard', ds:['The written letter','A complete sentence','A name imposed ad placitum'],
+       why:'Voice is air struck. The letter is that sound as it can be written. A sentence is much later.'},
+      {id:'vx2', src:['donatus'], q:'A groan is a <span class="lat">vox</span>. Is it articulate?',
+       a:'It is a voice, and inarticulate', ds:['It is not a voice','It is articulate, because it indicates pain','It is a word'],
+       why:'It is air struck, so voice. It cannot be divided into letters, so inarticulate. Indication by nature is not yet signification by a word.'},
+      {id:'vx3', src:['donatus'], q:'Why can inarticulate voice never be a barbarism?',
+       a:'Barbarism is a fault in a word, and there is not yet a word',
+       ds:['Because groans are always correct','Because only vowels can be barbarous','Because Donatus treated only writing'],
+       why:'Donatus’s barbarism waits on a single word wrongly made. A bark never reaches that rung.'},
+      {id:'vx4', src:['arist_int'], q:'Aristotle separates animal sounds from names. The difference is that names signify…',
+       a:'By institution — <span class="lat">ad placitum</span>',
+       ds:['By nature, as a groan does','Only when written','Only in Latin'],
+       why:'<em>De interpretatione</em> 1: animal sounds indicate by nature; names are imposed. Grammar of the word starts after that imposition.'},
+      {id:'vx5', src:['donatus','helias'], q:'Why does signification not begin at <span class="lat">vox</span>?',
+       a:'Voice is the matter of speech; meaning waits for the word',
+       ds:['Because there is no such thing as voice','Because letters come first in Helias’s four parts, and Helias is earlier than Donatus','Because a sentence is only sound'],
+       why:'Donatus and Priscian start from voice as sound. Helias’s four parts begin at the letter, a medieval cut. Either way, the word is the first thing that signifies.'},
+      {id:'vx6', src:['priscian'], q:'Articulate but unwritten sound — a working cry, a call — is…',
+       a:'Still voice, and not yet <span class="lat">vox litterata</span>',
+       ds:['Not voice at all','Already a sentence','A barbarism'],
+       why:'Priscian’s lettered voice is the art’s written matter. Unwritten articulate sound is not denied; it is not yet the letter.'}
+    ];
+    const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5'].indexOf(x.id)>=0) : items;
+    return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
+  }
+};
+
+const PERIOD_ITEMS = [
+  {id:'pe1', src:['verg_pd','priscian'],
+   lat:`Arma virumque cano, Troiae qui primus ab oris\nItaliam fato profugus Laviniaque venit\nlitora.`,
+   eng:`Arms, and the man I sing, who, forced by fate,\nand haughty Juno’s unrelenting hate,\nexpelled and exiled, left the Trojan shore.\n— Dryden`,
+   q:'<em>Arma virumque</em> — what does <em>cano</em> govern?',
+   a:'Two accusatives: <em>arma</em> and <em>virum</em>, joined by <em>-que</em>',
+   ds:['Only <em>arma</em>; <em>virum</em> is nominative','A dative of advantage','Nothing: the verb is intransitive'],
+   why:'Priscian’s partition of the opening: <em>cano</em> takes both objects. The order is poetic; the government is ordinary.'},
+  {id:'pe2', src:['verg_pd','dcc'],
+   lat:`Arma virumque cano, Troiae qui primus ab oris\nItaliam fato profugus Laviniaque venit\nlitora.`,
+   eng:`I sing of arms and the man who first from the coasts of Troy…\n— Dryden, condensed`,
+   q:'What does <em>qui</em> wait upon?',
+   a:'<em>virum</em> — the man just named; <em>qui</em> is nominative with <em>venit</em>',
+   ds:['<em>arma</em>','<em>cano</em> as its object','<em>litora</em>'],
+   why:'Dickinson on I.1: the relative takes up <em>virum</em>. Its own verb is <em>venit</em>, so nominative, not accusative with <em>cano</em>.'},
+  {id:'pe3', src:['verg_pd','ag'],
+   lat:`multum ille et terris iactatus et alto\nvi superum, saevae memorem Iunonis ob iram.`,
+   eng:`much buffeted on land and sea by violence of the gods, to satisfy Juno’s unrelenting wrath.\n— after Dryden`,
+   q:'<em>ob iram</em> with <em>memorem Iunonis</em>: the joining is…',
+   a:'Hypotactic in sense: the wrath is the cause the wanderings wait upon; <em>ob</em> governs the accusative <em>iram</em>',
+   ds:['Paratactic: two equal main verbs','A relative clause','A barbarism of case'],
+   why:'<em>Ob</em> takes the accusative. The phrase gives the cause of <em>iactatus</em>. No second main verb: not parataxis.'},
+  {id:'pe4', src:['verg_pd','ag'],
+   lat:`multa quoque et bello passus, dum conderet urbem\ninferretque deos Latio.`,
+   eng:`much suffering also in war, till he should build a city and bring his gods into Latium.\n— after Dryden`,
+   q:'<em>dum conderet</em> leans how?',
+   a:'Hypotaxis: <em>dum</em> + subjunctive, the founding waited upon as end or bound of the suffering',
+   ds:['Parataxis: <em>dum</em> means “and then he founded” as an equal fact','It is an independent period','<em>conderet</em> is indicative, so no leaning'],
+   why:'Allen &amp; Greenough on <em>dum</em> with the subjunctive: the clause is not a companion fact. It waits on <em>passus</em>.'},
+  {id:'pe5', src:['verg_pd','dcc'],
+   lat:`Musa, mihi causas memora, quo numine laeso\nquidve dolens regina deum tot volvere casus\ninsignem pietate virum, tot adire labores\nimpulerit.`,
+   eng:`Tell me, O Muse, the cause; what injured will, what grief, drove the queen of the gods to make a man of such piety compass so many toils.\n— after Dryden`,
+   q:'<em>quo numine laeso</em> and <em>impulerit</em> — what is the construction after <em>memora</em>?',
+   a:'Indirect questions: <em>quo…, quidve… impulerit</em> wait on <em>memora</em>',
+   ds:['Two independent questions, paratactic with the Muse','Purpose clauses','Result after <em>tot</em>'],
+   why:'Dickinson on I.8–11: <em>memora</em> governs the questions. <em>Impulerit</em> is subjunctive of the indirect question, not an independent verb.'},
+  {id:'pe6', src:['verg_pd','priscian'],
+   lat:`Arma virumque cano… Tantaene animis caelestibus irae?`,
+   eng:`Arms and the man I sing… Can heavenly minds cherish resentment so fierce?\n— Dryden, adapted`,
+   q:'The last colon, <em>Tantaene animis caelestibus irae?</em>, stands how in the period?',
+   a:'An independent question, paratactic with the invocation — a new joining, not a leaner on <em>memora</em>',
+   ds:['A purpose clause after <em>impulerit</em>','A relative taking up <em>virum</em>','Incomplete, because there is no verb'],
+   why:'<em>-ne</em> marks a yes-no question; <em>sunt</em> is understood. It does not wait on <em>memora</em>. Two joinings, side by side, after the hypotaxis of the Muse’s questions.'},
+  {id:'pe7', src:['verg_pd','ag'],
+   lat:`Italiam fato profugus Laviniaque venit\nlitora.`,
+   eng:`…came to Italy and the Lavinian shores, a fugitive by fate.\n— after Dryden`,
+   q:'<em>fato profugus</em>: what work is <em>fato</em> doing?',
+   a:'Ablative of cause: a fugitive <em>by</em> fate',
+   ds:['Accusative of place to which','Dative of advantage','Nominative in apposition to <em>Italiam</em>'],
+   why:'Allen &amp; Greenough: the ablative names the cause of <em>profugus</em>. <em>Italiam</em> and <em>litora</em> are accusatives of the goal with <em>venit</em>.'}
+];
+
+EX.period = {
+  id:'period', src:['verg_pd','priscian','dcc','ag'], act:'IV', title:'Aeneid I.1–11',
+  desc:'The opening period as one construction. Latin is the text. English is shown on request. Partition, government, cola, and what each dependent waits upon. Not a lesson in how the lines move you.',
+  instr:'The opening of the Aeneid as construction. Latin first.',
+  gen(d){
+    const pool = d <= 1 ? PERIOD_ITEMS.filter(x => ['pe1','pe2','pe5','pe7'].indexOf(x.id)>=0) : PERIOD_ITEMS;
+    const it = pickSeen(pool, x => x.id);
+    const q = makeMC(it, d <= 1 ? 3 : 4);
+    q.passage = it.lat.replace(/\n/g,'<br>');
+    q.orig = it.eng.replace(/\n/g,'<br>');
+    q.olang = 'English';
+    q.source = 'Virgil, Aeneid I, trans. Dryden';
+    q.prompt = it.q;
+    q.cong = {c:true, t:null};
+    return q;
+  }
+};
+
+const SERVIUS_ITEMS = [
+  {id:'sv1', src:['servius','verg_pd'],
+   lat:`At regina gravi iamdudum saucia cura\nvulnus alit venis et caeco carpitur igni.`,
+   eng:`But the queen, long since smitten with a grievous love-care, feeds the wound in her veins.\n— after Dryden`,
+   q:'Servius on <em>at</em> at the head of IV.1: what is the joining?',
+   a:'A turn to a new person: parataxis of the narrative, not a leaner on the last verb of Book III',
+   ds:['<em>At</em> introduces a purpose clause','<em>At</em> is a relative','The line is incongruous without a verb of saying'],
+   why:'Servius ad IV.1 <em>at</em>: the particle marks a change of person, from Aeneas’s narrative to Dido. Grammatical office: a new period, side by side with what preceded.'},
+  {id:'sv2', src:['servius','verg_pd'],
+   lat:`At regina gravi iamdudum saucia cura\nvulnus alit venis.`,
+   eng:`But the queen, long since wounded with grievous care, feeds the wound in her veins.`,
+   q:'<em>gravi…cura</em>: what case, and why?',
+   a:'Ablative of cause (or means): she is <em>saucia</em> with that care',
+   ds:['Accusative, object of <em>alit</em>','Dative after <em>at</em>','Genitive of quality with <em>regina</em>'],
+   why:'Servius ad IV.1 on <em>gravi cura</em>: the ablative goes with <em>saucia</em>. <em>Alit</em> takes <em>vulnus</em> as object, not <em>cura</em>.'},
+  {id:'sv3', src:['servius','verg_pd'],
+   lat:`multa viri virtus animo multusque recursat\ngentis honos.`,
+   eng:`The man’s valour and the honour of his race return again and again upon her mind.`,
+   q:'<em>viri virtus</em>: what is the genitive doing?',
+   a:'Objective (or possessive) genitive: valour <em>of</em> the man — <em>virtus</em> is nominative with <em>recursat</em>',
+   ds:['<em>Viri</em> is accusative plural','Ablative of agent','<em>Virtus</em> agrees with <em>animo</em>'],
+   why:'Servius ad IV.3 <em>viri</em>: the genitive depends on <em>virtus</em>. Subject of <em>recursat</em> is <em>virtus</em> (and <em>honos</em>, joined by <em>-que</em>).'},
+  {id:'sv4', src:['servius','verg_pd'],
+   lat:`Anna soror, quae me suspensam insomnia terrent!`,
+   eng:`Anna, my sister — what dreams terrify me, hanging in suspense!`,
+   q:'<em>Anna soror</em> is…',
+   a:'Vocative: the sister is addressed; <em>quae…insomnia</em> is the subject of <em>terrent</em>',
+   ds:['Nominative subject of <em>terrent</em>','Accusative of exclamation only, with no vocative','A subordinate clause of purpose'],
+   why:'Servius ad IV.9 <em>Anna soror</em>: vocative. The relative <em>quae</em> takes up <em>insomnia</em>. Construction of the address, not a moral note on the speech.'},
+  {id:'sv5', src:['servius','verg_pd'],
+   lat:`si mihi non animo fixum immotumque sederet\nne cui me vinclo vellem sociare iugali…`,
+   eng:`If it were not fixed and immovable in my mind that I would not join myself to any by the marriage bond…`,
+   q:'<em>ne cui me…vellem sociare</em> waits upon what?',
+   a:'The sitting-fixed of the mind: a fearing/preventing clause after the sense of resolve in <em>sederet</em>',
+   ds:['<em>Anna</em>, as a command','An independent wish, paratactic','<em>Vinclo</em> as its governing verb'],
+   why:'Servius ad IV.15–16: <em>sederet</em> of a resolve; <em>ne…vellem</em> completes it. Hypotaxis: the <em>ne</em>-clause does not stand alone.'},
+  {id:'sv6', src:['servius','verg_pd'],
+   lat:`sed mihi vel tellus optem prius ima dehiscat…\nante, Pudor, quam te violo.`,
+   eng:`But I would rather the earth gape to its depths for me… before I violate thee, Modesty.`,
+   q:'<em>optem…dehiscat</em>: mood, and the joining with <em>ante…quam</em>?',
+   a:'Optative subjunctive of wish; <em>ante quam</em> hypotactic, bounding the wish',
+   ds:['Indicative narrative, paratactic','<em>Dehiscat</em> is an infinitive of purpose','A relative clause taking up <em>tellus</em> only'],
+   why:'Servius ad IV.24–27: <em>optem</em> of wishing; <em>dehiscat</em> in the same mood. <em>Ante quam</em> sets the bound. The vocative <em>Pudor</em> is address, not a new main verb.'}
+];
+
+EX.servius4 = {
+  id:'servius4', src:['servius','verg_pd'], act:'IV', title:'Servius on Aeneid IV',
+  desc:'A few lines at a time. Latin first. Servius on case, government, and the joining — not on Juno, rite, or Dido’s morals. English on request.',
+  instr:'Construction in Aeneid IV, with Servius as the key.',
+  gen(d){
+    const pool = d <= 1 ? SERVIUS_ITEMS.filter(x => ['sv1','sv2','sv4'].indexOf(x.id)>=0) : SERVIUS_ITEMS;
+    const it = pickSeen(pool, x => x.id);
+    const q = makeMC(it, d <= 1 ? 3 : 4);
+    q.passage = it.lat.replace(/\n/g,'<br>');
+    q.orig = it.eng.replace(/\n/g,'<br>');
+    q.olang = 'English';
+    q.source = 'Virgil, Aeneid IV, with Servius';
+    q.prompt = it.q;
+    q.cong = {c:true, t:null};
+    return q;
+  }
+};
+
+const LIVY_P_ITEMS = [
+  {id:'lp1', src:['livy_r','ag'],
+   lat:`Iam primum omnium satis constat Troia capta in ceteros saevitum esse Troianos; duobus, Aeneae Antenorique, et vetusti iure hospitii et quia pacis reddendaeque Helenae semper auctores fuerant, omne ius belli Achivos abstinuisse.`,
+   eng:`First of all, it is generally agreed that, Troy having been taken, the Greeks wreaked their rage on the rest of the Trojans; but from two, Aeneas and Antenor, they withheld all the rights of war, both because of an old tie of hospitality and because these had always been advocates of peace and of restoring Helen.\n— Roberts, adapted`,
+   q:'<em>Troia capta</em> is…',
+   a:'Ablative absolute: a circumstance the rest of the period waits on',
+   ds:['Nominative subject of <em>constat</em>','Accusative of the town named','A relative clause'],
+   why:'Allen &amp; Greenough on the ablative absolute. <em>Satis constat</em> then governs the infinitives <em>saevitum esse</em> and <em>abstinuisse</em>.'},
+  {id:'lp2', src:['livy_r','ag'],
+   lat:`duobus, Aeneae Antenorique, et vetusti iure hospitii et quia pacis reddendaeque Helenae semper auctores fuerant, omne ius belli Achivos abstinuisse.`,
+   eng:`…from two, Aeneas and Antenor, they withheld all the rights of war, both by reason of old hospitality and because they had always been advocates of peace and of restoring Helen.`,
+   q:'How are <em>et vetusti iure hospitii</em> and <em>quia…fuerant</em> joined to <em>abstinuisse</em>?',
+   a:'Two causes, coordinated (<em>et…et</em>): one an ablative phrase, one a hypotactic <em>quia</em>-clause — mixed joining under one verb',
+   ds:['Both are relative clauses taking up <em>duobus</em>','Both are independent periods','<em>Quia</em> is paratactic with <em>constat</em>'],
+   why:'<em>Et…et</em> are paratactic with each other. <em>Quia…fuerant</em> is hypotactic under the second <em>et</em>. The pair gives the cause of <em>abstinuisse</em>.'},
+  {id:'lp3', src:['livy_r','ag'],
+   lat:`Iam primum omnium satis constat Troia capta in ceteros saevitum esse Troianos; duobus… Achivos abstinuisse.`,
+   eng:`It is generally agreed that… the Greeks withheld…`,
+   q:'What does <em>constat</em> govern?',
+   a:'Accusative and infinitive (in oratio obliqua): <em>saevitum esse</em> and <em>abstinuisse</em>, with <em>Achivos</em> as subject of the second',
+   ds:['A purpose clause with <em>ut</em>','Only a nominative <em>Troianos</em> as subject of <em>constat</em>','Nothing: <em>constat</em> is complete alone'],
+   why:'<em>Satis constat</em> takes reported facts in the infinitive. Two cola, one verb of knowing. The semicolon in modern prints marks the two infinitive members.'},
+  {id:'lp4', src:['livy_r','appown'],
+   lat:`duobus, Aeneae Antenorique… omne ius belli Achivos abstinuisse.`,
+   eng:`from two, Aeneas and Antenor, the Achaeans withheld every right of war.`,
+   q:'<em>Aeneae Antenorique</em> stands in apposition to <em>duobus</em>. The case is…',
+   a:'Dative: the two from whom the rights of war were withheld — government of <em>abstinuisse</em> (withhold from)',
+   ds:['Nominative, subjects of <em>fuerant</em> only','Accusative with <em>ius</em>','Vocative of address'],
+   why:'<em>Abstinere</em> of withholding takes an ablative of the thing and a dative (or <em>ab</em>) of the person. Here <em>duobus</em> is that dative, named in apposition.'}
+];
+
+EX.livyperiod = {
+  id:'livyperiod', src:['livy_r','ag'], act:'IV', title:'A Livian Period',
+  desc:'Livy I.1, one continuous Latin period: Troy taken, two Trojans spared, and why. The same questions as the Aeneid opening — government, absolute, hypotaxis. English on request.',
+  instr:'Livy I.1 as one construction. Latin first.',
+  gen(d){
+    const it = pickSeen(LIVY_P_ITEMS, x => x.id);
+    const q = makeMC(it, d <= 1 ? 3 : 4);
+    q.passage = it.lat;
+    q.orig = it.eng.replace(/\n/g,'<br>');
+    q.olang = 'English';
+    q.source = 'Livy, Ab urbe condita I.1, trans. Roberts';
+    q.prompt = it.q;
+    q.cong = {c:true, t:null};
+    return q;
+  }
+};
+
+/* Twenty shared loci with Ars Rhetorica. Latin is the object; English is a toggle.
+   Questions only where a named commentary or AG treats the joining. */
+const AUCTORES = [
+  {id:'verg-1', shelf:'latin', author:'Virgil', work:'Aeneid', locus:'I.1–7',
+   comm:'Dickinson College Commentaries, Aeneid I.1–7', src:['verg_pd','dcc'],
+   lat:`Arma virumque cano, Troiae qui primus ab oris\nItaliam fato profugus Laviniaque venit\nlitora, multum ille et terris iactatus et alto\nvi superum, saevae memorem Iunonis ob iram,\nmulta quoque et bello passus, dum conderet urbem\ninferretque deos Latio; genus unde Latinum\nAlbanique patres atque altae moenia Romae.`,
+   eng:`Arms, and the man I sing, who first from the Trojan shore came, a fugitive by fate, to Italy and the Lavinian coast…\n— Dryden, adapted`,
+   items:[
+     {q:'<em>virumque</em> is joined to <em>arma</em> how?', a:'Parataxis of two objects under <em>cano</em>, with <em>-que</em>',
+      ds:['A relative clause','Hypotaxis with <em>ut</em>','<em>-que</em> makes <em>virum</em> nominative'],
+      why:'DCC on I.1: both accusatives are objects of <em>cano</em>. Companion objects, not a leaner.'},
+     {q:'<em>qui…venit</em> waits upon…', a:'<em>virum</em>',
+      ds:['<em>arma</em>','<em>litora</em>','<em>cano</em> as a purpose'],
+      why:'DCC: the relative takes up the man. Its verb is <em>venit</em>.'}
+   ]},
+  {id:'verg-2', shelf:'latin', author:'Virgil', work:'Aeneid', locus:'I.8–11',
+   comm:'Dickinson College Commentaries, Aeneid I.8–11', src:['verg_pd','dcc'],
+   lat:`Musa, mihi causas memora, quo numine laeso\nquidve dolens regina deum tot volvere casus\ninsignem pietate virum, tot adire labores\nimpulerit. Tantaene animis caelestibus irae?`,
+   eng:`Muse, tell me the causes… Can such wrath dwell in heavenly minds?\n— Dryden, adapted`,
+   items:[
+     {q:'<em>impulerit</em> is subjunctive because…', a:'It is an indirect question after <em>memora</em>',
+      ds:['It is a purpose clause after <em>Musa</em>','It is a result after <em>tot</em>','Poetic licence for the indicative'],
+      why:'DCC on I.8–11: <em>memora</em> governs <em>quo… quidve… impulerit</em>.'},
+     {q:'<em>Tantaene…irae?</em> is…', a:'An independent question, paratactic with the invocation',
+      ds:['A relative taking up <em>virum</em>','A purpose clause','Incomplete, no verb possible'],
+      why:'<em>-ne</em> marks a new question. It does not lean on <em>memora</em>.'}
+   ]},
+  {id:'cic-cat1-1', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'1.1',
+   comm:'Dickinson College Commentaries, In Catilinam I.1', src:['dcc','ag'],
+   lat:`Quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia?`,
+   eng:`How much further, Catiline, will you abuse our patience? How long will that frenzy of yours mock us?\n— Yonge, adapted`,
+   items:[
+     {q:'<em>patientia nostra</em> after <em>abutere</em> is…', a:'Ablative: <em>abutor</em> governs the ablative',
+      ds:['Accusative object','Nominative subject of <em>abutere</em>','Dative of advantage'],
+      why:'DCC / AG: <em>abutor</em> takes the ablative. The vocative <em>Catilina</em> is address, not the object.'},
+     {q:'The three questions stand how to one another?', a:'Parataxis: three independent cola, same construction, no one leaning on another',
+      ds:['The second and third are purpose clauses after the first','One period of <em>ut</em>','A relative chain on <em>Catilina</em>'],
+      why:'DCC on the opening: three independent interrogatives. Companion joinings, not hypotaxis.'}
+   ]},
+  {id:'cic-cat1-2', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'1.2',
+   comm:'Dickinson College Commentaries, In Catilinam I.2', src:['dcc','ag'],
+   lat:`O tempora, o mores! Senatus haec intellegit, consul videt; hic tamen vivit. Vivit? immo vero etiam in senatum venit…`,
+   eng:`What times, what manners! The senate knows these things, the consul sees them; yet this man lives. Lives? He even comes into the senate…`,
+   items:[
+     {q:'<em>Senatus haec intellegit, consul videt</em> is…', a:'Parataxis of two complete cola, asyndeton',
+      ds:['A relative clause on <em>tempora</em>','<em>Videt</em> leaning as purpose on <em>intellegit</em>','One verb governing both nominatives as objects'],
+      why:'DCC: two short independent clauses, no joining word. Asyndeton is a fact of the joining, not yet a figure asked as persuasion.'},
+     {q:'<em>Vivit?</em> after <em>vivit</em> — the second is…', a:'An independent interrogative, picking up the same verb; still parataxis',
+      ds:['A subordinate result','A relative','Incomplete without <em>ut</em>'],
+      why:'The question mark in modern prints marks a new speech-act. Grammar: same verb, new independent colon.'}
+   ]},
+  {id:'cic-cat1-7', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'1.7',
+   comm:'Dickinson College Commentaries, In Catilinam I.17–18 (patria’s speech)', src:['dcc','ag'],
+   lat:`Quae tecum, Catilina, sic agit et quodam modo tacita loquitur: “Nullum iam aliquot annis facinus exstitit nisi per te…”`,
+   eng:`She pleads with you, Catiline, and in a manner speaks though silent: “No crime has appeared for some years except through you…”`,
+   items:[
+     {q:'<em>quodam modo tacita loquitur</em>: the participle <em>tacita</em> agrees with…', a:'The understood <em>patria</em> (nominative, with <em>loquitur</em>)',
+      ds:['<em>Catilina</em>','<em>facinus</em>','<em>annos</em>'],
+      why:'DCC: the speaker is the fatherland. <em>Tacita</em> is nominative with the verb of speaking — a construction, not a verdict on Catiline.'}
+   ]},
+  {id:'cic-cat2-1', shelf:'latin', author:'Cicero', work:'In Catilinam II', locus:'2.1',
+   comm:'Allen &amp; Greenough on the perfect of result; construction of <em>tandem aliquando</em>', src:['ag'],
+   lat:`Tandem aliquando, Quirites, L. Catilinam furentem audacia, scelus anhelantem, pestem patriae nefarie molientem… ex urbe eiecimus.`,
+   eng:`At last, citizens, we have driven Lucius Catiline from the city…`,
+   items:[
+     {q:'<em>furentem, anhelantem, molientem</em> agree with…', a:'<em>Catilinam</em> (accusative, object of <em>eiecimus</em>)',
+      ds:['<em>Quirites</em> (vocative)','<em>urbe</em>','The subject of <em>eiecimus</em>'],
+      why:'AG on participles agreeing with the object they qualify. Three participles, one object — parataxis of modifiers, one government.'}
+   ]},
+  {id:'cic-milo-1', shelf:'latin', author:'Cicero', work:'Pro Milone', locus:'1.1',
+   comm:'Allen &amp; Greenough on <em>etsi</em> / concessive leaning', src:['ag'],
+   lat:`Etsi vereor, iudices, ne turpe sit pro fortissimo viro dicere incipientem timere…`,
+   eng:`Although I fear, judges, that it may be shameful for one beginning to speak for a most brave man to be afraid…`,
+   items:[
+     {q:'<em>Etsi vereor…</em> is…', a:'Concessive hypotaxis: the main saying waits; <em>ne turpe sit</em> then leans on <em>vereor</em> as a fear-clause',
+      ds:['Two paratactic main verbs','A relative on <em>iudices</em>','<em>Ne</em> of purpose after <em>dicere</em>'],
+      why:'AG: <em>etsi</em> concedes; <em>vereor ne</em> is the fear-construction. Two leanings, one period.'}
+   ]},
+  {id:'cic-marc-1', shelf:'latin', author:'Cicero', work:'Pro Marcello', locus:'1.1',
+   comm:'Allen &amp; Greenough on <em>diuturni silenti</em> as genitive with <em>finem</em>', src:['ag'],
+   lat:`Diuturni silenti, patres conscripti, quo eram his temporibus usus… finem hodiernus dies attulit.`,
+   eng:`Of the long silence, conscript fathers, which I had used in these times, this day has brought an end.`,
+   items:[
+     {q:'<em>Diuturni silenti</em> depends on…', a:'<em>finem</em> — genitive of the thing ended',
+      ds:['<em>patres</em> as vocative genitive','<em>usus</em> as object','<em>dies</em> as possessive'],
+      why:'AG: <em>finis</em> takes a genitive. <em>Quo…usus</em> is a relative, ablative with <em>utor</em>, waiting on <em>silenti</em>.'}
+   ]},
+  {id:'cic-phil-1', shelf:'latin', author:'Cicero', work:'Philippics', locus:'1.1',
+   comm:'Allen &amp; Greenough on <em>antequam</em> with the indicative of fact', src:['ag'],
+   lat:`Ante quam de re publica, patres conscripti, dicam ea quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.`,
+   eng:`Before I speak of the republic, conscript fathers, those things which I think must be said at this time, I will briefly set out the plan of my going and of my return.`,
+   items:[
+     {q:'<em>Ante quam…dicam</em> waits upon…', a:'<em>exponam</em> — hypotaxis of time: the setting-out is promised first',
+      ds:['<em>patres</em>','<em>arbitror</em> as a purpose','Nothing: it is an independent command'],
+      why:'AG on <em>antequam</em>. The subjunctive <em>dicam</em> of the anticipated act; the main verb is <em>exponam</em>.'}
+   ]},
+  {id:'cic-ver-1', shelf:'latin', author:'Cicero', work:'In Verrem I', locus:'1.1',
+   comm:'Allen &amp; Greenough on <em>quod</em> causal vs relative', src:['ag'],
+   lat:`Quod erat optandum maxime, iudices, et quod unum ad invidiam vestri ordinis infamiamque iudiciorum pertinere maxime videbatur, id non humano consilio sed divino quodam casu obtigisse videtur.`,
+   eng:`That which was most to be wished, judges… seems to have fallen out not by human counsel but by some divine chance.`,
+   items:[
+     {q:'The two <em>quod</em> clauses wait upon…', a:'<em>id</em> — they are noun-clauses (relative) naming the thing that has befallen',
+      ds:['<em>iudices</em> as causal <em>because</em>','<em>videtur</em> as purpose','Nothing: both are independent'],
+      why:'AG: <em>quod</em> = that which. Both cola are hypotactic under <em>id</em>. <em>Obtigisse videtur</em> is the main joining.'}
+   ]},
+  {id:'sal-cat-1', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'5',
+   comm:'Allen &amp; Greenough on descriptive genitive; Watson’s Sallust ad loc. on the character-sketch as nominatives in parallel', src:['ag','sallust_w'],
+   lat:`L. Catilina, nobili genere natus, fuit magna vi et animi et corporis, sed ingenio malo pravoque.`,
+   eng:`Lucius Catiline, born of a noble house, was of great force of mind and body, but of a nature evil and depraved.\n— Watson`,
+   items:[
+     {q:'<em>magna vi…ingenio malo</em> are…', a:'Ablatives of description, predicated of Catiline with <em>fuit</em>',
+      ds:['Accusatives of respect only','Datives after <em>natus</em>','Nominative adjectives agreeing with <em>genere</em>'],
+      why:'AG on the ablative of description. <em>Sed</em> joins a second such ablative, paratactic under <em>fuit</em>.'}
+   ]},
+  {id:'sal-cat-consp', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'20',
+   comm:'Allen &amp; Greenough on the infinitive in indirect speech after a verb of saying (understood)', src:['ag','sallust_w'],
+   lat:`Ni virtus fidesque vostra spectata mihi forent, nequiquam opportuna res cecidisset.`,
+   eng:`If your courage and good faith had not been proved to me, this timely occasion would have fallen out in vain.\n— Watson, adapted`,
+   items:[
+     {q:'<em>Ni…forent</em> is…', a:'A contrary-to-fact condition (hypotaxis): the main clause <em>cecidisset</em> waits on it',
+      ds:['A purpose clause','A relative on <em>virtus</em>','Parataxis of two facts in the perfect'],
+      why:'AG on past contrary-to-fact: imperfect/pluperfect subjunctive in both members. One leaning, not two equal facts.'}
+   ]},
+  {id:'sal-caes-1', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'51',
+   comm:'Allen &amp; Greenough on <em>qui</em> of characteristic; Caesar’s speech as reported by Sallust', src:['ag','sallust_w'],
+   lat:`Omnis homines, patres conscripti, qui de dubiis rebus consultant, ab odio, amicitia, ira atque misericordia vacuos esse decet.`,
+   eng:`All men, conscript fathers, who take counsel on doubtful matters, ought to be free from hatred, friendship, anger, and pity.\n— Watson, adapted`,
+   items:[
+     {q:'<em>qui…consultant</em> waits upon…', a:'<em>homines</em> — a relative (characteristic/defining) under the subject of <em>decet…esse</em>',
+      ds:['<em>patres</em> as vocative relative','<em>odio</em> as its object','An independent question'],
+      why:'AG on the relative. <em>Decet</em> then governs the infinitive <em>vacuos esse</em>. Two hypotaxes, one period.'}
+   ]},
+  {id:'liv-tar-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'I.53–54',
+   comm:'Allen &amp; Greenough on historic infinitive and <em>ut</em> of result in Livy', src:['ag','livy_r'],
+   lat:`Ibi Sex. Tarquinius… ut scilicet infesto ageret animo, crimina in proceres Gabinos conferre, peragere, seque iis magis magisque insinuare.`,
+   eng:`There Sextus Tarquin… as if acting with hostile intent, began to heap charges on the Gabine chiefs, to work them out, and to wind himself more and more into their favour.\n— Roberts, adapted`,
+   items:[
+     {q:'<em>conferre, peragere, insinuare</em> are…', a:'Historic infinitives, paratactic: three acts in a chain, no one leaning as a subjunctive purpose',
+      ds:['Complementary infinitives after <em>ut</em> of purpose','Gerunds of means','Nominative gerundives'],
+      why:'AG on the historic infinitive in narrative. <em>Ut scilicet…ageret</em> is a separate hypotaxis of pretence; the three infinitives then stand as the story’s verbs.'}
+   ]},
+  {id:'liv-hor-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'II.10',
+   comm:'Allen &amp; Greenough on <em>qui</em> with subjunctive of characteristic / purpose', src:['ag','livy_r'],
+   lat:`pons sublicius iter paene hostibus dedit, ni unus vir fuisset, Horatius Cocles; id munimentum illo die fortuna urbis Romanae habuit.`,
+   eng:`The pile-bridge almost gave a passage to the enemy, had there not been one man, Horatius Cocles; that was the bulwark the fortune of Rome had that day.\n— Roberts, adapted`,
+   items:[
+     {q:'<em>ni unus vir fuisset</em> is…', a:'A condition contrary to fact, hypotactic under <em>dedit</em> (almost gave — would have given)',
+      ds:['A relative on <em>pons</em>','A purpose after <em>iter</em>','Parataxis: a second main fact in the perfect'],
+      why:'AG: <em>ni</em> + pluperfect subjunctive. The leaning is conditional, not a companion fact about the bridge.'}
+   ]},
+  {id:'liv-luc-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'I.58',
+   comm:'Allen &amp; Greenough on the ablative absolute and verbs of fearing', src:['ag','livy_r'],
+   lat:`Tarquinius… stricto gladio ad dormientem Lucretiam venit cubiculumque Tarquiniae intus invenit.`,
+   eng:`Tarquinius… came with drawn sword to Lucretia as she slept, and found her chamber.`,
+   items:[
+     {q:'<em>stricto gladio</em> is…', a:'Ablative absolute (or of attendant circumstance): the sword having been drawn',
+      ds:['Dative after <em>venit</em>','Nominative with <em>Tarquinius</em>','Accusative of the weapon as object of <em>venit</em>'],
+      why:'AG on the ablative absolute. It does not lean as a finite clause; it is a circumstance of <em>venit</em>.'}
+   ]},
+  {id:'tac-cal-1', shelf:'latin', author:'Tacitus', work:'Agricola', locus:'30',
+   comm:'Allen &amp; Greenough on <em>ubi</em> of time and asyndeton in Tacitus', src:['ag','tacitus_cb'],
+   lat:`ubi solitudinem faciunt, pacem appellant.`,
+   eng:`Where they make a solitude, they call it peace.\n— Church &amp; Brodribb, adapted from the famous colon`,
+   items:[
+     {q:'<em>ubi…faciunt</em> waits upon…', a:'<em>appellant</em> — hypotaxis of time/place: the naming waits on the making',
+      ds:['Nothing: two paratactic commands','A relative on an unexpressed <em>Romani</em> as vocative','A purpose clause'],
+      why:'AG on <em>ubi</em> with the indicative of repeated fact. One colon leans; the period is complete in two verbs.'}
+   ]},
+  {id:'tac-ann-1', shelf:'latin', author:'Tacitus', work:'Annals', locus:'I.1',
+   comm:'Allen &amp; Greenough on asyndeton and apposition in the opening of the Annals', src:['ag','tacitus_cb'],
+   lat:`Urbem Romam a principio reges habuere; libertatem et consulatum L. Brutus instituit.`,
+   eng:`Rome at the beginning was held by kings; liberty and the consulship L. Brutus established.\n— Church &amp; Brodribb, adapted`,
+   items:[
+     {q:'The two cola joined by the semicolon are…', a:'Parataxis: two complete constructions, no subordinating word',
+      ds:['The second is a purpose of the first','A relative on <em>reges</em>','Incomplete until a <em>ut</em> is supplied'],
+      why:'Two finite verbs, two subjects. Companion periods. Tacitus’s asyndeton is a fact of the joining.'}
+   ]},
+  {id:'aug-1', shelf:'latin', author:'Augustine', work:'Confessions', locus:'I.1',
+   comm:'The Maurist text; Allen &amp; Greenough on <em>donec</em> with the subjunctive', src:['aug_pd','ag'],
+   lat:`fecisti nos ad te et inquietum est cor nostrum, donec requiescat in te.`,
+   eng:`Thou hast made us for Thyself, and our heart is restless, until it repose in Thee.\n— Pusey`,
+   items:[
+     {q:'<em>donec requiescat</em> waits upon…', a:'<em>inquietum est</em> — hypotaxis of time: the restlessness is bounded',
+      ds:['<em>fecisti</em> as a purpose only','<em>ad te</em> as a relative','It is paratactic with <em>fecisti</em> as a third equal'],
+      why:'AG on <em>donec</em> with the subjunctive of anticipated action. <em>Et</em> before <em>inquietum</em> is parataxis of the two main cola; <em>donec</em> then leans on the second.'}
+   ]},
+  {id:'boe-1', shelf:'latin', author:'Boethius', work:'Consolation of Philosophy', locus:'I.1',
+   comm:'Allen &amp; Greenough on participles in agreement; the opening visio as nominatives', src:['ag'],
+   lat:`Haec dum mecum tacitus ipse reputarem, astitisse mihi supra verticem visa est mulier…`,
+   eng:`While I in silence pondered these things with myself, there seemed to stand above my head a woman…`,
+   items:[
+     {q:'<em>dum…reputarem</em> waits upon…', a:'<em>visa est</em> — hypotaxis of time: the appearing is set inside the pondering',
+      ds:['<em>mulier</em> as purpose','An independent wish','<em>verticem</em> as its governing noun'],
+      why:'AG on <em>dum</em> with the imperfect subjunctive in later Latin of contemporaneous circumstance. The main joining is <em>visa est mulier</em>.'}
+   ]},
+  /* Greek shelf — only listed when Ancient Greek is the partner language */
+  {id:'hom-il-1', shelf:'greek', author:'Homer', work:'Iliad', locus:'1.1–5',
+   comm:'Smyth on the accusative of the object with ἀείδω; purpose/result not yet asked', src:['smyth'],
+   lat:`μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος\nοὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε.`,
+   eng:`Sing, goddess, the wrath of Peleus’ son Achilles, the ruinous wrath that laid pains thousandfold upon the Achaeans.`,
+   olang:'Greek',
+   items:[
+     {q:'<em>μῆνιν</em> is…', a:'Accusative, object of ἄειδε',
+      ds:['Nominative subject of ἔθηκε','Vocative with θεά','Genitive with Ἀχιλῆος'],
+      why:'Smyth on the accusative object. θεά is vocative; Ἀχιλῆος is genitive with μῆνιν. The relative ἥ takes up μῆνιν.'}
+   ]},
+  {id:'thuc-per-1', shelf:'greek', author:'Thucydides', work:'History', locus:'2.35',
+   comm:'Smyth on the articular infinitive and μέν…δέ as parataxis', src:['smyth','crawley'],
+   lat:`οἱ μὲν πολλοὶ τῶν ἐνθάδε ἤδη εἰρηκότων ἐπαινοῦσι τὸν προσθέντα τῷ νόμῳ τὸν λόγον τόνδε.`,
+   eng:`Most of those who have spoken here before me have commended the man who added this oration to the law.\n— Crawley, adapted`,
+   olang:'Greek',
+   items:[
+     {q:'<em>οἱ μὲν πολλοί</em> as subject, with no δέ in this colon, is…', a:'The first member of a μέν-joining; the construction is complete as a main clause',
+      ds:['A purpose clause after ἐπαινοῦσι','A genitive absolute','Incomplete until ἵνα is supplied'],
+      why:'Smyth on μέν…δέ. This colon is an independent joining. Hypotaxis would need ἵνα, ὅτι, or a relative of leaning.'}
+   ]},
+  {id:'gor-hel-1', shelf:'greek', author:'Gorgias', work:'Encomium of Helen', locus:'1',
+   comm:'Smyth on predicate adjectives and the articular abstract', src:['smyth'],
+   lat:`κόσμος πόλει μὲν εὐανδρία, σώματι δὲ κάλλος, ψυχῇ δὲ σοφία.`,
+   eng:`The adornment of a city is good men; of a body, beauty; of a soul, wisdom.`,
+   olang:'Greek',
+   items:[
+     {q:'The three cola with μέν / δέ / δέ are…', a:'Parataxis: three predicate joinings, companion members',
+      ds:['A chain of purpose clauses','One relative on κόσμος as object','Incomplete without a finite verb of motion'],
+      why:'Smyth: μέν…δέ coordinates. ἐστίν is understood. No clause leans; three equals.'}
+   ]},
+  {id:'ant-3.1.1', shelf:'greek', author:'Antiphon', work:'First Tetralogy', locus:'3.1.1',
+   comm:'Smyth on the genitive of the charge and verbs of accusing', src:['smyth'],
+   lat:`ἀναγκαῖον καὶ οὐχ ἑκούσιον τὸ πρᾶγμα προβαλλόμενος…`,
+   eng:`Putting forward the matter as necessary and not voluntary…`,
+   olang:'Greek',
+   items:[
+     {q:'<em>ἀναγκαῖον καὶ οὐχ ἑκούσιον</em> agree with…', a:'<em>τὸ πρᾶγμα</em> (accusative, object of the participle)',
+      ds:['An unexpressed vocative jury','The subject of an independent indicative','A dative of means'],
+      why:'Smyth on predicate adjectives. καί joins two equals modifying the same object — parataxis of modifiers.'}
+   ]}
+];
+
+EX.auctores = {
+  id:'auctores', src:['ag','dcc','servius'], act:'IV', title:'Twenty passages',
+  desc:'Shared loci with Ars Rhetorica. Latin (or Greek) is the text; English is a toggle. Construction only: government, agreement, cola, parataxis and hypotaxis. A named commentary is the key. The badge marks the rhetoric id.',
+  instr:'Pick a passage, then judge the joining. Latin first.',
+  gen(d){
+    const id = state.auctorId;
+    let a = AUCTORES.filter(x => x.id === id)[0];
+    if(!a){
+      const shelf = AUCTORES.filter(x => x.shelf !== 'greek' || state.lang3 === 'grc');
+      a = rand(shelf);
+    }
+    const it = pickSeen(a.items, x => a.id + ':' + x.q);
+    it.src = a.src;
+    const q = makeMC(it, d <= 1 ? 3 : 4);
+    q.passage = a.lat.replace(/\n/g,'<br>');
+    q.orig = a.eng.replace(/\n/g,'<br>');
+    q.olang = 'English';
+    q.source = a.author + ', ' + a.work + ' ' + a.locus + ' — ' + a.comm;
+    q.prompt = it.q;
+    q.cong = {c:true, t:null};
+    const badge = 'Also in Ars Rhetorica: ' + a.id;
+    const wrap = q.check;
+    q.check = function(i){
+      const r = wrap.call(q, i);
+      r.note = (r.note || '') + '<br><br><em>' + badge + '</em>';
+      return r;
+    };
+    return q;
+  }
+};
+
 /* ---------- the act structure of the home page ---------- */
 const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
-   gloss:'Begin here. What grammar is, what it is about, and where it stops; then why noun and verb differ.',
+   gloss:'Begin here: to know what the art is, what it is for, and why it is not to be skipped — then why noun and verb differ.',
    items:[
      {kind:'deck', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
-      desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from letter to sentence; and the boundary between grammar and logic. Not scored.'},
+      desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from voice to sentence; and the boundary between grammar and logic. Not scored.'},
+     {kind:'deck', deck:'accessus', tag:'STUDY', title:'Why There Is an Art',
+      desc:'The accessus: genus, matter, parts, office, end, tools, name, and use — Quintilian, Cassiodorus, Isidore, John of Salisbury. Why not to skip. Not scored.'},
      {kind:'deck', deck:'modes', tag:'STUDY', title:'The Three Modes',
       desc:'The way a thing is, the way the mind takes it, the way a word signifies it — and the derivation of the parts of speech from those modes. Not scored.'}
    ]},
-  {key:'I', roman:'I', name:'The Matter of Speech', latin:'Littera et Syllaba',
-   gloss:'Letter, sound, syllable, quantity, accent. The matter of speech, which signifies nothing by itself.',
+  {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
+   gloss:'To isolate the matter of speech before meaning: voice, then letter, then syllable.',
    items:[
+     {kind:'deck', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
+      desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification waits for the word. Not scored.'},
+     {kind:'ex', ex:'vox'},
      {kind:'deck', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — name, shape, and power. Vowel and consonant. Not scored.'},
      {kind:'ex', ex:'letter'},
@@ -4183,7 +4947,7 @@ const ACTS = [
      {kind:'ex', ex:'syllable'}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
-   gloss:'The word, and the kinds of work a word can do — each learned together with the mode of signifying that constitutes it.',
+   gloss:'To name the kinds of work a word can do, before the accidents are marked.',
    items:[
      {kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'},
      {kind:'deck', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
@@ -4191,7 +4955,7 @@ const ACTS = [
      {kind:'ex', ex:'decline'}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
-   gloss:'Case, number, gender, person, tense, mood, voice — the accidental modes, and where the languages differ.',
+   gloss:'To mark the accidents a word takes while remaining the same word.',
    items:[
      {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'},
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
@@ -4199,7 +4963,7 @@ const ACTS = [
      {kind:'ex', ex:'produce'}
    ]},
   {key:'IV', roman:'IV', name:'Construction', latin:'Oratio',
-   gloss:'Syntax: how constructibles are joined, when the joining is congruous, and when it is complete.',
+   gloss:'To judge a joining, then a period.',
    items:[
      {kind:'deck', deck:'oratio', tag:'STUDY', title:'Construction',
       desc:'The sentence as a joining, not a heap. <span class="lat">Suppositum</span> and <span class="lat">appositum</span> — what the sentence is about, and what is said of it — and why these are not yet logic’s subject and predicate. Not scored.'},
@@ -4217,10 +4981,17 @@ const ACTS = [
      {kind:'ex', ex:'clauses'},
      {kind:'deck', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
       desc:'Dependent to terminant, as the modists drew it and as dependency grammar draws it still. Read back what a markup asserts. Not scored.'},
-     {kind:'ex', ex:'workshop'}
+     {kind:'ex', ex:'workshop'},
+     {kind:'deck', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
+      desc:'<span class="lat">Syntaxis</span> as the joining itself. Parataxis and hypotaxis as two modes of construction, not as a replacement for congruity. Poetic order that is still well formed. Latin first. Not scored.'},
+     {kind:'ex', ex:'period'},
+     {kind:'ex', ex:'servius4'},
+     {kind:'ex', ex:'livyperiod'},
+     {kind:'pick', pick:'auctores', tag:'AUCTORES', title:'Twenty passages',
+      desc:'Shared loci with Ars Rhetorica. Choose one: partition, government, cola, parataxis or hypotaxis. A named commentary is the key. English on request. Greek shelf only if Ancient Greek is the partner language.'}
    ]},
   {key:'V', roman:'V', name:'Speculative Grammar', latin:'Grammatica Speculativa',
-   gloss:'The Parisian theory, with its objections. Thomas of Erfurt, Boethius of Dacia, and the nominalists who ended the school.',
+   gloss:'To hear why the parts of speech are these and not others — and the objections.',
    items:[
      {kind:'deck', deck:'actpass', tag:'STUDY', title:'Active and Passive Modes',
       desc:'<span class="lat">Modus significandi activus</span> against <span class="lat">passivus</span> — the distinction that answers Ockham’s charge of a quality added to the sound. Not scored.'},
@@ -4230,14 +5001,14 @@ const ACTS = [
      {kind:'ex', ex:'objections'}
    ]},
   {key:'VI', roman:'VI', name:'The Vices of Speech', latin:'Barbarismus et Soloecismus',
-   gloss:'A fault in one word, and a fault in the construction — the negative definition of congruity.',
+   gloss:'To see the good of congruity by its faults.',
    items:[
      {kind:'deck', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
       desc:'Donatus’s division: <span class="lat">barbarismus</span> is a fault in a single word, <span class="lat">soloecismus</span> a fault in the joining. The tropes wait for <em>Ars Rhetorica</em>. Not scored.'},
      {kind:'ex', ex:'vices'}
    ]},
   {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
-   gloss:'The boundary, and the crossing into the second art.',
+   gloss:'To hand a well-formed saying to logic.',
    items:[
      {kind:'deck', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
       desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions. Not scored.'},
@@ -4248,7 +5019,7 @@ const ACTS = [
      {kind:'ex', ex:'congtruth'}
    ]},
   {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
-   gloss:'The ancient question and the modern: two universal grammars, and the evidence that must judge between them.',
+   gloss:'To test whether the variation of languages is only in the marks.',
    items:[
      {kind:'deck', deck:'traditions', tag:'STUDY', title:'Three Ways of Studying Language',
       desc:'Speculative grammar, humanist philology, and linguistics since Saussure. What each can see; what the school already granted; and a Thomist’s reply: <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops. Not scored.'},
@@ -4357,6 +5128,11 @@ function buildHome(){
           <p>${e.desc}</p><span class="begin">BEGIN ⟶</span>
           ${t && t.seen ? `<div class="set-flag">${t.right}/${t.seen}</div>` : ''}`;
         c.onclick = () => startEx(e);
+      }else if(item.kind === 'pick'){
+        c.className = 'set-card wide';
+        c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
+          <p>${item.desc}</p><span class="begin">CHOOSE ⟶</span>`;
+        c.onclick = () => openPick(item.pick);
       }else{
         c.className = 'set-card soon' + (paired ? '' : ' wide');
         c.innerHTML = `<div class="set-num"><span class="ex-mark">Exercise</span></div><h3>${item.title}</h3>
@@ -4390,6 +5166,30 @@ function buildHome(){
 
 /* ---------- study decks ---------- */
 let deck = null, deckI = 0, deckAnswered = false;
+
+function auctorShelf(){
+  return AUCTORES.filter(a => a.shelf !== 'greek' || state.lang3 === 'grc');
+}
+function openPick(which){
+  if(which !== 'auctores') return;
+  $('pick-title').textContent = 'Twenty passages';
+  $('pick-sub').textContent = 'Latin is the text. English is shown on request. Construction only.';
+  $('pick-note').innerHTML = 'Shared loci with Ars Rhetorica. Choose one period. The questions are government, agreement, cola, and whether a joining is paratactic or hypotactic. The key is a named commentary, not a lecture on the story.'
+    + (state.lang3 === 'grc' ? ' A Greek shelf is included because Ancient Greek is the partner language.' : '');
+  const grid = $('pick-grid');
+  grid.innerHTML = '';
+  auctorShelf().forEach(a => {
+    const c = document.createElement('div');
+    c.className = 'set-card';
+    c.innerHTML = `<div class="set-num">${a.author}</div><h3>${a.work} ${a.locus}</h3>
+      <p>${a.comm}</p>
+      <span class="auctor-badge">Also in Ars Rhetorica: ${a.id}</span>
+      <span class="begin">BEGIN ⟶</span>`;
+    c.onclick = () => { state.auctorId = a.id; startEx(EX.auctores); };
+    grid.appendChild(c);
+  });
+  show('scr-pick');
+}
 
 function openDeck(key){
   deck = DECKS[key]; deckI = 0;
@@ -4669,6 +5469,7 @@ function renderProgress(){
 
 $('btn-progress').onclick = () => { renderProgress(); show('scr-prog'); };
 $('prog-back').onclick = () => { show('scr-home'); buildHome(); };
+$('pick-back').onclick = () => { show('scr-home'); buildHome(); };
 $('prog-reset').onclick = () => {
   store.totals = {}; store.score = 0; store.bestStreak = 0; store.mistakes = [];
   save(); renderProgress();
