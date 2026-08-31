@@ -81,7 +81,7 @@ body{
 /* ------- header ------- */
 header{text-align:center; margin-bottom:26px}
 .ornament{color:var(--gold); font-size:22px; letter-spacing:.4em; margin:6px 0}
-h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:.06em; color:var(--ink)}
+h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:.06em; color:var(--ink); font-variant:small-caps}
 @media (max-width:520px){ h1{font-size:32px} }
 .subtitle{font-style:italic; color:var(--ink-soft); font-size:20px; margin-top:2px}
 .rule{display:flex; align-items:center; gap:14px; margin:20px auto; max-width:520px; color:var(--gold)}
@@ -423,7 +423,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
   <div class="screen active" id="scr-home">
     <header>
       <div class="ornament">❦</div>
-      <h1>ARS GRAMMATICA</h1>
+      <h1>Ars Grammatica</h1>
       <div class="subtitle">The first road of the trivium</div>
     </header>
 
@@ -509,7 +509,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
   <div class="screen" id="scr-src">
     <header>
       <div class="ornament">❦</div>
-      <h1 style="font-size:32px">SOURCES</h1>
+      <h1 style="font-size:32px">Sources</h1>
       <div class="subtitle">Everything this course asserts, and where it comes from</div>
     </header>
     <div class="intro-note">Every study panel and every written exercise item in this
@@ -523,7 +523,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
   <div class="screen" id="scr-prog">
     <header>
       <div class="ornament">❦</div>
-      <h1 style="font-size:32px">PROGRESS</h1>
+      <h1 style="font-size:32px">Progress</h1>
     </header>
     <div id="prog-body"></div>
     <div class="btn-row">
@@ -1239,7 +1239,7 @@ const DECKS = {};
 /* -------------------------------------------------------------- */
 DECKS.prelim = {
   title:'What Grammar Is',
-  sub:'An orientation — not scored',
+  sub:'An orientation',
   panels:[
 
 { src:['appown','copeland'], h:`<p><strong>THE FIRST ROAD.</strong> The old course of study put three arts together and
@@ -1377,8 +1377,8 @@ than in the world.</p>
       explain:`Both work on Latin, and the modists take Priscian’s descriptions almost entirely for granted. What they add is the demand that a science must <em>explain</em> its facts by giving reasons, not merely record them.`,
       wrong:`They kept Priscian's parts of speech; what they would not keep was the bare list.` } },
 
-{ src:['appown'], h:`<p><strong>How to use this course.</strong> The study decks are not scored. Read the panel,
-answer the question, read the answer given, and go on. The exercises are scored. They
+{ src:['appown'], h:`<p><strong>How to use this course.</strong> Read the panel,
+answer the question, read the answer given, and go on. The exercises
 generate fresh questions each time, rather than drawing on a fixed list.</p>
 <p>Beneath every exercise are two lamps: <strong>congruous</strong> and
 <strong>true</strong>. Most exercises light only the first, because grammar for the most
@@ -1389,7 +1389,7 @@ one; logic the other.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.modes = {
   title:'The Three Modes',
-  sub:'Why the parts of speech are what they are — not scored',
+  sub:'Why the parts of speech are what they are',
   panels:[
 
 { src:['te','bh'], h:`<p><strong>THE MODIST ANSWER.</strong> Take a running horse. It may be considered in
@@ -1731,7 +1731,7 @@ question deserved asking.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.clauses = {
   title:'The Kinds of Clause',
-  sub:'How one construction leans on another — not scored',
+  sub:'How one construction leans on another',
   panels:[
 
 { src:['ag','appown'], h:`<p><strong>CLAUSE.</strong> A clause is a construction with its own finite verb. Some
@@ -1841,7 +1841,7 @@ function makeMC(it, nOpt){
 /* -------------------------------------------------------------- */
 DECKS.accessus = {
   title:'Why There Is an Art',
-  sub:'The accessus: what the art is for — not scored',
+  sub:'The accessus: what the art is for',
   panels:[
 
 { src:['cassiod','isidore','boethiusd'], h:`<p><strong>GENUS.</strong> Grammar is a liberal art of language — one of the three
@@ -1958,7 +1958,7 @@ in the next act, with the voice.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.vox = {
   title:'Voice Articulate and Inarticulate',
-  sub:'Living sound, before the letter — not scored',
+  sub:'Living sound, before the letter',
   panels:[
 
 { src:['donatus','priscian'], h:`<p><strong>VOX.</strong> Donatus: <span class="lat">vox est aer ictus, sensibilis
@@ -2016,7 +2016,7 @@ Signification still does not begin at <span class="lat">vox</span>. It begins at
 /* -------------------------------------------------------------- */
 DECKS.period = {
   title:'The Period: how clauses stand',
-  sub:'Syntaxis as joining, not as persuasion — not scored',
+  sub:'Syntaxis as joining, not as persuasion',
   panels:[
 
 { src:['priscian','te'], h:`<p><strong>SYNTAXIS.</strong> The word is Greek for arranging together. In the
@@ -2074,7 +2074,7 @@ Priscian, Servius, or a school commentary — not a lecture on the story.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.letter = {
   title:'Letter and Sound',
-  sub:'The least part of speech — not scored',
+  sub:'The least part of speech',
   panels:[
 
 { src:['priscian','donatus','helias'], h:`<p><strong>THE LETTER.</strong> Living sound has been treated. The letter is the least
@@ -2136,7 +2136,7 @@ heard. Grammar of the word will need both, and will need not to confuse them.</p
 /* -------------------------------------------------------------- */
 DECKS.syllable = {
   title:'Syllable, Quantity and Accent',
-  sub:'How sound is grouped, measured, and stressed — not scored',
+  sub:'How sound is grouped, measured, and stressed',
   panels:[
 
 { src:['priscian','helias'], h:`<p><strong>THE SYLLABLE.</strong> A syllable is a sound uttered in one impulse of the
@@ -2199,7 +2199,7 @@ the same, and must be learned for each language.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.decline = {
   title:'Declinable and Indeclinable',
-  sub:'The first cut through the eight parts — not scored',
+  sub:'The first cut through the eight parts',
   panels:[
 
 { src:['donatus','priscian'], h:`<p><strong>THE FIRST CUT.</strong> Donatus and Priscian divide the eight parts of
@@ -2250,7 +2250,7 @@ whether or not an ending is still there to show it.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.produce = {
   title:'Producing the Form',
-  sub:'From lemma and accidents to the word itself — not scored',
+  sub:'From lemma and accidents to the word itself',
   panels:[
 
 { src:['ag','appown'], h:`<p><strong>THE INVERSE DRILL.</strong> Parsing shows you a form and asks for its
@@ -2283,7 +2283,7 @@ mistake.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.govern = {
   title:'Government',
-  sub:'How one word requires a case of another — not scored',
+  sub:'How one word requires a case of another',
   panels:[
 
 { src:['te','ag'], h:`<p><strong>REGIMEN.</strong> Some words do not merely sit beside others. They
@@ -2331,7 +2331,7 @@ not vanish. The marking of it thinned.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.cong = {
   title:'Congruity and Completeness',
-  sub:'Two conditions of a construction — not scored',
+  sub:'Two conditions of a construction',
   panels:[
 
 { src:['te','bh'], h:`<p><strong>TWO CONDITIONS.</strong> Thomas of Erfurt requires two things of a
@@ -2377,7 +2377,7 @@ asking whether you agree with the speaker.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.workshop = {
   title:'The Sentence Workshop',
-  sub:'Dependent and terminant — not scored',
+  sub:'Dependent and terminant',
   panels:[
 
 { src:['te','bh'], h:`<p><strong>DEPENDENCE.</strong> Every construction, for the modists, is one word
@@ -2419,7 +2419,7 @@ one leaning at a time, which is how the construction is actually built.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.oratio = {
   title:'Construction',
-  sub:'What a sentence is, before the joining is judged — not scored',
+  sub:'What a sentence is, before the joining is judged',
   panels:[
 
 { src:['te','helias'], h:`<p><strong>CONSTRUCTION.</strong> The sentence is not a heap of words. It is a
@@ -2465,7 +2465,7 @@ sentence one thing rather than a list.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.agree = {
   title:'Agreement',
-  sub:'When one word must match another — not scored',
+  sub:'When one word must match another',
   panels:[
 
 { src:['te','ag'], h:`<p><strong>CONCORD.</strong> Some words do not merely sit near others. They
@@ -2505,7 +2505,7 @@ asks you to name it. One accident at a time.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.actpass = {
   title:'Active and Passive Modes',
-  sub:'The word’s way of signifying, and the thing’s way of being signified — not scored',
+  sub:'The word’s way of signifying, and the thing’s way of being signified',
   panels:[
 
 { src:['te','bh'], h:`<p><strong>TWO SIDES OF ONE MODE.</strong> The mode of signifying can be taken from
@@ -2546,7 +2546,7 @@ as “the sound has an extra property.”</p>`,
 /* -------------------------------------------------------------- */
 DECKS.objections = {
   title:'The Great Objections',
-  sub:'Where the doctrine is under pressure — not scored',
+  sub:'Where the doctrine is under pressure',
   panels:[
 
 { src:['te','arist_met','bh'], h:`<p><strong>THE CHIMAERA.</strong> If the noun signifies in the manner of a being
@@ -2615,7 +2615,7 @@ words do are not the same from language to language.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.vices = {
   title:'Barbarism and Solecism',
-  sub:'A fault in one word, and a fault in the joining — not scored',
+  sub:'A fault in one word, and a fault in the joining',
   panels:[
 
 { src:['donatus','copeland'], h:`<p><strong>DONATUS’S DIVISION.</strong> A vice of speech is either in a single
@@ -2652,7 +2652,7 @@ as correctness, and because they need more room than a vice-list can give them.<
 /* -------------------------------------------------------------- */
 DECKS.suppos = {
   title:'Signification and Supposition',
-  sub:'What a word means, and what it stands for here — not scored',
+  sub:'What a word means, and what it stands for here',
   panels:[
 
 { src:['peterhisp','jst'], h:`<p><strong>TWO QUESTIONS.</strong> <strong>Signification</strong> is what a word
@@ -2691,7 +2691,7 @@ other side.</p>`,
 /* -------------------------------------------------------------- */
 DECKS.figura = {
   title:'The Figure of Speech',
-  sub:'When the shape of the word is taken for the shape of the thing — not scored',
+  sub:'When the shape of the word is taken for the shape of the thing',
   panels:[
 
 { src:['appown','te'], h:`<p><strong>FIGURA DICTIONIS.</strong> The word follows the thing, but it follows
@@ -2723,7 +2723,7 @@ thing,” the figure of speech has begun.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.typo = {
   title:'Typology',
-  sub:'How languages actually differ — not scored',
+  sub:'How languages actually differ',
   panels:[
 
 { src:['greenberg','appown'], h:`<p><strong>WORD ORDER.</strong> Languages settle the main sentence in a preferred
@@ -2788,7 +2788,7 @@ in this act asks what that evidence is worth.</p>` }
 /* -------------------------------------------------------------- */
 DECKS.ug = {
   title:'Two Universal Grammars',
-  sub:'The mind, and the world — not scored',
+  sub:'The mind, and the world',
   panels:[
 
 { src:['chomsky','boethiusd','bh'], h:`<p><strong>TWO CLAIMS TO THE SAME NAME.</strong> The modists and Chomsky both hold
@@ -4931,23 +4931,23 @@ const ACTS = [
    gloss:'Begin here: to know what the art is, what it is for, and why it is not to be skipped — then why noun and verb differ.',
    items:[
      {kind:'deck', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
-      desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from voice to sentence; and the boundary between grammar and logic. Not scored.'},
+      desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from voice to sentence; and the boundary between grammar and logic.'},
      {kind:'deck', deck:'accessus', tag:'STUDY', title:'Why There Is an Art',
-      desc:'The accessus: genus, matter, parts, office, end, tools, name, and use — Quintilian, Cassiodorus, Isidore, John of Salisbury. Why not to skip. Not scored.'},
+      desc:'The accessus: genus, matter, parts, office, end, tools, name, and use — Quintilian, Cassiodorus, Isidore, John of Salisbury. Why not to skip.'},
      {kind:'deck', deck:'modes', tag:'STUDY', title:'The Three Modes',
-      desc:'The way a thing is, the way the mind takes it, the way a word signifies it — and the derivation of the parts of speech from those modes. Not scored.'}
+      desc:'The way a thing is, the way the mind takes it, the way a word signifies it — and the derivation of the parts of speech from those modes.'}
    ]},
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'To isolate the matter of speech before meaning: voice, then letter, then syllable.',
    items:[
      {kind:'deck', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
-      desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification waits for the word. Not scored.'},
+      desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification waits for the word.'},
      {kind:'ex', ex:'vox'},
      {kind:'deck', deck:'letter', tag:'STUDY', title:'Letter and Sound',
-      desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — name, shape, and power. Vowel and consonant. Not scored.'},
+      desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — name, shape, and power. Vowel and consonant.'},
      {kind:'ex', ex:'letter'},
      {kind:'deck', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
-      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat. Not scored.'},
+      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.'},
      {kind:'ex', ex:'syllable'}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
@@ -4955,7 +4955,7 @@ const ACTS = [
    items:[
      {kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'},
      {kind:'deck', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
-      desc:'The tradition’s first cut through the eight parts, and the ground of Act III. What takes endings, and what keeps one form. Not scored.'},
+      desc:'The tradition’s first cut through the eight parts, and the ground of Act III. What takes endings, and what keeps one form.'},
      {kind:'ex', ex:'decline'}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
@@ -4963,31 +4963,31 @@ const ACTS = [
    items:[
      {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'},
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
-      desc:'The inverse of parsing: given the lemma and the accidents, write the form. How to go about it, and what the drill is asking. Not scored.'},
+      desc:'The inverse of parsing: given the lemma and the accidents, write the form. How to go about it, and what the drill is asking.'},
      {kind:'ex', ex:'produce'}
    ]},
   {key:'IV', roman:'IV', name:'Construction', latin:'Oratio',
    gloss:'To judge a joining, then a period.',
    items:[
      {kind:'deck', deck:'oratio', tag:'STUDY', title:'Construction',
-      desc:'The sentence as a joining, not a heap. <span class="lat">Suppositum</span> and <span class="lat">appositum</span> — what the sentence is about, and what is said of it — and why these are not yet logic’s subject and predicate. Not scored.'},
+      desc:'The sentence as a joining, not a heap. <span class="lat">Suppositum</span> and <span class="lat">appositum</span> — what the sentence is about, and what is said of it — and why these are not yet logic’s subject and predicate.'},
      {kind:'deck', deck:'agree', tag:'STUDY', title:'Agreement',
-      desc:'<span class="lat">Concordantia</span>. The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent. Derived from the mode of adhering, not listed as a custom. Not scored.'},
+      desc:'<span class="lat">Concordantia</span>. The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent. Derived from the mode of adhering, not listed as a custom.'},
      {kind:'ex', ex:'agree'},
      {kind:'deck', deck:'govern', tag:'STUDY', title:'Government',
-      desc:'<span class="lat">Regimen</span> — the verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions. Not scored.'},
+      desc:'<span class="lat">Regimen</span> — the verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.'},
      {kind:'ex', ex:'govern'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
-      desc:'<span class="lat">Congruitas et perfectio</span>. <em>Percutio album</em> is incongruous; <em>homo albus</em> is congruous but incomplete; only <em>homo est albus</em> rests the hearer’s mind. Not scored.'},
+      desc:'<span class="lat">Congruitas et perfectio</span>. <em>Percutio album</em> is incongruous; <em>homo albus</em> is congruous but incomplete; only <em>homo est albus</em> rests the hearer’s mind.'},
      {kind:'ex', ex:'cong'},
      {kind:'deck', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
-      desc:'Independent and subordinate; purpose against result; indirect speech and the indirect question; time, cause, condition, concession; the relative, and the trap of English <em>that</em>. Then the same kinds in the authors. Not scored.'},
+      desc:'Independent and subordinate; purpose against result; indirect speech and the indirect question; time, cause, condition, concession; the relative, and the trap of English <em>that</em>. Then the same kinds in the authors.'},
      {kind:'ex', ex:'clauses'},
      {kind:'deck', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
-      desc:'Dependent to terminant, as the modists drew it and as dependency grammar draws it still. Read back what a markup asserts. Not scored.'},
+      desc:'Dependent to terminant, as the modists drew it and as dependency grammar draws it still. Read back what a markup asserts.'},
      {kind:'ex', ex:'workshop'},
      {kind:'deck', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
-      desc:'<span class="lat">Syntaxis</span> as the joining itself. Parataxis and hypotaxis as two modes of construction, not as a replacement for congruity. Poetic order that is still well formed. Latin first. Not scored.'},
+      desc:'<span class="lat">Syntaxis</span> as the joining itself. Parataxis and hypotaxis as two modes of construction, not as a replacement for congruity. Poetic order that is still well formed. Latin first.'},
      {kind:'ex', ex:'period'},
      {kind:'ex', ex:'servius4'},
      {kind:'ex', ex:'livyperiod'},
@@ -4998,27 +4998,27 @@ const ACTS = [
    gloss:'To hear why the parts of speech are these and not others — and the objections.',
    items:[
      {kind:'deck', deck:'actpass', tag:'STUDY', title:'Active and Passive Modes',
-      desc:'<span class="lat">Modus significandi activus</span> against <span class="lat">passivus</span> — the distinction that answers Ockham’s charge of a quality added to the sound. Not scored.'},
+      desc:'<span class="lat">Modus significandi activus</span> against <span class="lat">passivus</span> — the distinction that answers Ockham’s charge of a quality added to the sound.'},
      {kind:'ex', ex:'actpass'},
      {kind:'deck', deck:'objections', tag:'STUDY', title:'The Great Objections',
-      desc:'The chimaera and the privations; grammatical gender; Ockham’s <span class="lat">dictioni superadditum</span>; Aurifaber; why languages differ. Put as objections, and answered as far as they can be. Not scored.'},
+      desc:'The chimaera and the privations; grammatical gender; Ockham’s <span class="lat">dictioni superadditum</span>; Aurifaber; why languages differ. Put as objections, and answered as far as they can be.'},
      {kind:'ex', ex:'objections'}
    ]},
   {key:'VI', roman:'VI', name:'The Vices of Speech', latin:'Barbarismus et Soloecismus',
    gloss:'To see the good of congruity by its faults.',
    items:[
      {kind:'deck', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
-      desc:'Donatus’s division: <span class="lat">barbarismus</span> is a fault in a single word, <span class="lat">soloecismus</span> a fault in the joining. The tropes wait for <em>Ars Rhetorica</em>. Not scored.'},
+      desc:'Donatus’s division: <span class="lat">barbarismus</span> is a fault in a single word, <span class="lat">soloecismus</span> a fault in the joining. The tropes wait for <em>Ars Rhetorica</em>.'},
      {kind:'ex', ex:'vices'}
    ]},
   {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
    gloss:'To hand a well-formed saying to logic.',
    items:[
      {kind:'deck', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
-      desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions. Not scored.'},
+      desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions.'},
      {kind:'ex', ex:'suppos'},
      {kind:'deck', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
-      desc:'<span class="lat">Figura dictionis</span> — arguing from the shape of the word to the shape of the thing. The word follows the thing imperfectly. Not scored.'},
+      desc:'<span class="lat">Figura dictionis</span> — arguing from the shape of the word to the shape of the thing. The word follows the thing imperfectly.'},
      {kind:'ex', ex:'figura'},
      {kind:'ex', ex:'congtruth'}
    ]},
@@ -5026,12 +5026,12 @@ const ACTS = [
    gloss:'To test whether the variation of languages is only in the marks.',
    items:[
      {kind:'deck', deck:'traditions', tag:'STUDY', title:'Three Ways of Studying Language',
-      desc:'Speculative grammar, humanist philology, and linguistics since Saussure. What each can see; what the school already granted; and a Thomist’s reply: <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops. Not scored.'},
+      desc:'Speculative grammar, humanist philology, and linguistics since Saussure. What each can see; what the school already granted; and a Thomist’s reply: <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops.'},
      {kind:'deck', deck:'typo', tag:'STUDY', title:'Typology',
-      desc:'Word order, case-marking against configurational order, agglutinating and fusional and isolating. The empirical test of the modist claim: if grammar follows the modes of being, the variation must be superficial. Not scored.'},
+      desc:'Word order, case-marking against configurational order, agglutinating and fusional and isolating. The empirical test of the modist claim: if grammar follows the modes of being, the variation must be superficial.'},
      {kind:'ex', ex:'typo'},
      {kind:'deck', deck:'ug', tag:'STUDY', title:'Two Universal Grammars',
-      desc:'Chomsky and the modists both hold a universal grammar and ground it in opposite places — the innate structure of the mind, against the modes of being. Where they agree, where they part, and what a Thomist should say about the parting. Not scored.'},
+      desc:'Chomsky and the modists both hold a universal grammar and ground it in opposite places — the innate structure of the mind, against the modes of being. Where they agree, where they part, and what a Thomist should say about the parting.'},
      {kind:'ex', ex:'ug'}
    ]}
 ];
