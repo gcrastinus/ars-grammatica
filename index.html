@@ -16,6 +16,7 @@
   --arc:#7b2d26; --arc2:#48664c; --mode:#a67c2e;
   --glow:#fbf7ea;
   --shadow:0 2px 14px rgba(74,58,32,.10);
+  --target:#7b2d26; --target-bg:transparent;
 }
 body.dark{
   --paper:#0d141e; --paper2:#090e15; --card:#111b2a; --ink:#e9dfc8; --ink-soft:#b4a583;
@@ -25,6 +26,7 @@ body.dark{
   --arc:#e08373; --arc2:#8fbf95; --mode:#c9a45c;
   --glow:#0f1a29;
   --shadow:0 2px 14px rgba(0,0,0,.45);
+  --target:#f0d48a; --target-bg:rgba(201,164,92,.22);
 }
 *{box-sizing:border-box; margin:0; padding:0}
 html{
@@ -68,9 +70,18 @@ body{
 #speak-toggle.speaking{
   background:var(--gold); color:#fff; border-color:var(--gold);
 }
+#speak-rate{
+  position:fixed; top:20px; right:120px; height:32px; min-width:58px;
+  border:1px solid var(--line); background:var(--card); color:var(--ink);
+  font-family:'Cinzel',serif; font-size:12px; letter-spacing:.08em;
+  border-radius:8px; padding:0 8px; z-index:50; box-shadow:var(--shadow);
+  cursor:pointer;
+}
 @media (max-width:420px){
-  #dark-toggle{right:58px; width:40px; height:40px; font-size:18px}
-  #speak-toggle{right:12px; width:40px; height:40px; font-size:16px}
+  #dark-toggle{right:58px; top:12px; width:40px; height:40px; font-size:18px}
+  #speak-toggle{right:12px; top:12px; width:40px; height:40px; font-size:16px}
+  #speak-rate{right:12px; top:56px; height:28px; min-width:52px; font-size:11px; padding:0 4px}
+  .act-label,.act-latin,.act-gloss{padding-left:56px; padding-right:56px}
 }
 
 .wrap{max-width:880px; margin:0 auto; padding:34px 22px 90px}
@@ -244,13 +255,15 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   text-align:center; font-size:23px; line-height:1.6; margin:8px 0 20px; color:var(--ink);
 }
 .q-sentence .target{
-  border-bottom:2px solid var(--gold); padding-bottom:1px; color:var(--wine); font-weight:600;
+  border-bottom:2px solid var(--gold); padding:0 3px 1px; color:var(--target);
+  background:var(--target-bg); font-weight:600; border-radius:2px;
 }
 .q-passage{
   font-size:20px; line-height:1.55; margin:4px 0 8px; color:var(--ink); text-align:left;
 }
 .q-passage .target, .q-original .target{
-  border-bottom:2px solid var(--gold); padding-bottom:1px; color:var(--wine); font-weight:600;
+  border-bottom:2px solid var(--gold); padding:0 3px 1px; color:var(--target);
+  background:var(--target-bg); font-weight:600; border-radius:2px;
 }
 .q-source{
   text-align:right; font-style:italic; color:var(--ink-soft); font-size:15px; margin:0 0 12px;
@@ -317,6 +330,29 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .feedback.good .verdict{color:var(--good-text)}
 .feedback.bad .verdict{color:var(--bad-text)}
 .feedback .also{display:block; margin-top:10px; padding-top:9px; border-top:1px dashed var(--line); font-style:italic; color:var(--ink-soft); font-size:16px}
+.feedback .fb-points{font-family:'Cinzel',serif; font-size:13px; letter-spacing:.08em}
+.feedback.good .fb-points{color:var(--good-text)}
+.feedback.bad .fb-points{color:var(--bad-text)}
+.q-progress{height:5px; background:var(--track); border-radius:3px; margin:0 0 16px; overflow:hidden}
+.q-progress-fill{height:100%; width:0; background:var(--gold); transition:width .25s ease}
+
+.intro-list{max-width:700px; margin:0 auto; font-size:17.5px}
+.intro-item{margin:14px 0; color:var(--ink-soft); line-height:1.6}
+.intro-item strong{color:var(--ink); font-family:'Cinzel',serif; font-size:15px; letter-spacing:.04em}
+.intro-eg{margin:6px 0 4px 22px; font-size:.92em; color:var(--ink-soft)}
+.intro-eg em{color:var(--ink)}
+
+.complete-card{
+  background:var(--card); border:1px solid var(--gold-soft); border-radius:14px;
+  padding:56px 40px; text-align:center; box-shadow:var(--shadow); margin-top:24px;
+}
+.complete-orn{font-size:44px; color:var(--gold)}
+.complete-card h2{font-family:'Cinzel',serif; font-size:34px; font-weight:600; margin:10px 0 4px}
+.complete-sub{font-style:italic; color:var(--ink-soft); font-size:19px}
+.complete-card .stats{display:flex; justify-content:center; gap:44px; margin:30px 0; flex-wrap:wrap}
+.complete-card .stat .num{font-family:'Cinzel',serif; font-size:34px; color:var(--gold)}
+.complete-card .stat .lbl{font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
+.complete-btns{display:flex; justify-content:center; gap:16px; flex-wrap:wrap}
 
 /* ------- the congruity bar ------- */
 .cong-bar{
@@ -360,7 +396,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .ladder text{font-family:'EB Garamond',serif}
 
 @media print{
-  #dark-toggle, #speak-toggle{display:none}
+  #dark-toggle, #speak-toggle, #speak-rate{display:none}
   .set-card{break-inside:avoid}
 }
 
@@ -415,6 +451,13 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 </head>
 <body>
 <button id="dark-toggle" title="Light / dark">☾</button>
+<select id="speak-rate" title="Reading speed" aria-label="Reading speed">
+  <option value="1">1×</option>
+  <option value="1.5">1.5×</option>
+  <option value="2">2×</option>
+  <option value="2.5">2.5×</option>
+  <option value="3">3×</option>
+</select>
 <button id="speak-toggle" type="button" title="Read this screen aloud" aria-label="Read this screen aloud">🔊</button>
 
 <div class="wrap">
@@ -430,9 +473,8 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
     <div class="intro-note">
       <strong>Grammar is the art of putting words together rightly.</strong> It is the first of the
       three roads because logic works upon statements, and a statement is made of words. This course
-      assumes none of it. It builds from the voice to the sentence, gives the traditional names as
-      they come, and asks at every step the question the medieval masters asked and we have mostly
-      stopped asking: <em>why are the parts of speech what they are, and not something else?</em>
+      builds from the voice to the sentence, gives the traditional names in the appropriate places,
+      and considers the more general question of why the parts of speech are the way they are.
     </div>
 
     <div class="rule"></div>
@@ -490,18 +532,53 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
     <div class="btn-row"><button class="btn" id="pick-back">← Home</button></div>
   </div>
 
+  <!-- ============ EXERCISE INTRO ============ -->
+  <div class="screen" id="scr-ex-intro">
+    <div class="q-head">
+      <span class="q-title" id="ex-intro-kicker">Before the Exercise</span>
+      <span class="q-score">Introduction</span>
+    </div>
+    <div class="q-instr" id="ex-intro-instr"></div>
+    <div class="q-box">
+      <div class="intro-list" id="ex-intro-body"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="ex-intro-back">← Home</button>
+      <button class="btn primary" id="ex-intro-begin">Begin the Exercise ⟶</button>
+    </div>
+  </div>
+
   <!-- ============ EXERCISE ============ -->
   <div class="screen" id="scr-ex">
     <div class="q-head">
       <span class="q-title" id="ex-title"></span>
       <span class="q-score" id="ex-score"></span>
     </div>
+    <div class="q-progress" aria-hidden="true"><div class="q-progress-fill" id="ex-progress"></div></div>
     <div class="q-instr" id="ex-instr"></div>
     <div class="q-box" id="ex-box"></div>
     <div class="btn-row">
       <button class="btn" id="ex-quit">End</button>
       <button class="btn primary" id="ex-submit">Submit</button>
       <button class="btn primary" id="ex-next" style="display:none">Next →</button>
+    </div>
+  </div>
+
+  <!-- ============ SET COMPLETE ============ -->
+  <div class="screen" id="scr-done">
+    <div class="complete-card">
+      <div class="complete-orn">❦</div>
+      <h2>Set Complete</h2>
+      <div class="complete-sub" id="done-sub"></div>
+      <div class="stats">
+        <div class="stat"><div class="num" id="st-q">0</div><div class="lbl">Questions</div></div>
+        <div class="stat"><div class="num" id="st-acc">0%</div><div class="lbl">Accuracy</div></div>
+        <div class="stat"><div class="num" id="st-streak">0</div><div class="lbl">Best streak</div></div>
+      </div>
+      <div class="complete-btns">
+        <button class="btn primary" id="done-again">Practise Again</button>
+        <button class="btn" id="done-home">Return Home</button>
+      </div>
     </div>
   </div>
 
@@ -921,6 +998,13 @@ function normLat(s){
     .replace(/[^a-z]/g, '')
     .replace(/j/g, 'i').replace(/v/g, 'u');
 }
+function normSyll(s){
+  return stripMacrons(String(s || '').trim().toLowerCase())
+    .replace(/[–—]/g, '-')
+    .replace(/[^a-z\-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
 /* ====================================================================
    CORE — state, storage, the language registry, the router
    ==================================================================== */
@@ -996,11 +1080,11 @@ const LAT_CASE_FOR = {
 
 /* ---------- difficulty ---------- */
 const DIFF = {
-  1:{label:'The first steps — the plainest cases, and nothing hidden.', gain:10, loss:4},
-  2:{label:'Settled ground — the ordinary run of the material.',        gain:12, loss:6},
-  3:{label:'Harder — the forms that look alike, and the contested parses.', gain:15, loss:8},
-  4:{label:'Severe — rare declensions, the whole verb, no hints.',      gain:18, loss:10},
-  5:{label:'The master’s drill — everything at once, and no quarter.',  gain:22, loss:12}
+  1:{label:'The first steps — short words, clear cases, and the main rule only.', gain:16, loss:8},
+  2:{label:'The ordinary material — the common forms, still with some help.',        gain:14, loss:11},
+  3:{label:'Harder — forms that look alike, and cases that can be read two ways.', gain:12, loss:14},
+  4:{label:'Severe — rarer forms, the whole verb, fewer hints.',      gain:10, loss:17},
+  5:{label:'Everything at once — all declensions and conjugations, no hints.',  gain:8,  loss:20}
 };
 
 /* ---------- state and storage ---------- */
@@ -1008,7 +1092,8 @@ const KEY = 'arsgram.v1';
 const state = {
   diff:1, lang3:null, dark:false,
   ex:null, q:null, locked:false, score:0, answered:0, correct:0,
-  streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null
+  streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null, speakRate:1,
+  pendingComplete:false, runBest:0
 };
 const store = {
   totals:{},          /* exId -> {seen, right, best} */
@@ -1021,7 +1106,8 @@ function save(){
   try{
     localStorage.setItem(KEY, JSON.stringify({
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
-      mistakes: store.mistakes.slice(-60), lang3: state.lang3, dark: state.dark, diff: state.diff
+      mistakes: store.mistakes.slice(-60), lang3: state.lang3, dark: state.dark, diff: state.diff,
+      speakRate: state.speakRate
     }));
   }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
 }
@@ -1037,6 +1123,7 @@ function load(){
     if(o.lang3 !== undefined) state.lang3 = o.lang3;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
+    if(o.speakRate) state.speakRate = o.speakRate;
   }catch(e){ /* corrupt or unreadable — start clean rather than break */ }
 }
 
@@ -1248,9 +1335,9 @@ which is putting words together rightly; <strong>logic</strong>, which is reason
 and <strong>rhetoric</strong>, which is persuading well. They come in that order for a reason.
 Logic works on statements, and a statement is made of words. If you do not know what a word
 is doing in a sentence, you cannot say what the sentence asserts.</p>
-<p>This course assumes you have had no grammar at all. It builds from the beginning, in
-ordinary language, and gives the traditional names as they come — Latin beside the English,
-never instead of it.</p>` },
+<p>This course builds from the beginning, in ordinary language, and gives the
+traditional names in the appropriate places — Latin beside the English, never
+instead of it.</p>` },
 
 { src:['boethiusd','bh'], h:`<p><strong>An art, and also a science.</strong> Grammar is first an <em>art</em>: a skill
 you acquire by practice, like joinery or medicine, whose end is a well-made thing — here, a
@@ -1388,8 +1475,8 @@ one; logic the other.</p>` }
 
 /* -------------------------------------------------------------- */
 DECKS.modes = {
-  title:'The Three Modes',
-  sub:'Why the parts of speech are what they are',
+  title:'The Three Modes of Signifying',
+  sub:'Why the parts of speech are the way they are',
   panels:[
 
 { src:['te','bh'], h:`<p><strong>THE MODIST ANSWER.</strong> Take a running horse. It may be considered in
@@ -1724,7 +1811,7 @@ question deserved asking.</p>`,
                'That the mind is of things, that concepts cannot be the end of the line, and that the question <em>why</em> is a real one',
                'That the history of a language is irrelevant to its grammar'],
       correct:2,
-      explain:`Not the details — the standard study of the modists is frank about their failures, and you have met their objections in Act V. What survives is the orientation: signification runs out to things, the concept is a means and not a terminus, and grammar has reasons and not merely rules.`,
+      explain:`Not the details — the standard study of the modists is frank about their failures, and you have met their objections among the speculative questions. What survives is the orientation: signification runs out to things, the concept is a means and not a terminus, and grammar has reasons and not merely rules.`,
       wrong:`The course concedes a great deal to both Saussure and the philologists; what it will not concede is that the question of <em>why</em> was a mistake.` } }
 ]};
 
@@ -1876,7 +1963,7 @@ division — the figures. The figures as persuasion wait for rhetoric. Here a
 figure is asked only as a fact of construction, if it is asked at all.</p>
 <p>Quintilian divides the grammarian’s profession in two: the science of speaking
 correctly, and the interpretation of the poets. Both belong to this art. That is
-why an <span class="lat">auctor</span> will appear in Act IV, and not as a
+why an <span class="lat">auctor</span> will appear under construction, and not as a
 literature lesson.</p>` },
 
 { src:['quint'], h:`<p><strong>OFFICIUM.</strong> Quintilian, <em>Institutio</em> I.4–9, sets out what
@@ -1924,7 +2011,7 @@ each time.</p>` },
 the letter. That is why the art is named for writing, even though it begins in
 the voice. A letter is a sound that can be written. If there were no voice, there
 would be nothing for the letter to mark.</p>
-<p>This is why Act I now starts from <span class="lat">vox</span>, and only then
+<p>This is why the matter of speech now starts from <span class="lat">vox</span>, and only then
 treats the letter. The name of the art looks at the mark; the matter of the art
 is first the sound.</p>`,
   q:{ prompt:`Why does this course treat voice before the letter, if the art is named from <span class="lat">gramma</span>?`,
@@ -2136,64 +2223,309 @@ heard. Grammar of the word will need both, and will need not to confuse them.</p
 /* -------------------------------------------------------------- */
 DECKS.syllable = {
   title:'Syllable, Quantity and Accent',
-  sub:'How sound is grouped, measured, and stressed',
+  sub:'How to divide a word, measure a syllable, and place the stress',
   panels:[
 
 { src:['priscian','helias'], h:`<p><strong>THE SYLLABLE.</strong> A syllable is a sound uttered in one impulse of the
-voice. It has a vowel at its centre, and may have consonants before or after.
-<em>a</em> is a syllable; <em>strux</em> is a syllable; <em>a-mī-cus</em> is three.</p>
-<p>A syllable still signifies nothing. It is larger matter than the letter, and still
-matter. Signification waits for the word.</p>`,
+voice. It has one vowel or diphthong at its centre. Consonants may stand before it,
+after it, or both. <em>ā</em> is a syllable. <em>strux</em> is a syllable.
+<em>a-mī-cus</em> is three.</p>
+<p>Count the vowels and diphthongs: that is the number of syllables. <em>ae, oe, au</em>
+are one sound each, not two. A syllable still signifies nothing. Signification waits
+for the word.</p>`,
   q:{ prompt:`How many syllables in <em>amīcus</em>?`,
       options:['One','Two','Three','Four'],
       correct:2,
-      explain:`<em>a-mī-cus</em>. Three impulses of the voice, three vowels, three syllables. The word, as a word, is still one.` } },
+      explain:`<em>a-mī-cus</em>. Three vowels, three impulses, three syllables.` } },
 
-{ src:['ag','priscian'], h:`<p><strong>Quantity.</strong> A Latin (or Greek) syllable is <strong>long</strong> or
-<strong>short</strong>. That is its quantity. English stress is a different fact, and
-must not be put in its place.</p>
-<p>Long <em>by nature</em>: the vowel itself is long — marked in this course with a
-macron, as in <em>amīcus</em>, the middle <em>ī</em>.</p>
-<p>Long <em>by position</em>: a short vowel followed by two consonants (or a double
-consonant) is treated as long for accent and for verse. In <em>magister</em>,
-<em>gis</em> is long by position, because <em>s</em> and <em>t</em> follow the vowel.</p>
-<p>A vowel before another vowel is usually short: <em>puella</em>, the <em>e</em>.</p>`,
+{ src:['ag','priscian'], h:`<p><strong>How to divide.</strong> Allen and Greenough give the working rules, which
+are Priscian’s in school form.</p>
+<p><strong>One consonant</strong> between vowels goes with the following vowel:
+<em>pa-ter, a-mī-cus</em>.</p>
+<p><strong>Two consonants</strong> are usually split: <em>por-ta, mag-nus,
+mit-tō</em>.</p>
+<p><strong>Mute + liquid</strong> (<em>p b t d c g</em> plus <em>l</em> or <em>r</em>)
+may stay with the following vowel: <em>pa-trem, a-grī</em>. They may also split.
+The exercises will say when it matters.</p>
+<p><em>x</em> and <em>z</em> count as two consonants. <em>qu</em> counts as one:
+<em>a-qua</em>. <em>h</em> does not make position and does not make a syllable of
+its own.</p>`,
+  q:{ prompt:`How is <em>pater</em> divided?`,
+      options:['pat-er','pa-ter','p-ater','pate-r'],
+      correct:1,
+      explain:`One consonant between vowels goes with the following: <em>pa-ter</em>. <em>Pat-er</em> would be the split used when two consonants stand together.` } },
+
+{ src:['ag'], h:`<p><strong>Quantity.</strong> A Latin (or Greek) syllable is <strong>long</strong> or
+<strong>short</strong>. English stress is a different fact. Do not put it in the
+place of quantity.</p>
+<p><strong>Long by nature:</strong> the vowel is long (a macron in this course), or
+the sound is a diphthong — <em>ae, oe, au</em>. So <em>mī</em> in <em>amīcus</em>;
+<em>cau</em> in <em>causa</em>.</p>
+<p><strong>Long by position:</strong> a short vowel followed by two consonants, or
+by <em>x</em> or <em>z</em>. <em>magister</em>: <em>gis</em> is long because
+<em>s</em> and <em>t</em> follow. Mute + liquid often does <em>not</em> make
+position: <em>pa-tris</em>, the <em>a</em> may stay short.</p>
+<p>A vowel before another vowel is usually short: <em>puella</em>, the first
+<em>e</em> of the middle syllable is not the issue — the <em>el</em> is long by
+the double <em>l</em>.</p>`,
   q:{ prompt:`Why is the middle syllable of <em>magister</em> long?`,
       options:['The vowel <em>i</em> is long by nature','It is long by position: a vowel before two consonants',
                'All middle syllables are long','Because the word is a noun'],
       correct:1,
-      explain:`<em>ma-gis-ter</em>. The <em>i</em> is short by nature, but <em>s</em> and <em>t</em> follow it, so the syllable is long by position. That is enough to draw the accent onto it.` } },
+      explain:`<em>ma-gis-ter</em>. The <em>i</em> is short by nature; <em>s</em> and <em>t</em> follow it. That is length by position, and it is enough to take the accent.` } },
 
-{ src:['ag'], h:`<p><strong>The Latin penultimate law.</strong> This is computable, and it is the law
-the language actually uses.</p>
-<p>A word of two syllables is stressed on the first.</p>
-<p>A word of three or more: look at the <strong>penult</strong> — the second-to-last
-syllable. If that syllable is long, it takes the stress. If it is short, the stress
-falls back to the syllable before it, the antepenult.</p>
-<p><em>amīcus</em> — <em>mī</em> is long, so <em>a-MĪ-cus</em>.<br>
-<em>dominus</em> — <em>mi</em> is short, so <em>DO-mi-nus</em>.</p>
-<p>You do not guess. You measure the penult.</p>`,
+{ src:['ag'], h:`<p><strong>The Latin penultimate law.</strong> You do not guess. You measure.</p>
+<p>A word of one syllable is stressed on that syllable.</p>
+<p>A word of two syllables is stressed on the first. Never on the last, unless
+the word has only one.</p>
+<p>A word of three or more: look at the <strong>penult</strong> (second-to-last).
+If it is long, it takes the stress. If it is short, the stress falls on the
+<strong>antepenult</strong> (the one before the penult).</p>
+<p><em>amīcus</em> — <em>mī</em> long → a-MĪ-cus.<br>
+<em>dominus</em> — <em>mi</em> short → DO-mi-nus.<br>
+<em>agricola</em> — <em>co</em> short → a-GRI-co-la.</p>
+<p>The enclitic <em>-que, -ne, -ve</em> pulls the stress onto the syllable that
+stood last before it was added: <em>virúmque</em>.</p>`,
   q:{ prompt:`<em>dominus</em> is stressed on the first syllable because…`,
       options:['All Latin nouns are stressed at the start','The penult is short, so the stress falls back',
                'The first syllable is long by nature','Latin has no rule, only custom'],
       correct:1,
-      explain:`Three syllables: <em>do-mi-nus</em>. The penult <em>mi</em> is short, so the stress is on the antepenult. In <em>amīcus</em> the penult is long, and the stress stays there.` } },
+      explain:`Three syllables: <em>do-mi-nus</em>. Penult <em>mi</em> short, so antepenult. In <em>amīcus</em> the penult is long, and the stress stays there.` } },
 
-{ src:['ag','appown'], h:`<p><strong>The other languages, briefly.</strong></p>
-<p><strong>Greek</strong> has quantity too, and adds accent marks: acute, grave, and
-circumflex. Verbs tend to throw the accent as far back as the quantity will allow
-(the recessive accent). Breathings, rough and smooth, belong to an initial vowel
-and are not a syllable of their own.</p>
-<p><strong>German</strong> stresses the first syllable of the stem:
-<em>Sprechen</em>, <em>gesprochen</em> — the stress stays on <em>sprech</em>.</p>
-<p><strong>French</strong> does not stress a syllable of the word as Latin does. The
-beat falls at the end of the phrase.</p>
-<p>The fact is the same in each: speech has a beat. The rule that places it is not
-the same, and must be learned for each language.</p>`,
-  q:{ prompt:`Which language places its ordinary word-stress by measuring whether the penult is long?`,
-      options:['French','German','Latin','English'],
+{ src:['ag'], h:`<p><strong>Greek accent.</strong> Greek keeps quantity and adds a written accent
+on one of the last three syllables.</p>
+<p>The marks: <strong>acute</strong> (´), <strong>grave</strong> (\` — an acute on
+the last syllable when another word follows), <strong>circumflex</strong> (ˆ),
+which stands only on a long vowel or diphthong.</p>
+<p>The law of limitation: the accent cannot sit further back than the third
+syllable from the end; and if the last syllable is long, it cannot sit on the
+antepenult. Verbs are usually <strong>recessive</strong>: the accent goes as far
+back as that law allows.</p>
+<p>Breathings, rough and smooth, belong to an initial vowel. They are not a
+syllable.</p>`,
+  q:{ prompt:`A circumflex can stand only on…`,
+      options:['Any vowel','A long vowel or diphthong','The last syllable only','A consonant'],
+      correct:1,
+      explain:`The circumflex is a rise and fall on one long sound. A short vowel cannot bear it.` } },
+
+{ src:['appown'], h:`<p><strong>German stress.</strong> German does not use the penultimate law. Stress
+falls on the first syllable of the <em>stem</em>.</p>
+<p><em>sprechen</em> — SPRE-chen.<br>
+<em>gesprochen</em> — ge-SPRO-chen. The prefix <em>ge-</em> of the participle is
+not the stem; the stress stays on <em>sprech</em>.</p>
+<p>Inseparable prefixes <em>be-, ge-, er-, ver-, zer-</em> are unstressed:
+<em>verstehen</em> — ver-STE-hen.</p>
+<p>Separable prefixes take the stress: <em>ankommen</em> — AN-kommen.</p>`,
+  q:{ prompt:`Where is the stress in <em>gesprochen</em>?`,
+      options:['On <em>ge-</em>','On <em>sproch</em> — the stem','On the last syllable','On the prefix, as in Latin'],
+      correct:1,
+      explain:`The stem is <em>sprech</em>. <em>Ge-</em> is an unstressed prefix. That is the opposite of the Latin penultimate law.` } },
+
+{ src:['appown'], h:`<p><strong>French stress.</strong> French does not pick a fixed syllable of the
+word as Latin does. The beat falls on the last <em>sounded</em> syllable of the
+rhythmic group — often the end of a phrase, not of each word.</p>
+<p>A mute <em>e</em> (<em>e caduc</em>) is not counted: <em>table</em> is one
+syllable in speech. <em>Parler</em>, said alone, is stressed on <em>-ler</em>.</p>
+<p>Do not look for a long penult. There is none to measure.</p>`,
+  q:{ prompt:`French ordinary stress falls…`,
+      options:['On the first syllable of the stem','On the penult if it is long','On the last sounded syllable of the phrase','On every other syllable'],
       correct:2,
-      explain:`The penultimate law is Latin’s. German stresses the stem-initial syllable; French the end of the phrase; English is a mixed and less regular system of stress, not of quantity.` } }
+      explain:`The group, not the word, takes the beat. Latin measures the penult; German finds the stem; French waits for the end of the phrase.` } },
+
+{ src:['appown'], h:`<p><strong>English, by contrast.</strong> English uses stress, not quantity. The
+stressed syllable is louder, not necessarily longer in the Latin sense. The
+place of the stress can change the word: <em>REcord</em> (noun),
+<em>reCORD</em> (verb).</p>
+<p>Unstressed vowels often become a schwa. Division still follows vowel sounds:
+<em>tea-cher, to-ge-ther, beau-ti-ful</em>.</p>
+<p>The exercises will ask you to divide, to measure, and to place the accent —
+in Latin as the main skill, and in the other languages so the Latin law is not
+mistaken for a law of speech as such.</p>`,
+  q:{ prompt:`English <em>record</em> (noun) against <em>record</em> (verb) shows that…`,
+      options:['English has the Latin penultimate law','English stress can move, and is not quantity',
+               'English has no syllables','Every English word is stressed on the last syllable'],
+      correct:1,
+      explain:`The same letters, two stresses, two words. Latin would measure length and then apply one law. English does not.` } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.pos = {
+  title:'The Parts of Speech',
+  sub:'The kinds of work a word can do',
+  panels:[
+
+{ src:['helias','priscian','donatus'], h:`<p><strong>THE WORD.</strong> Until now you have had sound: voice, letter, syllable.
+None of them means. The word is the first thing that does.</p>
+<p>Helias’s third part is <span class="lat">dictio</span> — the word. Priscian treats
+it in Book II, after the syllable. A word is a sound, or a joining of sounds,
+imposed to signify. A groan was a voice and not a word, because it was not
+imposed. <em>Horse</em> is a word, because speakers have made that sound stand
+for a thing.</p>
+<p>A word is still not a sentence. True and false wait for a joining. The word
+only signifies.</p>`,
+  q:{ prompt:`At which magnitude does signification begin?`,
+      options:['<span class="lat">vox</span> — the voice','<span class="lat">syllaba</span> — the syllable',
+               '<span class="lat">dictio</span> — the word','<span class="lat">oratio</span> — the sentence'],
+      correct:2,
+      explain:`The word is the least thing that signifies. Voice and syllable are matter. Truth waits for the sentence, which is later than meaning.` } },
+
+{ src:['donatus','appown'], h:`<p><strong>A list of work, not of words.</strong> Donatus asks how many parts of
+speech there are. Eight. He is not counting entries in a dictionary. He is
+counting kinds of work a word can do in a sentence.</p>
+<p>The English sound <em>paint</em> names a stuff in <em>we bought paint</em>, and
+says what is done in <em>we paint the door</em>. One sound, two parts.</p>
+<p>So the list is a list of functions. You do not ask what the word <em>is</em>
+in the abstract. You ask what work it is doing <em>here</em>.</p>`,
+  q:{ prompt:`Why can the same sound be a noun in one sentence and a verb in the next?`,
+      options:['Because English has no grammar','Because the parts of speech are kinds of work, not kinds of sound',
+               'Because Donatus counted sounds, not functions','Because a dictionary lists each word once'],
+      correct:1,
+      explain:`<em>Paint</em> is not a noun that sometimes pretends to be a verb. In one sentence it names; in another it says what is done. The part of speech is the work.` } },
+
+{ src:['donatus','priscian'], h:`<p><strong>THE EIGHT.</strong> Donatus, <em>Ars minor</em>:</p>
+<p style="text-align:center; font-style:italic; margin:12px 0">Partes orationis quot sunt? Octo.</p>
+<p><span class="lat">nomen</span> — noun (and, in this account, the adjective)<br>
+<span class="lat">pronomen</span> — pronoun<br>
+<span class="lat">verbum</span> — verb<br>
+<span class="lat">adverbium</span> — adverb<br>
+<span class="lat">participium</span> — participle<br>
+<span class="lat">coniunctio</span> — conjunction<br>
+<span class="lat">praepositio</span> — preposition<br>
+<span class="lat">interiectio</span> — interjection</p>
+<p>English schoolbooks often add the <strong>article</strong> (<em>the, a</em>) and
+count the adjective as its own part. Latin has no article. The tradition files
+the adjective under the noun, because it adheres to the noun and takes the
+noun’s endings. The lists differ because the languages differ, and because the
+cut can be made finer or coarser. The work is the same work.</p>`,
+  q:{ prompt:`How many parts of speech does Donatus count?`,
+      options:['Six','Eight','Nine, because of the article','As many as there are words'],
+      correct:1,
+      explain:`Eight. The article is an English (and Greek, and German, and French) fact. Latin does not have one, so the schoolbook of Latin does not derive one.` } },
+
+{ src:['te','donatus'], h:`<p><strong>THE NOUN.</strong> The noun names. A person, a place, a thing, or a
+quality taken as a thing — <em>whiteness</em>, or <em>running</em> when it is the
+subject.</p>
+<p><strong>Common</strong> — <em>sailor, city</em>. <strong>Proper</strong> —
+<em>Caesar, Rome</em>. Thomas: <span class="lat">modus communis</span> against
+<span class="lat">modus appropriati</span>.</p>
+<p>The adjective, in this account, is a noun that cannot stand alone.
+<em>Bonus</em> names a quality only as belonging to something: <em>bonus puer</em>.
+Take <em>puer</em> away and <em>bonus</em> is waiting. You have already seen the
+shape of this with the letter: a vowel can be uttered by itself; a consonant
+cannot. A noun in the narrow sense can stand alone; an adjective cannot.
+<span class="lat">Modus per se stantis</span> against
+<span class="lat">modus adiacentis</span>.</p>
+<p>A working test in English: can you put <em>the</em> or <em>a</em> in front of
+it and still have English?</p>`,
+  q:{ prompt:`Why does the tradition file the adjective under the noun, not beside it?`,
+      options:['Because adjectives are shorter','Because the adjective adheres to the noun and cannot stand alone',
+               'Because Donatus had no word for it','Because adjectives do not inflect'],
+      correct:1,
+      explain:`The adjective signifies a property belonging to something else. It takes the noun’s endings because it adheres to the noun. That is a fact of work, not a missing name.` } },
+
+{ src:['te','arist_int'], h:`<p><strong>THE VERB.</strong> The verb says that something is going on, or is.
+It is the only part that carries time in itself. <em>Waited, waits, will wait</em>
+— the same word, other times.</p>
+<p>A naming is not yet a sentence. <em>Sailor.</em> Nothing has been said.
+<em>The sailor waits.</em> Now something has been said, and it may be true or
+false. That is why a complete construction waits for a verb. Thomas reads this
+off Aristotle’s <em>De interpretatione</em> 1: in names and verbs taken alone
+there is not yet truth or falsity; those wait on composition.</p>
+<p>Thomas’s formula: the verb signifies
+<span class="lat">per modum esse distantis a substantia</span> — in the manner
+of being-in-act, standing apart from the substance. Because it stands apart, it
+can be said <em>of</em> the noun. Because it signifies becoming, it carries time.</p>`,
+  q:{ prompt:`Why is a sentence incomplete without a verb?`,
+      options:['Because verbs are more important than nouns','Because until something is said of the named thing, nothing has been asserted — and assertion waits on the verb',
+               'Because Latin sentences are always long','Because nouns cannot inflect'],
+      correct:1,
+      explain:`<em>The sailor</em> names. <em>The sailor waits</em> says something of him. Truth and falsity live in that saying, not in the name.` } },
+
+{ src:['te'], h:`<p><strong>Pronoun and participle.</strong></p>
+<p>The <strong>pronoun</strong> names a substance without saying of what sort.
+<em>He, she, I, who.</em> Thomas: the noun’s very mode, but
+<span class="lat">indeterminatae apprehensionis</span> — indeterminate
+apprehension. <em>He</em> points; it does not describe. Thomas compares it to
+prime matter, which neither includes nor excludes form.</p>
+<p>The <strong>participle</strong> has the verb’s becoming, but does not stand
+off to be predicated. <em>The running horse</em> — <em>running</em> leans on
+<em>horse</em>, and still means something under way. So it keeps tense, and sits
+where an adjective sits:
+<span class="lat">per modum esse indistantis a substantia</span>.</p>
+<p>English <em>-ing</em> does both jobs, and a third: the gerund,
+<em>running is good exercise</em>, which is a noun’s work. You will be asked
+which work it is doing <em>here</em>.</p>`,
+  q:{ prompt:`In <em>the running horse</em>, why is <em>running</em> a participle and not a verb?`,
+      options:['Because it ends in <em>-ing</em>','Because it leans on the noun and does not stand apart to be said of it',
+               'Because participles have no tense','Because English has no verbs of motion'],
+      correct:1,
+      explain:`A verb stands apart and is predicated: <em>the horse runs</em>. The participle keeps the flow and sits with the noun: <em>the running horse</em>. Same activity; different work.` } },
+
+{ src:['te','donatus'], h:`<p><strong>The remaining four.</strong> These keep one form. The next study asks
+that as a cut through the eight. Here, learn the work.</p>
+<p><strong>Adverb</strong> — determines a verb (or an adjective): how, when,
+where. <em>Quietly, yesterday, there.</em></p>
+<p><strong>Preposition</strong> — stands before a naming word and bends it back
+toward the act. <em>In the garden. Through the field.</em> Thomas:
+<span class="lat">ad actum retorquens</span>.</p>
+<p><strong>Conjunction</strong> — joins two extremes. <em>And, but, if</em>; and
+<em>that</em> when it joins statements.
+<span class="lat">Per modum coniungentis duo extrema</span>.</p>
+<p><strong>Interjection</strong> — an affect of the soul. <em>Alas, O, heu.</em>
+Not a naming, and not a joining.
+<span class="lat">Affectus vel motus animae</span>.</p>`,
+  q:{ prompt:`Which part stands before a noun and turns it toward the verb?`,
+      options:['Adverb','Conjunction','Preposition','Interjection'],
+      correct:2,
+      explain:`That is the preposition’s work. An adverb determines the verb without taking a noun in charge. A conjunction joins two extremes. An interjection cries out.` } },
+
+{ src:['appown','ag'], h:`<p><strong>Phrases and clauses.</strong> A part of speech is a kind of work. A
+group of words can do that work as a unit. The eight still name the work; the
+marked thing is not always a single word.</p>
+<p>A <strong>phrase</strong> — <em>They arrived <u>after the storm</u>.</em>
+<em>After the storm</em> tells when. That is an adverb’s work, done by a
+prepositional phrase.</p>
+<p>A <strong>clause</strong> — <em>I know <u>that he arrived</u>.</em>
+<em>That he arrived</em> is what is known: the object of <em>know</em>. That is
+a noun’s work, done by a whole clause.</p>
+<p>A relative clause does an adjective’s work: <em>The men <u>who waited at the
+gate</u> were sailors</em> — it tells which men.</p>
+<p>The exercises will mark a word, a phrase, or a clause. Name the work.</p>`,
+  q:{ prompt:`In <em>I know that he arrived</em>, what work does <em>that he arrived</em> do?`,
+      options:['An adverb’s work — it tells when','A noun’s work — it is the object of <em>know</em>',
+               'A verb’s work — it carries time for the whole sentence','No work: clauses are not parts of speech'],
+      correct:1,
+      explain:`The clause is what is known. That is a noun’s work (the object). A single word is not required; the work is.` } },
+
+{ src:['appown','donatus'], h:`<p><strong>How to tell.</strong> Do not look the word up and stop. Ask what it
+is doing in this sentence.</p>
+<p><em>that</em> — <em>I know that he came</em> (conjunction). <em>That is mine</em>
+(pronoun). <em>I know that man</em> (adjective).</p>
+<p><em>before</em> — <em>before the storm</em> (preposition). <em>He had seen it
+before</em> (adverb).</p>
+<p><em>fast</em> — <em>a fast horse</em> (adjective). <em>He drove fast</em>
+(adverb).</p>
+<p>The exercises will mark one word. Name the work. Latin is asked beside
+English, so the eight are not mistaken for an English list. Greek, German, or
+French when you have chosen them — especially the article, which Latin has not.</p>`,
+  q:{ prompt:`In <em>I know that man</em>, what work is <em>that</em> doing?`,
+      options:['Conjunction — it joins two statements','Pronoun — it stands in for a noun',
+               'Adjective — it determines a particular man','Verb — it carries time'],
+      correct:2,
+      explain:`<em>That man</em>: <em>that</em> points at one man among men, and leans on the noun. In <em>I know that he came</em>, the same sound joins two statements and is a conjunction.` } },
+
+{ src:['te','bh'], h:`<p><strong>Why these eight.</strong> Anyone can be taught the list. The question
+that makes this a liberal art is why the parts are these and not others. That
+question is the modes of signifying — already opened in the preliminary, and
+asked again by an exercise in this part: given a mode, name the part; given a
+part, name the mode.</p>
+<p>You can parse without that question. You cannot yet say why parsing finds
+what it finds. Both belong here: first the work, then the reason.</p>`,
+  q:{ prompt:`What must you already be able to do, before you ask why the parts are these?`,
+      options:['Decline every Latin noun','Name the work a word is doing in a sentence',
+               'Prove that languages do not differ','Translate into Greek'],
+      correct:1,
+      explain:`The list is a list of functions. If you cannot name the function in a sentence, the reason for the function has nothing to stand on.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -2215,7 +2547,7 @@ part. It takes the noun’s endings because it adheres to the noun.</p>`,
   q:{ prompt:`Which of these is indeclinable?`,
       options:['Noun','Verb','Preposition','Participle'],
       correct:2,
-      explain:`A preposition keeps one form. Noun, verb, and participle change their endings. That is the first cut, and Act III is the working out of the declinable side.` } },
+      explain:`A preposition keeps one form. Noun, verb, and participle change their endings. That is the first cut, and the accidents of the word are the working out of the declinable side.` } },
 
 { src:['te','donatus'], h:`<p><strong>Why the cut falls there.</strong> The declinable parts have accidental
 modes — case, number, person, tense — riding on the essential mode that makes them
@@ -2238,7 +2570,7 @@ Pronouns: <em>I, me, my; he, him, his; who, whom, whose</em>.<br>
 Verbs: <em>wait, waits, waited, waiting</em>.</p>
 <p>The endings are fewer. The work they do is the same work: they mark the accidents.
 Where the ending is gone, the work has moved — to word order, to <em>of</em> and
-<em>to</em>, to <em>have</em> and <em>will</em>. Act III asks you to see the work,
+<em>to</em>, to <em>have</em> and <em>will</em>. The part on accidents treats that work,
 whether or not an ending is still there to show it.</p>`,
   q:{ prompt:`<em>Whom</em> is evidence that…`,
       options:['English has no grammar of case','English still marks case on some words',
@@ -2606,7 +2938,7 @@ collapse.</p>`,
 Dacia’s answer is the school’s official one: they differ in
 <span class="lat">vox</span> — the sounds and the particular marks — not in
 <span class="lat">modus</span>. The modes are the same; the clothing is not.</p>
-<p>That is a strong claim. Act VIII tests it against typology. For now, hold it as
+<p>That is a strong claim. The last part of the art tests it against typology. For now, hold it as
 what the school actually said, and notice what it would take to refute it: not
 that sounds differ, which nobody denies, but that the <em>kinds of work</em>
 words do are not the same from language to language.</p>` }
@@ -2856,14 +3188,31 @@ const EX = {};
 /* ---------- shared English lexicon ---------- */
 const EN_N = [['dog','dogs'],['horse','horses'],['sailor','sailors'],['city','cities'],
               ['king','kings'],['farmer','farmers'],['river','rivers'],['book','books'],
-              ['soldier','soldiers'],['teacher','teachers'],['field','fields'],['ship','ships']];
+              ['soldier','soldiers'],['teacher','teachers'],['field','fields'],['ship','ships'],
+              ['girl','girls'],['boy','boys'],['gate','gates'],['wall','walls'],
+              ['priest','priests'],['poet','poets'],['road','roads'],['house','houses'],
+              ['judge','judges'],['messenger','messengers'],['garden','gardens'],['bridge','bridges'],
+              ['queen','queens'],['captain','captains'],['valley','valleys'],['temple','temples'],
+              ['child','children'],['woman','women'],['man','men'],['ox','oxen'],
+              ['storm','storms'],['letter','letters'],['master','masters'],['servant','servants']];
 const EN_V = [['sleeps','sleep'],['runs','run'],['waits','wait'],['works','work'],
-              ['sings','sing'],['rests','rest'],['arrives','arrive'],['listens','listen']];
-const EN_ADJ = ['old','brave','quiet','tall','weary','faithful','narrow','ancient'];
-const EN_ADV = ['quietly','slowly','often','gladly','yesterday','badly','soon','carefully'];
-const EN_PREP = ['by','under','near','after','through','beside'];
+              ['sings','sing'],['rests','rest'],['arrives','arrive'],['listens','listen'],
+              ['stands','stand'],['walks','walk'],['sits','sit'],['returns','return'],
+              ['falls','fall'],['rises','rise'],['remains','remain'],['departs','depart']];
+const EN_VT = [['sees','see'],['holds','hold'],['reads','read'],['hears','hear'],
+               ['follows','follow'],['finds','find'],['loves','love'],['leads','lead'],
+               ['brings','bring'],['keeps','keep'],['calls','call'],['opens','open'],
+               ['builds','build'],['sends','send'],['guards','guard'],['names','name']];
+const EN_ADJ = ['old','brave','quiet','tall','weary','faithful','narrow','ancient',
+                'young','wise','poor','rich','small','great','dark','bright',
+                'hidden','open','slow','swift'];
+const EN_ADV = ['quietly','slowly','often','gladly','yesterday','badly','soon','carefully',
+                'always','never','here','there','today','early','late','well'];
+const EN_PREP = ['by','under','near','after','through','beside','before','behind',
+                 'across','toward','into','from'];
 const EN_PRON = ['he','she','they','we'];
-const POS = ['noun','verb','adjective','adverb','preposition','conjunction','pronoun','article','participle'];
+const EN_CONJ = ['and','but','or'];
+const POS = ['noun','verb','adjective','adverb','preposition','conjunction','pronoun','article','participle','interjection'];
 const POS_WHY = {
   noun:'It names something — a person, a place, a thing, or something you cannot touch. The test: can you put <em>the</em> or <em>a</em> in front of it and still have English?',
   verb:'It says what is done or what is going on, and it is the only part of speech that carries time in itself.',
@@ -2873,82 +3222,420 @@ const POS_WHY = {
   conjunction:'It joins two extremes — two words, two phrases, or two whole statements.',
   pronoun:'It stands in for a noun. It has the noun’s very mode of being, but indeterminate: it points without saying what.',
   article:'It points at one thing among many — <em>the</em> at a particular one, <em>a</em> at any one. Latin has none, which is why the medieval list has eight parts and not nine.',
-  participle:'It signifies becoming, like a verb, but not standing apart from its subject — so it sits where a noun or adjective would sit.'
+  participle:'It signifies becoming, like a verb, but not standing apart from its subject — so it sits where a noun or adjective would sit.',
+  interjection:'It signifies an affect of the soul — grief, wonder, a cry — and neither names nor joins. Donatus keeps it as the eighth part.'
 };
 
 /* ============================================================
    I · The Parts of Speech
    ============================================================ */
 const POS_HARD = [
-  {src:['appown'], s:'The soldiers held the <b>narrow</b> pass until nightfall.', a:'adjective',
+  {id:'ph1', src:['appown'], s:'The soldiers held the <b>narrow</b> pass until nightfall.', a:'adjective',
    note:'It is telling you what sort of pass. An adjective depends on a noun; take the noun away and <em>narrow</em> names nothing.'},
-  {src:['appown'], s:'He drove the cart <b>fast</b> along the road.', a:'adverb',
+  {id:'ph2', src:['appown'], s:'He drove the cart <b>fast</b> along the road.', a:'adverb',
    note:'The same word is an adjective in <em>a fast horse</em>. Here it is not telling you what sort of cart but how the driving went — and how belongs to the verb. The word has not changed; its function has, and the parts of speech are a list of functions.'},
-  {src:['appown'], s:'<b>Running</b> is good exercise.', a:'noun',
+  {id:'ph3', src:['appown'], s:'<b>Running</b> is good exercise.', a:'noun',
    note:'The <em>-ing</em> form is doing a noun’s work: it is the subject, and you could put <em>the</em> before it. The tradition calls this the gerund. The same activity is now signified in the manner of something at rest.'},
-  {src:['appown'], s:'The <b>running</b> horse cleared the wall.', a:'participle',
+  {id:'ph4', src:['appown'], s:'The <b>running</b> horse cleared the wall.', a:'participle',
    note:'Now the same <em>-ing</em> form leans on a noun and qualifies it, while keeping the verb’s sense of something under way. That is the participle exactly — <span class="lat">per modum esse indistantis a substantia</span>, becoming, but not standing apart from its subject.'},
-  {src:['appown'], s:'I know <b>that</b> he arrived.', a:'conjunction',
+  {id:'ph5', src:['appown'], s:'I know <b>that</b> he arrived.', a:'conjunction',
    note:'Here <em>that</em> joins one whole statement to another. In <em>I know that man</em> it points at a particular one and is an adjective; in <em>that is mine</em> it stands in for a noun and is a pronoun. Three functions, one sound.'},
-  {src:['appown'], s:'<b>That</b> is the very book I wanted.', a:'pronoun',
+  {id:'ph6', src:['appown'], s:'<b>That</b> is the very book I wanted.', a:'pronoun',
    note:'It is standing in for a noun — it is the subject of <em>is</em>, and names nothing itself. In <em>I know that he arrived</em> the same sound joins two statements and is a conjunction.'},
-  {src:['appown'], s:'They arrived <b>before</b> the storm.', a:'preposition',
+  {id:'ph7', src:['appown'], s:'I know <b>that</b> man.', a:'adjective',
+   note:'Here <em>that</em> determines a particular man and leans on the noun. In <em>I know that he arrived</em> the same sound joins two statements.'},
+  {id:'ph8', src:['appown'], s:'They arrived <b>before</b> the storm.', a:'preposition',
    note:'It stands before a naming word and ties it to the arriving. In <em>they arrived before the storm broke</em> it would be joining two statements — a conjunction; in <em>he had seen it before</em> it stands alone and is an adverb.'},
-  {src:['appown'], s:'He had seen the place <b>before</b>.', a:'adverb',
+  {id:'ph9', src:['appown'], s:'He had seen the place <b>before</b>.', a:'adverb',
    note:'Nothing follows it, so it is not governing a noun — it is telling you <em>when</em>, and when belongs to the verb.'},
-  {src:['appown'], s:'We bought fresh <b>paint</b> for the door.', a:'noun',
+  {id:'ph10', src:['appown'], s:'We bought fresh <b>paint</b> for the door.', a:'noun',
    note:'The very same word is a verb in <em>we paint the door</em>. The list of the parts of speech is not a list of words but of the work words do.'},
-  {src:['appown'], s:'The senate voted to <b>paint</b> the doors again.', a:'verb',
+  {id:'ph11', src:['appown'], s:'The senate voted to <b>paint</b> the doors again.', a:'verb',
    note:'Here it says what is done. In <em>fresh paint</em> the same sound names a thing.'},
-  {src:['appown'], s:'<b>The</b> ancient city fell at last.', a:'article',
+  {id:'ph12', src:['appown'], s:'<b>The</b> ancient city fell at last.', a:'article',
    note:'It points at one particular city among the cities there might be. Latin has no such word; the medieval list of eight parts was built from Latin, and so never derived an article.'},
-  {src:['appown'], s:'The horse ran <b>through</b> the field.', a:'preposition',
+  {id:'ph13', src:['appown'], s:'The horse ran <b>through</b> the field.', a:'preposition',
    note:'It stands before a naming word and bends it back toward the running — <span class="lat">ad actum retorquens</span>, in Thomas of Erfurt’s phrase.'},
-  {src:['appown'], s:'She was <b>weary</b>, but she went on.', a:'adjective',
+  {id:'ph14', src:['appown'], s:'She was <b>weary</b>, but she went on.', a:'adjective',
    note:'It qualifies <em>she</em> across the verb <em>was</em> — a predicate adjective. It still tells of what sort.'},
-  {src:['appown'], s:'The book was long <b>but</b> good.', a:'conjunction',
-   note:'It joins two extremes — here two adjectives. Joining is its entire mode of signifying: <span class="lat">per modum coniungentis duo extrema</span>.'}
+  {id:'ph15', src:['appown'], s:'The book was long <b>but</b> good.', a:'conjunction',
+   note:'It joins two extremes — here two adjectives. Joining is its entire mode of signifying: <span class="lat">per modum coniungentis duo extrema</span>.'},
+  {id:'ph16', src:['appown'], s:'<b>Alas</b>, the city has fallen.', a:'interjection',
+   note:'It signifies an affect of the soul, not a naming and not a joining. Donatus keeps it as the eighth part. It does not inflect, and it does not govern.'},
+  {id:'ph17', src:['appown'], s:'The men <b>who</b> waited at the gate were sailors.', a:'pronoun',
+   note:'A relative pronoun: it stands in for the men, and it also joins the waiting to them. Donatus files it under the pronoun, not the conjunction.'},
+  {id:'ph18', src:['appown'], s:'They arrived before the storm <b>broke</b>.', a:'verb',
+   note:'<em>Broke</em> is the verb of the second statement. <em>Before</em> here joins two statements, so it is a conjunction; the marked word is still the verb of the second clause.'},
+  {id:'ph19', src:['appown'], s:'They arrived <b>before</b> the storm broke.', a:'conjunction',
+   note:'A verb follows (<em>broke</em>), so <em>before</em> joins two statements. In <em>before the storm</em> with no verb, it is a preposition.'},
+  {id:'ph20', src:['appown'], s:'<b>Running</b> the horse cleared the wall.', a:'participle',
+   note:'An old absolute: <em>running</em> qualifies the horse’s going, not a subject on its own. Compare <em>Running is good exercise</em>, a noun’s work.'},
+  {id:'ph21', src:['appown'], s:'He is a <b>fast</b> runner.', a:'adjective',
+   note:'Of-what-sort of runner. In <em>he ran fast</em> the same sound is an adverb.'},
+  {id:'ph22', src:['appown'], s:'He ran <b>fast</b>.', a:'adverb',
+   note:'How he ran. In <em>a fast runner</em> the same sound is an adjective.'},
+  {id:'ph23', src:['appown'], s:'Give it to <b>whoever</b> waits.', a:'pronoun',
+   note:'<em>Whoever</em> stands in for the person, and the clause it heads does a noun’s work. The marked word itself is a pronoun.'},
+  {id:'ph24', src:['appown'], s:'<b>Yesterday</b> they arrived.', a:'adverb',
+   note:'When. English sometimes puts the adverb first. It still determines the verb.'},
+  {id:'ph25', src:['appown'], s:'The <b>waiting</b> sailors saw the king.', a:'participle',
+   note:'<em>Waiting</em> leans on <em>sailors</em> and keeps the flow. Not the gerund (<em>waiting is hard</em>).'},
+  {id:'ph26', src:['appown'], s:'<b>Waiting</b> is hard.', a:'noun',
+   note:'The gerund: subject, a noun’s work. Compare <em>the waiting sailors</em>, a participle.'},
+  {id:'ph27', src:['appown'], s:'She looked <b>up</b>.', a:'adverb',
+   note:'Nothing follows: not a preposition here. It tells where she looked. In <em>up the road</em> it would be a preposition.'},
+  {id:'ph28', src:['appown'], s:'She walked <b>up</b> the road.', a:'preposition',
+   note:'It stands before <em>the road</em> and bends that naming toward the walking. In <em>she looked up</em>, nothing follows, and it is an adverb.'},
+  {id:'ph29', src:['appown'], s:'<b>Well</b>, the city has fallen.', a:'interjection',
+   note:'A spoken affect, not the adverb of <em>he fought well</em>. Tone and pause tell you.'},
+  {id:'ph30', src:['appown'], s:'He fought <b>well</b>.', a:'adverb',
+   note:'How he fought. Not the interjection <em>well</em> that opens a remark.'},
+  {id:'ph31', src:['appown'], s:'This is the man <b>that</b> I saw.', a:'pronoun',
+   note:'Relative <em>that</em>: it stands in for <em>man</em> and joins the seeing. In <em>I know that he came</em> the same sound is a conjunction.'},
+  {id:'ph32', src:['appown'], s:'I know <b>this</b> man.', a:'adjective',
+   note:'<em>This</em> determines a particular man. In <em>this is mine</em> it stands in for a noun and is a pronoun.'},
+  {id:'ph33', src:['appown'], s:'<b>This</b> is mine.', a:'pronoun',
+   note:'It is the subject and names nothing itself. In <em>this man</em> it determines a noun and is an adjective.'}
+];
+const POS_LAT = [
+  {id:'pl1', src:['ag'], s:'<b>Puella</b> in hortō cantat.',
+   orig:'The girl sings in the garden.', a:'noun',
+   note:'<em>Puella</em> names. Nominative, the subject. A noun in the narrow sense: it can stand alone.'},
+  {id:'pl2', src:['ag'], s:'Puella in hortō <b>cantat</b>.',
+   orig:'The girl sings in the garden.', a:'verb',
+   note:'<em>Cantat</em> says what is going on, and carries time (present). Without it, <em>puella in hortō</em> has named and placed, and has not yet asserted.'},
+  {id:'pl3', src:['ag'], s:'<b>Bonus</b> puer dormit.',
+   orig:'The good boy sleeps.', a:'adjective',
+   note:'<em>Bonus</em> adheres to <em>puer</em> and cannot stand alone. The tradition files it under <span class="lat">nomen</span>, as a noun that waits on another.'},
+  {id:'pl4', src:['ag'], s:'<b>Ego</b> rēgem videō.',
+   orig:'I see the king.', a:'pronoun',
+   note:'<em>Ego</em> names a substance without describing it. Thomas: indeterminate apprehension. Latin may omit it; when it is written, it still does a pronoun’s work.'},
+  {id:'pl5', src:['ag'], s:'Equus <b>currēns</b> cecidit.',
+   orig:'The running horse fell.', a:'participle',
+   note:'<em>Currēns</em> keeps the verb’s flow and leans on <em>equus</em>. Not a finite verb: the finite verb is <em>cecidit</em>.'},
+  {id:'pl6', src:['ag'], s:'<b>Crās</b> veniet.',
+   orig:'He will come tomorrow.', a:'adverb',
+   note:'<em>Crās</em> tells when. It keeps one form. Time here is an adverb’s work, not a noun’s.'},
+  {id:'pl7', src:['ag'], s:'Puella <b>in</b> hortō cantat.',
+   orig:'The girl sings in the garden.', a:'preposition',
+   note:'<em>In</em> stands before <em>hortō</em> and bends that naming back toward the singing. It governs the ablative here.'},
+  {id:'pl8', src:['ag'], s:'Puer <b>et</b> puella veniunt.',
+   orig:'The boy and the girl come.', a:'conjunction',
+   note:'<em>Et</em> joins two nouns. Joining is the whole of what it signifies.'},
+  {id:'pl9', src:['ag'], s:'<b>Heu</b>, periī!',
+   orig:'Alas, I have perished!', a:'interjection',
+   note:'<em>Heu</em> is an affect of the soul. Not a naming, not a joining, not a determination of the verb.'},
+  {id:'pl10', src:['ag'], s:'Videō hominem <b>quī</b> venit.',
+   orig:'I see the man who is coming.', a:'pronoun',
+   note:'Relative <em>quī</em> stands in for <em>hominem</em> and joins the coming to him. Donatus files it with the pronoun.'},
+  {id:'pl11', src:['ag'], s:'Gaudeō <b>quod</b> amīcus vēnit.',
+   orig:'I am glad that a friend has come.', a:'conjunction',
+   note:'<em>Quod</em> here joins two statements. The same sound can be a relative pronoun; here nothing is named by it — it only joins.'},
+  {id:'pl12', src:['ag'], s:'Miles <b>bene</b> pugnat.',
+   orig:'The soldier fights well.', a:'adverb',
+   note:'<em>Bene</em> determines the verb. The related adjective is <em>bonus</em>. Same family, different work: how, not of-what-sort.'},
+  {id:'pl13', src:['ag'], s:'<b>Nauta</b> in nāvī dormit.', orig:'The sailor sleeps in the ship.', a:'noun',
+   note:'<em>Nauta</em> names the one who sleeps. Nominative, the subject.'},
+  {id:'pl14', src:['ag'], s:'Rēx <b>bonus</b> regnat.', orig:'The good king reigns.', a:'adjective',
+   note:'<em>Bonus</em> adheres to <em>rēx</em>. Of-what-sort, not a naming on its own.'},
+  {id:'pl15', src:['ag'], s:'Poēta carmina <b>canit</b>.', orig:'The poet sings songs.', a:'verb',
+   note:'<em>Canit</em> says what is going on and carries time. <em>Carmina</em> is what is sung — a noun, the object.'},
+  {id:'pl16', src:['ag'], s:'Puer <b>ad</b> scholam currit.', orig:'The boy runs to school.', a:'preposition',
+   note:'<em>Ad</em> stands before <em>scholam</em> (accusative) and bends that naming toward the running.'},
+  {id:'pl17', src:['ag'], s:'Nōn venit <b>sed</b> manet.', orig:'He does not come, but remains.', a:'conjunction',
+   note:'<em>Sed</em> joins two verbs as two extremes. Joining is its work.'},
+  {id:'pl18', src:['ag'], s:'<b>Saepe</b> labōrat.', orig:'He often works.', a:'adverb',
+   note:'<em>Saepe</em> tells how often. It keeps one form.'},
+  {id:'pl19', src:['ag'], s:'<b>Nōs</b> urbem vidēmus.', orig:'We see the city.', a:'pronoun',
+   note:'<em>Nōs</em> points at the speakers without describing them.'},
+  {id:'pl20', src:['ag'], s:'Mīles <b>fortiter</b> pugnat.', orig:'The soldier fights bravely.', a:'adverb',
+   note:'<em>Fortiter</em> is the adverb from <em>fortis</em>. How, not of-what-sort.'},
+  {id:'pl21', src:['ag'], s:'Agricola <b>agrum</b> arat.', orig:'The farmer ploughs the field.', a:'noun',
+   note:'<em>Agrum</em> is the object, accusative. It still names — a field.'},
+  {id:'pl22', src:['ag'], s:'<b>Magna</b> nāvis nāvigat.', orig:'The great ship sails.', a:'adjective',
+   note:'<em>Magna</em> adheres to <em>nāvis</em>. Take the noun away and it is waiting.'},
+  {id:'pl23', src:['ag'], s:'Fīlia mātrem <b>amat</b>.', orig:'The daughter loves her mother.', a:'verb',
+   note:'<em>Amat</em> is the asserting word. Two namings sit around it.'},
+  {id:'pl24', src:['ag'], s:'Canis in <b>viā</b> latrat.', orig:'The dog barks in the road.', a:'noun',
+   note:'<em>Viā</em> names the road. <em>In</em> governs it; the naming is still a noun’s work.'},
+  {id:'pl25', src:['ag'], s:'<b>Ō</b> tempora, ō mōrēs!', orig:'O the times, O the manners!', a:'interjection',
+   note:'<em>Ō</em> is a cry, an affect. The namings that follow are nouns.'}
+];
+const POS_RULES = [
+  {id:'pr1', src:['donatus'], q:'Donatus: <span class="lat">partes orationis quot sunt?</span> How many?',
+   a:'Eight', ds:['Six','Nine, counting the article','As many as there are words'],
+   why:'<em>Octo.</em> Noun, pronoun, verb, adverb, participle, conjunction, preposition, interjection. The article is not in the Latin list.'},
+  {id:'pr2', src:['donatus','te'], q:'Where does the tradition file the adjective?',
+   a:'Under the noun — it adheres to the noun and cannot stand alone',
+   ds:['As a ninth part, beside the verb','Under the adverb','It is not a part of speech'],
+   why:'<span class="lat">Modus adiacentis</span> against <span class="lat">per se stantis</span>. The adjective takes the noun’s endings because it waits on the noun.'},
+  {id:'pr3', src:['donatus','appown'], q:'Why is there no article in Donatus’s eight?',
+   a:'Latin has no article, and the list is a list of Latin work',
+   ds:['Donatus forgot it','Articles are not words','Greek had not been invented'],
+   why:'<em>The</em> and <em>a</em> are English (and Greek, German, French) facts. The schoolbook of Latin does not derive a part it does not have.'},
+  {id:'pr4', src:['helias','priscian'], q:'At which magnitude does signification begin?',
+   a:'The word — <span class="lat">dictio</span>',
+   ds:['The letter','The syllable','The accent'],
+   why:'Voice, letter, and syllable are matter. The word is the least thing imposed to signify. Helias’s third part; Priscian’s Book II after the syllable.'},
+  {id:'pr5', src:['appown'], q:'The parts of speech are a list of…',
+   a:'Functions — kinds of work a word can do in a sentence',
+   ds:['Dictionary entries','Letters','True propositions'],
+   why:'<em>Paint</em> names in one sentence and says what is done in the next. The sound has not changed; the work has.'},
+  {id:'pr6', src:['te','arist_int'], q:'Why does a complete sentence wait for a verb?',
+   a:'Until something is said of the named thing, nothing has been asserted',
+   ds:['Because nouns cannot inflect','Because Latin word-order is free','Because adverbs need a home'],
+   why:'<em>The sailor</em> names. <em>The sailor waits</em> asserts. Aristotle: names and verbs alone are not yet true or false. Composition is later, and it needs the verb.'},
+  {id:'pr7', src:['te'], q:'Thomas’s <span class="lat">ad actum retorquens</span> is the work of the…',
+   a:'Preposition — it bends a naming word back toward the act',
+   ds:['Adverb','Conjunction','Interjection'],
+   why:'<em>In the garden</em>: <em>in</em> takes <em>garden</em> and turns it to face the verb. An adverb determines the verb without taking a noun in charge.'},
+  {id:'pr8', src:['donatus'], q:'Donatus’s Latin name for the verb is…',
+   a:'<span class="lat">verbum</span>',
+   ds:['<span class="lat">nomen</span>','<span class="lat">participium</span>','<span class="lat">oratio</span>'],
+   why:'<span class="lat">Verbum</span> is the part. <span class="lat">Nomen</span> is the noun. <span class="lat">Oratio</span> is the sentence, later.'},
+  {id:'pr9', src:['donatus'], q:'Donatus’s Latin name for the noun is…',
+   a:'<span class="lat">nomen</span>',
+   ds:['<span class="lat">verbum</span>','<span class="lat">dictio</span>','<span class="lat">vox</span>'],
+   why:'<span class="lat">Nomen</span> — the name. In this account it also covers the adjective. <span class="lat">Dictio</span> is any word; <span class="lat">vox</span> is voice.'},
+  {id:'pr10', src:['te'], q:'The participle keeps tense, and yet sits with the noun, because it signifies…',
+   a:'Becoming that does not stand apart from the substance',
+   ds:['A settled thing at rest, like a noun','Joining, like a conjunction','An affect of the soul'],
+   why:'<span class="lat">Per modum esse indistantis a substantia</span>. Flow, but not predicated. <em>The running horse</em>.'},
+  {id:'pr11', src:['appown','ag'], q:'In <em>I know that he arrived</em>, the group <em>that he arrived</em> is a clause doing…',
+   a:'A noun’s work — it is the object of <em>know</em>',
+   ds:['An adverb’s work — it tells when','A verb’s work — it is the only verb','No work, because a clause is not a word'],
+   why:'A part of speech is a kind of work. A clause can do a noun’s work (subject or object), an adjective’s work (a relative clause), or an adverb’s work (when, because, if).'},
+  {id:'pr12', src:['appown'], q:'In <em>They arrived after the storm</em>, the group <em>after the storm</em> is a phrase doing…',
+   a:'An adverb’s work — it tells when',
+   ds:['A noun’s work — it is the subject','A verb’s work','A conjunction’s work — it joins two sentences'],
+   why:'A prepositional phrase often does an adverb’s work (when, where, how) or an adjective’s work (which one). The eight name the function; the marked thing need not be one word.'}
+];
+const POS_OTHER = [
+  {id:'po-de1', lang:'de', s:'<b>Der</b> alte Mann schläft.', orig:'The old man sleeps.', a:'article',
+   note:'German marks case chiefly on the article. Latin has no such word; English <em>the</em> does the same pointing, without the case.'},
+  {id:'po-de2', lang:'de', s:'Er läuft <b>schnell</b>.', orig:'He runs quickly.', a:'adverb',
+   note:'Here <em>schnell</em> tells how. In <em>ein schneller Hund</em> the same stem is an adjective. German often uses one form for both; the work still differs.'},
+  {id:'po-de3', lang:'de', s:'Ich weiß, <b>dass</b> er kommt.', orig:'I know that he is coming.', a:'conjunction',
+   note:'<em>Dass</em> joins two statements. <em>Das</em> (one <em>s</em>) can be an article or a pronoun. Spelling follows the work.'},
+  {id:'po-de4', lang:'de', s:'Der Mann <b>und</b> die Frau warten.', orig:'The man and the woman wait.', a:'conjunction',
+   note:'<em>Und</em> joins two nouns. Same work as Latin <em>et</em>.'},
+  {id:'po-fr1', lang:'fr', s:'<b>Le</b> vieux chien dort.', orig:'The old dog sleeps.', a:'article',
+   note:'French has a definite article; Latin has none. The pointing is real work, even if Donatus did not have a name for it.'},
+  {id:'po-fr2', lang:'fr', s:'Il court <b>vite</b>.', orig:'He runs quickly.', a:'adverb',
+   note:'<em>Vite</em> determines the verb. The adjective would be <em>vif / vive</em>. French, unlike German, often keeps the two forms apart.'},
+  {id:'po-fr3', lang:'fr', s:'Je sais <b>qu’</b>il arrive.', orig:'I know that he is arriving.', a:'conjunction',
+   note:'<em>Que</em> here joins two statements, like English <em>that</em> in <em>I know that he arrives</em>.'},
+  {id:'po-fr4', lang:'fr', s:'<b>Hélas</b>, la ville est tombée.', orig:'Alas, the city has fallen.', a:'interjection',
+   note:'An affect of the soul. Same eighth part as Latin <em>heu</em> and English <em>alas</em>.'},
+  {id:'po-gr1', lang:'grc', s:'<b>ὁ</b> ἀνὴρ τρέχει.', orig:'The man runs.', a:'article',
+   note:'Greek has a definite article; Latin has none. Donatus’s eight are a Latin count. Greek school grammar adds the article, as English does.'},
+  {id:'po-gr2', lang:'grc', s:'ὁ ἀνὴρ <b>καὶ</b> ἡ γυνὴ μένουσιν.', orig:'The man and the woman remain.', a:'conjunction',
+   note:'<em>καί</em> joins, as Latin <em>et</em> does. Same work, other sound.'},
+  {id:'po-gr3', lang:'grc', s:'ὁ <b>τρέχων</b> ἵππος πίπτει.', orig:'The running horse falls.', a:'participle',
+   note:'Greek uses the participle freely. <em>τρέχων</em> leans on <em>ἵππος</em> and keeps the flow — the same work as Latin <em>currēns</em>.'},
+  {id:'po-de5', lang:'de', s:'Der <b>alte</b> Mann schläft.', orig:'The old man sleeps.', a:'adjective',
+   note:'<em>Alte</em> adheres to <em>Mann</em> and takes the article’s case. Of-what-sort.'},
+  {id:'po-de6', lang:'de', s:'<b>Er</b> läuft schnell.', orig:'He runs quickly.', a:'pronoun',
+   note:'<em>Er</em> points without describing. The adverb is <em>schnell</em>.'},
+  {id:'po-fr5', lang:'fr', s:'Le <b>vieux</b> chien dort.', orig:'The old dog sleeps.', a:'adjective',
+   note:'<em>Vieux</em> adheres to <em>chien</em>. French keeps adjective and adverb apart more often than German.'},
+  {id:'po-fr6', lang:'fr', s:'<b>Il</b> court vite.', orig:'He runs quickly.', a:'pronoun',
+   note:'<em>Il</em> is the subject pronoun. Latin would often omit it.'},
+  {id:'po-gr4', lang:'grc', s:'ὁ ἀνὴρ <b>τρέχει</b>.', orig:'The man runs.', a:'verb',
+   note:'<em>τρέχει</em> asserts. The article <em>ὁ</em> is a Greek fact Latin has not.'}
+];
+
+/* Hard sentences may be reused with a different mark; simple generated
+   sentences are not reused. Phrase/clause items mark a group, not a word. */
+const POS_GROUP = [
+  {id:'pg1', src:['appown'], span:'phrase', s:'They arrived <b>after the storm</b>.', a:'adverb',
+   note:'A prepositional phrase telling when. That is an adverb’s work, done by a group, not by one word.'},
+  {id:'pg2', src:['appown'], span:'clause', s:'I know <b>that he arrived</b>.', a:'noun',
+   note:'The clause is the object of <em>know</em>: what is known. A noun’s work, done by a whole clause.'},
+  {id:'pg3', src:['appown'], span:'clause', s:'The men <b>who waited at the gate</b> were sailors.', a:'adjective',
+   note:'A relative clause telling which men. That is an adjective’s work.'},
+  {id:'pg4', src:['appown'], span:'phrase', s:'The house <b>by the river</b> is old.', a:'adjective',
+   note:'The phrase tells which house. That is an adjective’s work, done by a prepositional phrase.'},
+  {id:'pg5', src:['appown'], span:'clause', s:'<b>When the storm broke</b>, they waited.', a:'adverb',
+   note:'A when-clause tells when the waiting happened. An adverb’s work.'},
+  {id:'pg6', src:['appown'], span:'clause', s:'They stayed <b>because the gate was shut</b>.', a:'adverb',
+   note:'A because-clause tells why. An adverb’s work.'},
+  {id:'pg7', src:['appown'], span:'clause', s:'<b>If the sailor waits</b>, the ship is safe.', a:'adverb',
+   note:'A condition tells under what circumstance. An adverb’s work.'},
+  {id:'pg8', src:['appown'], span:'clause', s:'<b>That he arrived</b> surprised the city.', a:'noun',
+   note:'The clause is the subject of <em>surprised</em>. A noun’s work.'},
+  {id:'pg9', src:['appown'], span:'phrase', s:'She wants <b>to wait</b>.', a:'noun',
+   note:'The infinitive phrase is the object of <em>wants</em>. A noun’s work.'},
+  {id:'pg10', src:['appown'], span:'phrase', s:'They walked <b>through the field</b>.', a:'adverb',
+   note:'Where they walked. An adverb’s work, a prepositional phrase.'},
+  {id:'pg11', src:['appown'], span:'clause', s:'I heard <b>that the king had come</b>.', a:'noun',
+   note:'What was heard: the object of <em>heard</em>. A noun clause.'},
+  {id:'pg12', src:['appown'], span:'clause', s:'The book <b>that he wanted</b> was gone.', a:'adjective',
+   note:'Which book? The relative clause tells. An adjective’s work. (Here <em>that</em> is a relative pronoun, but the whole group is what is marked.)'},
+  {id:'pg13', src:['appown'], span:'phrase', s:'He spoke <b>with great care</b>.', a:'adverb',
+   note:'How he spoke. An adverb’s work.'},
+  {id:'pg14', src:['appown'], span:'clause', s:'They waited <b>so that the king might pass</b>.', a:'adverb',
+   note:'A purpose clause tells why they waited. An adverb’s work.'},
+  {id:'pg15', src:['appown'], span:'phrase', s:'<b>After the storm</b> the road was clear.', a:'adverb',
+   note:'When the road was clear. The phrase is not the subject; <em>road</em> is.'},
+  {id:'pg16', src:['appown'], span:'clause', s:'Give it to <b>whoever waits at the gate</b>.', a:'noun',
+   note:'The clause is the object of <em>to</em> — the one who receives. A noun’s work.'},
+  {id:'pg17', src:['appown'], span:'phrase', s:'A soldier <b>of great courage</b> held the pass.', a:'adjective',
+   note:'What sort of soldier? The phrase qualifies the noun. An adjective’s work.'},
+  {id:'pg18', src:['appown'], span:'clause', s:'<b>Whoever waits</b> will see the king.', a:'noun',
+   note:'The clause is the subject of <em>will see</em>. A noun’s work.'},
+  {id:'pg19', src:['appown'], span:'phrase', s:'They sat <b>under the wall</b>.', a:'adverb',
+   note:'Where they sat. An adverb’s work.'},
+  {id:'pg20', src:['appown'], span:'clause', s:'I asked <b>whether the ship had arrived</b>.', a:'noun',
+   note:'An indirect question, the object of <em>asked</em>. A noun’s work.'},
+  {id:'pg21', src:['ag'], span:'clause', s:'Videō <b>quī venit</b>.', orig:'I see the one who is coming.', a:'noun',
+   note:'Latin may let a relative clause stand as a noun: the one who comes. A noun’s work.'},
+  {id:'pg22', src:['ag'], span:'phrase', s:'Puer <b>in hortō</b> cantat.', orig:'The boy sings in the garden.', a:'adverb',
+   note:'Where he sings. The phrase <em>in hortō</em> does an adverb’s work; <em>in</em> alone is the preposition.'},
+  {id:'pg23', src:['appown'], span:'clause', s:'The sailors left <b>before the storm broke</b>.', a:'adverb',
+   note:'A before-clause tells when. An adverb’s work. (If it were <em>before the storm</em> with no verb, it would be a phrase.)'},
+  {id:'pg24', src:['appown'], span:'phrase', s:'The sailors left <b>before the storm</b>.', a:'adverb',
+   note:'A prepositional phrase telling when. Compare the same words with a verb after them: that would be a clause.'}
 ];
 
 EX.pos = {
-  id:'pos', src:['appown'], act:'II', title:'The Parts of Speech',
-  desc:'A sentence appears with one word marked. Name the part of speech it is doing the work of — and remember that the list is a list of functions, not of words: the same sound may be a noun in one sentence and a verb in the next.',
-  instr:'Name the part of speech of the marked word.',
+  id:'pos', src:['donatus','ag','appown'], act:'II', title:'The Parts of Speech',
+  desc:'A word, a phrase, or a clause is marked. Name the work it is doing here. English and Latin; Greek, German, or French when chosen. A set is complete at 100 points.',
+  instr:'Name the work of the marked word, phrase, or clause.',
+  introInstr:'Two notes, then the drill. A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty you chose.',
+  intro:[
+    {h:`<strong>A part of speech is a kind of work.</strong> Donatus counts eight: noun, pronoun, verb, adverb, participle, conjunction, preposition, interjection. English adds the article. The list is not a list of dictionary entries. Ask what the marked word is doing <em>here</em>.`,
+     eg:['<em>We bought paint</em> — <em>paint</em> names a stuff (noun).',
+         '<em>We paint the door</em> — the same sound says what is done (verb).']},
+    {h:`<strong>A phrase or a clause can do the same work.</strong> The eight name the function. The marked thing need not be a single word.`,
+     eg:['Phrase: <em>They arrived <u>after the storm</u></em> — an adverb’s work (when).',
+         'Clause: <em>I know <u>that he arrived</u></em> — a noun’s work (the object of <em>know</em>).']}
+  ],
   gen(d){
-    const hard = d >= 3 || (d === 2 && Math.random() < 0.5);
-    let sentence, ans, note, qsrc = this.src;
-    if(hard){
-      const it = rand(POS_HARD);
-      sentence = it.s; ans = it.a; note = it.note; qsrc = it.src;
-    }else{
-      const n1 = rand(EN_N), n2 = rand(EN_N), v = rand(EN_V);
-      const adj = rand(EN_ADJ), adv = rand(EN_ADV), prep = rand(EN_PREP);
-      const parts = [
-        {t:'The', a:'article'}, {t:adj, a:'adjective'}, {t:n1[0], a:'noun'},
-        {t:v[0], a:'verb'}, {t:adv, a:'adverb'}, {t:prep, a:'preposition'},
-        {t:'the', a:'article'}, {t:n2[0], a:'noun'}
-      ];
-      const pick = Math.floor(Math.random() * parts.length);
-      ans = parts[pick].a;
-      note = POS_WHY[ans];
-      sentence = parts.map((p,i) => i === pick ? `<b>${p.t}</b>` : p.t).join(' ') + '.';
-    }
-    const pool = POS.filter(p => p !== ans);
+    const L = state.lang3;
     const nOpt = d <= 1 ? 3 : 4;
-    const options = shuffle([ans, ...sample(pool, nOpt - 1)]);
-    return {
-      kind:'mc', src: qsrc,
-      prompt:'Which part of speech is the marked word?',
-      sentence: sentence.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
-      options, correct: options.indexOf(ans),
-      cong:{c:true, t:null},
-      check(i){
-        if(i === options.indexOf(ans)) return {right:true, note};
-        return {right:false,
-          note:`It is <strong>${ans}</strong>. ${note}`,
-          also:`You said <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
+    const roll = Math.random();
+    const otherPool = POS_OTHER.filter(x => L && x.lang === L);
+    const otherP = (d >= 2 && otherPool.length) ? 0.12 : 0;
+    const ruleP = d <= 1 ? 0.10 : 0.08;
+    const latP = 0.18;
+    const groupP = d <= 1 ? 0.10 : d === 2 ? 0.18 : 0.26;
+    const hardP = d <= 1 ? 0.06 : d === 2 ? 0.16 : 0.24;
+
+    function markedQ(it, srcFallback){
+      const group = it.span === 'phrase' || it.span === 'clause';
+      const pool = group ? ['noun','adjective','adverb','verb'].filter(p => p !== it.a) : POS.filter(p => p !== it.a);
+      const options = shuffle([it.a, ...sample(pool, Math.min(nOpt - 1, pool.length))]);
+      const note = it.note || POS_WHY[it.a];
+      const prompt = it.span === 'clause'
+        ? 'What work is the marked clause doing?'
+        : it.span === 'phrase'
+          ? 'What work is the marked phrase doing?'
+          : 'Which part of speech is the marked word?';
+      const q = {
+        kind:'mc', src: it.src || srcFallback, prompt,
+        sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+        options, correct: options.indexOf(it.a),
+        cong:{c:true, t:null},
+        sid: it.id || (it.s + ':' + it.a),
+        check(i){
+          if(i === options.indexOf(it.a)) return {right:true, note};
+          const kind = group ? 'work of a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
+          return {right:false,
+            note:`It is the ${kind}. ${note}`,
+            also:`You said <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
+        }
+      };
+      if(it.orig){ q.orig = it.orig; q.olang = 'English'; }
+      return q;
+    }
+    function tryUnseen(make, tries){
+      for(let i = 0; i < (tries || 14); i++){
+        const q = make();
+        const id = q.sid;
+        if(!id || state.sessionSeen.indexOf(id) < 0){
+          if(id) state.sessionSeen.push(id);
+          return q;
+        }
       }
-    };
+      const q = make();
+      if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
+      return q;
+    }
+    function easyEn(){
+      const place = EN_N.filter(n => ['city','river','field','gate','wall','road','house','garden','bridge','temple','valley','ship','storm'].indexOf(n[0]) >= 0);
+      const person = EN_N.filter(n => ['dog','horse','sailor','king','farmer','soldier','teacher','girl','boy','priest','poet','judge','messenger','queen','captain','child','woman','man','master','servant'].indexOf(n[0]) >= 0);
+      const n1 = rand(person.length ? person : EN_N), n2 = rand(place.length ? place : EN_N);
+      const nObj = rand(EN_N);
+      const nP2 = rand(person.length ? person : EN_N);
+      const vi = rand(EN_V), vt = rand(EN_VT);
+      const adj = rand(EN_ADJ), adv = rand(EN_ADV), prep = rand(EN_PREP);
+      const conj = rand(EN_CONJ);
+      const frame = Math.random();
+      let parts;
+      if(frame < 0.16){
+        const pron = rand(EN_PRON);
+        const plural = pron === 'they' || pron === 'we';
+        parts = [
+          {t: cap(pron), a:'pronoun'}, {t: plural ? vi[1] : vi[0], a:'verb'}, {t:adv, a:'adverb'},
+          {t:prep, a:'preposition'}, {t:'the', a:'article'}, {t:n2[0], a:'noun'}
+        ];
+      }else if(frame < 0.30){
+        parts = [
+          {t:'The', a:'article'}, {t:n1[0], a:'noun'}, {t:conj, a:'conjunction'},
+          {t:'the', a:'article'}, {t:nP2[0], a:'noun'}, {t:vi[1], a:'verb'}
+        ];
+      }else if(frame < 0.46){
+        parts = [
+          {t:'The', a:'article'}, {t:adj, a:'adjective'}, {t:n1[0], a:'noun'},
+          {t:vt[0], a:'verb'}, {t:'the', a:'article'}, {t:nObj[0], a:'noun'}
+        ];
+      }else if(frame < 0.58){
+        const det = /^[aeiou]/i.test(adj) ? 'An' : 'A';
+        parts = [
+          {t:det, a:'article'}, {t:adj, a:'adjective'}, {t:n1[0], a:'noun'},
+          {t:vi[0], a:'verb'}, {t:adv, a:'adverb'}
+        ];
+      }else if(frame < 0.70){
+        parts = [
+          {t:'The', a:'article'}, {t:n1[0], a:'noun'}, {t:vt[0], a:'verb'},
+          {t:'the', a:'article'}, {t:adj, a:'adjective'}, {t:nObj[0], a:'noun'}
+        ];
+      }else if(frame < 0.82){
+        parts = [
+          {t: cap(rand(EN_PRON) === 'they' ? 'they' : rand(['he','she'])), a:'pronoun'},
+          {t:vt[0], a:'verb'}, {t:'the', a:'article'}, {t:n1[0], a:'noun'},
+          {t:prep, a:'preposition'}, {t:'the', a:'article'}, {t:n2[0], a:'noun'}
+        ];
+        if(parts[0].t === 'They') parts[1].t = vt[1];
+      }else{
+        parts = [
+          {t:'The', a:'article'}, {t:adj, a:'adjective'}, {t:n1[0], a:'noun'},
+          {t:vi[0], a:'verb'}, {t:adv, a:'adverb'}, {t:prep, a:'preposition'},
+          {t:'the', a:'article'}, {t:n2[0], a:'noun'}
+        ];
+      }
+      const pick = Math.floor(Math.random() * parts.length);
+      const s = parts.map((p,i) => i === pick ? `<b>${p.t}</b>` : p.t).join(' ') + '.';
+      return markedQ({
+        id: 'ge:' + s,
+        s, a: parts[pick].a, src:['appown'], note: POS_WHY[parts[pick].a]
+      }, ['appown']);
+    }
+
+    if(otherPool.length && roll < otherP)
+      return markedQ(pickSeen(otherPool, x => x.id), ['appown']);
+    if(roll < otherP + ruleP){
+      const rules = d <= 1 ? POS_RULES.filter(x => ['pr1','pr2','pr3','pr5','pr11','pr12'].indexOf(x.id) >= 0) : POS_RULES;
+      return makeMC(pickSeen(rules, x => x.id), nOpt);
+    }
+    if(roll < otherP + ruleP + latP)
+      return markedQ(pickSeen(POS_LAT, x => x.id), ['ag']);
+    if(roll < otherP + ruleP + latP + groupP)
+      return markedQ(pickSeen(d <= 1 ? POS_GROUP.filter(x => ['pg1','pg2','pg3','pg10','pg22','pg24'].indexOf(x.id) >= 0) : POS_GROUP, x => x.id), ['appown']);
+    if(roll < otherP + ruleP + latP + groupP + hardP)
+      return markedQ(pickSeen(d <= 2 ? POS_HARD.filter(x => Number(x.id.slice(2)) <= 15) : POS_HARD, x => x.id), ['appown']);
+    return tryUnseen(easyEn, 16);
   }
 };
 
@@ -3770,71 +4457,295 @@ EX.letter = {
    Syllable, Quantity and Accent
    ============================================================ */
 const ACCENT_WORDS = [
-  {w:'amīcus', syll:['a','mī','cus'], longPen:true, acc:1, why:'Three syllables. The penult <em>mī</em> is long by nature, so it takes the stress: a-MĪ-cus.'},
-  {w:'dominus', syll:['do','mi','nus'], longPen:false, acc:0, why:'Three syllables. The penult <em>mi</em> is short, so the stress falls back: DO-mi-nus.'},
-  {w:'nātūra', syll:['nā','tū','ra'], longPen:true, acc:1, why:'The penult <em>tū</em> is long by nature: nā-TŪ-ra.'},
-  {w:'populus', syll:['po','pu','lus'], longPen:false, acc:0, why:'The penult <em>pu</em> is short: PO-pu-lus.'},
-  {w:'magister', syll:['ma','gis','ter'], longPen:true, acc:1, why:'The penult <em>gis</em> is long by position — a vowel before two consonants: ma-GIS-ter.'},
-  {w:'fortūna', syll:['for','tū','na'], longPen:true, acc:1, why:'The penult <em>tū</em> is long: for-TŪ-na.'},
-  {w:'agricola', syll:['a','gri','co','la'], longPen:false, acc:1, why:'Four syllables. The penult <em>co</em> is short, so the stress is on the antepenult: a-GRI-co-la.'},
-  {w:'insula', syll:['in','su','la'], longPen:false, acc:0, why:'The penult <em>su</em> is short: IN-su-la.'},
-  {w:'puella', syll:['pu','el','la'], longPen:true, acc:1, why:'The penult <em>el</em> is long by position (the double <em>l</em>): pu-EL-la.'},
-  {w:'homō', syll:['ho','mō'], longPen:null, acc:0, why:'Two syllables: the stress is on the first. The penultimate law is for words of three syllables or more.'},
-  {w:'rosa', syll:['ro','sa'], longPen:null, acc:0, why:'Two syllables: the stress is on the first.'},
-  {w:'miles', syll:['mī','les'], longPen:null, acc:0, why:'Two syllables: the stress is on the first, here long by nature.'}
+  {w:'rosa', syll:['ro','sa'], div:'ro-sa', longPen:null, acc:0, dmin:1,
+   why:'Two syllables: stress the first. The penultimate law is for three syllables or more.'},
+  {w:'homō', syll:['ho','mō'], div:'ho-mō', longPen:null, acc:0, dmin:1,
+   why:'Two syllables: HO-mō. First syllable, always, in a word of two.'},
+  {w:'miles', syll:['mī','les'], div:'mī-les', longPen:null, acc:0, dmin:1,
+   why:'Two syllables: MĪ-les. The first is long by nature, but two-syllable words need no measurement of the penult.'},
+  {w:'causa', syll:['cau','sa'], div:'cau-sa', longPen:null, acc:0, dmin:1,
+   why:'<em>au</em> is one diphthong, so two syllables: CAU-sa.'},
+  {w:'aqua', syll:['a','qua'], div:'a-qua', longPen:null, acc:0, dmin:1,
+   why:'<em>qu</em> counts as one consonant: a-qua. Two syllables, stress the first.'},
+  {w:'amīcus', syll:['a','mī','cus'], div:'a-mī-cus', longPen:true, acc:1, dmin:1,
+   why:'Three syllables. Penult <em>mī</em> long by nature: a-MĪ-cus.'},
+  {w:'dominus', syll:['do','mi','nus'], div:'do-mi-nus', longPen:false, acc:0, dmin:1,
+   why:'Three syllables. Penult <em>mi</em> short: DO-mi-nus.'},
+  {w:'nātūra', syll:['nā','tū','ra'], div:'nā-tū-ra', longPen:true, acc:1, dmin:1,
+   why:'Penult <em>tū</em> long by nature: nā-TŪ-ra.'},
+  {w:'populus', syll:['po','pu','lus'], div:'po-pu-lus', longPen:false, acc:0, dmin:1,
+   why:'Penult <em>pu</em> short: PO-pu-lus.'},
+  {w:'insula', syll:['in','su','la'], div:'in-su-la', longPen:false, acc:0, dmin:1,
+   why:'Penult <em>su</em> short: IN-su-la.'},
+  {w:'fortūna', syll:['for','tū','na'], div:'for-tū-na', longPen:true, acc:1, dmin:1,
+   why:'Penult <em>tū</em> long: for-TŪ-na.'},
+  {w:'puella', syll:['pu','el','la'], div:'pu-el-la', longPen:true, acc:1, dmin:2,
+   why:'Penult <em>el</em> long by position (double <em>l</em>): pu-EL-la.'},
+  {w:'magister', syll:['ma','gis','ter'], div:'ma-gis-ter', longPen:true, acc:1, dmin:2,
+   why:'Penult <em>gis</em> long by position — vowel before two consonants: ma-GIS-ter.'},
+  {w:'porta', syll:['por','ta'], div:'por-ta', longPen:null, acc:0, dmin:2,
+   why:'Two consonants split: por-ta. Two syllables, stress the first.'},
+  {w:'pater', syll:['pa','ter'], div:'pa-ter', longPen:null, acc:0, dmin:2,
+   why:'One consonant between vowels goes with the second: pa-ter.'},
+  {w:'agricola', syll:['a','gri','co','la'], div:'a-gri-co-la', longPen:false, acc:1, dmin:2,
+   why:'Four syllables. Penult <em>co</em> short, so antepenult: a-GRI-co-la. Mute + liquid <em>gr</em> stay with the following vowel.'},
+  {w:'cōnsul', syll:['cōn','sul'], div:'cōn-sul', longPen:null, acc:0, dmin:2,
+   why:'Two syllables: CŌN-sul. <em>ns</em> makes the first long by position as well, but two-syllable words stress the first in any case.'},
+  {w:'imperātor', syll:['im','pe','rā','tor'], div:'im-pe-rā-tor', longPen:true, acc:2, dmin:3,
+   why:'Four syllables. Penult <em>rā</em> long: im-pe-RĀ-tor.'},
+  {w:'hominēs', syll:['ho','mi','nēs'], div:'ho-mi-nēs', longPen:false, acc:0, dmin:3,
+   why:'Penult <em>mi</em> short: HO-mi-nēs. Nominative plural of <em>homō</em>.'},
+  {w:'orātor', syll:['o','rā','tor'], div:'o-rā-tor', longPen:true, acc:1, dmin:3,
+   why:'Penult <em>rā</em> long by nature: o-RĀ-tor.'},
+  {w:'cīvitās', syll:['cī','vi','tās'], div:'cī-vi-tās', longPen:false, acc:0, dmin:3,
+   why:'Penult <em>vi</em> short: CĪ-vi-tās.'},
+  {w:'cōnsilium', syll:['cōn','si','li','um'], div:'cōn-si-li-um', longPen:false, acc:1, dmin:4,
+   why:'Penult <em>li</em> short (vowel before vowel): cōn-SI-li-um.'},
+  {w:'tenebrae', syll:['te','ne','brae'], div:'te-ne-brae', longPen:false, acc:0, dmin:3,
+   why:'Mute + liquid <em>br</em> stay with the following vowel: te-ne-brae. Penult <em>ne</em> short: TE-ne-brae.'},
+  {w:'virumque', syll:['vi','rum','que'], div:'vi-rum-que', longPen:false, acc:1, dmin:4,
+   why:'The enclitic <em>-que</em> pulls the stress onto the old last syllable: vi-RUM-que.'},
+  {w:'filia', syll:['fī','li','a'], div:'fī-li-a', longPen:false, acc:0, dmin:2,
+   why:'Vowel before vowel: <em>i</em> of the penult is short. Stress the antepenult: FĪ-li-a.'},
+  {w:'video', syll:['vi','de','o'], div:'vi-de-o', longPen:false, acc:0, dmin:3,
+   why:'Penult <em>de</em> short (vowel before vowel): VI-de-o.'},
+  {w:'armaque', syll:['ar','ma','que'], div:'ar-ma-que', longPen:false, acc:1, dmin:4,
+   why:'The enclitic <em>-que</em> pulls the stress onto the syllable that was last: ar-MA-que (virúmque, armáque).'},
+  {w:'patris', syll:['pa','tris'], div:'pa-tris', longPen:null, acc:0, dmin:3,
+   why:'Mute + liquid <em>tr</em> may go with the following vowel: pa-tris. Two syllables, stress the first. The <em>a</em> need not be long by position.'}
 ];
+const SYLL_DIV_WRONG = {
+  'a-mī-cus':['am-ī-cus','a-mīc-us'],
+  'do-mi-nus':['dom-in-us','do-min-us'],
+  'pa-ter':['pat-er','p-ater'],
+  'por-ta':['po-rta','port-a'],
+  'ma-gis-ter':['mag-is-ter','ma-gi-ster'],
+  'a-gri-co-la':['ag-ri-co-la','a-gric-o-la'],
+  'a-qua':['aq-ua','aqu-a'],
+  'pu-el-la':['pue-lla','pu-ell-a'],
+  'fī-li-a':['fīl-i-a','fī-lia'],
+  'im-pe-rā-tor':['imp-e-rā-tor','im-per-ā-tor'],
+  'nā-tū-ra':['nāt-ū-ra','nā-tūr-a'],
+  'in-su-la':['ins-u-la','in-sul-a'],
+  'ho-mi-nēs':['hom-i-nēs','ho-min-ēs'],
+  'o-rā-tor':['or-ā-tor','o-rāt-or'],
+  'cī-vi-tās':['cīv-i-tās','cī-vit-ās'],
+  'cōn-si-li-um':['cōns-i-li-um','cōn-sil-i-um'],
+  'te-ne-brae':['ten-eb-rae','te-neb-rae'],
+  'vi-rum-que':['vir-um-que','vi-rumq-ue'],
+  'ar-ma-que':['arm-a-que','ar-maq-ue'],
+  'cau-sa':['ca-u-sa','caus-a'],
+  'ho-mō':['hom-ō','h-omō']
+};
 const SYLL_ITEMS = [
   {id:'sy1', src:['priscian'], q:'A syllable is…',
-   a:'A sound uttered in one impulse of the voice, with a vowel at its centre',
+   a:'A sound uttered in one impulse of the voice, with a vowel or diphthong at its centre',
    ds:['The smallest unit that signifies','Any single letter','A mark of accent'],
-   why:'A syllable may be one letter (<em>ā</em>) or several (<em>strux</em>). It still signifies nothing.'},
+   why:'A syllable may be one letter (<em>ā</em>) or several (<em>strux</em>). It still signifies nothing. Count vowels and diphthongs.'},
   {id:'sy2', src:['ag'], q:'A Latin syllable is long by position when…',
-   a:'A short vowel is followed by two consonants (or a double consonant)',
+   a:'A short vowel is followed by two consonants (or <em>x</em> or <em>z</em>)',
    ds:['The word is a noun','The writer puts a macron over it','It is the last syllable'],
-   why:'Quantity by position is a rule about the consonants that follow, not about the vowel’s own length. <em>Magister</em>: <em>gis</em> is long this way.'},
+   why:'Length by position is about what follows the vowel, not about a macron. Mute + liquid often does <em>not</em> count.'},
   {id:'sy3', src:['ag'], q:'The Latin penultimate law, for a word of three or more syllables, places the stress…',
    a:'On the penult if it is long; otherwise on the antepenult',
    ds:['Always on the first syllable','Always on the last syllable','On whichever syllable the writer likes'],
-   why:'Measure the second-to-last syllable. Long: stress it. Short: fall back one. Two-syllable words simply stress the first.'},
+   why:'Measure the second-to-last syllable. Long: stress it. Short: fall back one. Never the last, unless the word has only one syllable.'},
+  {id:'sy7', src:['ag'], q:'How is a single consonant between two vowels divided?',
+   a:'It goes with the following vowel: <em>pa-ter</em>',
+   ds:['It goes with the preceding vowel: <em>pat-er</em>','It is dropped','It makes two syllables of its own'],
+   why:'Allen and Greenough: one consonant belongs to the following syllable.'},
+  {id:'sy8', src:['ag'], q:'<em>ae, oe, au</em> in Latin are…',
+   a:'Diphthongs: one syllable, and long by nature',
+   ds:['Two syllables each','Always short','Consonants'],
+   why:'One impulse of the voice, one long syllable. <em>Cau-sa</em> is two, not three.'},
+  {id:'sy9', src:['ag'], q:'The enclitic <em>-que</em> does what to the accent?',
+   a:'It pulls the stress onto the syllable that stood last before <em>-que</em> was added',
+   ds:['It leaves the accent where it was','It always stresses the first syllable','It removes the accent'],
+   why:'<em>Virum</em> would be stressed on <em>vi</em> (two syllables). <em>Virúmque</em> is stressed on <em>um</em>.'},
   {id:'sy4', src:['appown'], q:'German ordinary word-stress falls…',
    a:'On the first syllable of the stem',
    ds:['On the last syllable of the phrase','On the penult if long','On the article'],
-   why:'<em>Sprechen, gesprochen</em> — the stress stays on <em>sprech</em>. That is not the Latin law, and it is not French.'},
+   why:'<em>Sprechen, gesprochen</em> — the stress stays on <em>sprech</em>. Prefixes <em>ge-, be-, ver-</em> are not the stem.'},
+  {id:'sy10', src:['appown'], q:'In German <em>verstehen</em>, the stress is on…',
+   a:'<em>ste</em> — the stem; <em>ver-</em> is an inseparable unstressed prefix',
+   ds:['<em>ver-</em>, because prefixes take stress in German','The last syllable, as in French','The penult, as in Latin'],
+   why:'Inseparable <em>ver-</em> is unstressed. Separable prefixes (<em>an-, auf-</em>) do take the stress.'},
   {id:'sy5', src:['appown'], q:'French ordinary stress falls…',
-   a:'At the end of the phrase, not on a fixed syllable of the word',
+   a:'On the last sounded syllable of the phrase, not on a fixed syllable of the word',
    ds:['On the first syllable of the stem','On the penult if long','On every other syllable'],
-   why:'French does not work like Latin quantity or German stem-stress. The beat is of the phrase.'},
-  {id:'sy6', src:['ag'], q:'Greek adds to quantity a system of written accents. The three marks are…',
+   why:'A mute <em>e</em> is not counted. There is no penult to measure.'},
+  {id:'sy6', src:['ag'], q:'The three Greek accent marks are…',
    a:'Acute, grave, and circumflex',
    ds:['Long, short, and common','Rough, smooth, and middle','Nominative, genitive, and dative'],
-   why:'The accents mark pitch (in the old language) on a vowel. Breathings are a different mark, on an initial vowel, and are not a syllable.'}
+   why:'Pitch (in the old language) on a vowel. A circumflex only on a long vowel or diphthong. Breathings are not accents.'},
+  {id:'sy11', src:['ag'], q:'In Greek, if the last syllable is long, the accent cannot stand on…',
+   a:'The antepenult',
+   ds:['The penult','The last syllable','Any long vowel'],
+   why:'The law of limitation: a long ultima forbids proparoxytone accent. Verbs still go as far back as the law allows.'},
+  {id:'sy12', src:['appown'], q:'English <em>REcord</em> (noun) against <em>reCORD</em> (verb) shows that…',
+   a:'English uses movable stress, not the Latin measurement of length',
+   ds:['English has no syllables','English follows the penultimate law','Every English noun is stressed on the last syllable'],
+   why:'Same letters, two stresses, two words. Measure length in Latin; in English, learn the stress of the word.'},
+  {id:'sy13', src:['ag'], q:'Mute + liquid (<em>p b t d c g</em> plus <em>l</em> or <em>r</em>) between vowels…',
+   a:'May stay with the following vowel: <em>pa-trem, a-grī</em>. They may also split',
+   ds:['Must always split, like any two consonants','Are never part of a syllable','Always make the preceding vowel long by position'],
+   why:'Allen and Greenough: mute + liquid often does <em>not</em> make position. In <em>pa-tris</em> the <em>a</em> may stay short.'}
+];
+const SYLL_OTHER = [
+  {id:'de1', lang:'de', w:'sprechen', syll:['spre','chen'], acc:0,
+   why:'Stem-initial: SPRE-chen. Not the Latin penult.'},
+  {id:'de2', lang:'de', w:'gesprochen', syll:['ge','spro','chen'], acc:1,
+   why:'Prefix <em>ge-</em> is unstressed. Stem <em>sprech</em> takes the stress: ge-SPRO-chen.'},
+  {id:'de3', lang:'de', w:'verstehen', syll:['ver','ste','hen'], acc:1,
+   why:'Inseparable <em>ver-</em> is unstressed: ver-STE-hen.'},
+  {id:'de4', lang:'de', w:'ankommen', syll:['an','kom','men'], acc:0,
+   why:'Separable prefix: AN-kommen. The prefix takes the stress.'},
+  {id:'fr1', lang:'fr', w:'parler', syll:['par','ler'], acc:1,
+   why:'Said alone, the last sounded syllable: par-LER. No penult to measure.'},
+  {id:'fr2', lang:'fr', w:'possibilité', syll:['po','ssi','bi','li','té'], acc:4,
+   why:'Last sounded syllable: -TÉ. Mute <em>e</em> is not in play here.'},
+  {id:'fr3', lang:'fr', w:'table', syll:['table'], acc:0,
+   why:'Mute <em>e</em>: one sounded syllable in speech. The written <em>e</em> is not counted.'},
+  {id:'en1', lang:'en', w:'teacher', syll:['tea','cher'], acc:0,
+   why:'Stress on the first: TEA-cher. English stress, not Latin quantity.'},
+  {id:'en2', lang:'en', w:'together', syll:['to','ge','ther'], acc:1,
+   why:'to-GE-ther. The middle syllable is stressed; there is no penultimate law.'},
+  {id:'en3', lang:'en', w:'beautiful', syll:['beau','ti','ful'], acc:0,
+   why:'BEAU-ti-ful. Three syllables, stress on the first.'},
+  {id:'en4', lang:'en', w:'photograph', syll:['pho','to','graph'], acc:0,
+   why:'PHO-to-graph. Stress on the first. The related word <em>photography</em> moves it.'},
+  {id:'en5', lang:'en', w:'photography', syll:['pho','tog','ra','phy'], acc:1,
+   why:'pho-TOG-ra-phy. Same family as <em>photograph</em>, different stress. English stress moves; Latin measures.'},
+  {id:'en6', lang:'en', w:'important', syll:['im','por','tant'], acc:1,
+   why:'im-POR-tant. Not the first syllable, and not a Latin penult-measure.'},
+  {id:'gr1', lang:'grc', w:'λόγος', syll:['λό','γος'], acc:0,
+   why:'Two syllables, acute on the first. A circumflex could not stand on a short <em>ο</em>.'},
+  {id:'gr2', lang:'grc', w:'ἄνθρωπος', syll:['ἄν','θρω','πος'], acc:0,
+   why:'Proparoxytone: last syllable short, so the accent may stand on the antepenult. ἄν-θρω-πος.'},
+  {id:'gr3', lang:'grc', w:'παιδεύω', syll:['παι','δεύ','ω'], acc:1,
+   why:'Recessive as far as the law allows. Last syllable long (ω), so the accent cannot sit on the antepenult: pai-DEU-ō, circumflex on the long penult.'}
 ];
 
 EX.syllable = {
   id:'syllable', src:['ag','priscian','appown'], act:'I', title:'Syllable, Quantity and Accent',
-  desc:'Count the syllables; say whether the penult is long; place the Latin accent by the penultimate law. A few questions on Greek, German, and French, so the Latin law is seen as one law among others.',
-  instr:'Quantity and the Latin accent, with the other languages beside.',
+  desc:'Divide the word; say how many syllables; tell whether the penult is long; place the accent. Latin is the main skill. English always; Greek, German, or French when that language is chosen.',
+  instr:'Divide, measure, place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
-    if(Math.random() < 0.62){
-      const pool = d <= 1 ? ACCENT_WORDS.filter(w => w.syll.length <= 3) : ACCENT_WORDS;
-      const it = pickSeen(pool, x => x.w);
-      const ask = d <= 2 && it.longPen !== null && Math.random() < 0.4 ? 'qty' : 'acc';
-      if(ask === 'qty'){
-        const a = it.longPen ? 'Long' : 'Short';
-        const options = shuffle(['Long','Short']);
+    const L = state.lang3;
+    const lat = ACCENT_WORDS.filter(w => (w.dmin || 1) <= d);
+    const roll = Math.random();
+    const otherPool = SYLL_OTHER.filter(x => x.lang === 'en' || (L && x.lang === L));
+
+    function countOpts(n){
+      const s = new Set([n]);
+      [n - 1, n + 1, n + 2, n === 2 ? 4 : n - 2].forEach(x => { if(x >= 1 && x <= 6) s.add(x); });
+      const arr = Array.from(s).map(String);
+      const rest = shuffle(arr.filter(x => x !== String(n)));
+      return shuffle([String(n), ...rest.slice(0, Math.min(3, rest.length))]);
+    }
+    function otherQ(it){
+      if(it.syll.length < 2){
+        const n = String(it.syll.length);
+        const options = countOpts(it.syll.length);
         return {
-          kind:'mc', src:['ag'],
-          prompt:`Is the penult of <em>${it.w}</em> long or short?`,
+          kind:'mc', src:['appown'],
+          prompt:`How many sounded syllables in <em>${it.w}</em>?`,
           specimen: it.w,
-          gloss: it.syll.join(' · '),
-          options, correct: options.indexOf(a),
+          options, correct: options.indexOf(n),
           cong:{c:null, t:null},
-          check(i){
-            if(i === options.indexOf(a)) return {right:true, note: it.why};
-            return {right:false, note: it.why};
-          }
+          check(i){ return {right: options[i] === n, note: it.why}; }
         };
       }
+      const options = shuffle(it.syll.slice());
+      return {
+        kind:'mc', src:['appown'],
+        prompt:`Which syllable of <em>${it.w}</em> is stressed?`,
+        specimen: it.w,
+        gloss: it.syll.join(' · '),
+        options, correct: options.indexOf(it.syll[it.acc]),
+        cong:{c:null, t:null},
+        check(i){ return {right: options[i] === it.syll[it.acc], note: it.why}; }
+      };
+    }
+    function textDiv(it){
+      return {
+        kind:'text', src:['ag'],
+        prompt:`Divide <strong>${it.w}</strong> into syllables. Use hyphens (for example, pa-ter).`,
+        specimen: it.w,
+        placeholder:'Write the syllables with hyphens',
+        cong:{c:null, t:null},
+        check(val){
+          const ok = normSyll(val) === normSyll(it.div);
+          if(ok) return {right:true, note:`<strong>${it.div}</strong>. ${it.why}`};
+          return {right:false, note:`The division is <strong>${it.div}</strong>. ${it.why}`,
+            also: val.trim() ? `You wrote <em>${val.trim()}</em>.` : 'Nothing was written.'};
+        }
+      };
+    }
+    function mcDiv(it){
+      const options = shuffle([it.div, ...SYLL_DIV_WRONG[it.div]]);
+      return {
+        kind:'mc', src:['ag'],
+        prompt:`How is <em>${it.w}</em> divided into syllables?`,
+        specimen: it.w,
+        options, correct: options.indexOf(it.div),
+        cong:{c:null, t:null},
+        check(i){
+          if(i === options.indexOf(it.div)) return {right:true, note:`<strong>${it.div}</strong>. ${it.why}`};
+          return {right:false, note:`<strong>${it.div}</strong>. ${it.why}`};
+        }
+      };
+    }
+    function countQ(it){
+      const n = String(it.syll.length);
+      const options = countOpts(it.syll.length);
+      return {
+        kind:'mc', src:['ag'],
+        prompt:`How many syllables in <em>${it.w}</em>?`,
+        specimen: it.w,
+        options, correct: options.indexOf(n),
+        cong:{c:null, t:null},
+        check(i){
+          return {right: options[i] === n, note:`<strong>${it.div || it.syll.join('-')}</strong> — ${it.syll.length}. ${it.why}`};
+        }
+      };
+    }
+    function penultQ(it){
+      const a = it.longPen ? 'Long' : 'Short';
+      const options = shuffle(['Long','Short']);
+      return {
+        kind:'mc', src:['ag'],
+        prompt:`Is the penult of <em>${it.w}</em> long or short?`,
+        specimen: it.w,
+        gloss: it.syll.join(' · '),
+        options, correct: options.indexOf(a),
+        cong:{c:null, t:null},
+        check(i){ return {right: i === options.indexOf(a), note: it.why}; }
+      };
+    }
+    function yesNoStress(it){
+      const showRight = Math.random() < 0.45;
+      let shownIdx = it.acc;
+      if(!showRight){
+        shownIdx = (it.acc + 1) % it.syll.length;
+        if(shownIdx === it.acc && it.syll.length > 1) shownIdx = 0;
+      }
+      const shown = it.syll.map((s,i) => i === shownIdx ? s.toUpperCase() : s).join('-');
+      const ans = showRight ? 'Yes' : 'No';
+      const options = shuffle(['Yes','No']);
+      return {
+        kind:'mc', src:['ag'],
+        prompt:`Someone placed the stress as <em>${shown}</em>. Is that right?`,
+        specimen: it.w,
+        options, correct: options.indexOf(ans),
+        cong:{c:null, t:null},
+        check(i){
+          return {right: options[i] === ans,
+            note: it.why + ` The stress belongs on <strong>${it.syll[it.acc]}</strong>.`};
+        }
+      };
+    }
+    function placeStress(it){
       const options = shuffle(it.syll.slice());
       return {
         kind:'mc', src:['ag'],
@@ -3843,13 +4754,32 @@ EX.syllable = {
         gloss: it.syll.join(' · '),
         options, correct: options.indexOf(it.syll[it.acc]),
         cong:{c:null, t:null},
-        check(i){
-          const right = options[i] === it.syll[it.acc];
-          return {right, note: it.why};
-        }
+        check(i){ return {right: options[i] === it.syll[it.acc], note: it.why}; }
       };
     }
-    return makeMC(pickSeen(SYLL_ITEMS, x => x.id), d <= 1 ? 3 : 4);
+
+    const otherP = d >= 2 ? 0.18 : 0.10;
+    if(otherPool.length && roll < otherP) return otherQ(pickSeen(otherPool, x => x.id));
+
+    const ruleP = d <= 1 ? 0.28 : 0.16;
+    if(roll < otherP + ruleP){
+      const core = d <= 1
+        ? ['sy1','sy2','sy3','sy7']
+        : ['sy1','sy2','sy3','sy7','sy8','sy9','sy12','sy13'];
+      const extra = L === 'de' ? ['sy4','sy10'] : L === 'fr' ? ['sy5'] : L === 'grc' ? ['sy6','sy11'] : [];
+      const ids = core.concat(d <= 1 ? [] : extra);
+      const rules = SYLL_ITEMS.filter(x => ids.indexOf(x.id) >= 0);
+      return makeMC(pickSeen(rules.length ? rules : SYLL_ITEMS, x => x.id), d <= 1 ? 3 : 4);
+    }
+
+    const it = pickSeen(lat, x => x.w);
+    const skill = Math.random();
+    if(d >= 2 && it.div && skill < 0.18) return textDiv(it);
+    if(it.div && SYLL_DIV_WRONG[it.div] && skill < 0.40) return mcDiv(it);
+    if(skill < 0.55) return countQ(it);
+    if(it.longPen !== null && skill < 0.72) return penultQ(it);
+    if(it.syll.length >= 3 && skill < 0.86) return yesNoStress(it);
+    return placeStress(it);
   }
 };
 
@@ -4194,7 +5124,7 @@ const OBJ_ITEMS = [
   {id:'ob5', src:['boethiusd'], q:'If grammar follows being, why do languages differ? Boethius of Dacia answers: they differ in…',
    a:'<span class="lat">vox</span> — the sounds and marks — not in the modes',
    ds:['The modes of being themselves','Having no nouns','Whether truth exists'],
-   why:'The official answer. Act VIII asks whether typology leaves it standing. Difference of sound is not yet difference of grammatical work.'},
+   why:'The official answer. Typology asks whether that claim still stands. Difference of sound is not yet difference of grammatical work.'},
   {id:'ob6', src:['bh','appown'], q:'What is the honest posture of this course toward these objections?',
    a:'They are real; the school’s answers are the best it gave; some questions remain open',
    ds:['They were settled in 1300','They refute grammar altogether','They only matter to historians'],
@@ -4443,7 +5373,7 @@ EX.ug = {
 
 EX.vox = {
   id:'vox', src:['donatus','priscian','arist_int'], act:'I', title:'Voice Articulate and Inarticulate',
-  desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification still waits for the word.',
+  desc:'Given a sound — a groan, a bark, a name, a letter — say whether it is voice, whether it is articulate, and whether it is yet a word.',
   instr:'Voice, articulate or not — and why grammar begins here.',
   gen(d){
     const items = [
@@ -4928,20 +5858,20 @@ EX.auctores = {
 /* ---------- the act structure of the home page ---------- */
 const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
-   gloss:'Begin here: to know what the art is, what it is for, and why it is not to be skipped — then why noun and verb differ.',
+   gloss:'Begin here: to know what the art is, what it is for, and why noun and verb differ.',
    items:[
      {kind:'deck', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
       desc:'Grammar as an art and as a science; its subject, the well-formed utterance; the four causes of a sentence; the magnitudes of speech from voice to sentence; and the boundary between grammar and logic.'},
      {kind:'deck', deck:'accessus', tag:'STUDY', title:'Why There Is an Art',
-      desc:'The accessus: genus, matter, parts, office, end, tools, name, and use — Quintilian, Cassiodorus, Isidore, John of Salisbury. Why not to skip.'},
-     {kind:'deck', deck:'modes', tag:'STUDY', title:'The Three Modes',
-      desc:'The way a thing is, the way the mind takes it, the way a word signifies it — and the derivation of the parts of speech from those modes.'}
+      desc:'Logic cannot judge a heap of words, and rhetoric without a joining is only noise. What the art is, what it is made of, what it is for — Quintilian, Cassiodorus, Isidore, John of Salisbury.'},
+     {kind:'deck', deck:'modes', tag:'STUDY', title:'The Three Modes of Signifying',
+      desc:'The way a thing is, the way the mind takes it, the way a word signifies it. Grammar studies the third; logic studies the second as it composes and divides. They meet in the sentence, and they are not the same question.'}
    ]},
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'To isolate the matter of speech before meaning: voice, then letter, then syllable.',
    items:[
      {kind:'deck', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
-      desc:'Living sound, before the letter. A groan is a voice and not a word; barbarism cannot touch it. Signification waits for the word.'},
+      desc:'Living sound, before the letter. A groan is a voice and not a word. Signification waits for the word.'},
      {kind:'ex', ex:'vox'},
      {kind:'deck', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a composite sound, and the tradition’s <span class="lat">nomen · figura · potestas</span> — name, shape, and power. Vowel and consonant.'},
@@ -4951,12 +5881,15 @@ const ACTS = [
      {kind:'ex', ex:'syllable'}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
-   gloss:'To name the kinds of work a word can do, before the accidents are marked.',
+   gloss:'To name the work a word is doing — noun, verb, and the rest — before the endings are marked.',
    items:[
-     {kind:'ex', ex:'pos'}, {kind:'ex', ex:'modes'},
+     {kind:'deck', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
+      desc:'A part of speech is a kind of work, not a kind of sound. Donatus’s eight; the noun and the verb first; why English has an article and Latin has none.'},
+     {kind:'ex', ex:'pos'},
      {kind:'deck', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
-      desc:'The tradition’s first cut through the eight parts, and the ground of Act III. What takes endings, and what keeps one form.'},
-     {kind:'ex', ex:'decline'}
+      desc:'The tradition’s first cut through the eight parts, and the ground of the accidents. What takes endings, and what keeps one form.'},
+     {kind:'ex', ex:'decline'},
+     {kind:'ex', ex:'modes'}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
@@ -5088,7 +6021,8 @@ function buildDiffRow(){
     b.onclick = () => { state.diff = d; save(); buildDiffRow(); };
     row.appendChild(b);
   }
-  $('diff-desc').textContent = DIFF[state.diff].label;
+  const df = DIFF[state.diff];
+  $('diff-desc').textContent = `${df.label} · +${df.gain} / −${df.loss}`;
 }
 
 function buildHome(){
@@ -5098,11 +6032,11 @@ function buildHome(){
     if(act.roman){
       const h = document.createElement('div');
       h.className = 'act-label';
-      h.textContent = `Act ${act.roman} · ${act.name}`;
+      h.textContent = act.latin ? `${act.roman} · ${act.latin}` : `${act.roman} · ${act.name}`;
       host.appendChild(h);
       if(act.latin){
         const l = document.createElement('div');
-        l.className = 'act-latin'; l.textContent = act.latin;
+        l.className = 'act-latin'; l.textContent = act.name;
         host.appendChild(l);
       }
     }else{
@@ -5131,7 +6065,7 @@ function buildHome(){
         c.innerHTML = `<div class="set-num"><span class="ex-mark">Exercise</span></div><h3>${e.title}</h3>
           <p>${e.desc}</p><span class="begin">BEGIN ⟶</span>
           ${t && t.seen ? `<div class="set-flag">${t.right}/${t.seen}</div>` : ''}`;
-        c.onclick = () => startEx(e);
+        c.onclick = () => openEx(e);
       }else if(item.kind === 'pick'){
         c.className = 'set-card wide';
         c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
@@ -5262,18 +6196,37 @@ function congBar(c, t){
 /* ---------- the question loop ---------- */
 let chipSel = {};
 
+function renderExIntro(e){
+  $('ex-intro-kicker').textContent = e.title;
+  $('ex-intro-instr').textContent = e.introInstr || 'Read this, then begin.';
+  $('ex-intro-body').innerHTML = e.intro.map(item => {
+    const egs = (item.eg || []).map(g => `<div class="intro-eg">${g}</div>`).join('');
+    return `<div class="intro-item">${item.h}${egs}</div>`;
+  }).join('');
+}
+function openEx(e){
+  if(e.intro && e.intro.length){
+    state.ex = e;
+    renderExIntro(e);
+    show('scr-ex-intro');
+    return;
+  }
+  startEx(e);
+}
 function startEx(e){
   state.ex = e;
   state.score = 0; state.answered = 0; state.correct = 0; state.streak = 0;
-  state.sessionSeen = [];
+  state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = e.instr;
+  $('ex-next').textContent = 'Next →';
   nextQ();
   show('scr-ex');
 }
 
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
+  if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
   state.q = state.ex.gen(state.diff);
   state.locked = false;
   chipSel = {};
@@ -5282,9 +6235,20 @@ function nextQ(){
 }
 
 function updateScore(){
+  const gain = DIFF[state.diff].gain, loss = DIFF[state.diff].loss;
   $('ex-score').textContent =
-    `${state.correct} of ${state.answered} · ${state.score} points` +
+    `${state.score} / 100 · +${gain} / −${loss}` +
     (state.streak > 1 ? ` · streak ${state.streak}` : '');
+  const bar = $('ex-progress');
+  if(bar) bar.style.width = Math.max(0, Math.min(100, state.score)) + '%';
+}
+
+function showComplete(){
+  $('done-sub').textContent = `${state.ex.title} · ${ROMAN[state.diff]}`;
+  $('st-q').textContent = state.answered;
+  $('st-acc').textContent = state.answered ? Math.round(100 * state.correct / state.answered) + '%' : '—';
+  $('st-streak').textContent = state.runBest;
+  show('scr-done');
 }
 
 function renderQ(){
@@ -5372,7 +6336,8 @@ function submit(ansMC){
   state.answered++;
   const gain = DIFF[state.diff].gain, loss = DIFF[state.diff].loss;
   if(res.right){ state.correct++; state.streak++; state.score += gain;
-                 if(state.streak > store.bestStreak){ store.bestStreak = state.streak; } }
+                 if(state.streak > store.bestStreak){ store.bestStreak = state.streak; }
+                 if(state.streak > state.runBest) state.runBest = state.streak; }
   else { state.streak = 0; state.score = Math.max(0, state.score - loss); }
   store.score += res.right ? gain : 0;
   recordAnswer(state.ex.id, res.right);
@@ -5405,12 +6370,19 @@ function submit(ansMC){
     const inp = box.querySelector('#q-text');
     if(inp){ inp.disabled = true; inp.classList.add(res.right ? 'right' : 'wrong'); }
   }
+  const pts = res.right ? `+${gain}` : `−${loss}`;
   box.querySelector('#q-fb').innerHTML =
     `<div class="feedback ${res.right ? 'good' : 'bad'}">
-       <span class="verdict">${res.right ? 'Right' : 'Not so'}</span>${res.note}
+       <span class="verdict">${res.right ? 'Right' : 'Not so'} <span class="fb-points">${pts} points</span></span>${res.note}
        ${res.also ? `<span class="also">${res.also}</span>` : ''}
        ${srcLine(q.src || state.ex.src)}</div>`;
   $('ex-submit').style.display = 'none';
+  if(state.score >= 100){
+    state.pendingComplete = true;
+    $('ex-next').textContent = 'Finish Exercise Set ⟶';
+  }else{
+    $('ex-next').textContent = 'Next →';
+  }
   $('ex-next').style.display = '';
   updateScore();
 }
@@ -5418,9 +6390,19 @@ function submit(ansMC){
 $('ex-submit').onclick = () => { if(!state.locked) submit(null); };
 $('ex-next').onclick = () => nextQ();
 $('ex-quit').onclick = () => { show('scr-home'); buildHome(); };
+$('ex-intro-back').onclick = () => { show('scr-home'); buildHome(); };
+$('ex-intro-begin').onclick = () => startEx(state.ex);
+$('done-again').onclick = () => startEx(state.ex);
+$('done-home').onclick = () => { show('scr-home'); buildHome(); };
 
 /* keyboard: 1-4 to answer a multiple choice, Enter to go on */
 document.addEventListener('keydown', ev => {
+  if($('scr-ex-intro') && $('scr-ex-intro').classList.contains('active') && ev.key === 'Enter'){
+    startEx(state.ex); ev.preventDefault(); return;
+  }
+  if($('scr-done') && $('scr-done').classList.contains('active') && ev.key === 'Enter'){
+    startEx(state.ex); ev.preventDefault(); return;
+  }
   if(!$('scr-ex').classList.contains('active')) return;
   if(ev.key === 'Enter'){
     if(state.locked) nextQ();
@@ -5540,7 +6522,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     const tag = el.tagName;
     if(tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'SVG') return true;
     if(el.getAttribute && el.getAttribute('aria-hidden') === 'true') return true;
-    if(el.id === 'dark-toggle' || el.id === 'speak-toggle') return true;
+    if(el.id === 'dark-toggle' || el.id === 'speak-toggle' || el.id === 'speak-rate') return true;
     if(!el.classList) return false;
     return el.classList.contains('ornament')
         || el.classList.contains('src')
@@ -5555,7 +6537,8 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
         || el.classList.contains('set-flag')
         || el.classList.contains('diff-row')
         || el.classList.contains('diff-desc')
-        || el.classList.contains('lang-row');
+        || el.classList.contains('lang-row')
+        || el.classList.contains('q-progress');
   }
 
   function walk(el, parts, opts){
@@ -5693,6 +6676,15 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     if(scr.id === 'scr-home') return collectHomeText();
     if(scr.id === 'scr-deck') return collectDeckText();
     if(scr.id === 'scr-ex') return collectExText();
+    if(scr.id === 'scr-ex-intro'){
+      const parts = [];
+      pushText(parts, 'Before the exercise');
+      const instr = $('ex-intro-instr');
+      if(instr) pushText(parts, instr.innerText || instr.textContent);
+      const body = $('ex-intro-body');
+      if(body) walk(body, parts, {skipButtons:true});
+      return joinParts(parts);
+    }
     return collectPlainScreen(scr);
   }
 
@@ -5732,7 +6724,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
       if(!queue.length){ setSpeakingUI(false); return; }
       const u = new SpeechSynthesisUtterance(queue.shift());
       if(voice) u.voice = voice;
-      u.rate = 0.95;
+      u.rate = state.speakRate || 1;
       u.pitch = 1;
       u.onend = next;
       u.onerror = () => { setSpeakingUI(false); };
@@ -5757,6 +6749,17 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     else startSpeak();
   };
 
+  const rateEl = $('speak-rate');
+  if(rateEl){
+    const allowed = [1, 1.5, 2, 2.5, 3];
+    if(allowed.indexOf(state.speakRate) < 0) state.speakRate = 1;
+    rateEl.value = String(state.speakRate);
+    rateEl.onchange = () => {
+      state.speakRate = parseFloat(rateEl.value) || 1;
+      save();
+    };
+  }
+
   try{
     window.speechSynthesis.onvoiceschanged = function(){};
     window.speechSynthesis.getVoices();
@@ -5766,6 +6769,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 /* ---------- go ---------- */
 load();
 setDark(state.dark);
+if($('speak-rate') && state.speakRate) $('speak-rate').value = String(state.speakRate);
 buildLangRow();
 buildDiffRow();
 buildHome();
