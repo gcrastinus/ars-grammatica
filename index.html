@@ -1025,6 +1025,19 @@ function pickSeen(arr, idFn){
   if(state.sessionSeen.indexOf(k) < 0) state.sessionSeen.push(k);
   return it;
 }
+function tryUnseen(make, tries){
+  for(let i = 0; i < (tries || 16); i++){
+    const q = make();
+    const id = q && q.sid;
+    if(!id || state.sessionSeen.indexOf(id) < 0){
+      if(id) state.sessionSeen.push(id);
+      return q;
+    }
+  }
+  const q = make();
+  if(q && q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
+  return q;
+}
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const art = w => /^[aeiou]/i.test(w) ? 'an' : 'a';
 
@@ -1911,6 +1924,7 @@ function makeMC(it, nOpt){
   const options = shuffle([it.a, ...ds]);
   return {
     kind:'mc', src: it.src,
+    sid: it.id || it.sid,
     prompt: it.q,
     sentence: it.s,
     specimen: it.form,
@@ -3537,7 +3551,7 @@ EX.pos = {
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
         cong:{c:true, t:null},
-        sid: it.id || (it.s + ':' + it.a),
+        sid: it.id,
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note};
           const kind = group ? 'work of a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
@@ -3689,10 +3703,10 @@ EX.modes = {
   gen(d){
     const tiers = d <= 1 ? [1] : d === 2 ? [1,2] : d === 3 ? [2,3] : d === 4 ? [2,3,4] : [3,4];
     const pool = MODE_ITEMS.filter(i => tiers.indexOf(i.tier) >= 0);
-    const it = rand(pool.length ? pool : MODE_ITEMS);
+    const it = pickSeen(pool.length ? pool : MODE_ITEMS, x => x.q || x.a);
     const options = shuffle([it.a, ...sample(it.ds, Math.min(3, it.ds.length))]);
     return {
-      kind:'mc', src: it.src, prompt: it.q, options, correct: options.indexOf(it.a),
+      kind:'mc', src: it.src, sid: it.q, prompt: it.q, options, correct: options.indexOf(it.a),
       cong:{c:null, t:null},
       check(i){
         const right = i === options.indexOf(it.a);
@@ -3732,7 +3746,7 @@ EX.latnoun = {
     const an = map.get(form);
     const showHelp = d <= 2;
     return {
-      kind:'chips', src: this.src,
+      kind:'chips', src: this.src, sid:'nn:'+e.nom+':'+form,
       prompt:'Parse the form.',
       specimen:`${form}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]} — ${e.gloss}${showHelp ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
       rows:[
@@ -3799,7 +3813,7 @@ EX.latverb = {
       {key:'voice', label:'Voice', opts: VOICES.map(v => ({v, label: VOICE_NAME[v]}))}
     ];
     return {
-      kind:'chips', src: this.src,
+      kind:'chips', src: this.src, sid:'vb:'+e.lemma+':'+form,
       prompt:'Parse the form.',
       specimen:`${form}<span class="lemma">${e.lemma} — ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
       rows,
@@ -3859,7 +3873,33 @@ EX.cases = {
   desc:'English marks the work a word is doing by where it stands in the sentence; Latin marks it by the ending. Read an English sentence, see what job the marked word is doing, and say what case Latin would put it in. This teaches case as a <em>function</em> rather than as a set of endings, which is the only way it ever sticks.',
   instr:'What case would Latin use here?',
   gen(d){
-    const it = rand(CASE_ITEMS);
+    const people = ['farmer','sailor','king','queen','soldier','teacher','boy','girl','messenger','captain','poet','judge','master','servant'];
+    const things = ['book','horse','city','sword','gift','gate','temple','rope','key','ship','camp','wall','road','house'];
+    const tools = ['sword','knife','key','stone','stick','spear'];
+    const places = ['city','camp','temple','house','field','garden','harbour'];
+    const frames = [
+      {role:'subject', make:()=>`The <b>${rand(people)}</b> praises the ${rand(people)}.`},
+      {role:'subject', make:()=>`The <b>${rand(people)}</b> held the wall.`},
+      {role:'dObject', make:()=>`The farmer praises the <b>${rand(people)}</b>.`},
+      {role:'dObject', make:()=>`The boy carried the <b>${rand(things)}</b> home.`},
+      {role:'iObject', make:()=>`The queen gave the <b>${rand(people)}</b> a ${rand(['reward','gift','letter','horse'])}.`},
+      {role:'iObject', make:()=>`She told the <b>${rand(['children','sailors','soldiers'])}</b> a story.`},
+      {role:'possess', make:()=>`This is the <b>${rand(people)}’s</b> ${rand(things)}.`},
+      {role:'possess', make:()=>`The roof of the <b>${rand(['temple','house','gate'])}</b> had fallen.`},
+      {role:'means', make:()=>`He cut the rope with a <b>${rand(tools)}</b>.`},
+      {role:'means', make:()=>`They opened the gate with a <b>${rand(tools)}</b>.`},
+      {role:'address', make:()=>`<b>${cap(rand(people))}</b>, the ship has come in.`},
+      {role:'address', make:()=>`<b>${cap(rand(['friends','sailors','soldiers']))}</b>, hear me.`},
+      {role:'from', make:()=>`The soldiers came out of the <b>${rand(places)}</b>.`},
+      {role:'from', make:()=>`The messenger rode from the <b>${rand(places)}</b>.`},
+      {role:'with', make:()=>`The teacher walked with his <b>${rand(people)}</b>.`},
+      {role:'with', make:()=>`He fought alongside his <b>${rand(['brother','friend','son'])}</b>.`}
+    ];
+    const hard = CASE_ITEMS.map(x => ({role:x.role, make:()=>x.s}));
+    const pool = d <= 1 ? frames.filter(x => ['subject','dObject','possess','address'].indexOf(x.role)>=0)
+      : frames.concat(d >= 3 ? hard : []);
+    const it = rand(pool);
+    const s = it.make();
     const ans = LAT_CASE_FOR[it.role];
     const options = shuffle([ans, ...sample(CASES.map(c => CASE_NAME[c].toLowerCase()).filter(c => c !== ans),
                                             d <= 1 ? 2 : 3)]);
@@ -3871,9 +3911,9 @@ EX.cases = {
       third = `<span class="also">In ${L.name}: <strong>${f}</strong>.${n ? ' ' + n : ''}</span>`;
     }
     return {
-      kind:'mc', src: this.src,
+      kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role,
       prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
-      sentence: it.s.replace('<b>','<span class="target">').replace('</b>','</span>'),
+      sentence: s.replace('<b>','<span class="target">').replace('</b>','</span>'),
       options, correct: options.indexOf(ans),
       cong:{c:true, t:null},
       check(i){
@@ -3964,7 +4004,7 @@ EX.agree = {
     const rightForm = latAdjForm(adj, cs, num, e.g);
     const options = AGREE_OPTS.slice();
     return {
-      kind:'mc', src: this.src,
+      kind:'mc', src: this.src, sid:'ag:'+phrase,
       prompt:'Judge the phrase.',
       specimen:`${phrase}<span class="lemma">${adj.nom}, ${adj.gloss} &nbsp;·&nbsp; ${e.nom}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
       options, correct: fault,
@@ -4319,7 +4359,7 @@ EX.clauses = {
       pick.push(leftover.splice(Math.floor(Math.random() * leftover.length), 1)[0]);
     const options = shuffle([want, ...pick.slice(0, n - 1)]);
     return {
-      kind:'mc', src: it.src,
+      kind:'mc', src: it.src, sid: it.id,
       prompt:'What kind of clause is the marked construction?',
       passage: it.passage, orig: it.orig, olang: it.olang, source: it.source,
       options, correct: options.indexOf(want),
@@ -4364,10 +4404,10 @@ EX.congtruth = {
   desc:'Two questions of every sentence, and they are independent: is it well formed, and is what it says so? Grammar judges the first; logic the second.',
   instr:'Judge the sentence on both counts.',
   gen(d){
-    const it = rand(CT_ITEMS);
+    const it = pickSeen(CT_ITEMS, x => x.s);
     const ans = !it.c ? 2 : (it.t ? 0 : 1);
     return {
-      kind:'mc', src: it.src,
+      kind:'mc', src: it.src, sid:'ct:'+it.s,
       prompt:'How does this sentence stand?',
       sentence: it.s,
       options: CT_OPTS.slice(), correct: ans,
@@ -4434,7 +4474,7 @@ EX.letter = {
       const a = vowel ? 'Vowel' : 'Consonant';
       const options = shuffle(['Vowel','Consonant']);
       return {
-        kind:'mc', src: this.src,
+        kind:'mc', src: this.src, sid:'lt:'+ch+(vowel?'v':'c'),
         prompt:'Can this letter be uttered by itself, or only with another?',
         specimen: ch.toUpperCase(),
         options, correct: options.indexOf(a),
@@ -4648,7 +4688,7 @@ EX.syllable = {
         const n = String(it.syll.length);
         const options = countOpts(it.syll.length);
         return {
-          kind:'mc', src:['appown'],
+          kind:'mc', src:['appown'], sid:'sy:'+it.id+':n',
           prompt:`How many sounded syllables in <em>${it.w}</em>?`,
           specimen: it.w,
           options, correct: options.indexOf(n),
@@ -4658,7 +4698,7 @@ EX.syllable = {
       }
       const options = shuffle(it.syll.slice());
       return {
-        kind:'mc', src:['appown'],
+        kind:'mc', src:['appown'], sid:'sy:'+it.id+':pl',
         prompt:`Which syllable of <em>${it.w}</em> is stressed?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -4669,7 +4709,7 @@ EX.syllable = {
     }
     function textDiv(it){
       return {
-        kind:'text', src:['ag'],
+        kind:'text', src:['ag'], sid:'sy:'+it.w+':td',
         prompt:`Divide <strong>${it.w}</strong> into syllables. Use hyphens (for example, pa-ter).`,
         specimen: it.w,
         placeholder:'Write the syllables with hyphens',
@@ -4685,7 +4725,7 @@ EX.syllable = {
     function mcDiv(it){
       const options = shuffle([it.div, ...SYLL_DIV_WRONG[it.div]]);
       return {
-        kind:'mc', src:['ag'],
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':md',
         prompt:`How is <em>${it.w}</em> divided into syllables?`,
         specimen: it.w,
         options, correct: options.indexOf(it.div),
@@ -4700,7 +4740,7 @@ EX.syllable = {
       const n = String(it.syll.length);
       const options = countOpts(it.syll.length);
       return {
-        kind:'mc', src:['ag'],
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':n',
         prompt:`How many syllables in <em>${it.w}</em>?`,
         specimen: it.w,
         options, correct: options.indexOf(n),
@@ -4714,7 +4754,7 @@ EX.syllable = {
       const a = it.longPen ? 'Long' : 'Short';
       const options = shuffle(['Long','Short']);
       return {
-        kind:'mc', src:['ag'],
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':p',
         prompt:`Is the penult of <em>${it.w}</em> long or short?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -4734,7 +4774,7 @@ EX.syllable = {
       const ans = showRight ? 'Yes' : 'No';
       const options = shuffle(['Yes','No']);
       return {
-        kind:'mc', src:['ag'],
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':yn:'+shown,
         prompt:`Someone placed the stress as <em>${shown}</em>. Is that right?`,
         specimen: it.w,
         options, correct: options.indexOf(ans),
@@ -4748,7 +4788,7 @@ EX.syllable = {
     function placeStress(it){
       const options = shuffle(it.syll.slice());
       return {
-        kind:'mc', src:['ag'],
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':pl',
         prompt:`Which syllable of <em>${it.w}</em> takes the stress?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -4772,7 +4812,7 @@ EX.syllable = {
       return makeMC(pickSeen(rules.length ? rules : SYLL_ITEMS, x => x.id), d <= 1 ? 3 : 4);
     }
 
-    const it = pickSeen(lat, x => x.w);
+    const it = rand(lat);
     const skill = Math.random();
     if(d >= 2 && it.div && skill < 0.18) return textDiv(it);
     if(it.div && SYLL_DIV_WRONG[it.div] && skill < 0.40) return mcDiv(it);
@@ -4827,6 +4867,45 @@ EX.decline = {
   desc:'The tradition’s first cut through the eight parts: what takes endings, and what does not. English remnants are asked beside the Latin list, so the cut is seen as a fact about work, not only about Latin riches.',
   instr:'Does this word take endings, or keep one form?',
   gen(d){
+    if(Math.random() < 0.55){
+      const n = rand(['sailor','farmer','soldier','teacher','king']);
+      const adj = rand(['old','brave','quiet','weary']);
+      const v = rand(['waits','sleeps','sings','stands']);
+      const adv = rand(['quietly','yesterday','soon','often']);
+      const prep = rand(['by','near','after','through']);
+      const slots = [
+        {s:`The <b>${n}</b> ${v}.`, a:'Declinable — it is a noun, and takes endings', why:`<em>${cap(n)}</em> is a noun. English still has a plural and a possessive; Latin would mark case.`},
+        {s:`The sailor <b>${v}</b>.`, a:'Declinable — it is a verb, and takes endings', why:`The verb inflects for person, number, and tense. <em>${v}</em> is already a third-person ending in English.`},
+        {s:`The <b>${adj}</b> sailor waits.`, a:'Declinable — the adjective takes the noun’s endings in Latin, and a remnant in English', why:`Adjectives inflect with the noun in Latin. English has comparatives; the tradition still files them as declinable.`},
+        {s:`The sailor waits <b>${adv}</b>.`, a:'Indeclinable — it is an adverb, and keeps one form', why:`Adverbs keep one form. Time or manner here is an adverb’s work.`},
+        {s:`She walked <b>${prep}</b> the gate.`, a:'Indeclinable — a preposition keeps one form', why:`Prepositions do not inflect. They govern a complement.`},
+        {s:`The sailor <b>and</b> the farmer wait.`, a:'Indeclinable — a conjunction keeps one form', why:`<em>And</em> joins. Joining is its work, and it does not take endings.`},
+        {s:`<b>He</b> waits at the gate.`, a:'Declinable — the pronoun still shows case in English', why:`<em>He / him / his</em> is a living case-system. Small, and real.`},
+        {s:`<b>Alas</b>, the city has fallen.`, a:'Indeclinable — an interjection keeps one form', why:`A cry of the soul. Donatus’s eighth part. It does not inflect.`}
+      ];
+      const easy = d <= 1 ? slots.filter((_,i) => i < 6) : slots;
+      const it = rand(easy);
+      const options = shuffle([it.a, ...sample([
+        'Declinable — it is a noun, and takes endings',
+        'Declinable — it is a verb, and takes endings',
+        'Declinable — the adjective takes the noun’s endings in Latin, and a remnant in English',
+        'Declinable — the pronoun still shows case in English',
+        'Indeclinable — it is an adverb, and keeps one form',
+        'Indeclinable — a preposition keeps one form',
+        'Indeclinable — a conjunction keeps one form',
+        'Indeclinable — an interjection keeps one form'
+      ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
+      return {
+        kind:'mc', src:['donatus','appown'], sid:'dc:'+it.s,
+        prompt:'Is the marked word declinable or indeclinable?',
+        sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        check(i){
+          if(i === options.indexOf(it.a)) return {right:true, note: it.why};
+          return {right:false, note:`<strong>${it.a}</strong>. ${it.why}`, also:`You said <em>${options[i]}</em>.`};
+        }
+      };
+    }
     const pool = d <= 1 ? DECLINE_ITEMS.filter(x => ['dc1','dc2','dc6','dc8'].indexOf(x.id) >= 0) : DECLINE_ITEMS;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
@@ -4848,7 +4927,7 @@ EX.produce = {
       const form = nounEnding(e, cs, num);
       const want = `${CASE_NAME[cs].toLowerCase()} ${NUM_NAME[num].toLowerCase()}`;
       return {
-        kind:'text', src: this.src,
+        kind:'text', src: this.src, sid:'pdn:'+e.nom+':'+cs+':'+num,
         prompt:`Write the <strong>${want}</strong> of this noun.`,
         specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]} — ${e.gloss}${d <= 2 ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
         placeholder:'Type the Latin form',
@@ -4872,7 +4951,7 @@ EX.produce = {
     const f = rand(forms.length ? forms : latVerbForms(e));
     const want = describeVerb(f);
     return {
-      kind:'text', src: this.src,
+      kind:'text', src: this.src, sid:'pdv:'+e.lemma+':'+f.form+':'+want,
       prompt:`Write the <strong>${want}</strong> of this verb.`,
       specimen:`${e.lemma.split(',')[0]}<span class="lemma">${e.lemma} — ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
       placeholder:'Type the Latin form',
@@ -4946,6 +5025,36 @@ EX.govern = {
   desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> and the German two-way prepositions are the clearest teaching cases: the same small word, two cases, two meanings.',
   instr:'What case does this word require of its complement?',
   gen(d){
+    if(Math.random() < 0.5){
+      const person = rand(['sailor','farmer','girl','boy','friend','king']);
+      const place = rand(['city','camp','temple','garden','field','harbour']);
+      const slots = [
+        {s:`He loves the <b>${person}</b>.`, a:'Accusative',
+         why:`Most verbs take the accusative of the thing the action falls on.`},
+        {s:`They walked into the <b>${place}</b>.`, a:'Accusative',
+         why:`Latin <em>in</em> with motion toward: accusative. <span class="lat">in urbem</span>.`},
+        {s:`He waits in the <b>${place}</b>.`, a:'Ablative',
+         why:`Latin <em>in</em> of place where: ablative. <span class="lat">in urbe</span>.`},
+        {s:`She came with a <b>${person}</b>.`, a:'Ablative',
+         why:`<em>Cum</em> of accompaniment takes the ablative.`},
+        {s:`They marched toward the <b>${place}</b>.`, a:'Accusative',
+         why:`<em>Ad</em> (to, toward) governs the accusative.`},
+        {s:`He gave the <b>${person}</b> a gift.`, a:'Dative',
+         why:`The person to whom something is given is in the dative. The gift itself would be accusative.`}
+      ];
+      const it = rand(d <= 1 ? slots.filter(x => x.a !== 'Dative') : slots);
+      const options = shuffle([it.a, ...sample(['Nominative','Genitive','Dative','Accusative','Ablative','Vocative'].filter(c => c !== it.a), d <= 1 ? 2 : 3)]);
+      return {
+        kind:'mc', src:['ag','appown'], sid:'gv:'+it.s,
+        prompt:'In Latin, the marked word would be in the…',
+        sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        check(i){
+          if(i === options.indexOf(it.a)) return {right:true, note: it.why};
+          return {right:false, note:`<strong>${it.a}.</strong> ${it.why}`, also:`You said the ${options[i]}.`};
+        }
+      };
+    }
     let pool = GOVERN_ITEMS.slice();
     if(d <= 1) pool = pool.filter(x => ['gv1','gv4','gv5','gv6','gv7','gv8'].indexOf(x.id) >= 0);
     if(state.lang3 !== 'de') pool = pool.filter(x => x.id !== 'gv10' && x.id !== 'gv11');
@@ -5004,6 +5113,35 @@ EX.cong = {
   desc:'Three judgments of a string of words: the parts do not fit; they fit and you are still waiting; they fit and the mind is at rest. Truth is not asked.',
   instr:'Incongruous, incomplete, or complete?',
   gen(d){
+    if(Math.random() < (d <= 1 ? 0.55 : 0.40)){
+      const n = rand(['sailor','farmer','soldier','teacher','king','girl','boy','poet']);
+      const adj = rand(['brave','old','quiet','weary','faithful','young']);
+      const v = rand([['waits','wait'],['sleeps','sleep'],['sings','sing'],['stands','stand']]);
+      const kind = rand(d <= 1 ? ['complete','incomplete'] : ['complete','incomplete','badnum','badadj']);
+      let s, a, why, c;
+      if(kind === 'complete'){
+        s = `The ${adj} ${n} ${v[0]}.`; a = 'Complete'; c = true;
+        why = 'Adjective fits noun; noun and verb fit; a finite verb rests the mind.';
+      }else if(kind === 'incomplete'){
+        s = `The ${adj} ${n}.`; a = 'Congruous but incomplete'; c = true;
+        why = 'The adjective fits. There is no verb. You are still waiting — Thomas’s <em>homo albus</em>.';
+      }else if(kind === 'badnum'){
+        s = `The ${n}s ${v[0]}.`; a = 'Incongruous'; c = false;
+        why = `Plural <em>${n}s</em> against singular <em>${v[0]}</em>. The modes of number do not fit.`;
+      }else{
+        s = `The ${n}s is ${adj}.`; a = 'Incongruous'; c = false;
+        why = `Plural subject against singular <em>is</em>. A failure of congruity, not of completeness.`;
+      }
+      const options = shuffle(['Complete','Congruous but incomplete','Incongruous']);
+      return {
+        kind:'mc', src:['appown','te'], sid:'cg:'+s, prompt:'How does this construction stand?',
+        sentence: s, options, correct: options.indexOf(a), cong:{c, t:null},
+        check(i){
+          if(i === options.indexOf(a)) return {right:true, note:`<strong>${a}.</strong> ${why}`};
+          return {right:false, note:`<strong>${a}.</strong> ${why}`, also:`You said <em>${options[i]}</em>.`};
+        }
+      };
+    }
     const pool = d <= 1 ? CONG_ITEMS.filter(x => ['cg1','cg2','cg4','cg5','cg7','cg10'].indexOf(x.id) >= 0) : CONG_ITEMS;
     const it = pickSeen(pool, x => x.id);
     const q = makeMC(it, 3);
@@ -5056,6 +5194,32 @@ EX.workshop = {
   desc:'One leaning at a time: which word depends, which terminates, and what the mark asserts. The modist picture and dependency grammar’s picture of the same sentence.',
   instr:'Name the dependent, or the terminant, or what the markup asserts.',
   gen(d){
+    if(Math.random() < 0.55){
+      const adj = rand(['brave','old','quiet','narrow','weary']);
+      const n = rand(['sailor','farmer','soldier','road','pass','teacher']);
+      const v = rand(['waits','sleeps','sings','held']);
+      const adv = rand(['quietly','soon','there','often']);
+      const slots = [
+        {s:`The <b>${adj}</b> ${n} ${v}.`, q:`Which word terminates the dependence of <em>${adj}</em>?`, a:n,
+         ds:[v,'the',adj], why:`The adjective depends; the noun terminates. <em>${cap(adj)}</em> has the mode of adhering.`},
+        {s:`The ${adj} ${n} <b>${v}</b>.`, q:`The subject <em>${n}</em> depends on which word as its terminant?`, a:v,
+         ds:[adj,'the',n], why:`The noun leans on the verb in order to be said of. The verb terminates that dependence.`},
+        {s:`The ${n} ${v} <b>${adv}</b>.`, q:`<em>${cap(adv)}</em> depends on which word?`, a:v,
+         ds:[n,'the',adv], why:`An adverb determines a verb. The verb is the terminant.`}
+      ];
+      const it = rand(slots);
+      const options = shuffle([it.a, ...sample(it.ds.filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
+      return {
+        kind:'mc', src:['te','appown'], sid:'wk:'+it.s+':'+it.q,
+        prompt: it.q,
+        sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        check(i){
+          if(i === options.indexOf(it.a)) return {right:true, note: it.why};
+          return {right:false, note:`<strong>${it.a}</strong>. ${it.why}`, also:`You said <em>${options[i]}</em>.`};
+        }
+      };
+    }
     const pool = d <= 1 ? WORK_ITEMS.filter(x => ['wk1','wk3','wk5','wk7'].indexOf(x.id) >= 0) : WORK_ITEMS;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
@@ -5191,6 +5355,43 @@ EX.vices = {
   desc:'Donatus’s two vices: a fault in one word, and a fault in the construction. The tropes wait for Ars Rhetorica. Name the kind, and say why.',
   instr:'One word, or the joining?',
   gen(d){
+    if(Math.random() < 0.55){
+      const n = rand(['sailor','farmer','soldier','boy','girl','teacher']);
+      const barb = rand([
+        {s:`He has three <b>childs</b>.`, w:`<em>Childs</em> is not the English plural.`, kind:'b'},
+        {s:`She <b>goed</b> to the harbour.`, w:`The past of <em>go</em> is not formed that way.`, kind:'b'},
+        {s:`They <b>runned</b> home.`, w:`<em>Runned</em> is not an English past.`, kind:'b'},
+        {s:`The <b>sheeps</b> waited in the field.`, w:`<em>Sheep</em> does not take <em>-s</em>.`, kind:'b'},
+        {s:`He <b>seed</b> the king.`, w:`The past of <em>see</em> is <em>saw</em>, not <em>seed</em>.`, kind:'b'}
+      ]);
+      const sol = rand([
+        {s:`The ${n}s <b>waits</b> at the gate.`, w:`<em>Waits</em> is a word; it does not fit a plural subject.`, kind:'s'},
+        {s:`The book on the table <b>are</b> heavy.`, w:`Every word is English. The verb does not fit its subject.`, kind:'s'},
+        {s:`Between you and <b>I</b>, they left.`, w:`<em>I</em> is English. After <em>between</em> the object form is required.`, kind:'s'},
+        {s:`The ${n}s <b>is</b> ready.`, w:`Plural subject, singular verb. The joining has failed.`, kind:'s'},
+        {s:`Him <b>go</b> store yesterday.`, w:`Good pieces, badly joined: case and verb-form both fail.`, kind:'s'}
+      ]);
+      const it = rand([barb, sol]);
+      const a = it.kind === 'b'
+        ? 'Barbarism — a fault in a single word'
+        : 'Solecism — a fault in the joining';
+      const options = shuffle([a, ...sample([
+        'Barbarism — a fault in a single word',
+        'Solecism — a fault in the joining',
+        'No fault',
+        'A complete sentence, therefore correct'
+      ].filter(x => x !== a), d <= 1 ? 2 : 3)]);
+      return {
+        kind:'mc', src:['donatus','appown'], sid:'vc:'+it.s,
+        prompt:'What kind of fault?',
+        sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+        options, correct: options.indexOf(a), cong:{c:false, t:null},
+        check(i){
+          if(i === options.indexOf(a)) return {right:true, note: it.w};
+          return {right:false, note:`<strong>${a}.</strong> ${it.w}`, also:`You said <em>${options[i]}</em>.`};
+        }
+      };
+    }
     const pool = d <= 1 ? VICE_ITEMS.filter(x => ['vc1','vc2','vc6','vc7','vc8'].indexOf(x.id) >= 0) : VICE_ITEMS;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
@@ -5376,6 +5577,33 @@ EX.vox = {
   desc:'Given a sound — a groan, a bark, a name, a letter — say whether it is voice, whether it is articulate, and whether it is yet a word.',
   instr:'Voice, articulate or not — and why grammar begins here.',
   gen(d){
+    if(Math.random() < 0.45){
+      const sounds = [
+        {w:'a groan', a:'Voice, and inarticulate', why:'Air struck, so voice. It cannot be cut into letters, so inarticulate. Not a word.'},
+        {w:'a bark', a:'Voice, and inarticulate', why:'Living sound, not imposed as a name. Indication by nature is not yet a word.'},
+        {w:'the name <em>horse</em>', a:'Voice, articulate, and a word', why:'Imposed to signify. Articulate (it can be written) and a word.'},
+        {w:'the letter <em>A</em>', a:'Voice, articulate, not yet a word', why:'A lettered sound. It can be written. It signifies nothing on its own.'},
+        {w:'thunder', a:'Not a voice of speech', why:'Not breath struck by a living speaker as Donatus means <span class="lat">vox</span> of the art. Grammar starts from human voice.'},
+        {w:'<em>ha!</em> as a cry of surprise', a:'Voice, inarticulate as a cry — not yet a word of the language', why:'An interjection is later listed as a part of speech when it is imposed as one. A raw cry is inarticulate voice.'}
+      ];
+      const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
+      const options = shuffle([it.a, ...sample([
+        'Voice, and inarticulate',
+        'Voice, articulate, and a word',
+        'Voice, articulate, not yet a word',
+        'Not a voice of speech',
+        'Already a sentence'
+      ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
+      return {
+        kind:'mc', src: this.src, sid:'vx:'+it.w,
+        prompt:`What is ${it.w}?`,
+        options, correct: options.indexOf(it.a), cong:{c:null, t:null},
+        check(i){
+          if(i === options.indexOf(it.a)) return {right:true, note: it.why};
+          return {right:false, note:`<strong>${it.a}.</strong> ${it.why}`};
+        }
+      };
+    }
     const items = [
       {id:'vx1', src:['donatus'], q:'Donatus: <span class="lat">vox est aer ictus, sensibilis auditu</span>. What is he defining?',
        a:'Living sound — breath struck, heard', ds:['The written letter','A complete sentence','A name imposed ad placitum'],
@@ -5838,6 +6066,7 @@ EX.auctores = {
     const it = pickSeen(a.items, x => a.id + ':' + x.q);
     it.src = a.src;
     const q = makeMC(it, d <= 1 ? 3 : 4);
+    q.sid = a.id + ':' + it.q;
     q.passage = a.lat.replace(/\n/g,'<br>');
     q.orig = a.eng.replace(/\n/g,'<br>');
     q.olang = 'English';
@@ -5854,6 +6083,127 @@ EX.auctores = {
     return q;
   }
 };
+
+const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty you chose.';
+(function attachIntros(){
+  const I = {
+    vox:[
+      {h:`<strong>Voice is living sound</strong> — air struck, heard. A groan is a voice. It is not yet a word.`,
+       eg:['A bark is voice, and inarticulate: it cannot be cut into letters.','<em>Horse</em> is voice, articulate, and a word: a community has imposed that sound.']},
+      {h:`<strong>Three questions of every sound.</strong> Is it voice? Can it be written (articulate)? Has it been imposed as a word? Grammar of the word starts only at the third.`}
+    ],
+    letter:[
+      {h:`<strong>The letter is the least part of a written sound.</strong> It signifies nothing. Meaning waits for the word.`},
+      {h:`<strong>Name, shape, power.</strong> What we call it, the mark on the page, the sound it is for. A vowel can be uttered by itself; a consonant cannot.`,
+       eg:['Latin <em>C</em> is named <em>ce</em>, written C, sounded /k/.']}
+    ],
+    syllable:[
+      {h:`<strong>Count the vowels and diphthongs.</strong> That is the number of syllables. A syllable still signifies nothing.`},
+      {h:`<strong>Latin stress is measured, not guessed.</strong> In a word of three or more syllables, if the penult is long it takes the stress; if short, the stress falls back. English, German, French, and Greek have other laws; they are asked so the Latin law is not mistaken for a law of speech as such.`}
+    ],
+    decline:[
+      {h:`<strong>The first cut through the eight parts:</strong> does the word take endings as its job in the sentence changes?`},
+      {h:`<strong>Declinable</strong> — noun, pronoun, verb, participle (and the adjective with the noun). <strong>Indeclinable</strong> — adverb, preposition, conjunction, interjection.`,
+       eg:['English still shows remnants: <em>he / him / his</em>; <em>sailor’s</em>.']}
+    ],
+    latnoun:[
+      {h:`<strong>A form is thrown up. Give its case and number.</strong> The forms are generated from the tables, so they do not run out.`},
+      {h:`<strong>Latin is full of ambiguous forms.</strong> <em>puellae</em> is genitive singular and nominative plural. Any correct analysis is accepted, and you are told what else it could have been.`}
+    ],
+    latverb:[
+      {h:`<strong>Person, number, tense, mood, voice.</strong> The classic drill, generated from the conjugation tables.`},
+      {h:`<strong>Only the single-word forms are asked.</strong> The perfect passive is a participle plus <em>sum</em>, and belongs to syntax. Same form, two analyses: you are told.`}
+    ],
+    cases:[
+      {h:`<strong>Case is a job, not an ending.</strong> English marks the job by where the word sits; Latin marks it by the ending. See the job first, then name the case.`},
+      {h:`<strong>The six Latin cases</strong> — nominative (subject), genitive (of), dative (to/for), accusative (object, or motion toward), ablative (from, with, in, by), vocative (address).`,
+       eg:['<em>The farmer praises the girl</em> — <em>farmer</em> is nominative work; <em>girl</em> is accusative work.']}
+    ],
+    produce:[
+      {h:`<strong>The inverse of parsing.</strong> You are given the lemma and the accidents; you write the form. That is the drill that proves you have the tables.`},
+      {h:`<strong>Macrons are shown in the answer and are not required in what you type.</strong> Spelling is compared without them.`}
+    ],
+    agree:[
+      {h:`<strong>The adjective adheres to the noun</strong> in gender, number, and case. Thomas: it requires in its subject the mode of standing by itself, proportionate to it.`},
+      {h:`<strong>A phrase is thrown up, sound or not.</strong> If it fails, say in which accident. One fault only is planted.`}
+    ],
+    govern:[
+      {h:`<strong>Some words require a case of the word that completes them.</strong> That requirement is government — <span class="lat">regimen</span>.`},
+      {h:`<strong>The same small word, two cases, two meanings.</strong> Latin <em>in urbem</em> (into the city, accusative) against <em>in urbe</em> (in the city, ablative). German two-way prepositions make the same cut.`,
+       eg:['Most verbs take the accusative of the object. <em>Ūtor</em> takes the ablative; <em>meminī</em> often the genitive.']}
+    ],
+    cong:[
+      {h:`<strong>Three judgments of a string of words.</strong> The parts do not fit (incongruous). They fit and you are still waiting (incomplete). They fit and the mind is at rest (complete).`},
+      {h:`<strong>Truth is not asked.</strong> <em>homo albus</em> is congruous and incomplete; <em>homo est albus</em> is complete. Whether the man is white belongs to logic.`}
+    ],
+    clauses:[
+      {h:`<strong>A clause is marked in a real author.</strong> Name the work it is doing: purpose, result, time, cause, condition, the relative, indirect speech, and the rest.`},
+      {h:`<strong>The store is finite</strong> — these are the authors, not a generator. English is the working text; Latin or Greek on request. The same difficult period may return with a different mark.`}
+    ],
+    workshop:[
+      {h:`<strong>Every construction is a leaning:</strong> one word depends, another terminates that dependence. That is the modists’ engine, and it is the picture dependency grammar still draws.`},
+      {h:`<strong>Read the arrow as a leaning, not as a fact about the world.</strong> <em>brave → sailor</em> says the adjective depends on the noun. It does not say the sailor is brave.`}
+    ],
+    vices:[
+      {h:`<strong>Donatus’s two vices.</strong> Barbarism is a fault in a single word. Solecism is a fault in the joining of good words.`},
+      {h:`<em>He has three childs</em> — barbarism (<em>childs</em> is not the plural). <em>The boys runs home</em> — solecism (<em>runs</em> is a word; it does not fit <em>boys</em>).`,
+       eg:['The tropes wait for Ars Rhetorica.']}
+    ],
+    period:[
+      {h:`<strong>A period is a joining of clauses</strong> that still makes one saying. Virgil’s opening is the school’s example.`},
+      {h:`<strong>Ask government, relatives, and cola</strong> — not the story. English (Dryden) is shown on request.`}
+    ],
+    servius4:[
+      {h:`<strong>Servius on Aeneid IV, as a grammarian.</strong> The questions are case, government, and construction. Not the plot of Dido.`},
+      {h:`<strong>A named commentary is the key.</strong> If a note is not grammatical, it is not asked.`}
+    ],
+    livyperiod:[
+      {h:`<strong>Livy’s opening period, continuous Latin.</strong> How the clauses stand: who governs whom, what is subordinate, where the period rests.`},
+      {h:`<strong>English on request.</strong> The object of the exercise is the Latin joining.`}
+    ],
+    auctores:[
+      {h:`<strong>Twenty shared loci with Ars Rhetorica.</strong> Choose one period. The questions are government, agreement, cola, parataxis or hypotaxis.`},
+      {h:`<strong>Latin is the text; English a toggle.</strong> A named commentary is the key. Greek shelf only if Ancient Greek is the partner language.`}
+    ],
+    modes:[
+      {h:`<strong>The three modes:</strong> the way a thing is, the way the mind takes it, the way a word signifies it. Grammar studies the third.`},
+      {h:`<strong>Given a mode, name the part; given a part, name the mode.</strong> The objections are asked alongside.`}
+    ],
+    actpass:[
+      {h:`<strong>One relation, two names.</strong> The active mode is the word’s way of signifying; the passive is the thing’s being so signifiable.`},
+      {h:`<strong>This answers Ockham’s charge</strong> that the mode is a quality painted onto the sound. It is a relation, not a varnish.`}
+    ],
+    objections:[
+      {h:`<strong>The places the school is under pressure:</strong> the chimaera, grammatical gender, Ockham, Aurifaber, the fact that languages differ.`},
+      {h:`<strong>They are put as objections, and answered as far as they can be.</strong> A liberal art does not catechise.`}
+    ],
+    congtruth:[
+      {h:`<strong>Two independent questions.</strong> Is the sentence well formed? Is what it says so? Grammar judges the first; logic the second.`},
+      {h:`<em>The moon is made of green cheese</em> — well formed, and false. <em>Him go store yesterday</em> — badly formed; truth does not yet arise.`}
+    ],
+    suppos:[
+      {h:`<strong>What a word means, against what it stands for in this proposition.</strong> <em>Man is a species</em> and <em>man is an animal</em> — one word, two suppositions.`},
+      {h:`<strong>This is where grammar hands over to logic.</strong> Signification is the word’s; supposition is the term’s in a saying.`}
+    ],
+    figura:[
+      {h:`<strong>The figure of speech:</strong> arguing from the shape of the word to the shape of the thing. The word follows the thing imperfectly.`},
+      {h:`<em>Nothing</em> is a noun; therefore nothing is a kind of thing. That inference is the fallacy.`}
+    ],
+    typo:[
+      {h:`<strong>How languages actually differ:</strong> word order, case against configuration, isolating and fusional and agglutinating.`},
+      {h:`<strong>The school’s claim, tested:</strong> the variation is in the sounds and the marks, not in the kinds of work words do.`}
+    ],
+    ug:[
+      {h:`<strong>Two universal grammars.</strong> The modists ground the common shape in the world; Chomsky grounds it in the mind.`},
+      {h:`<strong>They agree that the variety is in some sense on the surface.</strong> They part on what the common shape is for.`}
+    ]
+  };
+  Object.keys(I).forEach(k => {
+    if(!EX[k] || EX[k].intro) return;
+    EX[k].intro = I[k];
+    EX[k].introInstr = 'Two notes, then the drill. ' + SET_NOTE;
+  });
+})();
 
 /* ---------- the act structure of the home page ---------- */
 const ACTS = [
@@ -6123,7 +6473,7 @@ function openPick(which){
       <p>${a.comm}</p>
       <span class="auctor-badge">Also in Ars Rhetorica: ${a.id}</span>
       <span class="begin">BEGIN ⟶</span>`;
-    c.onclick = () => { state.auctorId = a.id; startEx(EX.auctores); };
+    c.onclick = () => { state.auctorId = a.id; openEx(EX.auctores); };
     grid.appendChild(c);
   });
   show('scr-pick');
@@ -6227,7 +6577,18 @@ function startEx(e){
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
-  state.q = state.ex.gen(state.diff);
+  let q = null;
+  for(let i = 0; i < 18; i++){
+    const seenBefore = state.sessionSeen.slice();
+    q = state.ex.gen(state.diff);
+    const id = q && q.sid;
+    if(!id) break;
+    if(seenBefore.indexOf(id) < 0){
+      if(state.sessionSeen.indexOf(id) < 0) state.sessionSeen.push(id);
+      break;
+    }
+  }
+  state.q = q;
   state.locked = false;
   chipSel = {};
   renderQ();
