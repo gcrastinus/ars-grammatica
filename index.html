@@ -220,6 +220,9 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .btn.primary{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
 .btn.primary:hover{background:var(--gold-soft)}
 .btn:disabled{opacity:.4; cursor:default}
+.si-home{text-align:center;margin:22px 0 8px;font-family:"Cinzel",serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.si-home a{display:inline-block;padding:8px 18px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink-soft);text-decoration:none}
+.si-home a:hover{color:var(--ink);border-color:var(--ink-soft)}
 .btn-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px}
 
 /* ------- question screen ------- */
@@ -457,6 +460,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
       <button class="btn" id="btn-sources">Sources</button>
       <button class="btn" id="btn-syll">Ars Syllogistica ⟶</button>
     </div>
+    <div class="si-home"><a href="https://studiuminstitute.org">Studium Institute</a></div>
   </div>
 
   <!-- ============ STUDY DECK ============ -->
@@ -1112,7 +1116,7 @@ const SRC = {
        note:'The medieval division this course’s acts follow — a twelfth-century arrangement of Priscian, not a Roman one.'},
   arist_met:{kind:'primary', short:'Aristotle, <i>Metaphysics</i> IV',
        full:'Aristotle, <i>Metaphysics</i> IV — cited by Thomas of Erfurt (§26) in his answer to the objection from privations and negations.',
-       note:'Cited by Thomas, not by this app independently.'},
+       note:'Cited by Thomas, not by this course independently.'},
   jst:{kind:'primary', short:'John of St. Thomas, <i>Ars logica</i> (<i>Tractatus de signis</i>)',
        full:'John of St. Thomas (John Poinsot), <i>Cursus philosophicus thomisticus</i> I: <i>Ars logica</i> (1631–32), Part II, qq. 21–23 — the material Deely extracted as the <i>Tractatus de signis</i>. The doctrine is reported here as expounded and cited by John Deely, <i>Introducing Semiotics: Its History and Doctrine</i> (Indiana), who gives Poinsot’s locations (1631: 10a6–12; 1632: 646a14–28; Book I qq. 1, 2, 5; Book II qq. 1–2). The Latin text is in the user’s library but is a scanned image without a text layer, so the app does not quote Latin from it.',
        note:'The preferred Thomistic voice on signification in this course.'},
@@ -1120,7 +1124,7 @@ const SRC = {
   /* ---------- studies ---------- */
   bh:{kind:'study', short:'Bursill-Hall, <i>Speculative Grammars of the Middle Ages</i>',
        full:'G. L. Bursill-Hall, <i>Speculative Grammars of the Middle Ages: The Doctrine of Partes Orationis of the Modistae</i>, Mouton, 1971. The standard scholarly study, and the source of the quotations from modists other than Thomas.',
-       note:'Also the source of this app’s honest reporting of where the doctrine is weak.'},
+       note:'Also the source of this course’s honest reporting of where the doctrine is weak.'},
   sep_sem:{kind:'study', short:'Stanford Encyclopedia, “Medieval Semiotics”',
        full:'Stefan Meier-Oeser, “Medieval Semiotics”, <i>Stanford Encyclopedia of Philosophy</i> — for Boethius of Dacia’s statement of universal grammar, and for Ockham’s and John Aurifaber’s criticisms of the modists.',
        note:''},
@@ -1137,7 +1141,7 @@ const SRC = {
        note:'Presented in his own terms before any reply is made to him.'},
   chomsky:{kind:'modern', short:'Chomsky, <i>Cartesian Linguistics</i>',
        full:'Noam Chomsky, <i>Cartesian Linguistics</i> (1966) and <i>Current Issues in Linguistic Theory</i> (1964). Bursill-Hall himself raises the comparison with the modists in his introduction, and credits Chomsky with reviving interest in pre-modern grammarians.',
-       note:'The comparison is not this app’s invention; the standard study makes it.'},
+       note:'The comparison is not this course’s invention; the standard study makes it.'},
 
   /* ---------- reference ---------- */
   ag:{kind:'study', short:'Allen &amp; Greenough, <i>New Latin Grammar</i>',
