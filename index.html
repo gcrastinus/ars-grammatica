@@ -457,6 +457,102 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .src-entry .t{font-size:18px; margin-bottom:7px}
 .src-entry p{font-size:15.5px; color:var(--ink-soft); line-height:1.5}
 .src-entry .n{font-size:15.5px; font-style:italic; color:var(--ink-soft); margin-top:7px}
+
+.teacher-note{max-width:640px; margin:28px auto 0; text-align:center; border-top:1px solid var(--line); padding-top:16px}
+.teacher-note a{font-size:14.5px; color:var(--ink-soft); font-style:italic; text-decoration:none; letter-spacing:.02em}
+.teacher-note a:hover{color:var(--gold)}
+
+.maker-help{max-width:720px; margin:0 auto 18px; background:var(--card); border:1px solid var(--line);
+  border-left:4px solid var(--gold-soft); border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.maker-help summary{cursor:pointer; font-weight:600; color:var(--gold); font-family:'Cinzel',serif; font-size:14px; letter-spacing:.06em}
+.maker-help p{margin-top:10px; font-size:15.5px; color:var(--ink-soft)}
+.maker-card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px;
+  margin:14px 0; box-shadow:var(--shadow)}
+.maker-card h2{font-family:'Cinzel',serif; font-size:15px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px}
+.maker-fields{display:flex; gap:14px; flex-wrap:wrap}
+.maker-field{flex:1 1 180px}
+.maker-field label{display:block; font-size:13px; color:var(--ink-soft); margin-bottom:4px}
+.maker-field input[type=text],.maker-field input[type=number],.maker-field select{
+  font:inherit; width:100%; padding:8px 10px; border:1px solid var(--line);
+  border-radius:8px; background:var(--panel2); color:var(--ink)}
+.maker-setlist{max-height:380px; overflow:auto; border:1px solid var(--line); border-radius:10px; background:var(--panel2); padding:6px 8px}
+.maker-act{font-family:'Cinzel',serif; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); padding:10px 8px 4px}
+.maker-row{display:flex; align-items:flex-start; gap:10px; padding:7px 8px; border-bottom:1px dashed var(--line); cursor:pointer}
+.maker-row:last-child{border-bottom:none}
+.maker-row input{margin-top:4px; accent-color:var(--gold)}
+.maker-row .nm{font-size:16px}
+.maker-row .meta{display:block; font-size:13px; color:var(--ink-soft); font-style:italic}
+.minibtns{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 0}
+.minibtns button{font:inherit; cursor:pointer; background:var(--panel); border:1px solid var(--line);
+  border-radius:18px; padding:5px 12px; color:var(--ink-soft); font-size:14px}
+.minibtns button:hover{border-color:var(--gold); color:var(--ink)}
+.toggle{background:var(--panel2); border:1px solid var(--line); border-radius:18px; padding:6px 14px;
+  color:var(--ink-soft); cursor:pointer; font:inherit; font-size:14.5px}
+.toggle.on{background:var(--ink); color:var(--sel-text); border-color:var(--ink)}
+.makebar{position:sticky; bottom:0; background:linear-gradient(0deg, var(--paper) 55%, transparent);
+  padding:14px 0 8px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:18px}
+.maker-status{margin:0; padding:10px 14px; border-radius:10px; font-size:15px; color:var(--ink-soft);
+  border:1px solid var(--line); background:var(--panel); flex:1}
+.maker-status.ok{border-color:var(--sage); color:var(--good-text)}
+.maker-status.err{border-color:var(--wine); color:var(--bad-text)}
+#quiz-paper{display:none; background:#fff; color:#111; border-radius:12px; margin:22px 0 0;
+  font-family:Georgia,"Times New Roman",serif; box-shadow:0 8px 36px rgba(74,58,32,.25)}
+#quiz-paper.show{display:block}
+.qsheet{padding:32px 38px 40px}
+.qsheet + .qsheet{border-top:6px double #ccc}
+.qhead{border-bottom:2px solid #111; padding-bottom:8px; margin-bottom:12px}
+.qhead h1{font-family:'Cinzel',serif; font-size:20px; margin:0 0 3px; letter-spacing:.04em; font-weight:600; color:#111}
+.qhead .meta{font-size:12.5px; color:#444; font-family:Helvetica,Arial,sans-serif}
+.namerow{display:flex; gap:24px; font-size:13px; margin:0 0 12px; font-family:Helvetica,Arial,sans-serif}
+.namerow span{flex:1; border-bottom:1px solid #444; padding-bottom:2px}
+.namerow span.sm{flex:0 0 140px}
+.rubric{font-size:12.5px; color:#333; font-family:Helvetica,Arial,sans-serif; line-height:1.5;
+  border:1px solid #bbb; border-left:4px solid #a67c2e; border-radius:4px; padding:8px 11px; margin:0 0 14px; background:#faf7f0}
+.covers{font-size:12.5px; color:#333; font-family:Helvetica,Arial,sans-serif; margin:0 0 14px; line-height:1.5}
+ol.qs{margin:0; padding:0; list-style:none; counter-reset:qn}
+li.qitem{counter-increment:qn; margin:0 0 16px; padding:0 0 0 30px; position:relative;
+  break-inside:avoid; page-break-inside:avoid}
+li.qitem::before{content:counter(qn) "."; position:absolute; left:0; top:0; font-weight:700; font-size:15px; color:#111}
+.qsetline{font-size:11px; font-family:Helvetica,Arial,sans-serif; color:#777; letter-spacing:.04em;
+  text-transform:uppercase; margin-bottom:2px}
+.qinstr{font-size:13px; font-style:italic; color:#444; margin-bottom:4px}
+.qstem{font-size:14.5px; line-height:1.55; margin-bottom:5px; color:#111}
+.qstem .il{border-left:2px solid #bbb; background:#f7f4ea; margin:8px 0}
+.qstem .il-tr{color:#7a5a20}
+.qstem .q-specimen{font-size:22px; text-align:center; margin:6px 0 10px}
+.qstem .lemma{display:block; font-size:13px; font-style:italic; color:#555}
+.qstem .target{border-bottom:2px solid #a67c2e; font-weight:600}
+ol.ch{margin:4px 0 0; padding:0; list-style:none; counter-reset:cn}
+ol.ch li{counter-increment:cn; font-size:14px; line-height:1.5; padding-left:26px; position:relative; color:#111}
+ol.ch li::before{content:"(" counter(cn, lower-alpha) ")"; position:absolute; left:0; color:#333;
+  font-family:Helvetica,Arial,sans-serif; font-size:12.5px; top:1px}
+.ansline{border-bottom:1px solid #555; height:20px; margin:9px 40px 2px 0}
+.work{border:1px dashed #bbb; border-radius:5px; margin:8px 0 0; background:
+  repeating-linear-gradient(180deg,transparent,transparent 25px,#e0e0e0 25px,#e0e0e0 26px);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; height:72px}
+.keyitem{break-inside:avoid; page-break-inside:avoid; margin:0 0 11px; padding:0 0 0 30px; position:relative;
+  font-size:13.5px; line-height:1.5; counter-increment:qn; color:#111}
+.keyitem::before{content:counter(qn) "."; position:absolute; left:0; top:0; font-weight:700}
+.keyitem .ka{font-family:Helvetica,Arial,sans-serif}
+.keyitem .kset{font-size:11px; color:#888; font-family:Helvetica,Arial,sans-serif; text-transform:uppercase; letter-spacing:.04em}
+.keyitem .kx{margin-top:4px; font-size:13px; color:#444}
+ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
+.keynote{font-size:12.5px; color:#444; font-family:Helvetica,Arial,sans-serif; margin:0 0 14px;
+  border:1px solid #ccc; padding:8px 11px; border-radius:4px; background:#f9f9f9}
+
+@media print{
+  body, html{background:#fff !important}
+  #dark-toggle, #speak-toggle, #speak-rate, .si-home{display:none !important}
+  .wrap{max-width:none; padding:0; margin:0}
+  .screen{display:none !important}
+  #scr-maker{display:block !important; position:static}
+  #maker-ui{display:none !important}
+  #quiz-paper{display:block !important; box-shadow:none; border-radius:0; margin:0}
+  .qsheet{padding:18px 22px}
+  .qsheet.key-sheet{page-break-before:always}
+}
+.src-entry p{font-size:15.5px; color:var(--ink-soft); line-height:1.5}
+.src-entry .n{font-size:15.5px; font-style:italic; color:var(--ink-soft); margin-top:7px}
 </style>
 </head>
 <body>
@@ -511,6 +607,9 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
       <button class="btn" id="btn-progress">Progress</button>
       <button class="btn" id="btn-sources">Sources</button>
       <button class="btn" id="btn-syll">Ars Syllogistica ⟶</button>
+    </div>
+    <div class="teacher-note">
+      <a href="#maker" id="btn-maker">For instructors — build a printable quiz with answer key ⟶</a>
     </div>
     <div class="si-home"><a href="https://studiuminstitute.org">Studium Institute</a></div>
   </div>
@@ -617,6 +716,72 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
       <button class="btn" id="prog-back">← Home</button>
       <button class="btn" id="prog-reset">Erase all progress</button>
     </div>
+  </div>
+
+  <!-- ============ QUIZ MAKER ============ -->
+  <div class="screen" id="scr-maker">
+    <div id="maker-ui">
+      <header>
+        <div class="ornament">❦</div>
+        <h1 style="font-size:32px">Quiz Maker</h1>
+        <div class="subtitle">Printable quizzes with a complete answer key — for instructors</div>
+      </header>
+      <details class="maker-help">
+        <summary>How to use</summary>
+        <p>Select one or more exercise sets, choose the difficulty and how many questions you want from each, then generate. Questions are freshly drawn from the same generators the students use — including those that take from a finite corpus of authors. The answer key prints on its own page(s) at the end. <strong>Separate those pages before handing the quiz out.</strong> Use the browser’s Print → Save as PDF.</p>
+        <p>The quiz is of the exercises. You may also include two (or more) major doctrine questions from the study tutorials that belong to the sets you chose. Open questions left for later study are not used.</p>
+      </details>
+      <div class="maker-card">
+        <h2>1 · Header (optional)</h2>
+        <div class="maker-fields">
+          <div class="maker-field"><label>Course / class name</label><input type="text" id="qz-course" placeholder="e.g. Latin Grammar I"></div>
+          <div class="maker-field"><label>Instructor</label><input type="text" id="qz-teacher" placeholder="Optional"></div>
+          <div class="maker-field"><label>Date on quiz</label><input type="text" id="qz-date" placeholder="Leave blank for today"></div>
+        </div>
+      </div>
+      <div class="maker-card">
+        <h2>2 · Exercise sets</h2>
+        <div class="minibtns">
+          <button type="button" id="qz-all">Select all</button>
+          <button type="button" id="qz-none">Clear</button>
+        </div>
+        <div class="maker-setlist" id="qz-sets"></div>
+      </div>
+      <div class="maker-card">
+        <h2>3 · Difficulty, count, and doctrine</h2>
+        <div class="maker-fields">
+          <div class="maker-field"><label>Difficulty</label>
+            <select id="qz-diff">
+              <option value="1">I — The first steps</option>
+              <option value="2">II — The ordinary material</option>
+              <option value="3" selected>III — Harder</option>
+              <option value="4">IV — Severe</option>
+              <option value="5">V — Everything at once</option>
+            </select>
+          </div>
+          <div class="maker-field"><label>Questions per selected set</label>
+            <input type="number" id="qz-count" min="1" max="40" value="8">
+          </div>
+          <div class="maker-field"><label>Doctrine questions</label>
+            <div style="margin-top:4px">
+              <button type="button" class="toggle" id="qz-doc-on">Include doctrine</button>
+            </div>
+          </div>
+          <div class="maker-field" id="qz-doc-n-wrap" style="display:none">
+            <label>How many doctrine questions (minimum 2)</label>
+            <input type="number" id="qz-doc-n" min="2" max="12" value="2">
+          </div>
+        </div>
+        <p class="maker-status" id="qz-diff-hint" style="margin-top:12px"></p>
+      </div>
+      <div class="makebar">
+        <button class="btn primary" id="qz-gen">Generate quiz</button>
+        <button class="btn" id="qz-print" style="display:none">Print / Save as PDF</button>
+        <button class="btn" id="qz-home">← Home</button>
+        <span class="maker-status" id="qz-status">Choose sets, then generate.</span>
+      </div>
+    </div>
+    <div id="quiz-paper"></div>
   </div>
 
 </div>
@@ -9298,6 +9463,8 @@ function renderProgress(){
 }
 
 $('btn-progress').onclick = () => { renderProgress(); show('scr-prog'); };
+$('btn-maker').onclick = (ev) => { ev.preventDefault(); openMaker(); };
+$('qz-home').onclick = () => { history.replaceState(null,'', location.pathname + location.search); show('scr-home'); buildHome(); };
 $('prog-back').onclick = () => { show('scr-home'); buildHome(); };
 $('pick-back').onclick = () => { show('scr-home'); buildHome(); };
 $('prog-reset').onclick = () => {
@@ -9610,6 +9777,318 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
   }catch(e){}
 })();
 
+/* ---------- quiz maker (instructors) ---------- */
+const QZ_DECK_FOR_EX = {
+  latnoun:['pos'], latverb:['pos'], cases:['govern','pos'],
+  produce:['produce','pos'],
+  congtruth:['prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
+};
+function qzToday(){
+  return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+}
+function qzStrip(html){
+  return String(html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function qzDecksForEx(exId){
+  const out = [];
+  if(DECKS[exId]) out.push(exId);
+  (QZ_DECK_FOR_EX[exId] || []).forEach(k => { if(out.indexOf(k) < 0) out.push(k); });
+  return out;
+}
+function qzIsOpenQuestion(p){
+  const h = p.h || '';
+  return /QUESTIONS LEFT OPEN|Possible areas of later study|Before the drill|How to use this course/.test(h);
+}
+function qzIsMajor(p){
+  if(!p.q || qzIsOpenQuestion(p)) return false;
+  const m = (p.h || '').match(/<strong>([^<]+)<\/strong>/);
+  if(!m) return false;
+  const t = m[1].trim();
+  if(t === t.toUpperCase() && t.length > 2) return true;
+  return /^(THE |VOICE|LETTER|SYLLABLE|NOUN|VERB|WORD|JOINING|AGREEMENT|GOVERNMENT|CONGRUITY|CLAUSE|PERIOD|BARBARISM|SUPPOSITION|FIGURA|XIAOXUE|VYĀKARAṆA|NAḤW|ANOTHER ART)/i.test(t);
+}
+function qzDoctrinePool(exIds){
+  const seen = new Set();
+  const major = [], rest = [];
+  exIds.forEach(id => {
+    qzDecksForEx(id).forEach(dk => {
+      if(!DECKS[dk]) return;
+      DECKS[dk].panels.forEach(p => {
+        if(!p.q || qzIsOpenQuestion(p)) return;
+        const key = dk + '::' + p.q.prompt;
+        if(seen.has(key)) return;
+        seen.add(key);
+        const item = {deck: dk, title: DECKS[dk].title, p};
+        if(qzIsMajor(p)) major.push(item);
+        else rest.push(item);
+      });
+    });
+  });
+  return {major, rest};
+}
+function qzPickDoctrine(exIds, n){
+  const {major, rest} = qzDoctrinePool(exIds);
+  const pool = major.length ? major.concat(rest) : rest;
+  const byDeck = {};
+  pool.forEach(it => { (byDeck[it.deck] || (byDeck[it.deck] = [])).push(it); });
+  const picked = [];
+  const decks = Object.keys(byDeck);
+  let i = 0;
+  while(picked.length < n && decks.length){
+    const d = decks[i % decks.length];
+    if(byDeck[d].length){
+      picked.push(byDeck[d].shift());
+    } else {
+      decks.splice(i % decks.length, 1);
+      continue;
+    }
+    i++;
+  }
+  return picked.slice(0, n);
+}
+function qzFormatDoctrine(it){
+  const ans = it.p.q.options[it.p.q.correct];
+  const options = shuffle(it.p.q.options.slice());
+  return {
+    doctrine:true,
+    setTitle: it.title,
+    instr: 'Doctrine — from the study.',
+    stemHtml: `<div class="qstem">${it.p.q.prompt}</div>`,
+    choices: options,
+    answerText: ans,
+    explainHtml: it.p.q.explain || ''
+  };
+}
+function qzChipsAnswer(q){
+  const keys = (q.rows || []).map(r => r.key);
+  function rec(i, acc){
+    if(i >= keys.length){
+      try{
+        const r = q.check(acc);
+        if(r && r.right) return r;
+      }catch(e){}
+      return null;
+    }
+    const opts = q.rows[i].opts || [];
+    for(let j = 0; j < opts.length; j++){
+      acc[keys[i]] = opts[j].v;
+      const hit = rec(i + 1, Object.assign({}, acc));
+      if(hit) return hit;
+    }
+    return null;
+  }
+  return rec(0, {});
+}
+function qzFormatLive(q, setTitle){
+  let stem = '';
+  if(q.specimen) stem += `<div class="q-specimen">${q.specimen}</div>`;
+  if(q.passage) stem += `<div class="q-passage">${q.passage}</div>`;
+  if(q.source) stem += `<div class="q-source">${q.source}</div>`;
+  if(q.sentence) stem += `<div class="q-sentence">${q.sentence}</div>`;
+  if(q.gloss) stem += `<div class="q-gloss">${q.gloss}</div>`;
+  stem += `<div class="q-prompt">${q.prompt}</div>`;
+  const item = {
+    doctrine:false,
+    setTitle,
+    instr: '',
+    stemHtml: `<div class="qstem">${stem}</div>`,
+    choices: null,
+    answerText: '—',
+    explainHtml: '',
+    work: false
+  };
+  if(q.kind === 'mc' && q.options){
+    item.choices = q.options;
+    item.answerText = q.options[q.correct];
+    try{
+      const r = q.check(q.correct);
+      item.explainHtml = r && r.note ? r.note : '';
+    }catch(e){}
+  }else if(q.kind === 'text'){
+    item.work = true;
+    item.instr = 'Write the form.';
+    try{
+      const r = q.check('');
+      item.explainHtml = r && r.note ? r.note : '';
+      item.answerText = qzStrip(r && r.note ? r.note : '');
+    }catch(e){}
+  }else if(q.kind === 'chips'){
+    item.work = true;
+    item.instr = (q.rows || []).map(r => r.label).join(', ') + ' — write the answer.';
+    const r = qzChipsAnswer(q);
+    if(r){
+      item.explainHtml = r.note || '';
+      item.answerText = qzStrip(r.note || '');
+    }
+  }
+  return item;
+}
+function qzGenOne(ex, d){
+  if(ex.staged && ex.stages && ex.stages.length){
+    state.stageI = Math.floor(Math.random() * ex.stages.length);
+    state.stageStreak = 0;
+  }
+  if(ex.id === 'auctores'){
+    const shelf = auctorShelf();
+    if(shelf.length) state.auctorId = rand(shelf).id;
+  }
+  return ex.gen(d);
+}
+function qzFingerprint(q){
+  return q.sid || ((q.prompt || '') + '|' + (q.specimen || '') + '|' + (q.sentence || '') + '|' + (q.passage || '')).slice(0, 240);
+}
+function buildMakerSets(){
+  const box = $('qz-sets');
+  if(!box) return;
+  let html = '';
+  ACTS.forEach(act => {
+    const exs = act.items.filter(i => i.kind === 'ex' && EX[i.ex]);
+    if(!exs.length) return;
+    const label = (act.roman ? act.roman + ' · ' : '') + act.name;
+    html += `<div class="maker-act">${label}</div>`;
+    exs.forEach(i => {
+      const e = EX[i.ex];
+      html += `<label class="maker-row"><input type="checkbox" data-ex="${e.id}">
+        <span class="nm">${e.title}<span class="meta">${e.instr || ''}</span></span></label>`;
+    });
+  });
+  box.innerHTML = html;
+}
+function qzSelected(){
+  return [...document.querySelectorAll('#qz-sets input[type=checkbox]:checked')].map(x => x.dataset.ex);
+}
+function openMaker(){
+  if(location.hash !== '#maker') history.replaceState(null, '', '#maker');
+  buildMakerSets();
+  const d = +$('qz-diff').value || state.diff || 3;
+  $('qz-diff-hint').textContent = (DIFF[d] && DIFF[d].label) || '';
+  show('scr-maker');
+}
+function qzSetStatus(msg, cls){
+  const s = $('qz-status');
+  s.className = 'maker-status' + (cls ? ' ' + cls : '');
+  s.innerHTML = msg;
+}
+$('qz-diff').onchange = () => {
+  const d = +$('qz-diff').value;
+  $('qz-diff-hint').textContent = (DIFF[d] && DIFF[d].label) || '';
+};
+$('qz-all').onclick = () => $('qz-sets').querySelectorAll('input').forEach(i => i.checked = true);
+$('qz-none').onclick = () => $('qz-sets').querySelectorAll('input').forEach(i => i.checked = false);
+$('qz-doc-on').onclick = () => {
+  const on = !$('qz-doc-on').classList.contains('on');
+  $('qz-doc-on').classList.toggle('on', on);
+  $('qz-doc-n-wrap').style.display = on ? '' : 'none';
+};
+$('qz-print').onclick = () => window.print();
+$('qz-gen').onclick = () => {
+  try{
+    const ids = qzSelected();
+    if(!ids.length) throw new Error('Select at least one exercise set.');
+    const n = Math.max(1, Math.min(40, +$('qz-count').value || 8));
+    const diff = +$('qz-diff').value || 3;
+    const wantDoc = $('qz-doc-on').classList.contains('on');
+    const docN = wantDoc ? Math.max(2, Math.min(12, +$('qz-doc-n').value || 2)) : 0;
+
+    const saved = {
+      seen: state.sessionSeen.slice(),
+      stageI: state.stageI,
+      streak: state.stageStreak,
+      auctor: state.auctorId
+    };
+    state.sessionSeen = [];
+    const items = [];
+    const fps = new Set();
+
+    if(docN){
+      const docs = qzPickDoctrine(ids, docN);
+      if(docs.length < 2){
+        state.sessionSeen = saved.seen;
+        state.stageI = saved.stageI;
+        throw new Error('Not enough doctrine questions in the selected material. Choose sets that have a study tutorial, or leave doctrine off.');
+      }
+      docs.forEach(it => items.push(qzFormatDoctrine(it)));
+    }
+
+    ids.forEach(id => {
+      const ex = EX[id];
+      if(!ex || typeof ex.gen !== 'function') return;
+      let made = 0, tries = 0;
+      while(made < n && tries < n * 40){
+        tries++;
+        let q;
+        try{ q = qzGenOne(ex, diff); }
+        catch(e){ continue; }
+        if(!q) continue;
+        const fp = qzFingerprint(q);
+        if(fps.has(fp)) continue;
+        fps.add(fp);
+        if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
+        items.push(qzFormatLive(q, ex.title));
+        made++;
+      }
+    });
+
+    state.sessionSeen = saved.seen;
+    state.stageI = saved.stageI;
+    state.stageStreak = saved.streak;
+    state.auctorId = saved.auctor;
+
+    if(items.length <= docN) throw new Error('No exercise questions could be generated. Try another set or difficulty.');
+
+    const course = $('qz-course').value.trim();
+    const teacher = $('qz-teacher').value.trim();
+    const date = $('qz-date').value.trim() || qzToday();
+    const covers = [...new Set(items.map(it => it.setTitle))];
+    const levelLabel = (DIFF[diff] && DIFF[diff].label) || ('Difficulty ' + ROMAN[diff]);
+    const L = state.lang3 ? LANGS[state.lang3] : null;
+
+    let head = `<div class="qhead"><h1>Ars Grammatica · Quiz</h1>
+      <div class="meta">${course ? course+' · ' : ''}${teacher ? teacher+' · ' : ''}${date}<br>${levelLabel}${L ? ' · Partner language: '+L.name : ''}</div></div>
+      <div class="namerow"><span>Name</span><span class="sm">Score</span></div>
+      <div class="covers"><b>Covers:</b> ${covers.join('; ')}</div>
+      <div class="rubric"><b>Directions.</b> Answer every question. For multiple choice, circle the letter.
+        Where a blank or ruled space is given, write the answer. Macrons are not required.</div>`;
+
+    let qs = '<ol class="qs">';
+    items.forEach(it => {
+      qs += `<li class="qitem"><div class="qsetline">${it.doctrine ? 'Doctrine · ' : ''}${it.setTitle}</div>`;
+      if(it.instr) qs += `<div class="qinstr">${it.instr}</div>`;
+      qs += it.stemHtml || '';
+      if(it.choices && it.choices.length){
+        qs += '<ol class="ch">'+it.choices.map(c=>'<li>'+c+'</li>').join('')+'</ol>';
+      }else{
+        qs += '<div class="ansline"></div>';
+        if(it.work) qs += '<div class="work"></div>';
+      }
+      qs += '</li>';
+    });
+    qs += '</ol>';
+
+    let key = `<div class="qhead"><h1>Answer Key</h1>
+      <div class="meta">${date} · ${levelLabel}</div></div>
+      <div class="keynote"><b>For the instructor.</b> Detach these pages before distributing the quiz.
+        Answers are numbered to match the quiz. Each printing is freshly generated.</div>
+      <ol class="keys">`;
+    items.forEach(it => {
+      key += `<li class="keyitem"><div class="kset">${it.doctrine ? 'Doctrine · ' : ''}${it.setTitle}</div>
+        <div class="ka"><b>${it.answerText || '—'}</b></div>`;
+      if(it.explainHtml) key += `<div class="kx">${it.explainHtml}</div>`;
+      key += '</li>';
+    });
+    key += '</ol>';
+
+    $('quiz-paper').innerHTML = `<div class="qsheet">${head}${qs}</div><div class="qsheet key-sheet">${key}</div>`;
+    $('quiz-paper').classList.add('show');
+    $('qz-print').style.display = '';
+    const nDoc = items.filter(x => x.doctrine).length;
+    qzSetStatus('<b>'+items.length+' questions</b> ready'+(nDoc ? ' ('+nDoc+' doctrine)' : '')+'. Scroll down to review, then Print / Save as PDF.', 'ok');
+    $('quiz-paper').scrollIntoView({behavior:'smooth', block:'start'});
+  }catch(e){
+    qzSetStatus(e.message || String(e), 'err');
+  }
+};
+
 /* ---------- go ---------- */
 load();
 setDark(state.dark);
@@ -9617,6 +10096,10 @@ if($('speak-rate') && state.speakRate) $('speak-rate').value = String(state.spea
 buildLangRow();
 buildDiffRow();
 buildHome();
+if(location.hash === '#maker') openMaker();
+window.addEventListener('hashchange', () => {
+  if(location.hash === '#maker') openMaker();
+});
 
 
 /* ---------- the source register ---------- */
