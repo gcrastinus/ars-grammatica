@@ -55,13 +55,13 @@ body{
   background:var(--paper);
 }
 #dark-toggle{
-  position:fixed; top:14px; right:68px; width:44px; height:44px; border-radius:50%;
+  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
   border:1px solid var(--line); background:var(--card); color:var(--gold); font-size:20px;
   cursor:pointer; box-shadow:var(--shadow); z-index:50; transition:transform .15s;
 }
 #dark-toggle:hover{transform:scale(1.08)}
 #speak-toggle{
-  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
+  position:fixed; top:14px; right:68px; width:44px; height:44px; border-radius:50%;
   border:1px solid var(--line); background:var(--card); color:var(--gold); font-size:18px;
   cursor:pointer; box-shadow:var(--shadow); z-index:50; transition:transform .15s, background .15s, color .15s;
   line-height:1; display:flex; align-items:center; justify-content:center;
@@ -78,9 +78,9 @@ body{
   cursor:pointer;
 }
 @media (max-width:420px){
-  #dark-toggle{right:58px; top:12px; width:40px; height:40px; font-size:18px}
-  #speak-toggle{right:12px; top:12px; width:40px; height:40px; font-size:16px}
-  #speak-rate{right:12px; top:56px; height:28px; min-width:52px; font-size:11px; padding:0 4px}
+  #dark-toggle{right:12px; top:12px; width:40px; height:40px; font-size:18px}
+  #speak-toggle{right:56px; top:12px; width:40px; height:40px; font-size:16px}
+  #speak-rate{right:100px; top:16px; height:28px; min-width:52px; font-size:11px; padding:0 4px}
   .act-label,.act-latin,.act-gloss{padding-left:56px; padding-right:56px}
 }
 
