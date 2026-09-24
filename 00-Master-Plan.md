@@ -8,6 +8,26 @@ beside the tradition wherever the two are talking about the same thing.*
 Sibling application to **Ars Syllogistica**. Same engine, same voice, same parchment.
 Own folder, own repository, own `index.html`.
 
+
+> **Governing rule (September 2026, from T).** The course teaches the liberal art of
+> grammar in the classical mould. Its authorities are **Priscian and Donatus** (with
+> Isidore and Quintilian on the art's name and offices). **Aristotle and St Thomas**
+> are cited for the principles grammar borrows from philosophy and at the boundary
+> with logic — *De interpretatione* and *In Peri hermeneias* are logic, the art of the
+> enunciation, not grammar. **The modists** are used only to supply reasons Priscian
+> does not give, where the reason holds and fits Aristotle and St Thomas: chiefly the
+> theory of construction (dependence and termination; congruity and completeness) and
+> the reasons for the parts and accidents. Where a modist answer does not hold (e.g.
+> the derivation of every gender from acting and being acted upon), the classical
+> answer is given instead. Where this plan below says "modist in doctrine," read it
+> under this rule.
+>
+> **Act order as built:** Preliminary (one accessus deck) · I Matter · II Parts ·
+> III Accidents · IV Construction (Priscian first) · V The Reasons for the Parts
+> (modes, objections) · VI Faults, Licence, and Figures (Donatus *Ars maior* III) ·
+> VII Grammar and Logic · VIII Universal Grammar · IX Four Other Arts (with a closing
+> deck of the open questions).
+
 ---
 
 ## 0. What this app is for
