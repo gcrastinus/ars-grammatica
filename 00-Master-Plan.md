@@ -114,8 +114,7 @@ in place, nothing tracked.
   logical turn → the modists at Paris (Martin and Boethius of Dacia, Radulphus Brito,
   Thomas of Erfurt) → their eclipse by the humanists → Port-Royal → comparative philology
   → Saussure → Chomsky. Named, not detailed; detail comes in Act VIII.
-- **Where grammar stops.** The green-cheese pair. This panel gets a permanent home in the
-  interface as well — see §4, the Congruity Bar.
+- **Where grammar stops.** The green-cheese pair.
 
 The existing sixteen panels are cannibalised here and in Acts II and V. Nothing in them
 is lost; most of them are promoted into full exercises.
@@ -458,13 +457,6 @@ above it (*modus intelligendi*), the word above that (*modus significandi*), wit
 dependence drawn as arrows upward and the warning that the arrows do not run back down.
 Used in every Act V panel, and available as the second workshop: pick a thing, pick a
 word, watch the three modes separate.
-
-### The Congruity Bar
-
-Persistent, small, at the foot of every exercise screen: two independent lamps, **CONGRUOUS**
-and **TRUE**, greyed until the exercise has an opinion about them. Most exercises light only
-the first. It is a constant, wordless reminder of the app's governing distinction, and it
-is the thing the student will remember longest.
 
 ---
 

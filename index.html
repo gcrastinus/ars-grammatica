@@ -407,20 +407,6 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .complete-card .stat .lbl{font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
 .complete-btns{display:flex; justify-content:center; gap:16px; flex-wrap:wrap}
 
-/* ------- the congruity bar ------- */
-.cong-bar{
-  display:flex; justify-content:center; gap:26px; margin-top:20px; padding-top:14px;
-  border-top:1px dashed var(--line);
-}
-.lamp{display:flex; align-items:center; gap:8px; font-family:'Cinzel',serif; font-size:11.5px;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); opacity:.42; transition:opacity .25s}
-.lamp .dot{width:11px; height:11px; border-radius:50%; border:1px solid var(--line); background:transparent}
-.lamp.on{opacity:1}
-.lamp.yes .dot{background:var(--sage); border-color:var(--sage)}
-.lamp.no  .dot{background:var(--wine); border-color:var(--wine)}
-.lamp.na{opacity:.25}
-.cong-why{text-align:center; font-style:italic; color:var(--ink-soft); font-size:15px; margin-top:9px}
-
 /* ------- tables ------- */
 .para-wrap{overflow-x:auto; margin:16px 0}
 table.para{border-collapse:collapse; width:100%; font-size:17px}
@@ -1783,8 +1769,7 @@ logic to judge.</p>`,
                'Well formed, because the meaning comes through','Neither grammatical nor meaningful'],
       correct:1,
       explain:`The joining is faulty. That is grammar’s whole judgment. Whether the man went to the store is another question. Being understood is not the same as being well formed.`,
-      wrong:`Badly formed does not mean false. Being understandable does not make a joining correct.` },
-  cong:{c:false, t:null} },
+      wrong:`Badly formed does not mean false. Being understandable does not make a joining correct.` } },
 
 { src:['appown','isidore','quint','boethiusd'], h:`<p><strong>Master this first.</strong> Boethius of Dacia calls grammar an
 introductory science: it is not a part of philosophy as physics and mathematics
@@ -1841,11 +1826,7 @@ are.</p>
 
 { src:['appown'], h:`<p><strong>How to use this course.</strong> Read the panel, answer the question,
 read the answer given, and go on. Some exercises generate fresh questions each
-time. Some draw on a body of examples and texts.</p>
-<p>Beneath every exercise are two lamps: <strong>congruous</strong> and
-<strong>true</strong>. Most exercises light only the first, because grammar for
-the most part does not judge truth. When both are lit, they move independently.
-Grammar judges the one; logic the other.</p>` },
+time. Some draw on a body of examples and texts.</p>` },
 
 ]};
 
@@ -2346,7 +2327,6 @@ function makeMC(it, nOpt){
     gloss: it.gloss,
     passage: it.passage,
     options, correct: options.indexOf(it.a),
-    cong: it.cong || {c:null, t:null},
     check(i){
       if(i === options.indexOf(it.a)) return {right:true, note: it.why};
       return {right:false, note:`The answer is <strong>${it.a}</strong>. ${it.why}`,
@@ -4097,11 +4077,11 @@ two languages, or it is not their course.</p>`,
       correct:1,
       explain:`The match is the method. A unilingual Sumerian grammar in our sense is not what they wrote.` } },
 
-{ src:['appown'], h:`<p><strong>Before the drill.</strong> You will be held on one question of our
-art at a time — the sign, the reading, the pair, the verb-piece, the person,
+{ src:['appown'], h:`<p><strong>Before the drill.</strong> You will be held on one topic at a
+time — the sign, the reading, the pair, the verb-piece, the person,
 the agent-line, the difference from Donatus — until you have answered three
-without a miss. Then the next question. There is no hundred-point ending.
-The set ends when the last question of the art has been held.</p>` },
+in a row without a miss. Then the next topic. There is no hundred-point ending.
+Three in a row on the last topic finishes the set.</p>` },
 
 ]};
 
@@ -4509,11 +4489,11 @@ which stem, after which rule?</p>`,
       correct:1,
       explain:`Person as affix, not as a separate part of speech.` } },
 
-{ src:['appown'], h:`<p><strong>Before the drill.</strong> Three in a row on one question of the
-art — sound-piece, sandhi, Yāska’s four, stem and affix, kāraka, the sample
+{ src:['appown'], h:`<p><strong>Before the drill.</strong> Three in a row on one topic —
+sound-piece, sandhi, Yāska’s four, stem and affix, kāraka, the sample
 saying, compounds, the particle, the difference from the lists — then the
-next. No hundred points. The set ends when the last question of the art has
-been held.</p>` },
+next topic. No hundred points. Three in a row on the last topic finishes the
+set.</p>` },
 
 ]};
 
@@ -4855,8 +4835,8 @@ empty word, this place-name, in this line.</p>`,
 { src:['appown'], h:`<p><strong>Before the drill.</strong> Three in a row on the graph, the six
 writings, fǎnqiè, the gloss, full and empty, a sample line, the closer, the
 absence of case and tense-endings, the difference from Pāṇini and from
-Donatus. Then the next. No hundred points. The last question held ends the
-set.</p>` },
+Donatus. Then the next topic. No hundred points. Three in a row on the last
+topic finishes the set.</p>` },
 
 ]};
 
@@ -5232,8 +5212,8 @@ in another script.</p>`,
 { src:['appown'], h:`<p><strong>Before the drill.</strong> Three in a row on the three parts, the
 two senses of ḥarf, iʿrāb, the governor, a verbal saying, topic and comment,
 the particle as ʿāmil, the construct, laḥn, the comparison with kāraka and
-with Donatus. Then the next. No hundred points. The last question held ends
-the set.</p>` },
+with Donatus. Then the next topic. No hundred points. Three in a row on the
+last topic finishes the set.</p>` },
 
 ]};
 
@@ -5694,7 +5674,6 @@ EX.pos = {
         kind:'mc', src: it.src || srcFallback, prompt,
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
-        cong:{c:true, t:null},
         sid: it.id,
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note};
@@ -5852,7 +5831,6 @@ EX.modes = {
     const options = shuffle([it.a, ...sample(it.ds, Math.min(3, it.ds.length))]);
     return {
       kind:'mc', src: it.src, sid: it.q, prompt: it.q, options, correct: options.indexOf(it.a),
-      cong:{c:null, t:null},
       check(i){
         const right = i === options.indexOf(it.a);
         return right ? {right:true, note: it.why}
@@ -5898,7 +5876,6 @@ EX.latnoun = {
         {key:'cs', label:'Case', opts: CASES.map(c => ({v:c, label: CASE_SHORT[c]}))},
         {key:'num', label:'Number', opts: NUMS.map(n => ({v:n, label: NUM_NAME[n]}))}
       ],
-      cong:{c:true, t:null},
       check(ans){
         const hit = an.find(a => a.cs === ans.cs && a.num === ans.num);
         const all = an.map(describeCase);
@@ -5962,7 +5939,6 @@ EX.latverb = {
       prompt:'Parse the form.',
       specimen:`${form}<span class="lemma">${e.lemma} — ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
       rows,
-      cong:{c:true, t:null},
       check(ans){
         const eq = (a) => a.per === ans.per && a.num === ans.num && a.tense === ans.tense
                        && a.mood === ans.mood && a.voice === ans.voice;
@@ -6060,7 +6036,6 @@ EX.cases = {
       prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
       sentence: s.replace('<b>','<span class="target">').replace('</b>','</span>'),
       options, correct: options.indexOf(ans),
-      cong:{c:true, t:null},
       check(i){
         const base = `<strong>${cap(ans)}.</strong> ${cap(CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === ans)])}.`;
         if(i === options.indexOf(ans)) return {right:true, note: base + third};
@@ -6153,7 +6128,6 @@ EX.agree = {
       prompt:'Judge the phrase.',
       specimen:`${phrase}<span class="lemma">${adj.nom}, ${adj.gloss} &nbsp;·&nbsp; ${e.nom}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
       options, correct: fault,
-      cong:{c: fault === 0, t:null},
       check(i){
         const want = `<em>${e.nom}</em> is here ${describeCase({cs,num})} and ${GEN_NAME[e.g]}, so the adjective must be <strong>${rightForm}</strong>.`;
         if(i === fault){
@@ -6508,7 +6482,6 @@ EX.clauses = {
       prompt:'What kind of clause is the marked construction?',
       passage: it.passage, orig: it.orig, olang: it.olang, source: it.source,
       options, correct: options.indexOf(want),
-      cong:{c:true, t:null},
       check(i){
         if(i === options.indexOf(want)) return {right:true, note:`<strong>${want}.</strong> ${it.why}`};
         return {right:false, note:`<strong>${want}.</strong> ${it.why}`,
@@ -6556,7 +6529,6 @@ EX.congtruth = {
       prompt:'How does this sentence stand?',
       sentence: it.s,
       options: CT_OPTS.slice(), correct: ans,
-      cong:{c: it.c, t: it.c ? it.t : null},
       check(i){
         const verdict = !it.c
           ? 'The joining fails. The hearer may guess the thought, and the thought may be true; but logic is handed a guess, not a definite saying. Grammar’s judgment comes first.'
@@ -6623,7 +6595,6 @@ EX.letter = {
         prompt:'Can this letter be uttered by itself, or only with another?',
         specimen: ch.toUpperCase(),
         options, correct: options.indexOf(a),
-        cong:{c:null, t:null},
         check(i){
           const why = vowel
             ? `<strong>${ch.toUpperCase()}</strong> is a vowel: it is already a complete sound, and can be a syllable on its own.`
@@ -6837,7 +6808,6 @@ EX.syllable = {
           prompt:`How many sounded syllables in <em>${it.w}</em>?`,
           specimen: it.w,
           options, correct: options.indexOf(n),
-          cong:{c:null, t:null},
           check(i){ return {right: options[i] === n, note: it.why}; }
         };
       }
@@ -6848,7 +6818,6 @@ EX.syllable = {
         specimen: it.w,
         gloss: it.syll.join(' · '),
         options, correct: options.indexOf(it.syll[it.acc]),
-        cong:{c:null, t:null},
         check(i){ return {right: options[i] === it.syll[it.acc], note: it.why}; }
       };
     }
@@ -6858,7 +6827,6 @@ EX.syllable = {
         prompt:`Divide <strong>${it.w}</strong> into syllables. Use hyphens (for example, pa-ter).`,
         specimen: it.w,
         placeholder:'Write the syllables with hyphens',
-        cong:{c:null, t:null},
         check(val){
           const ok = normSyll(val) === normSyll(it.div);
           if(ok) return {right:true, note:`<strong>${it.div}</strong>. ${it.why}`};
@@ -6874,7 +6842,6 @@ EX.syllable = {
         prompt:`How is <em>${it.w}</em> divided into syllables?`,
         specimen: it.w,
         options, correct: options.indexOf(it.div),
-        cong:{c:null, t:null},
         check(i){
           if(i === options.indexOf(it.div)) return {right:true, note:`<strong>${it.div}</strong>. ${it.why}`};
           return {right:false, note:`<strong>${it.div}</strong>. ${it.why}`};
@@ -6889,7 +6856,6 @@ EX.syllable = {
         prompt:`How many syllables in <em>${it.w}</em>?`,
         specimen: it.w,
         options, correct: options.indexOf(n),
-        cong:{c:null, t:null},
         check(i){
           return {right: options[i] === n, note:`<strong>${it.div || it.syll.join('-')}</strong> — ${it.syll.length}. ${it.why}`};
         }
@@ -6904,7 +6870,6 @@ EX.syllable = {
         specimen: it.w,
         gloss: it.syll.join(' · '),
         options, correct: options.indexOf(a),
-        cong:{c:null, t:null},
         check(i){ return {right: i === options.indexOf(a), note: it.why}; }
       };
     }
@@ -6923,7 +6888,6 @@ EX.syllable = {
         prompt:`Someone placed the stress as <em>${shown}</em>. Is that right?`,
         specimen: it.w,
         options, correct: options.indexOf(ans),
-        cong:{c:null, t:null},
         check(i){
           return {right: options[i] === ans,
             note: it.why + ` The stress belongs on <strong>${it.syll[it.acc]}</strong>.`};
@@ -6938,7 +6902,6 @@ EX.syllable = {
         specimen: it.w,
         gloss: it.syll.join(' · '),
         options, correct: options.indexOf(it.syll[it.acc]),
-        cong:{c:null, t:null},
         check(i){ return {right: options[i] === it.syll[it.acc], note: it.why}; }
       };
     }
@@ -7044,7 +7007,7 @@ EX.decline = {
         kind:'mc', src:['donatus','appown'], sid:'dc:'+it.s,
         prompt:'Is the marked word declinable or indeclinable?',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
-        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        options, correct: options.indexOf(it.a),
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note: it.why};
           return {right:false, note:`<strong>${it.a}</strong>. ${it.why}`, also:`You said <em>${options[i]}</em>.`};
@@ -7076,7 +7039,6 @@ EX.produce = {
         prompt:`Write the <strong>${want}</strong> of this noun.`,
         specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]} — ${e.gloss}${d <= 2 ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
         placeholder:'Type the Latin form',
-        cong:{c:true, t:null},
         check(val){
           const ok = normLat(val) === normLat(form);
           if(ok) return {right:true, note:`<strong>${form}</strong> — ${want} of <em>${e.nom}</em>, ${e.gloss}.`};
@@ -7100,7 +7062,6 @@ EX.produce = {
       prompt:`Write the <strong>${want}</strong> of this verb.`,
       specimen:`${e.lemma.split(',')[0]}<span class="lemma">${e.lemma} — ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
       placeholder:'Type the Latin form',
-      cong:{c:true, t:null},
       check(val){
         const ok = normLat(val) === normLat(f.form);
         if(ok) return {right:true, note:`<strong>${f.form}</strong> — ${want}, from <em>${e.lemma}</em>.`};
@@ -7193,7 +7154,7 @@ EX.govern = {
         kind:'mc', src:['ag','appown'], sid:'gv:'+it.s,
         prompt:'In Latin, the marked word would be in the…',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
-        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        options, correct: options.indexOf(it.a),
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note: it.why};
           return {right:false, note:`<strong>${it.a}.</strong> ${it.why}`, also:`You said the ${options[i]}.`};
@@ -7213,44 +7174,34 @@ EX.govern = {
 const CONG_ITEMS = [
   {id:'cg1', src:['te'], s:'The brave sailor waits.',
    a:'Complete', ds:['Incongruous','Congruous but incomplete'],
-   why:'Adjective fits noun; noun and verb fit; the mind is at rest. A sentence.',
-   cong:{c:true, t:null}},
+   why:'Adjective fits noun; noun and verb fit; the mind is at rest. A sentence.'},
   {id:'cg2', src:['te'], s:'The brave sailor.',
    a:'Congruous but incomplete', ds:['Incongruous','Complete'],
-   why:'<em>Brave</em> fits <em>sailor</em>. There is no verb, so the hearer is still waiting. Thomas’s <em>homo albus</em>.',
-   cong:{c:true, t:null}},
+   why:'<em>Brave</em> fits <em>sailor</em>. There is no verb, so the hearer is still waiting. Thomas’s <em>homo albus</em>.'},
   {id:'cg3', src:['te'], s:'Percutio album.',
    a:'Incongruous', ds:['Congruous but incomplete','Complete'],
-   why:'<em>Album</em> has the mode of adhering, and there is no noun standing by itself for it to adhere to. The modes do not fit.',
-   cong:{c:false, t:null}},
+   why:'<em>Album</em> has the mode of adhering, and there is no noun standing by itself for it to adhere to. The modes do not fit.'},
   {id:'cg4', src:['te'], s:'homo albus',
    a:'Congruous but incomplete', ds:['Incongruous','Complete'],
-   why:'The adjective fits the noun. Completeness waits for a finite verb: <em>homo est albus</em>.',
-   cong:{c:true, t:null}},
+   why:'The adjective fits the noun. Completeness waits for a finite verb: <em>homo est albus</em>.'},
   {id:'cg5', src:['te'], s:'homo est albus',
    a:'Complete', ds:['Incongruous','Congruous but incomplete'],
-   why:'The joining fits, and a finite verb rests the mind. Grammar has done its work. Whether the man is in fact white is not asked here.',
-   cong:{c:true, t:null}},
+   why:'The joining fits, and a finite verb rests the mind. Grammar has done its work. Whether the man is in fact white is not asked here.'},
   {id:'cg6', src:['te'], s:'If the sailor waits',
    a:'Congruous but incomplete', ds:['Incongruous','Complete'],
-   why:'Well formed as a clause, and the <em>if</em> leaves you waiting for the rest. A subordinate clause does not rest the mind on its own.',
-   cong:{c:true, t:null}},
+   why:'Well formed as a clause, and the <em>if</em> leaves you waiting for the rest. A subordinate clause does not rest the mind on its own.'},
   {id:'cg7', src:['appown'], s:'The sailors waits at the gate.',
    a:'Incongruous', ds:['Congruous but incomplete','Complete'],
-   why:'<em>Sailors</em> is plural; <em>waits</em> is singular. The modes of number do not fit. That is a failure of congruity, not of completeness.',
-   cong:{c:false, t:null}},
+   why:'<em>Sailors</em> is plural; <em>waits</em> is singular. The modes of number do not fit. That is a failure of congruity, not of completeness.'},
   {id:'cg8', src:['te'], s:'Homo albus currit bene.',
    a:'Complete', ds:['Incongruous','Congruous but incomplete'],
-   why:'Adjective on noun, verb on subject, adverb on verb: each dependence is terminated, and the verb finishes the saying. Thomas uses this sentence to show that it holds three constructions, not one.',
-   cong:{c:true, t:null}},
+   why:'Adjective on noun, verb on subject, adverb on verb: each dependence is terminated, and the verb finishes the saying. Thomas uses this sentence to show that it holds three constructions, not one.'},
   {id:'cg9', src:['appown'], s:'Him go store yesterday.',
    a:'Incongruous', ds:['Congruous but incomplete','Complete'],
-   why:'The cases and the verb-form do not fit. What the speaker means may well be true, but the saying itself is faulty.',
-   cong:{c:false, t:null}},
+   why:'The cases and the verb-form do not fit. What the speaker means may well be true, but the saying itself is faulty.'},
   {id:'cg10', src:['appown'], s:'The old road.',
    a:'Congruous but incomplete', ds:['Incongruous','Complete'],
-   why:'The adjective fits. No verb. You are still waiting.',
-   cong:{c:true, t:null}}
+   why:'The adjective fits. No verb. You are still waiting.'}
 ];
 
 EX.cong = {
@@ -7263,24 +7214,24 @@ EX.cong = {
       const adj = rand(['brave','old','quiet','weary','faithful','young']);
       const v = rand([['waits','wait'],['sleeps','sleep'],['sings','sing'],['stands','stand']]);
       const kind = rand(d <= 1 ? ['complete','incomplete'] : ['complete','incomplete','badnum','badadj']);
-      let s, a, why, c;
+      let s, a, why;
       if(kind === 'complete'){
-        s = `The ${adj} ${n} ${v[0]}.`; a = 'Complete'; c = true;
+        s = `The ${adj} ${n} ${v[0]}.`; a = 'Complete';
         why = 'Adjective fits noun; noun and verb fit; a finite verb rests the mind.';
       }else if(kind === 'incomplete'){
-        s = `The ${adj} ${n}.`; a = 'Congruous but incomplete'; c = true;
+        s = `The ${adj} ${n}.`; a = 'Congruous but incomplete';
         why = 'The adjective fits. There is no verb. You are still waiting — Thomas’s <em>homo albus</em>.';
       }else if(kind === 'badnum'){
-        s = `The ${n}s ${v[0]}.`; a = 'Incongruous'; c = false;
+        s = `The ${n}s ${v[0]}.`; a = 'Incongruous';
         why = `Plural <em>${n}s</em> against singular <em>${v[0]}</em>. The modes of number do not fit.`;
       }else{
-        s = `The ${n}s is ${adj}.`; a = 'Incongruous'; c = false;
+        s = `The ${n}s is ${adj}.`; a = 'Incongruous';
         why = `Plural subject against singular <em>is</em>. A failure of congruity, not of completeness.`;
       }
       const options = shuffle(['Complete','Congruous but incomplete','Incongruous']);
       return {
         kind:'mc', src:['appown','te'], sid:'cg:'+s, prompt:'How does this construction stand?',
-        sentence: s, options, correct: options.indexOf(a), cong:{c, t:null},
+        sentence: s, options, correct: options.indexOf(a),
         check(i){
           if(i === options.indexOf(a)) return {right:true, note:`<strong>${a}.</strong> ${why}`};
           return {right:false, note:`<strong>${a}.</strong> ${why}`, also:`You said <em>${options[i]}</em>.`};
@@ -7291,7 +7242,6 @@ EX.cong = {
     const it = pickSeen(pool, x => x.id);
     const q = makeMC(it, 3);
     q.prompt = 'How does this construction stand?';
-    q.cong = it.cong;
     return q;
   }
 };
@@ -7358,7 +7308,7 @@ EX.workshop = {
         kind:'mc', src:['te','appown'], sid:'wk:'+it.s+':'+it.q,
         prompt: it.q,
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
-        options, correct: options.indexOf(it.a), cong:{c:true, t:null},
+        options, correct: options.indexOf(it.a),
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note: it.why};
           return {right:false, note:`<strong>${it.a}</strong>. ${it.why}`, also:`You said <em>${options[i]}</em>.`};
@@ -7528,7 +7478,7 @@ EX.vices = {
         kind:'mc', src:['donatus','appown'], sid:'vc:'+it.s,
         prompt:'What kind of fault?',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
-        options, correct: options.indexOf(a), cong:{c:false, t:null},
+        options, correct: options.indexOf(a),
         check(i){
           if(i === options.indexOf(a)) return {right:true, note: it.w};
           return {right:false, note:`<strong>${a}.</strong> ${it.w}`, also:`You said <em>${options[i]}</em>.`};
@@ -7797,18 +7747,18 @@ EX.ug = {
 function tradEx(id, src, title, desc, stages){
   return {
     id, src, title, desc, staged:true, stageNeed:3, stages,
-    instr:'Three in a row on this question of the art, then the next.',
-    introInstr:'Two notes, then the drill. This set does not end at 100 points. It holds you on one question of the art until you have three correct in a row, then opens the next.',
+    instr:'Answer three in a row correctly on each topic to open the next.',
+    introInstr:'Two notes, then the drill. This set does not end at 100 points. It keeps you on one topic until you answer three in a row correctly, then opens the next.',
     intro:[
       {h:`<strong>${title}.</strong> Native documents, our questions. Transliteration and a translation sit under the form.`},
-      {h:`<strong>Three in a row advances.</strong> A miss returns that question of the art to none. The set ends when the last question has been held.`}
+      {h:`<strong>Three in a row opens the next topic.</strong> A miss sends that topic’s count back to zero. Three in a row on the last topic finishes the set.`}
     ],
     gen(d){ return genStaged(this, d); }
   };
 }
 
 EX.scribal = tradEx('scribal', ['msl','nbgt','blackgt'], 'Paradigm and List',
-  'Sumerian as the Babylonian school taught it. The sign, the bilingual pair, the verb-piece, the person-order, the agent-line. Three in a row on each question of the art, then the next.',
+  'Sumerian as the Babylonian school taught it. The sign, the bilingual pair, the verb-piece, the person-order, the agent-line. Three correct in a row on each topic opens the next.',
   [
     {title:'The bilingual pair', items:[
       {id:'sc1', src:['msl'], q:'<em>lugal = šarru</em> teaches “king” by…', a:'A Sumerian form facing an Akkadian equivalent',
@@ -7941,7 +7891,7 @@ EX.scribal = tradEx('scribal', ['msl','nbgt','blackgt'], 'Paradigm and List',
   ]);
 
 EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 'Stem and Affix',
-  'Sanskrit as vyākaraṇa analyses it. Letter-sound, sandhi, Yāska’s four, root and affix, kāraka, the sample saying. Three in a row, then the next.',
+  'Sanskrit as vyākaraṇa analyses it. Letter-sound, sandhi, Yāska’s four, root and affix, kāraka, the sample saying. Three correct in a row on each topic opens the next.',
   [
     {title:'Letter-sound and sandhi', items:[
       {id:'vy1', src:['panini'], q:'A <em>varṇa</em> is closest to…', a:'A letter-sound — the least spoken piece the phonetic school treats',
@@ -8030,7 +7980,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
   ]);
 
 EX.xiaoxue = tradEx('xiaoxue', ['shuowen','erya','qieyun','appown'], 'Graph, Sound, and Gloss',
-  'Chinese as the lesser learning taught it. The six writings, fǎnqiè, full and empty words, a classical line. Three in a row, then the next.',
+  'Chinese as the lesser learning taught it. The six writings, fǎnqiè, full and empty words, a classical line. Three correct in a row on each topic opens the next.',
   [
     {title:'The graph', items:[
       {id:'xi1', src:['shuowen'], q:'Why can 日 <em>rì</em> mean, when Latin <em>D</em> does not?',
@@ -8131,7 +8081,7 @@ EX.xiaoxue = tradEx('xiaoxue', ['shuowen','erya','qieyun','appown'], 'Graph, Sou
   ]);
 
 EX.nahw = tradEx('nahw', ['sibawayh','jumal','appown'], 'Name, Verb, and Particle',
-  'Arabic as Sībawayh taught it. Three parts, iʿrāb, the governor, topic and comment, the construct. Three in a row, then the next.',
+  'Arabic as Sībawayh taught it. Three parts, iʿrāb, the governor, topic and comment, the construct. Three correct in a row on each topic opens the next.',
   [
     {title:'Three parts', items:[
       {id:'nh1', src:['sibawayh'], q:'Sībawayh’s parts of speech are…', a:'Noun, verb, and particle',
@@ -8250,7 +8200,7 @@ EX.vox = {
       return {
         kind:'mc', src: this.src, sid:'vx:'+it.w,
         prompt:`What is ${it.w}?`,
-        options, correct: options.indexOf(it.a), cong:{c:null, t:null},
+        options, correct: options.indexOf(it.a),
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note: it.why};
           return {right:false, note:`<strong>${it.a}.</strong> ${it.why}`};
@@ -8355,7 +8305,6 @@ EX.period = {
     q.olang = 'English';
     q.source = 'Virgil, Aeneid I, trans. Dryden';
     q.prompt = it.q;
-    q.cong = {c:true, t:null};
     return q;
   }
 };
@@ -8418,7 +8367,6 @@ EX.servius4 = {
     q.olang = 'English';
     q.source = 'Virgil, Aeneid IV, with Servius';
     q.prompt = it.q;
-    q.cong = {c:true, t:null};
     return q;
   }
 };
@@ -8466,7 +8414,6 @@ EX.livyperiod = {
     q.olang = 'English';
     q.source = 'Livy, Ab urbe condita I.1, trans. Roberts';
     q.prompt = it.q;
-    q.cong = {c:true, t:null};
     return q;
   }
 };
@@ -8729,7 +8676,6 @@ EX.auctores = {
     q.olang = 'English';
     q.source = a.author + ', ' + a.work + ' ' + a.locus + ' — ' + a.comm;
     q.prompt = it.q;
-    q.cong = {c:true, t:null};
     const badge = 'Also in Ars Rhetorica: ' + a.id;
     const wrap = q.check;
     q.check = function(i){
@@ -9208,15 +9154,6 @@ $('deck-back').onclick = () => {
   else { deckI--; renderDeck(); }
 };
 
-/* ---------- the congruity bar ---------- */
-function congBar(c, t){
-  const lamp = (label, v) => {
-    if(v === null || v === undefined) return `<span class="lamp na"><span class="dot"></span>${label}</span>`;
-    return `<span class="lamp on ${v ? 'yes' : 'no'}"><span class="dot"></span>${label}</span>`;
-  };
-  return `<div class="cong-bar">${lamp('Congruous', c)}${lamp('True', t)}</div>`;
-}
-
 /* ---------- the question loop ---------- */
 let chipSel = {};
 
@@ -9248,11 +9185,24 @@ function startEx(e){
   nextQ();
   show('scr-ex');
 }
+const NUM_WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const ORD_WORDS = ['zeroth','first','second','third','fourth','fifth','sixth','seventh','eighth','ninth','tenth','eleventh','twelfth'];
+function numWord(n){ return NUM_WORDS[n] || String(n); }
+function ordWord(n){
+  if(ORD_WORDS[n]) return ORD_WORDS[n];
+  const t = n % 100, u = n % 10;
+  return n + ((t >= 11 && t <= 13) ? 'th' : u === 1 ? 'st' : u === 2 ? 'nd' : u === 3 ? 'rd' : 'th');
+}
+function stagedRun(need){
+  return need === 1 ? 'one correct answer' : `${numWord(need)} in a row correctly`;
+}
 function stagedInstr(e){
   if(!e || !e.staged) return e.instr;
-  const st = e.stages[state.stageI] || e.stages[0];
-  const need = e.stageNeed || 3;
-  return `${st.title}. Three in a row on this question of the art, then the next — ${state.stageI + 1} of ${e.stages.length}.`;
+  const n = e.stages.length;
+  const i = Math.max(0, Math.min(state.stageI || 0, n - 1));
+  const run = `Answer ${stagedRun(e.stageNeed || 3)}`;
+  if(i >= n - 1) return `${run} to finish the set.`;
+  return `${run} to open the ${ordWord(i + 2)} of the ${numWord(n)} topics.`;
 }
 
 function nextQ(){
@@ -9283,7 +9233,7 @@ function updateScore(){
     const e = state.ex;
     const need = e.stageNeed || 3;
     const st = e.stages[state.stageI] || e.stages[0];
-    $('ex-score').textContent = `${state.stageStreak} of ${need} in a row · ${state.stageI + 1} / ${e.stages.length}`;
+    $('ex-score').textContent = `Topic ${state.stageI + 1} of ${e.stages.length}: ${st.title} · ${state.stageStreak} of ${need} correct in a row`;
     $('ex-instr').textContent = stagedInstr(e);
     if(bar) bar.style.width = Math.max(0, Math.min(100,
       ((state.stageI + (state.stageStreak / need)) / e.stages.length) * 100)) + '%';
@@ -9327,7 +9277,6 @@ function renderQ(){
     html += `<input class="answer-in" id="q-text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.placeholder || 'Type the form'}">`;
   }
   html += `<div id="q-fb"></div>`;
-  html += congBar(q.cong ? q.cong.c : null, q.cong ? q.cong.t : null);
   box.innerHTML = html;
 
   const ob = box.querySelector('#orig-btn');
@@ -9435,19 +9384,19 @@ function submit(ansMC){
       if(state.stageStreak >= need){
         if(state.stageI >= state.ex.stages.length - 1){
           state.pendingComplete = true;
-          extra = `<span class="also">That was the last question of this art. Three in a row: the set is finished.</span>`;
+          extra = `<span class="also">${cap(numWord(need))} in a row on the last topic. The set is finished.</span>`;
         }else{
-          extra = `<span class="also">Three in a row. Next: <em>${state.ex.stages[state.stageI + 1].title}</em>.</span>`;
+          extra = `<span class="also">${cap(numWord(need))} in a row. The next topic is open: <em>${state.ex.stages[state.stageI + 1].title}</em>.</span>`;
           stageAdvance = true;
         }
       }
     }else{
       state.stageStreak = 0;
-      extra = `<span class="also">The count for this question of the art returns to none. Three in a row will open the next.</span>`;
+      extra = `<span class="also">A miss sends this topic’s count back to zero.</span>`;
     }
   }
   const pts = (state.ex && state.ex.staged)
-    ? (res.right ? `${state.stageStreak} of ${state.ex.stageNeed || 3}` : 'streak broken')
+    ? `${res.right ? state.stageStreak : 0} of ${state.ex.stageNeed || 3} correct in a row`
     : (res.right ? `+${gain}` : `−${loss}`);
   if(stageAdvance){
     state.stageI++;
@@ -9616,7 +9565,6 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     return el.classList.contains('ornament')
         || el.classList.contains('src')
         || el.classList.contains('feedback')
-        || el.classList.contains('cong-bar')
         || el.classList.contains('btn-row')
         || el.classList.contains('deck-nav')
         || el.classList.contains('q-head')
