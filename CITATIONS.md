@@ -288,7 +288,7 @@ Every drill item in the four comparative exercises is now taught by a panel in i
 included).
 
 **Still cut, on purpose:** each deck's QUESTIONS LEFT OPEN block (its themes are in the
-closing deck, "What the Four Arts Ask of Ours"); the repeated "How to use our art here,"
+closing deck, "Comparative Study: The Open Questions"); the repeated "How to use our art here,"
 "What they did not ask," and "What this art can do that ours does not" framing panels; the
 separate *accessus* deck (merged into "What Grammar Is") and the "Two sides of one mode"
 deck and exercise (active and passive modes folded into Act V).
