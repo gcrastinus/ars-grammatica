@@ -1429,6 +1429,27 @@ const SRC = {
   aq_ph:{kind:'primary', short:'St Thomas, <i>In Peri hermeneias</i>',
        full:'St Thomas Aquinas, <i>Expositio libri Peryermenias</i> I, Latin with the English of Oesterle, in the user’s library. Lesson 1 (n. 5–6): noun and verb are the principal parts of speech; the pronoun is comprehended under the noun, the participle, which signifies with time, under the verb; the other parts join the parts of speech, as nails join the parts of a ship. Lesson 4: voice is sound uttered by the mouth of an animal, with some imagination. Lesson 5: an action may be signified as a thing (<i>cursus</i>, running) and then signifies without time, or as an action (<i>curro</i>, I run) and then signifies with time, because it is proper to motion to be measured by time.',
        note:'A work of logic, not of grammar. Cited only for principles grammar borrows (that words signify by imposition, what the mind understands is the same for all), and at the boundary where grammar hands a saying to logic. St Thomas himself says the logician treats noun and verb only as parts of the enunciation.'},
+  nieto:{kind:'study', short:'Nieto, “On the Liberal Art of Grammar”',
+       full:'John F. Nieto (Thomas Aquinas College), “On the Liberal Art of Grammar,” Arts of Liberty (artsofliberty.org). Used for: the difference between the grammarian’s and the logician’s consideration of the modes of signifying; the example of “suffer”; grammar as a ministerial art; grammar applied to a determinate matter in the service of other sciences; distinctions within grammar founded in the matter signified. His division of logic, rhetoric, and poetry by the honest, useful, and pleasant good is not followed.',
+       note:'A Thomistic account of what grammar is, and how it differs from logic.'},
+  aq_sent:{kind:'primary', short:'St Thomas, <i>In I Sententiarum</i> d. 22',
+       full:'St Thomas Aquinas, <i>Scriptum super Sententiis</i> I, d. 22, q. 1, a. 1, ad 3: <i>grammaticus accipit substantiam quantum ad modum significandi … quia illud quod significatur per nomen significatur ut aliquid subsistens, secundum quod de eo potest aliquid praedicari, quamvis secundum rem non sit subsistens, sicut albedo</i>. Quoted as given by Nieto; not checked against a text in the user’s library.',
+       note:'The grammarian’s “substance” is taken only as to the mode of signifying.'},
+  aq_st57:{kind:'primary', short:'St Thomas, <i>Summa theologiae</i> I-II, q. 57, a. 3',
+       full:'St Thomas Aquinas, <i>Summa theologiae</i> I-II, q. 57, a. 3, ad 3: “Even in speculative matters there is something by way of work: e.g. the making of a syllogism or of a fitting speech … Hence whatever habits are ordained to such like works of the speculative reason, are, by a kind of comparison, called arts indeed, but ‘liberal’ arts.” Checked against the English Dominican translation in the user’s library.',
+       note:'Why grammar is an art, and why a liberal one.'},
+  aq_st13:{kind:'primary', short:'St Thomas, <i>Summa theologiae</i> I, q. 13, a. 1',
+       full:'St Thomas Aquinas, <i>Summa theologiae</i> I, q. 13, a. 1, obj. 2–3 and ad 2–3: the grammarians’ definitions (nouns signify substance with quality; verbs and participles, with time; pronouns, with demonstration or relation) applied to the naming of God; concrete names for his subsistence, abstract names for his simplicity. Also I, q. 39, a. 8, on the pronoun “this” taken “in a grammatical sense.” Checked in the user’s library.',
+       note:'Grammar in the service of theology: naming God.'},
+  aq_st3:{kind:'primary', short:'St Thomas, <i>Summa theologiae</i> III, q. 78, a. 5',
+       full:'St Thomas Aquinas, <i>Summa theologiae</i> III, q. 78, a. 5, ad 1–2: in “This is My body,” the pronoun “this” points to a substance, yet without determining its proper nature; it indicates not the accidents but the substance underlying them. Checked in the user’s library.',
+       note:'Grammar in the service of theology: the demonstrative pronoun.'},
+  aq_ioan:{kind:'primary', short:'St Thomas, <i>Super Ioannem</i> I, lect. 1',
+       full:'St Thomas Aquinas, <i>Super Evangelium S. Ioannis lectura</i> I, lect. 1, n. 39: <i>erat</i>, the past imperfect, is most fitting to designate eternal things; the past perfect signifies what has been and has ceased, the past imperfect what has been and has not ceased but still remains. John says <i>erat</i> of eternal things and <i>fuit</i> of temporal ones; yet as to the note of actuality the present, “I am who am,” is best. Checked against the Latin–English text in the user’s library.',
+       note:'Grammar in the service of theology: the tense.'},
+  arist_met9:{kind:'primary', short:'Aristotle, <i>Metaphysics</i> IX.6',
+       full:'Aristotle, <i>Metaphysics</i> IX.6, 1048b18–35: one sees and has seen, understands and has understood, at the same time; but one is not at the same time learning and having learned, walking and having walked. The first are activities complete in themselves, the second motions. This passage was not in the Latin text St Thomas commented on, and is not in the library’s copy of his commentary; not checked against a library text.',
+       note:'Grammar in the service of natural philosophy: aspect.'},
   aq_st:{kind:'primary', short:'St Thomas, <i>Summa theologiae</i> I, q. 1, a. 10',
        full:'St Thomas Aquinas, <i>Summa theologiae</i> I, q. 1, a. 10, ad 3: “by words things are signified properly and figuratively. Nor is the figure itself, but that which is figured, the literal sense. When Scripture speaks of God’s arm, the literal sense is not that God has such a member, but only what is signified by this member, namely operative power.” Checked against the English Dominican translation in the user’s library.',
        note:'What a trope signifies belongs to the literal sense.'},
@@ -1646,14 +1667,18 @@ philosophy. Whether a sentence is true belongs to logic.</p>`,
       correct:1,
       explain:`It is an art of speech, the first road; logic and rhetoric come after it. How the voice is produced belongs to natural philosophy.` } },
 
-{ src:['boethiusd','appown'], h:`<p><strong>An art, and also a science.</strong> Grammar is first an <em>art</em>: a
+{ src:['boethiusd','aq_st57','nieto','appown'], h:`<p><strong>An art, and its reasons.</strong> Grammar is first an <em>art</em>: a
 skill you acquire by practice, whose end is a well-made thing — here, a well-formed
 sentence. You learn it so that you can say what you mean, exactly, and hear what
-another has said. That is why it is a <strong>liberal</strong> art: it frees you to
-express reason with precision and ease.</p>
-<p>There is also a <em>science</em> of grammar: sure knowledge of <em>why</em> sentences
-are formed as they are, and why the parts of speech are these parts. The art is the
-skill. The science asks for the reasons. This course teaches the art from the start,
+another has said. That is why it is a <strong>liberal</strong> art: its work, a
+fitting speech, belongs to reason itself, and so it frees you to express reason with
+precision and ease. St Thomas says that even in speculative matters there is a kind of
+work, such as making a syllogism or a fitting speech; the habits ordered to such works are
+called arts, and liberal arts, because they belong to the soul, which is free.</p>
+<p>The same art also seeks <em>science</em>: sure knowledge of <em>why</em> sentences
+are formed as they are, and why the parts of speech are these parts. The skill is the
+art close to speaking; the reasons are the same art at a distance from any particular
+sentence. The tradition calls that part speculative grammar. It is one art, not two. This course teaches the art from the start,
 and the reasons in their place — after you have the parts of speech in hand.</p>
 <p>What the art is about is <strong>connected speech well joined</strong>: not the
 history of a word, not whether a sentence is true, not whether it persuades. Those
@@ -1738,13 +1763,18 @@ that is worth explaining.</p>
 <p>The worker is first the teacher of the art. Then it is you, once you can
 make a joining and judge one without being told each time.</p>` },
 
-{ src:['te','appown'], h:`<p><strong>What the art is for.</strong></p>
+{ src:['te','nieto','appown'], h:`<p><strong>What the art is for.</strong></p>
 <p>First: a well-joined saying, speech whose parts fit.<br>
 In the student: the habit of making such speech, and of judging it.<br>
 Further: to generate a complete sense in the mind of the hearer. That is
 Thomas of Erfurt’s phrase for the end of a construction.<br>
 Further still: readiness for logic and rhetoric, which begin only when words
 have been joined into a definite saying.</p>
+<p>So grammar is a ministerial art. It makes the instrument that logic, rhetoric, and
+poetry use, as the violin-maker makes the violin. It knows the order of its work to their
+ends, as the violin-maker knows what a violin is for, without itself knowing how to play.
+The higher sciences in turn come back to it, to ask what a tense or a pronoun is doing in
+a sentence that matters to them; Act VII shows some of these.</p>
 <p>It is not polish of style for its own sake, and not a mark of class. It is for
 understanding connected speech, for interpreting its highest forms in the poets,
 and for keeping clear what words and sentences actually signify.</p>
@@ -1794,7 +1824,7 @@ not something else? Why should every language have something like a noun and
 something like a verb? It is convention that this sound means <em>horse</em>. Is
 it also convention that there is such a thing as a noun at all?</p>
 <p>Asking that question is not what makes the art liberal. It is the beginning
-of the <em>science</em> of grammar — looking into the causes. This course teaches
+of speculative grammar — the part of the one art that looks into the causes. This course teaches
 the art first. The reasons come later, once the parts of speech are known.</p>` },
 
 { src:['appown','boethiusd','bh','sep_sem'], h:`<p><strong>Where this question has been argued.</strong> Donatus and Priscian
@@ -1836,7 +1866,7 @@ DECKS.modes = {
   sub:'Priscian’s facts, and the modists’ reasons for them',
   panels:[
 
-{ src:['aq_ph','te','appown'], h:`<p><strong>THE THING, THE MIND, AND THE WORD.</strong> Grammar takes one
+{ src:['aq_ph','te','aq_sent','nieto','appown'], h:`<p><strong>THE THING, THE MIND, AND THE WORD.</strong> Grammar takes one
 principle from philosophy and does not prove it itself. Aristotle states it at
 the start of his logic, and St Thomas explains it there: spoken words are signs of
 what the mind understands, and what the mind understands is a likeness of things.
@@ -1854,7 +1884,16 @@ stable with a nature, and the running as something happening to it.</p>
 (<span class="lat">modus significandi</span>). The word <em>horse</em> signifies it as
 something at rest; the word <em>runs</em> signifies it as something in flow.</p>
 <p>Being is first. Understanding is drawn from being. Signifying is drawn from
-understanding. The order does not run backward.</p>`,
+understanding. The order does not run backward.</p>
+<p>Notice what grammar does with this order. The logician follows a mode of signifying
+back to the mode of understanding and so to the thing, because he wants to know what is
+said of things. The grammarian takes the mode of signifying only as it makes a word fit to
+be joined with others. St Thomas marks the difference: the grammarian takes substance
+“as to the mode of signifying” — whatever a noun signifies is signified as something
+subsisting, of which something can be said, though in reality it may not subsist, as
+<em>whiteness</em>. The order of being, understanding, and signifying is the principle
+grammar receives; its own reasons are drawn from the modes of signifying as causes of
+construction.</p>`,
   ladder:true },
 
 { src:['te','appown'], h:`<p><strong>Why the order cannot be reversed.</strong> A horse is a horse whether
@@ -2060,7 +2099,8 @@ studied in three ways. If they are not distinguished, a disagreement about metho
 for a disagreement about fact.</p>
 <p><strong>The classical art</strong> — Priscian’s grammar, with the reasons the medieval
 masters added — asks why grammar is as it is, and answers from the modes of
-being. <strong>Philology</strong> asks what this author actually wrote, and how his language
+signifying, which it receives from philosophy as following the modes of understanding and
+of being. <strong>Philology</strong> asks what this author actually wrote, and how his language
 came to be what it was. <strong>Modern linguistics</strong>, since Saussure, asks how a
 language works as a system at a given moment, and sets the other two questions aside on
 purpose.</p>
@@ -2837,7 +2877,7 @@ say something definite.</p>
 <p>There is a further question: why are the parts these parts, and not others?
 Why should every language have something like a noun and something like a
 verb? Asking that is not what makes the art liberal. It is the beginning of
-the <em>science</em> of grammar. Priscian gives the parts and their accidents,
+speculative grammar, the part of the art that asks for causes. Priscian gives the parts and their accidents,
 but seldom says why they are these; the modists try to. This course takes the
 question up in Act V, after the accidents and the joining are known.</p>
 <p>You can parse without that question. You cannot yet say why parsing finds
@@ -2900,6 +2940,63 @@ that work, whether or not an ending is still there to show it.</p>`,
                'Pronouns are indeclinable','<em>Whom</em> is an adverb'],
       correct:1,
       explain:`<em>Who / whom / whose</em> is a small case-system still living in English. Most nouns have lost that system. The pronouns have not quite.` } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.casework = {
+  title:'Case and its Work',
+  sub:'What a case is, and why one case can do several works',
+  panels:[
+
+{ src:['aq_ph','ag','appown'], h:`<p><strong>CASE.</strong> <em>Casus</em> is a falling. St Thomas, commenting on
+Aristotle, gives the old explanation: the oblique forms are called cases because they
+fall away from the nominative, the form in which the name was first imposed. The
+logician calls only the nominative a name. The grammarians, following the Stoics, count
+the nominative as a case too, because it also “falls” from the mind’s conception; and
+they call it upright (<span class="lat">rectus</span>), as a pen that falls may stick
+upright in the wood.</p>
+<p>A case is an accident of the noun that shows the work the noun is doing in the
+sentence. Latin marks that work by the ending; English mostly by the place in the
+sentence and by prepositions.</p>`,
+  q:{ prompt:`Why is the nominative called <span class="lat">rectus</span>, upright?`,
+      options:['Because it is always first in the sentence','Because, though it too “falls” from the mind’s conception, it stands upright, as a pen that falls and sticks in wood',
+               'Because it has no ending','Because only the logician uses it'],
+      correct:1,
+      explain:`The grammarians count it a case, a falling, and yet the first and upright one, from which the oblique cases fall away.` } },
+
+{ src:['ag','nieto','appown'], h:`<p><strong>One case, several works.</strong> The same ending can do different work,
+and the difference is not in the ending but in the things spoken of. <em>Amor patris</em>
+can mean the father’s love, the love the father has (a <strong>subjective</strong> genitive:
+the father loves), or love for the father (an <strong>objective</strong> genitive: the father is
+loved). <em>Domus patris</em>, the father’s house, is a genitive of <strong>possession</strong>.</p>
+<p>The grammar is one: the genitive. What tells the uses apart is who loves whom, and who
+owns what. Nieto’s point: here grammar must look to the matter signified to understand
+the unity and the range of its own case.</p>`,
+  q:{ prompt:`In “love of God,” taken as the love by which God loves us, the genitive is…`,
+      options:['Objective — God is loved','Subjective — God is the one who loves','Possessive — God owns the love','Partitive'],
+      correct:1,
+      explain:`When the genitive names the one who does what the noun signifies, it is subjective. When it names the one to whom it is done, objective. The ending is the same; the matter decides.` } },
+
+{ src:['ag','nieto','appown'], h:`<p><strong>Two accusatives.</strong> <em>Ancum Marcium regem populus creavit</em> — the
+people made Ancus Marcius king. Both <em>Ancum Marcium</em> and <em>regem</em> are
+accusative. The first is the object, the man on whom the making falls. The second says
+what he is made: a <strong>predicate accusative</strong>. English does the same: <em>we made him
+king</em>.</p>
+<p>Verbs of making, choosing, naming, and thinking take this second accusative. The
+difference between the two is founded in the things: the man, and the kingship he
+receives.</p>`,
+  q:{ prompt:`In <em>we made him king</em>, what work does <em>king</em> do?`,
+      options:['A second object on which the making falls','It says what the object is made — a predicate accusative',
+               'The subject','An indirect object'],
+      correct:1,
+      explain:`<em>Him</em> is the object. <em>King</em> says what he becomes. Latin puts both in the accusative.` } },
+
+{ src:['nieto','appown'], h:`<p><strong>The case before the meaning.</strong> Someone learning Latin can see that
+<em>canem</em> is accusative, and so some kind of object, before he knows that it means
+“dog.” That is the grammarian’s own consideration: the case as a principle of
+construction, before and apart from what the word names.</p>
+<p>The exercise runs the other way round. It gives you an English sentence, tells you the
+work the marked word is doing, and asks which case Latin would use for that work.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -3209,7 +3306,7 @@ DECKS.objections = {
   sub:'Where the reasons are under pressure, and whom each objection touches',
   panels:[
 
-{ src:['aq_ph','te','bh'], h:`<p><strong>NOTHING, BLINDNESS, THE CHIMAERA.</strong> If the noun signifies its
+{ src:['aq_ph','aq_sent','te','bh'], h:`<p><strong>NOTHING, BLINDNESS, THE CHIMAERA.</strong> If the noun signifies its
 thing as a being at rest, what of <em>nothing</em>, <em>blindness</em>,
 <em>chimaera</em>? These are nouns, and they name nothing standing outside the
 mind.</p>
@@ -3219,6 +3316,12 @@ non-man.” Yet because it signifies in the manner of a name, and can be subject
 predicate, it requires a subject at least in the mind’s apprehension. So a noun
 does not need a thing outside the mind; it needs something the mind takes as a
 subject.</p>
+<p>For the grammarian the question is simpler still. St Thomas says the grammarian takes
+substance only as to the mode of signifying: what a noun signifies is signified as
+something subsisting, of which something can be said, even when it does not subsist, as
+<em>whiteness</em>. <em>Nothing</em> and <em>chimaera</em> are nouns on that account, before
+any question of being is asked. What they are is a question for logic and
+metaphysics.</p>
 <p>Thomas of Erfurt applies this inside grammar. We understand privations from what
 they lack, so we name blindness by the properties of sight. We imagine the chimaera
 as made of parts, a lion’s head and a dragon’s tail, so we name it by the properties
@@ -3513,6 +3616,25 @@ eating.</p>
       correct:1,
       explain:`The speaker may be speaking grammatically. The fault is in the inference: that because the word is shaped so, the thing is shaped so. The word follows the thing, but not exactly.` } },
 
+{ src:['nieto','ag'], h:`<p><strong>The other side: when grammar follows the form.</strong> The fallacy
+reads the thing off the form of the word. The grammarian, as grammarian, is right to
+follow the form, and does not ask what the thing is. John Nieto’s example is from Jane
+Austen: “weak, irresolute characters … who will <em>suffer</em> an unfortunate acquaintance
+to be an inconvenience.” Here <em>suffer</em> means “allow,” and grammatically it is an
+active, transitive verb with its object. The logician, asking what is signified, puts
+suffering under being acted upon, not under acting. Both are right, each in his own
+consideration.</p>
+<p>Latin shows the same thing from the other side. <em>Patior</em>, I suffer, is passive in
+form, and the grammarian calls it deponent; yet it takes an object, as in Virgil’s <em>multa
+quoque et bello passus</em>, having suffered much in war too. The form decides the
+construction. It does not decide the category of the thing.</p>`,
+  q:{ prompt:`In “who will <em>suffer</em> an acquaintance to be an inconvenience,” what is <em>suffer</em> for the grammarian?`,
+      options:['A passive verb, because suffering is being acted upon','An active, transitive verb with its object',
+               'An intransitive verb','Not a verb at all'],
+      correct:1,
+      explain:`The grammarian follows the form and the construction. Whether suffering is acting or being acted upon is the logician’s question, and the answer does not change the construction.`,
+      wrong:`That answer judges the thing, not the construction. The figure of speech runs from form to thing; this runs the other way, from thing to form, and is just as much a confusion of the two considerations.` } },
+
 { src:['te','appown'], h:`<p><strong>Why this matters here.</strong> The reasons given for the parts of speech
 claim that they follow the modes of being. That claim is close to this
 fallacy, and must be kept from falling into it. The noun signifies <em>in the
@@ -3520,8 +3642,110 @@ manner of</em> a being at rest; it does not follow that every noun names a
 substance standing outside the mind. The chimaera was already the warning.</p>
 <p>The rule is simple, and easy to break: take the grammar as a way of signifying,
 not as a copy of the thing. When someone argues “it is a noun, therefore it is a
-thing,” the figure of speech has begun.</p>` }
+thing,” the figure of speech has begun.</p>` },
+
 ]};
+
+/* -------------------------------------------------------------- */
+DECKS.service = {
+  title:'Grammar in the Service of the Sciences',
+  sub:'When a higher science asks what a word is doing',
+  panels:[
+
+{ src:['nieto','aq_st57','appown'], h:`<p><strong>GRAMMAR IN SERVICE.</strong> Grammar makes the instrument and knows its
+order to its ends. So the higher sciences keep coming back to it. The theologian and the
+philosopher often need to know what a tense, a pronoun, or a voice is doing in a sentence
+that matters to them.</p>
+<p>In these uses the principles of grammar are applied to a determinate matter, nearer to
+use than the general doctrine is. St Thomas does this constantly. The grammar supplies the
+form; the higher science judges the thing. That is the right order, and the opposite of
+the figure of speech, which reads the thing off the form.</p>`,
+  q:{ prompt:`When a theologian asks what a tense is doing in a verse of Scripture, what does grammar supply?`,
+      options:['The truth about God','The form — what the tense signifies as a tense — for the theologian to judge with',
+               'Nothing: theology does not need grammar','The persuasive force of the verse'],
+      correct:1,
+      explain:`Grammar gives the form. The higher science judges the thing. Reading the thing off the form alone would be the figure of speech.` } },
+
+{ src:['aq_ioan'], h:`<p><strong>A tense: <em>In principio erat Verbum</em>.</strong> Why does John write
+<em>erat</em>, and not <em>fuit</em>? St Thomas answers from the tenses. What is future is not
+yet in act. What is present is in act, but is not signified as having been. The past
+perfect (<em>fuit</em>) signifies something that has been and is already finished, and has
+ceased. The past imperfect (<em>erat</em>) signifies something that has been, is not finished,
+has not ceased, but still remains.</p>
+<p>So the imperfect is most fitting for eternal things, and John says <em>erat</em> whenever
+he speaks of something eternal, and <em>fuit</em> of what is temporal. Yet St Thomas adds that
+as to the note of actuality, the present is best of all: “I am who am.”</p>`,
+  q:{ prompt:`Why, on St Thomas’s account, does John write <em>erat</em> and not <em>fuit</em>?`,
+      options:['For the metre','The past imperfect signifies what has been and has not ceased, but remains; the perfect, what has been and has ceased',
+               'Because Greek has no perfect','Because <em>fuit</em> is a barbarism'],
+      correct:1,
+      explain:`The imperfect signifies continuing, not finished, being. That fits the eternal. The perfect would signify what has ended.` } },
+
+{ src:['aq_st3','priscian','aq_st13'], h:`<p><strong>A pronoun: <em>Hoc est corpus meum</em>.</strong> What does <em>this</em>
+point to, when the words are said over the bread? St Thomas answers that it points to a
+substance, but without determining its proper nature; and that it points not to the
+accidents, but to the substance under them, which was bread and afterwards is the body of
+Christ.</p>
+<p>This is Priscian’s pronoun at work: it signifies substance without quality. The
+grammarian’s definition is what makes the theologian’s answer possible. Elsewhere St
+Thomas says the same of <em>this</em> “in a grammatical sense”: whatever we can point to can
+be treated as a person, as when we say <em>this stone</em> — and so <em>This is my God</em>.</p>`,
+  q:{ prompt:`In “This is My body,” what does <em>this</em> signify, on St Thomas’s account?`,
+      options:['The accidents of bread','A substance, without determining its proper nature',
+               'Nothing: it is a particle','The words themselves'],
+      correct:1,
+      explain:`The pronoun signifies substance without quality. It points to what lies under the appearances, without saying what that substance is.` } },
+
+{ src:['aq_st13','priscian'], h:`<p><strong>Can God be named at all?</strong> An objection in the <em>Summa</em>
+uses the grammarians’ definitions against it: nouns signify substance with quality;
+verbs and participles signify with time; pronouns, with pointing or reference. God has no
+quality, no time, and cannot be pointed at. So, it seems, he cannot be named.</p>
+<p>St Thomas answers each part from grammar. To signify substance with quality is to
+signify a subsisting thing with a nature, and that can be said of God. Verbs and
+participles are said of him because his eternity includes all time. Demonstrative
+pronouns point to what is understood, not only to what is sensed. And we use concrete
+names (<em>God is good</em>) for his subsistence, and abstract names (<em>God is goodness</em>)
+for his simplicity, though neither expresses his mode of being.</p>`,
+  q:{ prompt:`Why does St Thomas allow both “God is good” and “God is goodness”?`,
+      options:['They mean the same and either will do','The concrete name signifies his subsistence, the abstract his simplicity; neither expresses his mode of being',
+               'Only the abstract is correct','Only the concrete is correct'],
+      correct:1,
+      explain:`Our names follow our way of understanding, drawn from composite things. Concrete names signify what subsists; abstract names signify simple forms. God is both subsisting and simple, so we need both.` } },
+
+{ src:['arist_met9','appown'], h:`<p><strong>Aspect: <em>seeing</em> and <em>having seen</em>.</strong> Grammar gives the
+verb two ways of presenting an act: as going on (<em>is walking</em>) and as complete (<em>has
+walked</em>). Natural philosophy uses the distinction. Aristotle notes that one is seeing and
+has seen at the same time, understanding and has understood; but one is not at the same
+time walking and having walked, learning and having learned.</p>
+<p>For a motion, the two aspects signify different realities: walking to Athens is not
+having walked there. For an act complete as soon as it begins, like seeing, they signify
+the same reality in two ways. Grammar supplies the two forms. Natural philosophy decides
+where they coincide.</p>`,
+  q:{ prompt:`Why can one say at once “I am seeing it” and “I have seen it,” but not “I am walking to Athens” and “I have walked there”?`,
+      options:['Because seeing is a motion and walking is not','Because seeing is complete as soon as it begins, while walking is a motion that takes time to finish',
+               'Because English has no aspect','Because the two sentences are ungrammatical'],
+      correct:1,
+      explain:`The grammar is the same in both pairs. The difference is in the things: an activity complete in itself, against a motion toward an end.` } },
+
+{ src:['smyth','nieto','appown'], h:`<p><strong>Voice, and the matter spoken of.</strong> Grammar itself sometimes looks
+to the matter. Certain acts are named by verbs passive or middle in form: Latin
+deponents such as <em>sequor</em>, I follow, and <em>patior</em>, I suffer; Greek
+<em>αἰσθάνομαι</em>, I perceive, in the middle voice. The Greek middle shows the subject
+acting on or for itself, or taking part in the action as more than its bare source.</p>
+<p>The grammarian can ask why these acts, in particular, are named this way; and the
+answer, if there is one, lies in the acts themselves. The genitive and the double
+accusative in <em>Case and its Work</em> are the same kind of question.</p>` },
+
+{ src:['nieto','appown'], h:`<p><strong>What makes this use liberal.</strong> A language can be learned only for
+the habit of reading or speaking it, without attention to the principles by which it is an
+instrument of the mind. Such study shares little in the liberal character of the art. It
+does not make the art servile — one cannot change the nature of an art — but it uses the
+art in a servile way.</p>
+<p>The uses in this tutorial go the other way. They take the grammar of a sentence as the
+mind’s instrument for saying what is so, and ask what the instrument is doing. That is
+grammar studied as a free man studies it: for the sake of understanding.</p>` }
+]};
+
 
 /* -------------------------------------------------------------- */
 DECKS.typo = {
@@ -7659,6 +7883,49 @@ EX.figura = {
 };
 
 /* ============================================================
+   Grammar in the Service of the Sciences
+   ============================================================ */
+const SERVICE_ITEMS = [
+  {id:'sv1', src:['aq_ioan'], q:'<em>In principio erat Verbum</em>: on St Thomas’s account, <em>erat</em> is fitting because the past imperfect signifies…',
+   a:'What has been and has not ceased, but still remains', ds:['What has been and is finished','What is not yet in act','Nothing about time'],
+   why:'The perfect <em>fuit</em> signifies what has been and ceased; the imperfect <em>erat</em>, what has been and remains. John uses <em>erat</em> of eternal things.'},
+  {id:'sv2', src:['aq_ioan'], q:'As to the note of actuality, which tense does St Thomas say is best of all for eternity?',
+   a:'The present: “I am who am”', ds:['The future','The pluperfect','The perfect'],
+   why:'The present signifies being in act, which always belongs to eternal things.'},
+  {id:'sv3', src:['aq_st3'], q:'In “This is My body,” <em>this</em> points to…',
+   a:'A substance, without determining its proper nature', ds:['The accidents of bread','The priest','The words spoken'],
+   why:'It points not to the accidents but to the substance under them. That is the pronoun’s own mode: substance without quality.'},
+  {id:'sv4', src:['priscian','aq_st3'], q:'Which grammatical definition does St Thomas’s answer about <em>this</em> rely on?',
+   a:'The pronoun signifies substance without quality', ds:['The verb signifies with time','The adjective adheres to a noun','The conjunction joins two extremes'],
+   why:'Priscian’s pronoun points without describing. That is why <em>this</em> can point to a substance without saying what it is.'},
+  {id:'sv5', src:['aq_st13'], q:'The objection that God cannot be named uses which definitions?',
+   a:'The grammarians’: nouns with quality, verbs with time, pronouns with pointing', ds:['The logicians’ definitions of the proposition','The rhetoricians’ figures','Donatus’s vices'],
+   why:'St Thomas answers each from grammar itself: nouns for subsistence with a nature, verbs because eternity includes all time, pronouns pointing to what is understood.'},
+  {id:'sv6', src:['aq_st13'], q:'Why do we say both “God is good” and “God is goodness”?',
+   a:'Concrete names signify his subsistence, abstract names his simplicity', ds:['They are synonyms','Only one is correct','For variety of style'],
+   why:'Our names follow our way of understanding composite things. God is subsisting and simple, so we use both, and neither expresses his mode of being.'},
+  {id:'sv7', src:['arist_met9'], q:'“I am seeing it” and “I have seen it” can be true at once; “I am walking to Athens” and “I have walked there” cannot. Why?',
+   a:'Seeing is complete as soon as it begins; walking is a motion toward an end', ds:['The grammar of the two pairs differs','Seeing is passive','Walking is not a verb'],
+   why:'The aspects are the same in both pairs. The things differ, and natural philosophy judges the things.'},
+  {id:'sv8', src:['nieto'], q:'When a higher science uses grammar, what does grammar supply, and what does the science judge?',
+   a:'Grammar supplies the form; the science judges the thing', ds:['Grammar judges the thing; the science supplies the form','Grammar decides the truth','Neither: they have nothing to do with each other'],
+   why:'That is the right order. The figure of speech reverses it, reading the thing off the form.'},
+  {id:'sv9', src:['nieto'], q:'Learning a language only for the habit of reading it, without attention to its principles, is…',
+   a:'A servile use of a liberal art', ds:['A different, servile art','The whole of grammar','Speculative grammar'],
+   why:'The art keeps its nature; the use of it can still be servile.'}
+];
+EX.service = {
+  id:'service', src:['aq_ioan','aq_st3','aq_st13','nieto'], act:'VII', title:'Grammar in the Service of the Sciences',
+  desc:'A tense, a pronoun, a name, an aspect: what grammar supplies to theology and natural philosophy, and what they judge.',
+  instr:'What is the grammar doing here?',
+  gen(d){
+    const pool = d <= 1 ? SERVICE_ITEMS.filter(x => ['sv1','sv3','sv6','sv8'].indexOf(x.id) >= 0) : SERVICE_ITEMS;
+    return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
+  }
+};
+
+
+/* ============================================================
    Typology
    ============================================================ */
 const TYPO_ITEMS = [
@@ -8757,6 +9024,11 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
        eg:['<em>temno</em> for <em>contemno</em>: in a poem, aphaeresis; in prose, a barbarism.']},
       {h:`<strong>Donatus draws the line:</strong> figures of words belong to the grammarians, figures of thought to the orators.`}
     ],
+    service:[
+      {h:`<strong>Grammar gives the form; the higher science judges the thing.</strong> A tense, a pronoun, a name, an aspect — each asked for its grammatical work.`,
+       eg:['<em>erat</em>: past imperfect — what has been and still remains.','<em>this</em>: substance, without saying what substance.']},
+      {h:`<strong>The reverse of the figure of speech.</strong> There the thing was read off the form; here the form is handed to the science that judges the thing.`}
+    ],
     period:[
       {h:`<strong>A period is a joining of clauses</strong> that still makes one saying. Virgil’s opening is the school’s example.`},
       {h:`<strong>Ask government, relatives, and cola</strong> — not the story. English (Dryden) is shown on request.`}
@@ -8843,7 +9115,10 @@ const ACTS = [
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
    items:[
-     {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'}, {kind:'ex', ex:'cases'},
+     {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'},
+     {kind:'deck', deck:'casework', tag:'STUDY', title:'Case and its Work',
+      desc:'What a case is — a falling, and the upright nominative. One case, several works: the genitive’s kinds, the two accusatives. The case before the meaning.'},
+     {kind:'ex', ex:'cases'},
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
      {kind:'ex', ex:'produce'}
@@ -8897,7 +9172,7 @@ const ACTS = [
      {kind:'ex', ex:'figures'}
    ]},
   {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
-   gloss:'To hand a well-formed saying to logic.',
+   gloss:'To hand a well-formed saying to logic, and to serve the higher sciences.',
    items:[
      {kind:'deck', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
       desc:'What a word means, against what it stands for in <em>this</em> proposition. <em>Man is a species</em> and <em>a man is running</em> — one word, two suppositions.'},
@@ -8905,7 +9180,10 @@ const ACTS = [
      {kind:'deck', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
       desc:'Aristotle’s fallacy: arguing from the shape of the word to the shape of the thing.'},
      {kind:'ex', ex:'figura'},
-     {kind:'ex', ex:'congtruth'}
+     {kind:'ex', ex:'congtruth'},
+     {kind:'deck', deck:'service', tag:'STUDY', title:'Grammar in the Service of the Sciences',
+      desc:'<em>In principio erat</em>; <em>Hoc est corpus meum</em>; the naming of God; seeing and having seen. Grammar gives the form; the higher science judges the thing.'},
+     {kind:'ex', ex:'service'}
    ]},
   {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
    gloss:'To test whether the variation of languages is only in the sounds and marks.',
@@ -9845,7 +10123,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 
 /* ---------- quiz maker (instructors) ---------- */
 const QZ_DECK_FOR_EX = {
-  latnoun:['pos'], latverb:['pos'], cases:['govern','pos'],
+  latnoun:['pos'], latverb:['pos'], cases:['casework','govern','pos'],
   produce:['produce','pos'],
   congtruth:['prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
 };

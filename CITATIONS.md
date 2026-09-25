@@ -337,3 +337,35 @@ not be confirmed.
 grammar that Peter Helias used, not as his coinage. The last "the school" (meaning the
 modists) in the Three Ways and Universal Grammar decks and in item fg4 was replaced. The
 modes exercise now carries Act V.
+
+---
+
+## Nieto integration (September 2026)
+
+From John F. Nieto, "On the Liberal Art of Grammar" (register key `nieto`), used under
+the course's rule — St Thomas's texts first, Nieto for the framing:
+
+- **Division of labour between grammar and logic** (Act V opening; the chimaera
+  objection; Three Ways). The grammarian takes the mode of signifying as a principle
+  of construction; the logician traces it to the mode of understanding and to being.
+  *I Sent.* d. 22 q. 1 a. 1 ad 3 (`aq_sent`) — quoted from Nieto, not checked.
+- **"Suffer"** — a new panel in The Figure of Speech: grammar rightly follows the form
+  (active transitive), logic judges the thing. Latin *patior*/*multa passus* added.
+- **One art, liberal because its work belongs to reason** — "An art, and its reasons"
+  and related panels; *ST* I-II q. 57 a. 3 ad 3 (`aq_st57`, checked). Speculative
+  grammar named as a part of the one art.
+- **Ministerial art** — "What the art is for."
+- **Grammar in the Service of the Sciences** — new deck and 9-item drill in Act VII:
+  *Super Ioannem* I lect. 1 n. 39 on *erat* (`aq_ioan`, checked); *ST* III q. 78 a. 5
+  ad 1–2 on *this* (`aq_st3`, checked); *ST* I q. 13 a. 1 obj./ad 2–3 and q. 39 a. 8
+  (`aq_st13`, checked); *Metaphysics* IX.6 1048b18–35 on seeing and having seen
+  (`arist_met9`, not checked; absent from the Latin text St Thomas commented on);
+  deponents and the Greek middle (Smyth).
+- **Case and its Work** — new study deck in Act III (the exercise had none): *casus*
+  and the upright nominative (*In Peri herm.* I lect. 4, checked); subjective,
+  objective, and possessive genitive; predicate accusative (*Ancum Marcium regem populus
+  creavit*); the case recognized before the meaning.
+
+Not taken from Nieto: his division of logic, rhetoric, and poetry by the honest,
+useful, and pleasant good; the claim that modes of signifying exist in writing
+"separated from thought"; Martin of Dacia's "hook."
