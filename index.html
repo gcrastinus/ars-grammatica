@@ -1471,7 +1471,7 @@ const SRC = {
        full:'Stefan Meier-Oeser, “Medieval Semiotics”, <i>Stanford Encyclopedia of Philosophy</i> — for Boethius of Dacia’s statement of universal grammar, and for Ockham’s and John Aurifaber’s criticisms of the modists.',
        note:''},
   deely:{kind:'study', short:'Deely, <i>Introducing Semiotics</i>',
-       full:'John Deely, <i>Introducing Semiotics: Its History and Doctrine</i>, Indiana University Press. Used for John of St. Thomas’s doctrine of signs, with Deely’s citations into Poinsot; and for the distinction of signs <i>ex instituto</i> and <i>ex consuetudine</i>.',
+       full:'John Deely, <i>Introducing Semiotics: Its History and Doctrine</i>, Indiana University Press. Used for John of St. Thomas’s doctrine of signs, with Deely’s citations into Poinsot; and for the distinction of conventional signs <i>ad placitum</i> and <i>ex consuetudine</i>.',
        note:''},
   copeland:{kind:'study', short:'Copeland &amp; Sluiter, <i>Medieval Grammar and Rhetoric</i>',
        full:'Rita Copeland and Ineke Sluiter, eds., <i>Medieval Grammar and Rhetoric: Language Arts and Literary Theory, AD 300–1475</i>, Oxford, 2012 — translated primary texts of the grammatical tradition.',
@@ -2210,10 +2210,11 @@ signified.</strong> Saussure’s <em>signified</em> is a concept, not a thing. T
 sharpest tool here is John of St. Thomas — Poinsot — in the treatise on signs inside his
 <span class="lat">Ars logica</span>.</p>
 <p>He divides signs into <strong>instrumental</strong> and <strong>formal</strong>. An
-<strong>instrumental</strong> sign must itself be perceived before it leads you to anything
-else: smoke, a footprint, a spoken word. A <strong>formal</strong> sign does not have to be
-perceived at all — it is that <em>by which</em> something else is made present. The concept is
-a formal sign.</p>
+<strong>instrumental</strong> sign must first be known as an object before it leads to
+another: smoke, a footprint, a spoken word. A <strong>formal</strong> sign leads to its
+object without first being known as an object itself — it is that <em>by which</em>
+something else is made present. The concept is a formal sign. It can still be known
+alongside its object, and reflected on. What it need not do is be known as an object first.</p>
 <p>Deely draws out the consequence exactly: <em>when you think of a horse, it is the horse you
 are thinking of</em> — a determinate object — not the mental state that presence presupposes.
 The concept is not what you know; it is that by which you know.</p>
@@ -2222,17 +2223,19 @@ treated it as a terminus. On Poinsot’s account a formal sign cannot be a termi
 ordered to something else is the whole of what it is.</p>`,
   q:{ prompt:`What is the difference between a formal and an instrumental sign?`,
       options:['A formal sign is written, an instrumental sign spoken',
-               'An instrumental sign must first be perceived to lead you to the signified; a formal sign need not be perceived at all',
+               'An instrumental sign must first be known as an object; a formal sign need not first be known as an object',
                'A formal sign is arbitrary, an instrumental sign natural',
                'They are two names for the same thing'],
       correct:1,
-      explain:`Smoke must be seen before it tells you of fire; a word must be heard. But a concept makes its object present without itself being noticed — which is why you are aware of the horse and not of your idea of it. Poinsot’s deeper point, which Deely insists on, is that both are signs in the same sense, because the being of a sign is a <em>relation</em> to what it signifies.`,
+      explain:`Smoke must be known as an object before it tells you of fire; a word must be heard. A formal sign need not first be known as an object: a concept makes its object present without itself being noticed first — which is why you are aware of the horse and not, at first, of your idea of it. You can still reflect on the concept. Poinsot’s deeper point, which Deely insists on, is that both are signs in the same sense, because the being of a sign is a <em>relation</em> to what it signifies.`,
       wrong:`The division does not run along the written/spoken line, nor along the natural/conventional line — those are different divisions of the same subject.` } },
 
 { src:['deely','saussure'], h:`<p><strong>The reply, third move: what a closed system loses.</strong></p>
-<p>The tradition divides instrumental signs into those established by stipulation
-(<span class="lat">ex instituto</span>) and those grown up by custom
-(<span class="lat">ex consuetudine</span>). Both are constantly at work in any real language.
+<p>The tradition divides conventional signs into those established by stipulation
+(<span class="lat">ad placitum</span>) and those grown up by custom
+(<span class="lat">ex consuetudine</span>). Natural instrumental signs, such as smoke, are a third
+member of the wider division, and they are not conventional. Both kinds of conventional
+sign are constantly at work in any real language.
 Deely’s observation is that when you press the stipulated element as far as it will go — when
 you cut off from a language everything that has merely become customary — what drops out is
 precisely <em>history, experience, the past of a people</em>.</p>
@@ -2418,9 +2421,9 @@ there is not yet a word.</p>`,
 
 { src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> Articulate voice can be divided into
 letters. It is still not yet a word. It is the kind of sound words are made of.</p>
-<p>Animal sounds indicate by nature. Names signify by human choice — by
-institution. A bark may indicate something that the dog wishes to draw attention
-to, but a name is a sound that has been imposed by human choice.</p>
+<p>Animal sounds signify by nature. Names signify by human choice — by
+imposition. A bark signifies something that the dog wishes to draw attention
+to, and a name is a sound that has been imposed by human choice.</p>
 <p>Priscian divides voice more finely, by two questions. Is it joined to some
 meaning in the speaker’s mind? Then it is <strong>articulate</strong>. Can it be
 written? Then it is <strong>lettered</strong>. So there are four kinds.
@@ -2437,14 +2440,14 @@ can be written, and means nothing. A crash is neither.</p>
 
 { src:['donatus','priscian','appown'], h:`<p>The consideration of voice is the beginning of grammar. The art of grammar
 is the art of human speech. Marks without sound are not speech, nor is noise
-without articulation. Signification does not begin at voice. Signification
-begins at the word, but voice is the matter of the word.</p>
+without articulation. A groan signifies by nature. Signification by
+imposition begins at the word. Voice is the matter of the word.</p>
 <p>We consider next the letter: the least written part of this sound.</p>`,
-  q:{ prompt:`Why does signification not begin at voice?`,
-      options:['Because voice is not a real thing','Because voice is the matter of speech; meaning only begins to exist at the word',
-               'Because all sound has already been denied','Because a sentence is nothing but noise'],
+  q:{ prompt:`Where does signification by human choice begin?`,
+      options:['At the groan, which already signifies by nature','At the word, if we mean signifying by human choice',
+               'At the letter','Nowhere: voice never signifies'],
       correct:1,
-      explain:`A voice may be a groan. A word is the least thing that signifies by human choice. The letter sits between them, still without meaning.` } }
+      explain:`A groan signifies by nature. Signification by imposition begins at the word. The letter sits between them, still without meaning.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -2520,7 +2523,7 @@ are made of, not what words are.</p>`,
       options:['A small meaning, less than a word','Nothing at all',
                'The same as a syllable','Whatever the writer intends'],
       correct:1,
-      explain:`A letter signifies nothing. Meaning begins at the word. Letters and syllables are the matter of speech — they are what words are made of, not what words are.` } },
+      explain:`A letter signifies nothing. Signification by imposition begins at the word. A groan can signify by nature; a letter cannot. Letters and syllables are the matter of speech — they are what words are made of, not what words are.` } },
 
 { src:['priscian','appown'], h:`<p><strong>Name, shape, and power.</strong> Of every letter three things are
 asked.</p>
@@ -2698,32 +2701,33 @@ DECKS.pos = {
   panels:[
 
 { src:['helias','priscian','donatus'], h:`<p><strong>THE WORD.</strong> Until now you have had sound: voice, letter, syllable.
-None of them means. The word is the first thing that does.</p>
+A groan already signifies, by nature. None of them signifies by imposition.
+Signification by imposition begins at the word.</p>
 <p>A word is a sound, or a joining of sounds, imposed to signify. A groan was a voice and not a word, because it was
 not imposed. <em>Horse</em> is a word, because speakers have made that sound
-stand for a thing.</p>
+signify a thing.</p>
 <p>A word is still not a sentence. True and false wait for a joining. The word
-only signifies.</p>`,
-  q:{ prompt:`Where does meaning first appear?`,
-      options:['At the voice','At the syllable','At the word','At the complete saying'],
+signifies by the imposition; truth waits for more.</p>`,
+  q:{ prompt:`Where does signification by human choice begin?`,
+      options:['At the voice','At the syllable','At the word, if we mean signifying by human choice','At the complete saying'],
       correct:2,
-      explain:`The word is the least thing that means. Voice and syllable are material. Truth waits for the complete saying, which is later than meaning.` } },
+      explain:`A groan signifies by nature. Signification by imposition begins at the word. Voice and syllable are the matter of that word. Truth waits for the complete saying, which is later than meaning.` } },
 
 { src:['arist_int','appown'], h:`<p><strong>How a sound becomes a name.</strong> A groan and a bark indicate by
 nature. No one sat down and decided that pain should sound like that. A name is
-different. Speakers have taken a sound and set it to stand for a thing. That
+different. Speakers have taken a sound and set it to signify a thing. That
 setting is <strong>imposition</strong> — the sound is imposed by human choice.</p>
 <p>Once imposed, the name signifies that thing whenever it is used. The
 particular noise is conventional: another people might have used another sound
-for a horse. That there is a name at all — a sound standing for a thing — is
+for a horse. That there is a name at all — a sound imposed to signify a thing — is
 what makes a word a word.</p>
 <p>Without imposition there is voice, and perhaps indication. There is not yet
 a word, and grammar of the word has not yet begun.</p>`,
   q:{ prompt:`What turns a sound into a name?`,
-      options:['Writing it down','Speakers imposing it, by choice, to stand for a thing',
+      options:['Writing it down','Speakers imposing it, by choice, to signify a thing',
                'Saying it loudly','Using it in a true sentence'],
       correct:1,
-      explain:`A bark indicates by nature. A name is a sound set, by human choice, to stand for a thing. That setting is imposition.` } },
+      explain:`A bark signifies by nature. A name is a sound set, by human choice, to signify a thing. That setting is imposition.` } },
 
 { src:['donatus','priscian','appown'], h:`<p><strong>A list of work, not of words.</strong> Donatus asks how many parts of
 speech there are. Eight. He is not counting entries in a dictionary. Priscian
@@ -3364,9 +3368,9 @@ of grammar does not. That words are imposed to signify what the mind understands
 that nouns and verbs signify in different ways, Ockham grants as readily as
 Priscian. What is in dispute is where the modists put the mode.</p>
 <p>So this course uses the modists’ explanations where they explain, and does not rest
-the art on their thesis about the word. Whether that thesis can be defended is the
-question John of St. Thomas takes up three centuries later, in his treatise on
-signs.</p>`,
+the art on their thesis about the word. For John of St. Thomas the imposed word
+signifies by a relation of reason. That is less than the modists claimed, and more
+than Ockham allowed. A relation of reason is not only a manner of speaking.</p>`,
   q:{ prompt:`Whom do Ockham’s and Aurifaber’s objections touch?`,
       options:['The whole art of grammar','The modists’ thesis that the mode of signifying is a real property of the word',
                'Priscian’s definitions of the parts','Aristotle’s account of truth'],
@@ -3564,17 +3568,17 @@ animal. That does not change from sentence to sentence.</p>
 proposition. That does change.</p>
 <p><em>A man is running</em> — <em>man</em> stands for some man there is
 (personal supposition).<br>
-<em>Man is a species</em> — <em>man</em> stands for the nature itself
+<em>Man is a species</em> — <em>man</em> stands for the nature as known, not for any man
 (simple supposition).<br>
 <em>Man is a three-letter word</em> — <em>man</em> stands for itself as a
 sound or inscription (material supposition).</p>
 <p>The word has not changed. What it is standing for has. (Peter of Spain
 teaches the first two. The third is added by other logicians of his century.)</p>`,
   q:{ prompt:`<em>Man is a species.</em> What is <em>man</em> standing for?`,
-      options:['The particular men there are','The nature itself — simple supposition',
+      options:['The particular men there are','The nature as known, not for any man — simple supposition',
                'The written letters only','Nothing'],
       correct:1,
-      explain:`Simple supposition: the term stands for the nature, not for this or that man. In <em>a man is running</em> the same word stands for a man, and the supposition is personal.` } },
+      explain:`Simple supposition: the term stands for the nature as known, not for this or that man. Being a species belongs to a nature only as known. In <em>a man is running</em> the same word stands for a man, and the supposition is personal.` } },
 
 { src:['peterhisp','appown'], h:`<p><strong>Where grammar hands over.</strong> Grammar can tell you that
 <em>man</em> is a noun, and that the sentence is well formed. It cannot tell you
@@ -3582,8 +3586,9 @@ which supposition the noun is under in this proposition. That is a question
 about the proposition as a proposition, and it belongs to logic.</p>
 <p>The syncategorematic words — <em>all, no, some, only, if, except</em> — are the
 other half of the handover. They signify little or nothing on their own; they
-determine how the other words stand. Ars Syllogistica works with them from the
-other side.</p>`,
+determine how the other words stand. Supposition is a property of terms in logic.
+Ars Syllogistica is its home, and works with these words from the other side.
+This deck only names the distinction and hands it on.</p>`,
   q:{ prompt:`Signification against supposition: which changes from sentence to sentence?`,
       options:['Signification — what the word means','Supposition — what it stands for here',
                'Neither','Both, always'],
@@ -4603,7 +4608,7 @@ ${il({script:'गन्तुम्', dir:'dev', tr:'gantum', gloss:'to-go (infi
 { src:['appown'], h:`<p><strong>Where meaning begins.</strong> Letter-sounds do not yet mean. The
 root already has a seed of meaning (going, making, being). The pada means in
 the sentence. The vākya means as a whole. Several rungs, each with a claim.</p>
-<p>Our course said: meaning begins at the word. For them you must ask: which
+<p>Our course said: signification by imposition begins at the word. For them you must ask: which
 word — the root, the stem, the ended pada, the sentence? The honest answer is
 that their art has more than one “first meaning,” because it is an art of
 derivation.</p>`,
@@ -4611,7 +4616,7 @@ derivation.</p>`,
       options:['Only at the letter-sound','Already as a seed in the root, then fully in the ended word and in the saying — not at one rung only',
                'Never','Only in Akkadian'],
       correct:1,
-      explain:`Derivation spreads meaning across rungs. Our single answer (the word) is cleaner, and it is not theirs.` } },
+      explain:`Derivation spreads meaning across rungs. Our answer — signification by imposition begins at the word — is cleaner, and it is not theirs.` } },
 
 { src:['panini'], h:`<p><strong>Optative, imperative — moods as affixes.</strong></p>
 ${il({script:'गच्छतु', dir:'dev', tr:'gacchatu', gloss:'go-3sg imperative', en:'let him go'})}
@@ -5458,7 +5463,7 @@ later study. The work of extending the classical account to these arts has not b
 done.</p>` },
 
 { src:['appown'], h:`<p><strong>Does the least written piece never mean?</strong> Our letter signifies
-nothing; meaning begins at the word. A Sumerian word-sign — <em>lugal</em>,
+nothing; signification by imposition begins at the word. A Sumerian word-sign — <em>lugal</em>,
 <em>e<sub>2</sub></em> — already means, and so does a Chinese graph such as 日.</p>
 <p>Was “the letter signifies nothing” learned from the alphabet, or does it hold for
 writing as such? Perhaps a word-sign is not a letter at all, but a written word;
@@ -5473,8 +5478,9 @@ art begins, as ours does, from sound.</p>
 <p>Is the matter of grammar always voice, or speech as a school keeps it? Was
 “speech as such” silently speech that is spoken first and written after?</p>` },
 
-{ src:['appown'], h:`<p><strong>Where does meaning begin?</strong> For us, at the word: a sound imposed to
-signify. For the tablets, at the pair: a Sumerian form set against Akkadian. For
+{ src:['appown'], h:`<p><strong>Where does meaning begin?</strong> For us, signification by
+imposition begins at the word: a sound imposed to signify. A groan already signifies
+by nature. For the tablets, meaning begins at the pair: a Sumerian form set against Akkadian. For
 Pāṇini, a root already carries a meaning, a stem with its ending is a word of the
 sentence, and for Bhartṛhari the whole sentence is the true unit.</p>
 <p>Is “the word” the imposed name, the stem, the ended word, or the saying? Can there
@@ -6776,7 +6782,7 @@ const LETTER_CONS = ['b','c','d','f','g','h','l','m','n','p','q','r','s','t','v'
 const LETTER_ITEMS = [
   {id:'l1', src:['priscian'], q:'The letter is the least part of a composite sound. What does it signify by itself?',
    a:'Nothing', ds:['A small meaning','A whole syllable','Whatever the writer likes'],
-   why:'Signification begins at the word. Letters and syllables are matter only.'},
+   why:'A letter signifies nothing. Signification by imposition begins at the word. A groan can signify by nature; a letter cannot.'},
   {id:'l2', src:['priscian'], q:'Latin <em>C</em> is named <em>ce</em>, written as the mark C, and sounded /k/. Which of those is its power?',
    a:'The sound /k/', ds:['The name <em>ce</em>','The mark C','The whole syllable <em>ce</em>'],
    why:'Power is the sound the letter is for. Name is what we call it; shape is the mark.'},
@@ -6799,9 +6805,9 @@ const LETTER_ITEMS = [
    ds:['Noun and verb','Long and short','Subject and object'],
    why:'Grapheme is the written unit; phoneme is the sound unit. Name, shape, and power asked the same questions of every letter.'},
   {id:'l8', src:['helias'], q:'Where does meaning first appear?',
-   a:'At the word',
+   a:'At the word, if we mean signifying by human choice',
    ds:['At the letter','At the syllable','At the accent mark'],
-   why:'Letter, syllable, word, complete saying. Only the word signifies. The first two are material. Truth waits for the complete saying.'}
+   why:'A groan signifies by nature. Signification by imposition begins at the word. Letters and syllables are the matter of that word. Truth waits for the complete saying.'}
 ];
 
 EX.letter = {
@@ -7800,13 +7806,13 @@ const SUP_ITEMS = [
   {id:'sp1', src:['peterhisp'], s:'A man is running.',
    q:'What is <em>man</em> standing for here?',
    a:'Personal supposition — a man there is',
-   ds:['Simple supposition — the nature itself','Material supposition — the word as a word','Nothing: the sentence is incongruous'],
+   ds:['Simple supposition — the nature as known','Material supposition — the word as a word','Nothing: the sentence is incongruous'],
    why:'The term stands for the things it was imposed to name. That is personal supposition, the ordinary case.'},
   {id:'sp2', src:['peterhisp'], s:'Man is a species.',
    q:'What is <em>man</em> standing for here?',
-   a:'Simple supposition — the nature itself',
+   a:'Simple supposition — the nature as known, not any man',
    ds:['Personal supposition — the men there are','Material supposition — the letters','A barbarism'],
-   why:'No particular man is a species. The term stands for the nature. Signification has not changed; supposition has.'},
+   why:'No particular man is a species. The term stands for the nature as known, not for any man. Signification has not changed; supposition has.'},
   {id:'sp3', src:['peterhisp'], s:'Man is a three-letter word.',
    q:'What is <em>man</em> standing for here?',
    a:'Material supposition — the word as sound or inscription',
@@ -7824,7 +7830,7 @@ const SUP_ITEMS = [
   {id:'sp6', src:['jst','appown'], q:'Why does this distinction belong at the edge of grammar, and not in its middle?',
    a:'Grammar judges the well-formed joining; what a term stands for in a proposition is logic’s question',
    ds:['Because Donatus did not know the words','Because nouns do not signify','Because Latin has no articles'],
-   why:'The handover is real. You need the noun as a noun before you can ask what it stands for. You cannot finish the second question with grammar’s tools.'},
+   why:'The handover is real. You need the noun as a noun before you can ask what it stands for. Supposition is a property of terms in logic, and Ars Syllogistica is its home. You cannot finish the second question with grammar’s tools.'},
   {id:'sp7', src:['peterhisp'], s:'Horse is a noun.',
    q:'What is <em>horse</em> standing for here?',
    a:'Material supposition — the word itself',
@@ -8485,22 +8491,22 @@ EX.vox = {
        a:'Barbarism is a fault in a word, and there is not yet a word',
        ds:['Because groans are always correct','Because only vowels can be barbarous','Because only writing can be barbarous'],
        why:'Barbarism is proper to the word and does not exist below the level of the word. Inarticulate voice is by definition not a word.'},
-      {id:'vx4', src:['arist_int'], q:'Animal sounds indicate by nature. Names signify by…',
-       a:'Human choice — the sound is imposed to stand for a thing',
+      {id:'vx4', src:['arist_int'], q:'Animal sounds signify by nature. Names signify by…',
+       a:'Human choice — the sound is imposed to signify a thing',
        ds:['Nature, as a groan does','Writing only','Latin only'],
-       why:'A bark may indicate something the dog wishes to draw attention to. A name is a sound imposed by human choice. Grammar of the word starts after that imposition.'},
-      {id:'vx5', src:['donatus','appown'], q:'Why does signification not begin at voice?',
-       a:'Voice is the matter of speech; meaning only begins to exist at the word',
-       ds:['Because voice is not a real thing','Because a complete saying is nothing but noise','Because the letter is older than the voice'],
-       why:'A voice may be a groan. A word is the least thing that signifies by human choice. The letter sits between them, still without meaning.'},
+       why:'A bark signifies something the dog wishes to draw attention to. A name is a sound imposed by human choice. Grammar of the word starts after that imposition.'},
+      {id:'vx5', src:['donatus','appown'], q:'Where does signification by human choice begin?',
+       a:'At the word, if we mean signifying by human choice',
+       ds:['At the groan, which does not signify at all','At the letter','Nowhere: voice never signifies'],
+       why:'A groan signifies by nature. Signification by imposition begins at the word. The letter sits between them, still without meaning.'},
       {id:'vx6', src:['priscian'], q:'Priscian: a groan shows something of the speaker’s mind, but cannot be written. In his division it is…',
        a:'Articulate, but unlettered',
        ds:['Lettered, but inarticulate','Neither voice nor sound','Already a word'],
        why:'Priscian asks two questions: is the voice joined to a meaning in the speaker’s mind (articulate)? can it be written (lettered)? A groan is the first and not the second. <em>Coax</em>, a frog’s croak, is the reverse.'},
       {id:'vx7', src:['arist_int','appown'], q:'What turns a sound into a name?',
-       a:'Speakers imposing it, by choice, to stand for a thing',
+       a:'Speakers imposing it, by choice, to signify a thing',
        ds:['Writing it down','Saying it more than once','Using it in a true sentence'],
-       why:'A bark indicates by nature. A name is a sound set, by human choice, to stand for a thing. That setting is imposition. Grammar of the word starts there.'}
+       why:'A bark signifies by nature. A name is a sound set, by human choice, to signify a thing. That setting is imposition. Grammar of the word starts there.'}
     ];
     const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5'].indexOf(x.id)>=0) : items;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
