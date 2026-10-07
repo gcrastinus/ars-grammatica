@@ -434,6 +434,26 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .ladder{margin:18px auto; max-width:520px; display:block}
 .ladder text{font-family:'EB Garamond',serif}
 
+/* Reed–Kellogg diagrams. Strokes and letters follow the ink color, so light and dark both read. */
+.rk{display:block; margin:10px auto; max-width:100%; height:auto; overflow:visible; color:inherit}
+.rk line,.rk path{stroke:currentColor; stroke-width:1.6; fill:none}
+.rk text{fill:currentColor; font-family:'EB Garamond', Georgia, serif; font-size:16px}
+.rk.sm text{font-size:14px}
+.q-sentence .rk,.q-passage .rk,.panel .rk{margin:14px auto 6px}
+.opt .rk{margin:4px 0; pointer-events:none}
+.opt.right,.opt.wrong{color:#fff}
+.pick-line{display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:2px 1px; margin:6px 0 18px}
+.pick-word{
+  font-family:'EB Garamond',serif; font-size:23px; line-height:1.45; padding:2px 5px;
+  border:1px solid transparent; background:transparent; color:var(--ink);
+  border-radius:8px; cursor:pointer;
+}
+.pick-word:hover:not(:disabled){border-color:var(--gold-soft); background:var(--panel)}
+.pick-word:disabled{cursor:default}
+.pick-word.right{background:var(--sage); color:#fff; border-color:var(--sage)}
+.pick-word.wrong{background:var(--wine); color:#fff; border-color:var(--wine)}
+.pick-word.reveal{border-color:var(--sage); border-width:2px}
+
 @media print{
   #dark-toggle, #speak-toggle, #speak-rate, .speak-unit, .top-right-controls{display:none}
   .set-card{break-inside:avoid}
@@ -1492,6 +1512,9 @@ const SRC = {
   appown:{kind:'study', short:'This course’s own arrangement',
        full:'The wording, the ordering, and the pedagogical scaffolding are this course’s own. Where a panel is marked with this alone, it is making no doctrinal claim that needs a source — it is telling you how to use the course, or drawing together what earlier panels have already established on their own authority.',
        note:''},
+  engclass:{kind:'study', short:'The ordinary English grammar, and Reed and Kellogg’s diagram',
+       full:'The names in the English unit (direct object, predicate nominative, gerund, dependent clause, and the rest) are the names of an ordinary modern class. Each is set beside the traditional name this course uses, where there is one. The diagrams follow the method of Alonzo Reed and Brainerd Kellogg, <i>Higher Lessons in English</i> (1877 and later printings), which is in the public domain. Sentences quoted from English authors are taken from editions published before 1931. No modern editor’s commentary is copied.',
+       note:'A bridge from the accidents of the word to the complete saying.'},
 
   /* ---------- public-domain authors used in the clause exercise ---------- */
   jowett:{kind:'primary', short:'Plato, trans. Jowett',
@@ -7682,6 +7705,1176 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
 })();
 
 /* ---------- the act structure of the home page ---------- */
+/* ====================================================================
+   EN · The English Sentence
+   Quotations are from editions published before 1931. Faulty sentences
+   in the faults drill are made for the exercise; they are not offered
+   as the words of those authors.
+   ==================================================================== */
+
+function normPlain(s){
+  return String(s || '').toLowerCase()
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2013\u2014]/g, '-')
+    .replace(/[^a-z0-9' ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function normPat(s){
+  let t = String(s || '').toUpperCase().replace(/[\u2013\u2014]/g, '-');
+  [['LINKING VERB','LV'],['LINKING-VERB','LV'],['PREDICATE NOMINATIVE','PN'],
+   ['PREDICATE-NOMINATIVE','PN'],['PREDICATE ADJECTIVE','PA'],['PREDICATE-ADJECTIVE','PA'],
+   ['OBJECTIVE COMPLEMENT','OC'],['OBJECTIVE-COMPLEMENT','OC'],
+   ['DIRECT OBJECT','DO'],['DIRECT-OBJECT','DO'],['INDIRECT OBJECT','IO'],['INDIRECT-OBJECT','IO'],
+   ['SUBJECT','S'],['VERB','V']].forEach(([a,b]) => { t = t.split(a).join(b); });
+  t = t.replace(/\s+/g, '').replace(/[^A-Z\-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  if(t.indexOf('-') < 0){
+    const parts = t.match(/PN|PA|OC|DO|IO|LV|S|V/g);
+    if(parts && parts.join('') === t) t = parts.join('-');
+  }
+  return t;
+}
+function rkEsc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+/* Reed-Kellogg, as much as helps: base line; a line through it between subject and predicate;
+   a line that stops on it before a direct object; a slant back toward the subject before a
+   complement; modifiers and prepositions on slants below; a lower base for one dependent clause. */
+function rkDiagram(spec){
+  const sm = !!spec.compact;
+  const cw = sm ? 6.5 : 7.7;
+  const measure = (s) => Math.max(sm ? 32 : 38, Math.ceil(String(s).length * cw + (sm ? 14 : 18)));
+  const lines = [];
+  const labels = [];
+  let maxX = 40, maxY = 40, minX = 0, minY = 0;
+  function bump(x, y){
+    if(x > maxX) maxX = x; if(y > maxY) maxY = y;
+    if(x < minX) minX = x; if(y < minY) minY = y;
+  }
+  function line(x1,y1,x2,y2,dash){
+    lines.push(`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"${dash ? ' stroke-dasharray="3 3"' : ''}/>`);
+    bump(Math.max(x1,x2), Math.max(y1,y2));
+    bump(Math.min(x1,x2), Math.min(y1,y2));
+  }
+  function label(x,y,s){
+    labels.push(`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle">${rkEsc(s)}</text>`);
+    const half = String(s).length * cw * 0.55;
+    bump(x + half + 4, y + 5);
+    bump(x - half - 4, y - (sm ? 15 : 17));
+  }
+  const slots = [];
+  if(Array.isArray(spec.subj)){
+    slots.push({k:'csubj', w: Math.max(measure(spec.subj[0]), measure(spec.subj[1]), measure(spec.sconj || 'and')) + 10});
+  }else slots.push({k:'subj', w: measure(spec.subj), t: spec.subj});
+  slots.push({k:'divsp', w: 0});
+  if(Array.isArray(spec.verb)){
+    slots.push({k:'cverb', w: Math.max(measure(spec.verb[0]), measure(spec.verb[1]), measure(spec.vconj || 'and')) + 8});
+  }else slots.push({k:'verb', w: measure(spec.verb), t: spec.verb});
+  if(spec.obj){
+    slots.push({k:'divobj', w: sm ? 12 : 16});
+    slots.push({k:'obj', w: measure(spec.obj), t: spec.obj});
+  }else if(spec.comp){
+    slots.push({k:'divcomp', w: sm ? 16 : 20});
+    slots.push({k:'comp', w: measure(spec.comp), t: spec.comp});
+  }
+  if(spec.oc && spec.obj){
+    slots.push({k:'divoc', w: sm ? 16 : 20});
+    slots.push({k:'oc', w: measure(spec.oc), t: spec.oc});
+  }
+  const compound = Array.isArray(spec.subj) || Array.isArray(spec.verb);
+  const pad = sm ? 14 : 18;
+  let x = pad;
+  const pos = {};
+  slots.forEach(sl => {
+    sl.x = x;
+    sl.cx = sl.w ? x + sl.w / 2 : x;
+    pos[sl.k] = sl;
+    x += sl.w;
+  });
+  const xRight = x + pad;
+  const baseY = (compound ? (sm ? 58 : 70) : (sm ? 40 : 48));
+  line(pad, baseY, xRight - pad, baseY);
+  const spx = pos.divsp.x;
+  line(spx, baseY - (sm ? 20 : 26), spx, baseY + (sm ? 11 : 14));
+  function wordOn(slot){ if(slot && slot.t) label(slot.cx, baseY - (sm ? 6 : 8), slot.t); }
+  wordOn(pos.subj); wordOn(pos.verb); wordOn(pos.obj); wordOn(pos.comp); wordOn(pos.oc);
+  if(pos.divobj){
+    const ox = pos.divobj.x + 2;
+    line(ox, baseY - (sm ? 20 : 26), ox, baseY);
+  }
+  if(pos.divcomp){
+    const foot = pos.divcomp.x + 2;
+    line(foot + (sm ? 13 : 16), baseY - (sm ? 20 : 26), foot, baseY);
+  }
+  if(pos.divoc){
+    const foot = pos.divoc.x + 2;
+    line(foot + (sm ? 13 : 16), baseY - (sm ? 20 : 26), foot, baseY);
+  }
+  if(pos.csubj){
+    const left = pos.csubj.x, right = spx - 6, yA = baseY - (sm ? 26 : 32);
+    line(left, yA, right, yA);
+    line(right, yA, spx, baseY);
+    label((left + right) / 2, yA - (sm ? 6 : 8), spec.subj[0]);
+    label((left + right) / 2, baseY - (sm ? 6 : 8), spec.subj[1]);
+    label((right + spx) / 2 + (sm ? 18 : 24), (yA + baseY) / 2 - (sm ? 8 : 10), spec.sconj || 'and');
+  }
+  if(pos.cverb){
+    const left = spx + 4, right = pos.cverb.x + pos.cverb.w, yA = baseY - (sm ? 26 : 32);
+    line(left, yA, right - 8, yA);
+    line(right - 8, yA, right, baseY);
+    label((left + right) / 2, yA - (sm ? 6 : 8), spec.verb[0]);
+    label((left + right) / 2, baseY - (sm ? 6 : 8), spec.verb[1]);
+    label(right + 2, (yA + baseY) / 2, spec.vconj || 'and');
+  }
+  function headX(on){
+    if(on === 'subj') return pos.csubj ? pos.csubj.cx : pos.subj.cx;
+    if(on === 'verb') return pos.cverb ? pos.cverb.cx : pos.verb.cx;
+    if(on === 'obj' && pos.obj) return pos.obj.cx;
+    if(on === 'comp' && pos.comp) return pos.comp.cx;
+    if(on === 'oc' && pos.oc) return pos.oc.cx;
+    return pos.verb.cx;
+  }
+  const used = {};
+  (spec.mods || []).forEach(m => {
+    const i = used[m.on] || 0; used[m.on] = i + 1;
+    const hx = headX(m.on) - 2 + i * (sm ? 28 : 36);
+    const x2 = hx + (sm ? 26 : 34);
+    const y2 = baseY + (sm ? 28 : 36);
+    line(hx, baseY, x2, y2);
+    label(x2, y2 + (sm ? 16 : 18), m.w);
+  });
+  (spec.preps || []).forEach((p, i) => {
+    const hx = headX(p.on) + i * 6;
+    const y2 = baseY + (sm ? 32 : 42);
+    const x2 = hx + (sm ? 36 : 48);
+    line(hx, baseY, x2, y2);
+    label((hx + x2) / 2 - 4, (baseY + y2) / 2 - 4, p.p);
+    const ow = measure(p.n);
+    line(x2, y2, x2 + ow, y2);
+    label(x2 + ow / 2, y2 - (sm ? 6 : 8), p.n);
+    if(p.det){
+      const dx = x2 + 14;
+      line(dx, y2, dx + (sm ? 24 : 30), y2 + (sm ? 22 : 28));
+      label(dx + (sm ? 8 : 10), y2 + (sm ? 16 : 18), p.det);
+    }
+  });
+  if(spec.io){
+    const hx = headX('verb');
+    const y2 = baseY + (sm ? 48 : 60);
+    const x2 = hx + (sm ? 40 : 52);
+    line(hx, baseY, x2, y2);
+    label((hx + x2) / 2 - (sm ? 16 : 20), (baseY + y2) / 2 - 6, spec.ioto || '(to)');
+    const w = measure(spec.io);
+    line(x2, y2, x2 + w, y2);
+    label(x2 + w / 2, y2 - (sm ? 6 : 8), spec.io);
+  }
+  if(spec.clause){
+    const c = spec.clause;
+    const hx = headX(c.on || 'verb');
+    const yC = baseY + (sm ? 64 : 82);
+    const sw = measure(c.subj), vw = measure(c.verb);
+    const ow = c.obj ? measure(c.obj) : (c.comp ? measure(c.comp) : 0);
+    const xC = Math.max(pad, Math.min(hx - 10, xRight - (sw + vw + ow + 40)));
+    line(hx, baseY, xC + 8, yC, true);
+    if(c.rel) label((hx + xC) / 2 + 12, (baseY + yC) / 2 - 6, c.rel);
+    const cRight = xC + sw + vw + (c.obj || c.comp ? (sm ? 12 : 16) + ow : 0) + 8;
+    line(xC, yC, cRight, yC);
+    const sp = xC + sw;
+    line(sp, yC - (sm ? 18 : 22), sp, yC + (sm ? 10 : 12));
+    label(xC + sw / 2, yC - (sm ? 6 : 8), c.subj);
+    label(sp + vw / 2, yC - (sm ? 6 : 8), c.verb);
+    if(c.obj){
+      const od = sp + vw;
+      line(od, yC - (sm ? 18 : 22), od, yC);
+      label(od + 4 + ow / 2, yC - (sm ? 6 : 8), c.obj);
+    }else if(c.comp){
+      const foot = sp + vw;
+      line(foot + (sm ? 12 : 16), yC - (sm ? 18 : 22), foot, yC);
+      label(foot + 8 + ow / 2, yC - (sm ? 6 : 8), c.comp);
+    }
+  }
+  const vx = Math.min(0, minX), vy = Math.min(0, minY);
+  const W = Math.max(maxX, xRight) - vx + 10;
+  const H = maxY - vy + 10;
+  const alt = spec.alt || 'A sentence diagram';
+  return `<svg class="rk${sm ? ' sm' : ''}" viewBox="${vx.toFixed(0)} ${vy.toFixed(0)} ${W.toFixed(0)} ${H.toFixed(0)}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${rkEsc(alt)}">${lines.join('')}${labels.join('')}</svg>`;
+}
+
+function enTake(items, d){
+  const cap = d <= 1 ? 1 : d === 2 ? 2 : d === 3 ? 3 : 4;
+  const pool = items.filter(x => (x.dmin || 1) <= cap);
+  return pool.length ? pool : items;
+}
+function enMC(it, d){
+  const n = d <= 1 ? 3 : 4;
+  const pool = (it.ds || []).filter(x => x !== it.a);
+  const ds = sample(pool, Math.min(n - 1, pool.length));
+  const options = shuffle([it.a].concat(ds));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', src: it.src || ['appown','engclass'], sid: it.id,
+    prompt: it.q,
+    sentence: it.s || '',
+    source: it.cite || '',
+    passage: it.passage || '',
+    options, correct,
+    check(i){
+      if(i === correct) return {right:true, note: it.why};
+      return {right:false, note: it.why, also: `The answer is <strong>${it.a}</strong>.`};
+    }
+  };
+}
+function enPick(it){
+  const correct = it.words.findIndex(w => w.ok);
+  return {
+    kind:'pick', src: it.src || ['appown','engclass'], sid: it.id,
+    prompt: it.q, source: it.cite || '', words: it.words, correct,
+    check(i){
+      if(i === correct) return {right:true, note: it.why};
+      return {right:false, note: it.why, also: `The word is <strong>${it.words[correct].t}</strong>.`};
+    }
+  };
+}
+function enText(it){
+  const accepts = it.accepts || [it.a];
+  return {
+    kind:'text', src: it.src || ['appown','engclass'], sid: it.id,
+    prompt: it.q, sentence: it.s || '', source: it.cite || '',
+    placeholder: it.placeholder || 'Type the answer',
+    check(val){
+      const got = it.pat ? normPat(val) : normPlain(val);
+      const ok = accepts.some(a => (it.pat ? normPat(a) : normPlain(a)) === got && got.length > 0);
+      if(ok) return {right:true, note: it.why};
+      const show = it.show || accepts[0];
+      return {right:false, note: it.why,
+        also: val && String(val).trim() ? `Write <strong>${show}</strong>. You wrote <em>${String(val).trim()}</em>.` : `Write <strong>${show}</strong>.`};
+    }
+  };
+}
+function enChips(it){
+  return {
+    kind:'chips', src: it.src || ['appown','engclass'], sid: it.id,
+    prompt: it.q, sentence: it.s || '', source: it.cite || '',
+    rows: it.rows,
+    check(ans){
+      const mark = {};
+      it.rows.forEach(r => { mark[r.key] = it.want[r.key]; });
+      const ok = it.rows.every(r => String(ans[r.key]) === String(it.want[r.key]));
+      if(ok) return {right:true, mark, note: it.why};
+      return {right:false, mark, note: it.why, also: 'The chips that fit are marked.'};
+    }
+  };
+}
+function enDiagramQ(it){
+  const built = it.choices.map(c => ({svg: rkDiagram(Object.assign({compact:true, alt:c.alt || ''}, c.spec)), ok: !!c.ok}));
+  const options = shuffle(built);
+  const correct = options.findIndex(o => o.ok);
+  return {
+    kind:'mc', src: ['appown','engclass'], sid: it.id,
+    prompt: it.q, sentence: it.s || '', source: it.cite || '',
+    options: options.map(o => o.svg), correct,
+    check(i){
+      if(i === correct) return {right:true, note: it.why};
+      return {right:false, note: it.why, also: 'The diagram that fits is the one now marked.'};
+    }
+  };
+}
+function enGen(items, d){
+  const it = pickSeen(enTake(items, d), x => x.id);
+  if(it.kind === 'pick') return enPick(it);
+  if(it.kind === 'text') return enText(it);
+  if(it.kind === 'chips') return enChips(it);
+  if(it.kind === 'diag') return enDiagramQ(it);
+  return enMC(it, d);
+}
+function enEx(id, title, desc, instr, intro, items){
+  return {
+    id, src:['appown','engclass'], act:'EN', title, desc, instr,
+    introInstr:'Read this, then begin. A set is complete at 100 points. The difficulty chosen on the home screen decides how hard the questions are.',
+    intro, gen(d){ return enGen(items, d); }
+  };
+}
+
+const CITE = {
+  kjvGen:'The King James Version, Genesis 1',
+  kjvJn:'The King James Version, John 11:35',
+  kjvPs:'The King James Version, Psalm 23:2',
+  kjvEc:'The King James Version, Ecclesiastes 1:2',
+  kjvRom:'The King James Version, Romans 6:23',
+  kjvMt:'The King James Version, Matthew 6:28',
+  ham:'William Shakespeare, <em>Hamlet</em>',
+  mv:'William Shakespeare, <em>The Merchant of Venice</em>',
+  ayli:'William Shakespeare, <em>As You Like It</em>',
+  jc:'William Shakespeare, <em>Julius Caesar</em>',
+  h4:'William Shakespeare, <em>King Henry IV</em>, Part 2',
+  pl:'John Milton, <em>Paradise Lost</em>, Book I',
+  son:'John Milton, Sonnet 19',
+  bacon:'Francis Bacon, “Of Studies”',
+  rass:'Samuel Johnson, <em>The History of Rasselas</em>',
+  burke:'Edmund Burke, <em>Reflections on the Revolution in France</em>',
+  gib:'Edward Gibbon, <em>The History of the Decline and Fall of the Roman Empire</em>, chapter 2',
+  mac:'Thomas Babington Macaulay, “Lord Clive”',
+  gett:'Abraham Lincoln, the Address at Gettysburg, as printed in Jasper L. McBrien, <em>America First</em> (1916)',
+  ina:'Abraham Lincoln, Second Inaugural Address, as printed in Jasper L. McBrien, <em>America First</em> (1916)'
+};
+
+/* -------------------------------------------------------------- */
+DECKS.enpos = {
+  title:'The Eight in English',
+  sub:'The same art, in the list a modern class uses',
+  panels:[
+{ src:['donatus','appown','engclass'], h:`<p><strong>THE EIGHT, IN ENGLISH.</strong> We have named the parts of speech as Donatus names them, and we have begun to mark the accidents a word can take. Before we judge a Latin joining, we should be able to see an English sentence as a modern class sees it. So the names in this unit are the modern names. Beside each one we set the traditional name, when this course already has one, so that the two stay joined.</p>
+<p>A modern class usually counts eight parts: <strong>noun, pronoun, adjective, verb, adverb, preposition, conjunction,</strong> and <strong>interjection</strong>. Donatus also counts eight, but not these eight. He files the adjective under the noun, he keeps the participle as a part of its own, and he has no article, because Latin has none. The Greek list kept the article and left the interjection aside. The lists differ because the languages differ. The question we ask does not differ. We ask what work the word is doing here.</p>`,
+  q:{ prompt:'Why does Donatus not count the adjective as a part of its own?',
+      options:['Because an adjective is only a shortened verb','Because he files it under the noun, as a naming that cannot stand alone',
+               'Because Latin adjectives do not exist','Because the interjection already includes it'],
+      correct:1,
+      explain:'The adjective adheres to a noun and cannot stand alone, and so Donatus counts it inside the noun. A modern class gives it a name of its own, but the work is the same work.' } },
+
+{ src:['donatus','priscian','engclass'], h:`<p><strong>Noun, pronoun, adjective, verb.</strong> A <strong>noun</strong> names a person, a place, a thing, or something we treat as a thing, such as mercy or frailty. Donatus calls this the <span class="lat">nomen</span>. A <strong>pronoun</strong> stands in for a noun: <em>he, she, who, that</em>. The traditional name is <span class="lat">pronomen</span>, and Priscian says it signifies a substance without describing it.</p>
+<p>An <strong>adjective</strong> tells of what sort, or which, or how many, and it leans on a noun: <em>full, old, rotten</em>. A modern class lists it apart. This course has already filed it under the noun.</p>
+<p>A <strong>verb</strong> says what is done or what is going on, and it signifies with time. The traditional name is <span class="lat">verbum</span>. In <em>Jesus wept</em> the noun is <em>Jesus</em> and the verb is <em>wept</em>.</p>`,
+  q:{ prompt:'In <em>Jesus wept</em>, which part of speech is <em>wept</em>?',
+      options:['Noun, because it names a deed','Verb, because it says what happened, and it carries time',
+               'Adjective, because it describes Jesus','Interjection, because it is short'],
+      correct:1,
+      explain:'<em>Wept</em> says what happened, and the past form carries time. That is the verb’s work, which this course calls the <span class="lat">verbum</span>.' } },
+
+{ src:['donatus','engclass'], h:`<p><strong>The other four, and two that move.</strong> An <strong>adverb</strong> tells how, when, where, or to what degree, and it leans on a verb or an adjective: <em>quietly, not, everywhere</em>. A <strong>preposition</strong> stands before a noun or a pronoun and ties that naming to another word: <em>in the state, of mercy</em>. A <strong>conjunction</strong> joins words or whole sayings: <em>and, but, or</em>. An <strong>interjection</strong> is a cry, such as <em>alas</em>, and it neither names nor joins. Donatus keeps it as the eighth part.</p>
+<p>Two forms need a second look. The <strong>participle</strong> is a form of the verb that leans on a noun, as <em>strain’d</em> does in <em>is not strain’d</em>, or that opens a phrase, as <em>walking</em> does in <em>walking into the city</em>. Donatus counts the participle as a part of its own. A modern class usually calls it a form of the verb. The <strong>article</strong>, <em>the</em> or <em>a</em>, points out a noun. The Greek eight counted it. Latin has none, and so Donatus does not.</p>
+<p>The same sound can change its part when its work changes. <em>Reading</em> names a thing in <em>Reading maketh a full man</em>, and so it is a noun there, of the kind called a gerund. In <em>the reading boy</em> the same form leans on a noun, and it is a participle.</p>`,
+  q:{ prompt:'In Bacon’s <em>Reading maketh a full man</em>, what work is <em>Reading</em> doing?',
+      options:['It is a verb, the asserting word of the sentence','It is a noun, and the subject of <em>maketh</em>',
+               'It is a preposition before <em>maketh</em>','It is an interjection'],
+      correct:1,
+      explain:'<em>Reading</em> is what makes the man full, and so it is the subject. A verb-form doing a noun’s work is a gerund. The asserting word is <em>maketh</em>.' } },
+
+{ src:['donatus','priscian','engclass'], h:`<p><strong>The two lists, side by side.</strong> We keep both, because a student meets both.</p>
+<div class="para-wrap"><table class="para">
+<thead><tr><th>Modern name</th><th>In this course</th></tr></thead>
+<tbody>
+<tr><td>Noun</td><td><span class="lat">Nomen</span>, a naming that can stand alone</td></tr>
+<tr><td>Adjective</td><td>Filed under the noun, as a naming that adheres</td></tr>
+<tr><td>Pronoun</td><td><span class="lat">Pronomen</span>, a noun’s work without a description</td></tr>
+<tr><td>Verb</td><td><span class="lat">Verbum</span>, signifying with time</td></tr>
+<tr><td>Adverb</td><td><span class="lat">Adverbium</span></td></tr>
+<tr><td>Preposition</td><td><span class="lat">Praepositio</span></td></tr>
+<tr><td>Conjunction</td><td><span class="lat">Coniunctio</span></td></tr>
+<tr><td>Interjection</td><td><span class="lat">Interiectio</span>, Donatus’s eighth</td></tr>
+<tr><td>Participle</td><td><span class="lat">Participium</span>, a part of its own for Donatus; a verb-form in a modern class</td></tr>
+<tr><td>Article</td><td>In the Greek eight; Latin has none</td></tr>
+<tr><td>Subject</td><td>What the saying is about</td></tr>
+<tr><td>Predicate</td><td>What is said of the subject</td></tr>
+<tr><td>Direct object</td><td>The naming the verb governs, often the Latin accusative</td></tr>
+<tr><td>Indirect object</td><td>The one to or for whom, often the Latin dative</td></tr>
+<tr><td>Predicate nominative</td><td>A naming that completes a linking verb and agrees with the subject</td></tr>
+<tr><td>Predicate adjective</td><td>The same completion, done by an adjective</td></tr>
+<tr><td>Objective complement</td><td>A word that completes the object. Latin often shows this as a second accusative</td></tr>
+<tr><td>Simple, compound, complex</td><td>Counted by how many independent clauses there are, and by whether one leans. Side-by-side joining is parataxis. A leaning clause is hypotaxis</td></tr>
+<tr><td>Phrase</td><td>A group with no finite verb of its own</td></tr>
+<tr><td>Clause</td><td>A joining with its own finite verb, inside the complete saying, the <span class="lat">oratio</span></td></tr>
+<tr><td>Dependent clause</td><td>A clause that leans; this course also says subordinate</td></tr>
+<tr><td>Agreement</td><td>Congruity, the matching of accidents</td></tr>
+<tr><td>Case</td><td><span class="lat">Casus</span>, an accident; English keeps it chiefly in the pronouns</td></tr>
+<tr><td>Tense, voice, mood</td><td>Accidents of the verb</td></tr>
+<tr><td>Fragment, run-on, and the rest</td><td>Set beside barbarism, a fault in one word, and solecism, a fault in the joining</td></tr>
+</tbody></table></div>
+<p>The right-hand column is not a second grammar. It is the same grammar, under the names we have already been using.</p>` },
+
+{ src:['appown','engclass'], h:`<p><strong>What the drill asks.</strong> A word is marked in a sentence. We name the part of speech it is doing <em>in that sentence</em>, not the part it might do in another. The early sentences are short and made for the purpose. The later ones are quoted, and the citation stands under them.</p>
+<p>Therefore we do not ask what <em>that</em> always is. We ask what it is here. In <em>that is the question</em> it stands in for a noun. In <em>I know that he arrived</em> it joins two sayings.</p>`,
+  q:{ prompt:'The parts of speech are a list of what?',
+      options:['Dictionary entries, in alphabetical order','Kinds of work a word can do in a sentence',
+               'The letters of the English alphabet','True statements about the world'],
+      correct:1,
+      explain:'A part of speech is a kind of work. The same sound can name in one sentence and assert in the next, and the list follows the work.' } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.ensent = {
+  title:'Subject, Predicate, and the Patterns',
+  sub:'What the saying is about, and what is said of it',
+  panels:[
+{ src:['priscian','appown','engclass'], h:`<p><strong>SUBJECT AND PREDICATE.</strong> A sentence says something about something. The <strong>subject</strong> is what the saying is about. The <strong>predicate</strong> is what is said of it. In <em>Jesus wept</em>, <em>Jesus</em> is the subject and <em>wept</em> is the whole predicate. Priscian’s complete saying, the <span class="lat">oratio</span>, is this joining once it is finished. We have not yet taken up his tests. We only need the two offices, so that the patterns have somewhere to stand.</p>
+<p>The <strong>simple subject</strong> is the noun or pronoun itself, without its modifiers. In <em>The quality of mercy is not strain’d</em>, the simple subject is <em>quality</em>. <em>The</em> and <em>of mercy</em> lean on it, and the whole group is the complete subject. The <strong>simple predicate</strong> is the verb, here <em>is</em>. <em>Not</em> and <em>strain’d</em> complete what is said.</p>`,
+  q:{ prompt:'In <em>The quality of mercy is not strain’d</em>, what is the simple subject?',
+      options:['mercy','quality','strain’d','The quality of mercy, the whole group'],
+      correct:1,
+      explain:'<em>Quality</em> is the naming the sentence is about. <em>Mercy</em> is the object of the preposition <em>of</em>, and the whole group is the complete subject, not the simple one.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Six patterns.</strong> A modern class sorts the ordinary English sentence into a few patterns. The letters are only a shorthand. <em>S</em> is the subject, <em>V</em> the verb, <em>DO</em> the direct object, <em>IO</em> the indirect object, <em>LV</em> a linking verb, <em>PN</em> a predicate nominative, <em>PA</em> a predicate adjective, and <em>OC</em> an objective complement.</p>
+<p><strong>S-V.</strong> The verb needs nothing after it to finish the sense. <em>Jesus wept.</em></p>
+<p><strong>S-V-DO.</strong> A <strong>direct object</strong> is the naming that receives the action. The tradition says the verb governs it. <em>God created the heaven.</em></p>
+<p><strong>S-V-IO-DO.</strong> An <strong>indirect object</strong> is the one to whom or for whom the action is done, and it sits before the direct object when no preposition is written. <em>The messenger gave the king a letter.</em> If we write <em>to the king</em>, the phrase is prepositional, and the pattern is S-V-DO.</p>
+<p><strong>S-LV-PN</strong> and <strong>S-LV-PA.</strong> A <strong>linking verb</strong> does not carry the action across to an object. It joins the subject to a completion. <em>Be, seem, become</em>, and often <em>appear, feel, look, taste</em>, work this way, and so do <em>is gone</em> and the like when the word after them describes the subject. A <strong>predicate nominative</strong> renames the subject: <em>The mind is its own place.</em> A <strong>predicate adjective</strong> describes it: <em>The quality of mercy is not strain’d,</em> Both are <strong>subject complements</strong>, which is the wider modern name for a word that completes the subject.</p>
+<p><strong>S-V-DO-OC.</strong> An <strong>objective complement</strong> completes the direct object. <em>Histories make men wise; poets witty; the mathematics subtile.</em> The sentence goes on in the same way, and <em>make</em> is understood after the semicolon. In the first member, <em>men</em> receives the action, and <em>wise</em> tells what the histories make them.</p>`,
+  q:{ prompt:'<em>The mind is its own place.</em> Which pattern is this?',
+      options:['S-V-DO, with <em>place</em> as the object of an action','S-LV-PN, with <em>place</em> renaming the mind',
+               'S-LV-PA, with <em>place</em> as an adjective','S-V, because <em>is</em> needs nothing after it'],
+      correct:1,
+      explain:'<em>Is</em> links. <em>Place</em> is a noun renaming <em>mind</em>, and so it is a predicate nominative, not an object the mind acts upon.' } },
+
+{ src:['engclass'], h:`<p><strong>How to tell the patterns apart.</strong> We ask three questions, in order.</p>
+<p>First, is the verb a linking verb? If what follows renames or describes the subject, the pattern is S-LV-PN or S-LV-PA. <em>Place</em> renames <em>mind</em>, and so it is a predicate nominative. <em>Strain’d</em> describes <em>quality</em>, and so it is a predicate adjective.</p>
+<p>Second, if the verb carries an action, is there a naming that receives it? That naming is the direct object, and the pattern is at least S-V-DO. If a second naming tells to whom or for whom, and no preposition marks it, that naming is the indirect object.</p>
+<p>Third, does a word after the direct object rename or describe that object? Then it is an objective complement, and the pattern is S-V-DO-OC. <em>Wise</em> does not receive the action of <em>make</em>. <em>Men</em> does, and <em>wise</em> completes <em>men</em>.</p>`,
+  q:{ prompt:'In <em>Histories make men wise</em>, why is <em>wise</em> not the direct object? Bacon’s sentence continues after a semicolon.',
+      options:['Because it is the first noun after the verb','Because <em>men</em> receives the action, and <em>wise</em> tells what they are made',
+               'Because an adjective can never follow a verb','Because <em>make</em> is a linking verb'],
+      correct:1,
+      explain:'The histories make <em>men</em> something. <em>Men</em> is the direct object, and <em>wise</em> is the objective complement. <em>Make</em> here is not a linking verb, because the wisdom is said of the men, not of the histories.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Compound parts, and understood words.</strong> A subject, a verb, or an object may be compound, and the pattern does not change on that account. <em>The heaven and the earth</em> is one direct object with two parts. <em>Cowards die many times before their deaths; The valiant never taste of death but once</em> is not one pattern with a compound verb. It is two independent clauses, and each has its own pattern. A <strong>clause</strong>, which we take up soon, is a joining with its own finite verb. A finite verb is a verb that can assert, such as <em>die</em> or <em>taste</em>, and not an infinitive such as <em>to be</em>.</p>
+<p>Bacon writes <em>Reading maketh a full man; conference a ready man; and writing an exact man.</em> The verb <em>maketh</em> is written once and understood after. The second and third clauses are still S-V-DO-OC in form, with the verb left out because the first clause has supplied it. We name the pattern from the work, and we notice the omission.</p>`,
+  q:{ prompt:'<em>God created the heaven and the earth.</em> The compound <em>heaven and earth</em> makes the pattern…',
+      options:['Two sentences, because two nouns follow','Still S-V-DO, with a compound direct object',
+               'S-V-IO-DO, because there are two objects of different kinds','S-LV-PN, because <em>and</em> links'],
+      correct:1,
+      explain:'There is one verb and one receiving. <em>And</em> joins the two namings inside that one object. An indirect object would be a different office, the one to whom, and there is none here.' } },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> Sometimes we click the word that holds an office. Sometimes we name the pattern. At the higher difficulties we also write the pattern in the shorthand, as S-V-DO. The early sentences are short. The later ones are the authors’.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.enphr = {
+  title:'The Phrase',
+  sub:'A group that does one word’s work, and has no finite verb',
+  panels:[
+{ src:['engclass','appown'], h:`<p><strong>PHRASE.</strong> A <strong>phrase</strong> is a group of words that does one office and does not contain a finite verb of its own. A finite verb is a verb that asserts, with a subject, such as <em>wept</em> or <em>is</em>. <em>To be</em> and <em>walking</em> are verb-forms, but they do not assert by themselves, and so a group built on them can still be a phrase.</p>
+<p>A phrase does the work of a single part of speech. It may do a noun’s work, an adjective’s work, or an adverb’s work. We name the phrase by how it is built, and we can also name it by the work it does. Both names are useful, and they are not rivals.</p>`,
+  q:{ prompt:'What keeps a phrase from being a clause?',
+      options:['A phrase is always shorter than four words','A phrase has no finite verb of its own',
+               'A phrase cannot contain a noun','A phrase is always a fault'],
+      correct:1,
+      explain:'A clause has its own finite verb. A phrase may contain a verb-form, such as an infinitive or a participle, but that form does not assert by itself.' } },
+
+{ src:['engclass'], h:`<p><strong>Five kinds we need.</strong></p>
+<p>A <strong>prepositional phrase</strong> begins with a preposition and ends with its object: <em>of mercy, in the state of Denmark, for delight</em>. It usually does an adjective’s work, telling which one, or an adverb’s work, telling when, where, or how.</p>
+<p>A <strong>participial phrase</strong> begins with a participle and leans on a noun, doing an adjective’s work: <em>walking into the city</em>, if some person is there for it to lean on. Donatus would call the opening word a participle, a part of its own.</p>
+<p>A <strong>gerund phrase</strong> is built on the <em>-ing</em> form used as a noun: <em>Reading</em> in <em>Reading maketh a full man</em>, or <em>chewing the book</em> if that group is the subject or the object. The gerund does a noun’s work. The participle does an adjective’s work. The form looks the same, and the office decides.</p>
+<p>An <strong>infinitive phrase</strong> is built on <em>to</em> plus a verb: <em>to be, or not to be</em>, and <em>to be chewed and digested</em>. It may do a noun’s work, an adjective’s work, or an adverb’s work.</p>
+<p>An <strong>appositive phrase</strong> is a noun phrase set beside another noun to rename it: <em>Johnson, the author of Rasselas</em>. It does an adjective’s work, telling which Johnson, and it does not need a joining word.</p>`,
+  q:{ prompt:'<em>Some books are to be tasted.</em> What is <em>to be tasted</em>?',
+      options:['A prepositional phrase, because it begins with <em>to</em>','An infinitive phrase, built on <em>to</em> plus a verb',
+               'A dependent clause, because it has a verb-form','An appositive, renaming <em>books</em>'],
+      correct:1,
+      explain:'<em>To</em> here is the sign of the infinitive, not a preposition with a noun as its object. The group has no finite verb, and so it is a phrase, not a clause.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>In the authors.</strong> Portia says, <em>The quality of mercy is not strain’d,</em> <em>Of mercy</em> is a prepositional phrase doing an adjective’s work: it tells which quality. Hamlet says, <em>To be, or not to be, that is the question:</em> The two infinitive phrases are what <em>that</em> points back to, and they do a noun’s work.</p>
+<p>Bacon writes that some books are <em>to be chewed and digested</em>. That again is an infinitive phrase. Gibbon’s <em>in the Roman world</em> is prepositional, inside a longer clause we will meet when we come to clauses.</p>
+<p>We do not call these groups clauses, because none of them asserts. <em>Is not strain’d</em> asserts. <em>Of mercy</em> does not.</p>` },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> A group is marked. We name the kind of phrase by its build: prepositional, participial, gerund, infinitive, or appositive. The explanation then says what work the phrase is doing, so that the two names stay together.</p>`,
+  q:{ prompt:'A participial phrase and a gerund phrase can look alike. What tells them apart?',
+      options:['The participial phrase is always longer','The participle leans on a noun; the gerund does a noun’s own work',
+               'The gerund never ends in <em>-ing</em>','Only Latin has gerunds'],
+      correct:1,
+      explain:'<em>Walking into the city, Caesar saw the gates</em> uses a participle leaning on Caesar. <em>Walking into the city was slow</em> uses a gerund as the subject. The form is one form. The office is two offices.' } }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.encl = {
+  title:'The Clause and the Kind of Sentence',
+  sub:'A joining with its own finite verb, and how such joinings combine',
+  panels:[
+{ src:['appown','engclass'], h:`<p><strong>CLAUSE.</strong> A <strong>clause</strong> is a joining with its own finite verb. An <strong>independent clause</strong> can stand as a sentence. A <strong>dependent clause</strong> cannot, because it leans on another joining. This course has another name for the leaning kind, and will use it again when we come to the complete saying: a <strong>subordinate</strong> clause. Dependent and subordinate name the same leaning. We learn both words, because both are in ordinary use.</p>
+<p>The word that opens the lean is often a conjunction or a relative pronoun, such as <em>because, when, if, who, which, that</em>. We do not name the clause from that word alone. We name it from the work the whole clause does.</p>`,
+  q:{ prompt:'Which of these is a clause, and not a phrase?',
+      options:['of mercy','to be chewed','who only stand and waite','in the Roman world'],
+      correct:2,
+      explain:'<em>Who only stand and waite</em> has its own finite verb, <em>stand</em>. The other three have no finite verb, and so they are phrases.' } },
+
+{ src:['engclass'], h:`<p><strong>Three works a dependent clause can do.</strong></p>
+<p>A <strong>noun clause</strong> does a noun’s work. It may be the subject, the direct object, or the completion after a linking verb. Macaulay writes, <em>Every schoolboy knows who imprisoned Montezuma, and who strangled Atahualpa.</em> Each <em>who</em>-clause is a noun clause, the object of <em>knows</em>. The <em>and</em> joins the two objects. It does not make a second sentence.</p>
+<p>An <strong>adjective clause</strong>, often called a <strong>relative clause</strong>, leans on a noun and tells which or of what sort. Gibbon writes of modes of worship <em>which prevailed in the Roman world</em>. <em>Which</em> relates to <em>modes</em>. Milton writes, <em>They also serve who only stand and waite.</em> The <em>who</em>-clause tells which they, and so it is an adjective clause. Johnson writes of a state <em>in which much is to be endured and little to be enjoyed</em>. That too leans on a noun.</p>
+<p>An <strong>adverb clause</strong> tells when, where, why, how, under what condition, or with what concession: <em>when the gate shut, because the night was dark, if the king consents, although the road was long</em>.</p>`,
+  q:{ prompt:'In Macaulay’s sentence, what are <em>who imprisoned Montezuma</em> and <em>who strangled Atahualpa</em>?',
+      options:['Two independent sentences','Adjective clauses telling which schoolboy',
+               'Noun clauses, together the object of <em>knows</em>','Prepositional phrases'],
+      correct:2,
+      explain:'The schoolboy knows something, and the two clauses are that something. They do a noun’s work. They do not tell which schoolboy, and they cannot stand alone as the sentence he wrote.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Four kinds of sentence.</strong> We count independent clauses, and then we notice whether anything leans.</p>
+<p>A <strong>simple sentence</strong> has one independent clause and no dependent clause. It may still be long, because phrases do not make a new clause. <em>Jesus wept</em> is simple. So is <em>The quality of mercy is not strain’d</em>, for <em>of mercy</em> is only a phrase. So is <em>Studies serve for delight, for ornament, and for ability</em>, for the <em>for</em>-phrases do not assert.</p>
+<p>A <strong>compound sentence</strong> has two or more independent clauses and no dependent clause. The joining is what this course will call parataxis, clauses side by side. <em>Cowards die many times before their deaths; The valiant never taste of death but once.</em> Burke’s <em>That of sophisters, economists, and calculators has succeeded; and the glory of Europe is extinguished forever</em> is compound in the same way.</p>
+<p>A <strong>complex sentence</strong> has one independent clause and at least one dependent clause. The leaning is what this course will call hypotaxis. Gibbon’s sentence about the modes of worship is complex: the relative clause leans on <em>modes</em>. Milton’s <em>They also serve who only stand and waite</em> is complex.</p>
+<p>A <strong>compound-complex sentence</strong> has at least two independent clauses and at least one dependent clause.</p>`,
+  q:{ prompt:'<em>Jesus wept.</em> What kind of sentence is it?',
+      options:['Complex, because it comes from a sacred book','Simple, one independent clause and no dependent clause',
+               'Compound, because the name and the verb are two ideas','A fragment, because it is only two words'],
+      correct:1,
+      explain:'There is one subject and one finite verb, and nothing leans. Length is not the test. A sentence of two words can be complete, and a long sentence of phrases can still be simple.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>A longer period.</strong> Johnson has Imlac say, <em>Human life is everywhere a state in which much is to be endured and little to be enjoyed.</em> The independent clause is <em>Human life is everywhere a state</em>. Its pattern is S-LV-PN. The clause <em>in which much is to be endured and little to be enjoyed</em> leans on <em>state</em>, and so it is an adjective clause. Inside it, <em>and</em> joins two predicates that share the shape of the first. The whole sentence is complex, not compound, because there is only one independent clause.</p>
+<p>Gibbon writes, <em>The various modes of worship, which prevailed in the Roman world, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.</em> The semicolons do not open new independent clauses. The verb <em>were considered</em> is written once, and the phrases that follow fill out the same predicate. The relative clause makes the sentence complex. We will meet the passive verb when we come to voice.</p>`,
+  q:{ prompt:'Why is Johnson’s sentence about human life complex, rather than compound?',
+      options:['Because it is about an unhappy subject','Because one independent clause has a dependent clause leaning on <em>state</em>',
+               'Because <em>and</em> always makes a compound sentence','Because it has more than ten words'],
+      correct:1,
+      explain:'<em>And</em> joins two parts inside the leaning clause. It does not join two sentences that could each stand. One independent clause plus one dependent clause is a complex sentence.' } },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> We classify a marked clause as independent, or as a noun clause, an adjective clause, or an adverb clause. We also classify whole sentences as simple, compound, complex, or compound-complex. The early items are made and short. The later items are the periods just quoted.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.enform = {
+  title:'Agreement, Case, and the Verb',
+  sub:'Congruity, the accidents that English still shows, and the verb’s own accidents',
+  panels:[
+{ src:['appown','engclass'], h:`<p><strong>AGREEMENT.</strong> <strong>Agreement</strong> is the matching of one word’s accidents to another’s. This course calls that matching <strong>congruity</strong>. In English the matching a modern class drills is chiefly two. The verb agrees with its subject in person and number. The pronoun agrees with its <strong>antecedent</strong>, the noun it stands for, in number and gender, and then takes its case from its own clause.</p>
+<p>We find the simple subject, and we refuse to be pulled off it by a phrase that sits between. <em>The flock of starlings is loud.</em> <em>Flock</em> is singular. <em>Of starlings</em> tells which flock, and it does not become the subject. <em>The king and the queen are here</em> is plural, because <em>and</em> makes a compound subject. With <em>or</em>, <em>nor</em>, <em>either…or</em>, and <em>neither…nor</em>, the verb agrees with the nearer subject. <em>Neither the king nor the queen is here.</em></p>
+<p><em>There is</em> and <em>there are</em> agree with the real subject, which follows the verb. <em>There are two gates.</em> <em>Each, every, either, neither</em>, used as subjects, are singular. <em>Each of the sailors is ready.</em></p>`,
+  q:{ prompt:'<em>The quality of his arguments is plain.</em> Why is the verb singular?',
+      options:['Because <em>arguments</em> is the subject and happens to be plural','Because the subject is <em>quality</em>, and <em>of his arguments</em> only modifies it',
+               'Because an adjective after the verb must be singular','Because English verbs do not mark number'],
+      correct:1,
+      explain:'The simple subject is <em>quality</em>. The phrase <em>of his arguments</em> tells which quality. Congruity asks the verb to match the subject, not the nearest noun.' } },
+
+{ src:['engclass','donatus'], h:`<p><strong>Pronoun case.</strong> <strong>Case</strong> is an accident of the noun and the pronoun, a falling into an office. Latin shows it on almost every naming. English has mostly laid it aside, and keeps it in the pronouns. A modern class names three.</p>
+<p>The <strong>subjective</strong> case, which the tradition calls the nominative, is the case of the subject and of the predicate nominative: <em>I, he, she, we, they, who</em>. The <strong>objective</strong> case covers what Latin separates into accusative and dative, the direct object, the indirect object, and the object of a preposition: <em>me, him, her, us, them, whom</em>. The <strong>possessive</strong> case is the genitive: <em>my, his, her, our, their, whose</em>.</p>
+<p>So we say <em>between you and me</em>, because <em>between</em> is a preposition and governs the objective. We say <em>Give the book to him and me</em>, for the same reason. We say <em>It is I</em>, because a predicate nominative stands in the subjective case. Ordinary talk often says <em>It’s me</em>. The form this course asks for, and the form a careful modern class still teaches for formal prose, is <em>It is I</em>.</p>
+<p><em>Who</em> is subjective and <em>whom</em> is objective. The case comes from the clause the word itself is in, not from the clause outside it. <em>Whom did you see</em> is objective, because <em>whom</em> is the object of <em>see</em>. <em>Who did you say was waiting</em> is subjective, because <em>who</em> is the subject of <em>was waiting</em>, and <em>did you say</em> is only wrapped around that clause.</p>`,
+  q:{ prompt:'Why does formal prose say <em>It is I</em> rather than <em>It is me</em>?',
+      options:['Because <em>I</em> is shorter','Because the complement of a linking verb renames the subject and stands in the subjective case',
+               'Because <em>me</em> is not a pronoun','Because a preposition is hidden before <em>I</em>'],
+      correct:1,
+      explain:'<em>Is</em> links. The word after it is a predicate nominative, and a predicate nominative takes the subjective case. <em>Me</em> is the objective form.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Tense, voice, and mood.</strong> These are accidents of the verb, and a modern class uses the same three names.</p>
+<p><strong>Tense</strong> is time. For the drill we use the six forms an ordinary class expects: present, past, future, present perfect, past perfect, and future perfect. <em>Wept</em> is past. <em>Has wept</em> is present perfect, the perfect that looks back from the present. <em>Had wept</em> is past perfect, looking back from a past point. English often builds these with helping verbs. Latin more often builds them in the ending. The accident is the same accident.</p>
+<p><strong>Voice</strong> tells whether the subject does the action or receives it. <em>God created the heaven</em> is <strong>active</strong>. <em>The heaven was created</em> is <strong>passive</strong>. Gibbon’s <em>were all considered</em> is passive: the modes do not consider; they are considered. The phrase <em>by the people</em> names the doer, which the passive can keep or drop.</p>
+<p><strong>Mood</strong> is the manner of the assertion. The <strong>indicative</strong> states or asks in the ordinary way: <em>Jesus wept</em>. The <strong>imperative</strong> commands: <em>Consider the lilies of the field</em>. The subject <em>you</em> is understood. The <strong>subjunctive</strong> is thinner in modern English than in Latin, but it remains in wishes, in conditions that are contrary to fact, and in some demands: <em>if he were ready, I ask that he be heard</em>. <em>Let there be light</em> is a command in the third person. A modern class files it with the imperative. Older grammars sometimes call that third-person command a jussive. We will call it imperative, and remember the older name.</p>`,
+  q:{ prompt:'Gibbon writes that the modes <em>were all considered by the people</em>. What is the voice?',
+      options:['Active, because <em>people</em> is in the sentence','Passive, because the subject receives the considering',
+               'Subjunctive, because the time is past','Imperative, because Gibbon is instructing us'],
+      correct:1,
+      explain:'The modes are considered. They do not do the considering. <em>By the people</em> names the doer beside a passive verb. The mood is indicative, and the tense is past.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>A verse we do not rewrite.</strong> The Authorized Version says, <em>For the wages of sin is death;</em> and the verse goes on, <em>but the gift of God is eternal life through Jesus Christ our Lord.</em> <em>Wages</em> has a plural look, and a modern handbook would often expect <em>are</em>. The verse uses <em>is</em>. We do not score the verse as a fault, and we do not “correct” it. The subject of <em>is</em> is <em>wages</em>. A translation’s grammar and a handbook’s rule are two questions. Grammar can describe what the sentence does. It does not, on that ground, rewrite an author.</p>
+<p>The faulty sentences in the drill are made for the drill. When an author is quoted, the quotation is the text, and the question is what the text is doing.</p>`,
+  q:{ prompt:'What should we do with <em>the wages of sin is death</em>?',
+      options:['Rewrite <em>is</em> as <em>are</em> before we will read the verse','Name <em>wages</em> as the subject of <em>is</em>, and leave the verse as it stands',
+               'Call the verse a barbarism and drop it','Treat <em>death</em> as the subject'],
+      correct:1,
+      explain:'The subject is <em>wages</em>. The verb the translators wrote is <em>is</em>. We can notice that a modern rule would choose differently, and we still do not emend the text in order to parse it.' } },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> We choose the sentence in which the verb agrees, or the pronoun stands in the case its office requires. We name tense, voice, and mood, sometimes with one click for each accident. At the higher difficulties we also write a short correction of a made sentence. The authors’ sentences are there to be named, not to be mended.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.enfault = {
+  title:'The Common Faults',
+  sub:'What a modern class marks, set beside barbarism and solecism',
+  panels:[
+{ src:['donatus','engclass'], h:`<p><strong>BARBARISM AND SOLECISM, AND THE MODERN LIST.</strong> Donatus sorts the faults of speech before he allows the same departures as figures. A <strong>barbarism</strong> is a fault in a single word, in its letters, its form, or its pronunciation. A <strong>solecism</strong> is a fault in the joining, where the words are each possible and the construction is not. We have those two names already, and we will meet Donatus’s list in its own place. A modern class uses a shorter list of sentence faults. We learn that list here, and we say which of the two older names it sits beside.</p>
+<p>The faulty sentences below are made. They are not offered as quotations. When a real sentence of an author looks odd to a handbook, we have already said what we do: we describe it, and we do not silently emend it.</p>`,
+  q:{ prompt:'A fault in a single word, and a fault in the joining, are called…',
+      options:['A fragment and a run-on, in Donatus’s own terms','A barbarism and a solecism',
+               'A tense and a mood','An independent clause and a dependent clause'],
+      correct:1,
+      explain:'Barbarism is the fault in one word. Solecism is the fault in the joining. The modern names we are about to learn are finer names for certain solecisms, and for the sentence that never became a sentence.' } },
+
+{ src:['engclass','priscian'], h:`<p><strong>Fragment, run-on, comma splice.</strong> A <strong>fragment</strong> is a group written as a sentence that does not complete a saying. Usually it lacks a finite verb, or it is a dependent clause left standing alone. <em>Because the gate was shut.</em> The clause leans, and nothing is there for it to lean on. Priscian asks for a complete sense. A fragment fails that test. It may be congruous in its parts and still incomplete.</p>
+<p>A <strong>run-on</strong> joins two independent clauses with no mark and no conjunction: <em>The king arrived the queen departed.</em> A <strong>comma splice</strong> joins them with a comma alone: <em>The king arrived, the queen departed.</em> Both are solecisms of joining. English needs a period, a semicolon, or a coordinating conjunction such as <em>and, but, or</em>. <em>The king arrived, and the queen departed</em> is sound.</p>
+<p>A semicolon between two independent clauses is also sound. Burke’s period and Shakespeare’s line about cowards use it. The comma splice is the comma doing a semicolon’s work.</p>`,
+  q:{ prompt:'<em>Because the gate was shut.</em> Written as a sentence, this is…',
+      options:['A run-on, because two clauses are fused','A fragment, a dependent clause with nothing to lean on',
+               'A comma splice, though no comma is printed','A sound simple sentence'],
+      correct:1,
+      explain:'<em>Because</em> makes the clause lean. Nothing in the group tells what happened because of the gate. The parts may be well formed, and the saying is not complete.' } },
+
+{ src:['engclass'], h:`<p><strong>Misplaced and dangling modifiers.</strong> A modifier is meant for one word, and it should sit where that aim is plain. A <strong>misplaced modifier</strong> is in the sentence, but it sits by the wrong word, so that the structure says something we did not mean. <em>The king wrote a letter to the queen on a horse.</em> The phrase <em>on a horse</em> leans on <em>queen</em> as the sentence is built. If we meant that the king was on the horse, the phrase is misplaced.</p>
+<p>A <strong>dangling modifier</strong> has nothing in the sentence to lean on. <em>Walking into the city, the gates were shut.</em> The participial phrase needs a person who walked. The subject on offer is <em>gates</em>, and gates do not walk. The modifier dangles. This is a solecism of construction. The repair gives the phrase its noun: <em>Walking into the city, he found the gates shut.</em></p>`,
+  q:{ prompt:'What is the difference between a misplaced modifier and a dangling modifier?',
+      options:['A dangling modifier is simply a longer misplaced one','The misplaced modifier leans on the wrong word that is present; the dangling modifier has no word to lean on',
+               'A misplaced modifier is a barbarism, and a dangling modifier is a tense','There is no difference in the joining'],
+      correct:1,
+      explain:'Both are faults of joining, and so both sit with the solecism. They differ in whether the word that should have been modified is in the sentence and merely in the wrong place, or missing.' } },
+
+{ src:['donatus','appown'], h:`<p><strong>What we do not confuse.</strong> A barbarism is not yet any of these. <em>The king arrivd</em> is a barbarism if the fault is the spelling of one word. <em>The king arrived the queen departed</em> is a solecism, and a modern class calls it a run-on. A sentence may be congruous and false, and it may be incongruous and still point at something true. The fault we are naming here is a fault of form.</p>
+<p>The drill gives a sentence and asks which fault it shows, or whether it shows none of these. One choice is always a sound sentence of the same shape, so that “sound” is a real judgment and not a guess at the odd one out.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.endiag = {
+  title:'The Diagram',
+  sub:'Reed and Kellogg’s picture, as much as helps',
+  panels:[
+{ src:['engclass'], h:`<p><strong>A PICTURE OF THE JOINING.</strong> Alonzo Reed and Brainerd Kellogg taught a diagram that draws the offices we have been naming. We use as much of it as makes those offices visible, and we stop before the technical cases. The lines mean the same thing in every diagram in this course.</p>
+<p>The <strong>base line</strong> holds the backbone of the clause. A vertical line that <strong>crosses</strong> the base divides the subject from the predicate. A vertical line that comes down <strong>onto</strong> the base, and does not cross it, divides the verb from a direct object. A line that <strong>slants back toward the subject</strong> and rests on the base divides a linking verb from a predicate nominative or a predicate adjective. The slant points back because the complement renames or describes the subject, and does not receive an action.</p>
+<p>So <em>Birds sing</em> is a crossed line only. <em>Birds sing songs</em> adds the line that stops on the base. <em>She is wise</em> uses the slant.</p>
+<p>${rkDiagram({subj:'Birds', verb:'sing', alt:'Birds sing'})}</p>
+<p>${rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'})}</p>
+<p>${rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'})}</p>`,
+  q:{ prompt:'Which line stands before a direct object?',
+      options:['The vertical line that crosses the base','The vertical line that rests on the base and does not cross it',
+               'The slant that leans back toward the subject','A dotted line dropping to a lower base'],
+      correct:1,
+      explain:'The line that stops on the base keeps the object on the backbone and marks it as receiving the action. The line that crosses the base is only the division of subject and predicate. The slant is for a complement.' } },
+
+{ src:['engclass'], h:`<p><strong>Modifiers and prepositions.</strong> A word that modifies another hangs <strong>below</strong> the base, on a slant under the word it modifies. <em>The</em> hangs under <em>birds</em>. <em>Sweetly</em> hangs under <em>sing</em>.</p>
+<p>A prepositional phrase does the same, with the preposition on the slant and its object on a short horizontal line at the bottom. <em>In trees</em> hangs under the verb when it tells where the birds sing. <em>The</em>, if we had it, would hang under <em>trees</em>.</p>
+<p>${rkDiagram({subj:'Birds', verb:'sing', mods:[{on:'subj', w:'The'},{on:'verb', w:'sweetly'}], alt:'The birds sing sweetly'})}</p>
+<p>${rkDiagram({subj:'Birds', verb:'sing', preps:[{on:'verb', p:'in', n:'trees'}], alt:'Birds sing in trees'})}</p>`,
+  q:{ prompt:'Where does a modifying word sit in this diagram?',
+      options:['On the base line, between the subject and the verb','Below the base, on a slant under the word it modifies',
+               'Above the sentence, in the margin','On a second base line of its own'],
+      correct:1,
+      explain:'Modifiers are not part of the backbone. They hang under the word they modify. A second base line is for a dependent clause, which has a finite verb of its own.' } },
+
+{ src:['engclass'], h:`<p><strong>Indirect object, compound parts, objective complement.</strong> An indirect object hangs under the verb like a prepositional phrase, with <em>(to)</em> or <em>(for)</em> on the slant when the preposition was not written. The direct object stays on the base. <em>Gave the king a letter</em> therefore shows <em>letter</em> on the base and <em>king</em> below.</p>
+<p>A compound subject is two short lines joined before the crossing line, with the conjunction beside the join. An objective complement follows the direct object and is cut off by a slant, the same slant we use for a subject complement, because it renames or describes the object.</p>
+<p>${rkDiagram({subj:'He', verb:'gave', obj:'letter', io:'king', ioto:'(to)', alt:'He gave the king a letter'})}</p>
+<p>${rkDiagram({subj:['Boys','girls'], sconj:'and', verb:'sing', alt:'Boys and girls sing'})}</p>`,
+  q:{ prompt:'Why does the indirect object leave the base line?',
+      options:['Because it is less true than the direct object','Because it is diagrammed as the object of an understood <em>to</em> or <em>for</em>, and so it hangs like a prepositional phrase',
+               'Because English has no indirect objects','Because a slant is only decorative'],
+      correct:1,
+      explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the base.' } },
+
+{ src:['engclass'], h:`<p><strong>One dependent clause.</strong> A dependent clause is drawn on a <strong>lower base</strong>, and a dotted line joins it to the word it leans on. The joining word sits on that dotted line. An adverb clause hangs from the verb. An adjective clause hangs from the noun. We stop at one such clause. A period of Gibbon’s length can be diagrammed, and the picture soon stops helping.</p>
+<p>${rkDiagram({subj:'Birds', verb:'sing', clause:{on:'verb', rel:'when', subj:'dawn', verb:'comes'}, alt:'Birds sing when dawn comes'})}</p>
+<p>The lower line is a clause because it has its own subject and its own finite verb. A prepositional phrase never gets a lower base of that kind, because it has no finite verb.</p>`,
+  q:{ prompt:'What does the dotted line in this diagram mean?',
+      options:['That the lower words are a direct object','That a dependent clause leans on the word above, and the joining word stands on the dotted line',
+               'That the sentence is a fragment','That the verb is passive'],
+      correct:1,
+      explain:'The lower base has its own subject and verb, so it is a clause. The dotted line is the lean. <em>When</em> is the joining word, and it is written on that line.' } },
+
+{ src:['appown','engclass'], h:`<p><strong>What the drill asks.</strong> We choose the diagram that matches the sentence, or we name what a line is doing. The wrong diagrams are the same words with one line mistaken: an object drawn as a complement, a complement drawn as an object, a modifier hung on the wrong word, a clause drawn as if it were only a phrase. The picture is a test of the offices, not a new set of names.</p>` }
+]};
+
+/* ============================================================
+   Exercises
+   ============================================================ */
+const POSN = ['Noun','Pronoun','Adjective','Verb','Adverb','Preposition','Conjunction','Interjection','Article','Participle'];
+function posItem(o){
+  const ds = POSN.filter(p => p !== o.a);
+  return Object.assign({ds, q:'Which part of speech is the marked word?'}, o);
+}
+const EN_POS = [
+  posItem({id:'ep1', dmin:1, s:'The <span class="target">king</span> waited at the gate.', a:'Noun',
+    why:'<em>King</em> names the one who waited. A naming that can stand as the thing the sentence is about is a noun, Donatus’s <span class="lat">nomen</span>.'}),
+  posItem({id:'ep2', dmin:1, s:'The king <span class="target">waited</span> at the gate.', a:'Verb',
+    why:'<em>Waited</em> says what happened, and the past form carries time. That is the verb.'}),
+  posItem({id:'ep3', dmin:1, s:'The <span class="target">old</span> king waited at the gate.', a:'Adjective',
+    why:'<em>Old</em> tells of what sort of king, and it cannot stand alone. A modern class calls it an adjective. Donatus files that work under the noun.'}),
+  posItem({id:'ep4', dmin:1, s:'The king waited <span class="target">quietly</span>.', a:'Adverb',
+    why:'<em>Quietly</em> tells how he waited. How belongs to the verb, and that office is the adverb.'}),
+  posItem({id:'ep5', dmin:1, s:'The king waited <span class="target">at</span> the gate.', a:'Preposition',
+    why:'<em>At</em> stands before the naming <em>the gate</em> and ties it to the waiting. That is the preposition.'}),
+  posItem({id:'ep6', dmin:1, s:'The king <span class="target">and</span> the queen waited.', a:'Conjunction',
+    why:'<em>And</em> joins two nouns, and joining is the whole of its work.'}),
+  posItem({id:'ep7', dmin:1, s:'<span class="target">He</span> waited at the gate.', a:'Pronoun',
+    why:'<em>He</em> stands in for a noun and names no sort of thing. That is the pronoun.'}),
+  posItem({id:'ep8', dmin:1, s:'<span class="target">Alas</span>, the city has fallen.', a:'Interjection',
+    why:'<em>Alas</em> is a cry. It does not name, join, or assert. Donatus keeps this as the interjection.'}),
+  posItem({id:'ep9', dmin:1, s:'<span class="target">The</span> old king waited.', a:'Article',
+    why:'<em>The</em> points out the king. Latin has no article, so Donatus does not count one. English does this work, and a modern class names it.'}),
+  posItem({id:'ep10', dmin:2, cite:CITE.kjvJn, s:'<span class="target">Jesus</span> wept.', a:'Noun',
+    why:'<em>Jesus</em> names the one who wept. A proper name is still a noun.'}),
+  posItem({id:'ep11', dmin:2, cite:CITE.kjvJn, s:'Jesus <span class="target">wept</span>.', a:'Verb',
+    why:'<em>Wept</em> asserts, in the past. The sentence is only a subject and a verb, and this is the verb.'}),
+  posItem({id:'ep12', dmin:2, cite:CITE.mv, s:'The quality of <span class="target">mercy</span> is not strain’d,', a:'Noun',
+    why:'<em>Mercy</em> names the thing the quality belongs to. It is the object of the preposition <em>of</em>, and the object of a preposition is still a noun.'}),
+  posItem({id:'ep13', dmin:2, cite:CITE.bacon, s:'Studies <span class="target">serve</span> for delight, for ornament, and for ability.', a:'Verb',
+    why:'<em>Serve</em> is the asserting word. The <em>for</em>-phrases tell the ends, and they are not the verb.'}),
+  posItem({id:'ep14', dmin:2, cite:CITE.bacon, s:'Reading maketh a <span class="target">full</span> man; conference a ready man; and writing an exact man.', a:'Adjective',
+    why:'<em>Full</em> tells of what sort of man. It leans on the noun, which is the adjective’s work.'}),
+  posItem({id:'ep15', dmin:2, cite:CITE.ham, s:'Something is rotten <span class="target">in</span> the state of Denmark.', a:'Preposition',
+    why:'<em>In</em> takes <em>the state</em> as its object and ties that place to <em>rotten</em>.'}),
+  posItem({id:'ep16', dmin:3, cite:CITE.bacon, s:'<span class="target">Reading</span> maketh a full man; conference a ready man; and writing an exact man.', a:'Noun',
+    why:'<em>Reading</em> is the subject of <em>maketh</em>. The <em>-ing</em> form is doing a noun’s work, which we call a gerund. In <em>the reading boy</em> the same form would be a participle.'}),
+  posItem({id:'ep17', dmin:3, cite:CITE.ham, s:'To <span class="target">be</span>, or not to be, that is the question:', a:'Verb',
+    why:'<em>Be</em> is the verb inside the infinitive <em>to be</em>. The asserting verb of the whole sentence is <em>is</em>. The marked word is still a verb.'}),
+  posItem({id:'ep18', dmin:3, cite:CITE.ham, s:'Frailty, <span class="target">thy</span> name is woman!', a:'Pronoun',
+    why:'<em>Thy</em> stands in for the one addressed, and it is possessive. A possessive pronoun is still a pronoun.'}),
+  posItem({id:'ep19', dmin:3, cite:CITE.son, s:'They also serve <span class="target">who</span> only stand and waite.', a:'Pronoun',
+    why:'<em>Who</em> relates to <em>They</em> and is the subject of <em>stand</em>. A relative pronoun is a pronoun. Donatus files it there, not with the conjunction. The spelling <em>waite</em> is Milton’s.'}),
+  posItem({id:'ep20', dmin:3, cite:CITE.ayli, s:'All the world\'s a <span class="target">stage</span>,', a:'Noun',
+    why:'<em>Stage</em> names what the world is said to be. It is a predicate nominative, and a predicate nominative is a noun in office.'}),
+  posItem({id:'ep21', dmin:3, cite:CITE.burke, s:'<span class="target">But</span> the age of chivalry is gone.', a:'Conjunction',
+    why:'<em>But</em> joins this saying to what Burke has just said. Joining is the conjunction’s work, even when it stands at the front.'}),
+  posItem({id:'ep22', dmin:4, cite:CITE.h4, s:'Vneasie lyes the <span class="target">Head</span>, that weares a Crowne.', a:'Noun',
+    why:'The folio spells it <em>Head</em>. That word names what lies uneasy, and so it is the subject, a noun. The unusual order does not change the part of speech.'}),
+  posItem({id:'ep23', dmin:4, cite:CITE.pl, s:'The mind is its own place, and in itself<br>Can <span class="target">make</span> a Heaven of Hell, a Hell of Heaven.', a:'Verb',
+    why:'<em>Can make</em> is the second asserting group, sharing the subject <em>mind</em>. <em>Make</em> is a verb. <em>Heaven</em> and <em>Hell</em> are nouns.'}),
+  posItem({id:'ep24', dmin:4, s:'The <span class="target">waiting</span> sailors saw the king.', a:'Participle',
+    why:'<em>Waiting</em> leans on <em>sailors</em> and keeps the verb’s sense of something going on. That is the participle. <em>Waiting is hard</em> would be a gerund, a noun’s work, instead.'})
+];
+
+const PAT = ['S-V','S-V-DO','S-V-IO-DO','S-LV-PN','S-LV-PA','S-V-DO-OC'];
+function patItem(o){
+  return Object.assign({ds: PAT.filter(p => p !== o.a), q:'Which pattern does this sentence follow?'}, o);
+}
+const EN_SENT = [
+  {id:'es1', dmin:1, kind:'pick', q:'Click the simple subject.',
+    words:[{t:'The'},{t:'king',ok:true},{t:'waited'},{t:'at'},{t:'the'},{t:'gate.'}],
+    why:'The simple subject is <em>king</em>. <em>The</em> only points it out. <em>At the gate</em> tells where, and it is not part of the subject.'},
+  {id:'es2', dmin:1, kind:'pick', q:'Click the verb.',
+    words:[{t:'The'},{t:'king'},{t:'waited',ok:true},{t:'at'},{t:'the'},{t:'gate.'}],
+    why:'<em>Waited</em> is the word that asserts. The rest names, or tells where.'},
+  {id:'es3', dmin:1, kind:'pick', q:'Click the direct object.',
+    words:[{t:'God'},{t:'created'},{t:'the'},{t:'heaven',ok:true},{t:'and'},{t:'the'},{t:'earth.'}],
+    why:'<em>Heaven</em> receives the creating, and so does <em>earth</em>. The question asks for the direct object’s first naming. <em>God</em> is the subject. The pattern is still one S-V-DO with a compound object.'},
+  patItem({id:'es4', dmin:1, s:'Jesus wept.', cite:CITE.kjvJn, a:'S-V',
+    why:'<em>Jesus</em> is the subject and <em>wept</em> the verb. Nothing receives an action, and nothing renames the subject after a linking verb.'}),
+  patItem({id:'es5', dmin:1, s:'The messenger gave the king a letter.', a:'S-V-IO-DO',
+    why:'<em>Letter</em> is the direct object, the thing given. <em>King</em> is the indirect object, the one to whom it is given, with no preposition written. If the sentence said <em>to the king</em>, that phrase would be prepositional and the pattern would be S-V-DO.'}),
+  patItem({id:'es6', dmin:1, s:'The road is long.', a:'S-LV-PA',
+    why:'<em>Is</em> links. <em>Long</em> describes the road, and so it is a predicate adjective, a subject complement.'}),
+  patItem({id:'es7', dmin:1, s:'His brother is a sailor.', a:'S-LV-PN',
+    why:'<em>Is</em> links. <em>Sailor</em> is a noun renaming <em>brother</em>, and so it is a predicate nominative.'}),
+  patItem({id:'es8', dmin:2, cite:CITE.pl, q:'The line begins <em>The mind is its own place</em>. Which pattern does that clause follow?', s:'The mind is its own place, and in itself Can make a Heaven of Hell, a Hell of Heaven.', a:'S-LV-PN',
+    why:'<em>Is</em> links <em>mind</em> to <em>place</em>. <em>Place</em> renames the mind. It is not an object the mind acts upon. The line goes on, <em>and in itself Can make a Heaven of Hell, a Hell of Heaven</em>, with the same subject. The first clause, taken by itself, is S-LV-PN. The capital on <em>Can</em> is the capital at the head of Milton’s next line.'}),
+  patItem({id:'es9', dmin:2, cite:CITE.mv, s:'The quality of mercy is not strain’d,', a:'S-LV-PA',
+    why:'The simple subject is <em>quality</em>. <em>Is</em> links, and <em>strain’d</em> describes that quality. <em>Not</em> modifies the predicate adjective. <em>Of mercy</em> is a phrase, not an object.'}),
+  patItem({id:'es10', dmin:2, cite:CITE.kjvGen, s:'In the beginning God created the heaven and the earth.', a:'S-V-DO',
+    why:'<em>God</em> is the subject, <em>created</em> the verb, and <em>the heaven and the earth</em> one compound direct object. <em>In the beginning</em> tells when. It does not add an indirect object.'}),
+  patItem({id:'es11', dmin:2, cite:CITE.bacon, q:'Which pattern does the first member follow, <em>Histories make men wise</em>?', s:'Histories make men wise; poets witty; the mathematics subtile; natural philosophy deep; moral grave; logic and rhetoric able to contend.', a:'S-V-DO-OC',
+    why:'<em>Men</em> receives the action of <em>make</em>. <em>Wise</em> tells what the histories make them, and so it is an objective complement. After the semicolon Bacon writes <em>poets witty</em>, and the rest, with <em>make</em> understood. The spelling is <em>subtile</em>.'}),
+  patItem({id:'es12', dmin:2, cite:CITE.bacon, s:'Studies serve for delight, for ornament, and for ability.', a:'S-V',
+    why:'<em>Serve</em> is complete without an object. The three <em>for</em>-phrases tell the end, and a prepositional phrase is not a direct object. The pattern stays S-V.'}),
+  {id:'es13', dmin:3, kind:'pick', cite:CITE.mv, q:'Click the simple subject.',
+    words:[{t:'The'},{t:'quality',ok:true},{t:'of'},{t:'mercy'},{t:'is'},{t:'not'},{t:'strain’d,'}],
+    why:'<em>Quality</em> is the simple subject. <em>Mercy</em> is the object of <em>of</em>. The whole phrase <em>the quality of mercy</em> is the complete subject.'},
+  {id:'es14', dmin:3, kind:'pick', cite:CITE.ham, q:'Click the finite verb, the word that asserts.',
+    words:[{t:'To'},{t:'be,'},{t:'or'},{t:'not'},{t:'to'},{t:'be,'},{t:'that'},{t:'is',ok:true},{t:'the'},{t:'question.'}],
+    why:'<em>Is</em> is the finite verb. The two uses of <em>be</em> are infinitives, and they do not assert. <em>That</em> is the subject pronoun, pointing at those infinitives.'},
+  {id:'es15', dmin:3, kind:'pick', cite:CITE.rass, q:'Click the predicate nominative.',
+    words:[{t:'Human'},{t:'life'},{t:'is'},{t:'everywhere'},{t:'a'},{t:'state',ok:true},{t:'in'},{t:'which'},{t:'much'},{t:'is'},{t:'to'},{t:'be'},{t:'endured'},{t:'and'},{t:'little'},{t:'to'},{t:'be'},{t:'enjoyed.'}],
+    why:'<em>State</em> renames <em>life</em> after the linking verb <em>is</em>. <em>Everywhere</em> is an adverb. The <em>in which</em> clause leans on <em>state</em> and is not itself the complement.'},
+  patItem({id:'es16', dmin:3, cite:CITE.son, s:'They also serve who only stand and waite.', a:'S-V',
+    why:'<em>They serve</em> is S-V. <em>Also</em> is an adverb. The <em>who</em>-clause is an adjective clause telling which they, not a direct object. Milton’s spelling is <em>waite</em>.'}),
+  patItem({id:'es17', dmin:3, cite:CITE.burke, s:'The age of chivalry is gone.', a:'S-LV-PA',
+    why:'<em>Is</em> links, and <em>gone</em> describes the age. We treat <em>gone</em> here as a predicate adjective, the past participle doing an adjective’s work, not as a direct object.'}),
+  {id:'es18', dmin:4, kind:'text', pat:true, cite:CITE.kjvJn,
+    q:'Write the pattern in the shorthand, with hyphens, as in S-V-DO.',
+    s:'Jesus wept.', show:'S-V', accepts:['S-V','SV'],
+    why:'The pattern is S-V. <em>Jesus</em> is the subject, <em>wept</em> the verb, and the sense is finished.'},
+  {id:'es19', dmin:4, kind:'text', pat:true, cite:CITE.bacon,
+    q:'Write the pattern in the shorthand, with hyphens.',
+    q:'Write the pattern of the first member, <em>Histories make men wise</em>, in the shorthand, with hyphens.',
+    s:'Histories make men wise; poets witty; the mathematics subtile; natural philosophy deep; moral grave; logic and rhetoric able to contend.', show:'S-V-DO-OC', accepts:['S-V-DO-OC','SVDOOC'],
+    why:'The first member is S-V-DO-OC. <em>Men</em> is the direct object and <em>wise</em> the objective complement. The later members understand <em>make</em>.'},
+  {id:'es20', dmin:4, kind:'text', pat:true, cite:CITE.pl,
+    q:'Write the pattern of this clause in the shorthand, with hyphens.',
+    q:'Write the pattern of the first clause, <em>The mind is its own place</em>, in the shorthand, with hyphens.',
+    s:'The mind is its own place, and in itself Can make a Heaven of Hell, a Hell of Heaven.', show:'S-LV-PN', accepts:['S-LV-PN','SLVPN'],
+    why:'The first clause is S-LV-PN. <em>Is</em> is the linking verb, and <em>place</em> is the predicate nominative. The line then continues with a second predicate, <em>Can make</em>.'},
+  {id:'es21', dmin:4, kind:'pick', cite:CITE.h4, q:'Click the simple subject. The folio spelling is kept.',
+    words:[{t:'Vneasie'},{t:'lyes'},{t:'the'},{t:'Head,',ok:true},{t:'that'},{t:'weares'},{t:'a'},{t:'Crowne.'}],
+    why:'The order is inverted. <em>Head</em> is what lies uneasy, and so it is the subject. <em>Lyes</em> is the verb. <em>Vneasie</em> modifies the verb. The relative clause <em>that weares a Crowne</em> leans on <em>Head</em>.'}
+];
+
+const PHR = ['Prepositional phrase','Participial phrase','Gerund phrase','Infinitive phrase','Appositive phrase'];
+function phrItem(o){
+  return Object.assign({ds: PHR.filter(p => p !== o.a), q:'What kind of phrase is the marked group?'}, o);
+}
+const EN_PHR = [
+  phrItem({id:'eh1', dmin:1, s:'The king waited <span class="target">at the gate</span>.', a:'Prepositional phrase',
+    why:'<em>At</em> is a preposition and <em>gate</em> its object. The phrase tells where, which is an adverb’s work, and it has no finite verb.'}),
+  phrItem({id:'eh2', dmin:1, s:'<span class="target">Walking into the city</span>, Caesar saw the gates.', a:'Participial phrase',
+    why:'<em>Walking</em> is a participle leaning on <em>Caesar</em>. The phrase does an adjective’s work. Donatus would count <em>walking</em> as a participle, a part of its own.'}),
+  phrItem({id:'eh3', dmin:1, s:'<span class="target">Reading the old books</span> maketh a full man.', a:'Gerund phrase',
+    why:'The <em>-ing</em> group is the subject of <em>maketh</em>, and so it does a noun’s work. That is a gerund phrase. If it leaned on a person, it would be participial.'}),
+  phrItem({id:'eh4', dmin:1, s:'She wants <span class="target">to read the book</span>.', a:'Infinitive phrase',
+    why:'<em>To read</em> is an infinitive, and the phrase is the object of <em>wants</em>. <em>To</em> here marks the infinitive. It is not a preposition with a noun as its object.'}),
+  phrItem({id:'eh5', dmin:1, s:'Johnson, <span class="target">the author of Rasselas</span>, wrote the tale in a week.', a:'Appositive phrase',
+    why:'The noun phrase renames <em>Johnson</em> and sits beside it without a joining verb. An appositive does an adjective’s work, telling which Johnson. This sentence is ours, about him. It is not a quotation.'}),
+  phrItem({id:'eh6', dmin:2, cite:CITE.mv, s:'The quality <span class="target">of mercy</span> is not strain’d,', a:'Prepositional phrase',
+    why:'<em>Of mercy</em> tells which quality, an adjective’s work. <em>Mercy</em> is the object of <em>of</em>.'}),
+  phrItem({id:'eh7', dmin:2, cite:CITE.ham, s:'<span class="target">To be, or not to be</span>, that is the question:', a:'Infinitive phrase',
+    why:'The marked group is two infinitive phrases joined by <em>or</em>. They do a noun’s work, and <em>that</em> points back to them. There is no finite verb inside the group. The finite verb is <em>is</em>.'}),
+  phrItem({id:'eh8', dmin:2, cite:CITE.bacon, s:'Some books are to be tasted, others to be swallowed, and some few <span class="target">to be chewed and digested</span>;', a:'Infinitive phrase',
+    why:'The marked group is an infinitive phrase. Bacon writes it beside <em>to be tasted</em> and <em>to be swallowed</em>, and the words are <em>some few to be chewed and digested</em>. The sentence then goes on, <em>that is, some books are to be read only in parts</em>.'}),
+  phrItem({id:'eh9', dmin:2, cite:CITE.bacon, s:'Studies serve <span class="target">for delight</span>, for ornament, and for ability.', a:'Prepositional phrase',
+    why:'<em>For delight</em> tells the end, an adverb’s work. The two phrases after it are the same kind, joined to it.'}),
+  phrItem({id:'eh10', dmin:3, cite:CITE.ham, s:'Something is rotten <span class="target">in the state of Denmark</span>.', a:'Prepositional phrase',
+    why:'<em>In the state of Denmark</em> tells where, an adverb’s work. Inside it, <em>of Denmark</em> is a second prepositional phrase, modifying <em>state</em>. The marked group as a whole begins with <em>in</em>.'}),
+  phrItem({id:'eh11', dmin:3, cite:CITE.kjvPs, s:'He maketh me to lie down in green pastures: he leadeth me <span class="target">beside the still waters</span>.', a:'Prepositional phrase',
+    why:'<em>Beside the still waters</em> tells where he leads, an adverb’s work. <em>Still</em> is an adjective inside the phrase. The marked group has no finite verb of its own. This is the second verse of the psalm. The first verse is a separate sentence.'}),
+  phrItem({id:'eh12', dmin:3, s:'<span class="target">Considered by the people</span>, the modes of worship seemed useful to the magistrate.', a:'Participial phrase',
+    why:'<em>Considered</em> is a past participle leaning on <em>modes</em>. The phrase does an adjective’s work. This wording is ours, built so the participle is visible. It is not Gibbon’s sentence.'}),
+  phrItem({id:'eh13', dmin:4, cite:CITE.gett, s:'Fourscore and seven years ago our fathers brought forth upon this continent a new nation, <span class="target">conceived in liberty, and dedicated to the proposition that all men are created equal</span>.', a:'Participial phrase',
+    why:'<em>Conceived</em> and <em>dedicated</em> are past participles leaning on <em>nation</em>. The group does an adjective’s work, and it has no finite verb, so it is a participial phrase. The printing we follow is McBrien’s of 1916. The Bliss copy divides <em>Four score</em> and capitalizes <em>Liberty</em>.'}),
+  phrItem({id:'eh14', dmin:4, cite:CITE.ina, s:'With malice toward none; with charity for all; with firmness in the right, as God gives us to see the right, let us strive on <span class="target">to finish the work we are in</span>;', a:'Infinitive phrase',
+    why:'<em>To finish the work we are in</em> tells the end of the striving, an adverb’s work, and it is built on the infinitive. The <em>with</em>-phrases are prepositional. This printing of 1916 points them with semicolons. Other printings use commas, and some put no comma after <em>right</em>.'}),
+  phrItem({id:'eh15', dmin:4, s:'<span class="target">Chewing every book</span> is not what Bacon advises.', a:'Gerund phrase',
+    why:'The <em>-ing</em> group is the subject of <em>is</em>, a noun’s work, and so it is a gerund phrase. Bacon’s own image is the infinitive <em>to be chewed and digested</em>, which is a different build of a related thought. This sentence is ours.'})
+];
+
+const CLS = ['Independent clause','Noun clause','Adjective clause','Adverb clause'];
+function clItem(o){
+  return Object.assign({ds: CLS.filter(p => p !== o.a), q:'What is the marked clause?'}, o);
+}
+const TYP = ['Simple sentence','Compound sentence','Complex sentence','Compound-complex sentence'];
+function tyItem(o){
+  return Object.assign({ds: TYP.filter(p => p !== o.a), q:'What kind of sentence is this?'}, o);
+}
+const EN_CL = [
+  clItem({id:'ec1', dmin:1, s:'<span class="target">The king waited</span>, and the queen departed.', a:'Independent clause',
+    why:'<em>The king waited</em> has its own subject and finite verb, and it does not lean. The <em>and</em> joins it to a second independent clause.'}),
+  clItem({id:'ec2', dmin:1, s:'I know <span class="target">that the king waited</span>.', a:'Noun clause',
+    why:'The <em>that</em>-clause is what is known, the object of <em>know</em>. It does a noun’s work, and it cannot stand as the whole sentence.'}),
+  clItem({id:'ec3', dmin:1, s:'The king <span class="target">who waited at the gate</span> was old.', a:'Adjective clause',
+    why:'The <em>who</em>-clause leans on <em>king</em> and tells which king. A clause that does an adjective’s work is an adjective clause, also called a relative clause.'}),
+  clItem({id:'ec4', dmin:1, s:'<span class="target">When the gate shut</span>, the king departed.', a:'Adverb clause',
+    why:'The <em>when</em>-clause tells the time of the departing. Time is an adverb’s work. The clause leans, and so it is dependent, which this course also calls subordinate.'}),
+  tyItem({id:'ec5', dmin:1, s:'The king waited at the gate.', a:'Simple sentence',
+    why:'There is one independent clause. <em>At the gate</em> is a phrase, and a phrase does not make the sentence complex or compound.'}),
+  tyItem({id:'ec6', dmin:1, s:'The king waited, and the queen departed.', a:'Compound sentence',
+    why:'Two independent clauses are joined by <em>and</em>. Nothing leans. This course will call that side-by-side joining parataxis.'}),
+  tyItem({id:'ec7', dmin:1, s:'When the gate shut, the king departed.', a:'Complex sentence',
+    why:'One independent clause, <em>the king departed</em>, and one dependent clause of time. A leaning clause is hypotaxis, in the name this course will use later.'}),
+  tyItem({id:'ec8', dmin:2, cite:CITE.kjvJn, s:'Jesus wept.', a:'Simple sentence',
+    why:'One independent clause, and no dependent clause. Two words are enough when the saying is complete.'}),
+  tyItem({id:'ec9', dmin:2, cite:CITE.jc, s:'Cowards die many times before their deaths; The valiant never taste of death but once.', a:'Compound sentence',
+    why:'The semicolon joins two independent clauses. <em>Before their deaths</em> and <em>of death</em> are phrases, not dependent clauses. No clause leans.'}),
+  clItem({id:'ec10', dmin:2, cite:CITE.mac, s:'Every schoolboy knows <span class="target">who imprisoned Montezuma</span>, and who strangled Atahualpa.', a:'Noun clause',
+    why:'The clause is one object of <em>knows</em>. It does a noun’s work. It does not tell which schoolboy. The second <em>who</em>-clause is a second noun clause, joined by <em>and</em>.'}),
+  clItem({id:'ec11', dmin:2, cite:CITE.gib, s:'The various modes of worship, <span class="target">which prevailed in the Roman world</span>, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.', a:'Adjective clause',
+    why:'<em>Which</em> relates to <em>modes</em>, and the clause tells which modes, or of what sort their prevailing was. It leans on a noun, and so it is an adjective clause.'}),
+  clItem({id:'ec12', dmin:3, cite:CITE.son, s:'They also serve <span class="target">who only stand and waite</span>.', a:'Adjective clause',
+    why:'The clause tells which <em>they</em>. <em>Who</em> is the subject of <em>stand</em>. The spelling <em>waite</em> is the spelling of Milton’s text. The clause is dependent, and the sentence is complex.'}),
+  clItem({id:'ec13', dmin:3, cite:CITE.rass, s:'Human life is everywhere a state <span class="target">in which much is to be endured and little to be enjoyed</span>.', a:'Adjective clause',
+    why:'The clause leans on <em>state</em> and tells what kind of state. <em>And</em> joins two parts inside that one clause. It does not start a new sentence.'}),
+  tyItem({id:'ec14', dmin:3, cite:CITE.rass, s:'Human life is everywhere a state in which much is to be endured and little to be enjoyed.', a:'Complex sentence',
+    why:'There is one independent clause, <em>Human life is everywhere a state</em>, and one adjective clause leaning on <em>state</em>. That is a complex sentence, not a compound one.'}),
+  tyItem({id:'ec15', dmin:3, cite:CITE.burke, s:'That of sophisters, economists, and calculators has succeeded; and the glory of Europe is extinguished forever.', a:'Compound sentence',
+    why:'Two independent clauses are joined by a semicolon and <em>and</em>. <em>Of sophisters, economists, and calculators</em> is a phrase, not a dependent clause. Burke’s previous sentence, that the age of chivalry is gone, is a separate sentence.'}),
+  tyItem({id:'ec16', dmin:3, cite:CITE.mv, s:'The quality of mercy is not strain’d,', a:'Simple sentence',
+    why:'One independent clause. <em>Of mercy</em> is a prepositional phrase. Length of fame is not a kind of sentence.'}),
+  tyItem({id:'ec17', dmin:4, cite:CITE.bacon, s:'Reading maketh a full man; conference a ready man; and writing an exact man.', a:'Compound sentence',
+    why:'Three independent clauses are set side by side. In the second and third, <em>maketh</em> is understood from the first. An understood verb is still the verb of that clause. Nothing leans, and so the sentence is compound, not complex.'}),
+  tyItem({id:'ec18', dmin:4, s:'The king, who waited at the gate, departed, and the queen followed when the road was clear.', a:'Compound-complex sentence',
+    why:'<em>The king departed</em> and <em>the queen followed</em> are two independent clauses, so the sentence is at least compound. <em>Who waited at the gate</em> and <em>when the road was clear</em> are dependent clauses. Two independents plus a dependent clause make a compound-complex sentence.'}),
+  clItem({id:'ec19', dmin:4, cite:CITE.gett, s:'that from these honored dead we take increased devotion to that cause for which they here gave the last full measure of devotion; that we here highly resolve <span class="target">that these dead shall not have died in vain</span>;', a:'Noun clause',
+    why:'The marked <em>that</em>-clause is what is resolved, the object of <em>resolve</em>, and so it does a noun’s work. It cannot stand as the whole address. The words are Lincoln’s, from the printing of 1916, and the semicolon is his.'}),
+  tyItem({id:'ec20', dmin:4, cite:CITE.gib, s:'The various modes of worship, which prevailed in the Roman world, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.', a:'Complex sentence',
+    why:'The relative clause <em>which prevailed in the Roman world</em> leans on <em>modes</em>. The semicolons do not open new independent clauses. <em>Were considered</em> is written once, and the later phrases fill out that same predicate. One independent clause plus one dependent clause is complex.'})
+];
+
+const EN_FORM = [
+  {id:'ef1', dmin:1, q:'Which sentence has the verb agreeing with its subject?',
+    a:'The flock of starlings is loud.',
+    ds:['The flock of starlings are loud.','The flock of starlings be loud.','The flock of starlings were loud, with one flock now.'],
+    why:'The simple subject is <em>flock</em>, singular. <em>Of starlings</em> tells which flock and does not take over the verb. Agreement of this kind is the congruity of number.'},
+  {id:'ef2', dmin:1, q:'Which sentence has the verb agreeing with its subject?',
+    a:'The king and the queen are here.',
+    ds:['The king and the queen is here.','The king and the queen was here now.','The king and the queen am here.'],
+    why:'<em>And</em> makes a compound subject, and a compound subject with <em>and</em> is plural. <em>Are</em> matches it.'},
+  {id:'ef3', dmin:1, q:'Which sentence has the verb agreeing with its subject?',
+    a:'Each of the sailors is ready.',
+    ds:['Each of the sailors are ready.','Each of the sailors were ready today.','Each of the sailors be ready.'],
+    why:'<em>Each</em> is the subject, and it is singular. <em>Of the sailors</em> tells the group we are taking one from. The verb matches <em>each</em>.'},
+  {id:'ef4', dmin:1, q:'Which pronoun is in the case its office requires?',
+    a:'This is between you and me.',
+    ds:['This is between you and I.','This is between you and we.','This is between you and he.'],
+    why:'<em>Between</em> is a preposition, and it governs the objective case. <em>Me</em> is objective. <em>I</em> is subjective, the case of a subject, and it is not the case a preposition governs.'},
+  {id:'ef5', dmin:2, q:'Which sentence keeps the pronoun in the case formal prose requires?',
+    a:'It is I who waited at the gate.',
+    ds:['It is me who waited at the gate.','It is myself who waited at the gate.','It is mine who waited at the gate.'],
+    why:'<em>Is</em> links, and the complement renames the subject. A predicate nominative stands in the subjective case, so the form is <em>I</em>. Ordinary talk often says <em>It’s me</em>. The form asked here is the formal one.'},
+  {id:'ef6', dmin:2, q:'Which sentence has <em>who</em> or <em>whom</em> in the case of its own clause?',
+    a:'Whom did you see at the gate?',
+    ds:['Who did you see at the gate?','Whom did you say was at the gate?','Whose did you see at the gate?'],
+    why:'<em>Whom</em> is the object of <em>see</em>, and the object takes the objective case. In <em>Who did you say was at the gate</em>, <em>who</em> would be the subject of <em>was</em>, and the subjective case would be right. The case comes from the pronoun’s own clause.'},
+  {id:'ef7', dmin:2, q:'Which sentence has the verb agreeing with the nearer subject?',
+    a:'Neither the king nor the queen is here.',
+    ds:['Neither the king nor the queen are here.','Neither the king nor the queen were here today.','Neither the king nor the queen am here.'],
+    why:'With <em>neither…nor</em>, the verb agrees with the nearer subject. <em>Queen</em> is singular, and so the verb is <em>is</em>.'},
+  {id:'ef8', dmin:2, cite:CITE.kjvJn, q:'<em>Jesus wept.</em> Which name gives the tense, voice, and mood?',
+    a:'Past indicative active',
+    ds:['Present indicative passive','Past imperative active','Present perfect indicative active'],
+    why:'<em>Wept</em> is past, it states a fact in the indicative, and the subject does the weeping, which is active voice. Nothing in the form is a command or a perfect with <em>have</em>.'},
+  {id:'ef9', dmin:2, cite:CITE.kjvMt, q:'<em>Consider the lilies of the field, how they grow; they toil not, neither do they spin:</em> What is the mood of <em>Consider</em>?',
+    a:'Imperative, a command, with <em>you</em> understood',
+    ds:['Indicative, a plain statement of fact','Subjunctive, a wish contrary to fact','Infinitive, because no subject is written'],
+    why:'<em>Consider</em> commands. The subject <em>you</em> is understood, which is ordinary in the imperative. The absence of a written subject does not make the verb an infinitive. An infinitive would be <em>to consider</em>.'},
+  {id:'ef10', dmin:3, cite:CITE.gib, q:'In Gibbon’s <em>were all considered by the people, as equally true</em>, what is the voice, and what is the tense?',
+    a:'Past indicative passive',
+    ds:['Past indicative active','Present indicative passive','Past subjunctive active'],
+    why:'The modes receive the considering, so the voice is passive. <em>Were considered</em> is past, and it states a fact, so the mood is indicative. <em>By the people</em> names the doer beside the passive verb.'},
+  {id:'ef11', dmin:3, q:'Which form is the subjunctive, as a modern class still meets it?',
+    a:'If he were ready, we would depart.',
+    ds:['If he was ready, we departed.','He is ready, and we depart.','Be ready, all of you here.'],
+    why:'<em>If he were ready</em> is a condition contrary to fact, and <em>were</em> is the subjunctive. <em>Be ready</em> is imperative. <em>If he was ready, we departed</em> can be an ordinary past indicative, a real past condition, and it is not the form the drill is asking for.'},
+  {id:'ef12', dmin:3, cite:CITE.kjvGen, q:'<em>And God said, Let there be light: and there was light.</em> How should we class the mood of <em>Let there be</em>?',
+    a:'Imperative: a command, here in the third person',
+    ds:['Indicative: a report that the light already exists','Passive: because light receives an action','A fragment, because <em>there</em> is not a noun'],
+    why:'The words command that light exist. A modern class files that command with the imperative. Older grammars sometimes call a third-person command a jussive. We keep the modern filing, and we remember the older name.'},
+  {id:'ef13', dmin:3, kind:'chips', cite:CITE.kjvJn, q:'Give the tense, the voice, and the mood of <em>wept</em>.',
+    s:'Jesus wept.',
+    rows:[
+      {key:'tense', label:'Tense', opts:[{v:'pres',label:'Present'},{v:'past',label:'Past'},{v:'fut',label:'Future'},{v:'perf',label:'Present perfect'}]},
+      {key:'voice', label:'Voice', opts:[{v:'act',label:'Active'},{v:'pass',label:'Passive'}]},
+      {key:'mood', label:'Mood', opts:[{v:'ind',label:'Indicative'},{v:'imp',label:'Imperative'},{v:'subj',label:'Subjunctive'}]}
+    ],
+    want:{tense:'past', voice:'act', mood:'ind'},
+    why:'<em>Wept</em> is past, active, and indicative. The subject did the weeping, and the sentence states it.'},
+  {id:'ef14', dmin:4, kind:'text', q:'Rewrite the sentence so the verb agrees with the subject. Change only what must change.',
+    s:'The flock of starlings are loud.',
+    show:'The flock of starlings is loud.',
+    accepts:['The flock of starlings is loud.'],
+    why:'The subject is <em>flock</em>, singular, and the verb should be <em>is</em>. <em>Of starlings</em> is a phrase modifying the subject. This matching of number is congruity.'},
+  {id:'ef15', dmin:4, kind:'text', q:'Rewrite the sentence so the pronoun is in the case its office requires.',
+    s:'The letter is between you and I.',
+    show:'The letter is between you and me.',
+    accepts:['The letter is between you and me.'],
+    why:'<em>Between</em> governs the objective case. The pronoun should be <em>me</em>. <em>I</em> is the subjective form, for subjects and predicate nominatives.'},
+  {id:'ef16', dmin:4, kind:'chips', cite:CITE.gib, q:'Give the tense, the voice, and the mood of <em>were considered</em>.',
+    s:'The various modes of worship, which prevailed in the Roman world, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.',
+    rows:[
+      {key:'tense', label:'Tense', opts:[{v:'pres',label:'Present'},{v:'past',label:'Past'},{v:'fut',label:'Future'},{v:'perf',label:'Present perfect'}]},
+      {key:'voice', label:'Voice', opts:[{v:'act',label:'Active'},{v:'pass',label:'Passive'}]},
+      {key:'mood', label:'Mood', opts:[{v:'ind',label:'Indicative'},{v:'imp',label:'Imperative'},{v:'subj',label:'Subjunctive'}]}
+    ],
+    want:{tense:'past', voice:'pass', mood:'ind'},
+    why:'<em>Were considered</em> is past, passive, and indicative. The subject receives the action, and the sentence states a fact.'},
+  {id:'ef17', dmin:4, cite:CITE.kjvRom, q:'In <em>For the wages of sin is death</em>, which word is the subject of <em>is</em>?',
+    a:'wages',
+    ds:['sin','death','For'],
+    s:'For the wages of sin is death;',
+    why:'The subject of <em>is</em> is <em>wages</em>. <em>Of sin</em> modifies it, and <em>death</em> is the predicate nominative. The verse continues after the semicolon, <em>but the gift of God is eternal life through Jesus Christ our Lord.</em> We do not rewrite <em>is</em>.'},
+  {id:'ef18', dmin:3, q:'Which sentence has <em>there</em> agreeing with the real subject?',
+    a:'There are two gates in the wall.',
+    ds:['There is two gates in the wall.','There be two gates in the wall.','There am two gates in the wall.'],
+    why:'<em>There</em> is not the subject. The subject is <em>gates</em>, which is plural, and the verb is <em>are</em>.'}
+];
+
+const FLT = ['A sentence fragment','A run-on sentence','A comma splice','A dangling modifier','A misplaced modifier','A sound sentence'];
+function fltItem(o){
+  return Object.assign({ds: FLT.filter(p => p !== o.a), q:'Which of these does the sentence show?'}, o);
+}
+const EN_FAULT = [
+  fltItem({id:'eu1', dmin:1, s:'Because the gate was shut.', a:'A sentence fragment',
+    why:'The <em>because</em>-clause leans, and nothing is written for it to lean on. The parts are ordinary words, and the saying is not complete. A fragment fails the demand for a complete sense.'}),
+  fltItem({id:'eu2', dmin:1, s:'The king arrived the queen departed.', a:'A run-on sentence',
+    why:'Two independent clauses are fused, with no mark and no conjunction. Each word may be a possible word. The fault is in the joining, which is a solecism, and a modern class calls this fusion a run-on.'}),
+  fltItem({id:'eu3', dmin:1, s:'The king arrived, the queen departed.', a:'A comma splice',
+    why:'A comma alone is joining two independent clauses. English wants a period, a semicolon, or a coordinating conjunction. The comma splice is a solecism of joining, one step away from the run-on.'}),
+  fltItem({id:'eu4', dmin:1, s:'Walking into the city, the gates were shut.', a:'A dangling modifier',
+    why:'The participial phrase needs someone who walked. The subject on offer is <em>gates</em>, and gates do not walk. The modifier has no word to lean on, and so it dangles. The repair would name the walker.'}),
+  fltItem({id:'eu5', dmin:1, s:'The king arrived, and the queen departed.', a:'A sound sentence',
+    why:'Two independent clauses are joined by a comma and <em>and</em>, which is a proper compound sentence. There is no fragment, no fused joining, and no modifier without a home.'}),
+  fltItem({id:'eu6', dmin:2, s:'The king wrote a letter to the queen on a horse.', a:'A misplaced modifier',
+    why:'As the words stand, <em>on a horse</em> leans on <em>queen</em>. If the writer meant that the king wrote while on a horse, the phrase is sitting by the wrong noun. The noun is present, and it is in the wrong place. That is a misplaced modifier, not a dangling one.'}),
+  fltItem({id:'eu7', dmin:2, s:'He served a meal to the guests that was burned.', a:'A misplaced modifier',
+    why:'The adjective clause <em>that was burned</em> sits beside <em>guests</em>, and so the structure says the guests were burned. The meal is what was burned. The clause is in the sentence and aimed at the wrong noun.'}),
+  fltItem({id:'eu8', dmin:2, s:'Having read the essay, the conclusion was clear.', a:'A dangling modifier',
+    why:'<em>Having read</em> needs a reader. <em>Conclusion</em> did not read the essay. No reader is in the sentence, and so the modifier dangles. <em>Having read the essay, we found the conclusion clear</em> would give it a subject.'}),
+  fltItem({id:'eu9', dmin:2, s:'The king arrivd.', a:'A sound sentence',
+    ds:['A sentence fragment','A run-on sentence','A comma splice','A dangling modifier','A misplaced modifier'],
+    why:'The spelling <em>arrivd</em> is a fault in a single word, a barbarism, if we are speaking Donatus’s language. It is not one of the five sentence-faults named in this list. Among those five, the saying is complete and the joining is sound, so the answer asked for is a sound sentence. The spelling is a different fault, and it is named here rather than offered as one of those five.'}),
+  fltItem({id:'eu10', dmin:3, s:'Although the night was dark.', a:'A sentence fragment',
+    why:'<em>Although</em> opens a concessive clause, a leaning clause. Nothing follows to say what was done although the night was dark. A concessive clause cannot stand as the whole saying.'}),
+  fltItem({id:'eu11', dmin:3, s:'The feast is over. The guests have gone home.', a:'A sound sentence',
+    why:'These are two sentences, each complete, and the period between them is the right mark. Nothing leans, and no modifier is sitting by the wrong word. The sentence is ours, made so that a sound joining can be set beside the faulty ones.'}),
+  fltItem({id:'eu12', dmin:3, s:'She handed a book to the sailor with a torn cover.', a:'A misplaced modifier',
+    why:'<em>With a torn cover</em> sits beside <em>sailor</em>. If the cover of the book is what is torn, the phrase modifies the wrong noun. Both nouns are present. The modifier is misplaced, not dangling.'}),
+  fltItem({id:'eu13', dmin:4, s:'The king arrived the queen, who had waited, departed.', a:'A run-on sentence',
+    why:'<em>The king arrived</em> and <em>the queen departed</em> are fused with no mark between them. The adjective clause <em>who had waited</em> is itself well attached to <em>queen</em>. The fault is the missing join between the two independent clauses, a run-on, not a dangling modifier.'}),
+  fltItem({id:'eu14', dmin:4, s:'To read every book in the library.', a:'A sentence fragment',
+    why:'The infinitive phrase does not assert. There is no finite verb and no subject of one. Written with a capital and a period, it is still a fragment. <em>To read every book in the library would take a year</em> would give it a finite verb.'}),
+  fltItem({id:'eu15', dmin:4, q:'Which fault is a barbarism rather than a solecism?',
+    a:'A fault in the spelling or form of one word',
+    ds:['Two clauses joined by a comma alone','A modifier whose noun is missing','A dependent clause written as a whole sentence'],
+    why:'A barbarism is a fault in a single word. A comma splice, a dangling modifier, and a fragment are faults of the joining or of completeness, and they sit with the solecism or with an incomplete saying, not with the barbarism.'}),
+  fltItem({id:'eu16', dmin:4, s:'Cowards die many times before their deaths; The valiant never taste of death but once.', cite:CITE.jc, a:'A sound sentence',
+    why:'The semicolon joins two independent clauses, which is a sound compound sentence. Shakespeare’s line is not a comma splice. The phrases <em>before their deaths</em> and <em>of death</em> are in their places.'})
+];
+
+const birds = {subj:'Birds', verb:'sing'};
+const EN_DIAG = [
+  {id:'ed1', dmin:1, kind:'diag', q:'Which diagram matches the sentence?', s:'Birds sing.',
+    choices:[
+      {ok:true, spec:Object.assign({alt:'Birds sing'}, birds)},
+      {spec:{subj:'Birds', verb:'sing', obj:'tunes', alt:'Birds sing tunes'}},
+      {spec:{subj:'Birds', verb:'are', comp:'few', alt:'Birds are few'}},
+      {spec:{subj:'Birds', verb:'sing', mods:[{on:'verb', w:'softly'}], alt:'Birds sing softly'}}
+    ],
+    why:'<em>Birds sing</em> is S-V. The diagram needs the base and the line that crosses it, and nothing else. An object, a complement, or a modifier would add a line the sentence does not have.'},
+  {id:'ed2', dmin:1, kind:'diag', q:'Which diagram matches the sentence?', s:'Birds sing songs.',
+    choices:[
+      {ok:true, spec:{subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'}},
+      {spec:{subj:'Birds', verb:'sing', comp:'songs', alt:'songs as a complement'}},
+      {spec:Object.assign({alt:'Birds sing'}, birds)},
+      {spec:{subj:'Birds', verb:'sing', obj:'songs', mods:[{on:'obj', w:'old'}], alt:'old songs'}}
+    ],
+    why:'<em>Songs</em> is a direct object, so the line before it rests on the base and does not cross, and it does not slant. A slant would make <em>songs</em> a complement, as if the birds were songs.'},
+  {id:'ed3', dmin:1, kind:'diag', q:'Which diagram matches the sentence?', s:'She is wise.',
+    choices:[
+      {ok:true, spec:{subj:'She', verb:'is', comp:'wise', alt:'She is wise'}},
+      {spec:{subj:'She', verb:'is', obj:'wise', alt:'wise drawn as an object'}},
+      {spec:{subj:'She', verb:'is', alt:'She is'}},
+      {spec:{subj:'She', verb:'is', comp:'wise', mods:[{on:'comp', w:'very'}], alt:'very wise'}}
+    ],
+    why:'<em>Is</em> links, and <em>wise</em> is a predicate adjective. The line before it slants back toward the subject. A vertical line that merely stops on the base would mark a direct object, and <em>wise</em> is not one.'},
+  {id:'ed4', dmin:2, kind:'diag', q:'Which diagram matches the sentence?', s:'The mind is its own place.',
+    choices:[
+      {ok:true, spec:{subj:'mind', verb:'is', comp:'place', mods:[{on:'subj', w:'The'},{on:'comp', w:'own'}], alt:'The mind is its own place'}},
+      {spec:{subj:'mind', verb:'is', obj:'place', mods:[{on:'subj', w:'The'}], alt:'place as object'}},
+      {spec:{subj:'mind', verb:'is', comp:'place', alt:'mind is place, unmodified'}},
+      {spec:{subj:'mind', verb:'is', comp:'place', mods:[{on:'verb', w:'The'}], alt:'The hung on the verb'}}
+    ],
+    why:'The pattern of this clause is S-LV-PN, so <em>place</em> follows a slant. <em>The</em> hangs under <em>mind</em>, and <em>own</em> hangs under <em>place</em>. Hanging <em>The</em> on the verb would modify <em>is</em>, which the clause does not do. <em>Its</em> is left off this small diagram so the offices stay readable. Milton’s line goes on, <em>and in itself Can make a Heaven of Hell, a Hell of Heaven</em>.'},
+  {id:'ed5', dmin:2, kind:'diag', q:'Which diagram matches the sentence?', s:'Birds sing in trees.',
+    choices:[
+      {ok:true, spec:{subj:'Birds', verb:'sing', preps:[{on:'verb', p:'in', n:'trees'}], alt:'Birds sing in trees'}},
+      {spec:{subj:'Birds', verb:'sing', obj:'trees', alt:'trees as object'}},
+      {spec:{subj:'Birds', verb:'sing', preps:[{on:'subj', p:'in', n:'trees'}], alt:'in trees under birds'}},
+      {spec:{subj:'Birds', verb:'sing', clause:{on:'verb', rel:'in', subj:'trees', verb:'stand'}, alt:'in as a clause'}}
+    ],
+    why:'<em>In trees</em> is a prepositional phrase telling where, so it hangs under the verb, with <em>in</em> on the slant and <em>trees</em> on the lower horizontal. It is not a direct object, and it is not a clause, because <em>in</em> has no finite verb.'},
+  {id:'ed6', dmin:2, kind:'diag', q:'Which diagram matches the sentence?', s:'Boys and girls sing.',
+    choices:[
+      {ok:true, spec:{subj:['Boys','girls'], sconj:'and', verb:'sing', alt:'Boys and girls sing'}},
+      {spec:{subj:'Boys', verb:'sing', obj:'girls', alt:'girls as object'}},
+      {spec:{subj:'Boys', verb:'sing', alt:'Boys sing'}},
+      {spec:{subj:'Boys', verb:'are', comp:'girls', alt:'Boys are girls'}}
+    ],
+    why:'The subject is compound. Two subject lines join before the crossing line, and <em>and</em> sits by the join. <em>Girls</em> is not a direct object, and the verb is not a linking verb.'},
+  {id:'ed7', dmin:3, kind:'diag', q:'Which diagram matches the sentence?', s:'He gave the king a letter.',
+    choices:[
+      {ok:true, spec:{subj:'He', verb:'gave', obj:'letter', io:'king', ioto:'(to)', alt:'He gave the king a letter'}},
+      {spec:{subj:'He', verb:'gave', obj:'king', io:'letter', ioto:'(to)', alt:'letter and king swapped'}},
+      {spec:{subj:'He', verb:'gave', obj:'letter', alt:'no indirect object'}},
+      {spec:{subj:'He', verb:'gave', comp:'letter', alt:'letter as complement'}}
+    ],
+    why:'<em>Letter</em> is the direct object and stays on the base. <em>King</em> is the indirect object and hangs below, with <em>(to)</em> on the slant, because the pattern is the unspoken <em>to the king</em>. Swapping them would make the king the thing given.'},
+  {id:'ed8', dmin:3, kind:'diag', q:'Which diagram matches the sentence?', s:'Histories make men wise.',
+    choices:[
+      {ok:true, spec:{subj:'Histories', verb:'make', obj:'men', oc:'wise', alt:'Histories make men wise'}},
+      {spec:{subj:'Histories', verb:'make', obj:'wise', alt:'wise as object'}},
+      {spec:{subj:'Histories', verb:'make', comp:'wise', alt:'wise as subject complement'}},
+      {spec:{subj:'Histories', verb:'are', comp:'wise', alt:'Histories are wise'}}
+    ],
+    why:'<em>Men</em> is the direct object, cut off by the line that stops on the base. <em>Wise</em> is the objective complement, cut off by a slant after the object, because it describes <em>men</em>. A slant straight after <em>make</em> would describe the histories instead. We diagram the first member. Bacon’s sentence goes on after a semicolon, <em>poets witty; the mathematics subtile</em>, with <em>make</em> understood.'},
+  {id:'ed9', dmin:3, kind:'diag', q:'Which diagram matches the sentence?', s:'Birds sing when dawn comes.',
+    choices:[
+      {ok:true, spec:{subj:'Birds', verb:'sing', clause:{on:'verb', rel:'when', subj:'dawn', verb:'comes'}, alt:'Birds sing when dawn comes'}},
+      {spec:{subj:'Birds', verb:'sing', preps:[{on:'verb', p:'when', n:'dawn'}], alt:'when dawn as a phrase'}},
+      {spec:{subj:'Birds', verb:'sing', obj:'dawn', alt:'dawn as object'}},
+      {spec:{subj:['Birds','dawn'], sconj:'when', verb:'sing', alt:'compound subject'}}
+    ],
+    why:'<em>When dawn comes</em> has its own subject and finite verb, so it is a clause on a lower base, joined by a dotted line, with <em>when</em> on that line. It is not a prepositional phrase, and <em>dawn</em> is not a second subject of <em>sing</em>.'},
+  {id:'ed10', dmin:4, kind:'chips', q:'What does each line do in the diagram of <em>Birds sing songs</em>?',
+    passage: rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'}),
+    rows:[
+      {key:'cross', label:'The line that crosses', opts:[
+        {v:'sp', label:'Subject and predicate'},
+        {v:'vo', label:'Verb and direct object'},
+        {v:'mod', label:'A modifier'}]},
+      {key:'stop', label:'The line that stops', opts:[
+        {v:'vo', label:'Verb and direct object'},
+        {v:'sp', label:'Subject and predicate'},
+        {v:'comp', label:'Verb and complement'}]}
+    ],
+    want:{cross:'sp', stop:'vo'},
+    why:'The line that crosses the base divides subject and predicate, <em>Birds</em> from <em>sing</em>. The line that rests on the base and does not cross divides the verb from the direct object <em>songs</em>.'},
+  {id:'ed11', dmin:4, kind:'chips', q:'In the diagram of <em>She is wise</em>, what is each piece?',
+    passage: rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'}),
+    rows:[
+      {key:'verb', label:'The word is', opts:[
+        {v:'lv', label:'A linking verb'},
+        {v:'av', label:'An action verb'},
+        {v:'prep', label:'A preposition'}]},
+      {key:'wise', label:'The word wise', opts:[
+        {v:'pa', label:'A predicate adjective'},
+        {v:'do', label:'A direct object'},
+        {v:'subj', label:'The simple subject'}]}
+    ],
+    want:{verb:'lv', wise:'pa'},
+    why:'<em>Is</em> links, and the slant is the sign of that link. <em>Wise</em> describes the subject, so it is a predicate adjective, not a direct object.'},
+  {id:'ed12', dmin:4, kind:'diag', cite:CITE.kjvJn, q:'Which diagram matches the sentence?', s:'Jesus wept.',
+    choices:[
+      {ok:true, spec:{subj:'Jesus', verb:'wept', alt:'Jesus wept'}},
+      {spec:{subj:'Jesus', verb:'wept', obj:'tears', alt:'with an object the sentence lacks'}},
+      {spec:{subj:'Jesus', verb:'is', comp:'wept', alt:'wept as a complement'}},
+      {spec:{subj:'wept', verb:'Jesus', alt:'the words reversed'}}
+    ],
+    why:'The sentence is S-V. <em>Jesus</em> is the subject and <em>wept</em> the verb. There is no object and no complement. Reversing the words would make <em>wept</em> the thing the sentence is about, which it is not.'}
+];
+
+EX.enpos = enEx('enpos', 'The Parts of Speech in English',
+  'A word is marked. Name the work it is doing in this sentence, in the list a modern class uses, with the traditional name in the explanation when there is one.',
+  'Name the part of speech of the marked word.',
+  [
+    {h:'<strong>A part of speech is a kind of work.</strong> The modern eight are noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection. We also meet the article, and the participle when the form is doing that older part’s work.',
+     eg:['<em>Reading maketh a full man</em>: <em>Reading</em> is a noun here, a gerund.',
+         '<em>The reading boy</em>: <em>reading</em> is a participle, leaning on the noun.']},
+    {h:'<strong>The same sound can change its part.</strong> We name the work in this sentence. Donatus’s name, when it differs, is given in the explanation, not as a second answer.'}
+  ],
+  EN_POS);
+
+EX.ensent = enEx('ensent', 'Subject, Verb, and the Pattern',
+  'Click the word that holds the office, or name the pattern: S-V, S-V-DO, S-V-IO-DO, S-LV-PN, S-LV-PA, S-V-DO-OC. At the higher difficulties, write the pattern.',
+  'Find the office, or name the pattern.',
+  [
+    {h:'<strong>The subject is what the saying is about, and the predicate is what is said of it.</strong> The simple subject is the noun or pronoun without its modifiers. A direct object receives the action. A predicate nominative or a predicate adjective completes a linking verb.',
+     eg:['<em>Jesus wept</em> is S-V.',
+         '<em>The mind is its own place</em> is S-LV-PN.']},
+    {h:'<strong>A compound object is still one object.</strong> An indirect object appears only when no preposition is written. <em>To the king</em> is a phrase, and the pattern is then S-V-DO.'}
+  ],
+  EN_SENT);
+
+EX.enphr = enEx('enphr', 'The Phrase',
+  'A group is marked. Name it as a prepositional, participial, gerund, infinitive, or appositive phrase.',
+  'Name the kind of phrase.',
+  [
+    {h:'<strong>A phrase does one office and has no finite verb of its own.</strong> We name it by its build. The explanation also says whether it is doing a noun’s work, an adjective’s work, or an adverb’s work.',
+     eg:['<em>Of mercy</em> is prepositional, an adjective’s work.',
+         '<em>To be chewed and digested</em> is an infinitive phrase.']},
+    {h:'<strong>The participle leans on a noun. The gerund does a noun’s work.</strong> The form may look the same. The office decides.'}
+  ],
+  EN_PHR);
+
+EX.encl = enEx('encl', 'Clause and Sentence',
+  'Classify the marked clause, or classify the whole sentence as simple, compound, complex, or compound-complex.',
+  'Name the clause, or the kind of sentence.',
+  [
+    {h:'<strong>A clause has its own finite verb.</strong> An independent clause can stand. A dependent clause leans, and this course also calls it subordinate. A dependent clause may do a noun’s work, an adjective’s work, or an adverb’s work.',
+     eg:['<em>Who imprisoned Montezuma</em> is a noun clause, the object of <em>knows</em>.',
+         '<em>Which prevailed in the Roman world</em> is an adjective clause.']},
+    {h:'<strong>We count independent clauses, then we notice what leans.</strong> One independent clause is simple, unless a dependent clause makes it complex. Two independent clauses are compound. Two independents and a dependent clause are compound-complex.'}
+  ],
+  EN_CL);
+
+EX.enform = enEx('enform', 'Agreement, Case, and the Verb',
+  'Choose the form that agrees, or the pronoun in the case its office requires, and name tense, voice, and mood. The authors’ sentences are named, not rewritten.',
+  'Judge the agreement, the case, or the verb’s accidents.',
+  [
+    {h:'<strong>Agreement is congruity.</strong> The verb matches its subject in person and number, and a phrase between them does not steal the office. A pronoun matches its antecedent, and then takes its case from its own clause.',
+     eg:['<em>The flock of starlings is loud</em>: <em>flock</em> is the subject.',
+         '<em>Between you and me</em>: a preposition governs the objective case.']},
+    {h:'<strong>Tense, voice, and mood are accidents of the verb.</strong> Active and passive, indicative, imperative, and subjunctive, are the names a modern class uses, and they are the names this course already uses for Latin.'}
+  ],
+  EN_FORM);
+
+EX.enfault = enEx('enfault', 'The Common Faults',
+  'Name the fragment, the run-on, the comma splice, the dangling modifier, or the misplaced modifier, or say that the sentence is sound. These sit beside barbarism and solecism.',
+  'Name the fault, or say that the sentence is sound.',
+  [
+    {h:'<strong>A barbarism is a fault in one word. A solecism is a fault in the joining.</strong> A fragment fails to complete the saying. A run-on and a comma splice join two independent clauses badly. A misplaced modifier leans on the wrong word that is present. A dangling modifier has no word to lean on.',
+     eg:['<em>Because the gate was shut.</em> is a fragment.',
+         '<em>The king arrived, and the queen departed.</em> is sound.']},
+    {h:'<strong>The faulty sentences are made for the drill.</strong> When Shakespeare or Burke is quoted, the sentence is sound, and the question is to recognize that. We do not emend an author in order to name a fault.'}
+  ],
+  EN_FAULT);
+
+EX.endiag = enEx('endiag', 'The Diagram',
+  'Choose the Reed-Kellogg diagram that matches the sentence, or name what a line is doing. The picture covers the backbone, modifiers, a prepositional phrase, a compound subject, and one dependent clause.',
+  'Choose the diagram, or name the line.',
+  [
+    {h:'<strong>The base line is the backbone.</strong> A line that crosses it divides subject and predicate. A line that stops on it marks a direct object. A slant back toward the subject marks a complement, either a predicate nominative, a predicate adjective, or an objective complement.',
+     eg:[rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'}),
+         rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'})]},
+    {h:'<strong>What is not on the backbone hangs below it.</strong> Modifiers and prepositional phrases hang on slants. A dependent clause takes a lower base and a dotted line. We stop there.'}
+  ],
+  EN_DIAG);
+
 const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
    gloss:'Begin here: what the art is, and what it is for.',
@@ -7722,6 +8915,31 @@ const ACTS = [
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
      {kind:'ex', ex:'produce'}
+   ]},
+  {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
+   gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the complete saying.',
+   items:[
+     {kind:'deck', deck:'enpos', tag:'STUDY', title:'The Eight in English',
+      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.'},
+     {kind:'ex', ex:'enpos'},
+     {kind:'deck', deck:'ensent', tag:'STUDY', title:'Subject, Predicate, and the Patterns',
+      desc:'What the saying is about and what is said of it, and the six patterns a modern class uses.'},
+     {kind:'ex', ex:'ensent'},
+     {kind:'deck', deck:'enphr', tag:'STUDY', title:'The Phrase',
+      desc:'Prepositional, participial, gerund, infinitive, and appositive phrases: a group that does one office and does not assert.'},
+     {kind:'ex', ex:'enphr'},
+     {kind:'deck', deck:'encl', tag:'STUDY', title:'The Clause and the Kind of Sentence',
+      desc:'Independent and dependent clauses; noun, adjective, and adverb clauses; simple, compound, complex, and compound-complex sentences.'},
+     {kind:'ex', ex:'encl'},
+     {kind:'deck', deck:'enform', tag:'STUDY', title:'Agreement, Case, and the Verb',
+      desc:'Congruity of subject and verb, the pronoun’s case, and tense, voice, and mood. An author’s sentence is named, not rewritten.'},
+     {kind:'ex', ex:'enform'},
+     {kind:'deck', deck:'enfault', tag:'STUDY', title:'The Common Faults',
+      desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.'},
+     {kind:'ex', ex:'enfault'},
+     {kind:'deck', deck:'endiag', tag:'STUDY', title:'The Diagram',
+      desc:'Reed and Kellogg’s picture of the offices: subject and verb, object and complement, modifiers, a phrase, and one dependent clause.'},
+     {kind:'ex', ex:'endiag'}
    ]},
   {key:'IV', roman:'IV', name:'The Complete Saying', latin:'Oratio',
    gloss:'To judge a joining, then a period.',
@@ -8144,7 +9362,8 @@ function renderQ(){
   if(q.source) html += `<div class="q-source">${q.source}</div>`;
   if(q.orig) html += `<button type="button" class="orig-toggle" id="orig-btn">Show the ${q.olang || 'original'}</button>
     <div class="q-original" id="q-orig" hidden><span class="olang">${q.olang || 'Original'}</span>${q.orig}</div>`;
-  if(q.sentence) html += `<div class="q-sentence">${q.sentence}</div>`;
+  if(q.kind === 'pick') html += `<div class="pick-line" id="pick-line"></div>`;
+  else if(q.sentence) html += `<div class="q-sentence">${q.sentence}</div>`;
   if(q.gloss) html += `<div class="q-gloss">${q.gloss}</div>`;
   html += `<div class="q-prompt">${q.prompt}</div>`;
   if(q.kind === 'mc'){
@@ -8167,7 +9386,18 @@ function renderQ(){
     };
   }
 
-  if(q.kind === 'mc'){
+  if(q.kind === 'pick'){
+    const host = box.querySelector('#pick-line');
+    q.words.forEach((w, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pick-word';
+      b.textContent = w.t;
+      b.onclick = () => { if(!state.locked) submit(i); };
+      host.appendChild(b);
+    });
+    $('ex-submit').style.display = 'none';
+  }else if(q.kind === 'mc'){
     const host = box.querySelector('#q-opts');
     q.options.forEach((o, i) => {
       const b = document.createElement('button');
@@ -8211,7 +9441,7 @@ function renderQ(){
 
 function submit(ansMC){
   const q = state.q;
-  const ans = q.kind === 'mc' ? ansMC
+  const ans = (q.kind === 'mc' || q.kind === 'pick') ? ansMC
             : q.kind === 'text' ? (($('q-text') && $('q-text').value) || '')
             : Object.assign({}, chipSel);
   const res = q.check(ans);
@@ -8235,6 +9465,12 @@ function submit(ansMC){
   const box = $('ex-box');
   if(q.kind === 'mc'){
     box.querySelectorAll('#q-opts .opt').forEach((x, j) => {
+      x.disabled = true;
+      if(j === q.correct) x.classList.add(j === ansMC ? 'right' : 'reveal');
+      else if(j === ansMC) x.classList.add('wrong');
+    });
+  }else if(q.kind === 'pick'){
+    box.querySelectorAll('#pick-line .pick-word').forEach((x, j) => {
       x.disabled = true;
       if(j === q.correct) x.classList.add(j === ansMC ? 'right' : 'reveal');
       else if(j === ansMC) x.classList.add('wrong');
@@ -8323,9 +9559,10 @@ document.addEventListener('keydown', ev => {
     else if((state.q.kind === 'chips' || state.q.kind === 'text') && !$('ex-submit').disabled) submit(null);
     ev.preventDefault(); return;
   }
-  if(state.locked || state.q.kind !== 'mc') return;
+  if(state.locked || (state.q.kind !== 'mc' && state.q.kind !== 'pick')) return;
   const n = parseInt(ev.key, 10);
-  if(n >= 1 && n <= state.q.options.length) submit(n - 1);
+  const len = state.q.kind === 'mc' ? state.q.options.length : state.q.words.length;
+  if(n >= 1 && n <= len && n <= 9) submit(n - 1);
 });
 
 /* ---------- progress ---------- */
@@ -8855,6 +10092,14 @@ function qzFormatLive(q, setTitle){
       const r = q.check('');
       item.explainHtml = r && r.note ? r.note : '';
       item.answerText = qzStrip(r && r.note ? r.note : '');
+    }catch(e){}
+  }else if(q.kind === 'pick'){
+    item.choices = (q.words || []).map(w => w.t);
+    const hit = (q.words || []).find(w => w.ok);
+    item.answerText = hit ? hit.t : '';
+    try{
+      const r = q.check(q.correct);
+      item.explainHtml = r && r.note ? r.note : '';
     }catch(e){}
   }else if(q.kind === 'chips'){
     item.work = true;
