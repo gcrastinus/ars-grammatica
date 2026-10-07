@@ -1709,7 +1709,7 @@ DECKS.prelim = {
 <p><strong>Reading</strong> (<span class="lat">lectio</span>): reading the text aloud, and rightly<br> <strong>Correcting</strong> (<span class="lat">emendatio</span>): mending what is corrupt or wrongly formed<br> <strong>Explaining</strong> (<span class="lat">enarratio</span>): showing what the construction is, especially in the poets<br> <strong>Judging</strong> (<span class="lat">iudicium</span>): weighing what is read, that is, whether a line is genuine and how well it is made</p>
 <p>Speaking correctly and explaining the poets both belong to this art; that is why an author appears in this course under the sentence, and not as a visit to another faculty.</p>`,
   q:{ prompt:`Why does a grammar course read Virgil at all?`,
-      options:['To learn how the poet moves his reader, which is the first aim of every art of speech','Because explaining how the poets arrange their words is a grammarian’s office',
+      options:['To learn how the poet moves his reader, which is the first aim of every art of speech','Because interpreting the poets is part of the grammarian’s work',
                'Because Virgil’s Latin is simpler than the examples a teacher would make','Because the grammarian’s first office is to judge whether the story is true'],
       correct:1,
       explain:`The grammarian interprets the poets as connected speech; how the passage moves the hearer is not yet the question.` } },
@@ -2763,14 +2763,14 @@ DECKS.vices = {
 
 { src:['donatus','copeland'], h:`<p><strong>TWO FAULTS.</strong> A vice of speech is either in a single word or
 in the arrangement of words.</p>
-<p><strong>Barbarism</strong>: a fault in one word, such as a form the language does not have, a sound mis-made, or a foreign form where a native one is required. <em>Childs</em> for <em>children</em>. <em>Amavis</em> for <em>amavit</em>.</p>
+<p><strong>Barbarism</strong>: a fault in one word, such as a form the language does not have, a sound wrongly made, or a foreign form where a native one is required. <em>Childs</em> for <em>children</em>. <em>Amavis</em> for <em>amavit</em>.</p>
 <p><strong>Solecism</strong>: a fault in the arrangement, where each word is a word of the language, but they do not fit. <em>The boys runs.</em> <em>Puella bonus.</em></p>
 <p>Congruity was defined as fit. Barbarism and solecism are the two ways of failing it.</p>`,
   q:{ prompt:`<em>The boys runs home.</em> What kind of fault?`,
-      options:['Barbarism: one word mis-made','Solecism: ill-arranged words',
+      options:['Barbarism: a fault in one word','Solecism: the words do not fit',
                'No fault, because the meaning is clear','A trope, since a word is used out of place'],
       correct:1,
-      explain:`<em>Boys</em> and <em>runs</em> are both English words, but they do not agree, and that is solecism. Barbarism would be a single word mis-made, such as <em>runned</em> or <em>childs</em>.` } },
+      explain:`<em>Boys</em> and <em>runs</em> are both English words, but they do not agree, and that is solecism. Barbarism would be a single word wrongly formed, such as <em>runned</em> or <em>childs</em>.` } },
 
 { src:['donatus','appown'], h:`<p><strong>Fault and licence.</strong> Donatus also treats the same departures when a poet is allowed them: metaplasm is a licensed barbarism, and a figure (schema) a licensed solecism. Then come the tropes, where a word is made to signify otherwise than it properly does. All of this is the last part of grammar, and the next tutorial takes it up.</p>
 <p>Here the question is only where the fault lies: in one word, or in the arrangement.</p>`,
@@ -6043,7 +6043,7 @@ EX.govern = {
 /* ============================================================
    Congruity and Completeness
    ============================================================ */
-const CG_C = 'Complete: the parts fit, and the sense is finished', CG_I = 'Congruous, but incomplete in sense', CG_B = 'Incongruous: the parts do not fit';
+const CG_C = 'Complete: the parts fit, and the sense is finished', CG_I = 'Congruous, but incomplete', CG_B = 'Incongruous: the parts do not fit';
 const CONG_ITEMS = [
   {id:'cg1', src:['te'], s:'The brave sailor waits.',
    a:CG_C, ds:[CG_B, CG_I],
@@ -6279,12 +6279,12 @@ EX.objections = {
 const VICE_ITEMS = [
   {id:'vc1', src:['donatus'], s:'He has three <b>childs</b>.',
    q:'What kind of fault?',
-   a:'Barbarism: one word mis-made',
-   ds:['Solecism: ill-arranged words','No fault: the sense is clear','A figure: the poets allow it'],
-   why:'<em>Childs</em> is not the English plural. The rest of the sentence would be well enough; one word is mis-made.'},
+   a:'Barbarism: a fault in one word',
+   ds:['Solecism: the words do not fit','No fault: the sense is clear','A figure: the poets allow it'],
+   why:'<em>Childs</em> is not the English plural. The rest of the sentence would be well enough; one word is wrongly formed.'},
   {id:'vc2', src:['donatus'], s:'The boys <b>runs</b> home.',
    q:'What kind of fault?',
-   a:'Solecism: ill-arranged words',
+   a:'Solecism: the words do not fit',
    ds:['Barbarism: <em>runs</em> is not a word','No fault: the sense is clear','A trope: a word carried over'],
    why:'<em>Runs</em> is an English word, but it does not fit <em>boys</em>. Each piece is native; the construction fails.'},
   {id:'vc3', src:['donatus'], s:'Puella <b>bonus</b> est.',
@@ -6341,11 +6341,11 @@ EX.vices = {
       ]);
       const it = rand([barb, sol]);
       const a = it.kind === 'b'
-        ? 'Barbarism: one word mis-made'
-        : 'Solecism: ill-arranged words';
+        ? 'Barbarism: a fault in one word'
+        : 'Solecism: the words do not fit';
       const options = shuffle([a, ...sample([
-        'Barbarism: one word mis-made',
-        'Solecism: ill-arranged words',
+        'Barbarism: a fault in one word',
+        'Solecism: the words do not fit',
         'No fault: the sense is clear',
         'A figure: the poets allow it'
       ].filter(x => x !== a), d <= 1 ? 2 : 3)]);
@@ -6455,13 +6455,13 @@ const SUP_ITEMS = [
    why:'The term stands for the things it was imposed to name. That is personal supposition, the ordinary case.'},
   {id:'sp2', src:['peterhisp'], s:'Man is a species.',
    q:'What is <em>man</em> standing for here?',
-   a:'Simple: the nature as known',
-   ds:['Personal: the men there are','Material: the letters','Nothing, since a species is not a man'],
+   a:'Simple supposition: the nature as known',
+   ds:['Personal supposition: the men there are','Material supposition: the letters of the word','Nothing, since a species is not a man'],
    why:'No particular man is a species. The term stands for the nature as known, not for any man. Signification has not changed; supposition has.'},
   {id:'sp3', src:['peterhisp'], s:'Man is a three-letter word.',
    q:'What is <em>man</em> standing for here?',
-   a:'Material: the word itself',
-   ds:['Personal: the men there are','Simple: the nature as known','The predicate <em>word</em>'],
+   a:'Material supposition: the word itself',
+   ds:['Personal supposition: the men there are','Simple supposition: the nature as known','The predicate <em>word</em>, by apposition'],
    why:'The subject is being used for itself as a word, as sound or inscription, which is material supposition. Quotation marks make the same move in modern writing.'},
   {id:'sp4', src:['peterhisp'], q:'Signification, against supposition: which is the property of a term in a proposition, and changes from sentence to sentence?',
    a:'Supposition',
@@ -6651,12 +6651,12 @@ const UG_ITEMS = [
    ds:['Chomsky has made the classical account unnecessary for science','The mind has no structure of its own','Universal grammar is a myth, on both sides alike, and should be given up'],
    why:'The mind is for being. If it is structured for language, a Thomist asks what in being that structure is for, and so the question does not stop at the brain. That keeps the classical account’s first question, without pretending every particular derivation was right.'},
   {id:'ug5', src:['saussure','appown'], q:'What the twentieth century found, and the thirteenth did not, includes…',
-   a:'The phoneme, a unit of contrast',
-   ds:['The eight parts of speech','Why there are nouns and verbs','Donatus’s barbarism and solecism'],
+   a:'Phonology as a system of contrasts',
+   ds:['The eight parts of speech and their accidents','The question why there are nouns and verbs','Donatus’s barbarism and solecism'],
    why:'It also found a clear level of morphology, constituency, a serious account of acquisition, and statistical universals. Saussure’s system is a real discovery. It does not do away with the older question; it does not ask it either.'},
   {id:'ug6', src:['appown','bh'], q:'What the thirteenth century had, and the twentieth mostly set down, is…',
-   a:'Why the categories are these',
-   ds:['A complete phonology of medieval French','Greenberg’s universals of order','The German two-way prepositions'],
+   a:'The question why the categories are these',
+   ds:['A complete phonology of medieval French','Greenberg’s numbered universals of word order','The German prepositions that take two cases'],
    why:'The question why the categories are these categories was treated as answerable from being. The modists may have over-derived, but they did not ask a foolish question. This course keeps that question on the table, beside the later facts.'},
   {id:'ug7', src:['boethiusd','te'], q:'For the modists, why does every language have something like a noun and a verb?',
    a:'Because things are known as at rest and as becoming',
@@ -8249,7 +8249,7 @@ DECKS.enphr = {
 { src:['engclass'], h:`<p><strong>Five kinds we need.</strong></p>
 <p>A <strong>prepositional phrase</strong> begins with a preposition and ends with its object: <em>of mercy, in the state of Denmark, for delight</em>. It usually does an adjective’s work, telling which one, or an adverb’s work, telling when, where, or how.</p>
 <p>A <strong>participial phrase</strong> begins with a participle and depends on a noun, doing an adjective’s work: <em>walking into the city</em> in <em>Walking into the city, Caesar saw the gates</em>. Donatus would call the opening word a participle, a part of its own.</p>
-<p>A <strong>gerund phrase</strong> is built on the <em>-ing</em> form used as a noun: <em>Reading</em> in <em>Reading maketh a full man</em>, or <em>Reading the old books</em> in <em>Reading the old books maketh a full man</em>. The gerund does a noun’s work. The participle does an adjective’s work. The form looks the same, and the office decides.</p>
+<p>A <strong>gerund phrase</strong> is built on the <em>-ing</em> form used as a noun: <em>Reading</em> in <em>Reading maketh a full man</em>, or <em>Reading old books</em> in <em>Reading old books takes time</em>. The gerund does a noun’s work. The participle does an adjective’s work. The form looks the same, and the office decides.</p>
 <p>An <strong>infinitive phrase</strong> is built on <em>to</em> plus a verb: <em>to be, or not to be</em>, and <em>to be chewed and digested</em>. It may do a noun’s work, an adjective’s work, or an adverb’s work.</p>
 <p>An <strong>appositive phrase</strong> is a noun phrase set beside another noun to rename it: <em>Johnson, the author of Rasselas</em>. It tells which Johnson is meant, and it needs no verb or conjunction to join it.</p>`,
   q:{ prompt:'<em>Some books are to be tasted.</em> What is <em>to be tasted</em>?',
@@ -8572,8 +8572,8 @@ const EN_PHR = [
     why:'<em>At</em> is a preposition and <em>gate</em> its object. The phrase tells where, which is an adverb’s work, and it has no finite verb.'}),
   phrItem({id:'eh2', dmin:1, s:'<span class="target">Walking into the city</span>, Caesar saw the gates.', a:'Participial phrase',
     why:'<em>Walking</em> is a participle depending on <em>Caesar</em>. The phrase does an adjective’s work. Donatus would count <em>walking</em> as a participle, a part of its own.'}),
-  phrItem({id:'eh3', dmin:1, s:'<span class="target">Reading the old books</span> maketh a full man.', a:'Gerund phrase',
-    why:'The <em>-ing</em> group is the subject of <em>maketh</em>, and so it does a noun’s work. That is a gerund phrase. If it modified a person, it would be participial. The sentence is ours, made on Bacon’s <em>Reading maketh a full man</em>.'}),
+  phrItem({id:'eh3', dmin:1, s:'<span class="target">Reading old books</span> takes time.', a:'Gerund phrase',
+    why:'The <em>-ing</em> group is the subject of <em>takes</em>, and so it does a noun’s work; that is a gerund phrase. In <em>Reading old books, she fell asleep</em>, the same words describe her, and the phrase would be participial.'}),
   phrItem({id:'eh4', dmin:1, s:'She wants <span class="target">to read the book</span>.', a:'Infinitive phrase',
     why:'<em>To read</em> is an infinitive, and the phrase is the object of <em>wants</em>. <em>To</em> here marks the infinitive. It is not a preposition with a noun as its object.'}),
   phrItem({id:'eh5', dmin:1, s:'Johnson, <span class="target">the author of Rasselas</span>, wrote the tale in a week.', a:'Appositive phrase',
