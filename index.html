@@ -206,6 +206,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 }
 .mode-btn.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
 .mode-row[hidden]{display:none !important}
+.lang-row[hidden], .lang-note[hidden]{display:none !important}
 
 /* ------- cards ------- */
 .set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
@@ -10290,8 +10291,9 @@ function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
   const want = nextLang(state.ex);
-  let q = null, other = null, repeat = null, anyRepeat = null;
-  for(let i = 0; i < 28; i++){
+  let q = null, other = null, repeat = null;
+  const rejected = [];
+  for(let i = 0; i < 36; i++){
     const seenBefore = state.sessionSeen.slice();
     let got;
     try { got = state.ex.gen(state.diff); }
@@ -10302,11 +10304,10 @@ function nextQ(){
     const fresh = !id || seenBefore.indexOf(id) < 0;
     if(!fresh){
       if((!want || got.lang === want) && !repeat) repeat = got;
-      if(!anyRepeat) anyRepeat = got;
       continue;
     }
     if(want && got.lang !== want){
-      state.sessionSeen = seenBefore;
+      for(let k = seenBefore.length; k < state.sessionSeen.length; k++) rejected.push(state.sessionSeen[k]);
       other = got;
       continue;
     }
@@ -10318,8 +10319,14 @@ function nextQ(){
   if(!q){
     if(want === 'en' && modeOf(state.ex) === 'en')
       q = {kind:'note', lang:'en', prompt:'This exercise has no English questions yet.'};
-    else q = other || anyRepeat;
+    else q = other;
   }
+  const keep = q && q.kind !== 'note' ? q.sid : null;
+  rejected.forEach(id => {
+    if(id === keep) return;
+    const at = state.sessionSeen.indexOf(id);
+    if(at >= 0) state.sessionSeen.splice(at, 1);
+  });
   if(q && q.kind !== 'note'){
     if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
     if(q.lang === 'la') state.nLa++;
