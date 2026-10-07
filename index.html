@@ -199,6 +199,13 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .lang-btn:hover{border-color:var(--gold-soft); color:var(--ink)}
 .lang-btn.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
 .lang-note{font-style:italic; color:var(--ink-soft); font-size:15px; margin-top:11px; line-height:1.45}
+.mode-row{display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin:-4px 0 14px}
+.mode-btn{
+  font-family:'EB Garamond',serif; font-size:16px; padding:5px 14px; cursor:pointer;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink-soft); border-radius:9px;
+}
+.mode-btn.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
+.mode-row[hidden]{display:none !important}
 
 /* ------- cards ------- */
 .set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
@@ -643,9 +650,9 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
       <div class="lang-fixed">English and <strong>Latin</strong> are the primary languages used in every part of the course.
         Latin is the tradition’s own language, and every technical term here is a Latin term.
         You may add one further language as a witness for further study.</div>
-      <h4>A third language</h4>
-      <div class="lang-row" id="lang-row"></div>
-      <div class="lang-note" id="lang-note"></div>
+      <h4 hidden>A third language</h4>
+      <div class="lang-row" id="lang-row" hidden></div>
+      <div class="lang-note" id="lang-note" hidden></div>
     </div>
 
     <div class="section-label">Difficulty</div>
@@ -719,6 +726,7 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
     </div>
     <div class="q-progress" aria-hidden="true"><div class="q-progress-fill" id="ex-progress"></div></div>
     <div class="q-instr" id="ex-instr"></div>
+    <div class="mode-row" id="mode-row" hidden></div>
     <div class="q-box" id="ex-box"></div>
     <div class="btn-row">
       <button class="btn" id="ex-quit">End</button>
@@ -1333,7 +1341,7 @@ const DIFF = {
 /* ---------- state and storage ---------- */
 const KEY = 'arsgram.v1';
 const state = {
-  diff:1, lang3:null, dark:false,
+  diff:1, lang3:null, dark:false, nEn:0, nLa:0,
   ex:null, q:null, locked:false, score:0, answered:0, correct:0,
   streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null, speakRate:1,
   pendingComplete:false, runBest:0
@@ -1342,14 +1350,16 @@ const store = {
   totals:{},          /* exId -> {seen, right, best} */
   score:0, bestStreak:0,
   mistakes:[],
-  lang3:null, dark:null, diff:1
+  lang3:null, dark:null, diff:1, modes:{}
 };
+let lang3Held = null;
 
 function save(){
   try{
     localStorage.setItem(KEY, JSON.stringify({
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
-      mistakes: store.mistakes.slice(-60), lang3: state.lang3, dark: state.dark, diff: state.diff,
+      mistakes: store.mistakes.slice(-60), lang3: lang3Held, dark: state.dark, diff: state.diff,
+      modes: store.modes,
       speakRate: state.speakRate
     }));
   }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
@@ -1363,7 +1373,9 @@ function load(){
     store.score = o.score || 0;
     store.bestStreak = o.bestStreak || 0;
     store.mistakes = o.mistakes || [];
-    if(o.lang3 !== undefined) state.lang3 = o.lang3;
+    store.modes = o.modes || {};
+    lang3Held = o.lang3 || null;
+    state.lang3 = null;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
     if(o.speakRate) state.speakRate = o.speakRate;
@@ -2087,6 +2099,7 @@ function makeMC(it, nOpt){
     gloss: it.gloss,
     passage: it.passage,
     options, correct: options.indexOf(it.a),
+    lang: it.lang === 'en' || it.lang === 'la' ? it.lang : (textLang(it.s || it.form || '') || textLang(it.q || '') || 'en'),
     check(i){
       if(i === options.indexOf(it.a)) return {right:true, note: it.why};
       return {right:false, note:`The answer is <strong>${it.a}</strong>. ${it.why}`,
@@ -4838,6 +4851,7 @@ EX.pos = {
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
         sid: it.id,
+        lang: it.lang === 'la' || it.lang === 'en' ? it.lang : (textLang(it.s) || 'en'),
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note};
           const kind = group ? 'work of a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
@@ -4871,7 +4885,7 @@ EX.pos = {
       const pick = rand(idx);
       const s = parts.map((p,i) => i === pick ? `<b>${p.t.replace(/,$/,'')}</b>${/,$/.test(p.t) ? ',' : ''}` : p.t).join(' ') + (line.indexOf('!') >= 0 ? '' : '.');
       return markedQ({
-        id: 'ge:' + s,
+        id: 'ge:' + s, lang:'en',
         s, a: parts[pick].a, src:['appown'], note: POS_WHY[parts[pick].a]
       }, ['appown']);
     }
@@ -5166,7 +5180,7 @@ EX.cases = {
       third = `<span class="also">In ${L.name}: <strong>${f}</strong>.${n ? ' ' + n : ''}</span>`;
     }
     return {
-      kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role,
+      kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role, lang:'en',
       prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
       sentence: s.replace('<b>','<span class="target">').replace('</b>','</span>'),
       options, correct: options.indexOf(ans),
@@ -5259,7 +5273,7 @@ EX.agree = {
     const options = shuffle(AGREE_OPTS.slice());
     const key = options.indexOf(AGREE_OPTS[fault]);
     return {
-      kind:'mc', src: this.src, sid:'ag:'+phrase,
+      kind:'mc', src: this.src, sid:'ag:'+phrase, lang:'la',
       prompt:'Judge the phrase.',
       specimen:`${phrase}<span class="lemma">${adj.nom}, ${adj.gloss} &nbsp;·&nbsp; ${e.nom}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
       options, correct: key,
@@ -5674,7 +5688,7 @@ EX.congtruth = {
     const it = pickSeen(CT_ITEMS, x => x.s);
     const ans = !it.c ? 2 : (it.t ? 0 : 1);
     return {
-      kind:'mc', src: it.src, sid:'ct:'+it.s,
+      kind:'mc', src: it.src, sid:'ct:'+it.s, lang: it.lang || textLang(it.s) || 'en',
       prompt:'How does this sentence stand?',
       sentence: it.s,
       options: CT_OPTS.slice(), correct: ans,
@@ -5785,7 +5799,7 @@ EX.letter = {
           : `<strong>${C}</strong> is a mute: it cannot be sounded at all without a vowel, and its name begins with its own sound (<em>${ch}e</em>).`;
       }
       return {
-        kind:'mc', src:['donatus','isidore'], sid:'lt:'+ch+(d <= 1 ? '1' : '2'),
+        kind:'mc', src:['donatus','isidore'], sid:'lt:'+ch+(d <= 1 ? '1' : '2'), lang:'en',
         prompt: d <= 1 ? 'Can this letter be sounded by itself, or only with a vowel?' : 'In the old division of the letters, what is this one?',
         specimen: C,
         options, correct: options.indexOf(a),
@@ -5994,7 +6008,7 @@ EX.syllable = {
         const n = String(it.syll.length);
         const options = countOpts(it.syll.length);
         return {
-          kind:'mc', src:['appown'], sid:'sy:'+it.id+':n',
+          kind:'mc', src:['appown'], sid:'sy:'+it.id+':n', lang: it.lang === 'en' ? 'en' : 'la',
           prompt:`How many sounded syllables in <em>${it.w}</em>?`,
           specimen: it.w,
           options, correct: options.indexOf(n),
@@ -6003,7 +6017,7 @@ EX.syllable = {
       }
       const options = shuffle(it.syll.slice());
       return {
-        kind:'mc', src:['appown'], sid:'sy:'+it.id+':pl',
+        kind:'mc', src:['appown'], sid:'sy:'+it.id+':pl', lang: it.lang === 'en' ? 'en' : 'la',
         prompt:`Which syllable of <em>${it.w}</em> is stressed?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -6013,7 +6027,7 @@ EX.syllable = {
     }
     function textDiv(it){
       return {
-        kind:'text', src:['ag'], sid:'sy:'+it.w+':td',
+        kind:'text', src:['ag'], sid:'sy:'+it.w+':td', lang:'la',
         prompt:`Divide <strong>${it.w}</strong> into syllables. Use hyphens (for example, pa-ter).`,
         specimen: it.w,
         placeholder:'Write the syllables with hyphens',
@@ -6028,7 +6042,7 @@ EX.syllable = {
     function mcDiv(it){
       const options = shuffle([it.div, ...SYLL_DIV_WRONG[it.div]]);
       return {
-        kind:'mc', src:['ag'], sid:'sy:'+it.w+':md',
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':md', lang:'la',
         prompt:`How is <em>${it.w}</em> divided into syllables?`,
         specimen: it.w,
         options, correct: options.indexOf(it.div),
@@ -6042,7 +6056,7 @@ EX.syllable = {
       const n = String(it.syll.length);
       const options = countOpts(it.syll.length);
       return {
-        kind:'mc', src:['ag'], sid:'sy:'+it.w+':n',
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':n', lang:'la',
         prompt:`How many syllables in <em>${it.w}</em>?`,
         specimen: it.w,
         options, correct: options.indexOf(n),
@@ -6055,7 +6069,7 @@ EX.syllable = {
       const a = it.longPen ? 'Long' : 'Short';
       const options = shuffle(['Long','Short']);
       return {
-        kind:'mc', src:['ag'], sid:'sy:'+it.w+':p',
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':p', lang:'la',
         prompt:`Is the penult of <em>${it.w}</em> long or short?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -6074,7 +6088,7 @@ EX.syllable = {
       const ans = showRight ? 'Yes' : 'No';
       const options = shuffle(['Yes','No']);
       return {
-        kind:'mc', src:['ag'], sid:'sy:'+it.w+':yn:'+shown,
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':yn:'+shown, lang:'la',
         prompt:`Someone placed the stress as <em>${shown}</em>. Is that right?`,
         specimen: it.w,
         options, correct: options.indexOf(ans),
@@ -6087,7 +6101,7 @@ EX.syllable = {
     function placeStress(it){
       const options = shuffle(it.syll.slice());
       return {
-        kind:'mc', src:['ag'], sid:'sy:'+it.w+':pl',
+        kind:'mc', src:['ag'], sid:'sy:'+it.w+':pl', lang:'la',
         prompt:`Which syllable of <em>${it.w}</em> takes the stress?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -6194,7 +6208,7 @@ EX.decline = {
         'Indeclinable: an interjection, one form'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src:['donatus','appown'], sid:'dc:'+it.s,
+        kind:'mc', src:['donatus','appown'], sid:'dc:'+it.s, lang:'en',
         prompt:'Is the marked word declinable or indeclinable?',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
@@ -6225,7 +6239,7 @@ EX.produce = {
       const form = nounEnding(e, cs, num);
       const want = `${CASE_NAME[cs].toLowerCase()} ${NUM_NAME[num].toLowerCase()}`;
       return {
-        kind:'text', src: this.src, sid:'pdn:'+e.nom+':'+cs+':'+num,
+        kind:'text', src: this.src, sid:'pdn:'+e.nom+':'+cs+':'+num, lang:'la',
         prompt:`Write the <strong>${want}</strong> of this noun.`,
         specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss}${d <= 2 ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
         placeholder:'Type the Latin form',
@@ -6248,7 +6262,7 @@ EX.produce = {
     const f = rand(forms.length ? forms : latVerbForms(e));
     const want = describeVerb(f);
     return {
-      kind:'text', src: this.src, sid:'pdv:'+e.lemma+':'+f.form+':'+want,
+      kind:'text', src: this.src, sid:'pdv:'+e.lemma+':'+f.form+':'+want, lang:'la',
       prompt:`Write the <strong>${want}</strong> of this verb.`,
       specimen:`${e.lemma.split(',')[0]}<span class="lemma">${e.lemma}: ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
       placeholder:'Type the Latin form',
@@ -6341,7 +6355,7 @@ EX.govern = {
       const it = rand(d <= 1 ? slots.filter(x => x.a !== 'Dative') : slots);
       const options = shuffle([it.a, ...sample(['Nominative','Genitive','Dative','Accusative','Ablative','Vocative'].filter(c => c !== it.a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src:['ag','appown'], sid:'gv:'+it.s,
+        kind:'mc', src:['ag','appown'], sid:'gv:'+it.s, lang:'en',
         prompt:'In Latin, the marked word would be in the…',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
@@ -6421,7 +6435,7 @@ EX.cong = {
       }
       const options = shuffle([CG_C, CG_I, CG_B]);
       return {
-        kind:'mc', src:['appown','te'], sid:'cg:'+s, prompt:'How does this construction stand?',
+        kind:'mc', src:['appown','te'], sid:'cg:'+s, lang: textLang(s) || 'en', prompt:'How does this construction stand?',
         sentence: s, options, correct: options.indexOf(a),
         check(i){
           if(i === options.indexOf(a)) return {right:true, note:`<strong>${a}.</strong> ${why}`};
@@ -6498,7 +6512,7 @@ EX.workshop = {
       const it = rand(slots);
       const options = shuffle([it.a, ...sample(it.ds.filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src:['te','appown'], sid:'wk:'+it.s+':'+it.q,
+        kind:'mc', src:['te','appown'], sid:'wk:'+it.s+':'+it.q, lang:'en',
         prompt: it.q,
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
@@ -6704,7 +6718,7 @@ EX.vices = {
         'A figure: the poets allow it'
       ].filter(x => x !== a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src:['donatus','appown'], sid:'vc:'+it.s,
+        kind:'mc', src:['donatus','appown'], sid:'vc:'+it.s, lang:'en',
         prompt:'What kind of fault?',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(a),
@@ -7581,7 +7595,7 @@ EX.vox = {
         'A complete sentence, though of one word'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src: this.src, sid:'vx:'+it.w,
+        kind:'mc', src: this.src, sid:'vx:'+it.w, lang:'en',
         prompt:`What is ${it.w}?`,
         options, correct: options.indexOf(it.a),
         check(i){
@@ -7642,6 +7656,7 @@ EX.vox = {
        ds:['Because voice already signifies by human choice','Because Donatus thought words less important than sounds','Because truth and falsity begin in the voice'],
        why:'Grammar goes from voice to letter, to syllable, to word, and to the sentence. Voice is the matter; the word is that matter given a meaning by imposition.'}
     ];
+    items.forEach(it => { it.lang = 'en'; });
     const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5','vx12','vx13'].indexOf(x.id)>=0) : d === 2 ? items.filter(x => ['vx8','vx9','vx10','vx11'].indexOf(x.id) < 0 || x.id === 'vx8') : items;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
@@ -8552,7 +8567,7 @@ function enMC(it, d){
   const options = shuffle([it.a].concat(ds));
   const correct = options.indexOf(it.a);
   return {
-    kind:'mc', src: it.src || ['appown','engclass'], sid: it.id,
+    kind:'mc', src: it.src || ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q,
     sentence: it.s || '',
     source: it.cite || '',
@@ -8567,7 +8582,7 @@ function enMC(it, d){
 function enPick(it){
   const correct = it.words.findIndex(w => w.ok);
   return {
-    kind:'pick', src: it.src || ['appown','engclass'], sid: it.id,
+    kind:'pick', src: it.src || ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q, source: it.cite || '', words: it.words, correct,
     check(i){
       if(i === correct) return {right:true, note: it.why};
@@ -8578,7 +8593,7 @@ function enPick(it){
 function enText(it){
   const accepts = it.accepts || [it.a];
   return {
-    kind:'text', src: it.src || ['appown','engclass'], sid: it.id,
+    kind:'text', src: it.src || ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q, sentence: it.s || '', source: it.cite || '',
     placeholder: it.placeholder || 'Type the answer',
     check(val){
@@ -8593,7 +8608,7 @@ function enText(it){
 }
 function enChips(it){
   return {
-    kind:'chips', src: it.src || ['appown','engclass'], sid: it.id,
+    kind:'chips', src: it.src || ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q, sentence: it.s || '', source: it.cite || '', passage: it.passage || '',
     rows: it.rows,
     check(ans){
@@ -8610,7 +8625,7 @@ function enDiagramQ(it){
   const options = shuffle(built);
   const correct = options.findIndex(o => o.ok);
   return {
-    kind:'mc', src: ['appown','engclass'], sid: it.id,
+    kind:'mc', src: ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q, sentence: it.s || '', source: it.cite || '',
     options: options.map(o => o.svg), correct,
     check(i){
@@ -9699,6 +9714,147 @@ EX.endiag = enEx('endiag', 'The Diagram',
   ],
   EN_DIAG);
 
+/* ---------- language mode ----------
+   An item carries lang 'en' or 'la'. An exercise lists the modes it allows.
+   both: the set opens with English, then stays near six English questions in ten.
+   en: English only. One mode is forced. No list means no choice is shown.
+   The block does not depend on a framework. It can be copied as it stands. */
+function textLang(raw){
+  if(!raw) return null;
+  const s = String(raw).replace(/<[^>]+>/g, ' ');
+  const enWords = ['the','a','an','of','and','to','is','was','were','he','she','they','his','her','with','from','this','that','who','what','which','for','but','not','are','be','have','has'];
+  const laWords = ['est','sunt','et','sed','quod','ut','qui','quae','homo','nauta','puer','puella','bonus','albus','arma','amat','currit','virum','puellam','apud','urbem','urbs','album','percutio'];
+  const tokens = s.toLowerCase().match(/[a-zāēīōūȳăĕĭŏŭ]+/g) || [];
+  let en = 0, la = 0;
+  tokens.forEach(t => {
+    if(enWords.indexOf(t) >= 0) en++;
+    if(laWords.indexOf(t) >= 0) la++;
+  });
+  if(en >= 1 && en >= la) return 'en';
+  if(/[āēīōūȳăĕĭŏŭ]/.test(s) && en === 0) return 'la';
+  if(la >= 1 && la > en) return 'la';
+  if(en >= 1) return 'en';
+  if(tokens.some(t => t.length >= 3)) return 'la';
+  return null;
+}
+function stampLang(arr, lang){
+  (arr || []).forEach(it => {
+    if(!it || typeof it !== 'object') return;
+    if(it.lang === 'grc' || it.lang === 'de' || it.lang === 'fr') return;
+    if(it.id === 'gv10' || it.id === 'gv11') return;
+    if(lang) it.lang = lang;
+    else if(it.lang !== 'en' && it.lang !== 'la')
+      it.lang = textLang(it.s || it.form || '') || textLang(it.q || it.lat || '') || 'en';
+  });
+}
+const LETTER_LA = {l2:1, l6:1, l9:1, l10:1, l11:1, l12:1, l13:1, l14:1, l15:1};
+LETTER_ITEMS.forEach(it => { it.lang = LETTER_LA[it.id] ? 'la' : 'en'; });
+stampLang(ACCENT_WORDS, 'la');
+stampLang(SYLL_ITEMS, 'en');
+stampLang(POS_LAT, 'la');
+stampLang(POS_RULES, 'en');
+stampLang(POS_GROUP, 'en');
+stampLang(POS_HARD, 'en');
+stampLang(DECLINE_ITEMS, 'en');
+stampLang(CASE_ITEMS, 'en');
+stampLang(GOVERN_ITEMS);
+stampLang(CONG_ITEMS);
+CONG_ITEMS.forEach(it => { if(it.id === 'cg9') it.lang = 'en'; });
+stampLang(WORK_ITEMS);
+stampLang(VICE_ITEMS);
+stampLang(FIGDON_ITEMS);
+const FIG_LA = {fd1:1,fd2:1,fd3:1,fd4:1,fd5:1,fd6:1,fd7:1,fd12:1,fd13:1,fd14:1,fd19:1,fd20:1,fd21:1};
+FIGDON_ITEMS.forEach(it => { it.lang = FIG_LA[it.id] ? 'la' : 'en'; });
+stampLang(SUP_ITEMS);
+stampLang(FIG_ITEMS);
+stampLang(CT_ITEMS, 'en');
+stampLang(MODE_ITEMS);
+stampLang(PERIOD_ITEMS, 'la');
+stampLang(SERVIUS_ITEMS, 'la');
+stampLang(LIVY_P_ITEMS, 'la');
+stampLang(EN_POS, 'en');
+stampLang(EN_SENT, 'en');
+stampLang(EN_PHR, 'en');
+stampLang(EN_CL, 'en');
+stampLang(EN_FORM, 'en');
+stampLang(EN_FAULT, 'en');
+stampLang(EN_DIAG, 'en');
+AUCTORES.forEach(a => {
+  if(a.shelf === 'greek') return;
+  (a.items || []).forEach(it => { it.lang = 'la'; });
+});
+
+const EX_MODES = {
+  vox:['both','en'], letter:['both','en'], syllable:['both','en'], pos:['both','en'],
+  decline:['both','en'], cases:['both','en'], produce:['both','en'], agree:['both','en'],
+  govern:['both','en'], cong:['both','en'], workshop:['both','en'], vices:['both','en'],
+  figures:['both','en'], suppos:['both','en'], congtruth:['both','en'],
+  latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
+  enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en']
+};
+Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
+
+function modeOf(ex){
+  const m = ex && ex.modes;
+  if(!m || !m.length) return null;
+  if(m.indexOf('both') >= 0){
+    return store.modes[ex.id] === 'en' ? 'en' : 'both';
+  }
+  return m[0];
+}
+function nextLang(ex){
+  const mode = modeOf(ex);
+  if(mode === 'en') return 'en';
+  if(mode === 'la') return 'la';
+  if(mode !== 'both') return null;
+  const n = state.nEn + state.nLa;
+  if(n < 2) return 'en';
+  return (state.nEn / n) >= 0.60 ? 'la' : 'en';
+}
+function ensureLang(ex, q){
+  if(!q) return q;
+  const m = ex && ex.modes;
+  if(m && m.length === 1 && (m[0] === 'en' || m[0] === 'la')){
+    q.lang = m[0];
+    return q;
+  }
+  if(q.lang === 'en' || q.lang === 'la') return q;
+  q.lang = textLang(q.sentence || q.specimen || q.passage || '') || textLang(q.prompt || '') || 'en';
+  return q;
+}
+function renderModeRow(){
+  const row = $('mode-row');
+  const ex = state.ex;
+  if(!row) return;
+  const allowed = ex && ex.modes;
+  if(!allowed || allowed.indexOf('both') < 0){
+    row.hidden = true;
+    row.textContent = '';
+    return;
+  }
+  row.hidden = false;
+  row.textContent = '';
+  const cur = modeOf(ex);
+  [['both','English and Latin'],['en','English only']].forEach(pair => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
+    b.textContent = pair[1];
+    b.onclick = () => {
+      if(modeOf(ex) === pair[0]) return;
+      store.modes[ex.id] = pair[0];
+      save();
+      state.sessionSeen = [];
+      state.nEn = 0;
+      state.nLa = 0;
+      state.locked = false;
+      renderModeRow();
+      nextQ();
+    };
+    row.appendChild(b);
+  });
+}
+
 const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
    gloss:'Begin here: what the art is, and what it is for.',
@@ -10102,9 +10258,11 @@ function startEx(e){
   state.score = 0; state.answered = 0; state.correct = 0; state.streak = 0;
   state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   state.stageI = 0; state.stageStreak = 0; state.stageJustAdvanced = false;
+  state.nEn = 0; state.nLa = 0;
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = stagedInstr(e);
   $('ex-next').textContent = 'Next →';
+  renderModeRow();
   nextQ();
   show('scr-ex');
 }
@@ -10131,16 +10289,41 @@ function stagedInstr(e){
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
-  let q = null;
-  for(let i = 0; i < 18; i++){
+  const want = nextLang(state.ex);
+  let q = null, other = null, repeat = null, anyRepeat = null;
+  for(let i = 0; i < 28; i++){
     const seenBefore = state.sessionSeen.slice();
-    q = state.ex.gen(state.diff);
-    const id = q && q.sid;
-    if(!id) break;
-    if(seenBefore.indexOf(id) < 0){
-      if(state.sessionSeen.indexOf(id) < 0) state.sessionSeen.push(id);
-      break;
+    let got;
+    try { got = state.ex.gen(state.diff); }
+    catch(e){ continue; }
+    if(!got) continue;
+    ensureLang(state.ex, got);
+    const id = got.sid;
+    const fresh = !id || seenBefore.indexOf(id) < 0;
+    if(!fresh){
+      if((!want || got.lang === want) && !repeat) repeat = got;
+      if(!anyRepeat) anyRepeat = got;
+      continue;
     }
+    if(want && got.lang !== want){
+      state.sessionSeen = seenBefore;
+      other = got;
+      continue;
+    }
+    if(id && state.sessionSeen.indexOf(id) < 0) state.sessionSeen.push(id);
+    q = got;
+    break;
+  }
+  if(!q) q = repeat;
+  if(!q){
+    if(want === 'en' && modeOf(state.ex) === 'en')
+      q = {kind:'note', lang:'en', prompt:'This exercise has no English questions yet.'};
+    else q = other || anyRepeat;
+  }
+  if(q && q.kind !== 'note'){
+    if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
+    if(q.lang === 'la') state.nLa++;
+    else state.nEn++;
   }
   state.q = q;
   state.locked = false;
@@ -10179,6 +10362,12 @@ function showComplete(){
 function renderQ(){
   const q = state.q;
   const box = $('ex-box');
+  if(!q || q.kind === 'note'){
+    box.innerHTML = `<div class="q-prompt">${q ? q.prompt : 'No question could be drawn.'}</div>`;
+    $('ex-submit').style.display = 'none';
+    $('ex-next').style.display = 'none';
+    return;
+  }
   let html = '';
   if(state.ex && state.ex.staged){
     const st = state.ex.stages[state.stageI];
@@ -10268,6 +10457,7 @@ function renderQ(){
 
 function submit(ansMC){
   const q = state.q;
+  if(!q || q.kind === 'note' || typeof q.check !== 'function') return;
   const ans = (q.kind === 'mc' || q.kind === 'pick') ? ansMC
             : q.kind === 'text' ? (($('q-text') && $('q-text').value) || '')
             : Object.assign({}, chipSel);
@@ -10381,6 +10571,10 @@ document.addEventListener('keydown', ev => {
     startEx(state.ex); ev.preventDefault(); return;
   }
   if(!$('scr-ex').classList.contains('active')) return;
+  if(!state.q || state.q.kind === 'note'){
+    if(ev.key === 'Enter') ev.preventDefault();
+    return;
+  }
   if(ev.key === 'Enter'){
     if(state.locked) nextQ();
     else if((state.q.kind === 'chips' || state.q.kind === 'text') && !$('ex-submit').disabled) submit(null);
