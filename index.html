@@ -1722,8 +1722,8 @@ DECKS.prelim = {
 <p><strong>Reading</strong> (<span class="lat">lectio</span>): reading the text aloud, and rightly<br> <strong>Correcting</strong> (<span class="lat">emendatio</span>): mending what is corrupt or wrongly formed<br> <strong>Explaining</strong> (<span class="lat">enarratio</span>): showing what the construction is, especially in the poets<br> <strong>Judging</strong> (<span class="lat">iudicium</span>): weighing what is read, that is, whether a line is genuine and how well it is made</p>
 <p>Speaking correctly and explaining the poets both belong to this art; that is why an author appears in this course under the sentence, and not as a visit to another faculty.</p>`,
   q:{ prompt:`Why does a grammar course read Virgil at all?`,
-      options:['To learn how the poet moves his reader, which is the first aim of every art of speech','Because interpreting the poets is part of the grammarian’s work',
-               'Because Virgil’s Latin is simpler than the examples a teacher would make','Because the grammarian’s first office is to judge whether the story is true'],
+      options:['To learn how the poet moves the reader','Because explaining the poets is part of the grammarian’s work',
+               'Because Virgil’s Latin is easier than a made example','Because the first office is to judge whether the story is true'],
       correct:1,
       explain:`The grammarian interprets the poets as connected speech; how the passage moves the hearer is not yet the question.` } },
 
@@ -1755,7 +1755,7 @@ DECKS.prelim = {
 <p>Quintilian divides the grammarian’s profession under two heads, which Butler translates as “the art of speaking correctly and the interpretation of the poets.” Both belong here, and both serve one end: a complete meaning, well arranged, in the hearer’s mind.</p>
 <p>The practice starts in the next tutorial, with the voice.</p>`,
   q:{ prompt:`Why master grammar before logic?`,
-      options:['Because logic was first written in Latin and needs Latin grammar','Because until the sentence is well arranged, nothing definite is true or false',
+      options:['Because logic was first written in Latin and needs Latin grammar','Words must be arranged before they can be true or false',
                'Because the tradition forbids argument until the student is older','Because rhetoric must judge a sentence before logic may'],
       correct:1,
       explain:`Truth lies in joining and dividing, and words that have not been arranged are not yet true or false; logic would then have no object.` } },
@@ -3282,9 +3282,9 @@ ${il({tr:'lugal-e e₂ mu-un-dù', gloss:'king-(agent piece) house built', en:'T
 <p>Yāska, later, will count four parts, Sībawayh three, and Donatus eight. The Babylonian school counts by the <em>kind of list</em> one is copying, not by a theory of parts.</p>`,
   q:{ prompt:`Why does this tradition not offer eight parts of speech?`,
       options:['Because Sumerian has no verbs or nouns that could be counted',
-               'Because its schoolbooks are lists and paradigms, not a Donatus',
-               'Because grammar as an art had not yet been invented',
-               'Because they counted only two parts, the noun and the verb'],
+               'Because its books are lists and paradigms, not eight parts',
+               'Because grammar had not yet been invented',
+               'Because they counted only the noun and the verb'],
       correct:1,
       explain:`The divisions of their art follow the kinds of tablet they copied, not a theory of parts.` } },
 
@@ -3392,9 +3392,9 @@ ${il({tr:'i-ŋen &nbsp;=&nbsp; illik', gloss:'Sumerian · Akkadian', en:'he went
 { src:['appown','msl'], h:`<p><strong>Letter and word, again.</strong> <em>E<sub>2</sub></em> as a sign is a house-plan in origin, and as a school word it is <em>bītum</em>. Our letter signifies nothing, whereas their word-sign already means, even before it is set beside other signs. That is the deepest cut between the two arts at the bottom of the ladder.</p>
 <p>Meaning, for us, begins at the word, after letter and syllable; for them, it can begin at a single sign that is already a word in the list, and only the syllable-signs must be strung together to make a word.</p>`,
   q:{ prompt:`Why can a Sumerian word-sign mean, when a Latin letter does not?`,
-      options:['Because cuneiform signs are pictures of the things they name',
-               'Because some signs are listed as words, not as marks of sound',
-               'Because Sumerian has no sounds, only written marks',
+      options:['Because the signs are pictures of the things they name',
+               'A word-sign is listed as a word, and a letter is not',
+               'Because Sumerian has written marks and no sounds',
                'Because every sign stands for a whole sentence'],
       correct:1,
       explain:`The list-type tells us whether the sign is already a word, and Latin letters are not that kind of list.` } },
@@ -4016,7 +4016,7 @@ word full or empty in this line?</p>`,
 { src:['appown'], h:`<p><strong>Voice, last.</strong> Of course Chinese has living sound, and the rhyme books are books of sound. But the first object of this art is not Donatus’s air struck; it is the graph one sees, then the reading one attaches, and then the gloss. Our course treated voice first because a letter is a sound written down, whereas theirs treats the graph first because the classical word is a graph that has a reading.</p>`,
   q:{ prompt:`Why does this art not start from voice as Donatus does?`,
       options:['Because Chinese was never spoken aloud in the schools',
-               'Because the classical word is first a graph with a reading, not a sound later written',
+               'The word is a written sign, and a reading comes with it',
                'Because spoken Chinese was thought to have no rules',
                'Because the graphs were thought to have no sounds at all'],
       correct:1,
@@ -5791,8 +5791,8 @@ EX.letter = {
           ? `<strong>${C}</strong> is a vowel: it makes a complete sound by itself, and can be a syllable on its own.`
           : `<strong>${C}</strong> is a consonant: it does not sound by itself, but sounds together with a vowel, which is what <em>consonant</em> means.`;
       }else{
-        a = kind === 'v' ? 'Vowel: it sounds by itself' : kind === 's' ? 'Semivowel: sounded in part' : 'Mute: needs a vowel beside';
-        options = shuffle(['Vowel: it sounds by itself','Semivowel: sounded in part','Mute: needs a vowel beside']);
+        a = kind === 'v' ? 'A vowel: it can be fully sounded alone' : kind === 's' ? 'A semivowel: it can be sounded in part' : 'A mute: it cannot be sounded by itself';
+        options = shuffle(['A vowel: it can be fully sounded alone','A semivowel: it can be sounded in part','A mute: it cannot be sounded by itself']);
         why = kind === 'v'
           ? `<strong>${C}</strong> is a vowel: it makes a complete sound by itself.`
           : kind === 's'
@@ -6376,7 +6376,7 @@ EX.govern = {
 /* ============================================================
    Congruity and Completeness
    ============================================================ */
-const CG_C = 'Complete: the parts do fit, and the sense is finished', CG_I = 'Congruous: the parts fit, but the sense is unfinished', CG_B = 'Incongruous: these parts fail to fit with one another';
+const CG_C = 'Complete: the parts fit, and the sentence is finished', CG_I = 'Congruous: the parts fit, but the sense is unfinished', CG_B = 'Incongruous: the parts do not fit; grammar has failed';
 const CONG_ITEMS = [
   {id:'cg1', src:['te'], s:'The brave sailor waits.',
    a:CG_C, ds:[CG_B, CG_I],
@@ -8886,9 +8886,9 @@ DECKS.encl = {
 <p>Gibbon writes, <em>The various modes of worship, which prevailed in the Roman world, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.</em> The semicolons do not open new independent clauses. The verb <em>were considered</em> is written once, and the phrases that follow fill out the same predicate. The relative clause makes the sentence complex. We will meet the passive verb when we come to voice.</p>`,
   q:{ prompt:'Why is Johnson’s sentence about human life complex, rather than compound?',
       options:['Because it has two subjects, <em>life</em> and <em>much</em>, in two clauses',
-               'Because it has one independent clause and a dependent clause modifying <em>state</em>',
-               'Because <em>and</em> always makes a compound sentence, wherever it stands',
-               'Because it has more than ten words, and a long sentence is complex'],
+               'Because one clause stands alone, and one depends on <em>state</em>',
+               'Because <em>and</em> always makes a compound sentence',
+               'Because a long sentence is a complex sentence'],
       correct:1,
       explain:'<em>And</em> joins two parts inside the dependent clause. It does not join two sentences that could each stand. One independent clause plus one dependent clause is a complex sentence.' } },
 
@@ -8904,10 +8904,10 @@ DECKS.enform = {
 <p>We find the simple subject, and we refuse to be pulled off it by a phrase that sits between. <em>The flock of starlings is loud.</em> <em>Flock</em> is singular. <em>Of starlings</em> tells which flock, and it does not become the subject. <em>The king and the queen are here</em> is plural, because <em>and</em> makes a compound subject. With <em>or</em>, <em>nor</em>, <em>either…or</em>, and <em>neither…nor</em>, the verb agrees with the nearer subject. <em>Neither the king nor the queen is here.</em></p>
 <p><em>There is</em> and <em>there are</em> agree with the real subject, which follows the verb. <em>There are two gates.</em> <em>Each, every, either, neither</em>, used as subjects, are singular. <em>Each of the sailors is ready.</em></p>`,
   q:{ prompt:'<em>The quality of his arguments is plain.</em> Why is the verb singular?',
-      options:['Because the verb agrees with <em>plain</em>, which is singular',
-               'Because the subject is <em>quality</em>, and <em>of his arguments</em> only modifies it',
-               'Because <em>his</em> is singular, and the verb agrees with it',
-               'Because English verbs do not mark number at all'],
+      options:['Because the verb agrees with <em>plain</em>, which follows it',
+               'Because the subject is <em>quality</em>, not <em>arguments</em>',
+               'Because the verb agrees with <em>his</em>',
+               'Because English verbs do not show number'],
       correct:1,
       explain:'The simple subject is <em>quality</em>. The phrase <em>of his arguments</em> tells which quality. Congruity asks the verb to match the subject, not the nearest noun.' } },
 
@@ -8916,9 +8916,9 @@ DECKS.enform = {
 <p>So we say <em>between you and me</em>, because <em>between</em> is a preposition and governs the objective. We say <em>Give the book to him and me</em>, for the same reason. We say <em>It is I</em>, because a predicate nominative stands in the subjective case. Ordinary talk often says <em>It’s me</em>. The form this course asks for, and the form a careful modern class still teaches for formal prose, is <em>It is I</em>.</p>
 <p><em>Who</em> is subjective and <em>whom</em> is objective. The case comes from the clause the word itself is in, not from the clause outside it. <em>Whom did you see</em> is objective, because <em>whom</em> is the object of <em>see</em>. <em>Who did you say was waiting</em> is subjective, because <em>who</em> is the subject of <em>was waiting</em>, and <em>did you say</em> is only wrapped around that clause.</p>`,
   q:{ prompt:'Why does formal prose say <em>It is I</em> rather than <em>It is me</em>?',
-      options:['Because <em>It is me</em> is a barbarism, a form that English lacks',
-               'Because the complement of a linking verb renames the subject and stands in the subjective case',
-               'Because the verb <em>to be</em> takes the objective case after it',
+      options:['Because <em>It is me</em> is a barbarism, a form English lacks',
+               'The word after <em>is</em> renames the subject, so it is <em>I</em>',
+               'Because the verb <em>to be</em> takes the object form',
                'Because a preposition is understood before the pronoun'],
       correct:1,
       explain:'<em>Is</em> links. The word after it is a predicate nominative, and a predicate nominative takes the subjective case. <em>Me</em> is the objective form.' } },
@@ -9022,9 +9022,9 @@ DECKS.endiag = {
 <p>${rkDiagram({subj:'He', verb:'gave', obj:'letter', io:'king', ioto:'(to)', alt:'He gave the king a letter'})}</p>
 <p>${rkDiagram({subj:['Boys','girls'], sconj:'and', verb:'sing', alt:'Boys and girls sing'})}</p>`,
   q:{ prompt:'Why does the indirect object leave the base line?',
-      options:['Because it is the subject of a second clause in the sentence',
-               'Because it is diagrammed as the object of an understood <em>to</em> or <em>for</em>, like a prepositional phrase',
-               'Because English has no true indirect objects of its own',
+      options:['Because it is the subject of a second clause',
+               'It is the object of <em>to</em> or <em>for</em>, written or not',
+               'Because English has no indirect object',
                'Because it receives the action before the direct object does'],
       correct:1,
       explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the base.' } },
