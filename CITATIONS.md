@@ -533,7 +533,7 @@ Peter of Spain; Sībawayh; the Sumerian lines and the OBGT person order.
 **Corrected**
 - *Uneasy lies the head*: *Vneasie* is an adjective set first for emphasis, not a modifier of
   the verb.
-- "Colourless green ideas sleep furiously": the note no longer says that logic finds it false.
+- "Colourless green ideas sleep furiously" was taken out of the Congruity and Truth exercise. It is well formed, but it cannot fairly be marked true or false, and that exercise asks for one or the other.
 - "The senate have not yet arrived their decision" was replaced, since *the senate have* is
   acceptable British usage and confused the point.
 - The parts-of-speech drill's random sentences ("The farmer but the poet arrive", "A poor
