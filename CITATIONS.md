@@ -448,3 +448,52 @@ provide"); Gibbon, Macaulay, Bacon, KJV, Lincoln (McBrien 1916), Jowett 30d–e,
 **Still not verified:** *Super Ioannem* n. 39; the First Folio spelling of *2 Henry IV*
 III.1; Gorgias, *Helen* 1 (Perseus unavailable when checked); *I Sent.* d. 22 (from Nieto);
 Peter of Spain; Sībawayh; the Sumerian lines and the OBGT person order.
+
+---
+
+## Sixth pass (October 2026): claims left open in the fifth pass
+
+**Now verified**
+- St Thomas, *Super Ioannem* I, lect. 1, n. 39 (*erat*, not *fuit*): matches the Latin of the
+  Corpus Thomisticum; the paragraph number is confirmed in Larcher's numbered translation.
+- St Thomas, *In I Sent.* d. 22, q. 1, a. 1, ad 3 (*grammaticus accipit substantiam quantum ad
+  modum significandi …*): matches the Corpus Thomisticum (Parma text) word for word.
+- Gorgias, *Helen* 1: *κόσμος πόλει μὲν εὐανδρία, σώματι δὲ κάλλος, ψυχῇ δὲ σοφία* matches the
+  text (Diels–Kranz B 11, as printed in "A New Radermacher"). The sentence goes on to five
+  members, and the question now says that only three are shown.
+- Peter of Spain: simple supposition (*homo est species*) and personal supposition (*homo currit*),
+  with no material supposition in his division. Checked against the Stanford Encyclopedia's
+  account of *Tractatus* VI (after de Rijk), not against the Latin.
+- Sībawayh: the vocative with a construct name is in *naṣb* "by an unspoken verb that is left
+  unexpressed" (Kitāb, Būlāq text, Arabic Wikisource), and the opening division into noun,
+  verb, and particle matches the Kitāb. Both agree with the panels.
+- OBGT: the order of persons (third, first, second) is confirmed by P. J. Huber, "On the Old
+  Babylonian Understanding of Sumerian Grammar" (CDLP 1.0), which also confirms
+  *i-ŋen = illik*.
+- *2 Henry IV* III.1: "Vneasie lyes the Head, that weares a Crowne." matches the First Folio,
+  TLN 1452 (Internet Shakespeare Editions).
+
+**Corrected**
+- OBGT VII §33: *ba-ši-ŋen = ittalakšum*, "he went away to him" (then *attalakšum*,
+  *tattalakšum*). The page had *ittallakšum* "he will depart toward him", the present tense
+  that belongs to *ba-ši-du* (§23). Fixed in eight places.
+- *mu-na-an-šum = iddinšum* is now marked as our example, made on the pattern of the
+  paradigms, not quoted from a tablet.
+- Aristotle, *Sophistical Refutations* 4: the register entry is now checked against Owen's
+  translation (1853), which reads "to be well" where Pickard-Cambridge reads "flourishing".
+
+**Left as stated**
+- Bacon: Project Gutenberg eBook 575 does not name its source, and its spelling is modernized.
+  The citation now says both.
+- Shakespeare: Project Gutenberg eBook 100 does not name its source. It is cited only as a
+  modern-spelling text.
+
+**New items (Phase 2, level-1 pools)**
+- Servius on *Aeneid* IV: *male sana* (*non plene sana*), *unanimus/unanimis*, *subaudis 'est'*
+  (IV.11), and *recursat* as a frequentative. All four are from Thilo's text (Perseus).
+- *The Phrase*: Bacon, "To spend too much time in studies is sloth"; KJV John 11:1 (*named
+  Lazarus*; *the town of Mary and her sister Martha*); KJV Ecclesiastes 12:12 (*making many
+  books*). All checked against the Gutenberg texts.
+- *The Figure of Speech*: Aristotle's "to be well" / "to cut" example, checked as above.
+- *The Modes of Signifying*: Donatus's definitions of the adverb and the interjection, checked
+  against the *Ars minor*.
