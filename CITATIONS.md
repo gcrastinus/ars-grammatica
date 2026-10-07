@@ -369,3 +369,82 @@ the course's rule — St Thomas's texts first, Nieto for the framing:
 Not taken from Nieto: his division of logic, rhetoric, and poetry by the honest,
 useful, and pleasant good; the claim that modes of signifying exist in writing
 "separated from thought"; Martin of Dacia's "hook."
+
+---
+
+## Fifth pass (October 2026): every quotation checked word for word
+
+Every quoted passage was compared with a text fetched or opened for the purpose, and the
+edition is now named in the register entry for each author. Sources used: the Perseus TEI
+texts (GitHub, canonical-greekLit and canonical-latinLit) and the Perseus site; Project
+Gutenberg; Wikisource; the MIT Internet Classics Archive; The Latin Library; Marchand's
+transcription of Donatus, *Ars maior* III (Georgetown); LacusCurtius (Butler's Quintilian);
+and, from the library, Barney's Isidore, the English Dominican *Summa*, St Thomas's
+*In Peri hermeneias*, the Boethius of Dacia and Bursill-Hall extracts, Nieto, and Deely.
+
+**Clauses in the Authors (rebuilt).** Many English passages were altered, merged, or cut
+without marks, and several Greek and Latin "originals" were not the text at all:
+
+- Plato, *Apology* (Jowett; Burnet): 21a merged two sentences silently and the Greek was
+  composed (ἠρώτησεν; the text has ἤρετο γὰρ δή); 20d's Greek was composed (the text has
+  καὶ ἴσως μὲν δόξω … εὖ μέντοι ἴστε); 30e Greek corrected (γάρ με, ὥς τις); the Greek
+  shown for "which God has attached" was the wrong clause.
+- Thucydides II.4, II.37–39 (Crawley; Jones): II.4.3 Greek was not the text; II.4.2 added
+  αὐτούς and dropped ἐμπρήσαντες τὸ οἴκημα; capitals and silent cuts restored.
+- Herodotus I.1–9 (Rawlinson; Godley): "Io the Argive" had been cut; I.8–9 Greek contained
+  a non-word (ἀπέπαραιτεῖτο; the text has ἀπεμάχετο); I.8 relative clause not in the Greek
+  (ἀρεσκόμενος μάλιστα); I.5 Greek rearranged.
+- Sophocles (Storr): the English credited to Storr was invented prose; Storr wrote verse.
+  Replaced with his lines (OT 67–72, 224–26, 1451–54; Antigone 58–62). Greek corrected
+  (ὡς πύθοιθ’, not ὅπως; σημαίνειν, not μηνύειν); the herdsman passage, which was not in
+  the play as quoted, was dropped.
+- Euripides, *Medea* (Coleridge; Murray): all four English passages were paraphrase; lines
+  260–63 and 746 Greek were composed. Replaced from Coleridge and Murray.
+- Polybius I.1 (Shuckburgh): three of four English passages were not Shuckburgh; one Greek
+  passage was composed.
+- Plutarch, *Alexander* 1: the English was Perrin's Loeb (1919), not Dryden/Clough as cited;
+  register corrected; Greek corrected (Πομπήϊος; παραιτησόμεθα; πολλάκις restored).
+- Livy I.1 (Roberts; Foster's Loeb Latin): English rearranged and cut; Latin now Foster's
+  (*fuerunt*, *Laurentinum*, *profecti domo*).
+- Sallust (Watson; Ahlberg): BC 4 item invented; Watson's wording restored ("groveling and
+  subservient to appetite"; "more reasonable to pursue glory").
+- Tacitus, *Annals* (Church & Brodribb; Fisher): *tenderentis* → *tenderent*; a cut
+  ("contrary to the law of discipline") restored; ellipses marked.
+- Augustine (Pusey; Dods): *Confessions* I.6 English was invented ("Though I am but dust and
+  ashes"); replaced with Pusey. Two items had the wrong key (City of God preface marked
+  "indirect speech" and "purpose" for relative clauses).
+
+**Aeneid, Servius, Livy, the twenty passages (rebuilt).** English marked "after Dryden",
+"Dryden, adapted", "Roberts, adapted", "Yonge, adapted", "Watson, adapted" was not those
+translators' wording. It is now either the translator's exact text (Dryden, Roberts, Yonge,
+Watson, Church & Brodribb, Pusey, Crawley, the Loeb Boethius) or marked "literal rendering
+(this course's)". The Servius exercise ascribed to Servius notes he does not make (e.g. that
+*at* marks a change of person). It is rebuilt on his actual notes to *Aeneid* IV.1–24
+(Thilo–Hagen): the joining of Books III and IV; *cura* glossed *amore intolerabili*;
+*igni pro igne, dativus pro ablativo*; *multa … pro magna*; *pectore pro pectori*; the
+*terret/terrent* reading of *insomnia*; *pertaesus … regit genetivum*; *optem pro velim*.
+Fabricated Latin replaced: *In Verrem* I.1 (Peterson); Livy I.53 "ut scilicet infesto
+ageret animo" (no such text; replaced by I.54) and I.58 "cubiculumque Tarquiniae intus
+invenit" (replaced by Foster's text). Antiphon "3.1.1" was not in the text; replaced by
+3.1.2. Comment lines that named the wrong grammatical topic were corrected. *viri virtus*
+is possessive, not objective. Latin of Virgil is Greenough's (Perseus), not the Oxford text.
+
+**Other quotations.** Isidore I.5.1 now in Barney's words ("and is the origin and foundation
+of liberal letters"). Quintilian I.4.2 now in Butler's words ("the art of speaking correctly
+and the interpretation of the poets"), and Latin *partis*. Donatus: *gnato pro nato*; the
+polysyndeton example is Donatus's form *…Neoptolemusque*, while Virgil writes *Pelidesque
+Neoptolemus*, and the panel now says so. Deely's horse sentence restored in full. Austen
+(*Emma*) cut marked. Milton now in Beeching's 1900 text (*in it self … Heav'n*); Rasselas in
+the Cassell 1889 text (*everywhere*, no comma); Burke in Nimmo's 1887 *Works* (*economists*,
+*forever*); Hamlet's line ends with a colon as printed. Shakespeare is cited from a modern
+text (Project Gutenberg eBook 100), and the register no longer claims a pre-1931 edition for it.
+
+**Verified and unchanged:** St Thomas, *ST* I q.1 a.10 ad 3, I q.13 a.1, I q.39 a.8,
+I-II q.57 a.3 ad 3, III q.78 a.5; *In Peri hermeneias* I lect. 4 (the Stoics and the
+stylus), lect. 1 (nails); Boethius of Dacia (habitus; diversity of sciences; generable
+things; the figurations of the *vox*); Bursill-Hall ("formal criteria … failed utterly to
+provide"); Gibbon, Macaulay, Bacon, KJV, Lincoln (McBrien 1916), Jowett 30d–e, Crawley II.38–39.
+
+**Still not verified:** *Super Ioannem* n. 39; the First Folio spelling of *2 Henry IV*
+III.1; Gorgias, *Helen* 1 (Perseus unavailable when checked); *I Sent.* d. 22 (from Nieto);
+Peter of Spain; Sībawayh; the Sumerian lines and the OBGT person order.
