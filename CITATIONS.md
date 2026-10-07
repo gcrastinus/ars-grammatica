@@ -497,3 +497,48 @@ Peter of Spain; Sībawayh; the Sumerian lines and the OBGT person order.
 - *The Figure of Speech*: Aristotle's "to be well" / "to cut" example, checked as above.
 - *The Modes of Signifying*: Donatus's definitions of the adverb and the interjection, checked
   against the *Ars minor*.
+
+---
+
+## Seventh pass (October 2026): every set reviewed for strength and soundness
+
+**New items, each checked against its source**
+- Letter: Donatus's and Isidore's division into vowels, semivowels (*f l m n r s x*) and mutes, and
+  Isidore on *H* (a breathing), *X* (double, for *cs*), *K* (superfluous except in *Kalendae*),
+  *Y* and *Z* (borrowed for Greek words), and *I* and *U* as consonants before a vowel (Barney).
+  The drill no longer calls *V* a plain consonant or *Y* a Latin vowel.
+- Voice: Priscian's four kinds of voice, with his own examples (*arma virumque cano*; hissing
+  and groans; *coax*, *cra*; *crepitus*, *mugitus*), checked against the text of the
+  *Institutiones* I.
+- Vices: Donatus's solecisms *pars in frusta secant*, *urbem quam statuo vestra est*,
+  *apud amicum eo*, *torvumque repente clamat* (*Ars maior* III, Marchand's transcription).
+- Servius on *Aeneid* IV.3, 8 and 11: *recursat* (frequentative), *male sana* (*non plene
+  sana*), *unanimus/unanimis*, and *subaudis 'est'* (Thilo, Perseus).
+- Objections: Priscian V on gender (*genera … principalia sunt duo, quae sola novit ratio
+  naturae*; *hic/haec sacerdos*; the common and neuter genders known *vocis magis qualitate quam
+  natura*).
+- Figure of speech: *Sophistical Refutations* 4 (agent taken as patient) and 22 (seeing is not a
+  doing), in Owen's translation.
+- Service: St Thomas, *ST* I q.13 a.1 ad 3 (verbs said of God because his eternity includes all
+  time; pronouns point to what is understood) and I-II q.57 a.3 ad 3 (the liberal arts),
+  in the English Dominican translation.
+- Supposition: Peter of Spain's common and discrete supposition and *animal est genus* (after
+  the Stanford Encyclopedia's account of *Tractatus* VI).
+- Typology: Greenberg's universals 3 and 4.
+- English unit: KJV Genesis 1:1, 1:5, 3:19; Psalm 23:1–2; Psalm 118:22; Ecclesiastes 1:2,
+  12:12; Matthew 6:28; John 11:1; 1 Corinthians 13:13; Bacon, "Of Studies"; Austen, *Emma*
+  chapter 1. All checked against the Project Gutenberg texts named in the citations.
+- *Aeneid* I.1–11 and Livy I.1: new questions on the Latin of Greenough and of Foster.
+
+**Corrected**
+- *Uneasy lies the head*: *Vneasie* is an adjective set first for emphasis, not a modifier of
+  the verb.
+- "Colourless green ideas sleep furiously": the note no longer says that logic finds it false.
+- "The senate have not yet arrived their decision" was replaced, since *the senate have* is
+  acceptable British usage and confused the point.
+- The parts-of-speech drill's random sentences ("The farmer but the poet arrive", "A poor
+  servant sleeps yesterday") were replaced by sixty plain sentences written for the drill.
+  The workshop, declension and case generators were also limited to sensible combinations.
+- Throwaway wrong answers ("Because cuneiform is magic", "Because Chinese is silent", one-word
+  options borrowed from other traditions) were replaced in the traditions sets and decks.
+  Deck options are now shuffled, so the right answer no longer sits in the same place.
