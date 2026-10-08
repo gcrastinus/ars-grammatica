@@ -1754,7 +1754,7 @@ DECKS.prelim = {
 { src:['appown','isidore','quint','boethiusd'], h:`<p><strong>Master this first.</strong> Boethius of Dacia calls grammar an introductory science: it is not a part of philosophy as natural philosophy and mathematics are, but it is needed for learning them. It should therefore be mastered before logic, so that we see what it can do, namely, make connected speech signify.</p>
 <p>Quintilian divides the grammarian’s profession under two heads, which Butler translates as “the art of speaking correctly and the interpretation of the poets.” Both belong here, and both serve one end: a complete meaning, well arranged, in the hearer’s mind.</p>
 <p>The practice starts in the next tutorial, with the voice.</p>`,
-  q:{ prompt:`Why master grammar before logic?`,
+  q:{ prompt:`Why does grammar come before logic?`,
       options:['Because logic was first written in Latin and needs Latin grammar','Words must be arranged before they can be true or false',
                'Because the tradition forbids argument until the student is older','Because rhetoric must judge a sentence before logic may'],
       correct:1,
@@ -3280,9 +3280,9 @@ ${il({tr:'lugal-e e₂ mu-un-dù', gloss:'king-(agent piece) house built', en:'T
 
 { src:['blackgt','appown'], h:`<p><strong>No eight parts.</strong> There is no tablet that says the parts of Sumerian speech are eight. The verb is the centre of the grammatical paradigms, and the noun is the centre of the thematic lists. Adjectives, where they appear, often look like nouns in the list, and particles and prefixes are rows in the grammatical vocabularies.</p>
 <p>Yāska, later, will count four parts, Sībawayh three, and Donatus eight. The Babylonian school counts by the <em>kind of list</em> one is copying, not by a theory of parts.</p>`,
-  q:{ prompt:`Why does this tradition not offer eight parts of speech?`,
+  q:{ prompt:`Why does this tradition not count eight parts of speech?`,
       options:['Because Sumerian has no verbs or nouns that could be counted',
-               'Because its books are lists and paradigms, not eight parts',
+               'Because it does not divide speech into parts. It teaches from lists and from tables of verb forms',
                'Because grammar had not yet been invented',
                'Because they counted only the noun and the verb'],
       correct:1,
@@ -3391,9 +3391,9 @@ ${il({tr:'i-ŋen &nbsp;=&nbsp; illik', gloss:'Sumerian · Akkadian', en:'he went
 
 { src:['appown','msl'], h:`<p><strong>Letter and word, again.</strong> <em>E<sub>2</sub></em> as a sign is a house-plan in origin, and as a school word it is <em>bītum</em>. Our letter signifies nothing, whereas their word-sign already means, even before it is set beside other signs. That is the deepest cut between the two arts at the bottom of the ladder.</p>
 <p>Meaning, for us, begins at the word, after letter and syllable; for them, it can begin at a single sign that is already a word in the list, and only the syllable-signs must be strung together to make a word.</p>`,
-  q:{ prompt:`Why can a Sumerian word-sign mean, when a Latin letter does not?`,
+  q:{ prompt:`Why does a Sumerian word-sign have a meaning, when a Latin letter does not?`,
       options:['Because the signs are pictures of the things they name',
-               'A word-sign is listed as a word, and a letter is not',
+               'Because that sign is already a word, and a letter is not a word',
                'Because Sumerian has written marks and no sounds',
                'Because every sign stands for a whole sentence'],
       correct:1,
@@ -7250,8 +7250,8 @@ EX.scribal = tradEx('scribal', ['msl','nbgt','blackgt'], 'Paradigm and List',
        passage: il({tr:'mu-na-an-šum &nbsp;=&nbsp; iddinšum', en:'He gave (it) to him.'})}
     ]},
     {title:'What this art is not', items:[
-      {id:'sc21', src:['blackgt'], q:'Why does this tradition not offer eight parts of speech?',
-       a:'Its schoolbooks are lists and paradigms',
+      {id:'sc21', src:['blackgt'], q:'Why does this tradition not count eight parts of speech?',
+       a:'It teaches from lists and verb tables, not by dividing speech into parts',
        ds:['Because Sumerian has no verbs to count','Because grammar had not yet been invented','Because they counted only noun and verb'],
        why:'Their divisions follow the kinds of tablet they copied, not a theory of parts.'},
       {id:'sc22', src:['appown'], q:'“Ergative” in this course is…',
@@ -9021,13 +9021,13 @@ DECKS.endiag = {
 <p>A compound subject is two short lines joined before the crossing line, with the conjunction on a dotted line between them. An objective complement follows the direct object and is cut off by a slant, the same slant we use for a subject complement, because it renames or describes the object.</p>
 <p>${rkDiagram({subj:'He', verb:'gave', obj:'letter', io:'king', ioto:'(to)', alt:'He gave the king a letter'})}</p>
 <p>${rkDiagram({subj:['Boys','girls'], sconj:'and', verb:'sing', alt:'Boys and girls sing'})}</p>`,
-  q:{ prompt:'Why does the indirect object leave the base line?',
+  q:{ prompt:'Why is the indirect object drawn under the main line?',
       options:['Because it is the subject of a second clause',
                'It is the object of <em>to</em> or <em>for</em>, written or not',
                'Because English has no indirect object',
                'Because it receives the action before the direct object does'],
       correct:1,
-      explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the base.' } },
+      explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the main line.' } },
 
 { src:['engclass'], h:`<p><strong>One dependent clause.</strong> A dependent clause is drawn on a <strong>lower base</strong>, and a dotted line joins it to the word it depends on. The connecting word sits on that dotted line. An adverb clause hangs from the verb. An adjective clause hangs from the noun. The drill stops at one such clause. A period of Gibbon’s length can be diagrammed, but the diagram then stops being useful.</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', clause:{on:'verb', rel:'when', subj:'dawn', verb:'comes'}, alt:'Birds sing when dawn comes'})}</p>
