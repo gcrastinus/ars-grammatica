@@ -13925,6 +13925,152 @@ EX.latbuild = {
   }
 };
 
+/* ---------- More of the Latin Sentence ---------- */
+/* One form is missing from a Latin sentence; the rest is given in order. The student writes the form or
+   picks it from tiles. Kinds: 1 other persons, 2 the pronoun, 3 the dative, 4 the genitive, 5 et, and
+   place where. The place item is always given as tiles, because silvā and silva differ only by a macron. */
+const LM_ITEMS = [
+  /* 1. other persons */
+  {id:'lm1', k:1, en:'We praise the poet.', fr:'______ poētam.', a:'laudāmus', ds:['laudant','laudat','laudātis'],
+   why:'The subject is “we,” and the ending <em>-mus</em> shows the first person plural, so no pronoun is written: <strong>laudāmus</strong>. <em>Laudant</em> would mean “they praise.”'},
+  {id:'lm2', k:1, en:'I see the city.', fr:'Urbem ______.', a:'videō', ds:['videt','vident','vidēmus'],
+   why:'The subject is “I,” and the ending <em>-ō</em> shows the first person singular: <strong>videō</strong>. <em>Videt</em> would mean “he sees” or “she sees.”'},
+  {id:'lm3', k:1, en:'You (one person) call the slave.', fr:'Servum ______.', a:'vocās', ds:['vocat','vocō','vocātis'],
+   why:'The subject is “you,” one person, and the ending <em>-s</em> shows the second person singular: <strong>vocās</strong>. <em>Vocātis</em> would be said to more than one person.'},
+  {id:'lm4', k:1, en:'You all hear the king.', fr:'Rēgem ______.', a:'audītis', ds:['audiunt','audit','audīmus'],
+   why:'The subject is “you all,” and the ending <em>-tis</em> shows the second person plural: <strong>audītis</strong>. <em>Audiunt</em> would mean “they hear.”'},
+  {id:'lm5', k:1, en:'They lead the soldiers.', fr:'Mīlitēs ______.', a:'dūcunt', ds:['dūcit','dūcimus','dūcitis'],
+   why:'The subject is “they,” and the ending <em>-nt</em> shows the third person plural: <strong>dūcunt</strong>. <em>Dūcit</em> would have one person as its subject.'},
+  {id:'lm6', k:1, en:'I warn the girl.', fr:'Puellam ______.', a:'moneō', ds:['monet','monent','monēmus'],
+   why:'The subject is “I,” and the ending <em>-ō</em> shows the first person singular: <strong>moneō</strong>. <em>Monet</em> would mean “he warns” or “she warns.”'},
+  {id:'lm7', k:1, en:'We fear the war.', fr:'Bellum ______.', a:'timēmus', ds:['timent','timet','timētis'],
+   why:'The subject is “we,” and the ending <em>-mus</em> shows the first person plural: <strong>timēmus</strong>. <em>Timent</em> would mean “they fear.”'},
+  {id:'lm8', k:1, en:'You (one person) teach the boys.', fr:'Puerōs ______.', a:'docēs', ds:['docet','doceō','docent'],
+   why:'The subject is “you,” one person, and the ending <em>-s</em> shows the second person singular: <strong>docēs</strong>. <em>Docet</em> would mean “he teaches” or “she teaches.”'},
+  /* 2. the pronoun */
+  {id:'lm9', k:2, en:'The girl sees me.', fr:'Puella ______ videt.', a:'mē', ds:['ego','mihi','nōs'],
+   why:'“Me” is the object of <em>videt</em>, so the pronoun is in the accusative: <strong>mē</strong>. <em>Ego</em> is the form used as the subject.'},
+  {id:'lm10', k:2, en:'The king calls you (one person).', fr:'Rēx ______ vocat.', a:'tē', ds:['tū','tibi','mē'],
+   why:'“You” is the object of <em>vocat</em>, so the pronoun is in the accusative: <strong>tē</strong>. <em>Tū</em> is the form used as the subject.'},
+  {id:'lm11', k:2, en:'The queen gives us a gift.', fr:'Rēgīna ______ dōnum dat.', a:'nōbīs', ds:['nōs','mihi','vōbīs'],
+   why:'“Us” names the people to whom the gift is given, so the pronoun is in the dative: <strong>nōbīs</strong>. <em>Nōs</em> is the form used as the subject or the object.'},
+  {id:'lm12', k:2, en:'The soldiers hear you (one person).', fr:'Mīlitēs ______ audiunt.', a:'tē', ds:['tū','tibi','vōs'],
+   why:'“You” is the object of <em>audiunt</em>, so the pronoun is in the accusative: <strong>tē</strong>. <em>Tū</em> is the form used as the subject.'},
+  {id:'lm13', k:2, en:'The boy gives me a gift.', fr:'Puer ______ dōnum dat.', a:'mihi', ds:['mē','ego','tibi'],
+   why:'“Me” names the person to whom the gift is given, so the pronoun is in the dative: <strong>mihi</strong>. <em>Mē</em> would be the object of the giving.'},
+  {id:'lm14', k:2, en:'The father gives you all a gift.', fr:'Pater ______ dōnum dat.', a:'vōbīs', ds:['vōs','tibi','nōbīs'],
+   why:'“You all” names the people to whom the gift is given, so the pronoun is in the dative plural: <strong>vōbīs</strong>. <em>Vōs</em> is the form used as the subject or the object.'},
+  {id:'lm15', k:2, en:'The poet tells you (one person) the words.', fr:'Poēta ______ verba dīcit.', a:'tibi', ds:['tū','tē','mihi'],
+   why:'“You” names the person to whom the words are said, so the pronoun is in the dative: <strong>tibi</strong>. <em>Tē</em> would be the object of <em>dīcit</em>.'},
+  {id:'lm16', k:2, en:'The sailors call me.', fr:'Nautae ______ vocant.', a:'mē', ds:['ego','mihi','nōs'],
+   why:'“Me” is the object of <em>vocant</em>, so the pronoun is in the accusative: <strong>mē</strong>. <em>Ego</em> is the form used as the subject.'},
+  /* 3. the dative */
+  {id:'lm17', k:3, en:'The boy gives a gift to the girl.', fr:'Puer ______ dōnum dat.', a:'puellae', ds:['puellam','puella','puellārum'],
+   why:'The girl is the person to whom the gift is given, so <em>puella</em> is in the dative: <strong>puellae</strong>. <em>Puellam</em> would make the girl the object of <em>dat</em>.'},
+  {id:'lm18', k:3, en:'The queen gives a gift to the sailor.', fr:'Rēgīna ______ dōnum dat.', a:'nautae', ds:['nautam','nauta','nautīs'],
+   why:'The sailor is the person to whom the gift is given, so <em>nauta</em> is in the dative singular: <strong>nautae</strong>. <em>Nautīs</em> is the dative plural, “to the sailors.”'},
+  {id:'lm19', k:3, en:'The father gives the horse to his son.', fr:'Pater ______ equum dat.', a:'fīliō', ds:['fīlium','fīlius','fīliī'],
+   why:'The son is the person to whom the horse is given, so <em>fīlius</em> is in the dative: <strong>fīliō</strong>. <em>Fīlium</em> would make the son the object of <em>dat</em>.'},
+  {id:'lm20', k:3, en:'The king gives gifts to the soldiers.', fr:'Rēx ______ dōna dat.', a:'mīlitibus', ds:['mīlitēs','mīlitum','mīlitī'],
+   why:'The soldiers are the people to whom the gifts are given, so <em>mīles</em> is in the dative plural: <strong>mīlitibus</strong>. <em>Mīlitī</em> is the dative singular, “to the soldier.”'},
+  {id:'lm21', k:3, en:'The master gives a gift to the slave.', fr:'Dominus ______ dōnum dat.', a:'servō', ds:['servum','servus','servōs'],
+   why:'The slave is the person to whom the gift is given, so <em>servus</em> is in the dative: <strong>servō</strong>. <em>Servum</em> would make the slave the object of <em>dat</em>.'},
+  {id:'lm22', k:3, en:'The girl gives the gift to the queen.', fr:'Puella ______ dōnum dat.', a:'rēgīnae', ds:['rēgīnam','rēgīna','rēgīnās'],
+   why:'The queen is the person to whom the gift is given, so <em>rēgīna</em> is in the dative: <strong>rēgīnae</strong>. <em>Rēgīnam</em> would make the queen the object of <em>dat</em>.'},
+  {id:'lm23', k:3, en:'The poet gives a gift to the citizens.', fr:'Poēta ______ dōnum dat.', a:'cīvibus', ds:['cīvēs','cīvium','cīvī'],
+   why:'The citizens are the people to whom the gift is given, so <em>cīvis</em> is in the dative plural: <strong>cīvibus</strong>. <em>Cīvēs</em> would make the citizens the subject or the object.'},
+  {id:'lm24', k:3, en:'The sailors prepare a gift for the poet.', fr:'Nautae ______ dōnum parant.', a:'poētae', ds:['poētam','poēta','poētās'],
+   why:'The poet is the person for whom the gift is prepared, so <em>poēta</em> is in the dative: <strong>poētae</strong>. <em>Poētam</em> would make the poet the object of <em>parant</em>.'},
+  /* 4. the genitive */
+  {id:'lm25', k:4, en:'The king’s horse is large.', fr:'Equus ______ magnus est.', a:'rēgis', ds:['rēgī','rēgem','rēx'],
+   why:'<em>Rēgis</em> modifies <em>equus</em> and is in the genitive, so it does not agree with <em>equus</em>: <strong>rēgis</strong>. <em>Rēgī</em> is the dative, “to the king.”'},
+  {id:'lm26', k:4, en:'The girl’s gift is small.', fr:'Dōnum ______ parvum est.', a:'puellae', ds:['puellam','puella','puellārum'],
+   why:'<em>Puellae</em> modifies <em>dōnum</em> and is in the genitive singular: <strong>puellae</strong>. It keeps its own case and does not agree with <em>dōnum</em>; <em>puellārum</em> would mean “of the girls.”'},
+  {id:'lm27', k:4, en:'The father’s field is long.', fr:'Ager ______ longus est.', a:'patris', ds:['patrī','patrem','pater'],
+   why:'<em>Patris</em> modifies <em>ager</em> and is in the genitive, so it does not agree with <em>ager</em>: <strong>patris</strong>. <em>Patrī</em> is the dative, “to the father.”'},
+  {id:'lm28', k:4, en:'The poet’s words are famous.', fr:'Verba ______ clāra sunt.', a:'poētae', ds:['poētam','poēta','poētārum'],
+   why:'<em>Poētae</em> modifies <em>verba</em> and is in the genitive singular: <strong>poētae</strong>. It does not agree with <em>verba</em>; <em>poētārum</em> would mean “of the poets.”'},
+  {id:'lm29', k:4, en:'The city’s temple is high.', fr:'Templum ______ altum est.', a:'urbis', ds:['urbī','urbem','urbs'],
+   why:'<em>Urbis</em> modifies <em>templum</em> and is in the genitive, so it does not agree with <em>templum</em>: <strong>urbis</strong>. <em>Urbī</em> is the dative, “to the city.”'},
+  {id:'lm30', k:4, en:'The citizens’ law is good.', fr:'Lēx ______ bona est.', a:'cīvium', ds:['cīvēs','cīvibus','cīvis'],
+   why:'<em>Cīvium</em> modifies <em>lēx</em> and is in the genitive plural: <strong>cīvium</strong>. <em>Cīvis</em> is the genitive singular, “of the citizen.”'},
+  {id:'lm31', k:4, en:'The queen’s son is brave.', fr:'Fīlius ______ fortis est.', a:'rēgīnae', ds:['rēgīnam','rēgīna','rēgīnārum'],
+   why:'<em>Rēgīnae</em> modifies <em>fīlius</em> and is in the genitive singular: <strong>rēgīnae</strong>. It keeps its own case and does not agree with <em>fīlius</em>; <em>rēgīna</em> would be the subject form.'},
+  {id:'lm32', k:4, en:'The boys’ teacher is good.', fr:'Magister ______ bonus est.', a:'puerōrum', ds:['puerī','puerōs','puerīs'],
+   why:'<em>Puerōrum</em> modifies <em>magister</em> and is in the genitive plural: <strong>puerōrum</strong>. <em>Puerī</em> is the genitive singular, “of the boy,” or the nominative plural.'},
+  /* 5. et */
+  {id:'lm33', k:5, en:'The king calls the slaves and the sailors.', fr:'Rēx servōs et ______ vocat.', a:'nautās', ds:['nautae','nauta','nautam'],
+   why:'<em>Et</em> joins <em>nautās</em> to <em>servōs</em>, and both are the object of <em>vocat</em>, so both are accusative plural: <strong>nautās</strong>. <em>Nautae</em> would be the form used as the subject.'},
+  {id:'lm34', k:5, en:'The girl and the boy see the city.', fr:'Puella et ______ urbem vident.', a:'puer', ds:['puerum','puerō','puerī'],
+   why:'<em>Et</em> joins <em>puer</em> to <em>puella</em>, and both are the subject of <em>vident</em>, so both are nominative: <strong>puer</strong>. <em>Puerum</em> would be the object form.'},
+  {id:'lm35', k:5, en:'The queen praises the poet and the soldier.', fr:'Rēgīna poētam et ______ laudat.', a:'mīlitem', ds:['mīles','mīlitī','mīlitēs'],
+   why:'<em>Et</em> joins <em>mīlitem</em> to <em>poētam</em>, and both are the object of <em>laudat</em>, so both are accusative singular: <strong>mīlitem</strong>. <em>Mīles</em> would be the form used as the subject.'},
+  {id:'lm36', k:5, en:'The master warns the slave and the son.', fr:'Dominus servum et ______ monet.', a:'fīlium', ds:['fīlius','fīliō','fīliī'],
+   why:'<em>Et</em> joins <em>fīlium</em> to <em>servum</em>, and both are the object of <em>monet</em>, so both are accusative: <strong>fīlium</strong>. <em>Fīlius</em> would be the form used as the subject.'},
+  {id:'lm37', k:5, en:'The king leads the citizens and the slaves.', fr:'Rēx cīvēs et ______ dūcit.', a:'servōs', ds:['servī','servīs','servum'],
+   why:'<em>Et</em> joins <em>servōs</em> to <em>cīvēs</em>, and both are the object of <em>dūcit</em>, so both are accusative plural: <strong>servōs</strong>. <em>Servī</em> would be the form used as the subject.'},
+  {id:'lm38', k:5, en:'The father and the son hear the poet.', fr:'Pater et ______ poētam audiunt.', a:'fīlius', ds:['fīlium','fīliō','fīliī'],
+   why:'<em>Et</em> joins <em>fīlius</em> to <em>pater</em>, and both are the subject of <em>audiunt</em>, so both are nominative: <strong>fīlius</strong>. <em>Fīlium</em> would be the object form.'},
+  {id:'lm39', k:5, en:'The sailor fears the war and death.', fr:'Nauta bellum et ______ timet.', a:'mortem', ds:['mors','mortī','mortis'],
+   why:'<em>Et</em> joins <em>mortem</em> to <em>bellum</em>, and both are the object of <em>timet</em>, so both are accusative: <strong>mortem</strong>. <em>Mors</em> would be the form used as the subject.'},
+  {id:'lm40', k:5, en:'The girls and the queen praise the teacher.', fr:'Puellae et ______ magistrum laudant.', a:'rēgīna', ds:['rēgīnam','rēgīnae','rēgīnās'],
+   why:'<em>Et</em> joins <em>rēgīna</em> to <em>puellae</em>, and both are the subject of <em>laudant</em>, so both are nominative: <strong>rēgīna</strong>. <em>Rēgīnam</em> would be the object form.'},
+  /* place where, the corrected build */
+  {id:'lm41', k:6, tiles:true, en:'You all see the sailors in the forest.', fr:'Nautās in ______ vidētis.', a:'silvā', ds:['silva','silvam'],
+   why:'Place where is shown by <em>in</em> with the ablative: <strong>in silvā</strong>. <em>In silvam</em> means “into the forest,” and <em>silva</em> is the nominative.'}
+];
+const LM_KIND = {1:'Other persons', 2:'The pronoun', 3:'The dative', 4:'The genitive', 5:'Et', 6:'Place where'};
+function latMoreQ(d){
+  const it = pickSeen(LM_ITEMS, x => x.id);
+  const frame = it.fr.replace('______', '<span class="target">______</span>');
+  const tiles = it.tiles || d <= 2;
+  if(!tiles){
+    return {
+      kind:'text', lang:'la', src:['ag','appown'], sid:'lm:' + it.id, _answer:it.a,
+      prompt:'Write the missing Latin word. Macrons are optional.',
+      sentence:frame, gloss:it.en, placeholder:'Type the Latin form',
+      check(val){
+        if(normLat(val) === normLat(it.a)) return {right:true, note:it.why};
+        const wrote = String(val || '').trim();
+        return {right:false, note:it.why, also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:'la', src:['ag','appown'], sid:'lm:' + it.id, _answer:correct,
+    prompt:'Choose the missing Latin word.',
+    sentence:frame, gloss:it.en, options, correct,
+    check(i){
+      if(i === correct) return {right:true, note:it.why};
+      return {right:false, note:it.why, also:`The answer chosen was <em>${options[i]}</em>.`};
+    }
+  };
+}
+EX.latmore = {
+  id:'latmore', src:['ag','appown'], act:'IV', title:'More of the Latin Sentence',
+  desc:'One word is missing from a Latin sentence: a verb in another person, a pronoun, a noun in the dative or the genitive, a noun joined by <em>et</em>, or a place. The word is chosen from tiles at the first levels and written at the higher ones.',
+  instr:'Supply the missing Latin word.',
+  introInstr:'Read this, then begin. A set is complete at 100 points. The difficulty chosen on the home screen decides whether the word is chosen or written.',
+  intro:[
+    {h:'<strong>Other persons.</strong> The ending of a Latin verb shows its person and number, so a pronoun subject is usually left out.',
+     eg:['<em>Poētam laudāmus</em> means “we praise the poet.”']},
+    {h:'<strong>The pronoun.</strong> A personal pronoun used as the object of a verb is in the accusative, and one that names the person to whom something is given is in the dative.',
+     eg:['<em>Puella mē videt</em> means “the girl sees me”; <em>puer mihi dōnum dat</em> means “the boy gives me a gift.”']},
+    {h:'<strong>The dative.</strong> The person to whom or for whom something is done is in the dative.',
+     eg:['<em>Puer puellae dōnum dat</em> means “the boy gives a gift to the girl.”']},
+    {h:'<strong>The genitive.</strong> A noun in the genitive modifies another noun and keeps its own case, so it does not agree with that noun.',
+     eg:['<em>Equus rēgis magnus est</em> means “the king’s horse is large.”']},
+    {h:'<strong>Et.</strong> <em>Et</em> joins two words in the same case, because both are used in the same way in the sentence.',
+     eg:['<em>Rēx servōs et nautās vocat</em>: <em>servōs</em> and <em>nautās</em> are both the object of <em>vocat</em>.']},
+    {h:'<strong>Place where.</strong> Place where is shown by <em>in</em> with the ablative.',
+     eg:['<em>Nautās in silvā vidētis</em> means “you all see the sailors in the forest.” This word is always chosen from tiles, because <em>silvā</em> and <em>silva</em> differ only by the macron.']}
+  ],
+  gen(d){ return latMoreQ(d); }
+};
+
 /* ---------- scansion ---------- */
 /* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
    The quantities follow the published scansion named in the source note. */
@@ -14637,7 +14783,7 @@ const EX_MODES = {
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
-  meter:['both','en'], latbuild:['la'], markup:['both','en']
+  meter:['both','en'], latbuild:['la'], latmore:['la'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -14815,6 +14961,7 @@ const ACTS = [
      {kind:'deck', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
       desc:'From the meaning to the forms: the case of each noun by its work, the verb in agreement with its subject, and free word order.'},
      {kind:'ex', ex:'latbuild'},
+     {kind:'ex', ex:'latmore'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
