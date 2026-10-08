@@ -2373,7 +2373,7 @@ DECKS.pos = {
 { src:['donatus','priscian','isidore','aq_ph'], h:`<p><strong>THE EIGHT.</strong> How many kinds of work can a word do? Donatus
 counts eight. (<span class="lat">Partes orationis quot sunt? Octo.</span>)</p>
 <p><strong>Noun</strong> (<span class="lat">nomen</span>), and, in this account, the adjective<br> <strong>Pronoun</strong> (<span class="lat">pronomen</span>)<br> <strong>Verb</strong> (<span class="lat">verbum</span>)<br> <strong>Adverb</strong> (<span class="lat">adverbium</span>)<br> <strong>Participle</strong> (<span class="lat">participium</span>)<br> <strong>Conjunction</strong> (<span class="lat">coniunctio</span>)<br> <strong>Preposition</strong> (<span class="lat">praepositio</span>)<br> <strong>Interjection</strong> (<span class="lat">interiectio</span>)</p>
-<p>The Greek grammarians also counted eight, but theirs included the <strong>article</strong> and put the interjection under the adverb. Latin has no article, so the Latins dropped it and counted the interjection. English schoolbooks add the article back, and count the adjective as its own part, whereas in the Latin list the adjective is filed under the noun. The lists differ because the languages differ, and because the distinctions can be made finer or coarser.</p>
+<p>The Greek grammarians also counted eight, but theirs included the <strong>article</strong> and put the interjection under the adverb. Latin has no article, so the Latins dropped it and counted the interjection. English schoolbooks add the article back, and count the adjective as its own part, whereas in the Latin list the adjective is filed under the noun, because it adheres to the noun and takes the noun’s endings. The lists differ because the languages differ, and because the distinctions can be made finer or coarser.</p>
 <p>The logician counts differently, and the difference is worth knowing. St Thomas,
 commenting on Aristotle’s logic, says the logician treats only noun and verb,
 because a statement can be made of these alone. The pronoun goes with the noun,
@@ -2390,13 +2390,13 @@ eight, because all eight are needed to speak.</p>`,
 <p>The adjective, in this account, is a noun that cannot stand alone. <em>Bonus</em> names a quality only as belonging to something, as in <em>bonus puer</em>; take <em>puer</em> away and <em>bonus</em> has nothing to belong to. We have already seen the shape of this with the letter: a vowel can be uttered by itself, and a consonant cannot. In the same way, a noun in the narrow sense can stand alone, and an adjective cannot; the distinction is between standing by itself and adhering to another.</p>
 <p>A working test in English is whether <em>the</em> or <em>a</em> can be put in front of
 the word and the result still be English.</p>`,
-  q:{ prompt:`Where does Donatus file the adjective?`,
-      options:['Beside the noun, as a part counted apart',
-               'Under the noun, in his list of eight parts',
-               'With the participle, since both depend on a noun',
-               'With the adverb, as a limiting word'],
+  q:{ prompt:`Why does the tradition file the adjective under the noun, not beside it?`,
+      options:['Because adjectives always stand next to their nouns in the sentence',
+               'Because the adjective adheres to the noun and cannot stand alone',
+               'Because Donatus had no Latin word for the adjective',
+               'Because adjectives, like adverbs, do not inflect'],
       correct:1,
-      explain:`Donatus files the adjective under the noun. He does not give it a part of its own. A modern class does.` } },
+      explain:`The adjective signifies a property belonging to something else, and it takes the noun’s endings because it adheres to the noun. That is a fact about its work, not a missing name.` } },
 
 { src:['priscian','donatus','te','arist_int'], h:`<p><strong>THE VERB.</strong> The verb says that something is going on, or is. Priscian says the verb signifies acting or being acted upon, with tenses and moods, without case. <em>Waited, waits, will wait</em> are the same word at other times. (The participle also has time, and has it from the verb.)</p>
 <p>A name alone is not yet a sentence. In <em>Sailor.</em> the words are not yet true or false, whereas in <em>The sailor waits.</em> something is asserted, and it may be true or false. That is why a sentence is not complete without a verb: in names and verbs taken alone there is not yet truth or falsity, since those require an arrangement.</p>
@@ -5776,14 +5776,14 @@ const LETTER_ITEMS = [
 {id:'l16',src:['donatus','priscian'],q:'Latin <em>A</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>A</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
 {id:'l17',src:['donatus','priscian'],q:'Latin <em>E</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>E</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
 {id:'l18',src:['donatus','priscian'],q:'Latin <em>O</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>O</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
-{id:'l19',src:['donatus','priscian'],q:'Latin <em>B</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>B</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l20',src:['donatus','priscian'],q:'Latin <em>C</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>C</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l21',src:['donatus','priscian'],q:'Latin <em>D</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>D</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l22',src:['donatus','priscian'],q:'Latin <em>G</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>G</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l23',src:['donatus','priscian'],q:'Latin <em>K</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>K</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l24',src:['donatus','priscian'],q:'Latin <em>P</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>P</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l25',src:['donatus','priscian'],q:'Latin <em>Q</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>Q</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
-{id:'l26',src:['donatus','priscian'],q:'Latin <em>T</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','A mute: it sounds on its own','A consonant: it sounds on its own'],why:'<em>T</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'}
+{id:'l19',src:['donatus','priscian'],q:'Latin <em>B</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>B</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l20',src:['donatus','priscian'],q:'Latin <em>C</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>C</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l21',src:['donatus','priscian'],q:'Latin <em>D</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>D</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l22',src:['donatus','priscian'],q:'Latin <em>G</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>G</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l23',src:['donatus','priscian'],q:'Latin <em>K</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>K</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l24',src:['donatus','priscian'],q:'Latin <em>P</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>P</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l25',src:['donatus','priscian'],q:'Latin <em>Q</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>Q</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'},
+{id:'l26',src:['donatus','priscian'],q:'Latin <em>T</em>. Can this letter be sounded by itself?',a:'A consonant: it needs a vowel',ds:['A vowel: it sounds on its own','It is a pause, not a letter','A consonant: it sounds on its own'],why:'<em>T</em> is a consonant. It does not sound by itself. It sounds together with a vowel.'}
 ];
 
 EX.letter = {
@@ -6219,7 +6219,7 @@ const DECLINE_ITEMS = [
 {id:'dc39',lang:'la',src:['donatus'],s:'Rex regnat, <b>sed</b> populus tacet.',q:'Is the marked word declinable or indeclinable?',a:'Indeclinable: a conjunction, one form',ds:['Indeclinable: a preposition, one form','It takes endings, as a noun does','Declinable: a noun, which takes endings'],why:'The conjunction keeps one form.'},
 {id:'dc40',lang:'la',src:['donatus'],s:'<b>Si</b> puer currit, mater gaudet.',q:'Is the marked word declinable or indeclinable?',a:'Indeclinable: a conjunction, one form',ds:['Indeclinable: a preposition, one form','It takes endings, as a noun does','Declinable: a noun, which takes endings'],why:'The conjunction keeps one form.'},
 {id:'dc41',lang:'la',src:['donatus'],s:'<b>Heu</b>, puer cadit.',q:'Is the marked word declinable or indeclinable?',a:'Indeclinable: an interjection, one form',ds:['Declinable: a noun, which takes endings','Indeclinable: a preposition, one form','Declinable: an adjective, which takes degrees'],why:'The interjection is a cry, and it keeps one form.'},
-{id:'dc42',lang:'la',src:['donatus'],s:'<b>O</b>, fortis miles pugnat.',q:'Is the marked word declinable or indeclinable?',a:'Indeclinable: an interjection, one form',ds:['Declinable: a noun, which takes endings','Indeclinable: a preposition, one form','Declinable: an adjective, which takes degrees'],why:'The interjection is a cry, and it keeps one form.'}
+{id:'dc42',lang:'la',src:['donatus'],s:'<b>Heu</b>, fortis miles pugnat.',q:'Is the marked word declinable or indeclinable?',a:'Indeclinable: an interjection, one form',ds:['Declinable: a noun, which takes endings','Indeclinable: a preposition, one form','Declinable: an adjective, which takes degrees'],why:'The interjection is a cry, and it keeps one form.'}
 ];
 
 EX.decline = {
@@ -6572,7 +6572,7 @@ const WORK_ITEMS = [
 {id:'wk9',lang:'la',src:['te'],s:'Puer <b>fortis</b> non ruit.',q:'Which word terminates the dependence of <em>fortis</em>?',a:'Puer',ds:['ruit','non','fortis'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
 {id:'wk10',lang:'la',src:['te'],s:'Puella <b>bona</b> non cantat libenter.',q:'Which word terminates the dependence of <em>bona</em>?',a:'Puella',ds:['cantat','non','libenter'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
 {id:'wk11',lang:'la',src:['te'],s:'Nauta <b>fessus</b> non dormit hodie.',q:'Which word terminates the dependence of <em>fessus</em>?',a:'Nauta',ds:['hodie','non','dormit'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
-{id:'wk12',lang:'la',src:['te'],s:'O rex <b>sapiens</b> non regnat.',q:'Which word terminates the dependence of <em>sapiens</em>?',a:'rex',ds:['non','O','regnat'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
+{id:'wk12',lang:'la',src:['te'],s:'Rex <b>sapiens</b> non regnat hodie.',q:'Which word terminates the dependence of <em>sapiens</em>?',a:'rex',ds:['non','hodie','regnat'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
 {id:'wk13',lang:'la',src:['te'],s:'Miles <b>validus</b> non pugnat hodie.',q:'Which word terminates the dependence of <em>validus</em>?',a:'Miles',ds:['hodie','non','pugnat'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
 {id:'wk14',lang:'la',src:['te'],s:'Avis <b>parva</b> non volat bene.',q:'Which word terminates the dependence of <em>parva</em>?',a:'Avis',ds:['bene','non','volat'],why:'The adjective depends on the noun, and the noun terminates the dependence.'},
 {id:'wk15',lang:'la',src:['te'],s:'Cicero semper graviter <b>orat</b>.',q:'In Thomas’s account, the verb <em>orat</em> depends on which word?',a:'Cicero',ds:['semper','orat','graviter'],why:'The verb depends on its subject, and the subject terminates the dependence.'},
@@ -6590,15 +6590,15 @@ const WORK_ITEMS = [
 {id:'wk27',lang:'la',src:['te'],s:'Nos <b>appellamus</b> Socratem libenter.',q:'In Thomas’s account, the verb <em>appellamus</em> depends on its object. Which word terminates that dependence?',a:'Socratem',ds:['libenter','Nos','appellamus'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk28',lang:'la',src:['te'],s:'Ego <b>percutio</b> Socratem vehementer.',q:'In Thomas’s account, the verb <em>percutio</em> depends on its object. Which word terminates that dependence?',a:'Socratem',ds:['percutio','Ego','vehementer'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk29',lang:'la',src:['te'],s:'Nos <b>videmus</b> Romam hodie.',q:'In Thomas’s account, the verb <em>videmus</em> depends on its object. Which word terminates that dependence?',a:'Romam',ds:['videmus','Nos','hodie'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk30',lang:'la',src:['te'],s:'Mater <b>amat</b> filium statim libenter.',q:'In Thomas’s account, the verb <em>amat</em> depends on its object. Which word terminates that dependence?',a:'filium',ds:['statim','amat','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk30',lang:'la',src:['te'],s:'Mater <b>amat</b> filium libenter.',q:'In Thomas’s account, the verb <em>amat</em> depends on its object. Which word terminates that dependence?',a:'filium',ds:['Mater','amat','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk31',lang:'la',src:['te'],s:'Filius <b>portat</b> librum libenter.',q:'In Thomas’s account, the verb <em>portat</em> depends on its object. Which word terminates that dependence?',a:'librum',ds:['portat','Filius','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk32',lang:'la',src:['te'],s:'Puella <b>vocat</b> matrem statim libenter.',q:'In Thomas’s account, the verb <em>vocat</em> depends on its object. Which word terminates that dependence?',a:'matrem',ds:['vocat','statim','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk33',lang:'la',src:['te'],s:'Puer <b>intrat</b> portam statim libenter.',q:'In Thomas’s account, the verb <em>intrat</em> depends on its object. Which word terminates that dependence?',a:'portam',ds:['intrat','statim','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk32',lang:'la',src:['te'],s:'Puella <b>vocat</b> matrem libenter.',q:'In Thomas’s account, the verb <em>vocat</em> depends on its object. Which word terminates that dependence?',a:'matrem',ds:['vocat','Puella','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk33',lang:'la',src:['te'],s:'Puer <b>intrat</b> portam libenter.',q:'In Thomas’s account, the verb <em>intrat</em> depends on its object. Which word terminates that dependence?',a:'portam',ds:['intrat','Puer','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk34',lang:'la',src:['te'],s:'Miles <b>intrat</b> castra libenter.',q:'In Thomas’s account, the verb <em>intrat</em> depends on its object. Which word terminates that dependence?',a:'castra',ds:['intrat','Miles','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk35',lang:'la',src:['te'],s:'Nauta <b>videt</b> amicum statim libenter.',q:'In Thomas’s account, the verb <em>videt</em> depends on its object. Which word terminates that dependence?',a:'amicum',ds:['videt','statim','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk36',lang:'la',src:['te'],s:'Filius <b>audit</b> patrem statim libenter.',q:'In Thomas’s account, the verb <em>audit</em> depends on its object. Which word terminates that dependence?',a:'patrem',ds:['audit','statim','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk37',lang:'la',src:['te'],s:'Rex non <b>dat</b> legem hodie libenter.',q:'In Thomas’s account, the verb <em>dat</em> depends on its object. Which word terminates that dependence?',a:'legem',ds:['hodie','non','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
-{id:'wk38',lang:'la',src:['te'],s:'Mater non <b>dat</b> donum hodie libenter.',q:'In Thomas’s account, the verb <em>dat</em> depends on its object. Which word terminates that dependence?',a:'donum',ds:['hodie','non','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk35',lang:'la',src:['te'],s:'Nauta <b>videt</b> amicum libenter.',q:'In Thomas’s account, the verb <em>videt</em> depends on its object. Which word terminates that dependence?',a:'amicum',ds:['videt','Nauta','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk36',lang:'la',src:['te'],s:'Filius <b>audit</b> patrem libenter.',q:'In Thomas’s account, the verb <em>audit</em> depends on its object. Which word terminates that dependence?',a:'patrem',ds:['audit','Filius','libenter'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk37',lang:'la',src:['te'],s:'Rex non <b>dat</b> legem hodie.',q:'In Thomas’s account, the verb <em>dat</em> depends on its object. Which word terminates that dependence?',a:'legem',ds:['hodie','non','Rex'],why:'The verb depends on its object, and the object terminates the dependence.'},
+{id:'wk38',lang:'la',src:['te'],s:'Mater non <b>dat</b> donum hodie.',q:'In Thomas’s account, the verb <em>dat</em> depends on its object. Which word terminates that dependence?',a:'donum',ds:['hodie','non','Mater'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk39',lang:'la',src:['te'],s:'Imperator <b>capit</b> consilium vehementer.',q:'In Thomas’s account, the verb <em>capit</em> depends on its object. Which word terminates that dependence?',a:'consilium',ds:['Imperator','capit','vehementer'],why:'The verb depends on its object, and the object terminates the dependence.'},
 {id:'wk40',lang:'la',src:['te'],s:'Puer <b>videt</b> urbem hodie.',q:'In Thomas’s account, the verb <em>videt</em> depends on its object. Which word terminates that dependence?',a:'urbem',ds:['hodie','videt','Puer'],why:'The verb depends on its object, and the object terminates the dependence.'}
 ];
@@ -6938,7 +6938,7 @@ const SUP_ITEMS = [
   {id:'sp2', lang:'en', src:['peterhisp'], s:'Man is a species.',
    q:'What is <em>man</em> standing for here?',
    a:'Simple supposition: the nature as known, not any one man',
-   ds:['Personal supposition: the actual men','Material supposition: the letters of the word','Nothing, since a species is not a man'],
+   ds:['Personal supposition: the actual men, rather than a kind','Material supposition: the letters of the word as written','Nothing, since a species is not a man'],
    why:'No particular man is a species. The term stands for the nature as known, not for any man. Signification has not changed; supposition has.'},
   {id:'sp3', lang:'en', src:['peterhisp'], s:'Man is a three-letter word.',
    q:'What is <em>man</em> standing for here?',
@@ -7806,17 +7806,23 @@ EX.vox = {
 {id:'vx14',lang:'la',src:['donatus'],q:'What is spoken Latin <em>homo</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate. It is not a cry, and it is not confused.'},
 {id:'vx15',lang:'la',src:['donatus'],q:'What is spoken <em>cano</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
 {id:'vx16',lang:'la',src:['donatus'],q:'What is the letter <em>A</em>, sounded, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so it is articulate. It is not yet a word, because it signifies nothing on its own.'},
-{id:'vx17',lang:'la',src:['donatus'],q:'What is a spoken name, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'A name is voice that can be written. For Donatus that is articulate voice.'},
-{id:'vx18',lang:'la',src:['donatus'],q:'What is a groan, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A groan is voice, and it cannot be written in letters. For Donatus it is confused, or inarticulate.'},
-{id:'vx19',lang:'la',src:['donatus'],q:'What is a dog’s bark, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A bark is living voice, and it cannot be written in letters. For Donatus it is confused.'},
-{id:'vx20',lang:'la',src:['donatus'],q:'What is a cough, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A cough is air struck, and so it is voice. It cannot be written in letters, so for Donatus it is confused.'},
-{id:'vx21',lang:'la',src:['donatus'],q:'What is a hiss, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A hiss is voice, and it cannot be written in letters. For Donatus it is confused. It is not yet a word.'},
-{id:'vx22',lang:'la',src:['donatus'],q:'For Donatus, what is articulate voice?',a:'Voice that can be caught in letters',ds:['Noise that can be caught in letters','A cry that cannot be written down','Voice that cannot be caught in letters'],why:'Articulate voice is voice that can be caught in letters. A noise is not the definition, and voice that cannot be written is the other kind.'},
-{id:'vx23',lang:'la',src:['donatus'],q:'For Donatus, what is confused voice?',a:'Voice that cannot be caught in letters',ds:['Articulate voice, which can be written','A word, because it can be written','Voice, and articulate: it cannot be written'],why:'Confused voice cannot be caught in letters. It is still voice. It is not articulate.'},
+{id:'vx17',lang:'en',src:['donatus'],q:'What is a spoken name, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'A name is voice that can be written. For Donatus that is articulate voice.'},
+{id:'vx18',lang:'en',src:['donatus'],q:'What is a groan, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A groan is voice, and it cannot be written in letters. For Donatus it is confused, or inarticulate.'},
+{id:'vx19',lang:'en',src:['donatus'],q:'What is a dog’s bark, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A bark is living voice, and it cannot be written in letters. For Donatus it is confused.'},
+{id:'vx20',lang:'en',src:['donatus'],q:'What is a cough, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A cough is air struck, and so it is voice. It cannot be written in letters, so for Donatus it is confused.'},
+{id:'vx21',lang:'en',src:['donatus'],q:'What is a hiss, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A hiss is voice, and it cannot be written in letters. For Donatus it is confused. It is not yet a word.'},
+{id:'vx22',lang:'en',src:['donatus'],q:'For Donatus, what is articulate voice?',a:'Voice that can be caught in letters',ds:['Noise that can be caught in letters','A cry that cannot be written down','Voice that cannot be caught in letters'],why:'Articulate voice is voice that can be caught in letters. A noise is not the definition, and voice that cannot be written is the other kind.'},
+{id:'vx23',lang:'en',src:['donatus'],q:'For Donatus, what is confused voice?',a:'Voice that cannot be caught in letters',ds:['Articulate voice, which can be written','A word, because it can be written','Voice, and articulate: it cannot be written'],why:'Confused voice cannot be caught in letters. It is still voice. It is not articulate.'},
 {id:'vx24',lang:'la',src:['donatus'],q:'Why is spoken <em>puer</em> articulate, for Donatus?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It can be written in letters. That is what Donatus means by articulate.'},
-{id:'vx25',lang:'la',src:['donatus'],q:'A groan is not articulate, for Donatus. What is it?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'It cannot be written in letters. Donatus calls that confused voice.'}
+{id:'vx25',lang:'en',src:['donatus'],q:'A groan is not articulate, for Donatus. What is it?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'It cannot be written in letters. Donatus calls that confused voice.'},
+{id:'vx26',lang:'la',src:['donatus'],q:'What is spoken <em>equus</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
+{id:'vx27',lang:'la',src:['donatus'],q:'What is spoken <em>navis</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
+{id:'vx28',lang:'la',src:['donatus'],q:'What is spoken <em>urbs</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
+{id:'vx29',lang:'la',src:['donatus'],q:'What is spoken <em>rosa</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
+{id:'vx30',lang:'la',src:['donatus'],q:'What is spoken <em>aqua</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
+{id:'vx31',lang:'la',src:['donatus'],q:'What is spoken <em>dominus</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'}
     ];
-    const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5','vx12','vx13','vx14','vx15','vx16','vx17','vx18','vx19','vx20','vx21','vx22','vx23','vx24','vx25'].indexOf(x.id)>=0) : d === 2 ? items.filter(x => ['vx8','vx9','vx10','vx11'].indexOf(x.id) < 0 || x.id === 'vx8') : items;
+    const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5','vx12','vx13','vx14','vx15','vx16','vx17','vx18','vx19','vx20','vx21','vx22','vx23','vx24','vx25','vx26','vx27','vx28','vx29','vx30','vx31'].indexOf(x.id)>=0) : d === 2 ? items.filter(x => ['vx8','vx9','vx10','vx11'].indexOf(x.id) < 0 || x.id === 'vx8') : items;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
 };
@@ -8848,7 +8854,7 @@ const CITE = {
   ayli:'William Shakespeare, <em>As You Like It</em> (modern-spelling text, Project Gutenberg eBook 100)',
   jc:'William Shakespeare, <em>Julius Caesar</em> (modern-spelling text, Project Gutenberg eBook 100)',
   h4:'William Shakespeare, <em>King Henry IV</em>, Part 2, III.1, in the spelling of the First Folio (1623), TLN 1452 (Internet Shakespeare Editions)',
-  pl:'John Milton, <em>Paradise Lost</em> (1674), Book I, in Beeching’s edition (Oxford, 1900)',
+  pl:'John Milton, <em>Paradise Lost</em>, Book I, in Beeching’s edition (Oxford, 1900)',
   son:'John Milton, Sonnet 19, from the <em>Poems</em> of 1673, in Beeching’s edition (Oxford, 1900)',
   bacon:'Francis Bacon, “Of Studies,” <em>Essays</em> (1625), in the modernized spelling of Project Gutenberg eBook 575, which does not name its source',
   rass:'Samuel Johnson, <em>The History of Rasselas</em>, chapter 11 (Cassell, 1889)',
@@ -8920,7 +8926,7 @@ const CITE = {
   macb:'William Shakespeare, <em>Macbeth</em> (modern-spelling text, Project Gutenberg eBook 100)',
   r3:'William Shakespeare, <em>King Richard III</em> (modern-spelling text, Project Gutenberg eBook 100)',
   tn:'William Shakespeare, <em>Twelfth Night</em> (modern-spelling text, Project Gutenberg eBook 100)',
-  pl26:'John Milton, <em>Paradise Lost</em> (1674), Book I, as printed by Project Gutenberg (eBook 26)',
+  pl26:'John Milton, <em>Paradise Lost</em>, Book I, in the modern-spelling text of Project Gutenberg (eBook 26)',
   ra30:'Samuel Johnson, <em>The History of Rasselas</em>, chapter 30 (Cassell, 1889)',
   burkePg:'Edmund Burke, in <em>The Works of the Right Honourable Edmund Burke</em>, vol. 3, as printed by Project Gutenberg (eBook 15679)',
   baconBeauty:'Francis Bacon, “Of Beauty,” <em>Essays</em> (1625), in the modernized spelling of Project Gutenberg eBook 575, which does not name its source',
@@ -8936,11 +8942,11 @@ DECKS.enpos = {
 <p>A modern class usually counts eight parts: <strong>noun, pronoun, adjective, verb, adverb, preposition, conjunction,</strong> and <strong>interjection</strong>. Donatus also counts eight, but not these eight. He files the adjective under the noun, he keeps the participle as a part of its own, and he has no article, because Latin has none. The Greek list kept the article and counted the interjection among the adverbs. The lists differ because the languages differ; but the question we ask does not differ, since in every case we ask what work the word is doing here.</p>`,
   q:{ prompt:'Why does Donatus not count the adjective as a part of its own?',
       options:['Because an adjective is only a shortened form of the verb',
-               'Because he files that work under the noun in Latin',
+               'Because he files it under the noun, as a name that cannot stand alone',
                'Because adjectives are counted with the participles, since both depend on a noun',
                'Because the interjection already includes its work'],
       correct:1,
-      explain:'Donatus files the adjective under the noun. A modern class gives it a name of its own. The work is the same work.' } },
+      explain:'The adjective adheres to a noun and cannot stand alone, and so Donatus counts it inside the noun. A modern class gives it a name of its own, but the work is the same work.' } },
 
 { src:['donatus','priscian','engclass'], h:`<p><strong>Noun, pronoun, adjective, verb.</strong> A <strong>noun</strong> names a person, a place, a thing, or something we treat as a thing, such as mercy or frailty. Donatus calls this the <span class="lat">nomen</span>. A <strong>pronoun</strong> stands in for a noun: <em>he, she, who, that</em>. The traditional name is <span class="lat">pronomen</span>, and Priscian says it signifies a substance without describing it.</p>
 <p>An <strong>adjective</strong> tells of what sort, or which, or how many, and it depends on a noun: <em>full, old, rotten</em>. A modern class lists it apart. This course has already filed it under the noun.</p>
@@ -9337,19 +9343,19 @@ const EN_POS = [
   posItem({id:'ep18', dmin:3, cite:CITE.ham, s:'Frailty, <span class="target">thy</span> name is woman!', a:'Pronoun',
     why:'<em>Thy</em> stands in for the one addressed, and it is possessive. A possessive pronoun is still a pronoun.'}),
   posItem({id:'ep19', dmin:3, cite:CITE.son, s:'They also serve <span class="target">who</span> only stand and waite.', a:'Pronoun',
-    why:'<em>Who</em> relates to <em>They</em> and is the subject of <em>stand</em>. A relative pronoun is a pronoun. Donatus files it there, not with the conjunction. The spelling <em>waite</em> is Milton’s.'}),
+    why:'<em>Who</em> relates to <em>They</em> and is the subject of <em>stand</em>. A relative pronoun is a pronoun. Donatus files it there, not with the conjunction.'}),
   posItem({id:'ep20', dmin:3, cite:CITE.ayli, s:'All the world\'s a <span class="target">stage</span>,', a:'Noun',
     why:'<em>Stage</em> names what the world is said to be. It is a predicate nominative, and a predicate nominative is a noun in office.'}),
   posItem({id:'ep21', dmin:3, cite:CITE.burke, s:'<span class="target">But</span> the age of chivalry is gone.', a:'Conjunction',
     why:'<em>But</em> joins this sentence to what Burke has just said. Joining is the conjunction’s work, even when it stands at the front.'}),
   posItem({id:'ep22', dmin:4, cite:CITE.h4, s:'Vneasie lyes the <span class="target">Head</span>, that weares a Crowne.', a:'Noun',
-    why:'The folio spells it <em>Head</em>. That word names what lies uneasy, and so it is the subject, a noun. The unusual order does not change the part of speech.'}),
+    why:'That word names what lies uneasy, and so it is the subject, a noun. The unusual order does not change the part of speech.'}),
   posItem({id:'ep23', dmin:4, cite:CITE.pl, s:'The mind is its own place, and in it self<br>Can <span class="target">make</span> a Heav’n of Hell, a Hell of Heav’n.', a:'Verb',
-    why:'<em>Can make</em> is the second asserting group, sharing the subject <em>mind</em>. <em>Make</em> is a verb. <em>Heav’n</em> (Milton’s spelling of <em>Heaven</em>) and <em>Hell</em> are nouns.'}),
+    why:'<em>Can make</em> is the second asserting group, sharing the subject <em>mind</em>. <em>Make</em> is a verb. <em>Heav’n</em> and <em>Hell</em> are nouns.'}),
   posItem({id:'ep24', dmin:4, s:'The <span class="target">waiting</span> sailors saw the king.', a:'Participle',
     why:'<em>Waiting</em> depends on <em>sailors</em> and keeps the verb’s sense of something going on. That is the participle. <em>Waiting is hard</em> would be a gerund, a noun’s work, instead.'}),
   posItem({id:'ep25', dmin:2, cite:CITE.gib3, s:'Augustus was sensible that mankind is governed by <span class="target">names</span>;', a:'Noun',
-    why:'<em>Names</em> is the object of <em>by</em>. The sentence goes on, <em>nor was he deceived</em>. A modern class calls this a noun, Donatus’s <span class="lat">nomen</span>.'}),
+    why:'<em>Names</em> is the object of <em>by</em>. A modern class calls this a noun, Donatus’s <span class="lat">nomen</span>.'}),
   posItem({id:'ep26', dmin:2, cite:CITE.kjvPs1, s:'The LORD is my shepherd; I shall not <span class="target">want</span>.', a:'Verb',
     why:'<em>Shall want</em> is the verb, and in the English of 1611 <em>want</em> means “lack.” It says what will not happen; it does not name a thing.'}),
   posItem({id:'ep27', dmin:2, cite:CITE.kjvPs, s:'He maketh me to lie down in <span class="target">green</span> pastures:', a:'Adjective',
@@ -9417,21 +9423,21 @@ const EN_POS = [
   posItem({id:'ep58', dmin:2, cite:CITE.kjvMt6_11, s:'Give us this day <span class="target">our</span> daily bread.', a:'Pronoun',
     why:'<em>Our</em> stands for the speakers and shows possession. The older grammar calls that form the genitive. A modern class calls this a pronoun, Donatus’s <span class="lat">pronomen</span>.'}),
   posItem({id:'ep59', dmin:2, cite:CITE.kjvPhp4_4, s:'Rejoice <span class="target">in</span> the Lord alway: and again I say, Rejoice.', a:'Preposition',
-    why:'<em>In</em> takes <em>the Lord</em> as its object. The spelling <em>alway</em>, with no final <em>s</em>, is the spelling of this verse. A modern class calls this a preposition, Donatus’s <span class="lat">praepositio</span>.'}),
+    why:'<em>In</em> takes <em>the Lord</em> as its object. A modern class calls this a preposition, Donatus’s <span class="lat">praepositio</span>.'}),
   posItem({id:'ep60', dmin:2, cite:CITE.macb, s:'<span class="target">Fair</span> is foul, and foul is fair:', a:'Adjective',
     why:'<em>Fair</em> describes what is foul in the first clause. The order is inverted, and <em>is</em> links. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep61', dmin:2, cite:CITE.kjvPr15_1, s:'A <span class="target">soft</span> answer turneth away wrath: but grievous words stir up anger.', a:'Adjective',
     why:'<em>Soft</em> tells what sort of answer turns away wrath. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep62', dmin:2, cite:CITE.r3, s:'<span class="target">Now</span> is the winter of our discontent Made glorious summer by this son of York;', a:'Adverb',
-    why:'<em>Now</em> tells when the winter is. It modifies the verb <em>is</em>. The capital on <em>Made</em> is the capital at the head of the next line. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
+    why:'<em>Now</em> tells when the winter is. It modifies the verb <em>is</em>. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
   posItem({id:'ep63', dmin:2, cite:CITE.kjvJn14_6, s:'I am the way, the truth, <span class="target">and</span> the life: no man cometh unto the Father, but by me.', a:'Conjunction',
-    why:'<em>And</em> joins <em>the way</em>, <em>the truth</em>, and <em>the life</em>. The verse goes on, <em>no man cometh unto the Father, but by me</em>. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
+    why:'<em>And</em> joins <em>the way</em>, <em>the truth</em>, and <em>the life</em>. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep64', dmin:2, cite:CITE.kjvPs51_10, s:'Create in <span class="target">me</span> a clean heart, O God; and renew a right spirit within me.', a:'Pronoun',
     why:'<em>Me</em> is the object of <em>in</em>. The older grammar calls the object of a preposition an accusative, and a modern class calls the form the objective case. A modern class calls this a pronoun, Donatus’s <span class="lat">pronomen</span>.'}),
   posItem({id:'ep65', dmin:2, cite:CITE.ham, s:'<span class="target">The</span> rest is silence.', a:'Article',
     why:'<em>The</em> points out the rest. Latin would use the noun alone. A modern class calls this an article. Latin has no article, so Donatus does not count one.'}),
   posItem({id:'ep66', dmin:2, cite:CITE.kjvPhp4_4, s:'Rejoice in the Lord <span class="target">alway</span>: and again I say, Rejoice.', a:'Adverb',
-    why:'<em>Alway</em> tells how long the rejoicing is to last. The verse spells it without a final <em>s</em>. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
+    why:'<em>Alway</em> tells how long the rejoicing is to last. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
   posItem({id:'ep67', dmin:2, cite:CITE.jc, s:'Ambition should be made of <span class="target">sterner</span> stuff:', a:'Adjective',
     why:'<em>Sterner</em> tells what sort of stuff. It describes <em>stuff</em>. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep68', dmin:2, cite:CITE.kjvMt5_13, s:'Ye are the salt <span class="target">of</span> the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men.', a:'Preposition',
@@ -9443,7 +9449,7 @@ const EN_POS = [
   posItem({id:'ep71', dmin:3, cite:CITE.jc, s:'The evil that men do <span class="target">lives</span> after them,', a:'Verb',
     why:'<em>Lives</em> asserts of the evil. The member has no direct object. The comma continues the speech. A modern class calls this a verb, Donatus’s <span class="lat">verbum</span>.'}),
   posItem({id:'ep72', dmin:3, cite:CITE.ham, s:'For loan <span class="target">oft</span> loses both itself and friend; And borrowing dulls the edge of husbandry.', a:'Adverb',
-    why:'<em>Oft</em> tells how often loan loses. It modifies the verb. <em>For</em> at the head of the line is a conjunction, and it is not the marked word. The capital on <em>And</em> is the capital at the head of the next line. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
+    why:'<em>Oft</em> tells how often loan loses. It modifies the verb. <em>For</em> at the head of the line is a conjunction, and it is not the marked word. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
   posItem({id:'ep73', dmin:3, cite:CITE.kjvJn14_6, s:'I am the way, the <span class="target">truth</span>, and the life: no man cometh unto the Father, but by me.', a:'Noun',
     why:'<em>Truth</em> names what he is. After the linking verb it is a predicate nominative, a noun in the nominative with the subject. A modern class calls this a noun, Donatus’s <span class="lat">nomen</span>.'}),
   posItem({id:'ep74', dmin:3, cite:CITE.kjvRo8_31, s:'If God be for us, <span class="target">who</span> can be against us?', a:'Pronoun',
@@ -9451,15 +9457,15 @@ const EN_POS = [
   posItem({id:'ep75', dmin:3, cite:CITE.kjvRo8_31, s:'If God be for us, who can be <span class="target">against</span> us?', a:'Preposition',
     why:'<em>Against</em> takes <em>us</em> as its object. A modern class calls this a preposition, Donatus’s <span class="lat">praepositio</span>.'}),
   posItem({id:'ep76', dmin:3, cite:CITE.jc, s:'The fault, dear Brutus, is not in our stars, <span class="target">But</span> in ourselves, that we are underlings.', a:'Conjunction',
-    why:'<em>But</em> joins <em>in our stars</em> with <em>in ourselves</em>. It does not start a new clause. The capital on <em>But</em> is the capital at the head of the next line. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
+    why:'<em>But</em> joins <em>in our stars</em> with <em>in ourselves</em>. It does not start a new clause. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep77', dmin:3, cite:CITE.kjvMt7_1, s:'Judge not, <span class="target">that</span> ye be not judged.', a:'Conjunction',
     why:'<em>That</em> joins the purpose, <em>ye be not judged</em>, to the command <em>Judge not</em>. <em>Be</em> is subjunctive. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep78', dmin:3, cite:CITE.baconBeauty, s:'VIRTUE is like a <span class="target">rich</span> stone, best plain set;', a:'Adjective',
-    why:'<em>Rich</em> tells what sort of stone. The capitals on <em>VIRTUE</em> are the capitals of this edition. A modern class calls this an adjective. Donatus files that work under the noun.'}),
+    why:'<em>Rich</em> tells what sort of stone. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep79', dmin:3, cite:CITE.pp1, s:'It is a truth <span class="target">universally</span> acknowledged, that a single man in possession of a good fortune must be in want of a wife.', a:'Adverb',
     why:'<em>Universally</em> tells the extent of <em>acknowledged</em>. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
   posItem({id:'ep80', dmin:3, cite:CITE.pp1, s:'It is a truth universally acknowledged, that a <span class="target">single</span> man in possession of a good fortune must be in want of a wife.', a:'Adjective',
-    why:'<em>Single</em> tells what sort of man. Austen’s sentence has no comma in <em>a good fortune must</em>. A modern class calls this an adjective. Donatus files that work under the noun.'}),
+    why:'<em>Single</em> tells what sort of man. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep81', dmin:3, cite:CITE.pp1, s:'It is a truth universally <span class="target">acknowledged</span>, that a single man in possession of a good fortune must be in want of a wife.', a:'Participle',
     why:'<em>Acknowledged</em> depends on <em>truth</em>. <em>Universally</em> modifies the participle. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   posItem({id:'ep82', dmin:3, cite:CITE.kjvJn15_13, s:'Greater love hath no man than this, that a man lay down <span class="target">his</span> life for his friends.', a:'Pronoun',
@@ -9471,7 +9477,7 @@ const EN_POS = [
   posItem({id:'ep85', dmin:3, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only <span class="target">begotten</span> Son, that whosoever believeth in him should not perish, but have everlasting life.', a:'Participle',
     why:'<em>Begotten</em> depends on <em>Son</em>. <em>Only</em> limits it. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   posItem({id:'ep86', dmin:3, cite:CITE.em3, s:'If I loved you <span class="target">less</span>, I might be able to talk about it more.', a:'Adverb',
-    why:'<em>Less</em> tells the degree of <em>loved</em>. It modifies the verb, so it is an adverb here. <em>Fewer</em> would be the word for a count of things. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
+    why:'<em>Less</em> tells the degree of <em>loved</em>. It modifies the verb, so it is an adverb here. A modern class calls this an adverb, Donatus’s <span class="lat">adverbium</span>.'}),
   posItem({id:'ep87', dmin:4, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only begotten Son, that <span class="target">whosoever</span> believeth in him should not perish, but have everlasting life.', a:'Pronoun',
     why:'<em>Whosoever</em> is the subject of <em>believeth</em>. It is a compound relative pronoun: the one who, whoever that may be. A modern class calls this a pronoun, Donatus’s <span class="lat">pronomen</span>.'}),
   posItem({id:'ep88', dmin:4, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, <span class="target">but</span> have everlasting life.', a:'Conjunction',
@@ -9529,13 +9535,13 @@ const EN_SENT = [
   patItem({id:'es7', dmin:1, s:'His brother is a sailor.', a:'S-LV-PN',
     why:'<em>Is</em> links. <em>Sailor</em> is a noun renaming <em>brother</em>, and so it is a predicate nominative.'}),
   patItem({id:'es8', dmin:2, cite:CITE.pl, q:'The line begins <em>The mind is its own place</em>. Which pattern does that clause follow?', s:'The mind is its own place, and in it self<br>Can make a Heav’n of Hell, a Hell of Heav’n.', a:'S-LV-PN',
-    why:'<em>Is</em> links <em>mind</em> to <em>place</em>. <em>Place</em> renames the mind. It is not an object the mind acts upon. The line goes on, <em>and in it self / Can make a Heav’n of Hell, a Hell of Heav’n</em>, with the same subject. The first clause, taken by itself, is S-LV-PN. The capital on <em>Can</em> is the capital at the head of Milton’s next line, and <em>in it self</em> and <em>Heav’n</em> are the spellings of his text.'}),
+    why:'<em>Is</em> links <em>mind</em> to <em>place</em>. <em>Place</em> renames the mind. It is not an object the mind acts upon. The first clause, taken by itself, is S-LV-PN.'}),
   patItem({id:'es9', dmin:2, cite:CITE.mv, s:'The quality of mercy is not strain’d,', a:'S-LV-PA',
     why:'The simple subject is <em>quality</em>. <em>Is</em> links, and <em>strain’d</em> describes that quality. <em>Not</em> is an adverb modifying the verb. <em>Of mercy</em> is a phrase, not an object.'}),
   patItem({id:'es10', dmin:2, cite:CITE.gett, s:'The brave men, living and dead, who struggled here have consecrated it far above our power to add or detract.', a:'S-V-DO',
     why:'<em>Men</em> is the subject, <em>have consecrated</em> the verb, and <em>it</em> the direct object. <em>Who struggled here</em> tells which men. <em>Living and dead</em> describe the men.'}),
   patItem({id:'es11', dmin:2, cite:CITE.bacon, q:'Which pattern does the first member follow, <em>Histories make men wise</em>?', s:'Histories make men wise; poets witty; the mathematics subtile; natural philosophy deep; moral grave; logic and rhetoric able to contend.', a:'S-V-DO-OC',
-    why:'<em>Men</em> receives the action of <em>make</em>. <em>Wise</em> tells what the histories make them, and so it is an objective complement. After the semicolon Bacon writes <em>poets witty</em>, and the rest, with <em>make</em> understood. The spelling is <em>subtile</em>.'}),
+    why:'<em>Men</em> receives the action of <em>make</em>. <em>Wise</em> tells what the histories make them, and so it is an objective complement. After the semicolon Bacon writes <em>poets witty</em>, and the rest, with <em>make</em> understood.'}),
   patItem({id:'es12', dmin:2, cite:CITE.bacon, s:'Studies serve for delight, for ornament, and for ability.', a:'S-V',
     why:'<em>Serve</em> is complete without an object. The three <em>for</em>-phrases tell the end, and a prepositional phrase is not a direct object. The pattern stays S-V.'}),
   {id:'es13', dmin:3, kind:'pick', cite:CITE.mv, q:'Click the simple subject.',
@@ -9548,7 +9554,7 @@ const EN_SENT = [
     words:[{t:'Human'},{t:'life'},{t:'is'},{t:'everywhere'},{t:'a'},{t:'state',ok:true},{t:'in'},{t:'which'},{t:'much'},{t:'is'},{t:'to'},{t:'be'},{t:'endured'},{t:'and'},{t:'little'},{t:'to'},{t:'be'},{t:'enjoyed.'}],
     why:'<em>State</em> renames <em>life</em> after the linking verb <em>is</em>. <em>Everywhere</em> is an adverb. The <em>in which</em> clause depends on <em>state</em> and is not itself the complement.'},
   patItem({id:'es16', dmin:3, cite:CITE.son, s:'They also serve who only stand and waite.', a:'S-V',
-    why:'<em>They serve</em> is S-V. <em>Also</em> is an adverb. The <em>who</em>-clause is an adjective clause telling which they, not a direct object. Milton’s spelling is <em>waite</em>.'}),
+    why:'<em>They serve</em> is S-V. <em>Also</em> is an adverb. The <em>who</em>-clause is an adjective clause telling which they, not a direct object.'}),
   patItem({id:'es17', dmin:3, cite:CITE.burke, s:'But the age of chivalry is gone.', a:'S-LV-PA',
     why:'<em>Is</em> links, and <em>gone</em> describes the age. We treat <em>gone</em> here as a predicate adjective, the past participle doing an adjective’s work, not as a direct object.'}),
   {id:'es18', dmin:4, kind:'text', pat:true, cite:CITE.kjvJn,
@@ -9569,11 +9575,11 @@ const EN_SENT = [
   patItem({id:'es22', dmin:1, cite:CITE.kjvPs1, s:'The LORD is my shepherd;', a:'S-LV-PN',
     why:'<em>Is</em> links, and <em>shepherd</em> is a noun renaming <em>the LORD</em>: a predicate nominative. <em>My</em> belongs to <em>shepherd</em>.'}),
   patItem({id:'es23', dmin:2, cite:CITE.bacon, s:'They perfect nature,', a:'S-V-DO',
-    why:'<em>They</em> (studies) is the subject, <em>perfect</em> the verb, and <em>nature</em> what is perfected, the direct object. Bacon goes on, <em>and are perfected by experience</em>, a second predicate in the passive.'}),
+    why:'<em>They</em> (studies) is the subject, <em>perfect</em> the verb, and <em>nature</em> what is perfected, the direct object. <em>And are perfected by experience</em> is a second predicate, in the passive.'}),
   patItem({id:'es24', dmin:2, cite:CITE.kjvPs, s:'he leadeth me beside the still waters.', a:'S-V-DO',
     why:'<em>Me</em> receives the leading and is the direct object. <em>Beside the still waters</em> is a prepositional phrase telling where; it adds no second object.'}),
   patItem({id:'es25', dmin:3, cite:CITE.kjvGen, s:'And God called the light Day,', a:'S-V-DO-OC',
-    why:'<em>Light</em> is the direct object, and <em>Day</em> is what God called it: an objective complement renaming the object. The verse goes on, <em>and the darkness he called Night</em>, the same pattern with the object put first.'}),
+    why:'<em>Light</em> is the direct object, and <em>Day</em> is what God called it: an objective complement renaming the object. <em>And the darkness he called Night</em> is the same pattern, with the object put first.'}),
   patItem({id:'es26', dmin:3, cite:CITE.kjvGen3, s:'In the sweat of thy face shalt thou eat bread,', a:'S-V-DO',
     why:'The order is inverted: <em>thou</em> is the subject, <em>shalt eat</em> the verb, and <em>bread</em> the direct object. <em>In the sweat of thy face</em> tells how.'}),
   patItem({id:'es27', dmin:4, cite:CITE.kjvMt, s:'they toil not, neither do they spin:', a:'S-V',
@@ -9639,7 +9645,7 @@ const EN_SENT = [
   patItem({id:'es52', dmin:2, cite:CITE.jc, s:'Men at some time are masters of their fates:', a:'S-LV-PN',
     why:'<em>Are</em> links, and <em>masters</em> renames <em>men</em>. <em>Of their fates</em> tells which masters. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   patItem({id:'es53', dmin:2, cite:CITE.kjvJn14_6, q:'Which pattern does <em>I am the way, the truth, and the life</em> follow?', s:'I am the way, the truth, and the life:', a:'S-LV-PN',
-    why:'<em>Am</em> links. <em>Way</em>, <em>truth</em>, and <em>life</em> rename the subject, three predicate nominatives joined by <em>and</em>. The pattern is still S-LV-PN. The verse goes on, <em>no man cometh unto the Father, but by me</em>. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
+    why:'<em>Am</em> links. <em>Way</em>, <em>truth</em>, and <em>life</em> rename the subject, three predicate nominatives joined by <em>and</em>. The pattern is still S-LV-PN. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   patItem({id:'es54', dmin:2, cite:CITE.mac, q:'Which pattern does this sentence follow?', s:'Clive was now twenty-five years old.', a:'S-LV-PA',
     why:'<em>Was</em> links, and <em>old</em> describes Clive. <em>Twenty-five years</em> tells how old. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
   patItem({id:'es55', dmin:2, cite:CITE.kjvHeb11_1, s:'Now faith is the substance of things hoped for,', a:'S-LV-PN',
@@ -9651,7 +9657,7 @@ const EN_SENT = [
   patItem({id:'es58', dmin:2, cite:CITE.kjvMt5_13, s:'Ye are the salt of the earth:', a:'S-LV-PN',
     why:'<em>Are</em> links, and <em>salt</em> renames <em>ye</em>. <em>Of the earth</em> tells which salt. It does not turn the pattern into S-V-DO. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   patItem({id:'es59', dmin:2, cite:CITE.kjvPs46_10, q:'Which pattern does <em>Be still</em> follow?', s:'Be still, and know that I am God:', a:'S-LV-PA',
-    why:'<em>Be</em> links, and <em>still</em> describes the understood subject <em>you</em>. The command is a copula with a predicate adjective. The verse goes on, <em>and know that I am God</em>. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
+    why:'<em>Be</em> links, and <em>still</em> describes the understood subject <em>you</em>. The command is a copula with a predicate adjective. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
   patItem({id:'es60', dmin:2, s:'The soup tastes good.', a:'S-LV-PA',
     why:'<em>Tastes</em> links, and <em>good</em> describes the soup. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
   patItem({id:'es61', dmin:2, s:'We are ready.', a:'S-LV-PA',
@@ -9685,7 +9691,7 @@ const EN_SENT = [
   patItem({id:'es71', dmin:3, cite:CITE.ra12, s:'Few things are impossible to diligence and skill.', a:'S-LV-PA',
     why:'<em>Are</em> links, and <em>impossible</em> describes <em>things</em>. <em>To diligence and skill</em> is a prepositional phrase, not an object. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
   patItem({id:'es72', dmin:3, cite:CITE.pp1, q:'Which pattern does the main clause follow, <em>It is a truth</em>?', s:'It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.', a:'S-LV-PN',
-    why:'The main clause is <em>It is a truth</em>. <em>Is</em> links, and <em>truth</em> renames <em>it</em>. The <em>that</em>-clause stands in apposition to <em>truth</em> and does not change the pattern of the main clause. Austen’s text has no comma before <em>must</em>. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
+    why:'The main clause is <em>It is a truth</em>. <em>Is</em> links, and <em>truth</em> renames <em>it</em>. The <em>that</em>-clause stands in apposition to <em>truth</em> and does not change the pattern of the main clause. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   patItem({id:'es73', dmin:3, cite:CITE.ra29, q:'Which pattern does <em>be content</em> follow?', s:'be content.', a:'S-LV-PA',
     why:'<em>Be</em> links, and <em>content</em> describes the understood subject <em>you</em>. The words before it are <em>Of the blessings set before you make your choice, and</em>. The linking verb is the copula. The word after it describes the subject, and a modern class calls it a predicate adjective.'}),
   patItem({id:'es74', dmin:3, cite:CITE.kjvRev1_8, s:'I am Alpha and Omega,', a:'S-LV-PN',
@@ -9723,7 +9729,7 @@ const EN_SENT = [
     why:'<em>Handed</em> is the word that asserts. <em>Sailor</em> is the indirect object and <em>rope</em> the direct object.'},
   {id:'es87', dmin:3, kind:'pick', cite:CITE.kjvMt11_30, q:'Click the simple subject.',
     words:[{t:'my'}, {t:'burden',ok:true}, {t:'is'}, {t:'light.'}],
-    why:'<em>Burden</em> is what this member is about. <em>Light</em> describes it after <em>is</em>. The verse begins <em>For my yoke is easy, and</em>.'},
+    why:'<em>Burden</em> is what this member is about. <em>Light</em> describes it after <em>is</em>.'},
   patItem({id:'es88', dmin:4, cite:CITE.kjvPr1_7, s:'The fear of the LORD is the beginning of knowledge:', a:'S-LV-PN',
     why:'<em>Is</em> links, and <em>beginning</em> renames <em>fear</em>. <em>Of the LORD</em> and <em>of knowledge</em> tell which fear and which beginning. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   patItem({id:'es89', dmin:4, cite:CITE.kjvGen2_18, q:'Which pattern does the main clause follow, <em>It is not good</em>?', s:'It is not good that the man should be alone;', a:'S-LV-PA',
@@ -9734,19 +9740,19 @@ const EN_SENT = [
     why:'<em>Is</em> links, and <em>river</em> renames time. The linking verb is the copula. The noun after it renames the subject and stands in the nominative with it, and a modern class calls it a predicate nominative.'}),
   {id:'es92', dmin:4, kind:'pick', cite:CITE.kjvGen, q:'Click the objective complement.',
     words:[{t:'And'}, {t:'God'}, {t:'called'}, {t:'the'}, {t:'light'}, {t:'Day,',ok:true}],
-    why:'<em>Day</em> is what God called the light. <em>Light</em> is the direct object, and <em>Day</em> renames it, an objective complement. The verse goes on, <em>and the darkness he called Night</em>.'},
+    why:'<em>Day</em> is what God called the light. <em>Light</em> is the direct object, and <em>Day</em> renames it, an objective complement.'},
   {id:'es93', dmin:4, kind:'pick', cite:CITE.kjvPs, q:'Click the direct object.',
     words:[{t:'he'}, {t:'leadeth'}, {t:'me',ok:true}, {t:'beside'}, {t:'the'}, {t:'still'}, {t:'waters.'}],
     why:'<em>Me</em> receives the leading. <em>Beside the still waters</em> tells where, and it is a phrase, not a second object.'},
   {id:'es94', dmin:4, kind:'pick', cite:CITE.kjvPr16_18, q:'Click the verb.',
     words:[{t:'Pride'}, {t:'goeth',ok:true}, {t:'before'}, {t:'destruction,'}],
-    why:'<em>Goeth</em> is the verb, the older third-person form of <em>goes</em>. <em>Before destruction</em> is a prepositional phrase. The verse goes on, <em>and an haughty spirit before a fall</em>.'},
+    why:'<em>Goeth</em> is the verb, the older third-person form of <em>goes</em>. <em>Before destruction</em> is a prepositional phrase.'},
   {id:'es95', dmin:4, kind:'pick', cite:CITE.kjvJn3_16, q:'Click the subject of believeth.',
     words:[{t:'that'}, {t:'whosoever',ok:true}, {t:'believeth'}, {t:'in'}, {t:'him'}],
     why:'<em>Whosoever</em> is the subject of <em>believeth</em>. It is a relative pronoun. <em>In him</em> is a phrase.'},
   {id:'es96', dmin:4, kind:'pick', cite:CITE.ra29, q:'Click the verb of the first command.',
     words:[{t:'you'}, {t:'make',ok:true}, {t:'your'}, {t:'choice,'}, {t:'and'}],
-    why:'<em>Make</em> is the verb of the command, and <em>you</em> is understood with it in the full sentence. <em>Choice</em> is the direct object. Johnson goes on, <em>and be content</em>.'},
+    why:'<em>Make</em> is the verb of the command, and <em>you</em> is understood with it in the full sentence. <em>Choice</em> is the direct object.'},
   {id:'es97', dmin:4, kind:'pick', q:'Click the objective complement.',
     words:[{t:'They'}, {t:'named'}, {t:'the'}, {t:'child'}, {t:'John.',ok:true}],
     why:'<em>John</em> is what they named the child. <em>Child</em> is the direct object, and <em>John</em> renames it.'},
@@ -9796,7 +9802,7 @@ const EN_PHR = [
   phrItem({id:'eh7', dmin:2, cite:CITE.ham, s:'<span class="target">To be, or not to be</span>, that is the question:', a:'Infinitive phrase',
     why:'The marked group is two infinitive phrases joined by <em>or</em>. They do a noun’s work, and <em>that</em> points back to them. There is no finite verb inside the group. The finite verb is <em>is</em>.'}),
   phrItem({id:'eh8', dmin:2, cite:CITE.bacon, s:'Some books are to be tasted, others to be swallowed, and some few <span class="target">to be chewed and digested</span>;', a:'Infinitive phrase',
-    why:'The marked group is an infinitive phrase. Bacon writes it beside <em>to be tasted</em> and <em>to be swallowed</em>, and the words are <em>some few to be chewed and digested</em>. The sentence then goes on, <em>that is, some books are to be read only in parts</em>.'}),
+    why:'The marked group is an infinitive phrase. Bacon writes it beside <em>to be tasted</em> and <em>to be swallowed</em>, and the words are <em>some few to be chewed and digested</em>.'}),
   phrItem({id:'eh9', dmin:2, cite:CITE.bacon, s:'Studies serve <span class="target">for delight</span>, for ornament, and for ability.', a:'Prepositional phrase',
     why:'<em>For delight</em> tells the end, an adverb’s work. The two phrases after it are the same kind, joined to it.'}),
   phrItem({id:'eh10', dmin:3, cite:CITE.ham, s:'Something is rotten <span class="target">in the state of Denmark</span>.', a:'Prepositional phrase',
@@ -9804,7 +9810,7 @@ const EN_PHR = [
   phrItem({id:'eh11', dmin:4, cite:CITE.kjvPs, s:'He maketh me to lie down in green pastures: he leadeth me <span class="target">beside the still waters</span>.', a:'Prepositional phrase',
     why:'<em>Beside the still waters</em> tells where he leads, an adverb’s work. <em>Still</em> is an adjective inside the phrase. The marked group has no finite verb of its own.'}),
   phrItem({id:'eh16', dmin:3, cite:CITE.bacon, s:'<span class="target">To spend too much time in studies</span> is sloth;', a:'Infinitive phrase',
-    why:'The infinitive phrase is the subject of <em>is</em>, a noun’s work. <em>In studies</em> is a prepositional phrase inside it, but the group as a whole begins with the infinitive <em>to spend</em>. Bacon goes on, <em>to use them too much for ornament, is affectation</em>.'}),
+    why:'The infinitive phrase is the subject of <em>is</em>, a noun’s work. <em>In studies</em> is a prepositional phrase inside it, but the group as a whole begins with the infinitive <em>to spend</em>.'}),
   phrItem({id:'eh17', dmin:3, cite:CITE.kjvJn1, s:'Now a certain man was sick, <span class="target">named Lazarus</span>, of Bethany, the town of Mary and her sister Martha.', a:'Participial phrase',
     why:'<em>Named</em> is a past participle, and the group describes <em>man</em>, an adjective’s work. It has no finite verb of its own. The finite verb of the sentence is <em>was</em>.'}),
   phrItem({id:'eh18', dmin:3, cite:CITE.kjvJn1, s:'Now a certain man was sick, named Lazarus, of Bethany, <span class="target">the town of Mary and her sister Martha</span>.', a:'Appositive phrase',
@@ -9814,13 +9820,13 @@ const EN_PHR = [
   phrItem({id:'eh12', dmin:3, s:'<span class="target">Considered by the people</span>, the modes of worship seemed useful to the magistrate.', a:'Participial phrase',
     why:'<em>Considered</em> is a past participle depending on <em>modes</em>. The phrase does an adjective’s work. It is not Gibbon’s sentence.'}),
   phrItem({id:'eh13', dmin:4, cite:CITE.gett, s:'Fourscore and seven years ago our fathers brought forth upon this continent a new nation, <span class="target">conceived in liberty, and dedicated to the proposition that all men are created equal</span>.', a:'Participial phrase',
-    why:'<em>Conceived</em> and <em>dedicated</em> are past participles depending on <em>nation</em>. The group does an adjective’s work, and it has no finite verb, so it is a participial phrase. The printing we follow is McBrien’s of 1916. The Bliss copy divides <em>Four score</em> and capitalizes <em>Liberty</em>.'}),
+    why:'<em>Conceived</em> and <em>dedicated</em> are past participles depending on <em>nation</em>. The group does an adjective’s work, and it has no finite verb, so it is a participial phrase.'}),
   phrItem({id:'eh14', dmin:4, cite:CITE.ina, s:'With malice toward none; with charity for all; with firmness in the right, as God gives us to see the right, let us strive on <span class="target">to finish the work we are in</span>;', a:'Infinitive phrase',
-    why:'<em>To finish the work we are in</em> tells the end of the striving, an adverb’s work, and it is built on the infinitive. The <em>with</em>-phrases are prepositional. This printing of 1916 points them with semicolons. Other printings use commas, and some put no comma after <em>right</em>.'}),
+    why:'<em>To finish the work we are in</em> tells the end of the striving, an adverb’s work, and it is built on the infinitive. The <em>with</em>-phrases are prepositional.'}),
   phrItem({id:'eh15', dmin:4, s:'<span class="target">Chewing every book</span> is not what Bacon advises.', a:'Gerund phrase',
     why:'The <em>-ing</em> group is the subject of <em>is</em>, a noun’s work, and so it is a gerund phrase. Bacon’s own image is the infinitive <em>to be chewed and digested</em>, which is a different build of a related thought.'}),
   phrItem({id:'eh20', dmin:2, cite:CITE.jc, s:'The fault, dear Brutus, is not <span class="target">in our stars</span>, But in ourselves, that we are underlings.', a:'Prepositional phrase',
-    why:'<em>In</em> takes <em>our stars</em> as its object. The phrase tells where the fault is not. The capital on <em>But</em> is the capital at the head of the next line. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
+    why:'<em>In</em> takes <em>our stars</em> as its object. The phrase tells where the fault is not. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh21', dmin:2, s:'<span class="target">Hearing the bell</span>, the sailors ran to the ship.', a:'Participial phrase',
     why:'<em>Hearing</em> is a present participle, and the phrase describes <em>the sailors</em>, an adjective’s work. The sailors are the ones who heard, so the modifier is attached to the right word.'}),
   phrItem({id:'eh22', dmin:2, s:'The captain, <span class="target">a man of few words</span>, nodded.', a:'Appositive phrase',
@@ -9863,12 +9869,12 @@ const EN_PHR = [
     why:'The phrase renames Ada. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
   phrItem({id:'eh41', dmin:1, s:'The Thames, <span class="target">a broad river</span>, runs through the city.', a:'Appositive phrase',
     why:'The phrase renames the Thames. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
-  phrItem({id:'eh42', dmin:1, s:'We read Job, <span class="target">a book of the king’s English</span>.', a:'Appositive phrase',
-    why:'The phrase renames Job. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
+  phrItem({id:'eh42', dmin:1, s:'We read Emma, <span class="target">a long novel</span>.', a:'Appositive phrase',
+    why:'The phrase renames Emma. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
   phrItem({id:'eh43', dmin:1, s:'The pilot, <span class="target">a woman of long experience</span>, landed the boat.', a:'Appositive phrase',
     why:'The phrase renames <em>the pilot</em>. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
   phrItem({id:'eh44', dmin:1, s:'His tool, <span class="target">a small hammer</span>, lay on the bench.', a:'Appositive phrase',
-    why:'The phrase renames <em>tool</em>. <em>Lay</em> here means reclined, and it has no object. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
+    why:'The phrase renames <em>tool</em>. An appositive is a noun set beside a noun. Latin often puts the two in the same case.'}),
   phrItem({id:'eh45', dmin:1, s:'<span class="target">Seeing the storm</span>, the sailors furled the sail.', a:'Participial phrase',
     why:'<em>Seeing</em> depends on <em>the sailors</em>, the ones who saw. The phrase does an adjective’s work. A participle depends on a noun. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   phrItem({id:'eh46', dmin:1, s:'<span class="target">Covered with dust</span>, the books sat on the shelf.', a:'Participial phrase',
@@ -9884,9 +9890,9 @@ const EN_PHR = [
   phrItem({id:'eh51', dmin:2, cite:CITE.jc, s:'Ambition should be made <span class="target">of sterner stuff</span>:', a:'Prepositional phrase',
     why:'<em>Of</em> takes <em>stuff</em> as its object. The phrase tells what the ambition should be made of. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh52', dmin:2, cite:CITE.kjvPhp4_4, s:'Rejoice <span class="target">in the Lord</span> alway: and again I say, Rejoice.', a:'Prepositional phrase',
-    why:'<em>In the Lord</em> tells where the rejoicing is set, an adverb’s work. The verse spells <em>alway</em> with no final <em>s</em>. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
+    why:'<em>In the Lord</em> tells where the rejoicing is set, an adverb’s work. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh53', dmin:2, cite:CITE.pl26, s:'Better <span class="target">to reign in Hell</span> than serve in Heaven.', a:'Infinitive phrase',
-    why:'<em>To reign in Hell</em> is the infinitive phrase. <em>In Hell</em> is a prepositional phrase inside it. The capitals on <em>Hell</em> and <em>Heaven</em> are Milton’s. A phrase has no finite verb. The <em>to</em> of an infinitive is not a preposition.'}),
+    why:'<em>To reign in Hell</em> is the infinitive phrase. <em>In Hell</em> is a prepositional phrase inside it. A phrase has no finite verb. The <em>to</em> of an infinitive is not a preposition.'}),
   phrItem({id:'eh54', dmin:2, cite:CITE.kjvAc20_35, s:'It is more blessed to give than <span class="target">to receive</span>.', a:'Infinitive phrase',
     why:'<em>To receive</em> is the second infinitive, joined to <em>to give</em> by <em>than</em>. A phrase has no finite verb. The <em>to</em> of an infinitive is not a preposition.'}),
   phrItem({id:'eh55', dmin:2, cite:CITE.gett, s:'The brave men, <span class="target">living and dead</span>, who struggled here have consecrated it far above our power to add or detract.', a:'Participial phrase',
@@ -9920,13 +9926,13 @@ const EN_PHR = [
   phrItem({id:'eh69', dmin:3, cite:CITE.kjvEc3_1, s:'<span class="target">To every thing</span> there is a season, and a time to every purpose under the heaven:', a:'Prepositional phrase',
     why:'<em>To</em> here is a preposition, and <em>thing</em> is its object. It is not the <em>to</em> of an infinitive, because no verb follows it. The phrase tells the range of the season. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh70', dmin:3, cite:CITE.kjvPr22_6, s:'Train up a child <span class="target">in the way</span> he should go: and when he is old, he will not depart from it.', a:'Prepositional phrase',
-    why:'The marked group begins with <em>in</em>. The verse goes on, <em>he should go</em>, a clause inside the longer phrase. The group marked here is the preposition and its object. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
+    why:'The marked group begins with <em>in</em>. <em>He should go</em> is a following clause, and it is not part of the marked group. The group marked here is the preposition and its object. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh71', dmin:3, cite:CITE.kjvPhp4_13, s:'I can do all things <span class="target">through Christ</span> which strengtheneth me.', a:'Prepositional phrase',
     why:'<em>Through</em> takes <em>Christ</em> as its object and tells the means. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh72', dmin:3, cite:CITE.kjv1Jn4_7, s:'Beloved, let us love one another: for love is <span class="target">of God</span>; and every one that loveth is born of God, and knoweth God.', a:'Prepositional phrase',
     why:'<em>Of God</em> tells what love is, an adjective’s work after <em>is</em>. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh73', dmin:3, cite:CITE.kjvPr16_18, s:'Pride goeth <span class="target">before destruction</span>,', a:'Prepositional phrase',
-    why:'<em>Before</em> takes <em>destruction</em> as its object. This is the first member. The verse goes on, <em>and an haughty spirit before a fall</em>. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
+    why:'<em>Before</em> takes <em>destruction</em> as its object. This is the first member. A preposition, Donatus’s <span class="lat">praepositio</span>, takes an object and builds a phrase. A phrase has no finite verb.'}),
   phrItem({id:'eh74', dmin:3, s:'She rose <span class="target">to open the gate</span>.', a:'Infinitive phrase',
     why:'The infinitive tells why she rose. A phrase has no finite verb. The <em>to</em> of an infinitive is not a preposition.'}),
   phrItem({id:'eh75', dmin:3, s:'<span class="target">To forgive the debt</span> was his part.', a:'Infinitive phrase',
@@ -9944,7 +9950,7 @@ const EN_PHR = [
   phrItem({id:'eh81', dmin:3, cite:CITE.ra29, s:'Of the blessings <span class="target">set before you</span> make your choice, and be content.', a:'Participial phrase',
     why:'<em>Set</em> depends on <em>blessings</em>. <em>Before you</em> belongs with the participle. The finite verbs are <em>make</em> and <em>be</em>, outside the group. A participle depends on a noun. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   phrItem({id:'eh82', dmin:3, cite:CITE.gett, s:'Fourscore and seven years ago our fathers brought forth upon this continent a new nation, <span class="target">conceived in liberty</span>, and dedicated to the proposition that all men are created equal.', a:'Participial phrase',
-    why:'<em>Conceived</em> depends on <em>nation</em>. The Address goes on, <em>and dedicated to the proposition that all men are created equal</em>. The printing is McBrien’s of 1916. A participle depends on a noun. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
+    why:'<em>Conceived</em> depends on <em>nation</em>. A participle depends on a noun. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   phrItem({id:'eh83', dmin:3, s:'The letter, <span class="target">written in a small hand</span>, was hard to read.', a:'Participial phrase',
     why:'<em>Written</em> depends on <em>letter</em>. A participle depends on a noun. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   phrItem({id:'eh84', dmin:3, s:'We met Grace, <span class="target">the clerk of the parish</span>.', a:'Appositive phrase',
@@ -10019,7 +10025,7 @@ const EN_CL = [
   clItem({id:'ec11', dmin:2, cite:CITE.gib, s:'The various modes of worship, <span class="target">which prevailed in the Roman world</span>, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.', a:'Adjective clause',
     why:'<em>Which</em> relates to <em>modes</em>, and the clause tells which modes are meant. It depends on a noun, and so it is an adjective clause.'}),
   clItem({id:'ec12', dmin:3, cite:CITE.son, s:'They also serve <span class="target">who only stand and waite</span>.', a:'Adjective clause',
-    why:'The clause tells which <em>they</em>. <em>Who</em> is the subject of <em>stand</em>. The spelling <em>waite</em> is the spelling of Milton’s text. The clause is dependent, and the sentence is complex.'}),
+    why:'The clause tells which <em>they</em>. <em>Who</em> is the subject of <em>stand</em>. The clause is dependent, and the sentence is complex.'}),
   clItem({id:'ec13', dmin:3, cite:CITE.rass, s:'Human life is everywhere a state <span class="target">in which much is to be endured and little to be enjoyed</span>.', a:'Adjective clause',
     why:'The clause depends on <em>state</em> and tells what kind of state. <em>And</em> joins two parts inside that one clause. It does not start a new sentence.'}),
   tyItem({id:'ec14', dmin:3, cite:CITE.rass, s:'Human life is everywhere a state in which much is to be endured and little to be enjoyed.', a:'Complex sentence',
@@ -10033,7 +10039,7 @@ const EN_CL = [
   tyItem({id:'ec18', dmin:4, s:'The king, who waited at the gate, departed, and the queen followed when the road was clear.', a:'Compound-complex sentence',
     why:'<em>The king departed</em> and <em>the queen followed</em> are two independent clauses, so the sentence is at least compound. <em>Who waited at the gate</em> and <em>when the road was clear</em> are dependent clauses. Two independents plus a dependent clause make a compound-complex sentence.'}),
   clItem({id:'ec19', dmin:4, cite:CITE.gett, s:'that from these honored dead we take increased devotion to that cause for which they here gave the last full measure of devotion; that we here highly resolve <span class="target">that these dead shall not have died in vain</span>;', a:'Noun clause',
-    why:'The marked <em>that</em>-clause is what is resolved, the object of <em>resolve</em>, and so it does a noun’s work. It cannot stand as the whole address. The words are Lincoln’s, from the printing of 1916, and the semicolons are that printing’s.'}),
+    why:'The marked <em>that</em>-clause is what is resolved, the object of <em>resolve</em>, and so it does a noun’s work. It cannot stand as the whole address.'}),
   tyItem({id:'ec20', dmin:4, cite:CITE.gib, s:'The various modes of worship, which prevailed in the Roman world, were all considered by the people, as equally true; by the philosopher, as equally false; and by the magistrate, as equally useful.', a:'Complex sentence',
     why:'The relative clause <em>which prevailed in the Roman world</em> depends on <em>modes</em>. The semicolons do not open new independent clauses. <em>Were considered</em> is written once, and the later phrases fill out that same predicate. One independent clause plus one dependent clause is complex.'}),
   tyItem({id:'ec21', dmin:2, cite:CITE.macb, s:'Fair is foul, and foul is fair:', a:'Compound sentence',
@@ -10121,9 +10127,9 @@ const EN_CL = [
   clItem({id:'ec62', dmin:2, cite:CITE.em3, s:'<span class="target">If I loved you less</span>, I might be able to talk about it more.', a:'Adverb clause',
     why:'<em>If I loved you less</em> tells the condition of what he might be able to say. An adverb clause does an adverb’s work, such as time, cause, or purpose. It is dependent, which this course also calls subordinate.'}),
   tyItem({id:'ec63', dmin:2, cite:CITE.ham, s:'For loan oft loses both itself and friend; And borrowing dulls the edge of husbandry.', a:'Compound sentence',
-    why:'The semicolon joins two independent clauses. <em>For</em> at the head of the first clause is coordinating in this course, so that clause is not dependent. The capital on <em>And</em> is the capital at the head of the next line. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
+    why:'The semicolon joins two independent clauses. <em>For</em> at the head of the first clause is coordinating in this course, so that clause is not dependent. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
   tyItem({id:'ec64', dmin:2, cite:CITE.kjvGen1_5, s:'And God called the light Day, and the darkness he called Night.', a:'Compound sentence',
-    why:'<em>And</em> joins two independent clauses. In the second, <em>the darkness</em> is the object set first, and <em>he</em> is the subject. The verse goes on, <em>And the evening and the morning were the first day.</em> A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
+    why:'<em>And</em> joins two independent clauses. In the second, <em>the darkness</em> is the object set first, and <em>he</em> is the subject. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
   tyItem({id:'ec65', dmin:2, cite:CITE.kjvPs1, s:'The LORD is my shepherd; I shall not want.', a:'Compound sentence',
     why:'The semicolon joins two independent clauses, <em>The LORD is my shepherd</em> and <em>I shall not want</em>. Nothing depends. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
   tyItem({id:'ec66', dmin:2, cite:CITE.burkePg, s:'Kings will be tyrants from policy, when subjects are rebels from principle.', a:'Complex sentence',
@@ -10139,7 +10145,7 @@ const EN_CL = [
   tyItem({id:'ec71', dmin:3, cite:CITE.ra12, s:'Few things are impossible to diligence and skill.', a:'Simple sentence',
     why:'One independent clause. <em>To diligence and skill</em> is a prepositional phrase, and a phrase does not make a second clause. A simple sentence has one independent clause. A phrase, or a compound subject or a compound predicate, does not make a second clause.'}),
   clItem({id:'ec72', dmin:3, cite:CITE.kjvIsa40_31, s:'But they <span class="target">that wait upon the LORD</span> shall renew their strength;', a:'Adjective clause',
-    why:'<em>That wait upon the LORD</em> tells which they. <em>That</em> is the subject of <em>wait</em>. The verse goes on after the semicolon. An adjective clause does an adjective’s work and depends on a noun. It is also called a relative clause, and it is dependent, which this course also calls subordinate.'}),
+    why:'<em>That wait upon the LORD</em> tells which they. <em>That</em> is the subject of <em>wait</em>. An adjective clause does an adjective’s work and depends on a noun. It is also called a relative clause, and it is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec73', dmin:3, s:'The pier <span class="target">that the storm broke</span> has been rebuilt.', a:'Adjective clause',
     why:'<em>That the storm broke</em> tells which pier. <em>That</em> is the object of <em>broke</em>. An adjective clause does an adjective’s work and depends on a noun. It is also called a relative clause, and it is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec74', dmin:3, s:'The woman <span class="target">whose horse won</span> lives in the village.', a:'Adjective clause',
@@ -10149,7 +10155,7 @@ const EN_CL = [
   clItem({id:'ec76', dmin:3, s:'The letter <span class="target">which you sent</span> arrived on Monday.', a:'Adjective clause',
     why:'<em>Which you sent</em> tells which letter. <em>Which</em> is the object of <em>sent</em>. An adjective clause does an adjective’s work and depends on a noun. It is also called a relative clause, and it is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec77', dmin:3, cite:CITE.kjvRo5_8, s:'<span class="target">while we were yet sinners</span>, Christ died for us.', a:'Adverb clause',
-    why:'<em>While we were yet sinners</em> tells the time of <em>Christ died for us</em>. The words are the close of the verse, and they begin with a small letter in this printing. An adverb clause does an adverb’s work, such as time, cause, or purpose. It is dependent, which this course also calls subordinate.'}),
+    why:'<em>While we were yet sinners</em> tells the time of <em>Christ died for us</em>. An adverb clause does an adverb’s work, such as time, cause, or purpose. It is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec78', dmin:3, cite:CITE.kjvMt7_1, s:'Judge not, <span class="target">that ye be not judged</span>.', a:'Adverb clause',
     why:'<em>That ye be not judged</em> tells the purpose of the command. <em>Be</em> is subjunctive. An adverb clause does an adverb’s work, such as time, cause, or purpose. It is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec79', dmin:3, s:'We left early <span class="target">so that we would catch the tide</span>.', a:'Adverb clause',
@@ -10163,9 +10169,9 @@ const EN_CL = [
   tyItem({id:'ec83', dmin:3, s:'The lamp was lit, but the room stayed dim.', a:'Compound sentence',
     why:'Two independent clauses are joined by <em>but</em>. Nothing depends. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
   tyItem({id:'ec84', dmin:3, cite:CITE.ham, s:'There are more things in heaven and earth, Horatio, Than are dreamt of in your philosophy.', a:'Complex sentence',
-    why:'<em>Than are dreamt of in your philosophy</em> depends on <em>more</em>. The capital on <em>Than</em> is the capital at the head of the next line. One independent clause and one dependent clause. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
+    why:'<em>Than are dreamt of in your philosophy</em> depends on <em>more</em>. One independent clause and one dependent clause. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
   tyItem({id:'ec85', dmin:3, cite:CITE.pp1, s:'It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.', a:'Complex sentence',
-    why:'The main clause is <em>It is a truth</em>. The <em>that</em>-clause stands in apposition to <em>truth</em> and is dependent. Austen’s text has no comma before <em>must</em>. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
+    why:'The main clause is <em>It is a truth</em>. The <em>that</em>-clause stands in apposition to <em>truth</em> and is dependent. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
   tyItem({id:'ec86', dmin:3, s:'If the tide turns, the boat sails.', a:'Complex sentence',
     why:'One independent clause, <em>the boat sails</em>, and one dependent clause of condition. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
   tyItem({id:'ec87', dmin:4, cite:CITE.kjvPr22_6, s:'Train up a child in the way he should go: and when he is old, he will not depart from it.', a:'Compound-complex sentence',
@@ -10173,7 +10179,7 @@ const EN_CL = [
   tyItem({id:'ec88', dmin:4, cite:CITE.ham, s:'The rest is silence.', a:'Simple sentence',
     why:'One independent clause. The subject is <em>the rest</em>, and the verb is <em>is</em>. A simple sentence has one independent clause. A phrase, or a compound subject or a compound predicate, does not make a second clause.'}),
   clItem({id:'ec89', dmin:4, cite:CITE.pp1, s:'It is a truth universally acknowledged, <span class="target">that a single man in possession of a good fortune must be in want of a wife</span>.', a:'Noun clause',
-    why:'The <em>that</em>-clause stands in apposition to <em>truth</em> and does a noun’s work. Austen’s text has no comma before <em>must</em>. A noun clause does a noun’s work, as subject or object or appositive. It is dependent, which this course also calls subordinate.'}),
+    why:'The <em>that</em>-clause stands in apposition to <em>truth</em> and does a noun’s work. A noun clause does a noun’s work, as subject or object or appositive. It is dependent, which this course also calls subordinate.'}),
   clItem({id:'ec90', dmin:4, cite:CITE.kjvJn14_6, s:'<span class="target">I am the way, the truth, and the life</span>: no man cometh unto the Father, but by me.', a:'Independent clause',
     why:'<em>I am the way, the truth, and the life</em> has its own subject and finite verb. The colon joins it to a second independent clause. The first clause does not depend. An independent clause has its own finite verb and does not depend on another clause.'}),
   clItem({id:'ec91', dmin:4, cite:CITE.kjvJas1_17, s:'Every good gift and every perfect gift is from above, and cometh down from the Father of lights, <span class="target">with whom is no variableness</span>,', a:'Adjective clause',
@@ -10197,9 +10203,9 @@ const EN_CL = [
   tyItem({id:'ec100', dmin:4, s:'She may take the early train, or she may wait.', a:'Compound sentence',
     why:'Two independent clauses are joined by <em>or</em>. Nothing depends. A compound sentence joins independent clauses side by side. This course calls that arrangement parataxis.'}),
   tyItem({id:'ec101', dmin:4, cite:CITE.kjvGen2_18, s:'It is not good that the man should be alone;', a:'Complex sentence',
-    why:'<em>That the man should be alone</em> is a noun clause, the subject in sense of what is not good, standing after <em>it</em>. One independent clause and one dependent clause. The verse goes on, <em>I will make him an help meet for him.</em> A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
+    why:'<em>That the man should be alone</em> is a noun clause, the subject in sense of what is not good, standing after <em>it</em>. One independent clause and one dependent clause. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'}),
   tyItem({id:'ec102', dmin:4, cite:CITE.kjvJosh24_15, s:'choose you this day whom ye will serve;', a:'Complex sentence',
-    why:'<em>Whom ye will serve</em> is a noun clause, the object of <em>choose</em>. One command and one dependent clause. The verse goes on from this command. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'})
+    why:'<em>Whom ye will serve</em> is a noun clause, the object of <em>choose</em>. One command and one dependent clause. A complex sentence has one independent clause and at least one dependent clause. This course calls the dependent arrangement hypotaxis.'})
 ];
 
 const EN_FORM = [
@@ -10378,15 +10384,15 @@ const EN_FORM = [
     why:'<em>Lay</em> means to put, and the map is the object. <em>Lie</em> would mean recline, and it takes no object.'},
   {id:'ef41', dmin:1, q:'Which sentence uses <em>fewer</em> or <em>less</em> correctly?',
     a:'Please bring fewer cups.',
-    ds:['Please bring less cups.','Please brings less cups.','Please bring less cups today.'],
+    ds:['Please brings less cups.','Bring fewer water.','Please bring few cups today.'],
     why:'<em>Cups</em> are counted, so the word is <em>fewer</em>. <em>Less</em> fits a mass, not a number of cups.'},
   {id:'ef42', dmin:1, q:'Which sentence uses <em>fewer</em> or <em>less</em> correctly?',
     a:'We need less salt in the soup.',
-    ds:['We need fewer salt in the soup.','We need few salt for the soup.','We need few salt now.'],
+    ds:['We need fewer salt in the soup.','We needs less salt now.','The soup needs less salts now.'],
     why:'<em>Salt</em> is a mass here, so the word is <em>less</em>. <em>Fewer</em> and <em>few</em> want a count.'},
   {id:'ef43', dmin:1, q:'Which sentence uses <em>fewer</em> or <em>less</em> correctly?',
     a:'Fewer students came today.',
-    ds:['Less students came today.','Less students comes today.','Less students came this morning.'],
+    ds:['Less students comes today.','Few student came.','The class has less student today.'],
     why:'<em>Students</em> are counted, so the word is <em>fewer</em>. <em>Less</em> would fit a mass, not a number of students.'},
   {id:'ef44', dmin:1, q:'Which sentence uses the subject form formal prose wants?',
     a:'He and I went to the ship.',
@@ -10474,7 +10480,7 @@ const EN_FORM = [
     why:'<em>He</em> renames <em>the author</em> and is nominative. <em>Him</em> is objective. <em>We</em> and <em>them</em> do not match one author.'},
   {id:'ef65', dmin:2, q:'Which sentence uses <em>fewer</em> or <em>less</em> correctly?',
     a:'Fewer seats remain tonight.',
-    ds:['Less seats remain tonight.','Less seats remains tonight.','Less seats remain this evening.'],
+    ds:['Less seats remains tonight.','Few seats remain.','The hall has less seats this evening.'],
     why:'<em>Seats</em> are counted, so the word is <em>fewer</em>.'},
   {id:'ef66', dmin:2, q:'Which sentence uses <em>fewer</em> or <em>less</em> correctly?',
     a:'Less water is in the jar.',
@@ -10935,7 +10941,7 @@ const EN_DIAG = [
       {spec:{subj:'mind', verb:'is', comp:'place', alt:'mind is place, unmodified'}},
       {spec:{subj:'mind', verb:'is', comp:'place', mods:[{on:'verb', w:'The'}], alt:'The hung on the verb'}}
     ],
-    why:'The pattern of this clause is S-LV-PN, so <em>place</em> follows a slant. <em>The</em> hangs under <em>mind</em>, and <em>own</em> hangs under <em>place</em>. Hanging <em>The</em> on the verb would modify <em>is</em>, which the clause does not do. <em>Its</em> is left off this small diagram so the offices stay readable. Milton’s line goes on, <em>and in it self / Can make a Heav’n of Hell, a Hell of Heav’n</em>.'},
+    why:'The pattern of this clause is S-LV-PN, so <em>place</em> follows a slant. <em>The</em> hangs under <em>mind</em>, and <em>own</em> hangs under <em>place</em>. Hanging <em>The</em> on the verb would modify <em>is</em>, which the clause does not do. <em>Its</em> is left off this small diagram so the offices stay readable.'},
   {id:'ed5', dmin:2, kind:'diag', q:'Which diagram matches the sentence?', s:'Birds sing in trees.',
     choices:[
       {ok:true, spec:{subj:'Birds', verb:'sing', preps:[{on:'verb', p:'in', n:'trees'}], alt:'Birds sing in trees'}},
@@ -11275,7 +11281,7 @@ const EN_DIAG = [
       {spec:{subj:'Charity', verb:'is', alt:'Charity is kind. choice 3'}},
       {spec:{subj:'Charity', verb:'suffereth', obj:'long', alt:'Charity is kind. choice 4'}}
     ],
-    why:'We diagram the second member. The verse begins <em>Charity suffereth long, and</em>. <em>Is</em> is the copula, and <em>kind</em> is a predicate adjective.'},
+    why:'We diagram the second member. <em>Is</em> is the copula, and <em>kind</em> is a predicate adjective.'},
   {id:'ed52', dmin:2, kind:'diag', cite:CITE.kjv1Jn4_8, q:'Which diagram matches the sentence?', s:'God is love.',
     choices:[
       {ok:true, spec:{subj:'God', verb:'is', comp:'love', alt:'God is love. choice 1'}},
@@ -11299,7 +11305,7 @@ const EN_DIAG = [
       {spec:{subj:'Ye', verb:'are', comp:'salt', alt:'Ye are the salt. choice 3'}},
       {spec:{subj:'Ye', verb:'are', comp:'salt', mods:[{on:'comp', w:'the'}, {on:'comp', w:'earth'}], alt:'Ye are the salt. choice 4'}}
     ],
-    why:'<em>Salt</em> renames the subject, a predicate nominative, and <em>the</em> hangs under it. <em>Of the earth</em> is left off. The verse goes on, <em>but if the salt have lost his savour, wherewith shall it be salted?</em>'},
+    why:'<em>Salt</em> renames the subject, a predicate nominative, and <em>the</em> hangs under it. <em>Of the earth</em> is left off.'},
   {id:'ed55', dmin:3, kind:'diag', cite:CITE.kjvPs, q:'Which diagram matches the sentence?', s:'he leadeth me beside the still waters.',
     choices:[
       {ok:true, spec:{subj:'he', verb:'leadeth', obj:'me', preps:[{on:'verb', p:'beside', n:'waters', det:'still'}], alt:'he leadeth me beside the still waters. choice 1'}},
@@ -11747,9 +11753,18 @@ function governEnglish(d){
     }else{
       const fr = rand(kind === 'prep' ? GVE_PREP : GVE_VERB);
       const p = rand(GVE_PRON);
-      const reflex = p[0] === 'us' && /^We /.test(fr[0]);
-      const shown = reflex ? 'ourselves' : p[0];
-      const banned = reflex ? 'us' : p[1];
+      const weFrame = /^We /.test(fr[0]);
+      let shown = p[0];
+      let banned = p[1];
+      let reflex = false;
+      if(weFrame && p[0] === 'us'){
+        reflex = true;
+        shown = 'ourselves';
+        banned = 'us';
+      }else if(weFrame && p[0] === 'me'){
+        shown = rand(['him','them']);
+        banned = shown === 'him' ? 'he' : 'they';
+      }
       s = fr[0].replace('{}', `<b>${shown}</b>`);
       const word = fr[1];
       why = kind === 'prep'
@@ -12217,24 +12232,37 @@ function supposEnglish(d){
   const S = 'Simple supposition: the common nature as known';
   const M = 'Material supposition: the word itself, as a word, not what it names';
   const D = 'Discrete supposition: one singular thing';
+  const S_PERS = 'Personal supposition: actual things themselves';
+  const D_COM = 'Common supposition: many things, not one';
+  const D_MAT = 'Material supposition: the word';
+  const M_PERS = 'Personal supposition: the things which the word was imposed to name';
+  const M_LONG = 'Personal supposition: the actual things which the word was imposed to name';
+  const SIMPLE_FOR = {
+    55:'Simple supposition: the common nature as known, not one',
+    56:'Simple supposition: the common nature, not any one thing',
+    57:'Simple supposition: a common nature, not the things named',
+    58:'Simple supposition: the common nature as the mind knows it',
+    59:'Simple supposition: the common nature, as the mind knows it'
+  };
   if(kind === 'd'){
     const s = rand(SPE_DISCRETE);
     const name = s.split(' ')[0];
     return p2MC({sid:'spe:d:'+s, prompt:`What is <em>${name}</em> standing for here?`, sentence:s, a: D,
-      ds:[D, 'Personal supposition: actual things of a kind', S, M], src:['peterhisp'],
+      ds:[D, D_COM, D_MAT, S], src:['peterhisp'],
       why:`A proper name stands for one singular thing, which Peter of Spain calls discrete supposition. A common term such as <em>city</em> would have common supposition.`}, d);
   }
   const t = rand(kind === 's' ? SPE_TERMS.filter(x => x[3]) : SPE_TERMS);
   const P = `Personal supposition: actual ${t[1]}, the things themselves`;
+  const simpleTie = SIMPLE_FOR[P.length];
   if(kind === 'p'){
     return p2MC({sid:'spe:p:'+t[0], prompt:`What is <em>${t[0]}</em> (or <em>${t[1]}</em>) standing for here?`, sentence: t[2], a: P,
-      ds:[P, S, M, D], src:['peterhisp'],
+      ds:[P, simpleTie, M, D], src:['peterhisp'],
       why:`The term stands for the ${t[1]} themselves, the things it was imposed to name. That is personal supposition, the ordinary case.`}, d);
   }
   if(kind === 's'){
     const s = `${cap(t[0])} is a species.`;
     return p2MC({sid:'spe:s:'+t[0], prompt:`What is <em>${t[0]}</em> standing for here?`, sentence:s, a: S,
-      ds:[S, P, M, D], src:['peterhisp'],
+      ds:[S, S_PERS, M, D], src:['peterhisp'],
       why:`No single ${t[0]} is a species. The term stands for the nature as known, which is what a species is: simple supposition.`}, d);
   }
   const form = rand(['letters','noun','syll']);
@@ -12242,7 +12270,7 @@ function supposEnglish(d){
           : form === 'noun' ? `“${cap(t[0])}” is a noun.`
           : `“${cap(t[0])}” is a word of ${SPE_NUM[t[4]]} syllable${t[4] === 1 ? '' : 's'}.`;
   return p2MC({sid:'spe:m:'+t[0]+':'+form, prompt:`What is <em>${t[0]}</em> standing for here?`, sentence:s, a: M,
-    ds:[M, P, S, D], src:['appown'],
+    ds:[M, M_PERS, S, M_LONG], src:['appown'],
     why:`The sentence is about the word, not about any ${t[0]}: material supposition. The quotation marks show it, as the older books had to show it by the predicate alone.`}, d);
 }
 
@@ -12273,7 +12301,7 @@ CT_ITEMS.push(
 'Sol est lucidus.',
 'Aqua est humida.',
 'Ignis calidus est.',
-'Triangulus tria latera habet.',
+'Triangulum tria latera habet.',
 'Septem est numerus primus.',
 'Roma urbs est.',
 'Homo animal est.',
