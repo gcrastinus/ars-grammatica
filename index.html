@@ -5240,7 +5240,7 @@ function agreeVerdict(adj, adjForm, entry, nounForm){
 
 EX.agree = {
   id:'agree', src:['te','ag'], act:'IV', title:'Agreement',
-  desc:'An adjective and its noun, congruous or not. The rule is not arbitrary: the adjective signifies by the mode of <em>adhering to another</em>, and so, says Thomas of Erfurt, it <em>requires</em> in its subject the mode of standing by itself, proportionate to it. Agreement is therefore derived, not memorised.',
+  desc:'An adjective and its noun, congruous or not. The rule is not arbitrary: the adjective signifies by the mode of <em>adhering to another</em>, and so, says Thomas of Erfurt, it <em>requires</em> in its subject the mode of standing by itself, proportionate to it. Agreement is therefore derived, not memorised. In English, the questions ask whether subject and verb, and pronoun and antecedent, agree.',
   instr:'Is the phrase congruous? If not, in what?',
   gen(d){
     const nouns = nounPool(d).filter(n => n.d !== 'd4n');
@@ -5989,7 +5989,7 @@ const SYLL_OTHER = [
 
 EX.syllable = {
   id:'syllable', src:['ag','priscian','appown'], act:'I', title:'Syllable, Quantity and Accent',
-  desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill; English is always asked, and Greek, German, or French when that language is chosen.',
+  desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill; English is always asked, and Greek, German, or French when that language is chosen. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
   instr:'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
     const L = state.lang3;
@@ -6229,7 +6229,7 @@ EX.decline = {
    ============================================================ */
 EX.produce = {
   id:'produce', src:['ag'], act:'III', title:'Producing the Form',
-  desc:'The inverse of parsing: the lemma and the accidents are given, and the answer is the form. Nouns and verbs come from the same tables. Macrons are shown in the answer and are not required in what is typed.',
+  desc:'The inverse of parsing: the lemma and the accidents are given, and the answer is the form. Nouns and verbs come from the same tables. Macrons are shown in the answer and are not required in what is typed. In English, the forms asked for are irregular verbs, irregular plurals, comparison, and pronoun forms.',
   instr:'Write the form. Macrons are optional.',
   gen(d){
     const wantVerb = d >= 2 && Math.random() < 0.55;
@@ -6333,7 +6333,7 @@ const GOVERN_ITEMS = [
 
 EX.govern = {
   id:'govern', src:['ag','appown'], act:'IV', title:'Government',
-  desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> and the German two-way prepositions are the clearest teaching cases, since the same small word takes two cases with two meanings.',
+  desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> and the German two-way prepositions are the clearest teaching cases, since the same small word takes two cases with two meanings. In English, government shows only in pronouns, and the questions ask why a pronoun takes the form it has.',
   instr:'What case does this word require of its complement?',
   gen(d){
     if(Math.random() < 0.5){
@@ -6629,12 +6629,12 @@ const VICE_ITEMS = [
   {id:'vc1', src:['donatus'], s:'He has three <b>childs</b>.',
    q:'What kind of fault?',
    a:'Barbarism: a fault in one word',
-   ds:['Solecism: the words do not fit','No fault: the sense is clear','A figure: the poets allow it'],
+   ds:['Solecism: the words do not fit','No fault: the sentence is sound as it stands','A figure: the poets allow it'],
    why:'<em>Childs</em> is not the English plural. The rest of the sentence would be well enough; one word is wrongly formed.'},
   {id:'vc2', src:['donatus'], s:'The boys <b>runs</b> home.',
    q:'What kind of fault?',
    a:'Solecism: the words do not fit',
-   ds:['Barbarism: <em>runs</em> is not a word','No fault: the sense is clear','A trope: a word carried over'],
+   ds:['Barbarism: <em>runs</em> is not a word','No fault: the sentence is sound as it stands','A trope: a word carried over'],
    why:'<em>Runs</em> is an English word, but it does not fit <em>boys</em>. Each piece is native; the construction fails.'},
   {id:'vc3', src:['donatus'], s:'Puella <b>bonus</b> est.',
    q:'What kind of fault?',
@@ -6644,7 +6644,7 @@ const VICE_ITEMS = [
   {id:'vc4', src:['donatus'], s:'Puer patrem <b>amavis</b>.',
    q:'What kind of fault?',
    a:'Barbarism: a form the language does not have',
-   ds:['Solecism: two good words badly arranged','No fault: the sense is clear','A figure, allowed for the metre'],
+   ds:['Solecism: two good words badly arranged','No fault: the sentence is sound as it stands','A figure, allowed for the metre'],
    why:'<em>Amavis</em> is not a Latin form; the perfect, third person singular, is <em>amāvit</em>. The fault is in the word, before any arrangement is asked.'},
   {id:'vc5', src:['donatus'], s:'Between you and I, they left.',
    q:'What kind of fault?',
@@ -6658,12 +6658,12 @@ const VICE_ITEMS = [
   {id:'vc7', src:['donatus'], s:'She <b>goed</b> to the harbour at dawn.',
    q:'What kind of fault?',
    a:'Barbarism: the past of <em>go</em> is <em>went</em>',
-   ds:['Solecism: <em>harbour</em> disagrees with <em>she</em>','No fault: the sense is clear','Incomplete: the sense is not finished'],
+   ds:['Solecism: <em>harbour</em> disagrees with <em>she</em>','No fault: the sentence is sound as it stands','Incomplete: the sense is not finished'],
    why:'<em>Goed</em> is a form English does not have. Compare <em>she go to the harbour</em>, which uses good words in a bad arrangement, and is a solecism.'},
   {id:'vc8', src:['donatus'], s:'The book on the table <b>are</b> heavy.',
    q:'What kind of fault?',
    a:'Solecism: number does not fit',
-   ds:['Barbarism: <em>are</em> is not an English word','Barbarism: <em>heavy</em> is a foreign word','No fault: the sense is clear'],
+   ds:['Barbarism: <em>are</em> is not an English word','Barbarism: <em>heavy</em> is a foreign word','No fault: the sentence is sound as it stands'],
    why:'Every word is English, but the verb does not fit its subject. Congruity has failed in the arrangement.'},
   {id:'vc9', src:['donatus','verg_pd'], s:'pars in frusta <b>secant</b> (Aeneid I.212)',
    q:'Donatus counts this as a solecism. In which accident does it fail?',
@@ -6715,7 +6715,7 @@ EX.vices = {
       const options = shuffle([a, ...sample([
         'Barbarism: a fault in one word',
         'Solecism: the words do not fit',
-        'No fault: the sense is clear',
+        'No fault: the sentence is sound as it stands',
         'A figure: the poets allow it'
       ].filter(x => x !== a), d <= 1 ? 2 : 3)]);
       return {
@@ -7584,7 +7584,7 @@ EX.vox = {
         {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'It is living sound from the mouth of an animal, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
         {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
         {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
-        {w:'thunder', a:'A sound in nature, but not a voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
+        {w:'thunder', a:'A sound in nature, made by no living voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
         {w:'a cough', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice; but it cannot be caught in letters, and so for Donatus it is confused, or inarticulate. It signifies nothing by imposition.'}
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
@@ -7592,7 +7592,7 @@ EX.vox = {
         'Voice, but inarticulate and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
-        'A sound in nature, but not a voice',
+        'A sound in nature, made by no living voice',
         'A complete sentence, though of one word'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
@@ -9714,6 +9714,792 @@ EX.endiag = enEx('endiag', 'The Diagram',
     {h:'<strong>What is not on the base line (the main line) hangs below it.</strong> Modifiers and prepositional phrases hang on slants. A dependent clause takes a lower base (a lower main line) and a dotted line. The drill does not go beyond these.'}
   ],
   EN_DIAG);
+
+/* ---------- English pools for the shared exercises ----------
+   Each shared exercise gains an English generator. Where English works differently from Latin,
+   the question is asked in English terms: agreement of subject and verb and of pronoun and
+   antecedent; pronoun case after verbs and prepositions; irregular English forms; English stress.
+   The sentences are ordinary sentences made for the drill; none is presented as an author's. */
+function p2MC(o, d){
+  const n = d <= 1 ? 3 : 4;
+  const pool = o.ds.filter(x => x !== o.a);
+  const options = shuffle([o.a, ...sample(pool, Math.min(n - 1, pool.length))]);
+  const correct = options.indexOf(o.a);
+  return {
+    kind:'mc', lang:'en', src: o.src || ['appown','engclass'], sid: o.sid, prompt: o.prompt,
+    sentence: o.sentence ? o.sentence.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>') : o.sentence, specimen: o.specimen, passage: o.passage, source: o.source || '',
+    options, correct,
+    check(i){
+      if(i === correct) return {right:true, note: o.why};
+      return {right:false, note:`<strong>${o.a}.</strong> ${o.why}`, also:`The answer chosen was <em>${options[i]}</em>.`};
+    }
+  };
+}
+function p2Text(o){
+  return {
+    kind:'text', lang:'en', src: o.src || ['appown','engclass'], sid: o.sid, prompt: o.prompt,
+    specimen: o.specimen, placeholder: 'Type the English form',
+    check(val){
+      const v = String(val || '').trim().toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ');
+      const ok = o.answers.some(a => a.toLowerCase() === v);
+      if(ok) return {right:true, note: o.why};
+      return {right:false, note: o.why, also: v ? `The answer written was <em>${String(val).trim()}</em>.` : 'Nothing was written.'};
+    }
+  };
+}
+function p2Weighted(pairs){
+  let r = Math.random(), acc = 0;
+  for(const [w, v] of pairs){ acc += w; if(r < acc) return v; }
+  return pairs[pairs.length - 1][1];
+}
+function p2AddEnglish(id, fn, p){
+  const ex = EX[id];
+  if(!ex) return;
+  const base = ex.gen;
+  ex.gen = function(d){ return Math.random() < p ? fn(d) : base.call(this, d); };
+}
+
+/* ----- agree: subject and verb, pronoun and antecedent ----- */
+const AGE_SV = [  /* subject, right verb, wrong verb, rest, head, number, easy */
+  ['The box of apples','is','are','heavy','box','singular',1],
+  ['The captain of the sailors','is','are','ready','captain','singular',1],
+  ['The list of names','is','are','long','list','singular',1],
+  ['The bag of old coins','was','were','lost','bag','singular',1],
+  ['The key to the doors','is','are','missing','key','singular',1],
+  ['The leader of the soldiers','was','were','brave','leader','singular',1],
+  ['The price of the books','was','were','high','price','singular',1],
+  ['The colour of the leaves','is','are','changing','colour','singular',1],
+  ['The keys to the door','are','is','lost','keys','plural',1],
+  ['The books on the shelf','are','is','old','books','plural',1],
+  ['The windows of the house','were','was','open','windows','plural',1],
+  ['The sailors on the ship','were','was','tired','sailors','plural',1],
+  ['The flowers in the garden','are','is','bright','flowers','plural',1],
+  ['The children in the village','were','was','asleep','children','plural',1],
+  ['The pile of stones','is','are','high','pile','singular',1],
+  ['The sound of the bells','was','were','loud','sound','singular',1],
+  ['The captain and the sailor','are','is','here','captain and sailor (joined by and)','plural',1],
+  ['The bread and the cheese','are','is','on the table','bread and cheese (joined by and)','plural',1],
+  ['Each of the boys','is','are','ready','each','singular',0],
+  ['Every one of the letters','was','were','opened','every one','singular',0],
+  ['One of the horses','is','are','lame','one','singular',0],
+  ['The number of guests','is','are','small','number','singular',0],
+  ['A number of guests','are','is','late','a number of guests (that is, several guests)','plural',0],
+  ['Neither the captain nor the sailors','are','is','ready','sailors, the nearer subject after neither…nor','plural',0],
+  ['Either the sailors or the captain','is','are','to blame','captain, the nearer subject after either…or','singular',0],
+  ['The news','is','are','good','news (singular, though it ends in -s)','singular',0],
+  ['Mathematics','is','are','hard','mathematics (singular, though it ends in -s)','singular',0],
+  ['The scissors','are','is','sharp','scissors (always plural)','plural',0],
+  ['Everyone in the room','was','were','silent','everyone','singular',0],
+  ['Nobody in the house','is','are','awake','nobody','singular',0],
+  ['The teacher, with her pupils,','is','are','on the way','teacher (with does not join subjects)','singular',0],
+  ['The ship and its crew','were','was','lost','ship and crew (joined by and)','plural',0],
+  ['There','are','is','three gates in the wall','gates, which follow the verb','plural',0],
+  ['There','is','are','a ship in the harbour','ship, which follows the verb','singular',0],
+  ['Here','come','comes','the soldiers','soldiers, which follow the verb','plural',0],
+  ['The rest of the cake','is','are','gone','rest, which takes its number from cake','singular',0],
+  ['The rest of the apples','are','is','gone','rest, which takes its number from apples','plural',0],
+  ['Some of the water','was','were','spilled','some, which takes its number from water','singular',0],
+  ['Some of the cups','were','was','broken','some, which takes its number from cups','plural',0],
+  ['All of the bread','is','are','stale','all, which takes its number from bread','singular',0]
+];
+const AGE_PE = [  /* subject, right verb, wrong verb, rest */
+  ['I','am','is','ready'], ['He','is','am','ready'], ['I','have','has','the key'], ['She','has','have','the key'],
+  ['I','do','does','not know'], ['He','does','do','not know'], ['You','are','is','late'], ['I','go','goes','home'],
+  ['She','goes','go','home'], ['I','write','writes','letters'], ['He','writes','write','letters'], ['I','know','knows','the way'],
+  ['It','seems','seem','right'], ['We','are','am','here']
+];
+const AGE_PR = [  /* frame, right pronoun, wrong pronoun, antecedent, number */
+  ['The tree lost {} leaves','its','their','tree','singular'], ['The trees lost {} leaves','their','its','trees','plural'],
+  ['The ship lowered {} sails','its','their','ship','singular'], ['The ships lowered {} sails','their','its','ships','plural'],
+  ['The dog wagged {} tail','its','their','dog','singular'], ['The dogs wagged {} tails','their','its','dogs','plural'],
+  ['The book has lost {} cover','its','their','book','singular'], ['The books have lost {} covers','their','its','books','plural'],
+  ['The river overflowed {} banks','its','their','river','singular'], ['The rivers overflowed {} banks','their','its','rivers','plural'],
+  ['The city closed {} gates','its','their','city','singular'], ['The cities closed {} gates','their','its','cities','plural'],
+  ['The bird built {} nest','its','their','bird','singular'], ['The birds built {} nests','their','its','birds','plural'],
+  ['The house has lost {} roof','its','their','house','singular'], ['The houses have lost {} roofs','their','its','houses','plural'],
+  ['The wheel came off {} axle','its','their','wheel','singular'], ['The horses shook {} manes','their','its','horses','plural']
+];
+const AGE_L = {
+  sound:'Sound: the verb and the pronoun both agree',
+  sv:'Faulty: the verb does not agree with its subject',
+  pr:'Faulty: the pronoun does not agree with the word it stands for',
+  pe:'Faulty: the verb is in the wrong person'
+};
+function agreeEnglish(d){
+  const kind = p2Weighted([[0.42,'sv'],[0.40,'pr'],[0.18,'pe']]);
+  const sound = Math.random() < 0.5;
+  let s, a, why;
+  if(kind === 'sv'){
+    const r = rand(d <= 1 ? AGE_SV.filter(x => x[6]) : AGE_SV);
+    const v = sound ? r[1] : r[2];
+    s = `${r[0]} ${v} ${r[3]}.`;
+    a = sound ? AGE_L.sound : AGE_L.sv;
+    why = sound
+      ? `The subject is <em>${r[4]}</em>, which is ${r[5]}, and the verb <em>${r[1]}</em> agrees with it.`
+      : `The subject is <em>${r[4]}</em>, which is ${r[5]}, so the verb must be <em>${r[1]}</em>, not <em>${r[2]}</em>. A phrase between subject and verb does not change the subject.`;
+  }else if(kind === 'pe'){
+    const r = rand(AGE_PE);
+    const v = sound ? r[1] : r[2];
+    s = `${r[0]} ${v} ${r[3]}.`;
+    a = sound ? AGE_L.sound : AGE_L.pe;
+    why = sound
+      ? `<em>${r[0]}</em> takes <em>${r[1]}</em>: the verb agrees with its subject in person as well as in number.`
+      : `<em>${r[0]}</em> takes <em>${r[1]}</em>. <em>${cap(r[2])}</em> is the form for another person, so the verb is in the wrong person.`;
+  }else{
+    const r = rand(AGE_PR);
+    const p = sound ? r[1] : r[2];
+    s = r[0].replace('{}', p) + '.';
+    a = sound ? AGE_L.sound : AGE_L.pr;
+    why = sound
+      ? `<em>${cap(r[1])}</em> stands for <em>${r[3]}</em>, which is ${r[4]}, and so it agrees.`
+      : `The pronoun stands for <em>${r[3]}</em>, which is ${r[4]}, so it must be <em>${r[1]}</em>, not <em>${r[2]}</em>.`;
+  }
+  return p2MC({sid:'age:'+s, prompt:'Judge the sentence.', sentence:s, a,
+    ds:[AGE_L.sound, AGE_L.sv, AGE_L.pr, AGE_L.pe], why}, d);
+}
+
+/* ----- produce: irregular verbs, plurals, comparison, pronoun forms ----- */
+const PDE_VERBS = [  /* base, past(s), participle(s) */
+  ['sing',['sang'],['sung']], ['ring',['rang'],['rung']], ['drink',['drank'],['drunk']], ['swim',['swam'],['swum']],
+  ['begin',['began'],['begun']], ['run',['ran'],['run']], ['come',['came'],['come']], ['go',['went'],['gone']],
+  ['see',['saw'],['seen']], ['take',['took'],['taken']], ['give',['gave'],['given']], ['write',['wrote'],['written']],
+  ['ride',['rode'],['ridden']], ['drive',['drove'],['driven']], ['rise',['rose'],['risen']], ['speak',['spoke'],['spoken']],
+  ['break',['broke'],['broken']], ['choose',['chose'],['chosen']], ['freeze',['froze'],['frozen']], ['steal',['stole'],['stolen']],
+  ['wake',['woke'],['woken']], ['fall',['fell'],['fallen']], ['eat',['ate'],['eaten']], ['know',['knew'],['known']],
+  ['grow',['grew'],['grown']], ['throw',['threw'],['thrown']], ['fly',['flew'],['flown']], ['draw',['drew'],['drawn']],
+  ['blow',['blew'],['blown']], ['wear',['wore'],['worn']], ['tear',['tore'],['torn']], ['forget',['forgot'],['forgotten']],
+  ['bite',['bit'],['bitten']], ['hide',['hid'],['hidden']], ['do',['did'],['done']], ['bring',['brought'],['brought']],
+  ['buy',['bought'],['bought']], ['think',['thought'],['thought']], ['teach',['taught'],['taught']], ['catch',['caught'],['caught']],
+  ['fight',['fought'],['fought']], ['seek',['sought'],['sought']], ['feel',['felt'],['felt']], ['keep',['kept'],['kept']],
+  ['sleep',['slept'],['slept']], ['leave',['left'],['left']], ['lose',['lost'],['lost']], ['send',['sent'],['sent']],
+  ['build',['built'],['built']], ['stand',['stood'],['stood']], ['sit',['sat'],['sat']], ['tell',['told'],['told']],
+  ['sell',['sold'],['sold']], ['find',['found'],['found']], ['hold',['held'],['held']], ['shake',['shook'],['shaken']],
+  ['forgive',['forgave'],['forgiven']], ['lie (to recline)',['lay'],['lain']], ['lay (to put down)',['laid'],['laid']]
+];
+const PDE_PLURALS = [
+  ['child',['children']], ['man',['men']], ['woman',['women']], ['foot',['feet']], ['tooth',['teeth']], ['goose',['geese']],
+  ['mouse',['mice']], ['ox',['oxen']], ['sheep',['sheep']], ['deer',['deer']], ['knife',['knives']], ['leaf',['leaves']],
+  ['wolf',['wolves']], ['half',['halves']], ['life',['lives']], ['wife',['wives']], ['loaf',['loaves']], ['thief',['thieves']],
+  ['shelf',['shelves']], ['calf',['calves']], ['crisis',['crises']], ['thesis',['theses']], ['analysis',['analyses']],
+  ['criterion',['criteria']], ['phenomenon',['phenomena']], ['potato',['potatoes']], ['hero',['heroes']], ['tomato',['tomatoes']],
+  ['city',['cities']], ['lady',['ladies']], ['box',['boxes']], ['church',['churches']], ['brush',['brushes']],
+  ['person',['people','persons']], ['louse',['lice']], ['fish',['fish','fishes']]
+];
+const PDE_COMP = [  /* adjective, comparative(s), superlative(s) */
+  ['good',['better'],['best']], ['bad',['worse'],['worst']], ['little',['less'],['least']], ['many',['more'],['most']],
+  ['much',['more'],['most']], ['far',['farther','further'],['farthest','furthest']], ['big',['bigger'],['biggest']],
+  ['happy',['happier'],['happiest']], ['easy',['easier'],['easiest']], ['hot',['hotter'],['hottest']], ['thin',['thinner'],['thinnest']],
+  ['simple',['simpler'],['simplest']], ['beautiful',['more beautiful'],['most beautiful']], ['careful',['more careful'],['most careful']],
+  ['old',['older','elder'],['oldest','eldest']], ['wet',['wetter'],['wettest']], ['busy',['busier'],['busiest']], ['brave',['braver'],['bravest']]
+];
+const PDE_PRON = [  /* prompt, answers, why */
+  ['the object form of <em>I</em>',['me'],'<em>Me</em> is the object form of <em>I</em>: <em>They saw me</em>.'],
+  ['the object form of <em>he</em>',['him'],'<em>Him</em> is the object form of <em>he</em>.'],
+  ['the object form of <em>she</em>',['her'],'<em>Her</em> is the object form of <em>she</em>.'],
+  ['the object form of <em>we</em>',['us'],'<em>Us</em> is the object form of <em>we</em>.'],
+  ['the object form of <em>they</em>',['them'],'<em>Them</em> is the object form of <em>they</em>.'],
+  ['the object form of <em>who</em>',['whom'],'<em>Whom</em> is the object form of <em>who</em>: <em>To whom did you write?</em>'],
+  ['the possessive of <em>it</em>, as in “the dog wagged ___ tail”',['its'],'<em>Its</em>, with no apostrophe. <em>It’s</em> means “it is.”'],
+  ['the possessive of <em>they</em>, as in “they lost ___ way”',['their'],'<em>Their</em> is the possessive of <em>they</em>.'],
+  ['the possessive of <em>we</em>, as in “this is ___ house”',['our'],'<em>Our</em> is the possessive of <em>we</em>.'],
+  ['the possessive of <em>who</em>, as in “___ book is this?”',['whose'],'<em>Whose</em> is the possessive of <em>who</em>. <em>Who’s</em> means “who is.”'],
+  ['the possessive that stands alone, from <em>I</em>, as in “the book is ___”',['mine'],'<em>Mine</em> stands alone: <em>the book is mine</em>.'],
+  ['the possessive that stands alone, from <em>she</em>, as in “the choice is ___”',['hers'],'<em>Hers</em>, with no apostrophe.'],
+  ['the possessive that stands alone, from <em>they</em>, as in “the house is ___”',['theirs'],'<em>Theirs</em>, with no apostrophe.'],
+  ['the possessive that stands alone, from <em>we</em>, as in “the victory is ___”',['ours'],'<em>Ours</em>, with no apostrophe.'],
+  ['the reflexive of <em>he</em>, as in “he hurt ___”',['himself'],'<em>Himself</em>; <em>hisself</em> is not standard English.'],
+  ['the reflexive of <em>they</em>, as in “they helped ___”',['themselves'],'<em>Themselves</em>; <em>theirselves</em> is not standard English.'],
+  ['the reflexive of <em>we</em>, as in “we taught ___”',['ourselves'],'<em>Ourselves</em> is the reflexive of <em>we</em>.'],
+  ['the reflexive of <em>I</em>, as in “I asked ___”',['myself'],'<em>Myself</em> is the reflexive of <em>I</em>.']
+];
+function produceEnglish(d){
+  const kind = p2Weighted(d <= 1 ? [[0.55,'v'],[0.30,'n'],[0.15,'c']] : [[0.45,'v'],[0.2,'n'],[0.2,'c'],[0.15,'p']]);
+  if(kind === 'v'){
+    const r = rand(PDE_VERBS);
+    const part = Math.random() < 0.5;
+    const name = r[0].split(' ')[0];
+    const ans = part ? r[2] : r[1];
+    return p2Text({sid:'pde:'+r[0]+(part?':pp':':pa'),
+      prompt: part ? `Write the past participle, the form used after <em>has</em> (as in “she has ___”).` : `Write the past tense, as in “yesterday they ___”.`,
+      specimen:`${name}<span class="lemma">${r[0].indexOf('(') >= 0 ? r[0].slice(r[0].indexOf('(')) : 'verb'}</span>`, answers: ans,
+      why:`The ${part ? 'past participle' : 'past tense'} of <em>${r[0]}</em> is <strong>${ans.join('</strong> or <strong>')}</strong>. ${part && r[1][0] !== r[2][0] ? `The past tense is <em>${r[1][0]}</em>; the two forms differ in this verb.` : part ? 'In this verb the past tense and the participle are the same form.' : `The participle is <em>${r[2][0]}</em>.`}`});
+  }
+  if(kind === 'n'){
+    const r = rand(PDE_PLURALS);
+    return p2Text({sid:'pdn-en:'+r[0], prompt:'Write the plural of this noun.', specimen: r[0], answers: r[1],
+      why:`The plural of <em>${r[0]}</em> is <strong>${r[1].join('</strong> (or <strong>')}${r[1].length > 1 ? '</strong>)' : '</strong>'}. It does not follow the ordinary rule of adding <em>-s</em>${['city','lady','box','church','brush','potato','hero','tomato'].indexOf(r[0]) >= 0 ? ' alone; the spelling changes too' : ''}.`});
+  }
+  if(kind === 'c'){
+    const r = rand(PDE_COMP);
+    const sup = Math.random() < 0.5;
+    const ans = sup ? r[2] : r[1];
+    return p2Text({sid:'pdc:'+r[0]+(sup?':s':':c'), prompt: sup ? 'Write the superlative of this adjective (as in “the ___ of all”).' : 'Write the comparative of this adjective (as in “___ than the other”).',
+      specimen: r[0], answers: ans,
+      why:`The ${sup ? 'superlative' : 'comparative'} of <em>${r[0]}</em> is <strong>${ans.join('</strong> or <strong>')}</strong>.`});
+  }
+  const r = rand(PDE_PRON);
+  return p2Text({sid:'pdp:'+r[0], prompt:`Write ${r[0]}.`, specimen:'pronoun', answers: r[1], why: r[2]});
+}
+
+/* ----- govern: why a pronoun takes the form it has ----- */
+const GVE_PRON = [['me','I'],['him','he'],['her','she'],['us','we'],['them','they']];
+const GVE_PREP = [['The captain spoke to {}.','to'],['The letter is for {}.','for'],['She walked beside {}.','beside'],['They sailed without {}.','without'],
+  ['He stood behind {}.','behind'],['The gift came from {}.','from'],['We argued against {}.','against'],['The dog ran toward {}.','toward'],
+  ['Nobody sat near {}.','near'],['This is between you and {}.','between'],['The sailors waited for {}.','for']];
+const GVE_VERB = [['The captain called {}.','called'],['She thanked {} warmly.','thanked'],['They followed {} to the gate.','followed'],
+  ['We saw {} at the harbour.','saw'],['The teacher praised {}.','praised'],['Nobody helped {}.','helped']];
+const GVE_FIXED = [  /* sentence with the pronoun marked, kind, word */
+  ['To <b>whom</b> did you give the letter?','prep','to'], ['With <b>whom</b> did she travel?','prep','with'], ['For <b>whom</b> is this gift?','prep','for'],
+  ['<b>Whom</b> did the captain choose?','verb','choose'],
+  ['It was <b>I</b> who rang the bell.','link','was'], ['It is <b>she</b> who decides.','link','is'], ['That was <b>he</b> at the door.','link','was'],
+  ['It was <b>they</b> who found the ship.','link','was'], ['It is <b>we</b> who must choose.','link','is'],
+  ['Give the prize to <b>whoever</b> finishes first.','subj','finishes'], ['Ask <b>whoever</b> is waiting at the gate.','subj','is waiting'],
+  ['<b>Who</b> do you think is at the door?','subj','is'], ['We know <b>who</b> wrote the letter.','subj','wrote'],
+  ['The man <b>who</b> came yesterday was a sailor.','subj','came'], ['She is the one <b>who</b> paid.','subj','paid'],
+  ['Tell me <b>who</b> is coming.','subj','is coming'], ['The prize goes to <b>whoever</b> wins.','subj','wins']
+];
+const GVE_L = {
+  prep:'The preposition governs it, and so it takes the object form',
+  verb:'The verb takes it as its object, and so it takes the object form',
+  subj:'It is the subject of its own clause, and so it takes the subject form',
+  link:'It follows a linking verb, and so it takes the subject form'
+};
+function governEnglish(d){
+  const kind = p2Weighted([[0.35,'prep'],[0.31,'verb'],[0.24,'subj'],[0.10,'link']]);
+  let s, why;
+  if(kind === 'prep' || kind === 'verb'){
+    const fixed = GVE_FIXED.filter(x => x[1] === kind);
+    if(Math.random() < 0.15){
+      const f = rand(fixed);
+      s = f[0];
+      why = kind === 'prep'
+        ? `<em>${cap(f[2])}</em> is a preposition, and its object takes the object form: <em>whom</em>, not <em>who</em>.`
+        : `<em>Whom</em> is the object of <em>${f[2]}</em>, though it stands first in the question, and so it takes the object form.`;
+    }else{
+      const fr = rand(kind === 'prep' ? GVE_PREP : GVE_VERB);
+      const p = rand(GVE_PRON);
+      s = fr[0].replace('{}', `<b>${p[0]}</b>`);
+      const word = fr[1];
+      why = kind === 'prep'
+        ? `<em>${cap(word)}</em> governs the pronoun, as a preposition governs its object, and so the object form <em>${p[0]}</em> is required, not <em>${p[1]}</em>. English shows this government only in pronouns.`
+        : `The pronoun receives the action of <em>${word}</em>, so it is the object and takes the object form <em>${p[0]}</em>, not <em>${p[1]}</em>.`;
+    }
+  }else{
+    const f = rand(GVE_FIXED.filter(x => x[1] === kind));
+    s = f[0];
+    why = kind === 'link'
+      ? `<em>${cap(f[2])}</em> links the pronoun to the subject <em>it</em> or <em>that</em>; formal English puts the complement of a linking verb in the subject form. Ordinary speech often says <em>It was me</em>.`
+      : `The pronoun is the subject of <em>${f[2]}</em> in its own clause, and the clause decides its form, whatever comes before the clause.`;
+  }
+  return p2MC({sid:'gve:'+s, prompt:'Why does the marked pronoun take the form it has?', sentence:s, a: GVE_L[kind],
+    ds:[GVE_L.prep, GVE_L.verb, GVE_L.subj, GVE_L.link], why}, d);
+}
+
+/* ----- decline: the parts of speech in ordinary English sentences ----- */
+const DCE_L = {
+  noun:'Declinable: a noun, which takes endings',
+  verb:'Declinable: a verb, which takes endings',
+  adjective:'Declinable: an adjective, declined with its noun',
+  pronoun:'Declinable: a pronoun, which still shows case',
+  adverb:'Indeclinable: an adverb, which keeps one form',
+  preposition:'Indeclinable: a preposition, one form',
+  conjunction:'Indeclinable: a conjunction, one form',
+  interjection:'Indeclinable: an interjection, one form'
+};
+const DCE_WHY = {
+  noun:'English nouns still take a plural and a possessive ending (<em>ship, ships, ship’s</em>); Latin would also mark case.',
+  verb:'English verbs still change for tense and for the third person (<em>walk, walks, walked</em>).',
+  adjective:'In Latin the adjective takes the endings of its noun; English keeps only the degrees (<em>old, older, oldest</em>), and the tradition files it with the declinable parts.',
+  pronoun:'English pronouns keep a small case system: <em>he, him, his</em>; <em>they, them, their</em>.',
+  adverb:'Adverbs keep one form; they say how, when, or where, and take no endings for case or person.',
+  preposition:'A preposition keeps one form and governs the noun after it.',
+  conjunction:'A conjunction keeps one form; joining is its whole work.',
+  interjection:'An interjection is a cry, Donatus’s eighth part, and it keeps one form.'
+};
+function declineEnglish(d){
+  const line = rand(EN_TAGGED);
+  const parts = line.split(' ').map(w => { const k = w.lastIndexOf('/'); return {t:w.slice(0,k), a:w.slice(k+1)}; });
+  const tags = [...new Set(parts.map(p => p.a))].filter(t => DCE_L[t]);
+  const tag = rand(tags);
+  const idx = parts.map((p,i) => p.a === tag ? i : -1).filter(i => i >= 0);
+  const pick = rand(idx);
+  const s = parts.map((p,i) => i === pick ? `<b>${p.t.replace(/,$/,'')}</b>${/,$/.test(p.t) ? ',' : ''}` : p.t).join(' ') + '.';
+  return p2MC({sid:'dce:'+s, prompt:'Is the marked word declinable or indeclinable?', sentence:s, a: DCE_L[tag],
+    ds: Object.values(DCE_L), why: DCE_WHY[tag]}, d);
+}
+
+/* ----- syllable: English syllable count and stress ----- */
+/* English marks a syllable by stress, not by Latin quantity. Divisions follow ordinary dictionary practice. */
+const SYE_WORDS = [  /* word, syllables, stressed index */
+  ['table','ta-ble',0],['garden','gar-den',0],['water','wa-ter',0],['mother','moth-er',0],['window','win-dow',0],['river','riv-er',0],
+  ['happy','hap-py',0],['letter','let-ter',0],['silver','sil-ver',0],['music','mu-sic',0],['paper','pa-per',0],['number','num-ber',0],
+  ['simple','sim-ple',0],['yellow','yel-low',0],['morning','morn-ing',0],['winter','win-ter',0],['open','o-pen',0],['picture','pic-ture',0],
+  ['teacher','teach-er',0],['pencil','pen-cil',0],
+  ['begin','be-gin',1],['below','be-low',1],['forget','for-get',1],['behind','be-hind',1],['about','a-bout',1],['alone','a-lone',1],
+  ['defend','de-fend',1],['decide','de-cide',1],['prefer','pre-fer',1],['report','re-port',1],['invite','in-vite',1],['become','be-come',1],
+  ['between','be-tween',1],['machine','ma-chine',1],['hotel','ho-tel',1],['police','po-lice',1],['guitar','gui-tar',1],['balloon','bal-loon',1],
+  ['correct','cor-rect',1],['July','Ju-ly',1],
+  ['beautiful','beau-ti-ful',0],['holiday','hol-i-day',0],['animal','an-i-mal',0],['elephant','el-e-phant',0],['character','char-ac-ter',0],
+  ['accident','ac-ci-dent',0],['president','pres-i-dent',0],['telephone','tel-e-phone',0],['interview','in-ter-view',0],
+  ['government','gov-ern-ment',0],['difficult','dif-fi-cult',0],['popular','pop-u-lar',0],['quantity','quan-ti-ty',0],['cinema','cin-e-ma',0],
+  ['banana','ba-nan-a',1],['tomorrow','to-mor-row',1],['important','im-por-tant',1],['potato','po-ta-to',1],['computer','com-pu-ter',1],
+  ['umbrella','um-brel-la',1],['together','to-geth-er',1],['remember','re-mem-ber',1],['example','ex-am-ple',1],['deliver','de-liv-er',1],
+  ['department','de-part-ment',1],['musician','mu-si-cian',1],['position','po-si-tion',1],['collection','col-lec-tion',1],
+  ['understand','un-der-stand',2],['afternoon','af-ter-noon',2],['recommend','rec-om-mend',2],['introduce','in-tro-duce',2],
+  ['engineer','en-gi-neer',2],['volunteer','vol-un-teer',2],['Japanese','Jap-a-nese',2],['kangaroo','kan-ga-roo',2],
+  ['entertain','en-ter-tain',2],['disappear','dis-ap-pear',2],
+  ['photography','pho-tog-ra-phy',1],['geography','ge-og-ra-phy',1],['community','com-mu-ni-ty',1],['ability','a-bil-i-ty',1],
+  ['biology','bi-ol-o-gy',1],['democracy','de-moc-ra-cy',1],['economy','e-con-o-my',1],['variety','va-ri-e-ty',1],['particular','par-tic-u-lar',1],
+  ['America','A-mer-i-ca',1],['education','ed-u-ca-tion',2],['information','in-for-ma-tion',2],['conversation','con-ver-sa-tion',2],
+  ['celebration','cel-e-bra-tion',2],['situation','sit-u-a-tion',2],['television','tel-e-vi-sion',0]
+];
+const SYE_ONE = ['strength','through','scratched','friend','school','eight','bread','night','world','straight'];
+const SYE_PAIRS = [  /* sentence with marked word, division, stressed index, key, note */
+  ['They kept a <b>record</b> of the voyage.','rec-ord',0,'record:n','As a noun, <em>record</em> is stressed on the first syllable.'],
+  ['They <b>record</b> the voyage in a book.','re-cord',1,'record:v','As a verb, <em>record</em> is stressed on the second syllable.'],
+  ['She brought a <b>present</b> for the child.','pres-ent',0,'present:n','As a noun, <em>present</em> is stressed on the first syllable.'],
+  ['They will <b>present</b> the prize at noon.','pre-sent',1,'present:v','As a verb, <em>present</em> is stressed on the second syllable.'],
+  ['He found a strange <b>object</b> on the beach.','ob-ject',0,'object:n','As a noun, <em>object</em> is stressed on the first syllable.'],
+  ['Nobody will <b>object</b> to the plan.','ob-ject',1,'object:v','As a verb, <em>object</em> is stressed on the second syllable.'],
+  ['The farmer sold his <b>produce</b> at the market.','pro-duce',0,'produce:n','As a noun, <em>produce</em> is stressed on the first syllable.'],
+  ['These fields <b>produce</b> good wheat.','pro-duce',1,'produce:v','As a verb, <em>produce</em> is stressed on the second syllable.'],
+  ['They signed a <b>contract</b> with the builder.','con-tract',0,'contract:n','As a noun, <em>contract</em> is stressed on the first syllable.'],
+  ['Metal will <b>contract</b> in the cold.','con-tract',1,'contract:v','As a verb, <em>contract</em> is stressed on the second syllable.'],
+  ['The <b>desert</b> stretched for miles.','des-ert',0,'desert:n','The noun <em>desert</em>, a dry land, is stressed on the first syllable.'],
+  ['The soldiers would not <b>desert</b> their post.','de-sert',1,'desert:v','The verb <em>desert</em>, to abandon, is stressed on the second syllable.']
+];
+function syeStressForms(div){
+  const sy = div.split('-');
+  const proper = /^[A-Z]/.test(div);
+  return sy.map((_, k) => {
+    const f = sy.map((x, j) => j === k ? x.toUpperCase() : x.toLowerCase()).join('-');
+    return proper && k !== 0 ? f.charAt(0).toUpperCase() + f.slice(1) : f;
+  });
+}
+function syllableEnglish(d){
+  const pairsOK = d >= 3;
+  const roll = Math.random();
+  if(pairsOK && roll < 0.15){
+    const r = rand(SYE_PAIRS);
+    const forms = syeStressForms(r[1]);
+    return p2MC({sid:'sye:p:'+r[3], prompt:'Which syllable carries the stress in the marked word?', sentence: r[0],
+      a: forms[r[2]], ds: forms, why: `${r[4]} English marks the syllable by stress, not by Latin quantity; the stressed syllable is shown in capitals. Here stress alone tells noun from verb.`}, d);
+  }
+  const maxSyl = d <= 1 ? 2 : d === 2 ? 3 : 5;
+  const pool = SYE_WORDS.filter(w => w[1].split('-').length <= maxSyl);
+  if(roll < 0.55){
+    const w = rand(pool);
+    const forms = syeStressForms(w[1]);
+    return p2MC({sid:'sye:s:'+w[0], prompt:`Which syllable of <em>${w[0]}</em> carries the stress?`, specimen: w[0],
+      a: forms[w[2]], ds: forms, why:`The stress falls on <strong>${w[1].split('-')[w[2]]}</strong>: ${forms[w[2]]}. English marks a syllable by stress (it is louder and longer), not by the Latin rule of long and short; the divisions shown follow ordinary dictionary practice.`}, d);
+  }
+  const one = Math.random() < 0.15;
+  const word = one ? rand(SYE_ONE) : rand(pool)[0];
+  const n = one ? 1 : SYE_WORDS.find(x => x[0] === word)[1].split('-').length;
+  const nums = ['1','2','3','4','5'];
+  const near = nums.filter(x => x !== String(n)).sort((x, y) => Math.abs(+x - n) - Math.abs(+y - n)).slice(0, 3);
+  const div = one ? word : SYE_WORDS.find(x => x[0] === word)[1];
+  return p2MC({sid:'sye:n:'+word, prompt:`How many syllables are in <em>${word}</em>?`, specimen: word,
+    a: String(n), ds:[String(n), ...near], why: one
+      ? `<em>${word}</em> is one syllable: one vowel sound, however many letters surround it.`
+      : `${div} gives ${n} syllables, one for each vowel sound. English counts vowel sounds, not vowel letters.`}, d);
+}
+
+/* ----- vox: sounds heard in English life ----- */
+const VXE_L = {
+  word:'Voice, articulate, and already a word',
+  lett:'Voice, articulate, but not yet a word',
+  inar:'Voice, but inarticulate and not a word',
+  nat:'A sound in nature, made by no living voice',
+  sent:'A complete sentence, though of one word'
+};
+const VXE_ITEMS = [
+  ...['the word <em>horse</em>','the word <em>river</em>','the word <em>table</em>','the name <em>London</em>','the word <em>quickly</em>',
+      'the word <em>and</em>','the word <em>under</em>','the word <em>sailor</em>','the word <em>green</em>','the name <em>Anna</em>',
+      'the word <em>bread</em>','the word <em>yesterday</em>','the word <em>sing</em>','the word <em>whisper</em>','the word <em>alas</em>',
+      'the word <em>mountain</em>','the word <em>slowly</em>','the word <em>between</em>','the name <em>Peter</em>','the word <em>gold</em>',
+      'the word <em>dog</em>','the word <em>run</em>','the word <em>because</em>','the word <em>seven</em>','the word <em>ship</em>',
+      'the word <em>bright</em>','the word <em>they</em>','the word <em>window</em>','the name <em>Rome</em>','the word <em>listen</em>'].map(w => ['word', w]),
+  ...['the letter <em>B</em>, sounded','the letter <em>M</em>, sounded','the letter <em>S</em>, sounded','the letter <em>O</em>, sounded',
+      'the letter <em>T</em>, sounded','the letter <em>K</em>, sounded','the syllable <em>ba</em>, said alone','the syllable <em>ta</em>, said alone',
+      'the syllable <em>mi</em>, said alone','the syllable <em>lo</em>, said alone','the made-up sound <em>blityri</em>','the made-up sound <em>glorp</em>',
+      'the syllables <em>la-la-la</em>, sung','a baby’s babbling <em>ba-ba-ba</em>','the letter <em>E</em>, sounded','the syllable <em>pu</em>, said alone'].map(w => ['lett', w]),
+  ...['a groan','a cough','a sigh','a yawn','a laugh','a sob','a scream','a dog’s bark','a cow’s low','a horse’s neigh','a sheep’s bleat',
+      'a lion’s roar','a cat’s mew','an owl’s hoot','a wolf’s howl','a pig’s grunt','a bird’s song','a baby’s cry'].map(w => ['inar', w]),
+  ...['thunder','the wind in the trees','rain on a roof','waves on a beach','a door slamming','a bell ringing','a drum beaten',
+      'hands clapping','footsteps on stone','a fire crackling','a stone falling into water','a tree falling','a clock ticking',
+      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking','a trumpet blown'].map(w => ['nat', w])
+];
+const VXE_WHY = {
+  word:'It is imposed to signify: it can be written in letters, so it is articulate, and it is a word.',
+  lett:'It can be written in letters, so it is articulate, but it signifies nothing by itself, so it is not yet a word. The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
+  inar:'It comes from the mouth of a living thing, so it is voice; it cannot be written in letters, so for Donatus it is confused, or inarticulate, and it is not a word.',
+  nat:'No living thing makes it with its mouth, so it is a sound but not a voice, and grammar begins from voice.'
+};
+function voxEnglish(d){
+  const pool = d <= 1 ? VXE_ITEMS.filter(x => x[0] !== 'lett' || !/blityri|glorp|babbling/.test(x[1])) : VXE_ITEMS;
+  const it = rand(pool);
+  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[it[0]], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src:['donatus','priscian']}, d);
+}
+
+/* ----- letter: English letters, silent letters, and the powers of c, g, s, y ----- */
+const LTE_SILENT = [  /* word, silent letter, sounded letters offered */
+  ['knight','k',['n','i','t']],['knife','k',['n','i','f']],['knot','k',['n','o','t']],['knit','k',['n','i','t']],['knob','k',['n','o','b']],
+  ['lamb','b',['l','a','m']],['climb','b',['c','l','m']],['comb','b',['c','o','m']],['tomb','b',['t','o','m']],['debt','b',['d','e','t']],
+  ['write','w',['r','i','t']],['wrist','w',['r','i','s','t']],['wrap','w',['r','a','p']],['wren','w',['r','e','n']],['sword','w',['s','o','d']],
+  ['answer','w',['a','n','s']],['honest','h',['o','n','s','t']],['ghost','h',['g','o','s','t']],['island','s',['i','l','a','n','d']],
+  ['castle','t',['c','a','s','l']],['listen','t',['l','i','s','n']],['fasten','t',['f','a','s','n']],['psalm','p',['s','a','m']],
+  ['receipt','p',['r','c','t']],['pneumonia','p',['n','m','o']],['salmon','l',['s','a','m','n']],['half','l',['h','a','f']],
+  ['calf','l',['c','a','f']],['walk','l',['w','a','k']],['talk','l',['t','a','k']],['folk','l',['f','o','k']],['yolk','l',['y','o','k']],
+  ['muscle','c',['m','u','s','l']],['scissors','c',['s','i','o','r']],['gnome','g',['n','o','m']],
+  ['sign','g',['s','i','n']],['design','g',['d','e','s','i','n']],['foreign','g',['f','o','r','n']],['gnat','g',['n','a','t']],
+  ['handsome','d',['h','a','n','s','m']],['ballet','t',['b','a','l']],['depot','t',['d','e','p']]
+];
+const LTE_SOUND = {s:'/s/ as in sun', k:'/k/ as in kit', z:'/z/ as in zoo', j:'/j/ as in jam', g:'/g/ as in got'};
+const LTE_POWER = [  /* word, letter, sound key, note */
+  ['city','c','s'],['cent','c','s'],['cell','c','s'],['face','c','s'],['ice','c','s'],['mice','c','s'],['rice','c','s'],['pencil','c','s'],
+  ['cat','c','k'],['cup','c','k'],['cold','c','k'],['come','c','k'],['cake','c','k'],['coat','c','k'],['cave','c','k'],['cabin','c','k'],
+  ['giant','g','j'],['gem','g','j'],['giraffe','g','j'],['age','g','j'],['page','g','j'],['cage','g','j'],['huge','g','j'],['magic','g','j'],
+  ['go','g','g'],['gate','g','g'],['gold','g','g'],['gum','g','g'],['gift','g','g'],['get','g','g'],['girl','g','g'],['give','g','g'],
+  ['rose','s','z'],['nose','s','z'],['is','s','z'],['his','s','z'],['was','s','z'],['has','s','z'],['these','s','z'],['those','s','z'],
+  ['sun','s','s'],['sit','s','s'],['bus','s','s'],['yes','s','s'],['us','s','s'],['gas','s','s'],['sat','s','s']
+];
+const LTE_Y_L = {
+  v:'A vowel sound by itself, as in “my”',
+  c:'A consonant sound, as in “yes”',
+  p:'Part of a pair of vowel letters, as in “day”'
+};
+const LTE_Y = [
+  ...['my','by','fly','sky','cry','dry','try','why','shy','gym','myth','happy','baby','city','story','lady'].map(w => [w,'v']),
+  ...['yes','yet','yard','yellow','young','year','you','your','beyond','canyon','lawyer','yolk','yawn'].map(w => [w,'c']),
+  ...['day','play','key','they','boy','toy','grey','monkey','money','valley'].map(w => [w,'p'])
+];
+function letterEnglish(d){
+  const kind = p2Weighted(d <= 1 ? [[0.5,'silent'],[0.5,'power']] : [[0.35,'silent'],[0.35,'power'],[0.30,'y']]);
+  if(kind === 'silent'){
+    const r = rand(LTE_SILENT);
+    const opts = [r[1], ...r[2].filter(x => x !== r[1])];
+    return p2MC({sid:'lte:s:'+r[0], prompt:`In <em>${r[0]}</em>, which of these letters is written but not sounded?`, specimen: r[0],
+      a: r[1], ds: opts, why:`The <strong>${r[1]}</strong> of <em>${r[0]}</em> is written and not sounded. The letter keeps its shape and its name, but here it has no power: shape and power have come apart, as they often do in English spelling.`}, d);
+  }
+  if(kind === 'power'){
+    const r = rand(LTE_POWER);
+    const a = LTE_SOUND[r[2]];
+    const ds = Object.values(LTE_SOUND);
+    const rule = r[1] === 'c' ? (r[2] === 's' ? 'Before <em>e</em>, <em>i</em>, or <em>y</em>, English <em>c</em> usually has the power /s/.' : 'Before <em>a</em>, <em>o</em>, or <em>u</em>, English <em>c</em> has the power /k/.')
+      : r[1] === 'g' ? (r[2] === 'j' ? 'Before <em>e</em>, <em>i</em>, or <em>y</em>, English <em>g</em> often has the power /j/.' : (['gift','get','girl','give'].indexOf(r[0]) >= 0 ? 'This word is an exception: here <em>g</em> keeps the power /g/ even before <em>e</em> or <em>i</em>.' : 'Before <em>a</em>, <em>o</em>, or <em>u</em>, English <em>g</em> has the power /g/.'))
+      : (r[2] === 'z' ? 'Here <em>s</em> has the power /z/, as often between vowels or at the end of a short word.' : 'Here <em>s</em> has its plain power /s/.');
+    return p2MC({sid:'lte:p:'+r[0], prompt:`In <em>${r[0]}</em>, what sound does the letter <strong>${r[1]}</strong> stand for?`, specimen: r[0],
+      a, ds, why:`${rule} One shape can have more than one power, which is why the old grammarians asked of every letter its name, its shape, and its power.`}, d);
+  }
+  const r = rand(LTE_Y);
+  return p2MC({sid:'lte:y:'+r[0], prompt:`In <em>${r[0]}</em>, what is the letter <strong>y</strong> doing?`, specimen: r[0],
+    a: LTE_Y_L[r[1]], ds: Object.values(LTE_Y_L),
+    why: r[1] === 'v' ? `In <em>${r[0]}</em>, <em>y</em> makes a vowel sound by itself. Latin took <em>y</em> from Greek as a vowel; English uses it both ways.`
+       : r[1] === 'c' ? `In <em>${r[0]}</em>, <em>y</em> begins a syllable before a vowel and is sounded as a consonant, as Latin <em>i</em> is in <em>iam</em>.`
+       : `In <em>${r[0]}</em>, <em>y</em> joins the vowel before it, and the two letters together make one vowel sound.`}, d);
+}
+
+/* ----- vices: barbarism and solecism in English ----- */
+const VCE_L = {
+  barb:'Barbarism: a fault in one word',
+  sol:'Solecism: the words do not fit',
+  none:'No fault: the sentence is sound as it stands',
+  fig:'A figure: the poets allow it'
+};
+const VCE_BARB = [  /* sentence with the bad word marked, bad word, right word */
+  ['The farmer caught two <b>mouses</b> in the barn.','mouses','mice'],['My <b>foots</b> are cold.','foots','feet'],
+  ['Three <b>gooses</b> crossed the road.','gooses','geese'],['The dentist pulled two <b>tooths</b>.','tooths','teeth'],
+  ['The <b>womans</b> sang together.','womans','women'],['Two <b>oxes</b> pulled the cart.','oxes','oxen'],
+  ['She sharpened the <b>knifes</b>.','knifes','knives'],['The <b>wolfs</b> howled at night.','wolfs','wolves'],
+  ['The <b>thiefs</b> ran away.','thiefs','thieves'],['Cut the apple into two <b>halfs</b>.','halfs','halves'],
+  ['The baker sold six <b>loafs</b>.','loafs','loaves'],['He <b>catched</b> the ball.','catched','caught'],
+  ['The teacher <b>teached</b> us Latin.','teached','taught'],['We <b>buyed</b> bread at the market.','buyed','bought'],
+  ['I <b>thinked</b> about the question.','thinked','thought'],['She <b>bringed</b> the letter.','bringed','brought'],
+  ['They <b>swimmed</b> across the river.','swimmed','swam'],['He <b>writed</b> a long letter.','writed','wrote'],
+  ['The dog <b>eated</b> its dinner.','eated','ate'],['We <b>drinked</b> cold water.','drinked','drank'],
+  ['I <b>knowed</b> the answer.','knowed','knew'],['The tree <b>growed</b> tall.','growed','grew'],
+  ['He <b>throwed</b> the stone.','throwed','threw'],['The pond <b>freezed</b> in the night.','freezed','froze'],
+  ['Someone <b>stealed</b> my bag.','stealed','stole'],['The baby <b>sleeped</b> all night.','sleeped','slept'],
+  ['She <b>feeled</b> the cold wind.','feeled','felt'],['He <b>keeped</b> the key.','keeped','kept'],
+  ['I <b>hurted</b> my hand.','hurted','hurt'],['The boy <b>cutted</b> the rope.','cutted','cut'],
+  ['This bread is <b>gooder</b> than that.','gooder','better'],['Today is <b>badder</b> than yesterday.','badder','worse'],
+  ['He built it <b>hisself</b>.','hisself','himself'],['They did it <b>theirselves</b>.','theirselves','themselves'],
+  ['The bird <b>flied</b> away.','flied','flew'],['The sun <b>rised</b> early.','rised','rose'],
+  ['I <b>speaked</b> to the captain.','speaked','spoke'],['He <b>maked</b> a boat.','maked','made'],
+  ['She <b>sayed</b> nothing.','sayed','said'],['The bell <b>ringed</b> at noon.','ringed','rang']
+];
+const VCE_SOL = [  /* sentence, explanation */
+  ['The girls <b>sings</b> in the choir.','<em>Sings</em> is an English word, but it does not fit the plural subject <em>girls</em>.'],
+  ['The ship <b>were</b> late.','<em>Were</em> is English, but it does not fit the singular <em>ship</em>.'],
+  ['They <b>was</b> late for the boat.','<em>Was</em> is English, but it does not fit the plural <em>they</em>.'],
+  ['We <b>was</b> told to wait.','<em>Was</em> does not fit the plural <em>we</em>.'],
+  ['He <b>don’t</b> know the way.','<em>Don’t</em> is <em>do not</em>, and <em>he</em> needs <em>does not</em>.'],
+  ['She <b>have</b> gone home.','<em>Have</em> does not fit <em>she</em>, which needs <em>has</em>.'],
+  ['The list of names <b>are</b> long.','The subject is <em>list</em>, which is singular, so the verb should be <em>is</em>.'],
+  ['Each of the sailors <b>have</b> a rope.','<em>Each</em> is singular and needs <em>has</em>.'],
+  ['<b>Me and him</b> went to the market.','Both pronouns are subjects and need the subject forms: <em>He and I went</em>.'],
+  ['She gave the letter to <b>he</b>.','<em>To</em> governs the object form <em>him</em>.'],
+  ['<b>Them</b> are my books.','The subject needs the subject form <em>those</em> or <em>they</em>; <em>them</em> is an object form.'],
+  ['<b>Whom</b> is at the door?','<em>Whom</em> is an object form; the subject of <em>is</em> must be <em>who</em>.'],
+  ['The secret is between you and <b>I</b>.','<em>Between</em> governs the object form <em>me</em>.'],
+  ['<b>Us</b> sailors know the sea.','The subject needs the subject form: <em>We sailors</em>.'],
+  ['<b>This</b> books are heavy.','<em>This</em> is singular and does not fit <em>books</em>; the form is <em>these</em>.'],
+  ['<b>These</b> book is heavy.','<em>These</em> is plural and does not fit <em>book</em>; the form is <em>this</em>.'],
+  ['He is <b>more taller</b> than his brother.','<em>More</em> and <em>taller</em> both mark the comparative; joined, they do not fit. Donatus counts a fault in comparison among the solecisms.'],
+  ['She is the <b>most happiest</b> girl in the town.','<em>Most</em> and <em>happiest</em> both mark the superlative, and together they do not fit.'],
+  ['The dog wagged <b>their</b> tail.','<em>Their</em> does not fit the singular <em>dog</em>; the form is <em>its</em>.'],
+  ['The trees lost <b>its</b> leaves.','<em>Its</em> does not fit the plural <em>trees</em>; the form is <em>their</em>.'],
+  ['The captain and the sailor <b>is</b> here.','A subject joined by <em>and</em> is plural and needs <em>are</em>.'],
+  ['There <b>is</b> three ships in the harbour.','The subject <em>ships</em> follows the verb and is plural, so <em>are</em>.'],
+  ['One of the horses <b>are</b> lame.','The subject is <em>one</em>, which is singular, so <em>is</em>.'],
+  ['The teacher gave <b>we</b> a holiday.','<em>Gave</em> takes the object form <em>us</em>.'],
+  ['<b>Him</b> is the captain.','The subject needs the subject form <em>he</em>.'],
+  ['Give the book to <b>they</b>.','<em>To</em> governs the object form <em>them</em>.'],
+  ['The children <b>was</b> asleep.','<em>Children</em> is plural and needs <em>were</em>.'],
+  ['My brother <b>play</b> the flute.','<em>Brother</em> is singular and needs <em>plays</em>.'],
+  ['The bells <b>rings</b> at noon.','<em>Bells</em> is plural and needs <em>ring</em>.'],
+  ['He <b>go</b> to school every day.','<em>He</em> needs <em>goes</em>.'],
+  ['I <b>is</b> ready to leave.','<em>I</em> needs <em>am</em>.'],
+  ['She looked at <b>I</b> and smiled.','<em>At</em> governs the object form <em>me</em>.'],
+  ['Everyone <b>were</b> silent.','<em>Everyone</em> is singular and needs <em>was</em>.'],
+  ['The news <b>are</b> good.','<em>News</em> is singular, though it ends in <em>-s</em>, and needs <em>is</em>.'],
+  ['The man <b>which</b> came yesterday was a sailor.','<em>Which</em> is used of things; for a person the relative is <em>who</em>.'],
+  ['He arrived <b>quick</b> and left <b>slow</b>.','Adjectives stand where adverbs are needed: <em>quickly</em>, <em>slowly</em>. Donatus counts one part put for another among the solecisms.'],
+  ['She sings <b>beautiful</b>.','An adjective stands where the adverb <em>beautifully</em> is needed.'],
+  ['The soldiers fought <b>brave</b>.','An adjective stands where the adverb <em>bravely</em> is needed.'],
+  ['I <b>has</b> a question.','<em>I</em> needs <em>have</em>.'],
+  ['You <b>was</b> right.','<em>You</em> needs <em>were</em>.']
+];
+const VCE_SOUND = ['The sailors waited at the harbour.','The list of names is long.','Each of the sailors has a rope.',
+  'The captain and the sailor are here.','She gave the letter to him.','The secret is between you and me.','These books are heavy.',
+  'He is taller than his brother.','The trees lost their leaves.','There are three ships in the harbour.','One of the horses is lame.',
+  'She sings beautifully.','The soldiers fought bravely.','The man who came yesterday was a sailor.','Everyone was silent.','The children were asleep.'];
+const VCE_FIG = [  /* line in verse manner, shortened word, full word */
+  ['<b>O’er</b> the dark hills the moon arose.','o’er','over'],['<b>Ne’er</b> was a night so still.','ne’er','never'],
+  ['<b>’Tis</b> the season of the harvest.','’tis','it is'],['We rested <b>’neath</b> the old oak tree.','’neath','beneath'],
+  ['At <b>morn</b> the sailors left the bay.','morn','morning'],['<b>Ope</b> the gate and let them in.','ope','open'],
+  ['Home the sailors came at <b>eve</b>.','eve','evening'],['<b>E’en</b> the strongest tire at last.','e’en','even'],
+  ['The ship sailed <b>o’er</b> the sea.','o’er','over'],['<b>’Twixt</b> the hills the river ran.','’twixt','betwixt']
+];
+function vicesEnglish(d){
+  const kind = p2Weighted([[0.31,'barb'],[0.30,'sol'],[0.32,'none'],[0.07,'fig']]);
+  let s, why;
+  if(kind === 'barb'){
+    const r = rand(VCE_BARB);
+    s = r[0];
+    why = `<em>${cap(r[1])}</em> is not an English form; the word is <em>${r[2]}</em>. The rest of the sentence is sound, and the fault lies in the one word, so it is a barbarism.`;
+  }else if(kind === 'sol'){
+    const r = rand(VCE_SOL);
+    s = r[0];
+    why = `${r[1]} Each word is a good English word, and the fault is in how they fit, so it is a solecism.`;
+  }else if(kind === 'none'){
+    s = rand(VCE_SOUND);
+    why = 'Every word is a good English form, and the words fit one another in number, person, and case. There is no fault.';
+  }else{
+    const r = rand(VCE_FIG);
+    s = r[0];
+    why = `<em>${cap(r[1])}</em> for <em>${r[2]}</em> is a shortening the poets allow for the metre, a metaplasm. In plain prose the same change would be a barbarism.`;
+  }
+  return p2MC({sid:'vce:'+s, prompt:'What kind of fault, if any?', sentence:s, a: VCE_L[kind], ds: Object.values(VCE_L), why, src:['donatus','appown']}, d);
+}
+
+/* ----- figures: metaplasm, tropes, and figures of words in English ----- */
+const FGE_MP = {
+  syn:'Syncope: taken from the middle', aph:'Aphaeresis: taken from the front', apo:'Apocope: taken from the end',
+  pro:'Prosthesis: added at the front', epe:'Epenthesis: added in the middle', par:'Paragoge: added at the end',
+  met:'Metathesis: letters moved', sya:'Synaloepha: vowel meeting vowel'
+};
+const FGE_TR = {
+  metaph:'Metaphor: a word carried over by likeness', meton:'Metonymy: a neighbouring name put for the thing',
+  synec:'Synecdoche: the part put for the whole', anton:'Antonomasia: a title put for a proper name',
+  periph:'Periphrasis: many words put for one', irony:'Irony: saying the opposite of what is meant',
+  hyper:'Hyperbole: a statement beyond belief', cata:'Catachresis: a borrowed word where none is proper',
+  onoma:'Onomatopoeia: a word made from the sound', epith:'Epithet: a describing word joined to a name'
+};
+const FGE_SC = {
+  anaph:'Anaphora: one word repeated at the start of each clause', epiz:'Epizeuxis: one word repeated at once',
+  anadi:'Anadiplosis: the last word repeated at the start of the next', polys:'Polysyndeton: many joining words',
+  asyn:'Asyndeton: joining words left out', zeug:'Zeugma: one word serving two clauses',
+  polypt:'Polyptoton: one word in several forms', homoeo:'Homoeoteleuton: clauses with like endings',
+  paron:'Paronomasia: a play on words of like sound'
+};
+const FGE_ITEMS = [  /* question, pool, key, explanation */
+  ['<em>o’er</em> for <em>over</em> is…','mp','syn','A letter is taken from the middle of the word.'],
+  ['<em>e’er</em> for <em>ever</em> is…','mp','syn','A letter is taken from the middle of the word.'],
+  ['<em>ne’er</em> for <em>never</em> is…','mp','syn','A letter is taken from the middle of the word.'],
+  ['<em>e’en</em> for <em>even</em> is…','mp','syn','A letter is taken from the middle of the word.'],
+  ['<em>’tis</em> for <em>it is</em> is…','mp','aph','The front of <em>it</em> is taken away and the rest joined to <em>is</em>.'],
+  ['<em>’gainst</em> for <em>against</em> is…','mp','aph','The first letter is taken from the front.'],
+  ['<em>’neath</em> for <em>beneath</em> is…','mp','aph','The first syllable is taken from the front.'],
+  ['<em>’mid</em> for <em>amid</em> is…','mp','aph','The first letter is taken from the front.'],
+  ['<em>’twixt</em> for <em>betwixt</em> is…','mp','aph','The first syllable is taken from the front.'],
+  ['<em>ope</em> for <em>open</em> is…','mp','apo','The end of the word is cut off.'],
+  ['<em>morn</em> for <em>morning</em> is…','mp','apo','The end of the word is cut off.'],
+  ['<em>eve</em> for <em>evening</em> is…','mp','apo','The end of the word is cut off.'],
+  ['<em>th’ eternal</em> for <em>the eternal</em> is…','mp','sya','The vowel of <em>the</em> meets the vowel of <em>eternal</em> and is lost.'],
+  ['<em>a-hunting</em> for <em>hunting</em>, in an old song, is…','mp','pro','A syllable is added at the front.'],
+  ['<em>adown</em> for <em>down</em> is…','mp','pro','A syllable is added at the front.'],
+  ['<em>whilst</em> beside <em>while</em> is…','mp','par','Letters are added at the end.'],
+  ['<em>amongst</em> beside <em>among</em> is…','mp','par','Letters are added at the end.'],
+  ['<em>athalete</em> for <em>athlete</em> is…','mp','epe','A vowel is added in the middle; in prose it is a barbarism.'],
+  ['<em>fillum</em> for <em>film</em> is…','mp','epe','A vowel is added in the middle; in prose it is a barbarism.'],
+  ['<em>aks</em> for <em>ask</em> is…','mp','met','The letters <em>s</em> and <em>k</em> change places.'],
+  ['<em>hunderd</em> for <em>hundred</em> is…','mp','met','The letters <em>r</em> and <em>e</em> change places.'],
+  ['<em>perscription</em> for <em>prescription</em> is…','mp','met','The letters <em>r</em> and <em>e</em> change places.'],
+  ['“The ship ploughs the sea” is…','tr','metaph','A ship does not plough; the word is carried over from the field by likeness.'],
+  ['“He has a heart of stone” is…','tr','metaph','His heart is not stone; the word is carried over by likeness, to say that he is hard.'],
+  ['“The leaves danced in the wind” is…','tr','metaph','Dancing belongs to the living; it is carried over to leaves by likeness.'],
+  ['“In the evening of his life he wrote little” is…','tr','metaph','The evening of the day is carried over to the last part of a life.'],
+  ['“Her words were a sharp sword” is…','tr','metaph','Words are not a sword; the word is carried over by likeness.'],
+  ['“The crown has spoken,” meaning the king, is…','tr','meton','The crown stands near the king and is put for him.'],
+  ['“She has read all of Dickens,” meaning his books, is…','tr','meton','The author is put for his works, a neighbouring name.'],
+  ['“The kettle is boiling,” meaning the water, is…','tr','meton','The container is put for what it holds.'],
+  ['“The whole town came out to watch,” meaning the people, is…','tr','meton','The place is put for the people in it.'],
+  ['“He drank the whole cup” is…','tr','meton','The cup is put for what was in it.'],
+  ['“All hands on deck!” meaning all the sailors, is…','tr','synec','The hands, a part, are put for the whole sailors.'],
+  ['“A fleet of fifty sail,” meaning fifty ships, is…','tr','synec','The sail, a part of the ship, is put for the ship.'],
+  ['“They need a roof over their heads,” meaning a house, is…','tr','synec','The roof, a part, is put for the whole house.'],
+  ['“He earns his bread by teaching,” meaning his living, is…','tr','synec','Bread, one part of a living, is put for the whole.'],
+  ['“The farmer had forty head of cattle” is…','tr','synec','The head is put for the whole animal.'],
+  ['“the Philosopher,” meaning Aristotle, is…','tr','anton','A title takes the place of a proper name; the medieval schools called Aristotle simply the Philosopher.'],
+  ['“the Bard,” meaning Shakespeare, is…','tr','anton','A title takes the place of a proper name.'],
+  ['“the Maid of Orleans,” meaning Joan of Arc, is…','tr','anton','A description takes the place of a proper name.'],
+  ['“the Iron Duke,” meaning the Duke of Wellington, is…','tr','anton','A title takes the place of a proper name.'],
+  ['“the Apostle,” meaning St Paul, is…','tr','anton','A title takes the place of a proper name.'],
+  ['“the king of beasts,” meaning the lion, is…','tr','periph','Several words are put for one common word, <em>lion</em>.'],
+  ['“the finny tribe,” meaning fish, is…','tr','periph','Several words are put for one common word, <em>fish</em>.'],
+  ['“the feathered race,” meaning birds, is…','tr','periph','Several words are put for one common word, <em>birds</em>.'],
+  ['“What lovely weather!” said in a storm, is…','tr','irony','The speaker says the opposite of what is meant.'],
+  ['“You are early!” said to someone two hours late, is…','tr','irony','The speaker says the opposite of what is meant.'],
+  ['“That was clever!” said of a foolish mistake, is…','tr','irony','The speaker says the opposite of what is meant.'],
+  ['“I have told you a thousand times” is…','tr','hyper','The number goes beyond belief, to make the point strongly.'],
+  ['“The pile of letters was a mile high” is…','tr','hyper','The height goes beyond belief, for emphasis.'],
+  ['“He is as old as the hills” is…','tr','hyper','The age goes beyond belief, for emphasis.'],
+  ['“the leg of the table” is…','tr','cata','A table has no proper word for that part, so <em>leg</em> is borrowed.'],
+  ['“the mouth of the river” is…','tr','cata','A river has no proper word for that place, so <em>mouth</em> is borrowed.'],
+  ['“the foot of the hill” is…','tr','cata','A hill has no proper word for that part, so <em>foot</em> is borrowed.'],
+  ['“the buzz of bees” is…','tr','onoma','The word <em>buzz</em> is made from the sound itself.'],
+  ['“the hiss of the snake” is…','tr','onoma','The word <em>hiss</em> is made from the sound itself.'],
+  ['“the clatter of hooves” is…','tr','onoma','The word <em>clatter</em> is made from the sound itself.'],
+  ['“swift-footed Achilles” is…','tr','epith','A describing word is joined to the name as a fixed title.'],
+  ['“wise Nestor” is…','tr','epith','A describing word is joined to the name as a fixed title.'],
+  ['“Every day, every night, every hour, she waited” is…','sc','anaph','<em>Every</em> is repeated at the start of each member.'],
+  ['“Not with gold, not with silver, not with fine words, but with work” is…','sc','anaph','<em>Not with</em> is repeated at the start of each member.'],
+  ['“Run, run, run to the harbour!” is…','sc','epiz','The same word is repeated at once, with nothing between.'],
+  ['“Alone, alone, he walked the shore” is…','sc','epiz','The same word is repeated at once, with nothing between.'],
+  ['“He wanted power; power was his ruin” is…','sc','anadi','The last word of one clause begins the next.'],
+  ['“We rested by the river, the river that had brought us home” is…','sc','anadi','The last word of one member begins the next.'],
+  ['“And the wind, and the rain, and the dark came on” is…','sc','polys','Many joining words stand where one would serve.'],
+  ['“He came, he saw, he conquered,” the English of Caesar’s <em>veni, vidi, vici</em>, is…','sc','asyn','The joining words are left out.'],
+  ['“They rose, they ate, they left” is…','sc','asyn','The joining words are left out.'],
+  ['“She lost her hat and her temper” is…','sc','zeug','One verb, <em>lost</em>, serves two objects in two senses.'],
+  ['“He took his coat and his leave” is…','sc','zeug','One verb, <em>took</em>, serves two objects in two senses.'],
+  ['“A friend of friends, he befriended all” is…','sc','polypt','One word appears in several forms.'],
+  ['“Walking, talking, laughing, the children came home” is…','sc','homoeo','The members end alike.'],
+  ['“The baker kneaded what he needed” is…','sc','paron','Two words of like sound and different sense are set side by side.']
+];
+const FGE_LICENCE = [  /* question, answer key, word, full */
+  ['In a poem, <em>o’er</em> for <em>over</em> is…','lic','o’er','over'], ['In a poem, <em>morn</em> for <em>morning</em> is…','lic','morn','morning'],
+  ['In a poem, <em>’neath</em> for <em>beneath</em> is…','lic','’neath','beneath'], ['In a poem, <em>ne’er</em> for <em>never</em> is…','lic','ne’er','never'],
+  ['In plain prose, <em>athalete</em> for <em>athlete</em> is…','barb','athalete','athlete'], ['In plain prose, <em>aks</em> for <em>ask</em> is…','barb','aks','ask'],
+  ['In plain prose, <em>fillum</em> for <em>film</em> is…','barb','fillum','film'], ['In plain prose, <em>hunderd</em> for <em>hundred</em> is…','barb','hunderd','hundred']
+];
+const FGE_LIC_L = {lic:'A metaplasm, the licence of the poets', barb:'A barbarism, a fault in one word',
+  sol:'A solecism, a fault in how words fit', trope:'A trope, a word carried over'};
+function figuresEnglish(d){
+  if(Math.random() < 0.12){
+    const r = rand(FGE_LICENCE);
+    return p2MC({sid:'fge:l:'+r[0], prompt: r[0], a: FGE_LIC_L[r[1]], ds: Object.values(FGE_LIC_L), src:['donatus'],
+      why: r[1] === 'lic' ? `Donatus teaches that the same change is a metaplasm in a poem, where it is allowed for the metre, and a barbarism in plain speech.`
+                          : `In plain prose there is no licence, and <em>${r[2]}</em> for <em>${r[3]}</em> is a fault in one word, a barbarism. A poet might be allowed it as a metaplasm.`}, d);
+  }
+  const pool = FGE_ITEMS;
+  const r = rand(pool);
+  const L = r[1] === 'mp' ? FGE_MP : r[1] === 'tr' ? FGE_TR : FGE_SC;
+  return p2MC({sid:'fge:'+r[0], prompt: r[0], a: L[r[2]], ds: Object.values(L), why: r[3], src:['donatus','appown']}, d);
+}
+
+/* ----- supposition in English sentences ----- */
+const SPE_TERMS = [  /* singular, plural, personal sentence, natural kind, syllables */
+  ['horse','horses','Two horses pulled the cart.',1,1],['lion','lions','A lion was seen near the village.',1,2],
+  ['rose','roses','Every rose in the garden is red.',1,1],['oak','oaks','An oak stands by the gate.',1,1],
+  ['man','men','A man is waiting at the gate.',1,1],['dog','dogs','Some dogs are barking.',1,1],
+  ['eagle','eagles','An eagle circled overhead.',1,2],['whale','whales','A whale swam past the ship.',1,1],
+  ['wolf','wolves','Wolves howled in the hills.',1,1],['cat','cats','A cat sleeps by the fire.',1,1],
+  ['river','rivers','A river runs past the town.',0,2],['star','stars','Every star shone brightly.',0,1],
+  ['ship','ships','Three ships entered the harbour.',0,1],['city','cities','Some cities are very old.',0,2],
+  ['book','books','A book lies on the table.',0,1],['king','kings','Every king must die.',0,1],
+  ['sailor','sailors','A sailor sang on the deck.',0,2],['apple','apples','An apple fell from the tree.',0,2],
+  ['tree','trees','The trees in the park are tall.',0,1],['bird','birds','Birds are singing.',0,1]
+];
+const SPE_DISCRETE = ['Socrates is running.','Rome is a city.','London lies on the Thames.','Aristotle taught Alexander.',
+  'Caesar crossed the Rubicon.','Paris is in France.','Athens is an old city.','Peter is fishing.'];
+const SPE_NUM = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+function supposEnglish(d){
+  const kind = p2Weighted([[0.30,'p'],[0.25,'s'],[0.30,'m'],[0.15,'d']]);
+  const S = 'Simple supposition: the common nature as known';
+  const M = 'Material supposition: the word itself';
+  const D = 'Discrete supposition: one singular thing';
+  if(kind === 'd'){
+    const s = rand(SPE_DISCRETE);
+    const name = s.split(' ')[0];
+    return p2MC({sid:'spe:d:'+s, prompt:`What is <em>${name}</em> standing for here?`, sentence:s, a: D,
+      ds:[D, 'Personal supposition: actual things of a kind', S, M], src:['peterhisp'],
+      why:`A proper name stands for one singular thing, which Peter of Spain calls discrete supposition. A common term such as <em>city</em> would have common supposition.`}, d);
+  }
+  const t = rand(kind === 's' ? SPE_TERMS.filter(x => x[3]) : SPE_TERMS);
+  const P = `Personal supposition: actual ${t[1]}`;
+  if(kind === 'p'){
+    return p2MC({sid:'spe:p:'+t[0], prompt:`What is <em>${t[0]}</em> (or <em>${t[1]}</em>) standing for here?`, sentence: t[2], a: P,
+      ds:[P, S, M, D], src:['peterhisp'],
+      why:`The term stands for the ${t[1]} themselves, the things it was imposed to name. That is personal supposition, the ordinary case.`}, d);
+  }
+  if(kind === 's'){
+    const s = `${cap(t[0])} is a species.`;
+    return p2MC({sid:'spe:s:'+t[0], prompt:`What is <em>${t[0]}</em> standing for here?`, sentence:s, a: S,
+      ds:[S, P, M, D], src:['peterhisp'],
+      why:`No single ${t[0]} is a species. The term stands for the nature as known, which is what a species is: simple supposition.`}, d);
+  }
+  const form = rand(['letters','noun','syll']);
+  const s = form === 'letters' ? `“${cap(t[0])}” has ${SPE_NUM[t[0].length]} letters.`
+          : form === 'noun' ? `“${cap(t[0])}” is a noun.`
+          : `“${cap(t[0])}” is a word of ${SPE_NUM[t[4]]} syllable${t[4] === 1 ? '' : 's'}.`;
+  return p2MC({sid:'spe:m:'+t[0]+':'+form, prompt:`What is <em>${t[0]}</em> standing for here?`, sentence:s, a: M,
+    ds:[M, P, S, D], src:['appown'],
+    why:`The sentence is about the word, not about any ${t[0]}: material supposition. The quotation marks show it, as the older books had to show it by the predicate alone.`}, d);
+}
+
+/* ----- congruity and truth: more English sentences ----- */
+CT_ITEMS.push(
+  ...['Paris is the capital of France.','Ice is frozen water.','A week has seven days.','The sun is a star.','Spring comes after winter.',
+      'Three is an odd number.','A triangle has three angles.','Copper is a metal.','The Thames flows through London.',
+      'Some trees lose their leaves in autumn.','A circle has no corners.','Every square is a rectangle.','Ten is greater than five.',
+      'Birds lay eggs.','The moon goes round the earth.','Salt dissolves in water.','A year has twelve months.','Fire is hot.']
+    .map(s => ({src:['te','arist_int'], s, c:true, t:true, lang:'en'})),
+  ...['Paris is the capital of Spain.','Ice is hotter than steam.','A week has nine days.','The sun goes round the moon.',
+      'Snakes have four legs.','Two is an odd number.','A triangle has four sides.','Copper is a liquid at room temperature.',
+      'The Thames flows through Paris.','A circle has three corners.','Ten is less than five.','Horses lay eggs.',
+      'The moon is larger than the earth.','A year has ten months.','Mountains are made of glass.','Every number is odd.',
+      'Snow is black.','Spiders have two legs.']
+    .map(s => ({src:['te','arist_int'], s, c:true, t:false, lang:'en'})),
+  ...['The sailors is tired.','She have a red coat.','Him and me went home.','The ships was ready.','I has finished.',
+      'Them are my friends.','The dog wagged their tail.','These boat is new.','He go to the market daily.','We was waiting.',
+      'The boys plays football.','Me am hungry.','The list of names are long.','Whom is coming?','The children was singing.',
+      'She give him the book yesterday.','Each of the boys have a book.','My brother and me is here.','The house have a red door.']
+    .map(s => ({src:['te','arist_int'], s, c:false, t:null, lang:'en'}))
+);
+
+p2AddEnglish('agree', agreeEnglish, 0.5);
+p2AddEnglish('produce', produceEnglish, 0.5);
+p2AddEnglish('govern', governEnglish, 0.5);
+p2AddEnglish('decline', declineEnglish, 0.45);
+p2AddEnglish('syllable', syllableEnglish, 0.5);
+p2AddEnglish('vox', voxEnglish, 0.45);
+p2AddEnglish('letter', letterEnglish, 0.45);
+p2AddEnglish('vices', vicesEnglish, 0.5);
+p2AddEnglish('figures', figuresEnglish, 0.5);
+p2AddEnglish('suppos', supposEnglish, 0.5);
 
 /* ---------- language mode ----------
    An item carries lang 'en' or 'la'. An exercise lists the modes it allows.
