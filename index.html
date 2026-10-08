@@ -14071,6 +14071,106 @@ EX.latmore = {
   gen(d){ return latMoreQ(d); }
 };
 
+/* ---------- The Passive, the Infinitive, and the Participle ---------- */
+/* Same mechanics as More of the Latin Sentence: one blank in a frame already in order. Every wrong
+   choice makes bad Latin, and no wrong choice differs from the answer only by a macron. */
+const LV_ITEMS = [
+  /* 1. the passive, third person, with ā and the ablative for the doer */
+  {id:'lv1', k:1, en:'The poet is praised by the girl.', fr:'Poēta ā puellā ______.', a:'laudātur', ds:['laudantur','laudāre','laudārī'],
+   why:'<em>Poēta</em> is the subject and receives the praising, so the verb is passive and singular: <strong>laudātur</strong>. <em>Laudantur</em> would need a plural subject.'},
+  {id:'lv2', k:1, en:'The boys are called by the master.', fr:'______ ā dominō vocantur.', a:'Puerī', ds:['Puerōs','Puer','Puerōrum'],
+   why:'The boys are the subject of the passive verb <em>vocantur</em>, so <em>puer</em> is in the nominative plural: <strong>puerī</strong>. <em>Puerōs</em> is the accusative, and a passive verb takes no object.'},
+  {id:'lv3', k:1, en:'The slaves are warned by the king.', fr:'Servī ā ______ monentur.', a:'rēge', ds:['rēx','rēgem','rēgī'],
+   why:'The doer of a passive verb is in the ablative with <em>ā</em> or <em>ab</em>, so “by the king” is <em>ā</em> <strong>rēge</strong>. <em>Rēx</em> is the nominative and cannot follow <em>ā</em>.'},
+  {id:'lv4', k:1, en:'The city is captured by the soldiers.', fr:'Urbs ā mīlitibus ______.', a:'capitur', ds:['capiuntur','capere','capī'],
+   why:'<em>Urbs</em> is the subject and receives the capturing, so the verb is passive and singular: <strong>capitur</strong>. <em>Capiuntur</em> would need a plural subject.'},
+  {id:'lv5', k:1, en:'The gift is carried by the slave.', fr:'Dōnum ā ______ portātur.', a:'servō', ds:['servus','servum','servōs'],
+   why:'The doer of a passive verb is in the ablative with <em>ā</em> or <em>ab</em>, so “by the slave” is <em>ā</em> <strong>servō</strong>. <em>Servus</em> is the nominative and cannot follow <em>ā</em>.'},
+  {id:'lv6', k:1, en:'The word is heard by the citizens.', fr:'Verbum ā cīvibus ______.', a:'audītur', ds:['audiuntur','audīre','audīrī'],
+   why:'<em>Verbum</em> is the subject and receives the hearing, so the verb is passive and singular: <strong>audītur</strong>. <em>Audīre</em> and <em>audīrī</em> are infinitives, and the sentence needs a finite verb.'},
+  {id:'lv7', k:1, en:'The town is fortified by the soldier.', fr:'Oppidum ā ______ mūnītur.', a:'mīlite', ds:['mīles','mīlitem','mīlitī'],
+   why:'The doer of a passive verb is in the ablative with <em>ā</em> or <em>ab</em>, so “by the soldier” is <em>ā</em> <strong>mīlite</strong>. <em>Mīlitem</em> is the accusative.'},
+  {id:'lv8', k:1, en:'The horses are led by the boy.', fr:'______ ā puerō dūcuntur.', a:'Equī', ds:['Equōs','Equus','Equōrum'],
+   why:'The horses are the subject of the passive verb <em>dūcuntur</em>, so <em>equus</em> is in the nominative plural: <strong>equī</strong>. <em>Equus</em> is singular, and the verb is plural.'},
+  /* 2. the present active infinitive, completing a finite verb */
+  {id:'lv9', k:2, en:'The boy knows how to write words.', fr:'Puer verba ______ scit.', a:'scrībere', ds:['scrībit','scrībēbant','scrībe'],
+   why:'<em>Scit</em> is the finite verb, and the infinitive completes it: <strong>scrībere</strong>, “to write.” A second finite verb such as <em>scrībit</em> cannot stand beside <em>scit</em> without a conjunction.'},
+  {id:'lv10', k:2, en:'The sailors know how to lead horses.', fr:'Nautae equōs ______ sciunt.', a:'dūcere', ds:['dūcunt','dūcēbant','dūcitis'],
+   why:'<em>Sciunt</em> is the finite verb, and the infinitive completes it: <strong>dūcere</strong>, “to lead.” <em>Dūcunt</em> is a second finite verb, and the sentence has room for one.'},
+  {id:'lv11', k:2, en:'The boy is afraid to call the master.', fr:'Puer dominum ______ timet.', a:'vocāre', ds:['vocat','vocābant','vocā'],
+   why:'<em>Timet</em> is the finite verb, and the infinitive completes it: <strong>vocāre</strong>, “to call.” <em>Vocā</em> is the imperative, a command.'},
+  {id:'lv12', k:2, en:'The slaves are afraid to hear the king.', fr:'Servī rēgem ______ timent.', a:'audīre', ds:['audiunt','audiēbant','audī'],
+   why:'<em>Timent</em> is the finite verb, and the infinitive completes it: <strong>audīre</strong>, “to hear.” <em>Audiunt</em> is a second finite verb, and the sentence has room for one.'},
+  {id:'lv13', k:2, en:'The soldiers prepare to capture the city.', fr:'Mīlitēs urbem ______ parant.', a:'capere', ds:['capiunt','capiēbant','cape'],
+   why:'<em>Parant</em> is the finite verb, and the infinitive completes it: <strong>capere</strong>, “to capture.” <em>Cape</em> is the imperative, a command.'},
+  {id:'lv14', k:2, en:'The queen prepares to send gifts.', fr:'Rēgīna dōna ______ parat.', a:'mittere', ds:['mittit','mittēbant','mitte'],
+   why:'<em>Parat</em> is the finite verb, and the infinitive completes it: <strong>mittere</strong>, “to send.” <em>Mittit</em> is a second finite verb, and the sentence has room for one.'},
+  {id:'lv15', k:2, en:'The girl knows how to praise the poet.', fr:'Puella poētam ______ scit.', a:'laudāre', ds:['laudat','laudābant','laudā'],
+   why:'<em>Scit</em> is the finite verb, and the infinitive completes it: <strong>laudāre</strong>, “to praise.” <em>Laudā</em> is the imperative, a command.'},
+  {id:'lv16', k:2, en:'The citizens are afraid to see the war.', fr:'Cīvēs bellum ______ timent.', a:'vidēre', ds:['vident','vidēbant','vidē'],
+   why:'<em>Timent</em> is the finite verb, and the infinitive completes it: <strong>vidēre</strong>, “to see.” <em>Vident</em> is a second finite verb, and the sentence has room for one.'},
+  /* 3. the perfect passive participle, used as an adjective */
+  {id:'lv17', k:3, en:'The soldiers see the captured city.', fr:'Mīlitēs urbem ______ vident.', a:'captam', ds:['captus','captae','captārum'],
+   why:'The participle modifies <em>urbem</em>, which is feminine, singular, and accusative, so it is <strong>captam</strong>. <em>Captae</em> and <em>captārum</em> are feminine but in the wrong case.'},
+  {id:'lv18', k:3, en:'The girl has the prepared gift.', fr:'Puella dōnum ______ habet.', a:'parātum', ds:['parātus','parātōs','parātārum'],
+   why:'The participle modifies <em>dōnum</em>, which is neuter, singular, and accusative, so it is <strong>parātum</strong>. <em>Parātus</em> is masculine and nominative.'},
+  {id:'lv19', k:3, en:'The king hears the spoken words.', fr:'Rēx verba ______ audit.', a:'dicta', ds:['dictās','dictum','dictam'],
+   why:'The participle modifies <em>verba</em>, which is neuter, plural, and accusative, so it is <strong>dicta</strong>. <em>Dictum</em> is singular, and <em>dictās</em> is feminine.'},
+  {id:'lv20', k:3, en:'The citizens see the fortified town.', fr:'Cīvēs oppidum ______ vident.', a:'mūnītum', ds:['mūnītus','mūnītae','mūnītārum'],
+   why:'The participle modifies <em>oppidum</em>, which is neuter, singular, and accusative, so it is <strong>mūnītum</strong>. <em>Mūnītus</em> is masculine and nominative.'},
+  {id:'lv21', k:3, en:'The teacher reads the written words.', fr:'Magister verba ______ legit.', a:'scrīpta', ds:['scrīptās','scrīptam','scrīptōrum'],
+   why:'The participle modifies <em>verba</em>, which is neuter, plural, and accusative, so it is <strong>scrīpta</strong>. <em>Scrīptam</em> and <em>scrīptās</em> are feminine.'},
+  {id:'lv22', k:3, en:'The queen praises the chosen soldier.', fr:'Rēgīna mīlitem ______ laudat.', a:'lēctum', ds:['lēctus','lēctōs','lēctārum'],
+   why:'The participle modifies <em>mīlitem</em>, which is masculine, singular, and accusative, so it is <strong>lēctum</strong>. <em>Lēctus</em> is nominative, and <em>lēctōs</em> is plural.'},
+  {id:'lv23', k:3, en:'The sailors carry the captured standard.', fr:'Nautae signum ______ portant.', a:'captum', ds:['captus','captam','captōs'],
+   why:'The participle modifies <em>signum</em>, which is neuter, singular, and accusative, so it is <strong>captum</strong>. <em>Captam</em> is feminine.'},
+  {id:'lv24', k:3, en:'The father loves the learned son.', fr:'Pater fīlium ______ amat.', a:'doctum', ds:['doctam','doctōs','doctārum'],
+   why:'The participle modifies <em>fīlium</em>, which is masculine, singular, and accusative, so it is <strong>doctum</strong>, from <em>doceō</em>, “taught,” and so “learned.” <em>Doctam</em> is feminine.'}
+];
+function latVoiceQ(d){
+  const it = pickSeen(LV_ITEMS, x => x.id);
+  const frame = it.fr.replace('______', '<span class="target">______</span>');
+  if(d >= 3){
+    return {
+      kind:'text', lang:'la', src:['ag','appown'], sid:'lv:' + it.id, _answer:it.a,
+      prompt:'Write the missing Latin word. Macrons are optional.',
+      sentence:frame, gloss:it.en, placeholder:'Type the Latin form',
+      check(val){
+        if(normLat(val) === normLat(it.a)) return {right:true, note:it.why};
+        const wrote = String(val || '').trim();
+        return {right:false, note:it.why, also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:'la', src:['ag','appown'], sid:'lv:' + it.id, _answer:correct,
+    prompt:'Choose the missing Latin word.',
+    sentence:frame, gloss:it.en, options, correct,
+    check(i){
+      if(i === correct) return {right:true, note:it.why};
+      return {right:false, note:it.why, also:`The answer chosen was <em>${options[i]}</em>.`};
+    }
+  };
+}
+EX.latvoice = {
+  id:'latvoice', src:['ag','appown'], act:'IV', title:'The Passive, the Infinitive, and the Participle',
+  desc:'One word is missing from a Latin sentence: a passive verb or the noun that goes with it, a present infinitive that completes another verb, or a perfect passive participle used as an adjective.',
+  instr:'Supply the missing Latin word.',
+  introInstr:'',
+  intro:[
+    {h:'<strong>The passive.</strong> A passive verb has as its subject the one who receives the action, and the doer, when it is named, is in the ablative with <em>ā</em> or <em>ab</em>.',
+     eg:['<em>Poēta ā puellā laudātur</em> means “the poet is praised by the girl.”']},
+    {h:'<strong>The infinitive.</strong> A present infinitive can complete another verb, as in “knows how to write” or “is afraid to call,” and it does not change for person or number.',
+     eg:['<em>Puer verba scrībere scit</em> means “the boy knows how to write words.”']},
+    {h:'<strong>The participle.</strong> A perfect passive participle is used as an adjective, so it agrees with its noun in gender, number, and case.',
+     eg:['<em>Mīlitēs urbem captam vident</em> means “the soldiers see the captured city.”']}
+  ],
+  gen(d){ return latVoiceQ(d); }
+};
+
 /* ---------- scansion ---------- */
 /* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
    The quantities follow the published scansion named in the source note. */
@@ -14783,7 +14883,7 @@ const EX_MODES = {
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
-  meter:['both','en'], latbuild:['la'], latmore:['la'], markup:['both','en']
+  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -14962,6 +15062,7 @@ const ACTS = [
       desc:'From the meaning to the forms: the case of each noun by its work, the verb in agreement with its subject, and free word order.'},
      {kind:'ex', ex:'latbuild'},
      {kind:'ex', ex:'latmore'},
+     {kind:'ex', ex:'latvoice'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
