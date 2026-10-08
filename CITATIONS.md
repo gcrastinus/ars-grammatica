@@ -543,3 +543,21 @@ Peter of Spain; Sībawayh; the Sumerian lines and the OBGT person order.
 - Throwaway wrong answers ("Because cuneiform is magic", "Because Chinese is silent", one-word
   options borrowed from other traditions) were replaced in the traditions sets and decks.
   Deck options are now shuffled, so the right answer no longer sits in the same place.
+
+## Eighth pass (October 2026): scansion, building, and marking
+
+**Scansion: Latin.** The long, short, and elided syllables of the 137 Latin lines in *Meter and Scansion* follow the scansion published at hypotactic.com (*Greek and Latin Meter*), files `aen1` (Virgil, *Aeneid* I.1–80) and `met1` (Ovid, *Metamorphoses* I.1–60). Lines that the source tags with synizesis, hiatus, diastole, consonantal *i* inside a word ("hardening"), a half line, or a hypermetric syllable were left out. Every line kept was checked by machine to make five dactyls or spondees and a final foot of two syllables. The text is shown with *i* for consonantal *j*, as elsewhere in the course, and without macrons from level 3 on. The site names no author, so the source note cites it by its title.
+
+**Scansion: English.** Each line was checked word for word against the edition named:
+- Shakespeare, Sonnets 18 (lines 1, 3, 4) and 73 (lines 1, 2), and *Hamlet* III.1: Project Gutenberg eBook 100.
+- Marlowe, *Doctor Faustus*: eBook 779 (*launch'd*).
+- Keats, *Endymion* I.1–2: eBook 24280.
+- Milton, Sonnet 19, line 14: the course's existing text (*waite*).
+- Wordsworth, "I wandered lonely as a Cloud," lines 1–4: *Poems in Two Volumes* (1807), eBook 8824 (*o'er Vales and Hills*, *Daffodills*).
+- Longfellow, *The Song of Hiawatha*: eBook 19; *Evangeline*, lines 1–3: eBook 2039 (the opening word is set in capitals there and is shown as *This*).
+- Blake, "The Tiger," lines 1–2: *Songs of Innocence and of Experience*, eBook 1934.
+- Byron, "The Destruction of Sennacherib," lines 1–3: *The Works of Lord Byron*, vol. 3, eBook 21811.
+
+The beats were marked for this course. Where the meter may promote a light syllable to a beat, or a strong syllable may stand in an offbeat, the key accepts either mark, so that each line has one right answer.
+
+**Building and marking.** The Latin sentences in *Building the Latin Sentence* and *Marking the Sentence* are generated from the course's tables (checked against Allen and Greenough). A wrong form offered is dropped whenever it is spelled like a right form. The arrows in *Marking the Sentence* follow Thomas of Erfurt's account as the Sentence Workshop deck gives it. The article's arrow to its noun is this course's convention, and the deck says so.

@@ -611,6 +611,52 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
 }
 .src-entry p{font-size:15.5px; color:var(--ink-soft); line-height:1.5}
 .src-entry .n{font-size:15.5px; font-style:italic; color:var(--ink-soft); margin-top:7px}
+/* ------- building, scansion, and marking ------- */
+.q-widget{margin-top:6px}
+.bd-line{min-height:52px; display:flex; flex-wrap:wrap; gap:8px; padding:10px 12px; border:1px dashed var(--line); border-radius:10px; background:var(--panel2); margin-bottom:12px}
+.bd-line.right{border:1px solid var(--sage)}
+.bd-line.wrong{border:1px solid var(--wine)}
+.bd-empty{font-style:italic; color:var(--ink-soft); font-size:16px; align-self:center}
+.bd-bank{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px}
+.bd-tile{font-family:'EB Garamond',serif; font-size:18px; padding:7px 13px; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:8px; cursor:pointer}
+.bd-tile.placed{background:var(--panel); border-color:var(--gold-soft)}
+.bd-tile:hover:not(:disabled){border-color:var(--gold)}
+.bd-tile:disabled{cursor:default}
+.bd-help{font-size:15px; font-style:italic; color:var(--ink-soft); margin:6px 0 0}
+.sc-line{display:flex; flex-wrap:wrap; gap:4px 14px; padding:8px 0}
+.sc-word{display:inline-flex; gap:1px}
+.sc-syl{display:inline-flex; flex-direction:column; align-items:center; font-family:'EB Garamond',serif; font-size:20px; padding:2px 4px 4px; min-width:30px; border:1px solid transparent; border-radius:7px; background:transparent; color:var(--ink); cursor:pointer}
+.sc-syl:hover:not(:disabled){border-color:var(--gold-soft); background:var(--panel2)}
+.sc-mark{height:20px; line-height:20px; font-size:18px; color:var(--gold); font-family:'EB Garamond',serif}
+.sc-syl.elided{color:var(--ink-soft); opacity:.65; cursor:default}
+.sc-syl.elided .sc-t{text-decoration:line-through}
+.sc-syl.given{cursor:default}
+.sc-syl.given .sc-mark{color:var(--ink-soft)}
+.sc-syl.right .sc-mark{color:var(--good-text)}
+.sc-syl.wrong{border-color:var(--wine)}
+.sc-syl.wrong .sc-mark{color:var(--bad-text)}
+.mk-wrap{position:relative; overflow-x:auto; padding-bottom:6px}
+.mk-svg{position:absolute; left:0; top:0; color:var(--arc); pointer-events:none}
+.mk-arc{fill:none; stroke:var(--arc); stroke-width:1.8}
+.mk-arc.fixed{stroke:var(--ink-soft); stroke-dasharray:4 3}
+.mk-arc.ok{stroke:var(--sage)}
+.mk-arc.bad{stroke:var(--wine)}
+.mk-arc.miss{stroke:var(--sage); stroke-dasharray:2 4}
+.mk-words{display:flex; gap:10px; white-space:nowrap; position:relative}
+.mk-word{font-family:'EB Garamond',serif; font-size:19px; padding:6px 10px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:8px; cursor:pointer; flex:0 0 auto}
+.mk-word.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
+.mk-word:disabled{cursor:default}
+.ws-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:10px 0}
+.ws-row input[type=text]{flex:1 1 260px; min-width:0}
+.ws-row select, .ws-part select{font-family:'EB Garamond',serif; font-size:16px; padding:5px 8px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:8px}
+.ws-ex{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 14px}
+.ws-parts{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0}
+.ws-part{display:flex; flex-direction:column; gap:4px; padding:8px; border:1px solid var(--line); border-radius:10px; background:var(--card)}
+.ws-w{font-family:'EB Garamond',serif; font-size:18px; color:var(--ink)}
+.ws-read{margin-top:14px; padding:14px 18px; border:1px solid var(--line); border-radius:11px; background:var(--panel); font-size:17px; line-height:1.55}
+.ws-h{font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:4px 0 6px}
+.ws-check{font-size:16px; color:var(--ink-soft); display:flex; align-items:center; gap:6px}
+.judge-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 </style>
 </head>
 <body>
@@ -736,6 +782,31 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
       <button class="btn primary" id="ex-submit">Submit</button>
       <button class="btn primary" id="ex-next" style="display:none">Next →</button>
     </div>
+  </div>
+
+  <!-- ============ FREE WORKSHOP ============ -->
+  <div class="screen" id="scr-ws">
+    <header>
+      <div class="ornament">❦</div>
+      <h1 style="font-size:32px">The Free Workshop</h1>
+      <div class="subtitle">Mark any sentence, and read the markup back</div>
+    </header>
+    <div class="q-box">
+      <div class="ws-row">
+        <input type="text" class="answer-in" id="ws-in" autocomplete="off" spellcheck="false" placeholder="Type a sentence" aria-label="Sentence">
+        <select id="ws-lang" aria-label="Language"><option value="en">English</option><option value="la">Latin</option></select>
+        <button class="btn primary" id="ws-draw" type="button">Draw</button>
+      </div>
+      <div class="ws-ex" id="ws-examples"></div>
+      <div id="ws-board"></div>
+      <div class="ws-row">
+        <label class="ws-check"><input type="checkbox" id="ws-modern"> Draw the verb’s arrows in the modern direction</label>
+        <button class="btn" id="ws-clear" type="button">Clear the arrows</button>
+      </div>
+      <div class="ws-parts" id="ws-parts"></div>
+      <div class="ws-read" id="ws-read"></div>
+    </div>
+    <div class="btn-row"><button class="btn" id="ws-back">← Home</button></div>
   </div>
 
   <!-- ============ SET COMPLETE ============ -->
@@ -1525,6 +1596,9 @@ const SRC = {
   appown:{kind:'study', short:'This course’s own arrangement',
        full:'The wording, the ordering, and the pedagogical scaffolding are this course’s own. Where a panel is marked with this alone, it is making no doctrinal claim that needs a source — it is telling you how to use the course, or drawing together what earlier panels have already established on their own authority.',
        note:''},
+  hypo:{kind:'study', short:'<i>Greek and Latin Meter</i>, hypotactic.com',
+       full:'The long, short, and elided syllables of the Latin lines in the scansion exercise follow the scansion published at hypotactic.com (<i>Greek and Latin Meter</i>), for Virgil, <i>Aeneid</i> I, and Ovid, <i>Metamorphoses</i> I. Lines that need synizesis, hiatus, consonantal <i>i</i> inside a word, or another license are left out of the exercise.',
+       note:'The source of the quantities in the Latin scansion exercise.'},
   engclass:{kind:'study', short:'The ordinary English grammar, and Reed and Kellogg’s diagram',
        full:'The names in the English unit (direct object, predicate nominative, gerund, dependent clause, and the rest) are the names of an ordinary modern class. Each is set beside the traditional name this course uses, where there is one. The diagrams follow the method of Alonzo Reed and Brainerd Kellogg, <i>Higher Lessons in English</i> (1877 and later printings), which is in the public domain. Sentences quoted from English authors follow the edition named in each citation; where that text is a modern-spelling transcription, as for Shakespeare, the citation says so. No modern editor’s commentary is copied.',
        note:'A bridge from the accidents of the word to the sentence.'},
@@ -5275,7 +5349,7 @@ function agreeVerdict(adj, adjForm, entry, nounForm){
 EX.agree = {
   id:'agree', src:['te','ag'], act:'IV', title:'Agreement',
   desc:'An adjective and its noun, congruous or not. The rule is not arbitrary: the adjective signifies by the mode of <em>adhering to another</em>, and so, says Thomas of Erfurt, it <em>requires</em> in its subject the mode of standing by itself, proportionate to it. Agreement is therefore derived, not memorised. In English, the questions ask whether subject and verb, and pronoun and antecedent, agree.',
-  instr:'Is the phrase congruous? If not, in what?',
+  instr:'Judge the phrase, or write the form that agrees.',
   gen(d){
     const nouns = nounPool(d).filter(n => n.d !== 'd4n');
     let e, adj, cs, num, fault, form, adjForm;
@@ -6413,7 +6487,7 @@ const GOVERN_ITEMS = [
 EX.govern = {
   id:'govern', src:['ag','appown'], act:'IV', title:'Government',
   desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> and the German two-way prepositions are the clearest teaching cases, since the same small word takes two cases with two meanings. In English, government shows only in pronouns, and the questions ask why a pronoun takes the form it has.',
-  instr:'What case does this word require of its complement?',
+  instr:'Name the case the word requires, or write the form it requires.',
   gen(d){
     if(Math.random() < 0.5){
       const person = rand(['sailor','farmer','girl','boy','friend','king']);
@@ -9410,7 +9484,7 @@ DECKS.making = {
       correct:0,
       explain:'The passive is correct English. It is the better choice when the doer is unknown or unimportant, because then the receiver of the action is what the sentence is about.' } },
 
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> Each question gives a sentence or two and asks for the best revision. One choice is correct and clear. Each of the others has a real mistake: a comma splice, a fragment, a dangling or misplaced modifier, an unclear pronoun, a broken series, a wrong form, or a change of meaning. The early levels combine sentences. The later levels move modifiers, fix pronouns, and choose between the active and the passive.</p>` }
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> Each question gives a sentence or two and asks for the best revision. Some questions offer the revisions to choose from, some give the words to build it from, and some ask for it to be written out. One choice is correct and clear. Each of the others has a real mistake: a comma splice, a fragment, a dangling or misplaced modifier, an unclear pronoun, a broken series, a wrong form, or a change of meaning. The early levels combine sentences. The later levels move modifiers, fix pronouns, and choose between the active and the passive.</p>` }
 ]};
 
 /* ============================================================
@@ -12157,8 +12231,8 @@ const MAKING_ITEMS = [
 ];
 
 EX.making = enEx('making', 'Making Sentences',
-  'Choose the best revision: combine short sentences, move a modifier, make a pronoun or a series clear, or choose between the active and the passive.',
-  'Choose the best revision.',
+  'Choose, build, or write the best revision: combine short sentences, move a modifier, make a pronoun or a series clear, or choose between the active and the passive.',
+  'Choose, build, or write the best revision.',
   [
     {h:'<strong>One choice is correct and clear.</strong> Each of the others has a real mistake: a comma splice, a fragment, a dangling or misplaced modifier, an unclear pronoun, a broken series, a wrong form, or a change of meaning.',
      eg:['<em>The woman lives next door. She is a doctor.</em> becomes <em>The woman who lives next door is a doctor.</em>']},
@@ -12219,7 +12293,7 @@ const AGE_SV = [  /* subject, right verb, wrong verb, rest, head, number, easy *
   ['The key to the doors','is','are','missing','key','singular',1],
   ['The leader of the soldiers','was','were','brave','leader','singular',1],
   ['The price of the books','was','were','high','price','singular',1],
-  ['The colour of the leaves','is','are','changing','colour','singular',1],
+  ['The color of the leaves','is','are','changing','color','singular',1],
   ['The keys to the door','are','is','lost','keys','plural',1],
   ['The books on the shelf','are','is','old','books','plural',1],
   ['The windows of the house','were','was','open','windows','plural',1],
@@ -12245,7 +12319,7 @@ const AGE_SV = [  /* subject, right verb, wrong verb, rest, head, number, easy *
   ['The teacher, with her pupils,','is','are','on the way','teacher (with does not join subjects)','singular',0],
   ['The ship and its crew','were','was','lost','ship and crew (joined by and)','plural',0,'And joins the ship and its crew, so both are the subject and the verb is plural.'],
   ['There','are','is','three gates in the wall','gates, which follow the verb','plural',0,'There is not the subject. The subject is gates, after the verb, and it is plural.'],
-  ['There','is','are','a ship in the harbour','ship, which follows the verb','singular',0,'There is not the subject. The subject is ship, after the verb, and it is singular.'],
+  ['There','is','are','a ship in the harbor','ship, which follows the verb','singular',0,'There is not the subject. The subject is ship, after the verb, and it is singular.'],
   ['Here','come','comes','the soldiers','soldiers, which follow the verb','plural',0,'Here is not the subject. The subject is soldiers, after the verb, and it is plural.'],
   ['The rest of the cake','is','are','gone','rest, which takes its number from cake','singular',0,'Rest takes its number from cake, the noun after of, and cake is singular.'],
   ['The rest of the apples','are','is','gone','rest, which takes its number from apples','plural',0,'Rest takes its number from apples, the noun after of, and apples is plural.'],
@@ -12398,7 +12472,7 @@ const GVE_PREP = [['The captain spoke to {}.','to'],['The letter is for {}.','fo
   ['He stood behind {}.','behind'],['The gift came from {}.','from'],['We argued against {}.','against'],['The dog ran toward {}.','toward'],
   ['Nobody sat near {}.','near'],['This is between you and {}.','between'],['The sailors waited for {}.','for']];
 const GVE_VERB = [['The captain called {}.','called'],['She thanked {} warmly.','thanked'],['They followed {} to the gate.','followed'],
-  ['We saw {} at the harbour.','saw'],['The teacher praised {}.','praised'],['Nobody helped {}.','helped']];
+  ['We saw {} at the harbor.','saw'],['The teacher praised {}.','praised'],['Nobody helped {}.','helped']];
 const GVE_FIXED = [  /* sentence with the pronoun marked, kind, word */
   ['To <b>whom</b> did you give the letter?','prep','to'], ['With <b>whom</b> did she travel?','prep','with'], ['For <b>whom</b> is this gift?','prep','for'],
   ['<b>Whom</b> did the captain choose?','verb','choose'],
@@ -13146,6 +13220,1368 @@ p2AddEnglish('vices', vicesEnglish, 0.5);
 p2AddEnglish('figures', figuresEnglish, 0.5);
 p2AddEnglish('suppos', supposEnglish, 0.5);
 
+/* ================================================================== */
+const SCAN_LA = [
+  ["aen1",1,"Ar_ma^ vi^rum_que^ ca^nō,_ Trō_jae_ quī_ prī_mus^ ab^ ō_rīs_","DDSSDX"],
+  ["aen1",3,"lī_to^ra,^ mul_tum~ il_le~ et_ ter_rīs_ jac_tā_tus^ et^ al_tō_","DSSSDX"],
+  ["aen1",4,"vī_ su^pe^rum_ sae_vae_ me^mo^rem_ Jū_nō_nis^ ob^ ī_ram;_","DSDSDX"],
+  ["aen1",5,"mul_ta^ quo^que~ et_ bel_lō_ pas_sus,_ dum_ con_de^ret^ ur_bem,_","DSSSDX"],
+  ["aen1",6,"īn_fer_ret_que^ de^ōs_ La^ti^ō,_ ge^nus^ un_de^ La^tī_num,_","SDDDDX"],
+  ["aen1",7,"Al_bā_nī_que^ pa^trēs,_ at_que~ al_tae_ moe_ni^a^ Rō_mae._","SDSSDX"],
+  ["aen1",8,"Mū_sa,^ mi^hī_ cau_sās_ me^mo^rā,_ quō_ nū_mi^ne^ lae_sō,_","DSDSDX"],
+  ["aen1",9,"quid_ve^ do^lēns,_ rē_gī_na^ de^um_ tot_ vol_ve^re^ cā_sūs_","DSDSDX"],
+  ["aen1",10,"īn_si_gnem_ pi^e^tā_te^ vi^rum,_ tot^ ad^ī_re^ la^bō_rēs_","SDDDDX"],
+  ["aen1",11,"im_pu^le^rit._ Tan_tae_ne~ a^ni^mīs_ cae_les_ti^bus^ ī_rae?_","DSDSDX"],
+  ["aen1",12,"Urbs_ an_tī_qua^ fu^it,_ Ty^ri^ī_ te^nu^ē_re^ co^lō_nī,_","SDDDDX"],
+  ["aen1",13,"Kar_thā_gō,~ Ī_ta^li^am_ con_trā_ Ti^be^rī_na^que^ lon_gē_","SDSDDX"],
+  ["aen1",14,"ōs_ti^a,^ dī_ves^ o^pum_ stu^di^īs_que~ as_per_ri^ma^ bel_lī;_","DDDSDX"],
+  ["aen1",15,"quam_ Jū_nō_ fer_tur_ ter_rīs_ ma^gis^ om_ni^bus^ ū_nam_","SSSDDX"],
+  ["aen1",17,"hīc_ cur_rus_ fu^it;^ hoc_ rē_gnum_ de^a^ gen_ti^bus^ es_se,_","SDSDDX"],
+  ["aen1",18,"sī_ quā_ fā_ta^ si^nant,_ jam_ tum_ ten_dit_que^ fo^vet_que._","SDSSDX"],
+  ["aen1",19,"Prō_ge^ni^em_ sed^ e^nim_ Trō_jā_nō~ ā_ san_gui^ne^ dū_cī_","DDSSDX"],
+  ["aen1",20,"au_di^e^rat,_ Ty^ri^ās_ ō_lim_ quae_ ver_te^ret^ ar_cēs;_","DDSSDX"],
+  ["aen1",21,"hinc_ po^pu^lum_ lā_tē_ rē_gem_ bel_lō_que^ su^per_bum_","DSSSDX"],
+  ["aen1",22,"ven_tū_rum~ ex_ci^di^ō_ Li^by^ae:_ sīc_ vol_ve^re^ Par_cās._","SDDSDX"],
+  ["aen1",23,"Id_ me^tu^ēns,_ ve^te^ris_que^ me^mor_ Sā_tur_ni^a^ bel_lī,_","DDDSDX"],
+  ["aen1",24,"prī_ma^ quod^ ad_ Trō_jam_ prō_ cā_rīs_ ges_se^rat^ Ar_gīs_","DSSSDX"],
+  ["aen1",25,"nec_dum~ et^i^am_ cau_sae~ ī_rā_rum_ sae_vī_que^ do^lō_rēs_","DSSSDX"],
+  ["aen1",26,"ex_ci^de^rant_ a^ni^mō:_ ma^net^ al_tā_ men_te^ re^pos_tum_","DDDSDX"],
+  ["aen1",27,"jū_di^ci^um_ Pa^ri^dis_ sprē_tae_que~ in_jū_ri^a^ fōr_mae,_","DDSSDX"],
+  ["aen1",28,"et_ ge^nus^ in_vī_sum,~ et_ rap_tī_ Ga^ny^mē_dis^ ho^nō_rēs._","DSSDDX"],
+  ["aen1",29,"Hīs_ ac_cēn_sa^ su^per,_ jac_tā_tōs_ ae_quo^re^ tō_tō_","SDSSDX"],
+  ["aen1",30,"Trō_as,_ rē_li^qui^ās_ Da^na^um~ at_que~ im_mī_tis^ A^chil_lī,_","SDDSDX"],
+  ["aen1",31,"ar_cē_bat_ lon_gē_ La^ti^ō,_ mul_tōs_que^ per^ an_nōs_","SSDSDX"],
+  ["aen1",32,"er_rā_bant,_ āc_tī_ fā_tīs,_ ma^ri^a~ om_ni^a^ cir_cum._","SSSDDX"],
+  ["aen1",33,"Tan_tae_ mō_lis^ e^rat_ Rō_mā_nam_ con_de^re^ gen_tem!_","SDSSDX"],
+  ["aen1",34,"Vix_ ē_ cōn_spec_tū_ Si^cu^lae_ tel_lū_ris^ in^ al_tum_","SSDSDX"],
+  ["aen1",35,"vē_la^ da^bant_ lae_tī,~ et_ spū_mās_ sa^lis^ ae_re^ ru^ē_bant,_","DSSDDX"],
+  ["aen1",36,"cum_ Jū_nō,~ ae_ter_num_ ser_vāns_ sub_ pec_to^re^ vul_nus,_","SSSSDX"],
+  ["aen1",37,"haec_ sē_cum:_ ‘Mē_ne~ in_cep_tō_ dē_sis_te^re^ vic_tam,_","SSSSDX"],
+  ["aen1",38,"nec_ pos_se~ Ī_ta^li^ā_ Teu_crō_rum~ ā_ver_te^re^ rē_gem?_","SDSSDX"],
+  ["aen1",39,"Quip_pe^ ve^tor_ fā_tīs._ Pal_las_ne~ ex_ū_re^re^ clas_sem_","DSSSDX"],
+  ["aen1",40,"Ar_gī_vum~ at_que~ ip_sōs_ po^tu^it_ sub_mer_ge^re^ pon_tō,_","SSDSDX"],
+  ["aen1",42,"Ip_sa,^ Jo^vis_ ra^pi^dum_ ja^cu^lā_ta~ ē_ nū_bi^bus^ i_gnem,_","DDDSDX"],
+  ["aen1",43,"dis_jē_cit_que^ ra^tēs_ ē_ver_tit_que~ ae_quo^ra^ ven_tīs,_","SDSSDX"],
+  ["aen1",44,"il_lum~ ex_spī_ran_tem_ trāns_fī_xō_ pec_to^re^ flam_mās_","SSSSDX"],
+  ["aen1",45,"tur_bi^ne^ cor_ri^pu^it_ sco^pu^lō_que~ īn_fī_xit^ a^cū_tō._","DDDSDX"],
+  ["aen1",46,"Ast_ e^go,^ quae_ dī_vum~ in_cē_dō_ rē_gī_na,^ Jo^vis_que_","DSSSDX"],
+  ["aen1",47,"et_ so^ror^ et_ con_jūnx,_ ū_nā_ cum_ gen_te^ tot^ an_nōs_","DSSSDX"],
+  ["aen1",48,"bel_la^ ge^rō!~ Et_ quis_quam_ nū_men_ Jū_nō_nis^ ad^ō_rat_","DSSSDX"],
+  ["aen1",49,"prae_te^re^ā,~ aut_ sup_plex_ ā_rīs_ im_pō_net^ ho^nō_rem?’_","DSSSDX"],
+  ["aen1",50,"Tā_li^a^ flam_mā_tō_ sē_cum_ de^a^ cor_de^ vo^lū_tāns_","DSSDDX"],
+  ["aen1",51,"nim_bō_rum~ in_ pa^tri^am,_ lo^ca^ fē_ta^ fu^ren_ti^bus^ aus_trīs,_","SDDDDX"],
+  ["aen1",52,"Ae_o^li^am_ ve^nit.^ Hīc_ vas_tō_ rēx_ Ae_o^lus^ an_trō_","DDSSDX"],
+  ["aen1",53,"luc_tan_tīs_ ven_tōs_ tem_pes_tā_tēs_que^ so^nō_rās_","SSSSDX"],
+  ["aen1",54,"im_pe^ri^ō_ pre^mit^ ac_ vin_clīs_ et_ car_ce^re^ frē_nat._","DDSSDX"],
+  ["aen1",55,"Il_lī~ in_di_gnan_tēs_ ma_gnō_ cum_ mur_mu^re^ mon_tis_","SSSSDX"],
+  ["aen1",56,"cir_cum_ claus_tra^ fre^munt;_ cel_sā_ se^det^ Ae_o^lus^ ar_ce_","SDSDDX"],
+  ["aen1",57,"scēp_tra^ te^nēns,_ mol_lit_que~ a^ni^mōs_ et_ tem_pe^rat^ ī_rās._","DSDSDX"],
+  ["aen1",58,"Nī_ fa^ci^at,_ ma^ri^a~ ac_ ter_rās_ cae_lum_que^ pro^fun_dum_","DDSSDX"],
+  ["aen1",59,"quip_pe^ fe^rant_ ra^pi^dī_ sē_cum_ ver_rant_que^ per^ au_rās._","DDSSDX"],
+  ["aen1",60,"Sed_ pa^ter^ om_ni^pot^ēns_ spē_lun_cīs_ ab_di^dit^ ā_trīs,_","DDSSDX"],
+  ["aen1",61,"hoc_ me^tu^ēns,_ mō_lem_que~ et_ mon_tīs_ īn_su^per^ al_tōs_","DSSSDX"],
+  ["aen1",62,"im_po^su^it,_ rē_gem_que^ de^dit,_ quī_ foe_de^re^ cer_tō_","DSDSDX"],
+  ["aen1",63,"et_ pre^me^re~ et_ la_xās_ scī_ret_ da^re^ jus_sus^ ha^bē_nās._","DSSDDX"],
+  ["aen1",64,"Ad_ quem_ tum_ Jū_nō_ sup_plex_ hīs_ vō_ci^bus^ ū_sa~ est:_","SSSSDX"],
+  ["aen1",65,"‘Ae_o^le,^ nam_que^ ti^bī_ dī_vum_ pa^ter^ at_que~ ho^mi^num_ rēx_","DDSDDX"],
+  ["aen1",66,"et_ mul_cē_re^ de^dit_ flūc_tūs_ et_ tol_le^re^ ven_tō,_","SDSSDX"],
+  ["aen1",67,"gēns_ in^i^mī_ca^ mi^hī_ Tyr_rhē_num_ nā_vi^gat^ ae_quor,_","DDSSDX"],
+  ["aen1",68,"Ī_li^um~ in^ Ī_ta^li^am_ por_tāns_ vic_tōs_que^ Pe^nā_tīs:_","DDSSDX"],
+  ["aen1",69,"in_cu^te^ vim_ ven_tīs_ sub_mer_sās_que~ ob_ru^e^ pup_pīs,_","DSSSDX"],
+  ["aen1",70,"aut_ a^ge^ dī_ver_sōs_ et_ dis_i^ce^ cor_po^ra^ pon_tō._","DSSDDX"],
+  ["aen1",71,"Sunt_ mi^hi^ bis_ sep_tem_ praes_tan_tī_ cor_po^re^ nym_phae,_","DSSSDX"],
+  ["aen1",72,"quā_rum_ quae_ fōr_mā_ pul_cher_ri^ma^ Dē_i^o^pē_a,_","SSSDDX"],
+  ["aen1",73,"cō_nu^bi^ō_ jun_gam_ sta^bi^lī_ pro^pri^am_que^ di^cā_bō,_","DSDDDX"],
+  ["aen1",74,"om_nīs_ ut_ tē_cum_ me^ri^tīs_ prō_ tā_li^bus^ an_nōs_","SSDSDX"],
+  ["aen1",75,"ex_i^gat,^ et_ pul_chrā_ fa^ci^at_ tē_ prō_le^ pa^ren_tem.’_","DSDSDX"],
+  ["aen1",76,"Ae_o^lus^ haec_ con_trā:_ ‘Tu^us,^ Ō_ rē_gī_na,^ quid^ op_tēs_","DSDSDX"],
+  ["aen1",77,"ex_plō_rā_re^ la^bor;_ mi^hi^ jus_sa^ ca^pes_se^re^ fās_ est._","SDDDDX"],
+  ["aen1",78,"Tū_ mi^hi,^ quod_cum_que~ hoc_ rē_gnī,_ tū_ scēp_tra^ Jo^vem_que_","DSSSDX"],
+  ["aen1",79,"con_ci^li^ās,_ tū_ dās_ e^pu^līs_ ac_cum_be^re^ dī_vum,_","DSDSDX"],
+  ["aen1",80,"nim_bō_rum_que^ fa^cis_ tem_pes_tā_tum_que^ pot^en_tem.’_","SDSSDX"],
+  ["met1",1,"In_ no^va^ fert_ a^ni^mus_ mū_tā_tās_ dī_ce^re^ fōr_mās_","DDSSDX"],
+  ["met1",2,"cor_po^ra;^ dī,_ coep_tīs_ (nam_ vōs_ mū_tās_tis^ et^ il_la)_","DSSSDX"],
+  ["met1",3,"ad_spī_rā_te^ me^īs_ prī_mā_que~ ab^ o^rī_gi^ne^ mun_dī_","SDSDDX"],
+  ["met1",4,"ad_ me^a^ per_pe^tu^um_ dē_dū_ci^te^ tem_po^ra^ car_men!_","DDSDDX"],
+  ["met1",5,"an_te^ ma^re~ et_ ter_rās_ et_ quod_ te^git^ om_ni^a^ cae_lum_","DSSDDX"],
+  ["met1",6,"ū_nus^ e^rat_ tō_tō_ nā_tū_rae_ vul_tus^ in^ or_be,_","DSSSDX"],
+  ["met1",7,"quem_ dī_xē_re^ cha^os:_ ru^dis^ in_dī_ges_ta^que^ mō_lēs_","SDDSDX"],
+  ["met1",8,"nec_ quic_quam_ ni^si^ pon_dus^ in^ers_ con_ges_ta^que~ e^ō_dem_","SDDSDX"],
+  ["met1",9,"nōn_ be^ne^ jūn_ctā_rum_ dis_cor_di^a^ sē_mi^na^ rē_rum._","DSSDDX"],
+  ["met1",10,"nūl_lus^ ad^hūc_ mun_dō_ prae_bē_bat_ lū_mi^na^ tī_tān,_","DSSSDX"],
+  ["met1",11,"nec_ no^va^ crēs_cen_dō_ re^pa^rā_bat_ cor_nu^a^ phoe_bē,_","DSDSDX"],
+  ["met1",12,"nec_ cir_cum_fū_sō_ pen_dē_bat^ in^ ā_e^re^ tel_lūs_","SSSDDX"],
+  ["met1",13,"pon_de^ri^bus_ lī_brā_ta^ su^īs,_ nec_ brac_chi^a^ lon_gō_","DSDSDX"],
+  ["met1",14,"mar_gi^ne^ ter_rā_rum_ por_rē_xe^rat^ am_phi_trī_tē;_","DSSDSX"],
+  ["met1",15,"ut_que~ e^rat^ et_ tel_lūs_ il_līc_ et_ pon_tus^ et^ ā_ēr,_","DSSSDX"],
+  ["met1",16,"sīc_ e^rat^ īn_sta^bi^lis_ tel_lūs,_ in_nā_bi^lis^ un_da,_","DDSSDX"],
+  ["met1",17,"lū_cis^ e^gēns_ ā_ēr;_ nūl_lī_ su^a^ fōr_ma^ ma^nē_bat,_","DSSDDX"],
+  ["met1",18,"ob_stā_bat_que~ a^li^īs_ a^li^ud,_ qui^a^ cor_po^re~ in^ ū_nō_","SDDDDX"],
+  ["met1",19,"frī_gi^da^ pug_nā_bant_ ca^li^dīs,_ ū_men_ti^a^ sic_cīs,_","DSDSDX"],
+  ["met1",20,"mol_li^a^ cum_ dū_rīs,_ si^ne^ pon_de^re,~ ha^ben_ti^a^ pon_dus._","DSDDDX"],
+  ["met1",21,"hanc_ de^us^ et_ me^li^or_ lī_tem_ nā_tū_ra^ di^rē_mit._","DDSSDX"],
+  ["met1",22,"nam_ cae_lō_ ter_rās_ et_ ter_rīs_ ab_sci^dit^ un_dās_","SSSSDX"],
+  ["met1",23,"et_ li^qui^dum_ spis_sō_ sē_crē_vit^ ab^ ā_e^re^ cae_lum._","DSSDDX"],
+  ["met1",24,"quae_ post_quam~ ē_vol_vit_ cae_cō_que~ e_xē_mit^ a^cer_vō,_","SSSSDX"],
+  ["met1",25,"dis_so^ci^ā_ta^ lo^cīs_ con_cor_dī_ pā_ce^ li^gā_vit:_","DDSSDX"],
+  ["met1",26,"ig_ne^a^ con_ve_xī_ vīs_ et_ si^ne^ pon_de^re^ cae_lī_","DSSDDX"],
+  ["met1",27,"ē_mi^cu^it_ sum_mā_que^ lo^cum_ si^bi^ fē_cit^ in^ ar_ce;_","DSDDDX"],
+  ["met1",28,"pro_xi^mus^ est_ ā_ēr_ il_lī_ le^vi^tā_te^ lo^cō_que;_","DSSDDX"],
+  ["met1",29,"dēn_si^or^ hīs_ tel_lūs_ e^le^men_ta^que^ gran_di^a^ trā_xit_","DSDDDX"],
+  ["met1",30,"et_ pres_sa~ est_ gra^vi^tā_te^ su^ā;_ cir_cum_flu^us^ ū_mor_","SDDSDX"],
+  ["met1",31,"ul_ti^ma^ pos_sē_dit_ so^li^dum_que^ co^er_cu^it^ or_bem._","DSDDDX"],
+  ["met1",32,"sīc_ u^bi^ dis_po^si^tam_ quis_quis_ fu^it^ il_le^ de^ō_rum_","DDSDDX"],
+  ["met1",33,"con_ge^ri^em_ se^cu^it_ sec_tam_que~ in_ mem_bra^ co^ē_git,_","DDSSDX"],
+  ["met1",34,"prīn_ci^pi^ō_ ter_ram,_ nē_ nōn_ ae_quā_lis^ ab^ om_nī_","DSSSDX"],
+  ["met1",35,"par_te^ fo^ret,_ mag_nī_ spe^ci^em_ glo^me^rā_vit^ in^ or_bis._","DSDDDX"],
+  ["met1",36,"tum_ fre^ta^ dif_fun_dī_ ra^pi^dīs_que^ tu^mēs_ce^re^ ven_tīs_","DSDDDX"],
+  ["met1",37,"jus_sit^ et^ am_bī_tae_ cir_cum_da^re^ lī_to^ra^ ter_rae;_","DSSDDX"],
+  ["met1",38,"ad_di^dit^ et_ fon_tēs_ et_ stāg_na~ in_mēn_sa^ la^cūs_que_","DSSSDX"],
+  ["met1",39,"flū_mi^na^que~ o_blī_quīs_ cīn_xit_ dē_clī_vi^a^ rī_pīs,_","DSSSDX"],
+  ["met1",40,"quae,_ dī_ver_sa^ lo^cīs,_ par_tim_ sor_ben_tur^ ab^ ip_sā,_","SDSSDX"],
+  ["met1",41,"in_ ma^re^ per_ve^ni^unt_ par_tim_ cam_pō_que^ re^cep_ta_","DDSSDX"],
+  ["met1",42,"lī_be^ri^ō_ris^ a^quae_ prō_ rī_pīs_ lī_to^ra^ pul_sant._","DDSSDX"],
+  ["met1",43,"jus_sit^ et^ ex_ten_dī_ cam_pōs,_ sub_sī_de^re^ vāl_lēs,_","DSSSDX"],
+  ["met1",44,"fron_de^ te^gī_ sil_vās,_ la^pi^dō_sōs_ sur_ge^re^ mon_tēs,_","DSDSDX"],
+  ["met1",45,"ut_que^ du^ae_ dex_trā_ cae_lum_ to^ti^dem_que^ si^nis_trā_","DSSDDX"],
+  ["met1",46,"par_te^ se^cant_ zō_nae,_ quīn_ta~ est_ ār_den_ti^or^ il_līs,_","DSSSDX"],
+  ["met1",47,"sīc_ o^nus^ in_clū_sum_ nu^me^rō_ dis_tīn_xit^ e^ō_dem_","DSDSDX"],
+  ["met1",48,"cū_ra^ de^ī,_ to^ti^dem_que^ pla^gae_ tel_lū_re^ pre^mun_tur._","DDDSDX"],
+  ["met1",49,"quā_rum_ quae_ me^di^a~ est,_ nōn_ est_ ha^bi^tā_bi^lis^ aes_tū;_","SDSDDX"],
+  ["met1",50,"nix_ te^git^ al_ta^ du^ās;_ to^ti^dem~ in_ter^ u^trum_que^ lo^cā_vit_","DDDDDX"],
+  ["met1",51,"tem_pe^ri^em_que^ de^dit_ mix_tā_ cum_ frī_go^re^ flam_mā._","DDSSDX"],
+  ["met1",52,"in_mi^net^ hīs_ ā_ēr,_ quī,_ quan_tō~ est_ pon_de^re^ ter_rae_","DSSSDX"],
+  ["met1",53,"pon_dus^ a^quae_ le^vi^us,_ tan_tō~ est_ o^ne^rō_si^or^ ig_nī._","DDSDDX"],
+  ["met1",54,"il_līc_ et_ ne^bu^lās,_ il_līc_ cōn_sis_te^re^ nū_bēs_","SDSSDX"],
+  ["met1",55,"jus_sit^ et^ hū_mā_nās_ mō_tū_ra^ to^ni_tru^a^ men_tēs_","DSSDDX"],
+  ["met1",56,"et_ cum_ ful_mi^ni^bus_ fa^ci^en_tēs_ ful_gu^ra^ ven_tōs._","SDDSDX"],
+  ["met1",57,"hīs_ quo^que^ nōn_ pas_sim_ mun_dī_ fa^bri^cā_tor^ ha^ben_dum_","DSSDDX"],
+  ["met1",58,"ā_e^ra^ per_mī_sit;_ vix_ nunc_ ob_sis_ti^tur^ il_līs,_","DSSSDX"],
+  ["met1",59,"cum_ su^a^ quis_que^ re^gat_ dī_ver_sō_ flā_mi^na^ trac_tū,_","DDSSDX"],
+  ["met1",60,"quīn_ la^ni^ent_ mun_dum;_ tan_ta~ est_ dis_cor_di^a^ frā_trum._","DSSSDX"]
+];
+/* ====================================================================
+   DOING GRAMMAR: typed sentences, building sentences, scansion, and marking
+   ====================================================================
+   These question kinds ask the student to make something: to type a form or a whole sentence,
+   to build a sentence from words, to mark the quantities or the beats of a line of verse, or to
+   mark every dependence in a sentence. A question of kind 'widget' carries mount(host, ready),
+   which draws it and returns {value(), lock(res)}. */
+
+function nfEsc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function nfStrip(s){ return String(s || '').replace(/<[^>]+>/g, ''); }
+
+/* ---------- typed sentences ---------- */
+/* Commas and word order count; capital letters, spacing, and the final stop do not. */
+function normSent(s){
+  return String(s || '')
+    .replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/[–—]/g, '-')
+    .replace(/\s+/g, ' ').replace(/\s+([,;:.?!])/g, '$1').trim()
+    .replace(/[.?!]+$/, '').toLowerCase();
+}
+const NF_STOP = new Set(('a an the and or but of to in on at by for with from into is are was were be been am it he she they we i you '
+  + 'his her its their him them us me my our your who whom whose which that this these those as so then when if because although after before while').split(' '));
+function nfContent(s){
+  return normSent(s).replace(/[^a-z' ]/g, ' ').split(/\s+/).filter(w => w && !NF_STOP.has(w));
+}
+/* A known fault in a typed sentence, named in one plain sentence, or null. */
+function nfSentFault(val, o){
+  const raw = String(val || '').trim();
+  if(!raw) return 'Nothing was written.';
+  const nv = normSent(raw), nm = normSent(o.model);
+  if((o.faulty || []).some(f => normSent(f) === nv)) return 'This is one of the faulty versions, and the explanation above names its fault.';
+  if(o.sub === 'rel'){
+    if(/\bwho\b/.test(nm) && /\bwhich\b/.test(nv) && !/\bwhich\b/.test(nm)) return 'For a person the relative pronoun is <em>who</em>, not <em>which</em>.';
+    const rel = nv.match(/\b(who|that|which|whose|where)\b(.*)$/);
+    if(rel && /\b(he|she|it|they|there)\b/.test(rel[2]) && !/\b(he|she|it|they|there)\b/.test((nm.match(/\b(who|that|which|whose|where)\b(.*)$/) || ['',''])[1] ? nm.split(/\b(?:who|that|which|whose|where)\b/).slice(1).join(' ') : ''))
+      return 'The relative pronoun takes the place of the personal pronoun, so the personal pronoun is not repeated.';
+  }
+  if(o.sub === 'app' && (nv.match(/,/g) || []).length < (nm.match(/,/g) || []).length)
+    return 'An appositive in the middle of a sentence is set off by commas on both sides.';
+  if(o.sub === 'abs' && /^[^,]*\b(was|were|is|are|had)\b[^,]*,/.test(nv))
+    return 'The opening part still has a finite verb, so with the comma it makes a comma splice, not an absolute phrase.';
+  if(o.sub === 'part'){
+    const after = s => (s.split(',')[1] || '').trim().split(' ').slice(0, 2).join(' ');
+    if(after(nv) && after(nv) !== after(nm)) return `The opening phrase must be followed by the word it describes, <em>${after(nm)}</em>; otherwise the phrase dangles.`;
+  }
+  if(/[.?!]\s+\S/.test(raw.replace(/\b(Mr|Dr|Mrs|St)\.\s/g, '$1 '))) return 'The answer is still more than one sentence, and the task is to make one.';
+  if(o.cue && !new RegExp('(^|[^a-z])' + o.cue.toLowerCase() + '([^a-z]|$)').test(raw.toLowerCase()))
+    return `The task asks for <em>${o.cue}</em>, and the answer does not use it.`;
+  if(o.splice !== false){
+    const m = normSent(raw).match(/, (he|she|it|they|we|i|you|there|this)\b/);
+    if(m && normSent(o.model).indexOf(', ' + m[1] + ' ') < 0 && !/, (he|she|it|they|we|i|you|there|this) (who|that|which)/.test(normSent(raw)))
+      return `A comma alone joins two independent clauses at <em>, ${m[1]}</em>, and that is a comma splice.`;
+  }
+  const want = nfContent(o.model), got = new Set(nfContent(raw));
+  const miss = want.filter(w => !got.has(w));
+  if(miss.length) return `Some words of the original are missing: <em>${miss.slice(0, 4).join(', ')}</em>.`;
+  return null;
+}
+/* A typed-sentence question. When the answer matches none of the accepted versions but shows none of
+   the known faults, the student is shown the model and asked whether the answer has the same
+   construction, since a sentence can be written correctly in more ways than a list can hold. */
+function nfSentQ(o){
+  const acc = o.accepts.map(normSent);
+  const q = {
+    kind:'text', lang:o.lang || 'en', src:o.src || ['appown','engclass'], sid:o.sid,
+    prompt:o.prompt, sentence:o.sentence, specimen:o.specimen, gloss:o.gloss, long:true,
+    placeholder:o.placeholder || 'Type the sentence', _answer:o.model,
+    judge(val){
+      if(acc.indexOf(normSent(val)) >= 0) return null;
+      if(o.noJudge) return null;
+      if(nfSentFault(val, o)) return null;
+      return {model:o.model};
+    },
+    check(val){
+      const v = normSent(val);
+      const wrote = String(val || '').trim();
+      if(acc.indexOf(v) >= 0) return {right:true, note:o.why};
+      if(q._verdict === true)
+        return {right:true, note:o.why, also:`The model answer is <strong>${nfStop(o.model)}</strong>. The answer written was <em>${nfEsc(nfStop(wrote))}</em>, and it was judged to have the same construction.`};
+      const fault = q._verdict === false ? null : nfSentFault(val, o);
+      return {right:false, note:o.why,
+        also:(fault ? fault + ' ' : '') + `The model answer is <strong>${nfStop(o.model)}</strong>.` + (wrote && !/^Nothing/.test(fault || '') ? ` The answer written was <em>${nfEsc(nfStop(wrote))}</em>.` : '')};
+    }
+  };
+  return q;
+}
+
+/* ---------- the widget: building a sentence from words ---------- */
+/* tiles: the words offered; check(list) decides. Tap a word to place it; tap a placed word to send it back. */
+function nfBuildMount(q){
+  return function(host, ready){
+    const placed = [], bank = q.tiles.map((t, i) => ({t, i}));
+    host.innerHTML = `<div class="bd-line" aria-label="The sentence being built"></div><div class="bd-bank"></div>
+      <div class="bd-help">${q.help || 'Tap the words in order. Tap a placed word to take it back.'}</div>`;
+    const line = host.querySelector('.bd-line'), bk = host.querySelector('.bd-bank');
+    let locked = false;
+    function draw(){
+      line.innerHTML = placed.length ? '' : '<span class="bd-empty">The sentence appears here.</span>';
+      placed.forEach((w, k) => {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'bd-tile placed'; b.textContent = w.t;
+        b.onclick = () => { if(locked) return; placed.splice(k, 1); bank.push(w); bank.sort((a, c) => a.i - c.i); draw(); };
+        line.appendChild(b);
+      });
+      bk.innerHTML = '';
+      bank.forEach((w, k) => {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'bd-tile'; b.textContent = w.t;
+        b.onclick = () => { if(locked) return; bank.splice(k, 1); placed.push(w); draw(); };
+        bk.appendChild(b);
+      });
+      ready(placed.length > 0);
+    }
+    draw();
+    return {
+      value(){ return placed.map(w => w.t); },
+      lock(res){
+        locked = true;
+        host.querySelectorAll('.bd-tile').forEach(b => { b.disabled = true; });
+        line.classList.add(res.right ? 'right' : 'wrong');
+      }
+    };
+  };
+}
+
+/* ---------- Making Sentences: typed and built versions ---------- */
+/* The kind of combination each item asks for, by item number. */
+function mkSub(it){
+  const n = +it.id.slice(2);
+  if(it.kind !== 'combine') return it.kind;
+  if(n <= 6) return 'csubj';
+  if(n <= 12) return 'cpred';
+  if(n <= 22) return 'rel';
+  if(n <= 30) return 'app';
+  if(n <= 38) return 'sub';
+  if(n <= 46) return 'part';
+  return 'abs';
+}
+const MK_NAMES = new Set(['I','Mr.','Dr.','Maria','Sara','Tom','Sam','Ann','Beth','Lucy','Kate','Jack','Thomas','Lee','Lee,','Ruiz','Ruiz,',
+  'Grant','Paris','Paris,','France','France,','Seine','Nile','Nile,','Africa','Africa,','Atlantic','Atlantic,','Europe','America','Rome','Egypt',
+  'Ohio','Star','Monday','Friday','Asia','Mr','Dr','Emma','Beth’s','Ann’s']);
+/* The typed task, with the joining word or the structure named. */
+function mkTask(it){
+  const sub = mkSub(it), a = it.a;
+  const first = a.split(' ')[0].replace(/,$/, '');
+  if(sub === 'csubj') return {prompt:'Combine these sentences into one, with a compound subject joined by <em>and</em>.', cue:'and'};
+  if(sub === 'cpred') return {prompt:'Combine these sentences into one, with a compound predicate joined by <em>and</em>.', cue:'and'};
+  if(sub === 'rel'){
+    const w = (a.match(/\b(who|whose|where|that|which)\b/) || [])[1];
+    return {prompt:`Combine these sentences into one, with a relative clause beginning with <em>${w}</em>.`, cue:w};
+  }
+  if(sub === 'app') return {prompt:'Combine these sentences into one, turning the second sentence into an appositive.', cue:null};
+  if(sub === 'sub') return {prompt:`Combine these sentences into one, beginning with <em>${first}</em>.`, cue:first};
+  if(sub === 'part') return {prompt:`Combine these sentences into one, beginning with the participial phrase that starts <em>${first}</em>.`, cue:first};
+  if(sub === 'abs') return {prompt:'Combine these sentences into one, beginning with an absolute phrase (a noun with a participle or adjective).', cue:null};
+  if(sub === 'parallel') return {prompt:'Rewrite the sentence so that the series is parallel.', cue:null, splice:false};
+  if(sub === 'active') return {prompt:'Rewrite the sentence in the active voice, keeping its meaning and its tense.', cue:null, splice:false};
+  return null;
+}
+/* Other correct versions of the model answer. */
+function mkAccepts(it){
+  const a = it.a, out = [a], sub = mkSub(it);
+  if(sub === 'rel'){
+    if(/\bwho\b/.test(a) && !/,/.test(a)) out.push(a.replace(/\bwho\b/, 'that'));
+    if(/\bthat\b/.test(a) && !/\b(woman|man|boy|girl|student|teacher|painter|doctor)\b that/.test(a)) out.push(a.replace(/\bthat\b/, 'which'));
+  }
+  if(sub === 'sub'){
+    const m = a.match(/^(When|Because|Although|If|After|Before|While) (.+?), (.+?)\.$/);
+    if(m) out.push(`${m[3].charAt(0).toUpperCase()}${m[3].slice(1)} ${m[1].toLowerCase()} ${m[2]}.`);
+  }
+  if(sub === 'parallel' && /, (and|or) /.test(a)) out.push(a.replace(/, (and|or) ([^,]+)$/, ' $1 $2'));
+  return out;
+}
+function makingPool(d, kinds){
+  const cap = d <= 1 ? 1 : d === 2 ? 2 : d === 3 ? 3 : d === 4 ? 4 : 5;
+  return MAKING_ITEMS.filter(it => it.dmin <= cap && kinds.indexOf(mkSub(it)) >= 0);
+}
+/* The explanations were written for the multiple-choice form, and some sentences there speak of the
+   other versions offered. Typed and built questions show no other versions, so those sentences are left out. */
+function mkWhyPlain(why){
+  const s = why.split(/(?<=[.])\s+(?=[A-Z<])/);
+  const keep = s.filter(x => !/\b(versions?|options?)\b/i.test(x));
+  return (keep.length ? keep : s.slice(0, 1)).join(' ');
+}
+const nfStop = s => String(s || '').trim().replace(/[.?!]+$/, '');
+function makingTyped(d){
+  const pool = makingPool(d, ['csubj','cpred','rel','app','sub','part','abs','parallel','active']);
+  if(!pool.length) return null;
+  const it = pickSeen(pool, x => 'mkt:' + x.id);
+  const t = mkTask(it);
+  return nfSentQ({sid:'mkt:' + it.id, prompt:t.prompt, sentence:it.s, model:it.a, accepts:mkAccepts(it),
+    cue:t.cue, splice:t.splice, why:mkWhyPlain(it.why), src:['appown'], faulty:it.ds, sub:mkSub(it),
+    noJudge:['parallel','active'].indexOf(mkSub(it)) >= 0});
+}
+function mkTiles(sentence){
+  const words = sentence.replace(/[.?!]$/, '').split(' ');
+  if(words.length && !MK_NAMES.has(words[0])) words[0] = words[0].charAt(0).toLowerCase() + words[0].slice(1);
+  return words;
+}
+function makingBuild(d){
+  const pool = makingPool(d, ['csubj','cpred','rel','app','sub','part','abs','parallel','active','modifier']);
+  if(!pool.length) return null;
+  const it = pickSeen(pool, x => 'mkb:' + x.id);
+  const right = mkTiles(it.a);
+  const have = new Set(right.map(w => w.toLowerCase()));
+  const extra = [];
+  it.ds.forEach(s => mkTiles(s).forEach(w => {
+    const k = w.toLowerCase();
+    if(!have.has(k) && extra.indexOf(w) < 0 && !MK_NAMES.has(w)) extra.push(w);
+  }));
+  const decoys = sample(extra, Math.min(extra.length, d <= 1 ? 1 : d === 2 ? 2 : 3));
+  const accepts = mkAccepts(it).map(normSent);
+  const sub = mkSub(it);
+  const q = {
+    kind:'widget', lang:'en', src:['appown'], sid:'mkb:' + it.id,
+    prompt: sub === 'modifier' || sub === 'pronoun' ? 'Build the revision from these words, so that the modifier is clear.'
+          : sub === 'parallel' ? 'Build the revision from these words, so that the series is parallel.'
+          : sub === 'active' ? 'Build the sentence in the active voice from these words.'
+          : 'Build one sentence from these words that combines the two.',
+    sentence: it.s,
+    tiles: shuffle(right.concat(decoys)),
+    help: decoys.length ? `Tap the words in order. ${decoys.length === 1 ? 'One word is' : cap(numWord(decoys.length)) + ' words are'} not needed. Tap a placed word to take it back.` : null,
+    printInstr:'Arrange the words into one sentence.', printAnswer:it.a, _answer:right,
+    check(list){
+      const s = list.join(' ');
+      if(accepts.indexOf(normSent(s)) >= 0) return {right:true, note:mkWhyPlain(it.why)};
+      const used = decoys.filter(w => list.indexOf(w) >= 0);
+      return {right:false, note:mkWhyPlain(it.why),
+        also:`The right sentence is <strong>${it.a.replace(/[.?!]$/, '')}</strong>.` + (used.length ? ` The word${used.length > 1 ? 's' : ''} <strong>${used.join(', ')}</strong> ${used.length > 1 ? 'belong' : 'belongs'} to a faulty version.` : '')
+          + (list.length ? ` The sentence built was <em>${nfEsc(s)}</em>.` : '')};
+    }
+  };
+  q.mount = nfBuildMount(q);
+  return q;
+}
+
+/* ---------- Latin sentences, generated from the tables ---------- */
+/* English for the nouns and verbs used in building sentences: singular and plural; and for the verbs
+   the third person singular, the plain form, the past, and the -ing form. */
+const LB_PERSONS = {
+  'puella':['girl','girls'], 'rēgīna':['queen','queens'], 'nauta':['sailor','sailors'], 'poēta':['poet','poets'],
+  'dominus':['master','masters'], 'servus':['slave','slaves'], 'amīcus':['friend','friends'], 'puer':['boy','boys'],
+  'magister':['teacher','teachers'], 'fīlius':['son','sons'], 'rēx':['king','kings'], 'pater':['father','fathers'],
+  'mīles':['soldier','soldiers'], 'cīvis':['citizen','citizens']
+};
+const LB_THINGS = {
+  'dōnum':['gift','gifts'], 'signum':['standard','standards'], 'templum':['temple','temples'], 'oppidum':['town','towns'],
+  'urbs':['city','cities'], 'bellum':['war','wars'], 'equus':['horse','horses'], 'ager':['field','fields'], 'silva':['forest','forests']
+};
+const LB_VERBS = [
+  ['amō',   ['loves','love','loved','loving'],         'p'],
+  ['laudō', ['praises','praise','praised','praising'], 'p'],
+  ['vocō',  ['calls','call','called','calling'],       'p'],
+  ['moneō', ['warns','warn','warned','warning'],       'p'],
+  ['videō', ['sees','see','saw','seeing'],             'pt'],
+  ['doceō', ['teaches','teach','taught','teaching'],   'p'],
+  ['dūcō',  ['leads','lead','led','leading'],          'p'],
+  ['audiō', ['hears','hear','heard','hearing'],        'p'],
+  ['timeō', ['fears','fear','feared','fearing'],       'p'],
+  ['vincō', ['defeats','defeat','defeated','defeating'], 'p'],
+  ['portō', ['carries','carry','carried','carrying'],  't', ['dōnum','signum']],
+  ['parō',  ['prepares','prepare','prepared','preparing'], 't', ['bellum','dōnum']],
+  ['habeō', ['has','have','had','having'],             't', ['equus','dōnum','ager']],
+  ['capiō', ['captures','capture','captured','capturing'], 't', ['oppidum','urbs','signum']],
+  ['mūniō', ['fortifies','fortify','fortified','fortifying'], 't', ['oppidum','urbs']]
+];
+const LB_ADJ_P = ['bonus','magnus','parvus','fortis','clārus'];
+const LB_ADJ_T = ['magnus','parvus','novus'];
+const LB_ADJ_EN = {bonus:'good', magnus:'great', parvus:'small', fortis:'brave', clārus:'famous', novus:'new'};
+const LB_PLACES = ['silva','urbs','ager','templum','oppidum'];
+const LB_ADVS = [['saepe','often'],['nōn','not']];
+function lbNoun(nom){ return LAT_NOUNS.find(n => n.nom === nom); }
+function lbVerb(lemma){ return LAT_VERBS.find(v => v.lemma.split(',')[0] === lemma); }
+function lbAdj(nom){ return LAT_ADJS.find(a => a.nom === nom); }
+function lbVerbForm(entry, tense, num){
+  const f = latVerbForms(entry).find(x => x.tense === tense && x.mood === 'ind' && x.voice === 'act' && x.per === 3 && x.num === num);
+  return f ? f.form : null;
+}
+/* One Latin sentence, with its English and every word's work, drawn for the level. */
+function lbDraw(d){
+  for(let tries = 0; tries < 80; tries++){
+    const v = rand(d <= 1 ? LB_VERBS.filter(x => x[2] !== 't') : LB_VERBS);
+    const ve = lbVerb(v[0]);
+    if(!ve) continue;
+    const subjNom = rand(Object.keys(LB_PERSONS));
+    const objPool = v[3] ? v[3] : v[2] === 'pt' && d >= 2 && Math.random() < 0.4 ? Object.keys(LB_THINGS) : Object.keys(LB_PERSONS);
+    const objNom = rand(objPool.filter(o => o !== subjNom));
+    const se = lbNoun(subjNom), oe = lbNoun(objNom);
+    if(!se || !oe || se.g === 'n') continue;
+    const sNum = d <= 1 ? 'sg' : rand(NUMS), oNum = d <= 1 ? 'sg' : rand(NUMS);
+    const tense = d <= 2 ? 'pres' : rand(['pres','pres','impf','perf']);
+    const vForm = lbVerbForm(ve, tense, sNum);
+    if(!vForm) continue;
+    const words = [];
+    const subj = {role:'subj', entry:se, cs:'nom', num:sNum, form:nounEnding(se, 'nom', sNum)};
+    const obj = {role:'obj', entry:oe, cs:'acc', num:oNum, form:nounEnding(oe, 'acc', oNum)};
+    const verb = {role:'verb', entry:ve, tense, num:sNum, form:vForm};
+    let adj = null, place = null, adv = null;
+    if(d >= 2 && Math.random() < 0.7){
+      const onSubj = Math.random() < 0.5;
+      const host = onSubj ? subj : obj;
+      const isPerson = !!LB_PERSONS[host.entry.nom];
+      const ae = lbAdj(rand(isPerson ? LB_ADJ_P : LB_ADJ_T));
+      adj = {role:'adj', on:host, entry:ae, form:latAdjForm(ae, host.cs, host.num, host.entry.g)};
+    }
+    if(d >= 4 && Math.random() < 0.6){
+      const pe = lbNoun(rand(LB_PLACES.filter(p => p !== objNom)));
+      place = {role:'place', entry:pe, form:nounEnding(pe, 'abl', 'sg'), prep:'in'};
+    }
+    if(d >= 3 && Math.random() < 0.35) adv = {role:'adv', w:rand(LB_ADVS)};
+    /* English */
+    const nEn = (e, num) => (LB_PERSONS[e.nom] || LB_THINGS[e.nom])[num === 'sg' ? 0 : 1];
+    const np = (h, num) => 'the ' + (adj && adj.on === h ? LB_ADJ_EN[adj.entry.nom] + ' ' : '') + nEn(h.entry, num);
+    const ve2 = v[1];
+    let vp;
+    const neg = adv && adv.w[0] === 'nōn', often = adv && adv.w[0] === 'saepe';
+    if(tense === 'pres') vp = neg ? (sNum === 'sg' ? 'does not ' : 'do not ') + ve2[1] : (often ? 'often ' : '') + (sNum === 'sg' ? ve2[0] : ve2[1]);
+    else if(tense === 'impf') vp = (sNum === 'sg' ? 'was ' : 'were ') + (neg ? 'not ' : often ? 'often ' : '') + ve2[3];
+    else vp = neg ? 'did not ' + ve2[1] : (often ? 'often ' : '') + ve2[2];
+    let en = np(subj, sNum) + ' ' + vp + ' ' + np(obj, oNum) + (place ? ' in the ' + LB_THINGS[place.entry.nom][0] : '') + '.';
+    en = en.charAt(0).toUpperCase() + en.slice(1);
+    const parts = [subj, obj, verb];
+    if(adj) parts.push(adj);
+    if(place) parts.push(place);
+    if(adv) parts.push(adv);
+    return {en, subj, obj, verb, adj, place, adv, parts, tense, sNum, oNum};
+  }
+  return null;
+}
+/* The Latin words in the usual order: subject, object, verb, with the adjective after its noun. */
+function lbOrder(s){
+  const out = [];
+  out.push(s.subj.form); if(s.adj && s.adj.on === s.subj) out.push(s.adj.form);
+  if(s.place){ out.push('in'); out.push(s.place.form); }
+  out.push(s.obj.form); if(s.adj && s.adj.on === s.obj) out.push(s.adj.form);
+  if(s.adv) out.push(s.adv.w[0]);
+  out.push(s.verb.form);
+  return out;
+}
+/* Wrong forms a student might choose, each with the reason it is wrong. A decoy that is spelled like a
+   right form is dropped, so that only one set of words is right. */
+function lbDecoys(s, d){
+  const right = new Set(lbOrder(s).map(normLat));
+  const out = [];
+  const add = (form, why) => { if(form && !right.has(normLat(form)) && !out.some(x => normLat(x.form) === normLat(form))) out.push({form, why}); };
+  const sEn = s.subj.entry, oEn = s.obj.entry;
+  add(nounEnding(sEn, 'acc', s.sNum), `<em>${nounEnding(sEn,'acc',s.sNum)}</em> is accusative, but this noun is the subject, so it is nominative: <em>${s.subj.form}</em>.`);
+  add(nounEnding(oEn, 'nom', s.oNum), `<em>${nounEnding(oEn,'nom',s.oNum)}</em> is nominative, but this noun receives the action, so it is accusative: <em>${s.obj.form}</em>.`);
+  const otherNum = s.sNum === 'sg' ? 'pl' : 'sg';
+  add(lbVerbForm(s.verb.entry, s.tense, otherNum), `<em>${lbVerbForm(s.verb.entry, s.tense, otherNum)}</em> has the wrong number; the subject is ${s.sNum === 'sg' ? 'singular' : 'plural'}, so the verb is <em>${s.verb.form}</em>.`);
+  if(d >= 3){
+    const t2 = s.tense === 'pres' ? rand(['impf','perf']) : 'pres';
+    const f2 = lbVerbForm(s.verb.entry, t2, s.sNum);
+    add(f2, `<em>${f2}</em> is in the wrong tense; the English asks for the ${TENSE_NAME[s.tense].toLowerCase()}: <em>${s.verb.form}</em>.`);
+  }
+  if(s.adj){
+    const h = s.adj.on, other = h === s.subj ? s.obj : s.subj;
+    const wrongCase = latAdjForm(s.adj.entry, h.cs === 'nom' ? 'acc' : 'nom', h.num, h.entry.g);
+    add(wrongCase, `<em>${wrongCase}</em> does not agree in case with <em>${h.form}</em>, the noun it describes; the form is <em>${s.adj.form}</em>.`);
+    const g2 = h.entry.g === 'f' ? 'm' : 'f';
+    const wrongG = latAdjForm(s.adj.entry, h.cs, h.num, g2);
+    add(wrongG, `<em>${wrongG}</em> does not agree in gender with <em>${h.form}</em>; the form is <em>${s.adj.form}</em>.`);
+  }
+  if(s.place){
+    const a2 = nounEnding(s.place.entry, 'acc', 'sg');
+    add(a2, `<em>in</em> with the accusative means “into”; place where takes the ablative: <em>in ${s.place.form}</em>.`);
+  }
+  const n = d <= 1 ? 2 : d === 2 ? 3 : d === 3 ? 4 : 5;
+  return sample(out, Math.min(n, out.length));
+}
+function lbLemmas(s){
+  const L = [];
+  const nl = e => `<em>${e.nom}, ${nounEnding(e,'gen','sg')}</em> (${GEN_NAME[e.g]}), ${(LB_PERSONS[e.nom] || LB_THINGS[e.nom])[0]}`;
+  L.push(nl(s.subj.entry)); L.push(nl(s.obj.entry));
+  L.push(`<em>${s.verb.entry.lemma}</em>, ${s.verb.entry.gloss}`);
+  if(s.adj) L.push(`<em>${s.adj.entry.nom}</em>, ${LB_ADJ_EN[s.adj.entry.nom]}`);
+  if(s.place) L.push(`<em>in</em> with the ablative, in; ${nl(s.place.entry)}`);
+  if(s.adv) L.push(`<em>${s.adv.w[0]}</em>, ${s.adv.w[1]}`);
+  return L.join(' · ');
+}
+function lbWhy(s){
+  const bits = [`<em>${s.subj.form}</em> is the subject, in the nominative`,
+    `<em>${s.obj.form}</em> receives the action, in the accusative`,
+    `<em>${s.verb.form}</em> is ${TENSE_NAME[s.tense].toLowerCase()} and ${s.sNum === 'sg' ? 'singular' : 'plural'}, agreeing with its subject`];
+  if(s.adj) bits.push(`<em>${s.adj.form}</em> agrees with <em>${s.adj.on.form}</em> in gender, number, and case`);
+  if(s.place) bits.push(`<em>in ${s.place.form}</em> is place where, with the ablative`);
+  return cap(bits.join('; ')) + '. Latin word order is free, so any order of the right words is accepted; the usual prose order puts the verb last: <em>' + lbOrder(s).join(' ') + '</em>.';
+}
+function latBuildQ(d){
+  const s = lbDraw(d);
+  if(!s) return null;
+  const right = lbOrder(s);
+  const decoys = lbDecoys(s, d);
+  const want = right.map(normLat).sort().join(' ');
+  const why = lbWhy(s);
+  if(d >= 5 || (d === 4 && Math.random() < 0.5)){
+    return {
+      kind:'text', lang:'la', src:['ag','appown'], sid:'lbt:' + right.join(' '), long:true,
+      prompt:'Write this sentence in Latin. Macrons are optional, and any word order is accepted.',
+      sentence:s.en, gloss:lbLemmas(s), placeholder:'Type the Latin sentence', _answer:right.join(' '),
+      check(val){
+        const got = String(val || '').trim().split(/\s+/).map(normLat).filter(Boolean).sort().join(' ');
+        if(got === want) return {right:true, note:why};
+        const gotSet = String(val || '').trim().split(/\s+/).map(normLat);
+        const wrongs = decoys.filter(x => gotSet.indexOf(normLat(x.form)) >= 0).map(x => x.why);
+        return {right:false, note:why, also:(wrongs.length ? wrongs.join(' ') + ' ' : '') + (String(val||'').trim() ? `The answer written was <em>${nfEsc(String(val).trim())}</em>.` : 'Nothing was written.')};
+      }
+    };
+  }
+  const q = {
+    kind:'widget', lang:'la', src:['ag','appown'], sid:'lbb:' + right.join(' '),
+    prompt:'Build this sentence in Latin from the words below. Not every word is needed, and any word order is accepted.',
+    sentence:s.en, gloss:lbLemmas(s),
+    tiles: shuffle(right.concat(decoys.map(x => x.form))),
+    help:'Tap the Latin words that the sentence needs. Tap a placed word to take it back.',
+    printInstr:'Choose the right Latin words.', printAnswer:right.join(' '), _answer:right,
+    check(list){
+      const got = list.map(normLat).sort().join(' ');
+      if(got === want) return {right:true, note:why};
+      const wrongs = decoys.filter(x => list.indexOf(x.form) >= 0).map(x => x.why);
+      const missing = right.filter(w => list.indexOf(w) < 0);
+      return {right:false, note:why,
+        also:(wrongs.length ? wrongs.join(' ') + ' ' : '') + (missing.length ? `The sentence also needs <em>${missing.join(', ')}</em>.` : '')};
+    }
+  };
+  q.mount = nfBuildMount(q);
+  return q;
+}
+
+/* ---------- typed agreement and government ---------- */
+function latAgreeTyped(d){
+  const nouns = nounPool(d).filter(n => n.d !== 'd4n');
+  const e = rand(nouns);
+  const adj = rand(d <= 2 ? LAT_ADJS.filter(a => a.cl === '12') : LAT_ADJS);
+  const cs = rand(d <= 1 ? ['nom','acc'] : CASES.filter(c => c !== 'voc'));
+  const num = rand(NUMS);
+  const form = nounEnding(e, cs, num);
+  const an = (analysesOf(e, 'noun').get(form) || []).filter(a => a.cs !== 'voc');
+  const accepts = [];
+  an.forEach(a => { const f = latAdjForm(adj, a.cs, a.num, e.g); if(accepts.indexOf(f) < 0) accepts.push(f); });
+  const readings = an.map(a => describeCase(a)).filter((x, i, arr) => arr.indexOf(x) === i);
+  return {
+    kind:'text', lang:'la', src:['te','ag'], sid:'agt:' + adj.nom + ':' + form,
+    prompt:`Write <em>${adj.nom}</em> in the form that agrees with <em>${form}</em>.`,
+    specimen:`${form}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss} · ${adj.nom}, ${adj.gloss}</span>`,
+    placeholder:'Type the Latin form', _answer:accepts[0],
+    check(val){
+      const ok = accepts.some(f => normLat(f) === normLat(val));
+      const why = `<em>${form}</em> is ${readings.join(' or ')}, and ${GEN_NAME[e.g]}, so the adjective is <strong>${accepts.join('</strong> or <strong>')}</strong>.`
+        + (accepts.length > 1 ? ' The noun form can be read more than one way, and each reading is accepted.' : '')
+        + (e.note ? ` Note: ${e.note}.` : '');
+      if(ok) return {right:true, note:why};
+      return {right:false, note:why, also:String(val||'').trim() ? `The answer written was <em>${nfEsc(String(val).trim())}</em>.` : 'Nothing was written.'};
+    }
+  };
+}
+const GVT_PREP = [
+  {p:'in', cs:'abl', en:'in the {}', mean:'of place where, takes the ablative'},
+  {p:'in', cs:'acc', en:'into the {}', mean:'of motion into, takes the accusative'},
+  {p:'ad', cs:'acc', en:'toward the {}', mean:'takes the accusative'},
+  {p:'ex', cs:'abl', en:'out of the {}', mean:'takes the ablative'},
+  {p:'per', cs:'acc', en:'through the {}', mean:'takes the accusative'},
+  {p:'post', cs:'acc', en:'behind the {}', mean:'takes the accusative'},
+  {p:'dē', cs:'abl', en:'down from the {}', mean:'takes the ablative'},
+  {p:'cum', cs:'abl', en:'with the {}', mean:'of accompaniment, takes the ablative', person:true},
+  {p:'sine', cs:'abl', en:'without the {}', mean:'takes the ablative', person:true}
+];
+const GVT_PLACES = ['silva','urbs','ager','templum','oppidum'];
+function latGovernTyped(d){
+  const fr = rand(d <= 1 ? GVT_PREP.filter(f => ['in','ad','cum'].indexOf(f.p) >= 0) : GVT_PREP);
+  const nom = rand(fr.person ? Object.keys(LB_PERSONS).filter(n => lbNoun(n)) : GVT_PLACES);
+  const e = lbNoun(nom);
+  const num = d <= 2 ? 'sg' : rand(NUMS);
+  const form = nounEnding(e, fr.cs, num);
+  const enN = (LB_PERSONS[nom] || LB_THINGS[nom])[num === 'sg' ? 0 : 1];
+  const en = fr.en.replace('{}', enN);
+  return {
+    kind:'text', lang:'la', src:['ag'], sid:'gvt:' + fr.p + ':' + fr.cs + ':' + form,
+    prompt:`Complete the Latin for “${en}”: <em>${fr.p}</em> ___`,
+    specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
+    placeholder:'Type the Latin form', _answer:form,
+    check(val){
+      const why = `<em>${fr.p}</em>, ${fr.mean}, so “${en}” is <strong>${fr.p} ${form}</strong>, the ${CASE_NAME[fr.cs].toLowerCase()} ${num === 'sg' ? 'singular' : 'plural'}.`;
+      if(normLat(val) === normLat(form) || normLat(val) === normLat(fr.p + form)) return {right:true, note:why};
+      return {right:false, note:why, also:String(val||'').trim() ? `The answer written was <em>${nfEsc(String(val).trim())}</em>.` : 'Nothing was written.'};
+    }
+  };
+}
+const AGT_LEMMA = {am:['be','present'], is:['be','present'], are:['be','present'], was:['be','past'], were:['be','past'],
+  has:['have','present'], have:['have','present'], does:['do','present'], do:['do','present'], go:['go','present'], goes:['go','present'],
+  write:['write','present'], writes:['write','present'], know:['know','present'], knows:['know','present'],
+  seem:['seem','present'], seems:['seem','present'], come:['come','present'], comes:['come','present']};
+function nfP2(o){ const q = p2Text(o); q._answer = o.answers[0]; return q; }
+function enAgreeTyped(d){
+  const k = Math.random();
+  if(k < 0.6){
+    const r = rand(d <= 1 ? AGE_SV.filter(x => x[6]) : AGE_SV);
+    const lm = AGT_LEMMA[r[1]];
+    return nfP2({sid:'agte:' + r[0], prompt:`Write the ${lm[1]} tense of <em>${lm[0]}</em> that agrees with the subject.`,
+      specimen:`${r[0]} ___ ${r[3]}.`, answers:[r[1]],
+      why:`The subject is <em>${r[4]}</em>, which is ${r[5]}, so the verb is <strong>${r[1]}</strong>. ${r[7] || 'A phrase between subject and verb does not change the subject.'}`});
+  }
+  if(k < 0.8){
+    const r = rand(AGE_PE);
+    const lm = AGT_LEMMA[r[1]];
+    return nfP2({sid:'agtp:' + r[0] + r[1], prompt:`Write the present tense of <em>${lm[0]}</em> that agrees with the subject.`,
+      specimen:`${r[0]} ___ ${r[3]}.`, answers:[r[1]],
+      why:`<em>${r[0]}</em> takes <strong>${r[1]}</strong>; the verb agrees with its subject in person as well as in number.`});
+  }
+  const r = rand(AGE_PR);
+  const s = r[0].replace('{}', '___') + '.';
+  return nfP2({sid:'agtr:' + r[0], prompt:'Write the possessive pronoun that agrees with the word it stands for.',
+    specimen:s, answers:[r[1]],
+    why:`The pronoun stands for <em>${r[3]}</em>, which is ${r[4]}, so it is <strong>${r[1]}</strong>.`});
+}
+function enGovernTyped(d){
+  if(Math.random() < 0.7){
+    const fr = rand((Math.random() < 0.5 ? GVE_PREP : GVE_VERB).filter(f => !/^We /.test(f[0])));
+    const p = rand(GVE_PRON);
+    const isPrep = GVE_PREP.indexOf(fr) >= 0;
+    return nfP2({sid:'gvte:' + fr[0] + p[1], prompt:`Write the pronoun <em>${p[1]}</em> in the form this sentence requires.`,
+      specimen:fr[0].replace('{}', '___'), answers:[p[0]],
+      why: isPrep ? `<em>${cap(fr[1])}</em> is a preposition, and it governs the object form: <strong>${p[0]}</strong>.`
+                  : `The pronoun receives the action of <em>${fr[1]}</em>, so it is the object and takes the object form: <strong>${p[0]}</strong>.`});
+  }
+  const f = rand(GVE_FIXED.filter(x => x[1] !== 'link'));
+  const w = f[0].match(/<b>([^<]+)<\/b>/)[1];
+  const lw = w.toLowerCase();
+  const pair = /ever$/.test(lw) ? '<em>whoever</em> or <em>whomever</em>' : '<em>who</em> or <em>whom</em>';
+  const s = f[0].replace(/<b>[^<]+<\/b>/, '___');
+  const why = f[1] === 'prep' ? `<em>${cap(f[2])}</em> is a preposition, and its object takes the object form: <strong>${lw}</strong>.`
+            : f[1] === 'verb' ? `The pronoun is the object of <em>${f[2]}</em>, though it stands first, so it takes the object form: <strong>${lw}</strong>.`
+            : `The pronoun is the subject of <em>${f[2]}</em> in its own clause, so it takes the subject form: <strong>${lw}</strong>.`;
+  return nfP2({sid:'gvtw:' + f[0], prompt:`Write ${pair}, as the sentence requires.`, specimen:s, answers:[lw], why});
+}
+function nfAddTyped(id, fn, pFor){
+  const ex = EX[id];
+  if(!ex) return;
+  const base = ex.gen;
+  ex.gen = function(d){
+    if(Math.random() < pFor(d)){
+      let q = null;
+      try { q = fn(d); } catch(e){ q = null; }
+      if(q) return q;
+    }
+    return base.call(this, d);
+  };
+}
+const nfTypedShare = d => d <= 1 ? 0.15 : d === 2 ? 0.25 : 0.35;
+nfAddTyped('agree', d => Math.random() < 0.5 ? latAgreeTyped(d) : enAgreeTyped(d), nfTypedShare);
+nfAddTyped('govern', d => Math.random() < 0.5 ? latGovernTyped(d) : enGovernTyped(d), nfTypedShare);
+nfAddTyped('making', d => Math.random() < 0.5 ? makingTyped(d) : makingBuild(d), d => d <= 1 ? 0.45 : d === 2 ? 0.55 : 0.6);
+EX.latbuild = {
+  id:'latbuild', src:['ag','appown'], act:'IV', title:'Building the Latin Sentence',
+  desc:'An English sentence is given, and the Latin is built from the forms offered: each noun in the case its work requires, the verb in agreement with its subject, and the adjective in agreement with its noun. At the highest level the Latin is typed.',
+  instr:'Build the Latin sentence.',
+  gen(d){
+    for(let i = 0; i < 6; i++){ const q = latBuildQ(d); if(q) return q; }
+    return null;
+  }
+};
+
+/* ---------- scansion ---------- */
+/* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
+   The quantities follow the published scansion named in the source note. */
+function scanParseLa(row){
+  const words = row[2].split(' ').map(w => {
+    const out = [];
+    w.replace(/(.+?)([_^~])/g, (m, t, k) => { out.push({t, k: k === '_' ? 'L' : k === '^' ? 'S' : 'E'}); return ''; });
+    return out;
+  });
+  return {work:row[0], n:row[1], words, feet:row[3]};
+}
+function scanShowLa(t, macrons){
+  let s = t.replace(/j/g, 'i').replace(/J/g, 'I');
+  return macrons ? s : stripMacrons(s);
+}
+const SCAN_WORK = {aen1:['Virgil, <em>Aeneid</em> I', 'Aeneid I'], met1:['Ovid, <em>Metamorphoses</em> I', 'Metamorphoses I']};
+const LA_DIPH = /(ae|au|oe|ei|eu)/;
+/* Why a syllable has the quantity it has, in one plain clause. */
+function scanReasonLa(syl, next){
+  const bare = stripMacrons(syl.t.toLowerCase()).replace(/[^a-z]/g, '');
+  const nat = /[āēīōūȳ]/i.test(syl.t) || LA_DIPH.test(bare);
+  const nextBare = next ? stripMacrons(next.t.toLowerCase()).replace(/[^a-z]/g, '').replace(/^h/, '') : '';
+  const closed = /[^aeiouy]$/.test(bare);
+  const nextCons = nextBare && /^[^aeiouy]/.test(nextBare);
+  if(syl.k === 'L'){
+    if(nat) return 'long by nature, because its vowel is long or it is a diphthong';
+    if((closed && nextCons) || /[xz]$/.test(bare)) return 'long by position, because two consonants follow its vowel';
+    return 'long';
+  }
+  return 'short, because its vowel is short and two consonants do not follow it';
+}
+function scanFeetHtml(line, macrons){
+  const syl = [];
+  line.words.forEach(w => w.forEach(s => { if(s.k !== 'E') syl.push(s); }));
+  const out = []; let i = 0;
+  line.feet.split('').forEach(f => {
+    const n = f === 'D' ? 3 : 2;
+    out.push(syl.slice(i, i + n).map(s => scanShowLa(s.t, true).replace(/[,.;:!?‘’“”]/g, '')).join('-'));
+    i += n;
+  });
+  return out.join(' | ');
+}
+const FOOT_NAME = {D:'dactyl', S:'spondee'};
+function scanLaQ(d){
+  const pool = SCAN_LA.filter(r => d <= 2 ? r[2].indexOf('~') < 0 : true);
+  const row = pickSeen(pool, r => 'scl:' + r[0] + r[1]);
+  const line = scanParseLa(row);
+  const macrons = d <= 2;
+  const cite = `${SCAN_WORK[line.work][0]}.${line.n}`;
+  /* At the higher levels, sometimes the feet are written out instead of marked. */
+  if(d >= 3 && Math.random() < 0.3){
+    const want = line.feet.slice(0, 5);
+    return {
+      kind:'text', lang:'la', src:['ag','hypo'], sid:'scf:' + row[0] + row[1],
+      prompt:'Write the first five feet of this hexameter, D for a dactyl and S for a spondee (for example, DSDSD).',
+      sentence:line.words.map(w => w.map(s => scanShowLa(s.t, macrons)).join('')).join(' '), source:cite,
+      placeholder:'Type five letters', _answer:want,
+      check(val){
+        const v = String(val || '').toUpperCase().replace(/[^DS]/g, '');
+        const why = `The feet are ${scanFeetHtml(line)}: ${want.split('').map(f => FOOT_NAME[f]).join(', ')}, and a sixth foot of two syllables.`;
+        if(v === want) return {right:true, note:why};
+        return {right:false, note:why, also:v ? `The answer written was <em>${nfEsc(String(val).trim())}</em>; the pattern is <strong>${want}</strong>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const flat = [];
+  line.words.forEach((w, wi) => w.forEach((s, si) => flat.push({s, wi, last: si === w.length - 1})));
+  const live = flat.filter(x => x.s.k !== 'E');
+  const lastLive = live[live.length - 1];
+  const given = new Set();
+  if(d <= 1){
+    const cand = live.filter(x => x !== lastLive);
+    sample(cand, Math.floor(cand.length / 2)).forEach(x => given.add(x));
+  }
+  const q = {
+    kind:'widget', lang:'la', src:['ag','hypo'], sid:'scl:' + row[0] + row[1], source:cite,
+    prompt:'Mark each syllable long (–) or short (∪). Tap a syllable to change its mark. Elided syllables are already set aside.',
+    printInstr:'Mark each syllable long or short.', printAnswer:scanFeetHtml(line), _answer:live.map(x => x.s.k),
+    mount(host, ready){
+      const marks = new Map();
+      given.forEach(x => marks.set(x, x.s.k));
+      host.innerHTML = '<div class="sc-line"></div><div class="bd-help">The last syllable of the line may be long or short; either mark is accepted there.</div>';
+      const lineEl = host.querySelector('.sc-line');
+      let locked = false;
+      const btns = new Map();
+      line.words.forEach((w, wi) => {
+        const wEl = document.createElement('span'); wEl.className = 'sc-word';
+        flat.filter(x => x.wi === wi).forEach(x => {
+          const b = document.createElement('button'); b.type = 'button';
+          b.className = 'sc-syl' + (x.s.k === 'E' ? ' elided' : '') + (given.has(x) ? ' given' : '');
+          b.innerHTML = `<span class="sc-mark"></span><span class="sc-t">${nfEsc(scanShowLa(x.s.t, macrons))}</span>`;
+          if(x.s.k === 'E' || given.has(x)) b.disabled = true;
+          b.onclick = () => {
+            if(locked) return;
+            const cur = marks.get(x);
+            marks.set(x, cur === 'L' ? 'S' : cur === 'S' ? undefined : 'L');
+            if(marks.get(x) === undefined) marks.delete(x);
+            paint();
+          };
+          btns.set(x, b);
+          wEl.appendChild(b);
+        });
+        lineEl.appendChild(wEl);
+      });
+      function paint(){
+        btns.forEach((b, x) => {
+          const m = x.s.k === 'E' ? 'E' : marks.get(x);
+          b.querySelector('.sc-mark').textContent = m === 'L' ? '–' : m === 'S' ? '∪' : m === 'E' ? '‿' : '';
+        });
+        ready(live.every(x => marks.has(x)));
+      }
+      paint();
+      return {
+        value(){ return live.map(x => marks.get(x)); },
+        lock(res){
+          locked = true;
+          live.forEach(x => {
+            const b = btns.get(x); b.disabled = true;
+            const ok = x === lastLive || marks.get(x) === x.s.k;
+            b.classList.add(ok ? 'right' : 'wrong');
+            if(!ok) b.querySelector('.sc-mark').textContent = x.s.k === 'L' ? '–' : '∪';
+          });
+        }
+      };
+    },
+    check(v){
+      const wrong = [];
+      live.forEach((x, i) => { if(x !== lastLive && v[i] !== x.s.k) wrong.push(i); });
+      const note = `The feet are ${scanFeetHtml(line)}: ${line.feet.slice(0, 5).split('').map(f => FOOT_NAME[f]).join(', ')}, and a sixth foot of two syllables.`
+        + (line.words.some(w => w.some(s => s.k === 'E')) ? ' A vowel (or a vowel with <em>m</em>) at the end of a word is elided before a word that begins with a vowel or <em>h</em>.' : '');
+      if(!wrong.length) return {right:true, note};
+      const reasons = wrong.slice(0, 3).map(i => {
+        const x = live[i], nx = live[i + 1] ? live[i + 1].s : null;
+        return `<em>${nfEsc(scanShowLa(x.s.t, true).replace(/[,.;:!?‘’“”]/g, ''))}</em> is ${scanReasonLa(x.s, nx)}.`;
+      });
+      return {right:false, note, also:`${wrong.length === 1 ? 'One syllable is' : cap(numWord(wrong.length) || String(wrong.length)) + ' syllables are'} marked wrongly, and the right marks are now shown. ` + reasons.join(' ')};
+    }
+  };
+  return q;
+}
+
+/* English: syllables are divided with |; the key marks each syllable S (a beat of the meter),
+   u (an offbeat), or x (a light syllable that the meter may promote to a beat, or a strong one that
+   may stand in an offbeat; either mark is accepted there). Every line is checked against the edition named. */
+const SCAN_EN = [
+  ['Shakespeare, Sonnet 18, line 3', 'Rough winds do shake the dar|ling buds of May,', 'xSuSuSuSuS', 'ip'],
+  ['Shakespeare, Sonnet 18, line 4', 'And sum|mer’s lease hath all too short a date:', 'uSuSuSuSuS', 'ip'],
+  ['Shakespeare, Sonnet 18, line 1', 'Shall I com|pare thee to a sum|mer’s day?', 'xxuSuxuSuS', 'ip'],
+  ['Shakespeare, Sonnet 73, line 1', 'That time of year thou mayst in me be|hold,', 'uSuSuSuSuS', 'ip'],
+  ['Shakespeare, Sonnet 73, line 2', 'When yel|low leaves, or none, or few do hang', 'uSuSuSuSuS', 'ip'],
+  ['Marlowe, <em>Doctor Faustus</em>', 'Was this the face that launch\'d a thou|sand ships,', 'uSuSuSuSuS', 'ip'],
+  ['Shakespeare, <em>Hamlet</em> III.1', 'To be, or not to be, that is the ques|tion:', 'uSuSuSxxuSu', 'ip'],
+  ['Keats, <em>Endymion</em> I.1', 'A thing of beau|ty is a joy for ev|er:', 'uSuSuxuSuSu', 'ip'],
+  ['Keats, <em>Endymion</em> I.2', 'Its love|li|ness in|creas|es; it will nev|er', 'uSuxuSuxuSu', 'ip'],
+  ['Milton, Sonnet 19, line 14', 'They al|so serve who on|ly stand and waite.', 'uSuSuSuSuS', 'ip'],
+  ['Wordsworth, “I wandered lonely as a Cloud,” line 1', 'I wan|dered lone|ly as a Cloud', 'uSuSuxuS', 'it'],
+  ['Wordsworth, “I wandered lonely as a Cloud,” line 2', 'That floats on high o\'er Vales and Hills,', 'uSuSuSuS', 'it'],
+  ['Wordsworth, “I wandered lonely as a Cloud,” line 3', 'When all at once I saw a crowd', 'uSuSuSuS', 'it'],
+  ['Wordsworth, “I wandered lonely as a Cloud,” line 4', 'A host of dan|cing Daf|fo|dills;', 'uSuSuSux', 'it'],
+  ['Longfellow, <em>The Song of Hiawatha</em>', 'By the shores of Git|che Gu|mee,', 'xuSuSuSu', 'tt'],
+  ['Longfellow, <em>The Song of Hiawatha</em>', 'By the shi|ning Big-|Sea-|Wa|ter,', 'xuSuSxSu', 'tt'],
+  ['Longfellow, <em>The Song of Hiawatha</em>', 'Stood the wig|wam of No|ko|mis,', 'SuSuxuSu', 'tt'],
+  ['Longfellow, <em>The Song of Hiawatha</em>', 'Daugh|ter of the Moon, No|ko|mis.', 'SuxuSuSu', 'tt'],
+  ['Blake, “The Tiger,” line 1', 'Ti|ger, ti|ger, burn|ing bright', 'SuSuSuS', 'tt'],
+  ['Blake, “The Tiger,” line 2', 'In the for|ests of the night,', 'xuSuxuS', 'tt'],
+  ['Byron, “The Destruction of Sennacherib,” line 1', 'The As|syr|ian came down like the wolf on the fold,', 'uuSuxSuuSuuS', 'at'],
+  ['Byron, “The Destruction of Sennacherib,” line 2', 'And his co|horts were gleam|ing in pur|ple and gold;', 'uuSuuSuuSuuS', 'at'],
+  ['Byron, “The Destruction of Sennacherib,” line 3', 'And the sheen of their spears was like stars on the sea,', 'uuSuuSuuSuuS', 'at'],
+  ['Longfellow, <em>Evangeline</em>, line 1', 'This is the for|est pri|me|val. The mur|mur|ing pines and the hem|locks,', 'SuuSuuSuuSuuSuuSu', 'dh'],
+  ['Longfellow, <em>Evangeline</em>, line 2', 'Beard|ed with moss, and in gar|ments green, in|dis|tinct in the twi|light,', 'SuuSuuSuSuuSuuSu', 'dh'],
+  ['Longfellow, <em>Evangeline</em>, line 3', 'Stand like Dru|ids of eld, with voi|ces sad and pro|phet|ic,', 'SuSuuSuSuSuuSu', 'dh']
+];
+const METER_NAME = {ip:'Iambic pentameter', it:'Iambic tetrameter', tt:'Trochaic tetrameter', at:'Anapestic tetrameter', dh:'Dactylic hexameter'};
+const METER_WHY = {
+  ip:'five feet, each an offbeat and then a beat (iambs)',
+  it:'four feet, each an offbeat and then a beat (iambs)',
+  tt:'four feet, each a beat and then an offbeat (trochees); the last foot may lack its offbeat',
+  at:'four feet, each two offbeats and then a beat (anapests)',
+  dh:'six feet, each a beat and then two offbeats (dactyls), with a two-syllable foot in some places and at the end'
+};
+function scanEnSyl(text){
+  const out = [];
+  text.split(' ').forEach((w, wi) => w.split('|').forEach((p, pi, arr) => out.push({t:p, wi, joinNext: pi < arr.length - 1})));
+  return out;
+}
+function scanEnQ(d){
+  const row = pickSeen(SCAN_EN, r => 'sce:' + r[1]);
+  const syl = scanEnSyl(row[1]);
+  const key = row[2].split('');
+  const plain = row[1].replace(/\|/g, '');
+  const why = `This line is ${METER_NAME[row[3]].toLowerCase()}: ${METER_WHY[row[3]]}.`;
+  if(d >= 2 && Math.random() < 0.4){
+    const opts = shuffle([row[3], ...sample(Object.keys(METER_NAME).filter(k => k !== row[3]), d <= 2 ? 2 : 3)]);
+    const correct = opts.indexOf(row[3]);
+    return {
+      kind:'mc', lang:'en', src:['engclass','appown'], sid:'scm:' + row[1], prompt:'Name the meter of this line.',
+      sentence:plain, source:row[0], options:opts.map(k => METER_NAME[k]), correct, _answer:correct,
+      check(i){
+        if(i === correct) return {right:true, note:why};
+        return {right:false, note:why, also:`The answer chosen was <em>${METER_NAME[opts[i]].toLowerCase()}</em>.`};
+      }
+    };
+  }
+  const beatsShown = key.map(k => k === 'S' ? '/' : k === 'u' ? '×' : '(/)').join(' ');
+  return {
+    kind:'widget', lang:'en', src:['engclass','appown'], sid:'sce:' + row[1], source:row[0],
+    prompt:'Mark each syllable as a beat (/) or an offbeat (×). Tap a syllable to change its mark.',
+    printInstr:'Mark the beats and offbeats.', printAnswer:beatsShown, _answer:key.map(k => k === 'x' ? 'S' : k),
+    mount(host, ready){
+      const marks = new Array(syl.length).fill(null);
+      host.innerHTML = '<div class="sc-line"></div><div class="bd-help">Reading the line aloud makes the beats easier to hear.</div>';
+      const lineEl = host.querySelector('.sc-line');
+      let locked = false;
+      const btns = [];
+      let wEl = null, curW = -1;
+      syl.forEach((x, i) => {
+        if(x.wi !== curW){ wEl = document.createElement('span'); wEl.className = 'sc-word'; lineEl.appendChild(wEl); curW = x.wi; }
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'sc-syl';
+        b.innerHTML = `<span class="sc-mark"></span><span class="sc-t">${nfEsc(x.t)}</span>`;
+        b.onclick = () => { if(locked) return; marks[i] = marks[i] === 'S' ? 'u' : marks[i] === 'u' ? null : 'S'; paint(); };
+        btns.push(b); wEl.appendChild(b);
+      });
+      function paint(){
+        btns.forEach((b, i) => { b.querySelector('.sc-mark').textContent = marks[i] === 'S' ? '/' : marks[i] === 'u' ? '×' : ''; });
+        ready(marks.every(m => m));
+      }
+      paint();
+      return {
+        value(){ return marks.slice(); },
+        lock(){
+          locked = true;
+          btns.forEach((b, i) => {
+            b.disabled = true;
+            const ok = key[i] === 'x' || marks[i] === key[i];
+            b.classList.add(ok ? 'right' : 'wrong');
+            if(!ok) b.querySelector('.sc-mark').textContent = key[i] === 'S' ? '/' : '×';
+          });
+        }
+      };
+    },
+    check(v){
+      const wrong = key.map((k, i) => (k !== 'x' && v[i] !== k) ? i : -1).filter(i => i >= 0);
+      const loose = key.some(k => k === 'x') ? ' Where the meter may put a beat on a light word, or a strong word may stand in an offbeat, either mark is accepted.' : '';
+      const note = `${why} The pattern is ${beatsShown}.${loose}`;
+      if(!wrong.length) return {right:true, note};
+      return {right:false, note, also:`${wrong.length === 1 ? 'One syllable is' : cap(numWord(wrong.length) || String(wrong.length)) + ' syllables are'} marked wrongly: <em>${wrong.map(i => syl[i].t.replace(/[,.;:!?’-]+$/, '')).join(', ')}</em>. The right marks are now shown.`};
+    }
+  };
+}
+EX.meter = {
+  id:'meter', src:['ag','engclass','hypo'], act:'I', title:'Meter and Scansion',
+  desc:'Mark the long and short syllables of lines of Virgil and Ovid, and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
+  instr:'Mark the syllables, write the feet, or name the meter.',
+  gen(d){ return Math.random() < 0.5 ? scanLaQ(d) : scanEnQ(d); }
+};
+
+/* ---------- marking dependences ---------- */
+/* A board of words with arrows drawn above them, from the word that depends to the word that
+   terminates the dependence. Tap one word, then another, to add or remove an arrow. */
+function nfArcBoard(host, words, opts){
+  opts = opts || {};
+  const fixed = opts.fixed || [];        /* arrows already drawn, which cannot be removed */
+  let arcs = [];                         /* [from, to] */
+  let sel = null, locked = false;
+  host.innerHTML = `<div class="mk-wrap"><svg class="mk-svg" aria-hidden="true"></svg><div class="mk-words"></div></div>`;
+  const wrap = host.querySelector('.mk-wrap'), svg = host.querySelector('.mk-svg'), row = host.querySelector('.mk-words');
+  const btns = words.map((w, i) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'mk-word'; b.textContent = w;
+    b.onclick = () => {
+      if(locked) return;
+      if(sel === null){ sel = i; }
+      else if(sel === i){ sel = null; }
+      else {
+        const k = arcs.findIndex(a => a[0] === sel && a[1] === i);
+        if(k >= 0) arcs.splice(k, 1); else if(!fixed.some(a => a[0] === sel && a[1] === i)) arcs.push([sel, i]);
+        sel = null;
+        if(opts.onChange) opts.onChange(arcs.slice());
+      }
+      paint();
+    };
+    row.appendChild(b);
+    return b;
+  });
+  function draw(){
+    const base = wrap.getBoundingClientRect();
+    const xs = btns.map(b => { const r = b.getBoundingClientRect(); return r.left - base.left + wrap.scrollLeft + r.width / 2; });
+    const all = fixed.map(a => ({a, fixed:true})).concat(arcs.map(a => ({a, fixed:false})));
+    let maxH = 24;
+    const shown = all.map(o => {
+      let [f, t] = o.a;
+      if(opts.modern && opts.modern() && opts.isVerbArc && opts.isVerbArc(f, t)) [f, t] = [t, f];
+      const h = 18 + 15 * Math.min(8, Math.abs(f - t));
+      maxH = Math.max(maxH, h);
+      return {f, t, h, o};
+    });
+    const top = maxH + 12;
+    row.style.paddingTop = top + 'px';
+    const W = Math.max(row.scrollWidth, wrap.clientWidth);
+    svg.setAttribute('width', W); svg.setAttribute('height', top + 4);
+    svg.setAttribute('viewBox', `0 0 ${W} ${top + 4}`);
+    const y = top;
+    let html = `<defs><marker id="mk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>`;
+    shown.forEach(s => {
+      const x1 = xs[s.f], x2 = xs[s.t] + (s.f < s.t ? -4 : 4);
+      const cls = s.o.fixed ? 'mk-arc fixed' : 'mk-arc' + (s.o.state ? ' ' + s.o.state : '');
+      html += `<path class="${cls}" d="M${x1},${y} C${x1},${y - s.h} ${x2},${y - s.h} ${x2},${y}" marker-end="url(#mk-arrow)"/>`;
+    });
+    svg.innerHTML = html;
+  }
+  function paint(){
+    btns.forEach((b, i) => { b.classList.toggle('sel', sel === i); });
+    requestAnimationFrame(draw);
+  }
+  const onResize = () => { if(document.body.contains(host)) draw(); else window.removeEventListener('resize', onResize); };
+  window.addEventListener('resize', onResize);
+  paint();
+  return {
+    arcs(){ return arcs.slice(); },
+    setArcs(a){ arcs = a.slice(); paint(); },
+    redraw(){ paint(); },
+    lock(states){
+      locked = true; sel = null;
+      btns.forEach(b => { b.disabled = true; });
+      if(states){ arcs = states.map(s => s.a); }
+      requestAnimationFrame(() => {
+        draw();
+        if(states){
+          const paths = svg.querySelectorAll('path.mk-arc:not(.fixed)');
+          paths.forEach((p, k) => { if(states[k]) p.classList.add(states[k].state); });
+        }
+      });
+    }
+  };
+}
+/* Read one arrow back in words. role tells what the two words are. */
+function nfArcText(w, f, t, role){
+  const a = `<em>${nfEsc(w[f])}</em>`, b = `<em>${nfEsc(w[t])}</em>`;
+  if(role === 'adj') return `${a} depends on ${b}: an adjective depends on its noun, and the noun terminates the dependence.`;
+  if(role === 'art') return `${a} depends on ${b}: the article depends on its noun.`;
+  if(role === 'adv') return `${a} depends on ${b}: an adverb depends on the verb it determines.`;
+  if(role === 'subj') return `${a} depends on ${b}: the verb depends on its subject.`;
+  if(role === 'obj') return `${a} depends on ${b}: the verb depends on its object.`;
+  return `${a} depends on ${b}.`;
+}
+/* Sentences with every dependence known. English and Latin, from the same tables as the builder. */
+const MK_EN_INTR = [['waits','wait'],['sleeps','sleep'],['sings','sing'],['rests','rest']];
+const MK_EN_ADV = ['quietly','often','gladly'];
+function markDraw(d, lang){
+  const words = [], key = [], fixed = [], roles = {};
+  const arc = (f, t, role) => { key.push([f, t]); roles[f + '>' + t] = role; };
+  if(lang === 'en'){
+    const tr = d >= 2;
+    const v = tr ? rand(LB_VERBS.filter(x => x[2] !== 't')) : null;
+    const sN = rand(Object.keys(LB_PERSONS)), oN = rand(Object.keys(LB_PERSONS).filter(x => x !== sN));
+    const sNum = d <= 2 ? 'sg' : rand(NUMS);
+    const sAdj = Math.random() < 0.7 ? LB_ADJ_EN[rand(LB_ADJ_P)] : null;
+    const oAdj = tr && d >= 3 && Math.random() < 0.5 ? LB_ADJ_EN[rand(LB_ADJ_P)] : null;
+    const adv = d >= 2 && Math.random() < 0.5 ? rand(MK_EN_ADV) : null;
+    const T = words.push('The') - 1;
+    const SA = sAdj ? words.push(sAdj) - 1 : -1;
+    const S = words.push(LB_PERSONS[sN][sNum === 'sg' ? 0 : 1]) - 1;
+    const V = words.push(tr ? (sNum === 'sg' ? v[1][0] : v[1][1]) : rand(MK_EN_INTR)[sNum === 'sg' ? 0 : 1]) - 1;
+    fixed.push([T, S]);
+    if(SA >= 0) arc(SA, S, 'adj');
+    arc(V, S, 'subj');
+    if(tr){
+      const T2 = words.push('the') - 1;
+      const OA = oAdj ? words.push(oAdj) - 1 : -1;
+      const O = words.push(LB_PERSONS[oN][0]) - 1;
+      fixed.push([T2, O]);
+      if(OA >= 0) arc(OA, O, 'adj');
+      arc(V, O, 'obj');
+    }
+    if(adv){ const A = words.push(adv) - 1; arc(A, V, 'adv'); }
+    words[words.length - 1] += '.';
+    return {words, key, fixed, roles, lang};
+  }
+  const s = lbDraw(Math.min(d, 3));
+  if(!s) return null;
+  const order = [];
+  order.push(['subj', s.subj.form]);
+  if(s.adj && s.adj.on === s.subj) order.push(['adjS', s.adj.form]);
+  order.push(['obj', s.obj.form]);
+  if(s.adj && s.adj.on === s.obj) order.push(['adjO', s.adj.form]);
+  if(s.adv) order.push(['adv', s.adv.w[0]]);
+  order.push(['verb', s.verb.form]);
+  order.forEach(o => words.push(o[1]));
+  const at = r => order.findIndex(o => o[0] === r);
+  const S = at('subj'), O = at('obj'), V = at('verb');
+  if(at('adjS') >= 0) arc(at('adjS'), S, 'adj');
+  if(at('adjO') >= 0) arc(at('adjO'), O, 'adj');
+  arc(V, S, 'subj'); arc(V, O, 'obj');
+  if(at('adv') >= 0) arc(at('adv'), V, 'adv');
+  words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+  words[words.length - 1] += '.';
+  return {words, key, fixed, roles, lang, en:s.en};
+}
+function markQ(d){
+  const lang = Math.random() < 0.5 ? 'en' : 'la';
+  const m = markDraw(d, lang);
+  if(!m) return null;
+  const k = a => a[0] + '>' + a[1];
+  const want = new Set(m.key.map(k));
+  let board = null;
+  const q = {
+    kind:'widget', lang, src:['te','appown'], sid:'mku:' + m.words.join(' '),
+    prompt:'Mark every dependence. Tap the word that depends, then the word that terminates its dependence.',
+    gloss: lang === 'la' ? m.en : '',
+    printInstr:'Draw an arrow from each dependent word to the word that terminates its dependence.',
+    printAnswer:m.key.map(a => `${m.words[a[0]]} → ${m.words[a[1]]}`).join('; '), _answer:m.key.map(a => a.slice()),
+    mount(host, ready){
+      host.innerHTML = '<div class="mk-host"></div><div class="bd-help">' + (m.fixed.length ? 'The dashed arrows (the article on its noun) are drawn already. ' : '') + 'Tap a word, then the word it depends on. Tap the same pair again to remove the arrow.</div>';
+      board = nfArcBoard(host.querySelector('.mk-host'), m.words, {fixed:m.fixed, onChange:a => ready(a.length > 0)});
+      return {
+        value(){ return board.arcs(); },
+        lock(){
+          const got = board.arcs();
+          const states = got.map(a => ({a, state: want.has(k(a)) ? 'ok' : 'bad'}));
+          m.key.forEach(a => { if(!got.some(g => k(g) === k(a))) states.push({a, state:'miss'}); });
+          board.lock(states);
+        }
+      };
+    },
+    check(got){
+      const gk = new Set(got.map(k));
+      const missing = m.key.filter(a => !gk.has(k(a)));
+      const extra = got.filter(a => !want.has(k(a)));
+      const note = m.key.map(a => nfArcText(m.words.map(w => w.replace(/\.$/, '')), a[0], a[1], m.roles[k(a)])).join(' ');
+      if(!missing.length && !extra.length) return {right:true, note};
+      const bits = [];
+      if(missing.length) bits.push(`${missing.length === 1 ? 'One dependence was' : cap(numWord(missing.length)) + ' dependences were'} not marked (shown dotted).`);
+      if(extra.length) bits.push(`${extra.length === 1 ? 'One arrow does' : cap(numWord(extra.length)) + ' arrows do'} not match a dependence in the sentence (shown in red): ${extra.map(a => `<em>${nfEsc(m.words[a[0]].replace(/\.$/, ''))}</em> → <em>${nfEsc(m.words[a[1]].replace(/\.$/, ''))}</em>`).join(', ')}.`);
+      return {right:false, note, also:bits.join(' ')};
+    }
+  };
+  return q;
+}
+EX.markup = {
+  id:'markup', src:['te','appown'], act:'IV', title:'Marking the Sentence',
+  desc:'Mark every dependence in a short English or Latin sentence: the adjective on its noun, the adverb on its verb, and the verb on its subject and its object, as Thomas of Erfurt draws them.',
+  instr:'Mark every dependence in the sentence.',
+  gen(d){ return markQ(d); }
+};
+
+/* ---------- the free workshop ---------- */
+const WS_POS = ['','noun','pronoun','verb','adjective','adverb','article','preposition','conjunction','participle','interjection'];
+const WS_CASE = ['','nominative','genitive','dative','accusative','ablative','vocative'];
+const WS_EXAMPLES = [
+  ['en','The white horse runs well.'],
+  ['la','Homo albus currit bene.'],
+  ['en','The brave sailor sees the old king.'],
+  ['la','Puella bona poētam laudat.']
+];
+const ws = {words:[], lang:'en', pos:[], cs:[], board:null, modern:false};
+function wsTokens(s){ return String(s || '').trim().split(/\s+/).filter(Boolean).slice(0, 18); }
+function wsBare(w){ return w.replace(/^[“"‘(]+|[.,;:!?”"’)]+$/g, ''); }
+function wsRole(f, t){
+  const pf = ws.pos[f], pt = ws.pos[t];
+  const nounish = p => p === 'noun' || p === 'pronoun';
+  if(pf === 'adjective' && nounish(pt)) return 'adj';
+  if(pf === 'participle' && nounish(pt)) return 'part';
+  if(pf === 'article' && nounish(pt)) return 'art';
+  if(pf === 'adverb' && (pt === 'verb' || pt === 'adjective' || pt === 'adverb')) return 'adv';
+  if(pf === 'verb' && nounish(pt)){
+    if(ws.lang === 'la'){
+      if(ws.cs[t] === 'nominative') return 'subj';
+      if(ws.cs[t] === 'accusative') return 'obj';
+      return 'vnoun';
+    }
+    return t < f ? 'subj' : 'obj';
+  }
+  return 'plain';
+}
+function wsReadBack(){
+  const host = $('ws-read');
+  if(!host) return;
+  const arcs = ws.board ? ws.board.arcs() : [];
+  const W = ws.words.map(wsBare);
+  if(!W.length){ host.innerHTML = ''; return; }
+  const lines = [];
+  arcs.forEach(([f, t]) => {
+    const role = wsRole(f, t);
+    let s;
+    if(role === 'part') s = `<em>${nfEsc(W[f])}</em> depends on <em>${nfEsc(W[t])}</em>: a participle depends on its noun, as an adjective does.`;
+    else if(role === 'vnoun') s = `<em>${nfEsc(W[f])}</em> depends on <em>${nfEsc(W[t])}</em>: the verb depends on this noun, which is its subject if it is nominative and its object if it is accusative. Marking the case would say which.`;
+    else s = nfArcText(W, f, t, role === 'plain' ? '' : role);
+    if(ws.lang === 'la' && (role === 'adj' || role === 'part') && ws.cs[f] && ws.cs[t] && ws.cs[f] !== ws.cs[t])
+      s += ` But <em>${nfEsc(W[f])}</em> is marked ${ws.cs[f]} and <em>${nfEsc(W[t])}</em> ${ws.cs[t]}, and an adjective agrees with its noun in case.`;
+    lines.push(s);
+  });
+  const notes = [];
+  const touched = new Set(); arcs.forEach(a => { touched.add(a[0]); touched.add(a[1]); });
+  const loose = W.map((w, i) => i).filter(i => !touched.has(i) && ws.pos[i] !== 'article');
+  if(arcs.length && loose.length) notes.push(`Not yet joined to any word: ${loose.map(i => `<em>${nfEsc(W[i])}</em>`).join(', ')}.`);
+  ws.pos.forEach((p, i) => {
+    if(p !== 'verb') return;
+    const hasSubj = arcs.some(a => a[0] === i && wsRole(a[0], a[1]) === 'subj');
+    if(!hasSubj) notes.push(`The verb <em>${nfEsc(W[i])}</em> has no subject marked.` + (ws.lang === 'la' ? ` In Latin the ending may supply it, as in <em>amat</em>, he or she loves.` : ''));
+  });
+  ws.pos.forEach((p, i) => {
+    if(p !== 'adjective') return;
+    const out = arcs.filter(a => a[0] === i);
+    if(!out.length && arcs.length) notes.push(`The adjective <em>${nfEsc(W[i])}</em> depends on nothing yet; an adjective needs a noun to depend on.`);
+    out.forEach(a => { const pt = ws.pos[a[1]]; if(pt && pt !== 'noun' && pt !== 'pronoun') notes.push(`The adjective <em>${nfEsc(W[i])}</em> is marked as depending on <em>${nfEsc(W[a[1]])}</em>, which is marked as ${/^[aeiou]/.test(pt) ? 'an' : 'a'} ${pt}; an adjective depends on a noun.`); });
+  });
+  arcs.forEach(a => { if(a[0] < a[1] && arcs.some(b => b[0] === a[1] && b[1] === a[0])) notes.push(`<em>${nfEsc(W[a[0]])}</em> and <em>${nfEsc(W[a[1]])}</em> are marked as depending on each other, but a dependence runs one way.`); });
+  if(ws.modern && arcs.some(a => ['subj','obj','vnoun'].indexOf(wsRole(a[0], a[1])) >= 0))
+    notes.push('The arrows between the verb and its subject and object are drawn in the modern direction, from the noun to the verb, as dependency grammar draws them. The read-back still follows Thomas.');
+  host.innerHTML = (lines.length ? `<div class="ws-h">What the markup says</div><p>${lines.join('<br>')}</p>` : '<p class="bd-help">No arrow is drawn yet. Tap a word, then the word it depends on.</p>')
+    + (notes.length ? `<div class="ws-h">What the markup leaves open</div><p>${notes.join('<br>')}</p>` : '')
+    + '<p class="bd-help">The workshop reads back only what is marked. It does not judge whether the sentence is true, and it does not check the words against a dictionary.</p>';
+}
+function wsDraw(){
+  const raw = $('ws-in').value;
+  ws.lang = $('ws-lang').value;
+  ws.words = wsTokens(raw);
+  ws.pos = ws.words.map(() => '');
+  ws.cs = ws.words.map(() => '');
+  const host = $('ws-board');
+  if(!ws.words.length){ host.innerHTML = '<p class="bd-help">Type a sentence above, then press Draw.</p>'; $('ws-parts').innerHTML = ''; wsReadBack(); return; }
+  ws.board = nfArcBoard(host, ws.words, {onChange:wsReadBack, modern:() => ws.modern,
+    isVerbArc:(f, t) => ws.pos[f] === 'verb' && (ws.pos[t] === 'noun' || ws.pos[t] === 'pronoun')});
+  const parts = $('ws-parts');
+  parts.innerHTML = ws.words.map((w, i) => `<div class="ws-part"><span class="ws-w">${nfEsc(wsBare(w))}</span>
+    <select data-i="${i}" class="ws-pos" aria-label="Part of speech of ${nfEsc(wsBare(w))}">${WS_POS.map(p => `<option value="${p}">${p || 'part of speech'}</option>`).join('')}</select>
+    ${ws.lang === 'la' ? `<select data-i="${i}" class="ws-cs" aria-label="Case of ${nfEsc(wsBare(w))}">${WS_CASE.map(c => `<option value="${c}">${c || 'case'}</option>`).join('')}</select>` : ''}</div>`).join('');
+  parts.querySelectorAll('.ws-pos').forEach(s => s.onchange = () => { ws.pos[+s.dataset.i] = s.value; ws.board.redraw(); wsReadBack(); });
+  parts.querySelectorAll('.ws-cs').forEach(s => s.onchange = () => { ws.cs[+s.dataset.i] = s.value; wsReadBack(); });
+  wsReadBack();
+}
+function openWorkshop(){
+  show('scr-ws');
+  const ex = $('ws-examples');
+  if(ex && !ex.dataset.done){
+    ex.dataset.done = '1';
+    WS_EXAMPLES.forEach(([lang, s]) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = s;
+      b.onclick = () => { $('ws-lang').value = lang; $('ws-in').value = s; wsDraw(); };
+      ex.appendChild(b);
+    });
+    $('ws-draw').onclick = wsDraw;
+    $('ws-in').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); wsDraw(); } });
+    $('ws-modern').onchange = () => { ws.modern = $('ws-modern').checked; if(ws.board) ws.board.redraw(); wsReadBack(); };
+    $('ws-back').onclick = () => { show('scr-home'); buildHome(); };
+    $('ws-clear').onclick = () => { if(ws.board){ ws.board.setArcs([]); wsReadBack(); } };
+  }
+  if(!ws.words.length){ $('ws-in').value = WS_EXAMPLES[0][1]; $('ws-lang').value = 'en'; wsDraw(); }
+  else if(ws.board) ws.board.redraw();
+}
+
+/* -------------------------------------------------------------- */
+DECKS.meter = {
+  title:'Meter and Scansion',
+  sub:'Long and short in Latin verse, beat and offbeat in English',
+  panels:[
+{ src:['ag','engclass'], h:`<p><strong>VERSE AND METER.</strong> Verse is speech arranged in lines, and the pattern of syllables in each line is its <strong>meter</strong>. Latin and Greek meter is a pattern of <strong>long and short</strong> syllables, measured as we measured quantity. English meter is a pattern of <strong>stressed and unstressed</strong> syllables, with a set number of beats in each line.</p>
+<p>The two are different facts. A long syllable in Latin is a matter of time, and a stressed syllable in English is a matter of loudness, so we must not mark one in the place of the other.</p>`,
+  q:{ prompt:'What is the meter of a Latin line a pattern of?',
+      options:['It is a pattern of long and short syllables, as quantity measures them.',
+               'It is a pattern of stressed and unstressed syllables, as in English verse.',
+               'It is a pattern of rhymes at the ends of the lines, as in an English ballad.',
+               'It is a pattern of words of the same length, counted by their letters.'],
+      correct:0,
+      explain:'Latin verse measures quantity: how long a syllable takes, by nature or by position. English verse counts stresses. Rhyme is not part of the classical meter.' } },
+
+{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “a THOU-sand SHIPS” or “a thou-SAND ships”? We already know where the stress falls in an English word. English meter is built from those stresses, and Latin meter is built from long and short syllables.</p>` },
+
+{ src:['ag'], h:`<p><strong>The dactylic hexameter.</strong> Virgil’s <em>Aeneid</em> and Ovid’s <em>Metamorphoses</em> are written in the <strong>dactylic hexameter</strong>, a line of six feet. A <strong>dactyl</strong> is a long syllable followed by two short ones (– ∪ ∪). A <strong>spondee</strong> is two long syllables (– –).</p>
+<p>Each of the first four feet may be a dactyl or a spondee. The fifth foot is nearly always a dactyl. The sixth foot has two syllables, and the last of them may be long or short.</p>
+<p><em>Arma virumque canō, Trōiae quī prīmus ab ōrīs</em> is scanned <em>Ar-ma-vi | rum-que-ca | nō-Trō | iae-quī | prī-mus-ab | ō-rīs</em>: dactyl, dactyl, spondee, spondee, dactyl, and a final foot of two syllables.</p>`,
+  q:{ prompt:'Which foot of the hexameter is nearly always a dactyl?',
+      options:['The fifth foot is nearly always a dactyl.','The first foot is always a dactyl.',
+               'The sixth foot is nearly always a dactyl.','The fourth foot is always a spondee.'],
+      correct:0,
+      explain:'The fifth foot is nearly always – ∪ ∪, and the sixth has two syllables. That fixed ending, – ∪ ∪ | – –, is what makes the close of a hexameter recognizable.' } },
+
+{ src:['ag'], h:`<p><strong>Elision.</strong> When a word ends in a vowel, or in a vowel followed by <em>m</em>, and the next word begins with a vowel or with <em>h</em>, the first vowel is <strong>elided</strong>: it is not counted in the meter. In <em>multum ille et terrīs</em>, the <em>-um</em> of <em>multum</em> and the <em>-e</em> of <em>ille</em> are elided, and the words are scanned as <em>mult’ ill’ et terrīs</em>.</p>
+<p>In the exercises the elided syllables are set aside already, and drawn with a tie (‿).</p>`,
+  q:{ prompt:'In <em>multum ille</em>, why is the last syllable of <em>multum</em> not counted?',
+      options:['It ends in a vowel and <em>m</em>, and the next word begins with a vowel.',
+               'It is short by nature, and short syllables are not counted in the meter.',
+               'It stands before a pause in the sense, and a pause removes a syllable.',
+               'It is long by position, and long syllables at the end of a word are dropped.'],
+      correct:0,
+      explain:'A final vowel, or a final vowel with <em>m</em>, is elided before a word that begins with a vowel or <em>h</em>. Short syllables are counted like any other.' } },
+
+{ src:['ag','appown'], h:`<p><strong>How to scan a line.</strong> First we mark the syllables that are long by nature, which have a long vowel or a diphthong (<em>ae, au, oe</em>). Then we mark those that are long by position, whose vowel is followed by two consonants, or by <em>x</em> or <em>z</em>. The letter <em>h</em> does not make position, and a mute followed by a liquid, such as <em>tr</em>, often does not either.</p>
+<p>Then we fit the pattern of the hexameter. The first syllable is long, and the line ends – ∪ ∪ | – –. The syllables that remain must make dactyls or spondees. At the first levels of the exercise the long vowels carry macrons. At the higher levels they do not, and the pattern of the line must decide.</p>`,
+  q:{ prompt:'Why is the first syllable of <em>terrīs</em> long?',
+      options:['It is long by position, because two consonants, <em>r</em> and <em>r</em>, follow its vowel.',
+               'It is long by nature, because every first syllable of a Latin word is long.',
+               'It is long because the stress of the word falls on it, and stress makes length.',
+               'It is long because it stands before a word that begins with a consonant.'],
+      correct:0,
+      explain:'The <em>e</em> of <em>terrīs</em> is short by nature, but two consonants follow it, so the syllable <em>ter</em> is long by position. Stress does not make length in Latin.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>English meter.</strong> English verse counts beats. A <strong>foot</strong> is a group of one beat with one or two offbeats.</p>
+<ul><li>An <strong>iamb</strong> is an offbeat and a beat (× /), as in <em>be-HOLD</em>.</li>
+<li>A <strong>trochee</strong> is a beat and an offbeat (/ ×), as in <em>TI-ger</em>.</li>
+<li>An <strong>anapest</strong> is two offbeats and a beat (× × /), as in <em>in the NIGHT</em>.</li>
+<li>A <strong>dactyl</strong> is a beat and two offbeats (/ × ×), as in <em>MUR-mur-ing</em>.</li></ul>
+<p>A line of four feet is a <strong>tetrameter</strong>, a line of five a <strong>pentameter</strong>, and a line of six a <strong>hexameter</strong>. Shakespeare’s <em>When yellow leaves, or none, or few do hang</em> is iambic pentameter: <em>when YEL | low LEAVES | or NONE | or FEW | do HANG</em>.</p>`,
+  q:{ prompt:'What is an iamb?',
+      options:['It is a foot of an offbeat followed by a beat, as in <em>behold</em>.',
+               'It is a foot of a beat followed by an offbeat, as in <em>tiger</em>.',
+               'It is a foot of two offbeats followed by a beat, as in <em>in the night</em>.',
+               'It is a foot of a long syllable followed by two short ones, as in Latin.'],
+      correct:0,
+      explain:'An iamb is × /. A trochee is / ×, an anapest is × × /, and a long syllable with two short ones is the Latin dactyl, which is measured by length, not by stress.' } },
+
+{ src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>. Where a syllable can be marked either way, the exercise accepts either mark.</p>` },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> A Latin line is shown, and each syllable is marked long or short. At the higher levels the feet are written as letters, D for a dactyl and S for a spondee. An English line is shown, and each syllable is marked as a beat or an offbeat. At the higher levels the meter of an English line is named.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.latbuild = {
+  title:'Building the Latin Sentence',
+  sub:'From the meaning to the forms',
+  panels:[
+{ src:['ag','appown'], h:`<p><strong>BUILDING A SENTENCE.</strong> Parsing goes from the form to its accidents. Building goes the other way, from the meaning to the forms. To say <em>The girl praises the poet</em> in Latin, we choose the case of each noun by the work it does. The subject is in the nominative, <em>puella</em>, and the one who receives the action is in the accusative, <em>poētam</em>. The verb agrees with its subject in number and person: <em>laudat</em>. An adjective agrees with its noun in gender, number, and case: <em>puella bona</em>, <em>poētam bonum</em>.</p>`,
+  q:{ prompt:'In <em>The girl praises the poet</em>, which form does <em>poet</em> take in Latin?',
+      options:['The accusative, <em>poētam</em>, because the poet receives the action.',
+               'The nominative, <em>poēta</em>, because the noun is of the first declension.',
+               'The genitive, <em>poētae</em>, because the poet belongs to the praising.',
+               'The ablative, <em>poētā</em>, because it follows the verb.'],
+      correct:0,
+      explain:'The case follows the work the noun does in the sentence. The poet receives the praising, so <em>poēta</em> is in the accusative, <em>poētam</em>. The declension decides the ending, not the case.' } },
+
+{ src:['ag','appown'], h:`<p><strong>Word order.</strong> In English the order of the words shows which noun is the subject: <em>The girl praises the poet</em> does not mean <em>The poet praises the girl</em>. In Latin the endings show it, and so the order is free. <em>Puella poētam laudat</em>, <em>poētam puella laudat</em>, and <em>laudat puella poētam</em> all say the same thing. The usual prose order puts the subject first and the verb last, and the exercises accept any order of the right words.</p>`,
+  q:{ prompt:'Why may a Latin sentence put the object first?',
+      options:['Because the endings, not the order, show which noun is the subject.',
+               'Because Latin always puts the most important word at the very end.',
+               'Because the verb in Latin agrees with the noun that comes nearest to it.',
+               'Because Latin has no subject, and every noun receives the action.'],
+      correct:0,
+      explain:'The nominative marks the subject and the accusative the object, wherever they stand. English has lost those endings in its nouns, and so it relies on order.' } },
+
+{ src:['appown'], h:`<p><strong>What the drill asks.</strong> An English sentence is given, with the Latin words it needs. Some of the forms offered are wrong in one accident: a noun in the wrong case, a verb in the wrong number or tense, or an adjective in the wrong gender or case. We choose the right forms by asking what work each word does. At the higher levels a phrase of place is added, and at the highest level the Latin sentence is typed. Macrons are optional.</p>` }
+]};
+
+/* -------------------------------------------------------------- */
+DECKS.markup = {
+  title:'Marking the Sentence',
+  sub:'Every dependence, and a free workshop',
+  panels:[
+{ src:['te','appown'], h:`<p><strong>MARKING EVERY DEPENDENCE.</strong> The Sentence Workshop asked about one dependence at a time. Here we mark them all. We tap the word that depends, then the word that terminates its dependence, and an arrow is drawn from the first to the second. Tapping the same pair again removes the arrow.</p>
+<p>The arrows follow Thomas of Erfurt, as before. The adjective depends on its noun, the adverb on its verb, and the verb on its subject and also on its object. In <em>The brave sailor sees the king</em>, <em>brave</em> depends on <em>sailor</em>, and <em>sees</em> depends on <em>sailor</em> and on <em>king</em>.</p>`,
+  q:{ prompt:'In <em>The brave sailor sees the king</em>, how many arrows leave the verb <em>sees</em>?',
+      options:['Two leave it, one to its subject, <em>sailor</em>, and one to its object, <em>king</em>.',
+               'One leaves it, to the subject <em>sailor</em>, since a verb depends on one word only.',
+               'None leaves it, since the verb is the head of the sentence and depends on nothing.',
+               'Three leave it, to <em>sailor</em>, to <em>king</em>, and to the adjective <em>brave</em>.'],
+      correct:0,
+      explain:'For Thomas the verb depends on its subject and, when the action passes over, on its object too. Modern dependency grammar makes the verb the head, with nothing above it; this course draws the arrows as Thomas does.' } },
+
+{ src:['appown'], h:`<p><strong>The article.</strong> English <em>the</em> is not one of Donatus’s eight parts, and Latin has no article. In this course we draw the article as depending on its noun, as an adjective does. The exercises draw that arrow already, as a dashed line.</p>` },
+
+{ src:['appown'], h:`<p><strong>The free workshop.</strong> The free workshop takes any sentence we type, in English or Latin. We mark the dependences and, if we wish, the part of speech of each word and, in Latin, its case. The workshop then reads the markup back in words. It reports a verb with no subject marked, a word joined to nothing, an adjective that depends on something other than a noun, and two words marked as depending on each other.</p>
+<p>The workshop reads only what we have marked. It does not judge whether the sentence is true, and it does not check the words against a dictionary. A switch draws the arrows between the verb and its subject and object in the modern direction, for comparison.</p>` }
+]};
+
+
 /* ---------- language mode ----------
    An item carries its own lang: 'en', 'la', or a partner language ('de', 'fr', 'grc').
    A missing lang is left unset. Nothing here guesses, and nothing here rewrites a lang already set.
@@ -13192,7 +14628,8 @@ const EX_MODES = {
   figures:['both','en'], suppos:['both','en'], congtruth:['both','en'],
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
-  enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en']
+  enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
+  meter:['both','en'], latbuild:['la'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -13302,7 +14739,10 @@ const ACTS = [
      {kind:'ex', ex:'letter'},
      {kind:'deck', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.'},
-     {kind:'ex', ex:'syllable'}
+     {kind:'ex', ex:'syllable'},
+     {kind:'deck', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
+      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.'},
+     {kind:'ex', ex:'meter'}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
    gloss:'The work a word is doing (noun, verb, and the rest), and the first division of the eight.',
@@ -13364,6 +14804,9 @@ const ACTS = [
      {kind:'deck', deck:'govern', tag:'STUDY', title:'Government',
       desc:'The verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.'},
      {kind:'ex', ex:'govern'},
+     {kind:'deck', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
+      desc:'From the meaning to the forms: the case of each noun by its work, the verb in agreement with its subject, and free word order.'},
+     {kind:'ex', ex:'latbuild'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
@@ -13373,6 +14816,11 @@ const ACTS = [
      {kind:'deck', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
       desc:'Thomas of Erfurt’s account of construction: which word depends, which terminates, and why the verb depends on its subject.'},
      {kind:'ex', ex:'workshop'},
+     {kind:'deck', deck:'markup', tag:'STUDY', title:'Marking the Sentence',
+      desc:'Every dependence in a sentence at once, drawn as arrows, and a free workshop for any sentence.'},
+     {kind:'ex', ex:'markup'},
+     {kind:'tool', tag:'WORKSHOP', title:'The Free Workshop',
+      desc:'Type any English or Latin sentence, mark its dependences and its parts of speech, and read the markup back in words.'},
      {kind:'deck', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
       desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.'},
      {kind:'ex', ex:'period'},
@@ -13544,6 +14992,11 @@ function buildHome(){
           <p>${e.desc}</p><span class="begin">BEGIN ⟶</span>
           ${t && t.seen ? `<div class="set-flag">${t.right}/${t.seen}</div>` : ''}`;
         c.onclick = () => openEx(e);
+      }else if(item.kind === 'tool'){
+        c.className = 'set-card wide';
+        c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
+          <p>${item.desc}</p><span class="begin">OPEN ⟶</span>`;
+        c.onclick = () => openWorkshop();
       }else if(item.kind === 'pick'){
         c.className = 'set-card wide';
         c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
@@ -13801,6 +15254,7 @@ function showComplete(){
 
 function renderQ(){
   const q = state.q;
+  state.judging = false;
   const box = $('ex-box');
   if(!q || q.kind === 'note'){
     box.innerHTML = `<div class="q-prompt">${q ? q.prompt : 'No question could be drawn.'}</div>`;
@@ -13826,6 +15280,8 @@ function renderQ(){
     html += `<div class="opts" id="q-opts"></div>`;
   }else if(q.kind === 'chips'){
     html += `<div class="acc-grid" id="q-chips"></div>`;
+  }else if(q.kind === 'widget'){
+    html += `<div class="q-widget" id="q-widget"></div>`;
   }else if(q.kind === 'text'){
     html += `<input class="answer-in" id="q-text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.placeholder || 'Type the form'}">`;
   }
@@ -13884,6 +15340,10 @@ function renderQ(){
     });
     $('ex-submit').style.display = '';
     $('ex-submit').disabled = true;
+  }else if(q.kind === 'widget'){
+    $('ex-submit').style.display = '';
+    $('ex-submit').disabled = true;
+    q.ctl = q.mount(box.querySelector('#q-widget'), ok => { if(!state.locked) $('ex-submit').disabled = !ok; });
   }else{
     const inp = box.querySelector('#q-text');
     $('ex-submit').style.display = '';
@@ -13900,7 +15360,12 @@ function submit(ansMC){
   if(!q || q.kind === 'note' || typeof q.check !== 'function') return;
   const ans = (q.kind === 'mc' || q.kind === 'pick') ? ansMC
             : q.kind === 'text' ? (($('q-text') && $('q-text').value) || '')
+            : q.kind === 'widget' ? (q.ctl ? q.ctl.value() : null)
             : Object.assign({}, chipSel);
+  if(q.judge && q._verdict === undefined){
+    const j = q.judge(ans);
+    if(j){ showJudge(q, j); return; }
+  }
   const res = q.check(ans);
   state.locked = true;
   state.answered++;
@@ -13945,6 +15410,8 @@ function submit(ansMC){
   }else if(q.kind === 'text'){
     const inp = box.querySelector('#q-text');
     if(inp){ inp.disabled = true; inp.classList.add(res.right ? 'right' : 'wrong'); }
+  }else if(q.kind === 'widget'){
+    if(q.ctl) q.ctl.lock(res);
   }
   let extra = '';
   let stageAdvance = false;
@@ -13994,6 +15461,18 @@ function submit(ansMC){
   updateScore();
 }
 
+/* A typed sentence that matches no accepted version but shows no known fault is compared with the
+   model answer by the student, who says whether it has the same construction. */
+function showJudge(q, j){
+  state.judging = true;
+  const inp = $('q-text');
+  if(inp) inp.disabled = true;
+  $('ex-submit').style.display = 'none';
+  $('q-fb').innerHTML = `<div class="feedback"><span class="verdict">Compare</span>The answer is not one of the versions this exercise lists. The model answer is <strong>${String(j.model).replace(/[.?!]+$/, '')}</strong>. Does the answer written say the same thing, with the same construction?
+    <div class="judge-row"><button class="btn" id="judge-yes" type="button">Yes, the same construction</button><button class="btn" id="judge-no" type="button">No, it differs</button></div></div>`;
+  $('judge-yes').onclick = () => { q._verdict = true; state.judging = false; submit(null); };
+  $('judge-no').onclick = () => { q._verdict = false; state.judging = false; submit(null); };
+}
 $('ex-submit').onclick = () => { if(!state.locked) submit(null); };
 $('ex-next').onclick = () => nextQ();
 $('ex-quit').onclick = () => { show('scr-home'); buildHome(); };
@@ -14017,7 +15496,7 @@ document.addEventListener('keydown', ev => {
   }
   if(ev.key === 'Enter'){
     if(state.locked) nextQ();
-    else if((state.q.kind === 'chips' || state.q.kind === 'text') && !$('ex-submit').disabled) submit(null);
+    else if((state.q.kind === 'chips' || state.q.kind === 'text' || state.q.kind === 'widget') && !state.judging && !$('ex-submit').disabled && $('ex-submit').style.display !== 'none') submit(null);
     ev.preventDefault(); return;
   }
   if(state.locked || (state.q.kind !== 'mc' && state.q.kind !== 'pick')) return;
@@ -14562,6 +16041,10 @@ function qzFormatLive(q, setTitle){
       const r = q.check(q.correct);
       item.explainHtml = r && r.note ? r.note : '';
     }catch(e){}
+  }else if(q.kind === 'widget'){
+    item.work = true;
+    item.instr = q.printInstr || '';
+    item.answerText = q.printAnswer || '';
   }else if(q.kind === 'chips'){
     item.work = true;
     item.instr = (q.rows || []).map(r => r.label).join(', ') + ' — write the answer.';
