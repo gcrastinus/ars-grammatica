@@ -2622,7 +2622,7 @@ DECKS.cong = {
       explain:`A construction is complete when something has been said of something and the sense is finished, so that the hearer needs nothing more. <em>If the sailor waits</em> says something of the sailor, but the <em>if</em> leaves the sense unfinished. Truth comes later, and is logic’s question. A short sentence can be complete, while a long one can still be incomplete.` } },
 
 { src:['te','appown'], h:`<p><strong>Three judgments, then.</strong> Of any string of words we may say that it is:</p>
-<p><strong>Incongruous</strong>: the parts do not fit, and grammar has already failed.<br> <strong>Congruous but incomplete</strong>: the parts fit, and the sense is not yet complete.<br> <strong>Complete</strong>: a complete sentence, and grammar has done its work. Whether what it says is so is another question.</p>
+<p><strong>Incongruous</strong>: the parts do not fit with one another, so the construction fails.<br> <strong>Congruous but incomplete</strong>: the parts fit, and the sense is not yet complete.<br> <strong>Complete</strong>: a complete sentence, and grammar has done its work. Whether what it says is so is another question.</p>
 <p>The set of exercises that follows asks for one of those three judgments; it does not ask whether the speaker is right.</p>` }
 ]};
 
@@ -5791,8 +5791,8 @@ EX.letter = {
           ? `<strong>${C}</strong> is a vowel: it makes a complete sound by itself, and can be a syllable on its own.`
           : `<strong>${C}</strong> is a consonant: it does not sound by itself, but sounds together with a vowel, which is what <em>consonant</em> means.`;
       }else{
-        a = kind === 'v' ? 'A vowel: it can be fully sounded alone' : kind === 's' ? 'A semivowel: it can be sounded in part' : 'A mute: it cannot be sounded by itself';
-        options = shuffle(['A vowel: it can be fully sounded alone','A semivowel: it can be sounded in part','A mute: it cannot be sounded by itself']);
+        a = kind === 'v' ? 'A vowel: it can be pronounced by itself' : kind === 's' ? 'A semivowel: part of it can be pronounced without a vowel (as with s or m)' : 'A mute: it cannot be pronounced without a vowel';
+        options = shuffle(['A vowel: it can be pronounced by itself','A semivowel: part of it can be pronounced without a vowel (as with s or m)','A mute: it cannot be pronounced without a vowel']);
         why = kind === 'v'
           ? `<strong>${C}</strong> is a vowel: it makes a complete sound by itself.`
           : kind === 's'
@@ -6376,7 +6376,7 @@ EX.govern = {
 /* ============================================================
    Congruity and Completeness
    ============================================================ */
-const CG_C = 'Complete: the parts fit, and the sentence is finished', CG_I = 'Congruous: the parts fit, but the sense is unfinished', CG_B = 'Incongruous: the parts do not fit; grammar has failed';
+const CG_C = 'Complete: the parts fit, and the sentence is finished', CG_I = 'Congruous: the parts fit, but the sense is unfinished', CG_B = 'Incongruous: the parts do not fit with one another, so the construction fails';
 const CONG_ITEMS = [
   {id:'cg1', src:['te'], s:'The brave sailor waits.',
    a:CG_C, ds:[CG_B, CG_I],
@@ -8994,51 +8994,51 @@ DECKS.endiag = {
   sub:'Reed and Kellogg’s picture, as much as helps',
   panels:[
 { src:['engclass'], h:`<p><strong>A PICTURE OF THE SENTENCE.</strong> Alonzo Reed and Brainerd Kellogg taught a diagram that draws the offices we have been naming. We use as much of it as makes those offices visible, and we stop before the technical cases. The lines mean the same thing in every diagram in this course.</p>
-<p>The <strong>base line</strong> holds the main words of the clause. A vertical line that <strong>crosses</strong> the base divides the subject from the predicate. A vertical line that comes down <strong>onto</strong> the base, and does not cross it, divides the verb from a direct object. A line that <strong>slants back toward the subject</strong> and rests on the base divides a linking verb from a predicate nominative or a predicate adjective (together called subject complements). The slant points back because the complement renames or describes the subject, and does not receive an action.</p>
-<p>So <em>Birds sing</em> is a crossed line only. <em>Birds sing songs</em> adds the line that stops on the base. <em>She is wise</em> uses the slant.</p>
+<p>The <strong>base line</strong> (the main line) holds the main words of the clause. A vertical line that <strong>crosses</strong> the base (the main line) divides the subject from the predicate. A vertical line that comes down <strong>onto</strong> the base, and does not cross it, divides the verb from a direct object. A line that <strong>slants back toward the subject</strong> and rests on the base divides a linking verb from a predicate nominative or a predicate adjective (together called subject complements). The slant points back because the complement renames or describes the subject, and does not receive an action.</p>
+<p>So <em>Birds sing</em> is a crossed line only. <em>Birds sing songs</em> adds the line that stops on the base (the main line). <em>She is wise</em> uses the slant.</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', alt:'Birds sing'})}</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'})}</p>
 <p>${rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'})}</p>`,
   q:{ prompt:'Which line stands before a direct object?',
-      options:['The vertical line that crosses the base and divides the subject from the verb',
-               'The vertical line that rests on the base and does not cross it',
+      options:['The vertical line that crosses the base (the main line) and divides the subject from the verb',
+               'The vertical line that rests on the base (the main line) and does not cross it',
                'The slant that leans back toward the subject',
-               'A dotted line dropping to a lower base'],
+               'A dotted line dropping to a lower base (a lower main line)'],
       correct:1,
-      explain:'The line that stops on the base keeps the object on the base line and marks it as receiving the action. The line that crosses the base is only the division of subject and predicate. The slant is for a complement.' } },
+      explain:'The line that stops on the base (the main line) keeps the object on that line and marks it as receiving the action. The line that crosses the base is only the division of subject and predicate. The slant is for a complement.' } },
 
-{ src:['engclass'], h:`<p><strong>Modifiers and prepositions.</strong> A word that modifies another hangs <strong>below</strong> the base, on a slant under the word it modifies. <em>The</em> hangs under <em>birds</em>. <em>Sweetly</em> hangs under <em>sing</em>.</p>
+{ src:['engclass'], h:`<p><strong>Modifiers and prepositions.</strong> A word that modifies another hangs <strong>below</strong> the base (the main line), on a slant under the word it modifies. <em>The</em> hangs under <em>birds</em>. <em>Sweetly</em> hangs under <em>sing</em>.</p>
 <p>A prepositional phrase does the same, with the preposition on the slant and its object on a short horizontal line at the bottom. <em>In trees</em> hangs under the verb when it tells where the birds sing. <em>The</em>, if we had it, would hang under <em>trees</em>.</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', mods:[{on:'subj', w:'The'},{on:'verb', w:'sweetly'}], alt:'The birds sing sweetly'})}</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', preps:[{on:'verb', p:'in', n:'trees'}], alt:'Birds sing in trees'})}</p>`,
   q:{ prompt:'Where does a modifying word sit in this diagram?',
-      options:['On the base line itself, between the subject and the verb it describes','Below the base, on a slant under the word it modifies',
-               'Above the sentence, in the margin','On a second base line of its own'],
+      options:['On the base line (the main line) itself, between the subject and the verb it describes','Below the base (the main line), on a slant under the word it modifies',
+               'Above the sentence, in the margin','On a second base line of its own (another main line)'],
       correct:1,
-      explain:'Modifiers are not part of the base line. They hang under the word they modify. A second base line is for a dependent clause, which has a finite verb of its own.' } },
+      explain:'Modifiers are not part of the base line (the main line). They hang under the word they modify. A second base line (another main line) is for a dependent clause, which has a finite verb of its own.' } },
 
-{ src:['engclass'], h:`<p><strong>Indirect object, compound parts, objective complement.</strong> An indirect object hangs under the verb like a prepositional phrase, with <em>(to)</em> or <em>(for)</em> on the slant when the preposition was not written. The direct object stays on the base. <em>Gave the king a letter</em> therefore shows <em>letter</em> on the base and <em>king</em> below.</p>
+{ src:['engclass'], h:`<p><strong>Indirect object, compound parts, objective complement.</strong> An indirect object hangs under the verb like a prepositional phrase, with <em>(to)</em> or <em>(for)</em> on the slant when the preposition was not written. The direct object stays on the base (the main line). <em>Gave the king a letter</em> therefore shows <em>letter</em> on the base and <em>king</em> below.</p>
 <p>A compound subject is two short lines joined before the crossing line, with the conjunction on a dotted line between them. An objective complement follows the direct object and is cut off by a slant, the same slant we use for a subject complement, because it renames or describes the object.</p>
 <p>${rkDiagram({subj:'He', verb:'gave', obj:'letter', io:'king', ioto:'(to)', alt:'He gave the king a letter'})}</p>
 <p>${rkDiagram({subj:['Boys','girls'], sconj:'and', verb:'sing', alt:'Boys and girls sing'})}</p>`,
-  q:{ prompt:'Why is the indirect object drawn under the main line?',
+  q:{ prompt:'Why is the indirect object drawn under the base (the main line)?',
       options:['Because it is the subject of a second clause',
                'It is the object of <em>to</em> or <em>for</em>, written or not',
                'Because English has no indirect object',
                'Because it receives the action before the direct object does'],
       correct:1,
-      explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the main line.' } },
+      explain:'<em>Gave the king a letter</em> is <em>gave a letter to the king</em> with the preposition unspoken. The diagram writes that preposition back in, on the slant, and leaves the direct object on the base (the main line).' } },
 
-{ src:['engclass'], h:`<p><strong>One dependent clause.</strong> A dependent clause is drawn on a <strong>lower base</strong>, and a dotted line joins it to the word it depends on. The connecting word sits on that dotted line. An adverb clause hangs from the verb. An adjective clause hangs from the noun. The drill stops at one such clause. A period of Gibbon’s length can be diagrammed, but the diagram then stops being useful.</p>
+{ src:['engclass'], h:`<p><strong>One dependent clause.</strong> A dependent clause is drawn on a <strong>lower base</strong> (a lower main line), and a dotted line joins it to the word it depends on. The connecting word sits on that dotted line. An adverb clause hangs from the verb. An adjective clause hangs from the noun. The drill stops at one such clause. A period of Gibbon’s length can be diagrammed, but the diagram then stops being useful.</p>
 <p>${rkDiagram({subj:'Birds', verb:'sing', clause:{on:'verb', rel:'when', subj:'dawn', verb:'comes'}, alt:'Birds sing when dawn comes'})}</p>
-<p>The lower line is a clause because it has its own subject and its own finite verb. A prepositional phrase never gets a lower base of that kind, because it has no finite verb.</p>`,
+<p>The lower line is a clause because it has its own subject and its own finite verb. A prepositional phrase never gets a lower base (a lower main line) of that kind, because it has no finite verb.</p>`,
   q:{ prompt:'What does the dotted line in this diagram mean?',
       options:['That the words on the lower line are a direct object',
                'That a dependent clause is joined to the word above, with its conjunction on the dotted line',
                'That the sentence is a fragment and needs a verb',
                'That the verb of the lower line is passive'],
       correct:1,
-      explain:'The lower base has its own subject and verb, so it is a clause. The dotted line shows that the clause depends on <em>sing</em>. <em>When</em> is the connecting word, and it is written on that line.' } },
+      explain:'The lower base (the lower main line) has its own subject and verb, so it is a clause. The dotted line shows that the clause depends on <em>sing</em>. <em>When</em> is the connecting word, and it is written on that line.' } },
 
 { src:['appown','engclass'], h:`<p><strong>What the drill asks.</strong> We choose the diagram that matches the sentence, or we name what a line is doing. The wrong diagrams are the same words with one line mistaken: an object drawn as a complement, a complement drawn as an object, a modifier hung on the wrong word, a clause drawn as if it were only a phrase. The picture is a test of the offices, not a new set of names.</p>` }
 ]};
@@ -9705,13 +9705,13 @@ EX.enfault = enEx('enfault', 'The Common Faults',
   EN_FAULT);
 
 EX.endiag = enEx('endiag', 'The Diagram',
-  'Choose the Reed-Kellogg diagram that matches the sentence, or name what a line is doing. The picture covers the base line, modifiers, a prepositional phrase, a compound subject, and one dependent clause.',
+  'Choose the Reed-Kellogg diagram that matches the sentence, or name what a line is doing. The picture covers the base line (the main line), modifiers, a prepositional phrase, a compound subject, and one dependent clause.',
   'Choose the diagram, or name the line.',
   [
-    {h:'<strong>The base line holds the main words.</strong> A line that crosses it divides subject and predicate. A line that stops on it marks a direct object. A slant marks a complement. It leans back toward the subject before a predicate nominative or a predicate adjective, and toward the object before an objective complement.',
+    {h:'<strong>The base line (the main line) holds the main words.</strong> A line that crosses it divides subject and predicate. A line that stops on it marks a direct object. A slant marks a complement. It leans back toward the subject before a predicate nominative or a predicate adjective, and toward the object before an objective complement.',
      eg:[rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'}),
          rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'})]},
-    {h:'<strong>What is not on the base line hangs below it.</strong> Modifiers and prepositional phrases hang on slants. A dependent clause takes a lower base and a dotted line. The drill does not go beyond these.'}
+    {h:'<strong>What is not on the base line (the main line) hangs below it.</strong> Modifiers and prepositional phrases hang on slants. A dependent clause takes a lower base (a lower main line) and a dotted line. The drill does not go beyond these.'}
   ],
   EN_DIAG);
 
