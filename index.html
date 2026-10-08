@@ -803,6 +803,7 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
         <label class="ws-check"><input type="checkbox" id="ws-modern"> Draw the verb’s arrows in the modern direction</label>
         <button class="btn" id="ws-clear" type="button">Clear the arrows</button>
       </div>
+      <div class="bd-help">A switch draws the arrows between the verb and its subject and object in the modern direction, for comparison.</div>
       <div class="ws-parts" id="ws-parts"></div>
       <div class="ws-read" id="ws-read"></div>
     </div>
@@ -1649,7 +1650,7 @@ const SRC = {
        full:'Peter of Spain, <i>Tractatus</i> (the <i>Summulae logicales</i>), the thirteenth-century schoolbook on terms. Signification, and simple and personal supposition, are taught as in that book (<i>homo est species</i>; <i>homo currit</i>). Material supposition — a term standing for itself as a word — is not in Peter’s division; it is added from the other terminist logicians of the century, such as William of Sherwood, and is standard in Ockham. The division (simple supposition, <i>homo est species</i>; personal, <i>homo currit</i>) and the absence of material supposition are checked against the account of Tractatus VI in the Stanford Encyclopedia (“Peter of Spain,” after de Rijk’s edition), not against the Latin itself.',
        note:'The point at which grammar hands the term to logic.'},
   greenberg:{kind:'modern', short:'Greenberg, <i>Universals of Language</i>',
-       full:'Joseph H. Greenberg, ed., <i>Universals of Language</i> (1963), and the implicational universals later numbered from that programme — used here only for the typological facts asked toward the end of the course.',
+       full:'Joseph H. Greenberg, ed., <i>Universals of Language</i> (1963), and the implicational universals later numbered from that program — used here only for the typological facts asked toward the end of the course.',
        note:''},
 
   quint:{kind:'primary', short:'Quintilian, <i>Institutio oratoria</i> I.4–9',
@@ -1966,7 +1967,7 @@ like a noun. The modists explain all four by two distinctions.</p>
 <p>The <strong>adverb</strong>, as Priscian defines it: an indeclinable part whose signification is added to verbs. It determines the verb, telling how, when, or where.</p>
 <p>The <strong>preposition</strong>, as Priscian defines it: an indeclinable part set before other parts, as a separate word or in composition. Donatus adds that it completes, changes, or lessens their meaning. The modists add the reason it takes a case: it lies alongside a naming word and turns it back toward the act. So, in <em>by the fire</em>, the preposition takes a naming word and turns it to face the verb.</p>
 <p>The <strong>conjunction</strong>, as Priscian defines it: an indeclinable part that joins the other parts, showing their force or order. It joins two extremes: two words, two phrases, or two sentences.</p>
-<p>The <strong>interjection</strong>, as Donatus defines it: a part that signifies an affect of the mind by an unformed voice: <em>alas, O, heu</em>. Priscian notes that the Latins count it apart from the adverb because it shows a motion of the soul even without a verb.</p>` },
+<p>The <strong>interjection</strong>, as Donatus defines it: a part that signifies an affect of the mind by an unformed voice: <em>alas, O</em>. Priscian notes that the Latins count it apart from the adverb because it shows a motion of the soul even without a verb.</p>` },
 
 { src:['boethiusd','priscian','appown'], h:`<p><strong>Where is the article?</strong> The list of eight parts was first made for Greek, and the Greek list has the article. Latin has no article, so the Latin grammarians dropped it, and kept the number at eight by counting the interjection, which the Greeks had put under the adverb, as a part of its own.</p>
 <p>Boethius of Dacia answers the question from the modes. The parts of speech are the same in every language in essence, and differ in accidents, so that whether a language has an article is an accident. He also gives the reason the Greeks needed one: their words often do not show the modes of signifying clearly, and the article, added to a declinable word, marks its case and number. Latin needs the same help, he says, with words like <em>cornu</em> and <em>gelu</em>, whose endings do not show their case.</p>
@@ -2207,7 +2208,7 @@ DECKS.vox = {
       correct:1,
       explain:`Voice is living sound; the mark comes after it, and a sentence and a thought come later still.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is a word: “hello” or the sound of a cough? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, which cannot.</p>` },
+{ src:['appown'], h:`<p>Which is a word: “hello” or the sound of a cough? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, which cannot.</p>` },
 
 { src:['donatus','priscian'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice can be caught in letters. A cough, a groan, or the bark of a dog cannot be written.</p>
 <p>Such sound may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
@@ -2247,7 +2248,7 @@ DECKS.period = {
       options:['A speech arranged to move the reader','A sentence, often of several clauses, that is complete',
                'The history of a word from its first use','The measured lines of a poem, counted by long and short syllables'],
       correct:1,
-      explain:`A period is still one sentence. Persuasion is not asked yet, and metre belongs to another art.` } },
+      explain:`A period is still one sentence. Persuasion is not asked yet, and meter belongs to another art.` } },
 
 { src:['priscian','ag','appown'], h:`<p><strong>Two ways of connecting clauses.</strong> The names are useful if they are kept in their place:</p>
 <p><strong>Parataxis</strong>: clauses side by side, of equal rank, as in <em>venit et vidit</em>. Neither depends; they are connected as companions.</p>
@@ -2288,7 +2289,7 @@ DECKS.letter = {
       correct:1,
       explain:`A letter signifies nothing, since signification by imposition begins at the word. A groan can signify by nature, but a letter cannot. Letters and syllables are the matter of speech: they are what words are made of, not what words are.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> How do we say the first letter of “knight”? We already know that it is written but not sounded. A letter has a name, a shape, and a power, and in English the power does not always follow the shape.</p>` },
+{ src:['appown'], h:`<p>How do we say the first letter of “knight”? We already know that it is written but not sounded. A letter has a name, a shape, and a power, and in English the power does not always follow the shape.</p>` },
 
 { src:['priscian','appown'], h:`<p><strong>Name, shape, and power.</strong> Of every letter three things are asked:</p>
 <p><strong>Name</strong> (<span class="lat">nomen</span>): what we call it when we speak of it. English <em>C</em> is named <em>see</em>; Latin <em>C</em> is named <em>ce</em>.</p>
@@ -2327,12 +2328,14 @@ DECKS.syllable = {
   sub:'How to divide a word, measure a syllable, and place the stress',
   panels:[
 
-{ src:['priscian','helias'], h:`<p><strong>THE SYLLABLE.</strong> A syllable is a sound uttered in one impulse of the voice. It has one vowel or diphthong at its centre, and consonants may stand before it, after it, or both. English <em>a</em> is a syllable, and <em>strength</em> is a syllable; <em>tea-cher</em> is two. Latin <em>ā</em> is a syllable; <em>strux</em> is a syllable; <em>a-mī-cus</em> is three.</p>
+{ src:['priscian','helias'], h:`<p><strong>THE SYLLABLE.</strong> A syllable is a sound uttered in one impulse of the voice. It has one vowel or diphthong at its center, and consonants may stand before it, after it, or both. English <em>a</em> is a syllable, and <em>strength</em> is a syllable; <em>tea-cher</em> is two. Latin <em>ā</em> is a syllable; <em>strux</em> is a syllable; <em>a-mī-cus</em> is three.</p>
 <p>So the number of vowels and diphthongs (two vowels sounded as one, such as English <em>oi</em> in <em>boil</em>, and Latin <em>ae, oe, au</em>) is the number of syllables. A syllable still signifies nothing; meaning begins at the word.</p>`,
   q:{ prompt:`How many syllables in <em>amīcus</em>?`,
       options:['One','Two','Three','Four'],
       correct:2,
       explain:`The word <em>a-mī-cus</em> has three vowels, three impulses, and so three syllables.` } },
+
+{ src:['appown'], h:`<p>Which is the noun: “REcord” or “reCORD”? We already hear that the stress decides it. English often tells two words apart by where the stress falls. Latin places its stress by the length of its syllables.</p>` },
 
 { src:['ag','priscian'], h:`<p><strong>How to divide.</strong> These are the working rules:</p>
 <p><strong>One consonant</strong> between vowels goes with the following vowel:
@@ -2406,8 +2409,6 @@ on one of the last three syllables.</p>
       correct:2,
       explain:`The group, not the word, takes the beat. Latin measures the penult, German finds the stem, and French puts the beat at the end of the phrase.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is the noun: “REcord” or “reCORD”? We already hear that the stress decides it. English often tells two words apart by where the stress falls. Latin places its stress by the length of its syllables.</p>` },
-
 { src:['appown'], h:`<p><strong>English, by contrast.</strong> English uses stress, not quantity: the stressed syllable is louder, but not necessarily longer in the Latin sense. Latin <em>amīcus</em> takes the stress on the long penult, by the law already given. The place of the English stress can change the word: <em>REcord</em> (noun), <em>reCORD</em> (verb).</p>
 <p>Unstressed vowels often become a schwa (a weak, neutral vowel). Division still follows vowel sounds: <em>tea-cher, to-ge-ther, beau-ti-ful</em>.</p>
 <p>The exercises ask for dividing, measuring, and placing the accent, in Latin as the main skill, and in the other languages so that the Latin law is not mistaken for a law of speech as such.</p>`,
@@ -2432,7 +2433,7 @@ DECKS.pos = {
       correct:2,
       explain:`A groan signifies by nature, while signification by imposition begins at the word, and voice and syllable are the matter of that word. Truth and falsity begin at the sentence, which comes later than meaning.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “the big red barn” or “the red big barn”? We already know a rule of English order. A word of size comes before a word of color.</p>` },
+{ src:['appown'], h:`<p>In “The dog ran quickly,” one word names a thing, one tells what it does, and one tells how it does it. We already sort words in this way before we learn any rule, and Donatus calls these sorts the parts of speech.</p>` },
 
 { src:['arist_int','appown'], h:`<p><strong>How a sound becomes a name.</strong> A groan and a bark indicate by nature; no one sat down and decided that pain should sound like that. A name is different, because speakers have taken a sound and set it to signify a thing. That setting is <strong>imposition</strong>: the sound is imposed by human choice.</p>
 <p>Once imposed, the name signifies that thing whenever it is used. English <em>horse</em> and Latin <em>equus</em> are two such names for one kind of thing. The particular noise is conventional, since another people might have used another sound for a horse; but that there is a name at all, a sound imposed to signify a thing, is what makes a word a word.</p>
@@ -2503,7 +2504,7 @@ the word and the result still be English.</p>`,
 <p><strong>Adverb</strong>: determines a verb (or an adjective), telling how, when, or where. <em>Quietly, yesterday, there.</em> Latin <em>bene, heri, ibi</em> do the same work.</p>
 <p><strong>Preposition</strong>: stands before a naming word, narrows it, and turns it back toward the act. <em>In the garden.</em> Latin <em>in horto</em>.</p>
 <p><strong>Conjunction</strong>: joins two extremes. <em>And, but, if</em>, and Latin <em>et, sed, si</em>; and <em>that</em> when it joins statements.</p>
-<p><strong>Interjection</strong>: a feeling or motion of the soul, thrown out rather than deliberated. <em>Alas.</em> Latin <em>heu</em>. It is neither a naming nor a joining.</p>`,
+<p><strong>Interjection</strong>: a feeling or motion of the soul, thrown out rather than deliberated. <em>Alas, O, heu.</em> It is neither a naming nor a joining.</p>`,
   q:{ prompt:`Which part stands before a noun and turns it toward the verb?`,
       options:['Adverb','Conjunction','Preposition','Interjection'],
       correct:2,
@@ -2512,7 +2513,7 @@ the word and the result still be English.</p>`,
 { src:['appown','ag'], h:`<p><strong>Phrases and clauses.</strong> A part of speech is a kind of work, and a group of words can do that work as a unit. The eight still name the work, but the marked thing is not always a single word.</p>
 <p>A <strong>phrase</strong>: <em>They arrived <u>after the storm</u>.</em> <em>After the storm</em> tells when, and so it is a prepositional phrase used as an adverb. Latin <em>post tempestatem venerunt</em> does the same work.</p>
 <p>A <strong>clause</strong>: <em>I know <u>that he arrived</u>.</em> <em>That he arrived</em> is what is known. It is a whole clause used as the object of <em>know</em>, that is, a noun clause, which the older grammars call a substantive clause. Latin <em>scio eum venisse</em> is the same work; medieval grammarians also write <em>scio quod venit</em>.</p>
-<p>A relative clause (a modern class also calls it an adjective clause) is used as an adjective, as in <em>The men <u>who waited at the gate</u> were sailors</em>, where it tells which men. Latin <em>viri qui ad portam exspectabant</em> tells which men.</p>
+<p>A relative clause (modern grammars also call it an adjective clause) is used as an adjective, as in <em>The men <u>who waited at the gate</u> were sailors</em>, where it tells which men. Latin <em>viri qui ad portam exspectabant</em> tells which men.</p>
 <p>The exercises mark a word, a phrase, or a clause, and ask for the work it is doing.</p>`,
   q:{ prompt:`In <em>I know that he arrived</em>, how is <em>that he arrived</em> used?`,
       options:['It is used as an adverb, because it tells when the knowing happened.','It is used as a noun, because it is the direct object of the verb <em>know</em>.',
@@ -2566,7 +2567,7 @@ question: does the word change its ending as its job in the sentence changes?</p
       correct:1,
       explain:`The verb signifies as something going on, and so carries time, person, and number, whereas the adverb only determines that going-on. Its accidents (signification, comparison, figure) are not ones that call for case or personal endings.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is correct: “two sheep” or “two sheeps”? “He walks” or “He walk”? We already know that English words still change their form. English nouns change for number, and English verbs change for person.</p>` },
+{ src:['appown'], h:`<p>Which is correct: “two sheep” or “two sheeps”? “He walks” or “He walk”? We already know that English words still change their form. English nouns change for number, and English verbs change for person.</p>` },
 
 { src:['appown','ag'], h:`<p><strong>English is not unmarked.</strong> It is easy to say that English has no declension, but that is too quick.</p>
 <p>Nouns: <em>sailor, sailors, sailor’s, sailors’</em>.<br>
@@ -2602,7 +2603,7 @@ upright in the wood.</p>
       correct:1,
       explain:`The grammarians count it a case, a falling, and yet the first and upright one, from which the oblique cases fall away.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “He saw her” or “Him saw she”? We already know which form goes with which work. That is case: English pronouns still change their form for the subject and the object.</p>` },
+{ src:['appown'], h:`<p>We already know which form belongs to the subject and which to the object in “He saw her,” and “Him saw she” does not keep those forms. That is case, because English pronouns still change their form for the subject and the object.</p>` },
 
 { src:['ag','nieto','appown'], h:`<p><strong>One case, several works.</strong> The same ending can do different work,
 and the difference is not in the ending but in the things spoken of. English <em>the love of the father</em>
@@ -2648,7 +2649,7 @@ DECKS.produce = {
       correct:1,
       explain:`The exercise gives what the word is and how it is being used, and the student supplies the form. Translation and truth are other questions.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> What is the past of “sing”? And of “bring”? We already know “sang” and “brought” without a table. Producing a form means going from the accidents we want to the word that has them.</p>` },
+{ src:['appown'], h:`<p>What is the past of “sing”? And of “bring”? We already know “sang” and “brought” without a table. Producing a form means going from the accidents we want to the word that has them.</p>` },
 
 { src:['ag'], h:`<p><strong>A way to go about it.</strong> The method is not to remember a list of whole words, but to remember the stem, and the ending that the table gives for those accidents.</p>
 <p>For an English noun, the stem is the singular, and <em>-s</em> or <em>’s</em> is added: <em>sailor, sailors, sailor’s</em>. For a Latin noun, the stem is taken from the genitive singular, and the ending for the case and number asked is added to it.</p>
@@ -2684,7 +2685,7 @@ cases.</p>`,
       correct:1,
       explain:`Motion toward takes the accusative after <em>in</em>, and place where takes the ablative. German would put the same contrast on dative against accusative.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “Give it to him” or “Give it to he”? We already know that <em>to</em> takes <em>him</em>. That is government: one word requires a particular form of the word that completes it.</p>` },
+{ src:['appown'], h:`<p>We already know that “Give it to him” fits, and “Give it to he” does not. That is government, because one word requires a particular form of the word that completes it.</p>` },
 
 { src:['ag','appown'], h:`<p><strong>Government in English.</strong> English shows government less plainly than Latin, because the English noun no longer shows a case. It has not gone, however: we still say <em>listen to</em>, <em>wait for</em>, <em>afraid of</em>, and the preposition is required. <em>Between you and I</em> is the old government breaking, since <em>between</em> wants the object form, <em>me</em>. Latin marks the same requirement on the ending: <em>inter te et me</em>, not <em>inter te et ego</em>.</p>
 <p>Where English has lost the ending, the requirement is still there, but it has moved onto the small word in front, or onto the place in the sentence; so government remains in English, though its marks are fewer.</p>` }
@@ -2706,7 +2707,7 @@ DECKS.cong = {
       correct:1,
       explain:`The adjective fits the noun, so the construction is congruous; but there is no verb, so the sense is not yet complete. Completeness requires a finite verb (a verb that asserts, with a subject).` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which says something complete: “the white horse” or “The white horse runs”? We already hear that the first is unfinished. A construction can be congruous and still incomplete.</p>` },
+{ src:['appown'], h:`<p>Which says something complete: “the white horse” or “The white horse runs”? We already hear that the first is unfinished. A construction can be congruous and still incomplete.</p>` },
 
 { src:['te','arist_int'], h:`<p><strong>Why the verb completes.</strong> A name or a verb alone is not yet true or false, and a construction without a verb does not yet say that anything is going on, or is so; the sense is not yet complete.</p>
 <p><em>If the sailor waits</em> is congruous, and still incomplete as a sentence, because the <em>if</em> leaves the sense unfinished. Latin <em>si nauta exspectat</em> is the same. A subordinate clause can be well formed and still not be complete on its own.</p>
@@ -2742,7 +2743,7 @@ Socratem</em>, <em>percutio</em> depends on <em>Socratem</em>.</p>
       correct:1,
       explain:`The adjective adheres, so it depends; the noun stands by itself, so it terminates that dependence. A verb would be needed to complete a sentence, but this pair is a construction of its own even so.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> In “the quiet sailor,” which word depends on which? We already know that <em>quiet</em> belongs to <em>sailor</em>. In a construction one word depends on another, and the markup draws that dependence.</p>` },
+{ src:['appown'], h:`<p>In “the quiet sailor,” which word depends on which? We already know that <em>quiet</em> belongs to <em>sailor</em>. In a construction one word depends on another.</p>` },
 
 { src:['te','bh','appown'], h:`<p><strong>Dependency grammar.</strong> Twentieth-century dependency grammar also draws the sentence as words depending on words, and for the adjective and the adverb the two pictures agree.</p>
 <p>For the verb they do not. Modern dependency grammar makes the verb the head of the whole sentence, with subject and object depending on it, whereas Thomas makes the verb depend on the subject, and again on the object. For him the verb is the word that needs the others, since it signifies something going on, and something going on must be of something and, if it passes over, to something. Bursill-Hall also finds features in Thomas’s syntax like those of phrase-structure grammar.</p>
@@ -2771,7 +2772,7 @@ DECKS.oratio = {
       options:['Any list of words, in any order','Words fitted together to express a thought',
                'A statement that is true','A line of verse, measured by its syllables'],
       correct:1,
-      explain:`<em>Sailor the waits</em> is only a list of words; <em>the sailor waits</em> is an arrangement, since its words fit one another and say something. Whether the sentence is true is a further question, for logic, and metre is a question for verse.` } },
+      explain:`<em>Sailor the waits</em> is only a list of words; <em>the sailor waits</em> is an arrangement, since its words fit one another and say something. Whether the sentence is true is a further question, for logic, and meter is a question for verse.` } },
 
 { src:['priscian','bh'], h:`<p><strong>Priscian’s definition.</strong> Priscian, who taught Latin grammar at Constantinople about AD 500, defines the sentence this way: <span class="lat">oratio est ordinatio dictionum congrua, sententiam perfectam demonstrans</span>, that is, a sentence is a fitting arrangement of words, showing a complete sense. The definition contains both tests of a sentence: the arrangement must fit (<span class="lat">congrua</span>), and the sense must be complete (<span class="lat">perfecta</span>). For example, <em>the tall sailor</em> fits but is not complete; <em>the sailors waits</em> is complete in sense, but the verb does not fit its subject.</p>
 <p>Priscian also says which parts cannot be spared: take away the noun or the verb, and the sentence is deficient. The last two books of his <em>Institutions</em>, on the arrangement of words, follow the Greek grammarian Apollonius Dyscolus. They were the medieval schools’ textbook of syntax, and the modists’ account of construction grew out of commentaries on them.</p>`,
@@ -2821,7 +2822,7 @@ DECKS.agree = {
       correct:1,
       explain:`Those three accidents are the ones the noun carries and the adjective must share, because the adjective is not standing by itself.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “The bells ring” or “The bells rings”? We already make the verb match the subject. That match is agreement: the verb takes the number and person of its subject.</p>` },
+{ src:['appown'], h:`<p>We already hear that “The bells ring” fits and “The bells rings” does not. That match is agreement, because the verb takes the number and person of its subject.</p>` },
 
 { src:['ag','appown'], h:`<p><strong>The verb, and the relative.</strong> A finite verb (one that carries person and number) agrees with its subject in <strong>number</strong> and <strong>person</strong>. English still marks the third-person singular: <em>the sailor waits</em>, <em>the sailors wait</em>. Latin <em>nauta exspectat</em>, <em>nautae exspectant</em>.</p>
 <p>A relative pronoun agrees with its antecedent (the word it refers back to) in gender and number, and takes its case from its own clause. In <em>the sailor whom we praised</em>, <em>whom</em> is accusative because it is the object of <em>praised</em>, not because <em>sailor</em> is. Latin <em>nauta quem laudavimus</em> is the same: <em>quem</em> is accusative because it is the object of <em>laudavimus</em>.</p>
@@ -2910,7 +2911,7 @@ in the arrangement of words.</p>
       correct:1,
       explain:`<em>Boys</em> and <em>runs</em> are both English words, but they do not agree, and that is solecism. Barbarism would be a single word wrongly formed, such as <em>runned</em> or <em>childs</em>.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is correct: “childs” or “children”? “The boys runs” or “The boys run”? We already hear both faults. The first is a fault in a single word, a barbarism. The second is a fault in joining words, a solecism.</p>` },
+{ src:['appown'], h:`<p>Which is correct: “childs” or “children”? “The boys runs” or “The boys run”? We already hear both faults. The first is a fault in a single word, a barbarism. The second is a fault in joining words, a solecism.</p>` },
 
 { src:['donatus','appown'], h:`<p><strong>Fault and license.</strong> Donatus also treats the same departures when a poet is allowed them: metaplasm is a licensed barbarism, and a figure (schema) a licensed solecism. Then come the tropes, where a word is made to signify otherwise than it properly does. All of this is the last part of grammar, and the next tutorial takes it up.</p>
 <p>Here the question is only where the fault lies: in one word, or in the arrangement.</p>`,
@@ -2935,22 +2936,22 @@ DECKS.figures = {
       correct:1,
       explain:`Donatus’s third book, and Isidore’s list of the parts of grammar, put them in grammar, and rhetoric takes them up again for its own end.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> What does “All hands on deck” ask for? We already know that it means the sailors, not their hands. Using the part for the whole is a trope, called synecdoche.</p>` },
+{ src:['appown'], h:`<p>What does “All hands on deck” ask for? We already know that it means the sailors, not their hands. Using the part for the whole is a trope, called synecdoche.</p>` },
 
 { src:['donatus'], h:`<p><strong>Fault and license.</strong> Donatus: a barbarism is one part of speech
 faulty in common speech; in a poem it is called a metaplasm. A solecism is a fault in
 the construction of the parts, against the rule of the art; in a poem it is called a
 figure (<span class="lat">schema</span>).</p>
-<p>English <em>o’er</em> for <em>over</em> and <em>e’en</em> for <em>even</em> are allowed in verse for the metre, and the same shortening in plain prose is a fault in one word. Donatus says the same of Latin. The departure is a fault in common speech, but it is permissible in a poem when it is made for the metre or for ornament; and so the art has to know the rule in order to know what is permissible.</p>`,
-  q:{ prompt:`A poet shortens a word for the metre. A schoolboy does the same in prose. What is each?`,
+<p>English <em>o’er</em> for <em>over</em> and <em>e’en</em> for <em>even</em> are allowed in verse for the meter, and the same shortening in plain prose is a fault in one word. Donatus says the same of Latin. The departure is a fault in common speech, but it is permissible in a poem when it is made for the meter or for ornament; and so the art has to know the rule in order to know what is permissible.</p>`,
+  q:{ prompt:`A poet shortens a word for the meter. A schoolboy does the same in prose. What is each?`,
       options:['Both are barbarisms, since the change is the same','The poet’s is a metaplasm; the schoolboy’s, a barbarism',
                'Both are metaplasms, since the change is the same','The poet’s is a trope; the schoolboy’s, a solecism'],
       correct:1,
-      explain:`The change is the same, but its standing differs: in common speech it is a fault, while in verse, for the metre or for ornament, it is allowed.` } },
+      explain:`The change is the same, but its standing differs: in common speech it is a fault, while in verse, for the meter or for ornament, it is allowed.` } },
 
 { src:['donatus'], h:`<p><strong>Metaplasm.</strong> Donatus: a change of correct, plain speech into another
-form, for the sake of the metre or of ornament. He counts fourteen kinds, and they
-work on the letters and syllables of one word. English <em>photo</em> for <em>photograph</em> takes letters off the end. Donatus’s Latin examples follow:</p>
+form, for the sake of the meter or of ornament. He counts fourteen kinds, and they
+work on the letters and syllables of one word. English verse writes <em>o’er</em> for <em>over</em>, taking a letter out of the middle. Donatus’s Latin examples follow:</p>
 <p><strong>adding</strong>: at the front, <em>prosthesis</em> (<em>gnato</em> for <em>nato</em>); in the middle, <em>epenthesis</em> (<em>relliquias</em> for <em>reliquias</em>); at the end, <em>paragoge</em> (<em>potestur</em> for <em>potest</em>);<br> <strong>taking away</strong>: from the front, <em>aphaeresis</em> (<em>temno</em> for <em>contemno</em>); from the middle, <em>syncope</em> (<em>commorat</em> for <em>commoverat</em>); from the end, <em>apocope</em> (<em>Achilli</em> for <em>Achillis</em>);<br> <strong>lengthening or shortening</strong> a syllable against its nature: <em>ectasis</em> and <em>systole</em>;<br> <strong>splitting or fusing</strong> syllables: <em>diaeresis</em>, one syllable made two (<em>Albai longai</em> for <em>Albae longae</em>), and <em>episynaloephe</em>, two made one (<em>Phaethon</em> read in two syllables for <em>Pha-ë-thon</em>);<br> <strong>colliding</strong> sounds across words: <em>synaloepha</em>, vowel meeting vowel, and <em>ecthlipsis</em>, a final <em>m</em> with its vowel crushed against the next vowel (<em>multum ille</em>);<br> <strong>changing or moving</strong> letters: <em>antithesis</em>, one letter for another (<em>olli</em> for <em>illi</em>), and <em>metathesis</em>, letters moved to another place (<em>Euandre</em> for <em>Euander</em>).</p>
 <p>All fourteen, in Donatus’s order: prosthesis, epenthesis, paragoge, aphaeresis,
 syncope, apocope, ectasis, systole, diaeresis, episynaloephe, synaloepha, ecthlipsis,
@@ -3034,7 +3035,7 @@ DECKS.suppos = {
       correct:1,
       explain:`This is simple supposition: the term stands for the nature as known, not for this or that man, since being a species belongs to a nature only as known. In <em>a man is running</em> the same word stands for a man, and the supposition is personal.` } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is true: “The horse is in the field” or “‘Horse’ has five letters”? We already know that both are true, and that the word stands for something different in each. In the first it stands for an animal, and in the second for the word itself.</p>` },
+{ src:['appown'], h:`<p>Which is true: “The horse is in the field” or “‘Horse’ has five letters”? We already know that both are true, and that the word stands for something different in each. In the first it stands for an animal, and in the second for the word itself.</p>` },
 
 { src:['peterhisp','appown'], h:`<p><strong>Where grammar hands over.</strong> Grammar can tell us that <em>man</em> is a noun, and that the sentence is well formed, but it cannot tell us which supposition the noun is under in this proposition. That is a question about the proposition as a proposition, and it belongs to logic.</p>
 <p>The syncategorematic words (words that signify little on their own and determine the others), such as <em>all, no, some, only, if, except</em>, and Latin <em>omnis, nullus, aliquis, si</em>, are the other half of the handover. They signify little or nothing on their own, but they determine how the other words stand. Supposition is a property of terms in logic; Ars Syllogistica is its home, and works with these words from the other side. This deck only names the distinction and hands it on.</p>`,
@@ -3386,7 +3387,7 @@ ${il({tr:'lugal-e e₂ mu-un-dù', gloss:'king-(agent piece) house built', en:'T
       correct:1,
       explain:`Names the scribes did not use should not be imposed on them; their explanation is the Akkadian form set beside it.` } },
 
-{ src:['blackgt','appown'], h:`<p><strong>No eight parts.</strong> There is no tablet that says the parts of Sumerian speech are eight. The verb is the centre of the grammatical paradigms, and the noun is the centre of the thematic lists. Adjectives, where they appear, often look like nouns in the list, and particles and prefixes are rows in the grammatical vocabularies.</p>
+{ src:['blackgt','appown'], h:`<p><strong>No eight parts.</strong> There is no tablet that says the parts of Sumerian speech are eight. The verb is the center of the grammatical paradigms, and the noun is the center of the thematic lists. Adjectives, where they appear, often look like nouns in the list, and particles and prefixes are rows in the grammatical vocabularies.</p>
 <p>Yāska, later, will count four parts, Sībawayh three, and Donatus eight. The Babylonian school counts by the <em>kind of list</em> one is copying, not by a theory of parts.</p>`,
   q:{ prompt:`Why does this tradition not count eight parts of speech?`,
       options:['Because Sumerian has no verbs or nouns that could be counted',
@@ -3422,15 +3423,15 @@ ${il({tr:'lugal-e e₂ mu-un-dù', gloss:'king-(agent) house built', en:'The kin
 { src:['blackgt','appown'], h:`<p><strong>Faults, unnamed.</strong> Donatus names barbarism and solecism, whereas the scribes mark a bad copy by correcting it. A wrong reading of a sign, a wrong Akkadian, or a form of the verb that the paradigm does not run are faults of the art, but they are not organised as a chapter of vices.</p>
 <p>This is a difference in the tradition, not a gap in the evidence: an art kept in lists corrects against the list, and an art kept in definitions corrects against the definition.</p>` },
 
-{ src:['msl','blackgt'], h:`<p><strong>The verb as they centre it.</strong> If we had to say what this grammatical corpus is “about,” as Donatus is about the parts of speech, it is about the <strong>verb</strong>, or more precisely about Sumerian verbal forms as Akkadian verbal forms explain them. Nouns have their lists, but the ambitious tablets are verbal.</p>
+{ src:['msl','blackgt'], h:`<p><strong>The verb as they center it.</strong> If we had to say what this grammatical corpus is “about,” as Donatus is about the parts of speech, it is about the <strong>verb</strong>, or more precisely about Sumerian verbal forms as Akkadian verbal forms explain them. Nouns have their lists, but the ambitious tablets are verbal.</p>
 <p>Our art needs the noun and the verb equally for a sentence. Their grammatical tablets, however, can rest without ever writing a Sumerian sentence of the <em>homo est albus</em> type, since a paradigm line is already a finished school object.</p>`,
-  q:{ prompt:`The centre of the Babylonian grammatical tablets is…`,
+  q:{ prompt:`The center of the Babylonian grammatical tablets is…`,
       options:['The Sumerian noun, sorted by its cases',
                'The Sumerian verb, explained by the Akkadian',
                'The cuneiform sign, sorted by its shape',
                'The sentence, sorted by its kind'],
       correct:1,
-      explain:`That is why the exercise will spend time on prefixes and person: it is their centre, and not only ours.` } },
+      explain:`That is why the exercise will spend time on prefixes and person: it is their center, and not only ours.` } },
 
 { src:['appown'], h:`<p><strong>Time, as they mark it.</strong> Akkadian has a tense-aspect system that the scribes used in the right-hand column (forms we anachronistically call present, preterite, perfect, and the rest). Sumerian verbal pieces do not map onto those one-for-one, but the tablet still writes an Akkadian tense-form as the explanation of a Sumerian chain.</p>
 <p>So “tense” in this art is often an Akkadian explanation, not a Sumerian accident named as such. Our verb carries time because it signifies as becoming, while their verb carries whatever the right-hand form carries. The derivation is different, and what they teach is the fact that the columns correspond.</p>`,
@@ -3605,7 +3606,7 @@ ${il({script:'तत् + अपि → तदपि', dir:'dev', tr:'tat + api 
                'A rule for forming the plural of a name',
                'A change of meaning when two words meet'],
       correct:1,
-      explain:`Their grammar includes the combination of sounds, whereas we leave most of it to pronunciation or to metre.` } },
+      explain:`Their grammar includes the combination of sounds, whereas we leave most of it to pronunciation or to meter.` } },
 
 { src:['yaska'], h:`<p><strong>YĀSKA’S FOUR.</strong> Before Pāṇini’s rules, Yāska cuts the word into four parts: <strong>name</strong> (<em>nāman</em>), <strong>verb</strong> (<em>ākhyāta</em>), <strong>preverb</strong> (<em>upasarga</em>), and <strong>particle</strong> (<em>nipāta</em>). There are not eight, and not three.</p>
 <p>Yāska also says what the first two are. The verb has becoming as its chief
@@ -3818,7 +3819,7 @@ ${il({script:'गच्छेत्', dir:'dev', tr:'gacchet', gloss:'go-3sg opt
 
 { src:['yaska','appown'], h:`<p><strong>Etymology as a sister art.</strong> Yāska’s <em>Nirukta</em> explains difficult Vedic words by derivation and by use. It is not our “history of a word” in the nineteenth-century sense, but an art for making an old word speak. Grammar (vyākaraṇa) and nirukta sit together as limbs of the Veda. Our course left word-history outside grammar, whereas theirs let a certain etymology in, as a neighbour with its own book.</p>`,
   q:{ prompt:`Nirukta, beside vyākaraṇa, is…`,
-      options:['The art of metre for chanting the hymns',
+      options:['The art of meter for chanting the hymns',
                'A sister art that explains received words, especially Vedic ones',
                'A list of the verbal roots and their meanings',
                'The rules of sandhi, set out for the schools'],
@@ -3914,7 +3915,7 @@ DECKS.xiaoxue = {
       correct:1,
       explain:`It has three offices: the shape of the character, how it is spoken, and what it means in the wording. It is not about the eight parts.` } },
 
-{ src:['shuowen'], h:`<p><strong>THE GRAPH IS THE LETTER.</strong> For Xu Shen, in the <em>Shuowen jiezi</em>, the object is the character. Our letter is the least part of a sound that can be written, whereas their “letter” is already a unit that may mean. We met this in Sumerian word-signs, but here it is the art’s centre.</p>
+{ src:['shuowen'], h:`<p><strong>THE GRAPH IS THE LETTER.</strong> For Xu Shen, in the <em>Shuowen jiezi</em>, the object is the character. Our letter is the least part of a sound that can be written, whereas their “letter” is already a unit that may mean. We met this in Sumerian word-signs, but here it is the art’s center.</p>
 ${il({script:'日', dir:'zh', tr:'rì', gloss:'pictograph of the sun', en:'sun; day'})}
 <p>Meaning can begin at a single graph. Our ladder said it begins at the word, after the letter, but their letter <em>is</em> often the word.</p>`,
   q:{ prompt:`Why can 日 <em>rì</em> mean, when Latin <em>D</em> does not?`,
@@ -4264,7 +4265,7 @@ ${il({script:'زَيْدٌ &nbsp; زَيْدًا &nbsp; زَيْدٍ', dir:'ar',
       explain:`This is the art of the endings, and the nearest of the four to our accidents of case.` } },
 
 { src:['sibawayh','jumal'], h:`<p><strong>THE GOVERNOR.</strong> Why does a word take rafʿ or naṣb or jarr? Because something <strong>governs</strong> it, an <em>ʿāmil</em> عامل. The verb governs the agent into rafʿ and the object into naṣb; a particle like <em>fī</em> “in” governs a noun into jarr. <em>Inna</em> governs a noun into naṣb.</p>
-<p>Our regimen is this theory, made the centre of the whole syntax rather than a chapter after agreement. The construction <em>is</em> government, and a word’s ending is explained by naming its governor.</p>`,
+<p>Our regimen is this theory, made the center of the whole syntax rather than a chapter after agreement. The construction <em>is</em> government, and a word’s ending is explained by naming its governor.</p>`,
   q:{ prompt:`What explains a noun’s ending, in this art?`,
       options:['Its place in the alphabetical order of the dictionary',
                'Its governor, the ʿāmil, which requires rafʿ, naṣb, or jarr of it',
@@ -4344,7 +4345,7 @@ ${il({script:'الرَّجُلُ', dir:'ar', tr:'al-rajulu', gloss:'the-man-raf�
 
 { src:['sibawayh'], h:`<p><strong>Faults: laḥn.</strong> An incorrect desinence, a wrong government, or a form the received speech does not have is <em>laḥn</em> لحن, and the fault is to speak un-Arabic. It covers, in one native word, a good deal of our barbarism and solecism together. The school is strict because the Qurʾān’s wording and the poets’ wording are the measure.</p>`,
   q:{ prompt:`<em>Laḥn</em> is closest to…`,
-      options:['A figure that the poets are allowed, for the sake of the metre or the rhyme',
+      options:['A figure that the poets are allowed, for the sake of the meter or the rhyme',
                'Speech that misses the received way: a fault of form or of government',
                'A word borrowed into Arabic from Persian',
                'A pause at the end of a line of verse'],
@@ -4380,7 +4381,7 @@ ${il({script:'ضَرَبَ عَبْدُ اللهِ زَيْدًا', dir:'ar', tr
       correct:1,
       explain:`The cut is between roles in the action and governors: two accounts of endings that look alike.` } },
 
-{ src:['appown'], h:`<p><strong>Compared with Donatus.</strong> Naḥw has three parts, not eight; a theory of government at the centre of construction, with the agreement of adjective and noun explained as following rather than by a mode of adhering; completeness possible without a verb (topic and comment); an article-particle for the article; and a vice-name that does not split word from construction. The likeness is still the greatest of the four: desinence, agreement, a named noun and verb, and a complete sentence for a hearer.</p>` },
+{ src:['appown'], h:`<p><strong>Compared with Donatus.</strong> Naḥw has three parts, not eight; a theory of government at the center of construction, with the agreement of adjective and noun explained as following rather than by a mode of adhering; completeness possible without a verb (topic and comment); an article-particle for the article; and a vice-name that does not split word from construction. The likeness is still the greatest of the four: desinence, agreement, a named noun and verb, and a complete sentence for a hearer.</p>` },
 
 { src:['sibawayh'], h:`<p><strong>The dual and the sound plural.</strong> Arabic marks two as well as more than two, and the dual has its own desinences, so that our number is singular and plural, while theirs is threefold. The fact is in the endings, so the art had to name it. Donatus had no dual in Latin to name, though Greek would have; the list follows the language.</p>
 <p>The sound plural adds an ending to the unchanged singular: masculine <em>-ūna</em> (<em>muʿallimūna</em>, teachers), and feminine <em>-āt</em> (<em>muʿallimātun</em>). Other nouns break the pattern instead, as the broken plural will show.</p>
@@ -6019,7 +6020,7 @@ const SYLL_DIV_WRONG = {
 };
 const SYLL_ITEMS = [
   {id:'sy1', lang:'en', src:['priscian'], q:'A syllable is…',
-   a:'A sound uttered in one impulse of the voice, with a vowel or diphthong at its centre',
+   a:'A sound uttered in one impulse of the voice, with a vowel or diphthong at its center',
    ds:['The smallest unit of speech that signifies something','Any single letter, whether vowel or consonant','A mark of accent written over a vowel'],
    why:'A syllable may be one letter (<em>ā</em>) or several (<em>strux</em>), and it still signifies nothing. To count syllables, count vowels and diphthongs.'},
   {id:'sy2', lang:'la', src:['ag'], q:'A Latin syllable is long by position when…',
@@ -6863,7 +6864,7 @@ const VICE_ITEMS = [
   {id:'vc4', lang:'la', src:['donatus'], s:'Puer patrem <b>amavis</b>.',
    q:'What kind of fault?',
    a:'Barbarism: a form the language does not have',
-   ds:['Solecism: two good words badly arranged','No fault: the sentence is sound as it stands','A figure, allowed for the metre'],
+   ds:['Solecism: two good words badly arranged','No fault: the sentence is sound as it stands','A figure, allowed for the meter'],
    why:'<em>Amavis</em> is not a Latin form; the perfect, third person singular, is <em>amāvit</em>. The fault is in the word, before any arrangement is asked.'},
   {id:'vc5', lang:'en', src:['donatus'], s:'Between you and I, they left.',
    q:'What kind of fault?',
@@ -6977,15 +6978,15 @@ const FIGDON_ITEMS = [
    why:'The last letter is cut off.'},
   {id:'fd7', src:['donatus'], q:'A schoolboy writes <em>temno</em> for <em>contemno</em> in plain prose. What is it?', a:'A barbarism in plain prose',
    ds:['A metaplasm, as in a poem','A trope, a word carried over','A figure of thought, for the orator'],
-   why:'Donatus teaches that the same change is a barbarism in common speech and a metaplasm in a poem, where it is allowed for the metre or for ornament.'},
+   why:'Donatus teaches that the same change is a barbarism in common speech and a metaplasm in a poem, where it is allowed for the meter or for ornament.'},
   {id:'fd8', src:['donatus'], q:'In a poem, what does Donatus call a solecism that is allowed?', a:'A figure (schema), not a fault',
    ds:['A metaplasm, the license of a word','A trope, a word carried over','A barbarism, still a fault'],
    why:'A barbarism that is allowed is a metaplasm; a solecism that is allowed is a figure.'},
-  {id:'fd9', src:['donatus'], q:'Donatus’s definition of metaplasm:', a:'A change of plain speech into another form, for metre or ornament',
+  {id:'fd9', src:['donatus'], q:'Donatus’s definition of metaplasm:', a:'A change of plain speech into another form, for meter or ornament',
    ds:['A word carried from its proper signification to one not its own','A fault in the construction of the parts, against the rule of the art','A word added to a meaning that is already full'],
    why:'The word carried from its proper signification is the trope; the fault in the arrangement is solecism; the word added to a full meaning is pleonasm.'},
   {id:'fd10', src:['donatus'], q:'Donatus’s definition of a trope:', a:'A word carried from its proper signification to one not its own',
-   ds:['A change in the letters of a word, made for the sake of the metre','An arrangement of words beyond the plain rule, such as anaphora','A fault in a single word, in its letters, form, or sound'],
+   ds:['A change in the letters of a word, made for the sake of the meter','An arrangement of words beyond the plain rule, such as anaphora','A fault in a single word, in its letters, form, or sound'],
    why:'A trope changes what the word signifies; a metaplasm changes the word’s letters; a figure arranges the words; and a barbarism is a fault in one word.'},
   {id:'fd11', src:['donatus'], q:'For Donatus, figures of words belong to…', a:'The grammarians, by Donatus’s rule',
    ds:['The orators, with figures of thought','The logicians, among the fallacies','The poets alone, as their license'],
@@ -7455,7 +7456,7 @@ EX.scribal = tradEx('scribal', ['msl','nbgt','blackgt'], 'Paradigm and List',
        why:'It sets ŋen/du facing alākum over hundreds of lines.'},
       {id:'sc11', lang:'en', src:['nbgt'], q:'Isolating a Sumerian prefix with an Akkadian explanation is…',
        a:'Their way of teaching what our accidents teach',
-       ds:['A piece of theology, on the names of gods','A note on metre, for singing the line','A list of signs ordered by their shapes'],
+       ds:['A piece of theology, on the names of gods','A note on meter, for singing the line','A list of signs ordered by their shapes'],
        why:'The grammatical vocabularies cut the word into pieces, and they name each piece by an Akkadian match, not by a Latin case-name.'},
       {id:'sc12', lang:'en', src:['msl'], q:'A dimensional prefix is understood by…',
        a:'The Akkadian relation it is listed against',
@@ -7525,7 +7526,7 @@ EX.scribal = tradEx('scribal', ['msl','nbgt','blackgt'], 'Paradigm and List',
        a:'To ask our questions, and note where they do not',
        ds:['To prove that Sumerian is a kind of Latin','To ignore the Akkadian column as a later addition','To add the eight parts to every tablet'],
        why:'We compare in order to understand their art, not to turn it into ours.'},
-      {id:'sc26', lang:'en', src:['msl'], q:'The centre of the Babylonian grammatical tablets is…',
+      {id:'sc26', lang:'en', src:['msl'], q:'The center of the Babylonian grammatical tablets is…',
        a:'The Sumerian verb, explained by Akkadian',
        ds:['The noun, sorted by its case','The sign, sorted by its shape','The sentence, sorted by its kind'],
        why:'The ambitious tablets are verbal paradigms.'},
@@ -7822,7 +7823,7 @@ EX.nahw = tradEx('nahw', ['sibawayh','jumal','appown'], 'Name, Verb, and Particl
       {id:'nh20', lang:'en', src:['appown'], q:'Of the four traditions, naḥw is nearest to Donatus because…',
        a:'It has parts, endings, government, completeness',
        ds:['It is the oldest of the four','It counts eight parts, as Donatus does','It was first written in Latin'],
-       why:'The two are alike, but not the same: naḥw counts three parts, not eight, and centres the ʿāmil.'}
+       why:'The two are alike, but not the same: naḥw counts three parts, not eight, and centers the ʿāmil.'}
     ]}
   ]);
 
@@ -8095,7 +8096,7 @@ const SERVIUS_ITEMS = [
    eng:`Anna, my sister, what dreams terrify me, hanging in doubt!\n${LIT}`,
    q:'Servius on <em>insomnia terrent</em> reports another reading, <em>terret</em>. What would change with it?',
    a:'<em>Insomnia</em> would be feminine singular, “sleeplessness,” not neuter plural, “dreams”',
-   ds:['<em>Insomnia</em> would become the object, and <em>me</em> the subject of the verb','The verb would become passive, so that Dido is frightened by Anna','Nothing in the grammar would change; only the metre would be altered'],
+   ds:['<em>Insomnia</em> would become the object, and <em>me</em> the subject of the verb','The verb would become passive, so that Dido is frightened by Anna','Nothing in the grammar would change; only the meter would be altered'],
    why:'Servius explains that <em>insomnia</em> as a feminine singular meant wakefulness, and as a neuter plural meant what we see in dreams. With <em>terrent</em> the word is neuter plural; with <em>terret</em> it would be feminine singular. Number and gender decide the meaning.'},
   {id:'sv7', src:['servius','verg_pd'],
    lat:`si non pertaesum thalami taedaeque fuisset,\nhuic uni forsan potui succumbere culpae.`,
@@ -8553,7 +8554,7 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
       {h:`<strong>The store is finite</strong>, since these are the authors and not a generator. English is the working text, with Latin or Greek on request, and the same difficult period may return with a different mark.`}
     ],
     workshop:[
-      {h:`<strong>Every construction is a dependence:</strong> one word depends, and another terminates that dependence. With Thomas, the verb depends on its subject and on its object.`},
+      {h:`<strong>Every construction is a dependence:</strong> one word depends, and another terminates that dependence. The markup draws that dependence. With Thomas, the verb depends on its subject and on its object.`},
       {h:`<strong>Read the arrow as a dependence, not as a fact about the world.</strong> <em>brave → sailor</em> says that the adjective depends on the noun; it does not say that the sailor is brave.`}
     ],
     vices:[
@@ -8852,8 +8853,8 @@ function enTake(items, d){
   return pool.length ? pool : items;
 }
 function enMC(it, d){
-  const n = d <= 1 ? 3 : 4;
   const pool = (it.ds || []).filter(x => x !== it.a);
+  const n = it.kind === 'passive' ? pool.length + 1 : (d <= 1 ? 3 : 4);
   const ds = sample(pool, Math.min(n - 1, pool.length));
   const options = shuffle([it.a].concat(ds));
   const correct = options.indexOf(it.a);
@@ -9044,7 +9045,7 @@ DECKS.enpos = {
   title:'The Eight in English',
   sub:'The same art, in the list a modern class uses',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “She sang a song” or “She song a sang”? We already know which words name things and which tell what is done. That knowledge is the parts of speech, and each word’s part is the work it does in the sentence.</p>` },
+{ src:['appown'], h:`<p>In “She sang a song,” we already know which words name things and which tell what is done. “She song a sang” does not sort the words in that way. That knowledge is the parts of speech, and a word’s part of speech is decided by how it is used in the sentence.</p>` },
 
 { src:['donatus','appown','engclass'], h:`<p><strong>THE EIGHT, IN ENGLISH.</strong> We have named the parts of speech as Donatus names them, and we have begun to mark the accidents a word can take. Before we judge how Latin words are arranged, we should be able to see an English sentence as a modern class sees it. So the names in this unit are the modern names. Beside each one we set the traditional name, when this course already has one, so that the two remain paired.</p>
 <p>A modern class usually counts eight parts: <strong>noun, pronoun, adjective, verb, adverb, preposition, conjunction,</strong> and <strong>interjection</strong>. Donatus also counts eight, but not these eight. He files the adjective under the noun, he keeps the participle as a part of its own, and he has no article, because Latin has none. The Greek list kept the article and counted the interjection among the adverbs. The lists differ because the languages differ; but the question we ask does not differ, since in every case we ask what work the word is doing here.</p>`,
@@ -9110,8 +9111,7 @@ DECKS.enpos = {
 </tbody></table></div>
 <p>The right-hand column is not a second grammar. It is the same grammar, under the names we have already been using.</p>` },
 
-{ src:['appown','engclass'], h:`<p><strong>What the drill asks.</strong> A word is marked in a sentence. We name the part of speech it is doing <em>in that sentence</em>, not the part it might do in another. The early sentences are short and made for the purpose. The later ones are quoted, and the citation stands under them.</p>
-<p>Therefore we do not ask what <em>that</em> always is. We ask what it is here. In <em>that is the question</em> it stands in for a noun. In <em>I know that he arrived</em> it joins two clauses.</p>`,
+{ src:['appown','engclass'], h:`<p><strong>What it is here.</strong> We do not ask what <em>that</em> always is. We ask what it is here. In <em>that is the question</em> it stands in for a noun. In <em>I know that he arrived</em> it joins two clauses.</p>`,
   q:{ prompt:'The parts of speech are a list of what?',
       options:['Dictionary entries, in alphabetical order',
                'Kinds of work a word can do in a sentence',
@@ -9126,7 +9126,7 @@ DECKS.ensent = {
   title:'Subject, Predicate, and the Patterns',
   sub:'What the sentence is about, and what is said of it',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is a sentence: “The tired sailors” or “The tired sailors slept”? We hear at once that the first is unfinished. A sentence needs a subject, what it is about, and a predicate, what is said of it.</p>` },
+{ src:['appown'], h:`<p>Which is a sentence: “The tired sailors” or “The tired sailors slept”? We hear at once that the first is unfinished. A sentence needs a subject, what it is about, and a predicate, what is said of it.</p>` },
 
 { src:['priscian','appown','engclass'], h:`<p><strong>SUBJECT AND PREDICATE.</strong> A sentence says something about something. The <strong>subject</strong> is what the sentence is about. The <strong>predicate</strong> is what is said of it. In <em>Jesus wept</em>, <em>Jesus</em> is the subject and <em>wept</em> is the whole predicate. Priscian’s sentence, the <span class="lat">oratio</span>, is this arrangement of subject and predicate once it is finished. We have not yet taken up his tests. We only need the two offices, so that the patterns have somewhere to stand.</p>
 <p>The <strong>simple subject</strong> is the noun or pronoun itself, without its modifiers. In <em>The quality of mercy is not strain’d</em>, the simple subject is <em>quality</em>. <em>The</em> and <em>of mercy</em> depend on it, and the whole group is the complete subject. The <strong>simple predicate</strong> is the verb, here <em>is</em>. <em>Not</em> and <em>strain’d</em> complete what is said.</p>`,
@@ -9154,9 +9154,9 @@ DECKS.ensent = {
 <li>S-LV-PN: <em>The baby is my nephew.</em></li>
 <li>S-LV-PA: <em>The baby is tired.</em></li>
 <li>S-V-DO-OC: <em>The noise made the baby cross.</em></li></ul>
-<p>Any of these patterns can also take an <strong>adverbial</strong>: a word, phrase, or clause that tells when, where, why, or how. The adverbial is optional, and the pattern is complete without it. In <em>The baby slept after lunch</em>, <em>after lunch</em> is a prepositional phrase, adverbial: it tells when. The pattern is still S-V. An adverbial can often move to the front: <em>After lunch, the baby slept.</em></p>`,
+<p>Any of these patterns can also take an <strong>adverbial</strong>: a word, phrase, or clause that tells when, where, why, or how. The adverbial is optional, and the pattern is complete without it. In <em>The baby slept after lunch</em>, <em>after lunch</em> is a prepositional phrase used as an adverb, because it tells when. The pattern is still S-V. An adverbial can often move to the front: <em>After lunch, the baby slept.</em></p>`,
   q:{ prompt:'In <em>The baby slept in the car</em>, what is <em>in the car</em>?',
-      options:['It is a prepositional phrase, adverbial: it tells where, and the pattern is still S-V.',
+      options:['It is a prepositional phrase used as an adverb, because it tells where, and the pattern is still S-V.',
                'It is a direct object, because the phrase follows the verb and completes the pattern.',
                'It is a predicate adjective, because the phrase follows the verb and describes the baby.',
                'It is an indirect object, because it tells the place for which the sleeping was done.'],
@@ -9182,8 +9182,6 @@ DECKS.ensent = {
                'S-V-IO-DO, because there are two objects of different kinds','S-LV-PN, because <em>and</em> links'],
       correct:1,
       explain:'There is one verb and one receiving. <em>And</em> joins the two nouns inside that one object. An indirect object would be a different office, the one to whom, and there is none here.' } },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> Sometimes we click the word that holds an office. Sometimes we name the pattern. At the higher difficulties we also write the pattern in the shorthand, as S-V-DO. The early sentences are short. The later ones are the authors’.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -9191,7 +9189,7 @@ DECKS.enphr = {
   title:'The Phrase',
   sub:'A group of words used as a single part of speech, with no finite verb',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “The house on the hill is old” or “The on the hill house is old”? We already know that the words <em>on the hill</em> stay together and come after <em>house</em>. A phrase is a group of words that does one job and has no subject and finite verb of its own.</p>` },
+{ src:['appown'], h:`<p>In “The house on the hill is old,” the words <em>on the hill</em> stay together and come after <em>house</em>. “The on the hill house is old” does not keep that order. A phrase is a group of words that does one job and has no subject and finite verb of its own.</p>` },
 
 { src:['engclass','appown'], h:`<p><strong>PHRASE.</strong> A <strong>phrase</strong> is a group of words that does one office and does not contain a finite verb of its own. A finite verb is a verb that asserts, with a subject, such as <em>wept</em> or <em>is</em>. <em>To be</em> and <em>walking</em> are verb-forms, but they do not assert by themselves, and so a group built on them can still be a phrase.</p>
 <p>A phrase does the work of a single part of speech. It may be used as a noun, as an adjective, or as an adverb. We name the phrase by how it is built, and we can also name it by the work it does. Both names are useful, and they are not rivals.</p>`,
@@ -9214,12 +9212,12 @@ DECKS.enphr = {
       explain:'<em>To</em> here is the sign of the infinitive, not a preposition with a noun as its object. The group has no finite verb, and so it is a phrase, not a clause.' } },
 
 { src:['engclass','appown'], h:`<p><strong>Form and function.</strong> We can name a structure by its form, which is what it is built from, or by its function, which is the work it does. There are three functions. A structure used as a noun is a noun phrase or a noun clause; the older grammars say that it is used substantively. A structure that modifies a noun is <strong>adjectival</strong>. A structure that modifies a verb, an adjective, or an adverb is <strong>adverbial</strong>.</p>
-<p>So we can give both names at once. In <em>The house on the hill is old</em>, <em>on the hill</em> is a prepositional phrase, adjectival: it tells which house. In <em>We met on the hill</em>, the same phrase is adverbial: it tells where. In <em>Swimming is good exercise</em>, <em>swimming</em> is a gerund used as a noun: it is the subject. The names noun clause, adjective clause, and adverb clause are also names of function. The older grammars call a noun clause a substantive clause and an adjective clause a relative clause.</p>`,
+<p>So we can give both names at once. In <em>The house on the hill is old</em>, <em>on the hill</em> is a prepositional phrase used as an adjective, because it tells which house. In <em>We met on the hill</em>, the same phrase is used as an adverb, because it tells where. In <em>Swimming is good exercise</em>, <em>swimming</em> is a gerund used as a noun: it is the subject. The names noun clause, adjective clause, and adverb clause are also names of function. The older grammars call a noun clause a substantive clause and an adjective clause a relative clause.</p>`,
   q:{ prompt:'In <em>We waited until noon</em>, what is <em>until noon</em>?',
-      options:['It is a prepositional phrase used as an adverb: it tells when we waited.',
-               'It is a prepositional phrase used as an adjective: it tells which waiting.',
-               'It is a gerund phrase used as a noun: it is the object of the verb.',
-               'It is an infinitive phrase used as an adverb: it tells why we waited.'],
+      options:['It is a prepositional phrase used as an adverb, because it tells when we waited.',
+               'It is a prepositional phrase used as an adjective, because it tells which waiting.',
+               'It is a gerund phrase used as a noun, because it is the object of the verb.',
+               'It is an infinitive phrase used as an adverb, because it tells why we waited.'],
       correct:0,
       explain:'<em>Until</em> is a preposition and <em>noon</em> is its object. The phrase goes with the verb <em>waited</em> and tells when, so it is adverbial.' } },
 
@@ -9227,7 +9225,7 @@ DECKS.enphr = {
 <p>Bacon writes that some books are <em>to be chewed and digested</em>. That again is an infinitive phrase. Gibbon’s <em>in the Roman world</em> is prepositional, inside a longer clause we will meet when we come to clauses.</p>
 <p>We do not call these groups clauses, because none of them asserts. <em>Is not strain’d</em> asserts. <em>Of mercy</em> does not.</p>` },
 
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> A group is marked. We name the kind of phrase by its build: prepositional, participial, gerund, infinitive, or appositive. The explanation then says what work the phrase is doing, so that the two names stay together.</p>`,
+{ src:['appown'], h:`<p><strong>The participle and the gerund.</strong> A participial phrase and a gerund phrase can look alike. In <em>Walking into the city, Caesar saw the gates</em>, the participle depends on Caesar. In <em>Walking into the city was slow</em>, the gerund is the subject. The form is the same, but the offices differ.</p>`,
   q:{ prompt:'A participial phrase and a gerund phrase can look alike. What tells them apart?',
       options:['The participial phrase is always the longer of the two',
                'The participle modifies a noun, while the gerund is itself used as a noun',
@@ -9242,7 +9240,7 @@ DECKS.encl = {
   title:'The Clause and the Kind of Sentence',
   sub:'A group of words with its own finite verb, and how clauses combine',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which can stand alone: “When the bell rang” or “The bell rang”? We hear that the first leaves us waiting. Both have a subject and a verb, so both are clauses, but only an independent clause can stand alone as a sentence.</p>` },
+{ src:['appown'], h:`<p>Which can stand alone: “When the bell rang” or “The bell rang”? We hear that the first leaves us waiting. Both have a subject and a verb, so both are clauses, but only an independent clause can stand alone as a sentence.</p>` },
 
 { src:['appown','engclass'], h:`<p><strong>CLAUSE.</strong> A <strong>clause</strong> is a group of words with its own subject and finite verb. An <strong>independent clause</strong> can stand as a sentence. A <strong>dependent clause</strong> cannot, because it depends on another clause. This course has another name for the dependence kind, and will use it again when we come to the sentence: a <strong>subordinate</strong> clause. Dependent and subordinate name the same dependence. We learn both words, because both are in ordinary use.</p>
 <p>The word that opens a dependent clause is often a conjunction or a relative pronoun, such as <em>because, when, if, who, which, that</em>. We do not name the clause from that word alone. We name it from the work the whole clause does.</p>`,
@@ -9283,8 +9281,6 @@ DECKS.encl = {
                'Because a long sentence is a complex sentence'],
       correct:1,
       explain:'<em>And</em> joins two parts inside the dependent clause. It does not join two sentences that could each stand. One independent clause plus one dependent clause is a complex sentence.' } },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> We classify a marked clause as independent, or as a noun clause, an adjective clause, or an adverb clause. We also classify whole sentences as simple, compound, complex, or compound-complex. The early items are made and short. The later items are the periods just quoted.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -9292,7 +9288,7 @@ DECKS.enform = {
   title:'Agreement, Case, and the Verb',
   sub:'Congruity, the accidents that English still shows, and the verb’s own accidents',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “The dogs bark” or “The dogs barks”? We already match the verb to the subject without thinking. The rule is that a verb agrees with its subject in number.</p>` },
+{ src:['appown'], h:`<p>We already match the verb to the subject in “The dogs bark,” and “The dogs barks” does not match. The rule is that a verb agrees with its subject in number.</p>` },
 
 { src:['appown','engclass'], h:`<p><strong>AGREEMENT.</strong> <strong>Agreement</strong> is the matching of one word’s accidents to another’s. This course calls that matching <strong>congruity</strong>. In English the matching a modern class drills is chiefly two. The verb agrees with its subject in person and number. The pronoun agrees with its <strong>antecedent</strong>, the noun it stands for, in number and gender, and then takes its case from its own clause.</p>
 <p>We find the simple subject, and we refuse to be pulled off it by a phrase that sits between. <em>The flock of starlings is loud.</em> <em>Flock</em> is singular. <em>Of starlings</em> tells which flock, and it does not become the subject. <em>The king and the queen are here</em> is plural, because <em>and</em> makes a compound subject. With <em>or</em>, <em>nor</em>, <em>either…or</em>, and <em>neither…nor</em>, the verb agrees with the nearer subject. <em>Neither the king nor the queen is here.</em></p>
@@ -9338,8 +9334,6 @@ DECKS.enform = {
                'Treat <em>death</em> as the subject, since it agrees with the singular verb <em>is</em>'],
       correct:1,
       explain:'The subject is <em>wages</em>. The verb the translators wrote is <em>is</em>. We can notice that a modern rule would choose differently, and we still do not emend the text in order to parse it.' } },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> We choose the sentence in which the verb agrees, or the pronoun stands in the case its office requires. We name tense, voice, and mood, sometimes with one click for each accident. At the higher difficulties we also write a short correction of a made sentence. The authors’ sentences are there to be named, not to be mended.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -9347,7 +9341,7 @@ DECKS.enfault = {
   title:'The Common Faults',
   sub:'What a modern class marks, set beside barbarism and solecism',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which is correct: “The rain stopped. We went out.” or “The rain stopped we went out.”? We hear where one sentence ends and the next begins. Many common faults come from a sentence boundary in the wrong place: two sentences run together, or part of a sentence written as a whole one.</p>` },
+{ src:['appown'], h:`<p>Which is correct: “The rain stopped. We went out.” or “The rain stopped we went out.”? We hear where one sentence ends and the next begins. Many common faults come from a sentence boundary in the wrong place: two sentences run together, or part of a sentence written as a whole one.</p>` },
 
 { src:['donatus','engclass'], h:`<p><strong>BARBARISM AND SOLECISM, AND THE MODERN LIST.</strong> Donatus sorts the faults of speech before he allows the same departures as figures. A <strong>barbarism</strong> is a fault in a single word, in its letters, its form, or its pronunciation. A <strong>solecism</strong> is a fault in the arrangement, where the words are each possible and the construction is not. We have those two names already, and we will meet Donatus’s list in its own place. A modern class uses a shorter list of sentence faults. We learn that list here, and we say which of the two older names it sits beside.</p>
 <p>The faulty sentences below are made. They are not offered as quotations. When a real sentence of an author looks odd to a handbook, we have already said what we do: we describe it, and we do not silently emend it.</p>`,
@@ -9389,7 +9383,7 @@ DECKS.endiag = {
   title:'The Diagram',
   sub:'Reed and Kellogg’s picture, as much as helps',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> In “Old dogs sleep,” which word is the subject, and which word describes it? We already know that <em>dogs</em> is the subject and <em>old</em> describes it. The diagram draws this: the subject and the verb go on the main line, and describing words go below the words they describe.</p>` },
+{ src:['appown'], h:`<p>In “Old dogs sleep,” which word is the subject, and which word describes it? We already know that <em>dogs</em> is the subject and <em>old</em> describes it. The diagram draws this: the subject and the verb go on the main line, and describing words go below the words they describe.</p>` },
 
 { src:['engclass'], h:`<p><strong>A PICTURE OF THE SENTENCE.</strong> Alonzo Reed and Brainerd Kellogg taught a diagram that draws the offices we have been naming. We use as much of it as makes those offices visible, and we stop before the technical cases. The lines mean the same thing in every diagram in this course.</p>
 <p>The <strong>base line</strong> (the main line) holds the main words of the clause. A vertical line that <strong>crosses</strong> the base (the main line) divides the subject from the predicate. A vertical line that comes down <strong>onto</strong> the base, and does not cross it, divides the verb from a direct object. A line that <strong>slants back toward the subject</strong> and rests on the base divides a linking verb from a predicate nominative or a predicate adjective (together called subject complements). The slant points back because the complement renames or describes the subject, and does not receive an action.</p>
@@ -9439,8 +9433,6 @@ DECKS.endiag = {
                'That the verb of the lower line is passive'],
       correct:1,
       explain:'The lower base (the lower main line) has its own subject and verb, so it is a clause. The dotted line shows that the clause depends on <em>sing</em>. <em>When</em> is the connecting word, and it is written on that line.' } },
-
-{ src:['appown','engclass'], h:`<p><strong>What the drill asks.</strong> We choose the diagram that matches the sentence, or we name what a line is doing. The wrong diagrams are the same words with one line mistaken: an object drawn as a complement, a complement drawn as an object, a modifier hung on the wrong word, a clause drawn as if it were only a phrase. The picture is a test of the offices, not a new set of names.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -9448,7 +9440,7 @@ DECKS.making = {
   title:'Making Sentences',
   sub:'Combining sentences, and choosing the clearest revision',
   panels:[
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which reads better: “The sailor was tired. The sailor slept.” or “The tired sailor slept.”? We already prefer the second, because it says the same thing in one sentence. When we combine sentences, one sentence becomes a part of the other. Here it becomes an adjective.</p>` },
+{ src:['appown'], h:`<p>Which reads better: “The sailor was tired. The sailor slept.” or “The tired sailor slept.”? We already prefer the second, because it says the same thing in one sentence. When we combine sentences, one sentence becomes a part of the other. Here it becomes an adjective.</p>` },
 
 { src:['appown','engclass'], h:`<p><strong>COMBINING SENTENCES.</strong> Two short sentences about the same thing can often become one. The second sentence then becomes a part of the first. It can become:</p>
 <ul><li>a compound subject or a compound predicate: <em>Maria and her brother sing.</em> <em>The baker mixed the dough and shaped the loaves.</em></li>
@@ -9483,8 +9475,6 @@ DECKS.making = {
                'It is never better, because the passive voice is a grammatical fault.'],
       correct:0,
       explain:'The passive is correct English. It is the better choice when the doer is unknown or unimportant, because then the receiver of the action is what the sentence is about.' } },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> Each question gives a sentence or two and asks for the best revision. Some questions offer the revisions to choose from, some give the words to build it from, and some ask for it to be written out. One choice is correct and clear. Each of the others has a real mistake: a comma splice, a fragment, a dangling or misplaced modifier, an unclear pronoun, a broken series, a wrong form, or a change of meaning. The early levels combine sentences. The later levels move modifiers, fix pronouns, and choose between the active and the passive.</p>` }
 ]};
 
 /* ============================================================
@@ -11609,7 +11599,8 @@ EX.enpos = enEx('enpos', 'The Parts of Speech in English',
     {h:'<strong>A part of speech is a kind of work.</strong> The modern eight are noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection. We also meet the article, and the participle when an <em>-ing</em> or <em>-ed</em> form modifies a noun, as Donatus’s participle does.',
      eg:['<em>Reading maketh a full man</em>: <em>Reading</em> is a noun here, a gerund.',
          '<em>The reading boy</em>: <em>reading</em> is a participle, depending on the noun.']},
-    {h:'<strong>The same sound can change its part.</strong> We name the work in this sentence. Donatus’s name, when it differs, is given in the explanation, not as a second answer.'}
+    {h:'<strong>The same sound can change its part.</strong> We name the work in this sentence. Donatus’s name, when it differs, is given in the explanation, not as a second answer.'},
+    {h:'<strong>What the drill asks.</strong> A word is marked in a sentence. We name the part of speech it is doing <em>in that sentence</em>, not the part it might do in another. The early sentences are short and made for the purpose. The later ones are quoted, and the citation stands under them.'}
   ],
   EN_POS);
 
@@ -11620,7 +11611,8 @@ EX.ensent = enEx('ensent', 'Subject, Verb, and the Pattern',
     {h:'<strong>The subject is what the sentence is about, and the predicate is what is said of it.</strong> The simple subject is the noun or pronoun without its modifiers. A direct object receives the action. A predicate nominative or a predicate adjective completes a linking verb.',
      eg:['<em>Jesus wept</em> is S-V.',
          '<em>The mind is its own place</em> is S-LV-PN.']},
-    {h:'<strong>A compound object is still one object.</strong> An indirect object appears only when no preposition is written. <em>To the king</em> is a phrase, and the pattern is then S-V-DO. Where the names differ, the explanation sets them side by side: the linking verb is the copula, the direct object is the accusative, and the indirect object is the dative.'}
+    {h:'<strong>A compound object is still one object.</strong> An indirect object appears only when no preposition is written. <em>To the king</em> is a phrase, and the pattern is then S-V-DO. Where the names differ, the explanation sets them side by side: the linking verb is the copula, the direct object is the accusative, and the indirect object is the dative.'},
+    {h:'<strong>What the drill asks.</strong> Sometimes we click the word that holds an office. Sometimes we name the pattern. At the higher difficulties we also write the pattern in the shorthand, as S-V-DO. The early sentences are short. The later ones are the authors’.'}
   ],
   EN_SENT);
 
@@ -11631,7 +11623,8 @@ EX.enphr = enEx('enphr', 'The Phrase',
     {h:'<strong>A phrase does one office and has no finite verb of its own.</strong> We name it by its build. The explanation also says whether it is used as a noun, as an adjective, or as an adverb.',
      eg:['<em>Of mercy</em> is prepositional, and it is used as an adjective.',
          '<em>To be chewed and digested</em> is an infinitive phrase.']},
-    {h:'<strong>The participle depends on a noun. The gerund is used as a noun.</strong> The form may look the same. The office decides.'}
+    {h:'<strong>The participle depends on a noun. The gerund is used as a noun.</strong> The form may look the same. The office decides.'},
+    {h:'<strong>What the drill asks.</strong> A group is marked. We name the kind of phrase by its build: prepositional, participial, gerund, infinitive, or appositive. The explanation then says what work the phrase is doing, so that the two names stay together.'}
   ],
   EN_PHR);
 
@@ -11642,7 +11635,8 @@ EX.encl = enEx('encl', 'Clause and Sentence',
     {h:'<strong>A clause has its own finite verb.</strong> An independent clause can stand. A dependent clause cannot stand alone, and this course also calls it subordinate. A dependent clause may be used as a noun, as an adjective, or as an adverb.',
      eg:['<em>Who imprisoned Montezuma</em> is a noun clause, the object of <em>knows</em>.',
          '<em>Which prevailed in the Roman world</em> is an adjective clause.']},
-    {h:'<strong>We count independent clauses, then we notice what depends.</strong> One independent clause is simple, unless a dependent clause makes it complex. Two independent clauses are compound. Two independents and a dependent clause are compound-complex.'}
+    {h:'<strong>We count independent clauses, then we notice what depends.</strong> One independent clause is simple, unless a dependent clause makes it complex. Two independent clauses are compound. Two independents and a dependent clause are compound-complex.'},
+    {h:'<strong>What the drill asks.</strong> We classify a marked clause as independent, or as a noun clause, an adjective clause, or an adverb clause. We also classify whole sentences as simple, compound, complex, or compound-complex. The early items are made and short. The later items are the periods just quoted.'}
   ],
   EN_CL);
 
@@ -11653,7 +11647,8 @@ EX.enform = enEx('enform', 'Agreement, Case, and the Verb',
     {h:'<strong>Agreement is congruity.</strong> The verb matches its subject in person and number, and a phrase between them does not steal the office. A pronoun matches its antecedent, and then takes its case from its own clause. The drill also asks about lie and lay, who and whom, I and me after a preposition, fewer and less, parallel structure, and a pronoun with a clear antecedent.',
      eg:['<em>The flock of starlings is loud</em>: <em>flock</em> is the subject.',
          '<em>Between you and me</em>: a preposition governs the objective case.']},
-    {h:'<strong>Tense, voice, and mood are accidents of the verb.</strong> Active and passive, indicative, imperative, and subjunctive, are the names a modern class uses, and they are the names this course already uses for Latin.'}
+    {h:'<strong>Tense, voice, and mood are accidents of the verb.</strong> Active and passive, indicative, imperative, and subjunctive, are the names a modern class uses, and they are the names this course already uses for Latin.'},
+    {h:'<strong>What the drill asks.</strong> We choose the sentence in which the verb agrees, or the pronoun stands in the case its office requires. We name tense, voice, and mood, sometimes with one click for each accident. At the higher difficulties we also write a short correction of a made sentence. The authors’ sentences are there to be named, not to be mended.'}
   ],
   EN_FORM);
 
@@ -11676,7 +11671,8 @@ EX.endiag = enEx('endiag', 'The Diagram',
      eg:[rkDiagram({subj:'Birds', verb:'sing', obj:'songs', alt:'Birds sing songs'}),
          rkDiagram({subj:'She', verb:'is', comp:'wise', alt:'She is wise'})]},
     {h:'<strong>What is not on the base line (the main line) hangs below it.</strong> Modifiers and prepositional phrases hang on slants. An adverb clause and an adjective clause take a lower base (a lower main line) and a dotted line. A noun clause used as an object stands on a stilt in the object slot, above the main line.',
-     eg:[rkDiagram({subj:'I', verb:'know', nclause:{rel:'that', subj:'he', verb:'came'}, alt:'I know that he came'})]}
+     eg:[rkDiagram({subj:'I', verb:'know', nclause:{rel:'that', subj:'he', verb:'came'}, alt:'I know that he came'})]},
+    {h:'<strong>What the drill asks.</strong> We choose the diagram that matches the sentence, or we name what a line is doing. The wrong diagrams are the same words with one line mistaken: an object drawn as a complement, a complement drawn as an object, a modifier hung on the wrong word, a clause drawn as if it were only a phrase. The picture is a test of the offices, not a new set of names.'}
   ],
   EN_DIAG);
 
@@ -11745,7 +11741,7 @@ const MAKING_ITEMS = [
   mkItem('mk12',1,'combine','The old man sat by the fire. He told stories about the sea.',
     'The old man sat by the fire and told stories about the sea.',
     ['The old man sat by the fire, he told stories about the sea.','The old man sat by the fire and telling stories about the sea.','Sitting by the fire, stories about the sea were told by the old man.'],
-    'One subject, two verbs in the same form. The opening phrase <em>Sitting by the fire</em> must be followed by the one who sat.'),
+    'There is one subject, and there are two verbs in the same form. The opening phrase <em>Sitting by the fire</em> must be followed by the one who sat.'),
   /* relative clause (levels 1 and 2) */
   mkItem('mk13',1,'combine','The woman lives next door. She is a doctor.',
     'The woman who lives next door is a doctor.',
@@ -11893,8 +11889,8 @@ const MAKING_ITEMS = [
     'An absolute phrase, a noun with a participle or adjective, can stand before the main clause. <em>Being over</em> has no noun of its own and so attaches to the crowd.'),
   mkItem('mk48',5,'combine','His work was finished. He went for a walk.',
     'His work finished, he went for a walk.',
-    ['His work was finished, he went for a walk.','Finished, he went for a walk.','His work finished. He went for a walk.'],
-    'The absolute phrase <em>his work finished</em> keeps its own noun. <em>Finished</em> alone would describe the man.'),
+    ['His work was finished, he went for a walk.','Finished, the walk was taken.','His work finished. He went for a walk.'],
+    'The absolute phrase <em>his work finished</em> keeps its own noun. <em>Finished, the walk was taken</em> says that the walk was finished.'),
   mkItem('mk49',5,'combine','The sun had set. The travelers made camp.',
     'The sun having set, the travelers made camp.',
     ['The sun had set, the travelers made camp.','Having set, the travelers made camp.','The sun having set. The travelers made camp.'],
@@ -11905,8 +11901,8 @@ const MAKING_ITEMS = [
     'The absolute phrase <em>her hands shaking</em> stands before the main clause. Written alone, it is a fragment.'),
   mkItem('mk51',5,'combine','The work was done. The crew rested.',
     'The work done, the crew rested.',
-    ['The work was done, the crew rested.','Done, the crew rested.','The work done. The crew rested.'],
-    'The absolute phrase keeps its noun, <em>the work</em>. <em>Done, the crew rested</em> says that the crew was done.'),
+    ['The work was done, the crew rested.','Done, the rest was taken by the crew.','The work done. The crew rested.'],
+    'The absolute phrase keeps its noun, <em>the work</em>. <em>Done, the rest was taken by the crew</em> says that the rest was done.'),
   mkItem('mk52',5,'combine','The wind was rising. The sailors reefed the sails.',
     'The wind rising, the sailors reefed the sails.',
     ['The wind was rising, the sailors reefed the sails.','Rising, the sailors reefed the sails.','The wind rising. The sailors reefed the sails.'],
@@ -11919,7 +11915,7 @@ const MAKING_ITEMS = [
   mkItem('mk54',3,'modifier','After finishing dinner, the dishes were washed.',
     'After finishing dinner, we washed the dishes.',
     ['After finishing dinner, the dishes were washed by us.','The dishes, after finishing dinner, were washed.','After finishing dinner the dishes were washed.'],
-    'The phrase needs the people who finished dinner right after it. While <em>the dishes</em> come first, the dishes seem to have eaten.'),
+    'When the dishes come right after the phrase, they seem to have finished dinner.'),
   mkItem('mk55',3,'modifier','Having lost the map, the forest seemed endless.',
     'Having lost the map, we found the forest endless.',
     ['Having lost the map, the forest seemed endless to us.','The forest, having lost the map, seemed endless.','Having lost the map the forest seemed endless.'],
@@ -12028,7 +12024,7 @@ const MAKING_ITEMS = [
     '<em>They</em> has no noun to stand for. Naming the source makes the sentence clear.',
     'The news comes from the newspaper. Revise the sentence so that it says so clearly.'),
   mkItem('mk79',3,'pronoun','Ann gave Beth her book.',
-    'Ann returned Beth’s book to Beth.',
+    'Ann gave Beth’s book back to her.',
     ['Ann gave Beth hers book.','Ann gave Beth Ann’s book.','Ann gave her book to Beth.'],
     'Naming Beth as the owner removes the doubt that <em>her</em> leaves.',
     'The book belongs to Beth. Revise the sentence so that it says so clearly.'),
@@ -12206,28 +12202,28 @@ const MAKING_ITEMS = [
   /* when the passive is better (level 5) */
   mkItem('mk120',5,'passive','No one knows who built the old wall.',
     'The wall was built about 1600.',
-    ['The wall was builded about 1600.','The wall built about 1600.','About 1600 the wall built.'],
-    'The passive is the better choice when the doer is unknown, as here. The other versions have a wrong form or no proper verb.'),
+    ['The wall was builded about 1600.','The wall built about 1600.','About 1600 the wall built.','Someone built the wall about 1600.'],
+    'The passive is the better choice when the doer is unknown, as here. <em>Someone built the wall about 1600</em> is grammatical, but it supplies a doer. The other versions have a wrong form or no proper verb.'),
   mkItem('mk121',5,'passive','The patient needed care at once; who drove him does not matter.',
     'The patient was taken to the hospital at once.',
-    ['The patient took to the hospital at once.','The patient was took to the hospital at once.','To the hospital the patient took at once.'],
-    'The passive is the better choice when the doer is unimportant. <em>The patient took to the hospital</em> changes the meaning.'),
+    ['The patient took to the hospital at once.','The patient was took to the hospital at once.','To the hospital the patient took at once.','Someone took the patient to the hospital at once.'],
+    'The passive is the better choice when the doer is unimportant. <em>Someone took the patient to the hospital at once</em> is grammatical, but it supplies a doer. <em>The patient took to the hospital</em> changes the meaning.'),
   mkItem('mk122',5,'passive','Someone took my bicycle, and I do not know who.',
     'My bicycle was stolen last night.',
-    ['My bicycle stole last night.','Last night stole my bicycle.','My bicycle was stealed last night.'],
-    'The thief is unknown, so the passive is the natural choice. <em>Stealed</em> is not an English form.'),
+    ['My bicycle stole last night.','Last night stole my bicycle.','My bicycle was stealed last night.','Someone stole my bicycle last night.'],
+    'The thief is unknown, so the passive is the better choice. <em>Someone stole my bicycle last night</em> is grammatical, but it supplies a doer. <em>Stealed</em> is not an English form.'),
   mkItem('mk123',5,'passive','The results come out tomorrow; who announces them does not matter.',
     'The results will be announced tomorrow.',
-    ['The results will announce tomorrow.','The results will be announce tomorrow.','Tomorrow will announce the results.'],
-    'The passive is the better choice when the doer does not matter. The other versions make the results or the day do the announcing, or use the wrong form.'),
+    ['The results will announce tomorrow.','The results will be announce tomorrow.','Tomorrow will announce the results.','Someone will announce the results tomorrow.'],
+    'The passive is the better choice when the doer does not matter. <em>Someone will announce the results tomorrow</em> is grammatical, but it supplies a doer. The other versions make the results or the day do the announcing, or use the wrong form.'),
   mkItem('mk124',5,'passive','Many farmers grow rice in Asia; no single farmer matters here.',
     'Rice is grown in many parts of Asia.',
-    ['Rice is growed in many parts of Asia.','Rice are grown in many parts of Asia.','Many parts of Asia are grown rice.'],
-    'The passive is the better choice when the doers are many and unnamed. <em>Growed</em> is not a form, and <em>rice</em> takes a singular verb.'),
+    ['Rice is growed in many parts of Asia.','Rice are grown in many parts of Asia.','Many parts of Asia are grown rice.','Farmers grow rice in many parts of Asia.'],
+    'The passive is the better choice when the doers are many and unnamed. <em>Farmers grow rice in many parts of Asia</em> is grammatical, but it names the doers. <em>Growed</em> is not a form, and <em>rice</em> takes a singular verb.'),
   mkItem('mk125',5,'passive','The founders of the town are not known.',
     'The town was founded in 1720.',
-    ['The town founded in 1720.','The town was find in 1720.','In 1720 founded the town.'],
-    'The passive is the better choice when the doer is unknown. <em>Founded</em> is the participle after <em>was</em>.')
+    ['The town founded in 1720.','The town was find in 1720.','In 1720 founded the town.','Someone founded the town in 1720.'],
+    'The passive is the better choice when the doer is unknown. <em>Someone founded the town in 1720</em> is grammatical, but it supplies a doer. <em>Founded</em> is the participle after <em>was</em>.')
 ];
 
 EX.making = enEx('making', 'Making Sentences',
@@ -12236,7 +12232,8 @@ EX.making = enEx('making', 'Making Sentences',
   [
     {h:'<strong>One choice is correct and clear.</strong> Each of the others has a real mistake: a comma splice, a fragment, a dangling or misplaced modifier, an unclear pronoun, a broken series, a wrong form, or a change of meaning.',
      eg:['<em>The woman lives next door. She is a doctor.</em> becomes <em>The woman who lives next door is a doctor.</em>']},
-    {h:'<strong>The levels.</strong> Level 1 combines with a compound subject, a compound predicate, or a relative clause. Level 2 adds appositives, subordinate clauses, and parallel series. Level 3 adds participial phrases, modifiers, and pronouns. Level 4 adds the active voice. Level 5 adds the absolute phrase and the cases where the passive is better.'}
+    {h:'<strong>The levels.</strong> Level 1 combines with a compound subject, a compound predicate, or a relative clause. Level 2 adds appositives, subordinate clauses, and parallel series. Level 3 adds participial phrases, modifiers, and pronouns. Level 4 adds the active voice. Level 5 adds the absolute phrase and the cases where the passive is better.'},
+    {h:'<strong>What the drill asks.</strong> Each question gives a sentence or two and asks for the best revision. Some questions offer the revisions to choose from, some give the words to build it from, and some ask for it to be written out.'}
   ],
   MAKING_ITEMS);
 
@@ -12840,7 +12837,7 @@ function vicesEnglish(d){
   }else{
     const r = rand(VCE_FIG);
     s = r[0];
-    why = `<em>${cap(r[1])}</em> for <em>${r[2]}</em> is a shortening the poets allow for the metre, a metaplasm. In plain prose the same change would be a barbarism.`;
+    why = `<em>${cap(r[1])}</em> for <em>${r[2]}</em> is a shortening the poets allow for the meter, a metaplasm. In plain prose the same change would be a barbarism.`;
   }
   return p2MC({sid:'vce:'+s, prompt:'What kind of fault, if any?', sentence:s, a: VCE_L[kind], ds: Object.values(VCE_L), why, src:['donatus','appown']}, d);
 }
@@ -12952,7 +12949,7 @@ function figuresEnglish(d){
   if(Math.random() < 0.12){
     const r = rand(FGE_LICENCE);
     return p2MC({sid:'fge:l:'+r[0], prompt: r[0], a: FGE_LIC_L[r[1]], ds: Object.values(FGE_LIC_L), src:['donatus'],
-      why: r[1] === 'lic' ? `Donatus teaches that the same change is a metaplasm in a poem, where it is allowed for the metre, and a barbarism in plain speech.`
+      why: r[1] === 'lic' ? `Donatus teaches that the same change is a metaplasm in a poem, where it is allowed for the meter, and a barbarism in plain speech.`
                           : `In plain prose there is no license, and <em>${r[2]}</em> for <em>${r[3]}</em> is a fault in one word, a barbarism. A poet might be allowed it as a metaplasm.`}, d);
   }
   const pool = FGE_ITEMS;
@@ -13191,7 +13188,7 @@ const CSE_PLACE = [];
   ['The master handed the <b>boy</b> a key.','boy','key'],['She wrote the <b>judge</b> a note.','judge','note']
 ].forEach(([s, w, thing]) => CSE_PLACE.push([s, 'mid', `<em>${cap(w)}</em> stands between the verb and the other object, <em>${thing}</em>, so the place marks it as the indirect object.`]));
 [
-  ['The roof of the <b>temple</b> had fallen.','temple'],['The colour of the <b>leaves</b> is changing.','leaves'],
+  ['The roof of the <b>temple</b> had fallen.','temple'],['The color of the <b>leaves</b> is changing.','leaves'],
   ['This is the house of the <b>king</b>.','king'],['The sound of the <b>bells</b> was loud.','bells'],
   ['The name of the <b>ship</b> was painted on the bow.','ship'],['The end of the <b>road</b> is in sight.','road'],
   ['We heard the cry of the <b>child</b>.','child'],['The walls of the <b>city</b> are high.','city']
@@ -13646,7 +13643,9 @@ function lbDraw(d){
     const objNom = rand(objPool.filter(o => o !== subjNom));
     const se = lbNoun(subjNom), oe = lbNoun(objNom);
     if(!se || !oe || se.g === 'n') continue;
-    const sNum = d <= 1 ? 'sg' : rand(NUMS), oNum = d <= 1 ? 'sg' : rand(NUMS);
+    const sNum = d <= 1 ? 'sg' : rand(NUMS);
+    let oNum = d <= 1 ? 'sg' : rand(NUMS);
+    if(v[0] === 'parō' && objNom === 'bellum') oNum = 'sg';
     const tense = d <= 2 ? 'pres' : rand(['pres','pres','impf','perf']);
     const vForm = lbVerbForm(ve, tense, sNum);
     if(!vForm) continue;
@@ -13669,7 +13668,11 @@ function lbDraw(d){
     if(d >= 3 && Math.random() < 0.35) adv = {role:'adv', w:rand(LB_ADVS)};
     /* English */
     const nEn = (e, num) => (LB_PERSONS[e.nom] || LB_THINGS[e.nom])[num === 'sg' ? 0 : 1];
-    const np = (h, num) => 'the ' + (adj && adj.on === h ? LB_ADJ_EN[adj.entry.nom] + ' ' : '') + nEn(h.entry, num);
+    const np = (h, num) => {
+      const adjBit = adj && adj.on === h ? LB_ADJ_EN[adj.entry.nom] + ' ' : '';
+      if(v[0] === 'parō' && h.entry.nom === 'bellum') return (adjBit ? 'a ' + adjBit : '') + 'war';
+      return 'the ' + adjBit + nEn(h.entry, num);
+    };
     const ve2 = v[1];
     let vp;
     const neg = adv && adv.w[0] === 'nōn', often = adv && adv.w[0] === 'saepe';
@@ -13911,8 +13914,11 @@ nfAddTyped('govern', d => Math.random() < 0.5 ? latGovernTyped(d) : enGovernType
 nfAddTyped('making', d => Math.random() < 0.5 ? makingTyped(d) : makingBuild(d), d => d <= 1 ? 0.45 : d === 2 ? 0.55 : 0.6);
 EX.latbuild = {
   id:'latbuild', src:['ag','appown'], act:'IV', title:'Building the Latin Sentence',
-  desc:'An English sentence is given, and the Latin is built from the forms offered: each noun in the case its work requires, the verb in agreement with its subject, and the adjective in agreement with its noun. At the highest level the Latin is typed.',
+  desc:'An English sentence is given, and the Latin is built from the forms offered: each noun in the case its use requires, the verb in agreement with its subject, and the adjective in agreement with its noun. At the highest level the Latin is typed.',
   instr:'Build the Latin sentence.',
+  intro:[
+    {h:'<strong>What the drill asks.</strong> An English sentence is given, with the Latin words it needs. Some of the forms offered are wrong in one accident: a noun in the wrong case, a verb in the wrong number or tense, or an adjective in the wrong gender or case. We choose the right forms by each word’s use in the sentence. At the higher levels a phrase of place is added, and at the highest level the Latin sentence is typed. Macrons are optional. The exercises accept any order of the right words.'}
+  ],
   gen(d){
     for(let i = 0; i < 6; i++){ const q = latBuildQ(d); if(q) return q; }
     return null;
@@ -14172,6 +14178,9 @@ EX.meter = {
   id:'meter', src:['ag','engclass','hypo'], act:'I', title:'Meter and Scansion',
   desc:'Mark the long and short syllables of lines of Virgil and Ovid, and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
   instr:'Mark the syllables, write the feet, or name the meter.',
+  intro:[
+    {h:'<strong>What the drill asks.</strong> A Latin line is shown, and each syllable is marked long or short. At the higher levels the feet are written as letters, D for a dactyl and S for a spondee. An English line is shown, and each syllable is marked as a beat or an offbeat. At the higher levels the meter of an English line is named. Where a syllable can be marked either way, the exercise accepts either mark.'}
+  ],
   gen(d){ return Math.random() < 0.5 ? scanLaQ(d) : scanEnQ(d); }
 };
 
@@ -14360,6 +14369,9 @@ EX.markup = {
   id:'markup', src:['te','appown'], act:'IV', title:'Marking the Sentence',
   desc:'Mark every dependence in a short English or Latin sentence: the adjective on its noun, the adverb on its verb, and the verb on its subject and its object, as Thomas of Erfurt draws them.',
   instr:'Mark every dependence in the sentence.',
+  intro:[
+    {h:'<strong>What the drill asks.</strong> We tap the word that depends, then the word that terminates its dependence. Tapping the same pair again removes the arrow.'}
+  ],
   gen(d){ return markQ(d); }
 };
 
@@ -14475,7 +14487,7 @@ DECKS.meter = {
   sub:'Long and short in Latin verse, beat and offbeat in English',
   panels:[
 { src:['ag','engclass'], h:`<p><strong>VERSE AND METER.</strong> Verse is speech arranged in lines, and the pattern of syllables in each line is its <strong>meter</strong>. Latin and Greek meter is a pattern of <strong>long and short</strong> syllables, measured as we measured quantity. English meter is a pattern of <strong>stressed and unstressed</strong> syllables, with a set number of beats in each line.</p>
-<p>The two are different facts. A long syllable in Latin is a matter of time, and a stressed syllable in English is a matter of loudness, so we must not mark one in the place of the other.</p>`,
+<p>A long syllable in Latin is a matter of time, and a stressed syllable in English is a matter of emphasis, made by loudness, pitch, and length together, so we must not mark one in the place of the other.</p>`,
   q:{ prompt:'What is the meter of a Latin line a pattern of?',
       options:['It is a pattern of long and short syllables, as quantity measures them.',
                'It is a pattern of stressed and unstressed syllables, as in English verse.',
@@ -14484,7 +14496,7 @@ DECKS.meter = {
       correct:0,
       explain:'Latin verse measures quantity: how long a syllable takes, by nature or by position. English verse counts stresses. Rhyme is not part of the classical meter.' } },
 
-{ src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “a THOU-sand SHIPS” or “a thou-SAND ships”? We already know where the stress falls in an English word. English meter is built from those stresses, and Latin meter is built from long and short syllables.</p>` },
+{ src:['appown'], h:`<p>We already know where the stress falls in “a THOU-sand SHIPS,” and “a thou-SAND ships” does not place it there. English meter is built from those stresses, and Latin meter is built from long and short syllables.</p>` },
 
 { src:['ag'], h:`<p><strong>The dactylic hexameter.</strong> Virgil’s <em>Aeneid</em> and Ovid’s <em>Metamorphoses</em> are written in the <strong>dactylic hexameter</strong>, a line of six feet. A <strong>dactyl</strong> is a long syllable followed by two short ones (– ∪ ∪). A <strong>spondee</strong> is two long syllables (– –).</p>
 <p>Each of the first four feet may be a dactyl or a spondee. The fifth foot is nearly always a dactyl. The sixth foot has two syllables, and the last of them may be long or short.</p>
@@ -14529,9 +14541,7 @@ DECKS.meter = {
       correct:0,
       explain:'An iamb is × /. A trochee is / ×, an anapest is × × /, and a long syllable with two short ones is the Latin dactyl, which is measured by length, not by stress.' } },
 
-{ src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>. Where a syllable can be marked either way, the exercise accepts either mark.</p>` },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> A Latin line is shown, and each syllable is marked long or short. At the higher levels the feet are written as letters, D for a dactyl and S for a spondee. An English line is shown, and each syllable is marked as a beat or an offbeat. At the higher levels the meter of an English line is named.</p>` }
+{ src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>.</p>` },
 ]};
 
 /* -------------------------------------------------------------- */
@@ -14539,16 +14549,16 @@ DECKS.latbuild = {
   title:'Building the Latin Sentence',
   sub:'From the meaning to the forms',
   panels:[
-{ src:['ag','appown'], h:`<p><strong>BUILDING A SENTENCE.</strong> Parsing goes from the form to its accidents. Building goes the other way, from the meaning to the forms. To say <em>The girl praises the poet</em> in Latin, we choose the case of each noun by the work it does. The subject is in the nominative, <em>puella</em>, and the one who receives the action is in the accusative, <em>poētam</em>. The verb agrees with its subject in number and person: <em>laudat</em>. An adjective agrees with its noun in gender, number, and case: <em>puella bona</em>, <em>poētam bonum</em>.</p>`,
+{ src:['ag','appown'], h:`<p><strong>BUILDING A SENTENCE.</strong> Parsing goes from the form to its accidents. Building goes the other way, from the meaning to the forms. To say <em>The girl praises the poet</em> in Latin, we choose the case of each noun by its use in the sentence. The subject is in the nominative, <em>puella</em>, and the one who receives the action is in the accusative, <em>poētam</em>. The verb agrees with its subject in number and person: <em>laudat</em>. An adjective agrees with its noun in gender, number, and case: <em>puella bona</em>, <em>poētam bonum</em>.</p>`,
   q:{ prompt:'In <em>The girl praises the poet</em>, which form does <em>poet</em> take in Latin?',
       options:['The accusative, <em>poētam</em>, because the poet receives the action.',
                'The nominative, <em>poēta</em>, because the noun is of the first declension.',
                'The genitive, <em>poētae</em>, because the poet belongs to the praising.',
                'The ablative, <em>poētā</em>, because it follows the verb.'],
       correct:0,
-      explain:'The case follows the work the noun does in the sentence. The poet receives the praising, so <em>poēta</em> is in the accusative, <em>poētam</em>. The declension decides the ending, not the case.' } },
+      explain:'The case follows its use in the sentence. The poet receives the praising, so <em>poēta</em> is in the accusative, <em>poētam</em>. The declension decides the ending, not the case.' } },
 
-{ src:['ag','appown'], h:`<p><strong>Word order.</strong> In English the order of the words shows which noun is the subject: <em>The girl praises the poet</em> does not mean <em>The poet praises the girl</em>. In Latin the endings show it, and so the order is free. <em>Puella poētam laudat</em>, <em>poētam puella laudat</em>, and <em>laudat puella poētam</em> all say the same thing. The usual prose order puts the subject first and the verb last, and the exercises accept any order of the right words.</p>`,
+{ src:['ag','appown'], h:`<p><strong>Word order.</strong> In English the order of the words shows which noun is the subject: <em>The girl praises the poet</em> does not mean <em>The poet praises the girl</em>. In Latin the endings show it, and so the order is free. <em>Puella poētam laudat</em>, <em>poētam puella laudat</em>, and <em>laudat puella poētam</em> all say the same thing. The usual prose order puts the subject first and the verb last.</p>`,
   q:{ prompt:'Why may a Latin sentence put the object first?',
       options:['Because the endings, not the order, show which noun is the subject.',
                'Because Latin always puts the most important word at the very end.',
@@ -14556,8 +14566,6 @@ DECKS.latbuild = {
                'Because Latin has no subject, and every noun receives the action.'],
       correct:0,
       explain:'The nominative marks the subject and the accusative the object, wherever they stand. English has lost those endings in its nouns, and so it relies on order.' } },
-
-{ src:['appown'], h:`<p><strong>What the drill asks.</strong> An English sentence is given, with the Latin words it needs. Some of the forms offered are wrong in one accident: a noun in the wrong case, a verb in the wrong number or tense, or an adjective in the wrong gender or case. We choose the right forms by asking what work each word does. At the higher levels a phrase of place is added, and at the highest level the Latin sentence is typed. Macrons are optional.</p>` }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -14565,7 +14573,7 @@ DECKS.markup = {
   title:'Marking the Sentence',
   sub:'Every dependence, and a free workshop',
   panels:[
-{ src:['te','appown'], h:`<p><strong>MARKING EVERY DEPENDENCE.</strong> The Sentence Workshop asked about one dependence at a time. Here we mark them all. We tap the word that depends, then the word that terminates its dependence, and an arrow is drawn from the first to the second. Tapping the same pair again removes the arrow.</p>
+{ src:['te','appown'], h:`<p><strong>MARKING EVERY DEPENDENCE.</strong> The Sentence Workshop asked about one dependence at a time. Here we mark them all. We tap the word that depends, then the word that terminates its dependence, and an arrow is drawn from the first to the second.</p>
 <p>The arrows follow Thomas of Erfurt, as before. The adjective depends on its noun, the adverb on its verb, and the verb on its subject and also on its object. In <em>The brave sailor sees the king</em>, <em>brave</em> depends on <em>sailor</em>, and <em>sees</em> depends on <em>sailor</em> and on <em>king</em>.</p>`,
   q:{ prompt:'In <em>The brave sailor sees the king</em>, how many arrows leave the verb <em>sees</em>?',
       options:['Two leave it, one to its subject, <em>sailor</em>, and one to its object, <em>king</em>.',
@@ -14578,7 +14586,7 @@ DECKS.markup = {
 { src:['appown'], h:`<p><strong>The article.</strong> English <em>the</em> is not one of Donatus’s eight parts, and Latin has no article. In this course we draw the article as depending on its noun, as an adjective does. The exercises draw that arrow already, as a dashed line.</p>` },
 
 { src:['appown'], h:`<p><strong>The free workshop.</strong> The free workshop takes any sentence we type, in English or Latin. We mark the dependences and, if we wish, the part of speech of each word and, in Latin, its case. The workshop then reads the markup back in words. It reports a verb with no subject marked, a word joined to nothing, an adjective that depends on something other than a noun, and two words marked as depending on each other.</p>
-<p>The workshop reads only what we have marked. It does not judge whether the sentence is true, and it does not check the words against a dictionary. A switch draws the arrows between the verb and its subject and object in the modern direction, for comparison.</p>` }
+<p>The workshop reads only what we have marked. It does not judge whether the sentence is true, and it does not check the words against a dictionary.</p>` }
 ]};
 
 

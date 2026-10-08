@@ -226,7 +226,7 @@ best work.
 
 #### ACT V — GRAMMATICA SPECULATIVA · *the modes of signifying*
 
-The doctrinal centre. Everything before it was material; this act says why the material
+The doctrinal center. Everything before it was material; this act says why the material
 is shaped as it is. Thomas of Erfurt's *Grammatica speculativa* is the working text,
 Boethius of Dacia for the harder questions, Aquinas for the metaphysics underneath.
 

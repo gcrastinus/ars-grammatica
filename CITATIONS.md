@@ -263,7 +263,7 @@ first road of the trivium," and the opening panel and definition speak of the th
 traditional characters, corrected forms such as *māršu*, plainer wording):
 
 - *Scribal lists* (18 → 33): Not a book of definitions; Sound is not denied; A line of
-  connected Sumerian; The verb as they centre it; Time, as they mark it; A second noun-line
+  connected Sumerian; The verb as they center it; Time, as they mark it; A second noun-line
   (now with *dumu = māru* beside *dumu-ni = māršu*); God and the mark (DINGIR); Another paradigm
   line (*i-ŋen*); Letter and word, again; On the authors; Plural, as a piece; The thematic
   list; Who is the hearer?; A directed form (*mu-na-an-šum*); Two languages, one education.
