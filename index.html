@@ -207,6 +207,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .mode-btn.sel{background:var(--gold); color:var(--sel-text); border-color:var(--gold)}
 .mode-row[hidden]{display:none !important}
 .lang-row[hidden], .lang-note[hidden]{display:none !important}
+.partner-soon{opacity:.5}
 
 /* ------- cards ------- */
 .set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
@@ -646,11 +647,12 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
 
     <div class="rule"></div>
 
-    <div class="section-label">The Partner Language</div>
-    <div class="lang-box">
+    <div class="section-label partner-soon">The Partner Language</div>
+    <div class="lang-box partner-soon">
       <div class="lang-fixed">English and <strong>Latin</strong> are the primary languages used in every part of the course.
         Latin is the tradition’s own language, and every technical term here is a Latin term.
-        You may add one further language as a witness for further study.</div>
+        Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.</div>
+      <div class="soon-flag">Coming soon</div>
       <h4 hidden>A third language</h4>
       <div class="lang-row" id="lang-row" hidden></div>
       <div class="lang-note" id="lang-note" hidden></div>

@@ -340,7 +340,7 @@ Sources: names the works that panel rests on.
 }
 
 function courseLeadIn(html) {
-  // The homepage wording is the course’s own. Keep this text the same as that page, plus the sentence about Ancient Greek, German, and French, which the page states only after a language is chosen.
+  // The homepage wording is the course’s own. Keep this text the same as that page.
   return `Ars Grammatica
 The first art of the trivium
 
@@ -349,9 +349,7 @@ The first art of the trivium
 The partner language
 English and **Latin** are the primary languages used in every part of the course.
 Latin is the tradition’s own language, and every technical term here is a Latin term.
-You may add one further language as a witness for further study.
-
-You may add Ancient Greek, German, or French. Where that changes the questions, three examples are given under that language.
+Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.
 `;
 }
 
