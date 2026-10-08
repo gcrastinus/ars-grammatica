@@ -14171,6 +14171,144 @@ EX.latvoice = {
   gen(d){ return latVoiceQ(d); }
 };
 
+/* ---------- Clauses and the Participial Phrase ---------- */
+/* Same mechanics as the two exercises before it: one blank in a frame already in order. Every wrong choice
+   makes bad Latin, and no wrong choice differs from the answer only by a macron. All verbs are indicative. */
+const LC_ITEMS = [
+  /* 1. the relative clause */
+  {id:'lc1', k:1, en:'The girl praises the poet who writes the words.', fr:'Puella poētam, ______ verba scrībit, laudat.', a:'quī', ds:['quem','quōs','quās'],
+   why:'The pronoun refers to <em>poētam</em>, which is masculine and singular, and it is the subject of <em>scrībit</em> in its own clause, so it is nominative: <strong>quī</strong>.'},
+  {id:'lc2', k:1, en:'The king calls the soldier whom the queen praises.', fr:'Rēx mīlitem, ______ rēgīna laudat, vocat.', a:'quem', ds:['quī','quōs','quās'],
+   why:'The pronoun refers to <em>mīlitem</em>, which is masculine and singular, and it is the object of <em>laudat</em> in its own clause, so it is accusative: <strong>quem</strong>. <em>Quī</em> would give the clause two subjects, <em>quī</em> and <em>rēgīna</em>.'},
+  {id:'lc3', k:1, en:'The master hears the girls who fear the war.', fr:'Dominus puellās, ______ bellum timent, audit.', a:'quae', ds:['quās','quī','quōs'],
+   why:'The pronoun refers to <em>puellās</em>, which is feminine and plural, and it is the subject of <em>timent</em> in its own clause, so it is nominative: <strong>quae</strong>. Its case comes from its own clause, not from <em>puellās</em>.'},
+  {id:'lc4', k:1, en:'The queen sees the boy to whom the father sends a gift.', fr:'Rēgīna puerum, ______ pater dōnum mittit, videt.', a:'cui', ds:['quem','quī','quōs'],
+   why:'The pronoun refers to <em>puerum</em>, which is masculine and singular, and it names the person to whom the gift is sent in its own clause, so it is dative: <strong>cui</strong>.'},
+  {id:'lc5', k:1, en:'The boy carries the gift that the queen sends.', fr:'Puer dōnum, ______ rēgīna mittit, portat.', a:'quod', ds:['quem','quī','quās'],
+   why:'The pronoun refers to <em>dōnum</em>, which is neuter and singular, and it is the object of <em>mittit</em> in its own clause, so it is accusative: <strong>quod</strong>.'},
+  {id:'lc6', k:1, en:'The soldiers whom the king leads capture the city.', fr:'Mīlitēs, quōs rēx ______, urbem capiunt.', a:'dūcit', ds:['dūcunt','dūcere','dūcitur'],
+   why:'<em>Rēx</em> is the subject of the relative clause, so its verb is singular: <strong>dūcit</strong>. <em>Quōs</em> is its object.'},
+  {id:'lc7', k:1, en:'The girl sees the citizens who fear the king.', fr:'Puella cīvēs, quī rēgem ______, videt.', a:'timent', ds:['timet','timēre','timēmus'],
+   why:'<em>Quī</em> refers to <em>cīvēs</em>, which is plural, and it is the subject of the relative clause, so its verb is plural: <strong>timent</strong>.'},
+  {id:'lc8', k:1, en:'The father praises the son who reads the words.', fr:'Pater fīlium, quī verba ______, laudat.', a:'legit', ds:['legunt','legere','leguntur'],
+   why:'<em>Quī</em> refers to <em>fīlium</em>, which is singular, and it is the subject of the relative clause, so its verb is singular: <strong>legit</strong>.'},
+  /* 2. quod, because, with the indicative */
+  {id:'lc9', k:2, en:'The girls praise the queen because she sends gifts.', fr:'Puellae rēgīnam laudant, ______ dōna mittit.', a:'quod', ds:['quī','quem','quōs'],
+   why:'The clause gives the reason, so it begins with <strong>quod</strong>, “because,” and its verb <em>mittit</em> is indicative. A relative pronoun here would have no antecedent of its gender.'},
+  {id:'lc10', k:2, en:'The girl fears the war because the soldiers capture the town.', fr:'Puella bellum timet, ______ mīlitēs oppidum capiunt.', a:'quod', ds:['quī','quem','quōs'],
+   why:'The clause gives the reason, so it begins with <strong>quod</strong>, “because.” <em>Quī</em> would give the clause two subjects, <em>quī</em> and <em>mīlitēs</em>.'},
+  {id:'lc11', k:2, en:'The queen praises the girls because they read the words.', fr:'Rēgīna puellās laudat, ______ verba legunt.', a:'quod', ds:['quī','quem','quōs'],
+   why:'The clause gives the reason, so it begins with <strong>quod</strong>, “because,” and its verb <em>legunt</em> is indicative.'},
+  {id:'lc12', k:2, en:'The citizens fear the war because the king sends soldiers.', fr:'Cīvēs bellum timent, ______ rēx mīlitēs mittit.', a:'quod', ds:['quī','quem','quōs'],
+   why:'The clause gives the reason, so it begins with <strong>quod</strong>, “because.” <em>Quem</em> or <em>quōs</em> would give <em>mittit</em> two objects.'},
+  {id:'lc13', k:2, en:'The master praises the slave because the slave carries the gifts.', fr:'Dominus servum laudat, ______ servus dōna portat.', a:'quod', ds:['quī','quem','quōs'],
+   why:'The clause gives the reason, so it begins with <strong>quod</strong>, “because.” <em>Quī</em> would give the clause two subjects, <em>quī</em> and <em>servus</em>.'},
+  {id:'lc14', k:2, en:'The sailors fear the king because the king leads the soldiers.', fr:'Nautae rēgem timent, quod rēx mīlitēs ______.', a:'dūcit', ds:['dūcunt','dūcere','dūcitur'],
+   why:'<em>Rēx</em> is the subject of the <em>quod</em> clause, so its verb is singular and indicative: <strong>dūcit</strong>.'},
+  {id:'lc15', k:2, en:'The girl praises the poet because the poet writes the words.', fr:'Puella poētam laudat, quod poēta verba ______.', a:'scrībit', ds:['scrībunt','scrībere','scrībitur'],
+   why:'<em>Poēta</em> is the subject of the <em>quod</em> clause, so its verb is singular and indicative: <strong>scrībit</strong>.'},
+  {id:'lc16', k:2, en:'The king calls the citizens because the soldiers capture the city.', fr:'Rēx cīvēs vocat, quod mīlitēs urbem ______.', a:'capiunt', ds:['capit','capere','capitur'],
+   why:'<em>Mīlitēs</em> is the subject of the <em>quod</em> clause, so its verb is plural and indicative: <strong>capiunt</strong>.'},
+  /* 3. sī and nisi, with the indicative */
+  {id:'lc17', k:3, en:'If the king calls the soldiers, the soldiers come.', fr:'Sī rēx mīlitēs ______, mīlitēs veniunt.', a:'vocat', ds:['vocant','vocāre','vocātur'],
+   why:'<em>Rēx</em> is the subject of the <em>sī</em> clause, so its verb is singular, and in a simple condition it is indicative: <strong>vocat</strong>.'},
+  {id:'lc18', k:3, en:'If the queen sends gifts, the citizens praise the queen.', fr:'______ rēgīna dōna mittit, cīvēs rēgīnam laudant.', a:'Sī', ds:['Quī','Quem','Quōs'],
+   why:'The English says “if,” so the clause begins with <strong>sī</strong>, and in a simple condition both verbs are indicative. <em>Quī</em> would give the clause two subjects, <em>quī</em> and <em>rēgīna</em>.'},
+  {id:'lc19', k:3, en:'Unless the soldiers fortify the town, the king fears the war.', fr:'______ mīlitēs oppidum mūniunt, rēx bellum timet.', a:'Nisi', ds:['Quī','Quem','Quōs'],
+   why:'The English says “unless,” so the clause begins with <strong>nisi</strong>, and its verb <em>mūniunt</em> is indicative.'},
+  {id:'lc20', k:3, en:'Unless we come into the city, we do not see the king.', fr:'Nisi in ______ venīmus, rēgem nōn vidēmus.', a:'urbem', ds:['urbe','urbs','urbis'],
+   why:'“Into the city” is <em>in</em> with the accusative: <strong>in urbem</strong>. <em>In urbe</em> would mean “in the city.”'},
+  {id:'lc21', k:3, en:'If the boy has written the words, the teacher praises the boy.', fr:'Sī puer verba ______, magister puerum laudat.', a:'scrīpsit', ds:['scrīpsērunt','scrībere','scrībuntur'],
+   why:'<em>Puer</em> is the subject of the <em>sī</em> clause, and “has written” is the perfect indicative, singular: <strong>scrīpsit</strong>.'},
+  {id:'lc22', k:3, en:'If the soldiers have captured the city, the citizens fear the king.', fr:'______ mīlitēs urbem cēpērunt, cīvēs rēgem timent.', a:'Sī', ds:['Quī','Quem','Quōs'],
+   why:'The English says “if,” so the clause begins with <strong>sī</strong>, and its verb <em>cēpērunt</em> is the perfect indicative.'},
+  {id:'lc23', k:3, en:'Unless the master calls the slaves, the slaves do not come.', fr:'______ dominus servōs vocat, servī nōn veniunt.', a:'Nisi', ds:['Quī','Quem','Quōs'],
+   why:'The English says “unless,” so the clause begins with <strong>nisi</strong>, and its verb <em>vocat</em> is indicative.'},
+  {id:'lc24', k:3, en:'If the sailors come into the forest, they see the horses.', fr:'Sī nautae in ______ veniunt, equōs vident.', a:'silvam', ds:['silvā','silvae','silvārum'],
+   why:'“Into the forest” is <em>in</em> with the accusative: <strong>in silvam</strong>. <em>In silvā</em> would mean “in the forest.”'},
+  /* 4. accusative and infinitive */
+  {id:'lc25', k:4, en:'The girl says that the queen sends gifts.', fr:'Puella dīcit rēgīnam dōna ______.', a:'mittere', ds:['mittit','mittunt','mittī'],
+   why:'After <em>dīcit</em>, the statement has its subject in the accusative, <em>rēgīnam</em>, and its verb in the infinitive: <strong>mittere</strong>.'},
+  {id:'lc26', k:4, en:'The boy hears that the soldier is capturing the city.', fr:'Puer audit ______ urbem capere.', a:'mīlitem', ds:['mīles','mīlitī','mīlitis'],
+   why:'After <em>audit</em>, the subject of the infinitive <em>capere</em> is in the accusative: <strong>mīlitem</strong>. <em>Mīles</em> is the nominative.'},
+  {id:'lc27', k:4, en:'The king says that the citizens fear the war.', fr:'Rēx dīcit cīvēs bellum ______.', a:'timēre', ds:['timet','timērī','timentur'],
+   why:'After <em>dīcit</em>, the statement has its subject in the accusative, <em>cīvēs</em>, and its verb in the infinitive: <strong>timēre</strong>.'},
+  {id:'lc28', k:4, en:'The poet says that the girl praises the king.', fr:'Poēta dīcit ______ rēgem laudāre.', a:'puellam', ds:['puella','puellae','puellārum'],
+   why:'After <em>dīcit</em>, the subject of the infinitive <em>laudāre</em> is in the accusative: <strong>puellam</strong>. <em>Puella</em> is the nominative.'},
+  {id:'lc29', k:4, en:'The sailors hear that the king is leading the soldiers.', fr:'Nautae audiunt rēgem mīlitēs ______.', a:'dūcere', ds:['dūcit','dūcī','dūcuntur'],
+   why:'After <em>audiunt</em>, the statement has its subject in the accusative, <em>rēgem</em>, and its verb in the infinitive: <strong>dūcere</strong>.'},
+  {id:'lc30', k:4, en:'The master perceives that the slave fears the war.', fr:'Dominus sentit ______ bellum timēre.', a:'servum', ds:['servus','servō','servōrum'],
+   why:'After <em>sentit</em>, the subject of the infinitive <em>timēre</em> is in the accusative: <strong>servum</strong>. <em>Servus</em> is the nominative.'},
+  {id:'lc31', k:4, en:'The queen hears that the boy reads the words.', fr:'Rēgīna audit puerum verba ______.', a:'legere', ds:['legit','legī','leguntur'],
+   why:'After <em>audit</em>, the statement has its subject in the accusative, <em>puerum</em>, and its verb in the infinitive: <strong>legere</strong>.'},
+  {id:'lc32', k:4, en:'The citizens perceive that the king fortifies the city.', fr:'Cīvēs sentiunt ______ urbem mūnīre.', a:'rēgem', ds:['rēx','rēgī','rēgis'],
+   why:'After <em>sentiunt</em>, the subject of the infinitive <em>mūnīre</em> is in the accusative: <strong>rēgem</strong>. <em>Rēx</em> is the nominative.'},
+  /* 5. the ablative absolute */
+  {id:'lc33', k:5, en:'When the city has been captured, the soldiers praise the king.', fr:'Urbe ______ mīlitēs rēgem laudant.', a:'captā', ds:['captam','captae','captīs'],
+   why:'<em>Urbe</em> and the participle stand together in the ablative, apart from the main clause, and the participle agrees with <em>urbe</em>, feminine and singular: <strong>captā</strong>.'},
+  {id:'lc34', k:5, en:'When the gifts have been sent, the queen calls the girls.', fr:'______ missīs rēgīna puellās vocat.', a:'Dōnīs', ds:['Dōna','Dōnum','Dōnōrum'],
+   why:'The noun stands with the participle <em>missīs</em> in the ablative plural: <strong>dōnīs missīs</strong>. <em>Dōna</em> is nominative or accusative.'},
+  {id:'lc35', k:5, en:'When the words have been heard, the citizens fear the war.', fr:'Verbīs ______ cīvēs bellum timent.', a:'audītīs', ds:['audītō','audītae','audītārum'],
+   why:'<em>Verbīs</em> and the participle stand together in the ablative, and the participle agrees with <em>verbīs</em>, neuter and plural: <strong>audītīs</strong>.'},
+  {id:'lc36', k:5, en:'When the king has been defeated, the citizens praise the soldiers.', fr:'______ victō cīvēs mīlitēs laudant.', a:'Rēge', ds:['Rēx','Rēgem','Rēgis'],
+   why:'The noun stands with the participle <em>victō</em> in the ablative singular: <strong>rēge victō</strong>. <em>Rēx</em> is the nominative.'},
+  {id:'lc37', k:5, en:'When the town has been fortified, the citizens praise the king.', fr:'Oppidō ______ cīvēs rēgem laudant.', a:'mūnītō', ds:['mūnītae','mūnītā','mūnītīs'],
+   why:'<em>Oppidō</em> and the participle stand together in the ablative, and the participle agrees with <em>oppidō</em>, neuter and singular: <strong>mūnītō</strong>.'},
+  {id:'lc38', k:5, en:'When the horses have been seen, the boys call the master.', fr:'______ vīsīs puerī dominum vocant.', a:'Equīs', ds:['Equōrum','Equōs','Equus'],
+   why:'The noun stands with the participle <em>vīsīs</em> in the ablative plural: <strong>equīs vīsīs</strong>. <em>Equōs</em> is the accusative plural.'},
+  {id:'lc39', k:5, en:'When the war has been prepared, the king calls the soldiers.', fr:'Bellō ______ rēx mīlitēs vocat.', a:'parātō', ds:['parātum','parātā','parātīs'],
+   why:'<em>Bellō</em> and the participle stand together in the ablative, and the participle agrees with <em>bellō</em>, neuter and singular: <strong>parātō</strong>.'},
+  {id:'lc40', k:5, en:'When the law has been written, the citizens fear the king.', fr:'______ scrīptā cīvēs rēgem timent.', a:'Lēge', ds:['Lēx','Lēgem','Lēgis'],
+   why:'The noun stands with the participle <em>scrīptā</em> in the ablative singular: <strong>lēge scrīptā</strong>. <em>Lēx</em> is the nominative.'}
+];
+function latClauseQ(d){
+  const it = pickSeen(LC_ITEMS, x => x.id);
+  const frame = it.fr.replace('______', '<span class="target">______</span>');
+  if(d >= 3){
+    return {
+      kind:'text', lang:'la', src:['ag','appown'], sid:'lc:' + it.id, _answer:it.a,
+      prompt:'Write the missing Latin word. Macrons are optional.',
+      sentence:frame, gloss:it.en, placeholder:'Type the Latin form',
+      check(val){
+        if(normLat(val) === normLat(it.a)) return {right:true, note:it.why};
+        const wrote = String(val || '').trim();
+        return {right:false, note:it.why, also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:'la', src:['ag','appown'], sid:'lc:' + it.id, _answer:correct,
+    prompt:'Choose the missing Latin word.',
+    sentence:frame, gloss:it.en, options, correct,
+    check(i){
+      if(i === correct) return {right:true, note:it.why};
+      return {right:false, note:it.why, also:`The answer chosen was <em>${options[i]}</em>.`};
+    }
+  };
+}
+EX.latclause = {
+  id:'latclause', src:['ag','appown'], act:'IV', title:'Clauses and the Participial Phrase',
+  desc:'One word is missing from a Latin sentence: a relative pronoun or the verb of its clause, <em>quod</em> meaning “because,” <em>sī</em> or <em>nisi</em> with the indicative, the accusative or the infinitive of a statement after a verb of saying or hearing, or a noun or participle in the ablative absolute.',
+  instr:'Supply the missing Latin word.',
+  introInstr:'',
+  intro:[
+    {h:'<strong>The relative clause.</strong> The relative pronoun agrees with its antecedent in gender and number, but its case comes from its own clause.',
+     eg:['<em>Rēx mīlitem, quem rēgīna laudat, vocat</em> means “the king calls the soldier whom the queen praises.”']},
+    {h:'<strong><em>Quod</em>, “because.”</strong> A clause that gives a fact as the reason begins with <em>quod</em> and has its verb in the indicative.',
+     eg:['<em>Puellae rēgīnam laudant, quod dōna mittit</em> means “the girls praise the queen because she sends gifts.”']},
+    {h:'<strong><em>Sī</em> and <em>nisi</em>.</strong> A simple condition begins with <em>sī</em>, “if,” or <em>nisi</em>, “unless,” and has its verbs in the indicative, present or perfect.',
+     eg:['<em>Nisi in urbem venīmus, rēgem nōn vidēmus</em> means “unless we come into the city, we do not see the king.”']},
+    {h:'<strong>The accusative and infinitive.</strong> After a verb of saying, hearing, or perceiving, a statement has its subject in the accusative and its verb in the infinitive.',
+     eg:['<em>Puella dīcit rēgīnam dōna mittere</em> means “the girl says that the queen sends gifts.”']},
+    {h:'<strong>The ablative absolute.</strong> A noun and a participle that agrees with it can stand together in the ablative, apart from the main clause, to tell what has happened.',
+     eg:['<em>Urbe captā mīlitēs rēgem laudant</em> means “when the city has been captured, the soldiers praise the king.”']}
+  ],
+  gen(d){ return latClauseQ(d); }
+};
+
 /* ---------- scansion ---------- */
 /* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
    The quantities follow the published scansion named in the source note. */
@@ -14883,7 +15021,7 @@ const EX_MODES = {
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
-  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], markup:['both','en']
+  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -15063,6 +15201,7 @@ const ACTS = [
      {kind:'ex', ex:'latbuild'},
      {kind:'ex', ex:'latmore'},
      {kind:'ex', ex:'latvoice'},
+     {kind:'ex', ex:'latclause'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
