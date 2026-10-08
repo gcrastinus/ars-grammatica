@@ -1292,7 +1292,7 @@ const LANGS = {
     key:'grc', name:'Ancient Greek', adj:'Greek',
     cases:['nominative','genitive','dative','accusative','vocative'],
     caseCount:5, order:'flexible SOV',
-    note:'There are five cases; the ablative’s work is shared out between the genitive and the dative. Tense is aspect first and time second, a fact the modists never had to reckon with.',
+    note:'There are five cases; the uses of the Latin ablative are divided between the genitive and the dative. Tense is aspect first and time second, a fact the modists never had to reckon with.',
     caseFor:{subject:'nominative', dObject:'accusative', iObject:'dative',
              possess:'genitive', means:'dative', address:'vocative',
              from:'genitive', with:'dative'},
@@ -1579,7 +1579,7 @@ const SRC = {
        note:''},
 
   quint:{kind:'primary', short:'Quintilian, <i>Institutio oratoria</i> I.4–9',
-       full:'Quintilian, <i>Institutio oratoria</i> I.4–9 (ed. Winterbottom; English from Butler’s Loeb, public domain). The grammarian’s work is treated as the science of speaking correctly and the interpretation of the poets. Later school lists name the same offices <i>lectio, emendatio, enarratio, iudicium</i>. I.4.2 divides the profession <i>in duas partis</i>, <i>recte loquendi scientiam et poetarum enarrationem</i>; Butler renders this “the art of speaking correctly and the interpretation of the poets.”',
+       full:'Quintilian, <i>Institutio oratoria</i> I.4–9 (ed. Winterbottom; English from Butler’s Loeb, public domain). Grammar is treated as the science of speaking correctly and the interpretation of the poets. Later school lists name the same offices <i>lectio, emendatio, enarratio, iudicium</i>. I.4.2 divides the profession <i>in duas partis</i>, <i>recte loquendi scientiam et poetarum enarrationem</i>; Butler renders this “the art of speaking correctly and the interpretation of the poets.”',
        note:'Why an auctor belongs in a grammar course, and not only in rhetoric.'},
   cassiod:{kind:'primary', short:'Cassiodorus, <i>Institutiones</i> II.1',
        full:'Cassiodorus, <i>Institutiones</i> II.1: <i>Grammatica est peritia pulchre loquendi ex poetis illustribus auctoribusque collecta</i>. Quoted as given in Copeland &amp; Sluiter and in the standard text of Mynors. (The phrase <i>origo et fundamentum liberalium litterarum</i> is quoted in this course from Isidore, where it was checked; it is not claimed here for Cassiodorus.)',
@@ -1724,7 +1724,7 @@ DECKS.prelim = {
 <p><strong>Reading</strong> (<span class="lat">lectio</span>): reading the text aloud, and rightly<br> <strong>Correcting</strong> (<span class="lat">emendatio</span>): mending what is corrupt or wrongly formed<br> <strong>Explaining</strong> (<span class="lat">enarratio</span>): showing what the construction is, especially in the poets<br> <strong>Judging</strong> (<span class="lat">iudicium</span>): weighing what is read, that is, whether a line is genuine and how well it is made</p>
 <p>Speaking correctly and explaining the poets both belong to this art; that is why an author appears in this course under the sentence, and not as a visit to another faculty.</p>`,
   q:{ prompt:`Why does a grammar course read Virgil at all?`,
-      options:['To learn how the poet moves the reader','Because explaining the poets is part of the grammarian’s work',
+      options:['To learn how the poet moves the reader','Because explaining the poets is part of the art of grammar',
                'Because Virgil’s Latin is easier than a made example','Because the first office is to judge whether the story is true'],
       correct:1,
       explain:`The grammarian interprets the poets as connected speech; how the passage moves the hearer is not yet the question.` } },
@@ -2041,7 +2041,7 @@ DECKS.clauses = {
   panels:[
 
 { src:['ag','appown'], h:`<p><strong>CLAUSE.</strong> A clause is an arrangement with its own finite verb. Some clauses can stand as a sentence, and these are <strong>independent</strong>; others cannot, because they depend on another clause and complete its sense, and these are <strong>subordinate</strong>.</p>
-<p>The independent clause says the thing, while the subordinate clause says when, or why, or to what end, or with what result, or what was said, or which one. Grammar’s work here is therefore to see the dependence, and to name the kind of work it does.</p>
+<p>The independent clause says the thing, while the subordinate clause says when, or why, or to what end, or with what result, or what was said, or which one. In grammar, therefore, we see the dependence and name how the subordinate clause is used.</p>
 <p>English marks the kinds mostly by a connecting word, such as <em>if</em>, <em>because</em>, <em>although</em>, <em>when</em>, <em>that</em>, <em>who</em>, while Latin and Greek mark many of them by mood as well. The names are the same, because the work is the same.</p>`,
   q:{ prompt:`Which of these can stand as a sentence by itself?`,
       options:['A purpose clause','An independent clause','A relative clause','A prepositional phrase'],
@@ -2433,7 +2433,7 @@ the word and the result still be English.</p>`,
   q:{ prompt:`Which part stands before a noun and turns it toward the verb?`,
       options:['Adverb','Conjunction','Preposition','Interjection'],
       correct:2,
-      explain:`That is the preposition’s work. An adverb determines the verb without taking a noun as its object, a conjunction joins two extremes, and an interjection cries out.` } },
+      explain:`That is what a preposition does. An adverb determines the verb without taking a noun as its object, a conjunction joins two extremes, and an interjection cries out.` } },
 
 { src:['appown','ag'], h:`<p><strong>Phrases and clauses.</strong> A part of speech is a kind of work, and a group of words can do that work as a unit. The eight still name the work, but the marked thing is not always a single word.</p>
 <p>A <strong>phrase</strong>: <em>They arrived <u>after the storm</u>.</em> <em>After the storm</em> tells when, and so it is a prepositional phrase used as an adverb. Latin <em>post tempestatem venerunt</em> does the same work.</p>
@@ -2931,7 +2931,7 @@ act. St Thomas’s own words are <em>brachium Dei</em>.</p>`,
       options:['That God has a bodily arm, as the words say','What the figure signifies: his power to act',
                'There is none, since figures have no literal sense','Whatever the reader feels when he reads it'],
       correct:1,
-      explain:`The literal sense is what is figured, not the figure, and saying what a trope signifies is the grammarian’s work before it is the orator’s.` } },
+      explain:`The literal sense is what is figured, not the figure, and saying what a trope signifies belongs to grammar before it belongs to rhetoric.` } },
 
 { src:['donatus'], h:`<p><strong>The other faults.</strong> Between solecism and metaplasm, Donatus lists
 further faults of speech; with barbarism and solecism he counts twelve. Among them:
@@ -4658,7 +4658,7 @@ const POS_LAT = [
    note:'<em>Bonus</em> adheres to <em>puer</em> and cannot stand alone. The tradition files it under <span class="lat">nomen</span>, as a noun that depends on another.'},
   {id:'pl4', src:['ag'], s:'<b>Ego</b> rēgem videō.',
    orig:'I see the king.', a:'pronoun',
-   note:'<em>Ego</em> names a substance without describing it, which Thomas calls indeterminate apprehension. Latin may omit it; when it is written, it still does a pronoun’s work.'},
+   note:'<em>Ego</em> names a substance without describing it, which Thomas calls indeterminate apprehension. Latin may omit it; when it is written, it is still a pronoun.'},
   {id:'pl5', src:['ag'], s:'Equus <b>currēns</b> cecidit.',
    orig:'The running horse fell.', a:'participle',
    note:'<em>Currēns</em> keeps the verb’s flow and depends on <em>equus</em>. It is not a finite verb: the finite verb is <em>cecidit</em>.'},
@@ -5766,7 +5766,7 @@ const LETTER_ITEMS = [
    a:'Writing and sound are not the same', ds:['That English has no letters, only sounds','That every letter has exactly one sound','That <em>knight</em> is not really a word'],
    why:'Name, shape, and power can come apart. Latin keeps them closer; English makes the split obvious.'},
   {id:'l6', src:['priscian'], q:'In Latin <em>iam</em> (later written <em>jam</em>), the first <em>i</em> is…',
-   a:'Doing a consonant’s work, set beside a vowel',
+   a:'A consonant here, because a vowel follows it',
    ds:['A long vowel by nature, and a syllable of its own','A separate word, meaning “and,” joined to <em>am</em>','Not a letter at all, but a mark of breathing'],
    why:'Latin <em>i</em> and <em>u</em> do double work. Beside a vowel they can be consonants; the later letters <em>j</em> and <em>v</em> only make that work visible.'},
   {id:'l7', src:['appown'], q:'The newer names grapheme and phoneme line up with which older pair?',
@@ -6384,7 +6384,7 @@ const GOVERN_ITEMS = [
   {id:'gv6', src:['ag'], lang:'la', s:'She came <b>with a friend</b>.',
    q:'Latin <em>cum</em> (with) governs the…',
    a:'Ablative', ds:['Accusative','Dative','Genitive'],
-   why:'The phrase is <span class="lat">cum amico</span>. Accompaniment is an ablative’s work, and <em>cum</em> requires that case.'},
+   why:'The phrase is <span class="lat">cum amico</span>. Accompaniment is expressed by the ablative, and <em>cum</em> requires that case.'},
   {id:'gv7', src:['ag'], lang:'la', s:'They marched <b>toward the camp</b>.',
    q:'Latin <em>ad</em> (to, toward) governs the…',
    a:'Accusative', ds:['Ablative','Dative','Nominative'],
@@ -8991,7 +8991,7 @@ DECKS.enpos = {
                'Adjective, because it describes the state Jesus was in when he wept',
                'Pronoun, because it stands for the person who wept'],
       correct:1,
-      explain:'<em>Wept</em> says what happened, and the past form carries time. That is the verb’s work, which this course calls the <span class="lat">verbum</span>.' } },
+      explain:'<em>Wept</em> says what happened, and the past form carries time. That is what a verb does, and this course also calls the verb by its Latin name, the <span class="lat">verbum</span>.' } },
 
 { src:['donatus','engclass'], h:`<p><strong>The other four, and two that move.</strong> An <strong>adverb</strong> tells how, when, where, or to what degree, and it depends on a verb or an adjective: <em>quietly, not, everywhere</em>. A <strong>preposition</strong> stands before a noun or a pronoun and ties that noun or pronoun to another word: <em>in the state, of mercy</em>. A <strong>conjunction</strong> joins words or whole sentences: <em>and, but, or</em>. An <strong>interjection</strong> is a cry, such as <em>alas</em>, and it neither names nor joins. Donatus keeps it as the eighth part.</p>
 <p>Two forms need a second look. The <strong>participle</strong> is a form of the verb that depends on a noun, as <em>strain’d</em> does in <em>is not strain’d</em>, or that opens a phrase, as <em>walking</em> does in <em>walking into the city</em>. Donatus counts the participle as a part of its own. A modern class usually calls it a form of the verb. The <strong>article</strong>, <em>the</em> or <em>a</em>, points out a noun. The Greek eight counted it. Latin has none, and so Donatus does not.</p>
@@ -9115,7 +9115,7 @@ DECKS.ensent = {
 /* -------------------------------------------------------------- */
 DECKS.enphr = {
   title:'The Phrase',
-  sub:'A group that does one word’s work, and has no finite verb',
+  sub:'A group of words used as a single part of speech, with no finite verb',
   panels:[
 { src:['appown'], h:`<p><strong>Before the rule.</strong> Which sounds natural: “The house on the hill is old” or “The on the hill house is old”? We already know that the words <em>on the hill</em> stay together and come after <em>house</em>. A phrase is a group of words that does one job and has no subject and finite verb of its own.</p>` },
 
@@ -9287,7 +9287,7 @@ DECKS.enfault = {
 
 { src:['engclass','priscian'], h:`<p><strong>Fragment, run-on, comma splice.</strong> A <strong>fragment</strong> is a group of words written as if it were a sentence, though it does not make one. Usually it lacks a finite verb, or it is a dependent clause left standing alone. <em>Because the gate was shut.</em> The clause depends, and nothing is there for it to depend on. Priscian asks for a complete sense. A fragment fails that test. It may be congruous in its parts and still incomplete.</p>
 <p>A <strong>run-on</strong> joins two independent clauses with no mark and no conjunction: <em>The king arrived the queen departed.</em> A <strong>comma splice</strong> joins them with a comma alone: <em>The king arrived, the queen departed.</em> Both are solecisms of construction. English needs a period, a semicolon, or a coordinating conjunction such as <em>and, but, or</em>. <em>The king arrived, and the queen departed</em> is sound.</p>
-<p>A semicolon between two independent clauses is also sound. Burke’s period and Shakespeare’s line about cowards use it. The comma splice is the comma doing a semicolon’s work.</p>`,
+<p>A semicolon between two independent clauses is also sound. Burke’s period and Shakespeare’s line about cowards use it. A comma splice uses a comma where a semicolon is needed.</p>`,
   q:{ prompt:'<em>Because the gate was shut.</em> Written as a sentence, this is…',
       options:['A run-on, because two clauses are fused',
                'A fragment, a dependent clause with nothing to depend on',
@@ -9463,7 +9463,7 @@ const EN_POS = [
   posItem({id:'ep20', dmin:3, cite:CITE.ayli, s:'All the world\'s a <span class="target">stage</span>,', a:'Noun',
     why:'<em>Stage</em> names what the world is said to be. It is a predicate nominative, and a predicate nominative is a noun in office.'}),
   posItem({id:'ep21', dmin:3, cite:CITE.burke, s:'<span class="target">But</span> the age of chivalry is gone.', a:'Conjunction',
-    why:'<em>But</em> joins this sentence to what Burke has just said. Joining is the conjunction’s work, even when it stands at the front.'}),
+    why:'<em>But</em> joins this sentence to what Burke has just said. A word that joins is a conjunction, even when it stands at the front.'}),
   posItem({id:'ep22', dmin:4, cite:CITE.h4, s:'Vneasie lyes the <span class="target">Head</span>, that weares a Crowne.', a:'Noun',
     why:'The folio spells it <em>Head</em>. That word names what lies uneasy, and so it is the subject, a noun. The unusual order does not change the part of speech.'}),
   posItem({id:'ep23', dmin:4, cite:CITE.pl, s:'The mind is its own place, and in it self<br>Can <span class="target">make</span> a Heav’n of Hell, a Hell of Heav’n.', a:'Verb',
@@ -9485,7 +9485,7 @@ const EN_POS = [
   posItem({id:'ep31', dmin:4, cite:CITE.kjv1Co, s:'And now abideth faith, hope, charity, these three; but the greatest of these is <span class="target">charity</span>.', a:'Noun',
     why:'<em>Charity</em> names what the greatest is. After the linking verb <em>is</em> it renames the subject, and a predicate nominative is a noun in office.'}),
   posItem({id:'ep32', dmin:4, cite:CITE.kjvGen3, s:'for dust thou art, and unto dust shalt <span class="target">thou</span> return.', a:'Pronoun',
-    why:'<em>Thou</em> is the older second-person singular, the subject of <em>shalt return</em>. It stands for the one addressed, which is the pronoun’s work.'}),
+    why:'<em>Thou</em> is the older second-person singular, the subject of <em>shalt return</em>. It stands for the one addressed, and so it is a pronoun.'}),
   posItem({id:'ep33', dmin:1, s:'The <span class="target">red</span> barn stood by the road.', a:'Adjective',
     why:'<em>Red</em> tells what sort of barn. A modern class calls this an adjective. Donatus files that work under the noun.'}),
   posItem({id:'ep34', dmin:1, s:'She wore a <span class="target">warm</span> coat in the rain.', a:'Adjective',
@@ -9597,7 +9597,7 @@ const EN_POS = [
   posItem({id:'ep87', dmin:4, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only begotten Son, that <span class="target">whosoever</span> believeth in him should not perish, but have everlasting life.', a:'Pronoun',
     why:'<em>Whosoever</em> is the subject of <em>believeth</em>. It is a compound relative pronoun: the one who, whoever that may be. A modern class calls this a pronoun, Donatus’s <span class="lat">pronomen</span>.'}),
   posItem({id:'ep88', dmin:4, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, <span class="target">but</span> have everlasting life.', a:'Conjunction',
-    why:'<em>But</em> joins <em>should not perish</em> to <em>have everlasting life</em> inside the clause. Joining is the conjunction’s work. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
+    why:'<em>But</em> joins <em>should not perish</em> to <em>have everlasting life</em> inside the clause. A word that joins is a conjunction. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep89', dmin:4, cite:CITE.kjvJn3_16, s:'For God so loved the world, that he gave his only begotten Son, that whosoever believeth <span class="target">in</span> him should not perish, but have everlasting life.', a:'Preposition',
     why:'<em>In</em> takes <em>him</em> as its object and ties that phrase to <em>believeth</em>. A modern class calls this a preposition, Donatus’s <span class="lat">praepositio</span>.'}),
   posItem({id:'ep90', dmin:4, cite:CITE.kjvJas1_17, s:'Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with <span class="target">whom</span> is no variableness,', a:'Pronoun',
@@ -11532,7 +11532,7 @@ EX.enpos = enEx('enpos', 'The Parts of Speech in English',
   'A word is marked. Name the work it is doing in this sentence, in the list a modern class uses, with the traditional name in the explanation when there is one.',
   'Name the part of speech of the marked word.',
   [
-    {h:'<strong>A part of speech is a kind of work.</strong> The modern eight are noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection. We also meet the article, and the participle when the form is doing that older part’s work.',
+    {h:'<strong>A part of speech is a kind of work.</strong> The modern eight are noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection. We also meet the article, and the participle when an <em>-ing</em> or <em>-ed</em> form modifies a noun, as Donatus’s participle does.',
      eg:['<em>Reading maketh a full man</em>: <em>Reading</em> is a noun here, a gerund.',
          '<em>The reading boy</em>: <em>reading</em> is a participle, depending on the noun.']},
     {h:'<strong>The same sound can change its part.</strong> We name the work in this sentence. Donatus’s name, when it differs, is given in the explanation, not as a second answer.'}
