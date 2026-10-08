@@ -2510,7 +2510,7 @@ the word and the result still be English.</p>`,
       correct:2,
       explain:`That is what a preposition does. An adverb determines the verb without taking a noun as its object, a conjunction joins two extremes, and an interjection cries out.` } },
 
-{ src:['appown','ag'], h:`<p><strong>Phrases and clauses.</strong> A part of speech is decided by how a word is used, and a group of words can do that work as a unit. The eight still name the work, but the marked thing is not always a single word.</p>
+{ src:['appown','ag'], h:`<p><strong>Phrases and clauses.</strong> A part of speech is decided by how a word is used, and a group of words can do that work as a unit. The eight parts are named by how a word is used, but the marked thing is not always a single word.</p>
 <p>A <strong>phrase</strong>: <em>They arrived <u>after the storm</u>.</em> <em>After the storm</em> tells when, and so it is a prepositional phrase used as an adverb. Latin <em>post tempestatem venerunt</em> does the same work.</p>
 <p>A <strong>clause</strong>: <em>I know <u>that he arrived</u>.</em> <em>That he arrived</em> is what is known. It is a whole clause used as the object of <em>know</em>, that is, a noun clause, which the older grammars call a substantive clause. Latin <em>scio eum venisse</em> is the same work; medieval grammarians also write <em>scio quod venit</em>.</p>
 <p>A relative clause (modern grammars also call it an adjective clause) is used as an adjective, as in <em>The men <u>who waited at the gate</u> were sailors</em>, where it tells which men. Latin <em>viri qui ad portam exspectabant</em> tells which men.</p>
@@ -9118,7 +9118,7 @@ DECKS.enpos = {
                'The endings a word can take',
                'True statements about the world'],
       correct:1,
-      explain:'A part of speech is decided by how a word is used. The same sound can name in one sentence and assert in the next, and the list follows the work.' } }
+      explain:'A part of speech is decided by how a word is used. The same sound can name in one sentence and assert in the next, so the eight parts are named by how a word is used.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -14053,7 +14053,7 @@ EX.latmore = {
   id:'latmore', src:['ag','appown'], act:'IV', title:'More of the Latin Sentence',
   desc:'One word is missing from a Latin sentence: a verb in another person, a pronoun, a noun in the dative or the genitive, a noun joined by <em>et</em>, or a place. The word is chosen from tiles at the first levels and written at the higher ones.',
   instr:'Supply the missing Latin word.',
-  introInstr:'Read this, then begin. A set is complete at 100 points. The difficulty chosen on the home screen decides whether the word is chosen or written.',
+  introInstr:'',
   intro:[
     {h:'<strong>Other persons.</strong> The ending of a Latin verb shows its person and number, so a pronoun subject is usually left out.',
      eg:['<em>Poētam laudāmus</em> means “we praise the poet.”']},
@@ -14066,7 +14066,7 @@ EX.latmore = {
     {h:'<strong>Et.</strong> <em>Et</em> joins two words in the same case, because both are used in the same way in the sentence.',
      eg:['<em>Rēx servōs et nautās vocat</em>: <em>servōs</em> and <em>nautās</em> are both the object of <em>vocat</em>.']},
     {h:'<strong>Place where.</strong> Place where is shown by <em>in</em> with the ablative.',
-     eg:['<em>Nautās in silvā vidētis</em> means “you all see the sailors in the forest.” This word is always chosen from tiles, because <em>silvā</em> and <em>silva</em> differ only by the macron.']}
+     eg:['<em>Nautās in silvā vidētis</em> means “you all see the sailors in the forest.”']}
   ],
   gen(d){ return latMoreQ(d); }
 };
@@ -15278,7 +15278,7 @@ let chipSel = {};
 
 function renderExIntro(e){
   $('ex-intro-kicker').textContent = e.title;
-  $('ex-intro-instr').textContent = e.introInstr || 'Read this, then begin.';
+  $('ex-intro-instr').textContent = e.introInstr != null ? e.introInstr : 'Read this, then begin.';
   $('ex-intro-body').innerHTML = e.intro.map(item => {
     const egs = (item.eg || []).map(g => `<div class="intro-eg">${g}</div>`).join('');
     return `<div class="intro-item">${item.h}${egs}</div>`;
