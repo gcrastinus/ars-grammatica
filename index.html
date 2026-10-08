@@ -14309,6 +14309,145 @@ EX.latclause = {
   gen(d){ return latClauseQ(d); }
 };
 
+/* ---------- The Subjunctive ---------- */
+/* Same mechanics as the exercises before it: one blank in a frame already in order. Present and imperfect
+   subjunctive, active only. A present main verb takes the present subjunctive; a past main verb takes the
+   imperfect. Each wrong choice is bad Latin or the wrong construction. */
+const LS_ITEMS = [
+  /* 1. the forms */
+  {id:'ls1', k:1, en:'The father sends the son so that the son may see the king.', fr:'Pater fīlium mittit ut fīlius rēgem ______.', a:'videat', ds:['videt','vidēret','videant'],
+   why:'The main verb <em>mittit</em> is present, so the purpose clause takes the present subjunctive, and <em>fīlius</em> is singular: <strong>videat</strong>. <em>Videt</em> is indicative.'},
+  {id:'ls2', k:1, en:'The queen sent gifts so that the citizens would praise the king.', fr:'Rēgīna dōna mīsit ut cīvēs rēgem ______.', a:'laudārent', ds:['laudant','laudent','laudārētis'],
+   why:'The main verb <em>mīsit</em> is past, so the purpose clause takes the imperfect subjunctive, and <em>cīvēs</em> is plural: <strong>laudārent</strong>. <em>Laudent</em> is present.'},
+  {id:'ls3', k:1, en:'The master warns the slaves so that the slaves may not fear the war.', fr:'Dominus servōs monet nē servī bellum ______.', a:'timeant', ds:['timent','timērent','timeat'],
+   why:'The main verb <em>monet</em> is present, so the clause takes the present subjunctive, and <em>servī</em> is plural: <strong>timeant</strong>. <em>Timent</em> is indicative.'},
+  {id:'ls4', k:1, en:'The king led the soldiers so that the soldiers would capture the city.', fr:'Rēx mīlitēs dūxit ut mīlitēs urbem ______.', a:'caperent', ds:['caperētis','capiant','caperet'],
+   why:'The main verb <em>dūxit</em> is past, so the purpose clause takes the imperfect subjunctive, and <em>mīlitēs</em> is plural: <strong>caperent</strong>. <em>Capiant</em> is present.'},
+  {id:'ls5', k:1, en:'We call the boys so that the boys may hear the poet.', fr:'Puerōs vocāmus ut puerī poētam ______.', a:'audiant', ds:['audiunt','audīrent','audiat'],
+   why:'The main verb <em>vocāmus</em> is present, so the purpose clause takes the present subjunctive, and <em>puerī</em> is plural: <strong>audiant</strong>. <em>Audiunt</em> is indicative.'},
+  {id:'ls6', k:1, en:'The teacher called the boy so that the boy would read the words.', fr:'Magister puerum vocāvit ut puer verba ______.', a:'legeret', ds:['legit','legat','legerent'],
+   why:'The main verb <em>vocāvit</em> is past, so the purpose clause takes the imperfect subjunctive, and <em>puer</em> is singular: <strong>legeret</strong>. <em>Legat</em> is present.'},
+  {id:'ls7', k:1, en:'The citizens fortify the city so that the soldiers may not capture the city.', fr:'Cīvēs urbem mūniunt nē mīlitēs urbem ______.', a:'capiant', ds:['capiunt','caperent','capiat'],
+   why:'The main verb <em>mūniunt</em> is present, so the clause takes the present subjunctive, and <em>mīlitēs</em> is plural: <strong>capiant</strong>. <em>Capiunt</em> is indicative.'},
+  {id:'ls8', k:1, en:'The queen sent the sailors so that the sailors would lead the horses.', fr:'Rēgīna nautās mīsit ut nautae equōs ______.', a:'dūcerent', ds:['dūcerētis','dūcant','dūceret'],
+   why:'The main verb <em>mīsit</em> is past, so the purpose clause takes the imperfect subjunctive, and <em>nautae</em> is plural: <strong>dūcerent</strong>. <em>Dūcant</em> is present.'},
+  /* 2. purpose */
+  {id:'ls9', k:2, en:'The father sent the son so that the son would not see the soldiers.', fr:'Pater fīlium mīsit ______ fīlius mīlitēs vidēret.', a:'nē', ds:['ut','ut nōn','cum'],
+   why:'A purpose that is negative is introduced by <strong>nē</strong>, never by <em>ut nōn</em>. <em>Ut</em> would mean “so that he would see.”'},
+  {id:'ls10', k:2, en:'The king calls the soldiers so that the soldiers may capture the city.', fr:'Rēx mīlitēs vocat ______ mīlitēs urbem capiant.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'A purpose is introduced by <strong>ut</strong>, and the clause has the subjunctive. <em>Nē</em> would make the purpose negative.'},
+  {id:'ls11', k:2, en:'The master warned the slaves so that the slaves would not fear the king.', fr:'Dominus servōs monuit ______ servī rēgem timērent.', a:'nē', ds:['ut','ut nōn','cum'],
+   why:'A purpose that is negative is introduced by <strong>nē</strong>, never by <em>ut nōn</em>.'},
+  {id:'ls12', k:2, en:'The girls send gifts so that the queen may praise the poet.', fr:'Puellae dōna mittunt ______ rēgīna poētam laudet.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'A purpose is introduced by <strong>ut</strong>, and the clause has the subjunctive. <em>Nē</em> would make the purpose negative.'},
+  {id:'ls13', k:2, en:'The citizens fortify the town so that the soldiers may not capture the town.', fr:'Cīvēs oppidum mūniunt ______ mīlitēs oppidum capiant.', a:'nē', ds:['ut','ut nōn','cum'],
+   why:'A purpose that is negative is introduced by <strong>nē</strong>, never by <em>ut nōn</em>.'},
+  {id:'ls14', k:2, en:'The teacher called the boys so that the boys would read the words.', fr:'Magister puerōs vocāvit ______ puerī verba legerent.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'A purpose is introduced by <strong>ut</strong>, and the clause has the subjunctive. <em>Nē</em> would make the purpose negative.'},
+  {id:'ls15', k:2, en:'The sailors lead the horses into the forest so that the soldiers may not see the horses.', fr:'Nautae equōs in silvam dūcunt ______ mīlitēs equōs videant.', a:'nē', ds:['ut','ut nōn','cum'],
+   why:'A purpose that is negative is introduced by <strong>nē</strong>, never by <em>ut nōn</em>.'},
+  {id:'ls16', k:2, en:'The queen sent the sailor so that the sailor would hear the king.', fr:'Rēgīna nautam mīsit ______ nauta rēgem audīret.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'A purpose is introduced by <strong>ut</strong>, and the clause has the subjunctive. <em>Nē</em> would make the purpose negative.'},
+  /* 3. result */
+  {id:'ls17', k:3, en:'The king leads the soldiers so well that the soldiers capture the city.', fr:'Rēx ita mīlitēs dūcit ______ mīlitēs urbem capiant.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'<em>Ita</em> in the main clause shows that a result follows, and a result is introduced by <strong>ut</strong>, with the subjunctive.'},
+  {id:'ls18', k:3, en:'The queen sent so many gifts that the citizens praised the queen.', fr:'Rēgīna tot dōna mīsit ______ cīvēs rēgīnam laudārent.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'<em>Tot</em> in the main clause shows that a result follows, and a result is introduced by <strong>ut</strong>, with the subjunctive.'},
+  {id:'ls19', k:3, en:'The king prepares so great a war that the citizens fear the king.', fr:'Rēx tantum bellum parat ______ cīvēs rēgem timeant.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'<em>Tantum</em> in the main clause shows that a result follows, and a result is introduced by <strong>ut</strong>, with the subjunctive.'},
+  {id:'ls20', k:3, en:'The master warns the slaves in such a way that the slaves do not fear the war.', fr:'Dominus ita servōs monet ______ servī bellum timeant.', a:'ut nōn', ds:['nē','ut','cum'],
+   why:'<em>Ita</em> shows that a result follows, and a negative result is introduced by <strong>ut nōn</strong>, never by <em>nē</em>.'},
+  {id:'ls21', k:3, en:'The citizens fortified the town in such a way that the soldiers did not capture the town.', fr:'Cīvēs oppidum ita mūnīvērunt ______ mīlitēs oppidum caperent.', a:'ut nōn', ds:['nē','ut','cum'],
+   why:'<em>Ita</em> shows that a result follows, and a negative result is introduced by <strong>ut nōn</strong>, never by <em>nē</em>.'},
+  {id:'ls22', k:3, en:'The poet writes so many words that the boys do not read the words.', fr:'Poēta tot verba scrībit ______ puerī verba legant.', a:'ut nōn', ds:['nē','ut','cum'],
+   why:'<em>Tot</em> shows that a result follows, and a negative result is introduced by <strong>ut nōn</strong>, never by <em>nē</em>.'},
+  {id:'ls23', k:3, en:'The queen sends so many soldiers that the citizens fear the war.', fr:'Rēgīna tot mīlitēs mittit ______ cīvēs bellum timeant.', a:'ut', ds:['nē','ut nōn','cum'],
+   why:'<em>Tot</em> in the main clause shows that a result follows, and a result is introduced by <strong>ut</strong>, with the subjunctive.'},
+  {id:'ls24', k:3, en:'The teacher called the boys in such a way that the boys did not hear the teacher.', fr:'Magister ita puerōs vocāvit ______ puerī magistrum audīrent.', a:'ut nōn', ds:['nē','ut','cum'],
+   why:'<em>Ita</em> shows that a result follows, and a negative result is introduced by <strong>ut nōn</strong>, never by <em>nē</em>.'},
+  /* 4. cum with the subjunctive */
+  {id:'ls25', k:4, en:'When the king called the soldiers, the soldiers came.', fr:'Cum rēx mīlitēs ______, mīlitēs vēnērunt.', a:'vocāret', ds:['vocet','vocārent','vocāre'],
+   why:'<em>Cum</em> meaning “when,” with a past main verb, takes the imperfect subjunctive, and <em>rēx</em> is singular: <strong>vocāret</strong>.'},
+  {id:'ls26', k:4, en:'Although the soldiers fear the war, they fortify the city.', fr:'Cum mīlitēs bellum ______, urbem mūniunt.', a:'timeant', ds:['timērent','timeat','timēre'],
+   why:'<em>Cum</em> meaning “although,” with a present main verb, takes the present subjunctive, and <em>mīlitēs</em> is plural: <strong>timeant</strong>.'},
+  {id:'ls27', k:4, en:'When the girls saw the queen, they praised the poet.', fr:'Cum puellae rēgīnam ______, poētam laudāvērunt.', a:'vidērent', ds:['videant','vidēret','vidērētis'],
+   why:'<em>Cum</em> meaning “when,” with a past main verb, takes the imperfect subjunctive, and <em>puellae</em> is plural: <strong>vidērent</strong>.'},
+  {id:'ls28', k:4, en:'Although the boy reads the words, the teacher does not praise the boy.', fr:'Cum puer verba ______, magister puerum nōn laudat.', a:'legat', ds:['legeret','legant','legere'],
+   why:'<em>Cum</em> meaning “although,” with a present main verb, takes the present subjunctive, and <em>puer</em> is singular: <strong>legat</strong>.'},
+  {id:'ls29', k:4, en:'When the queen sent the gifts, the citizens praised the queen.', fr:'______ rēgīna dōna mitteret, cīvēs rēgīnam laudāvērunt.', a:'Cum', ds:['Ut','Nē','Quī'],
+   why:'The English says “when,” so the clause begins with <strong>cum</strong>, and its verb <em>mitteret</em> is the imperfect subjunctive. <em>Ut</em> would make a purpose clause.'},
+  {id:'ls30', k:4, en:'Although the citizens fear the king, they praise the king.', fr:'______ cīvēs rēgem timeant, rēgem laudant.', a:'Cum', ds:['Ut','Nē','Quī'],
+   why:'The English says “although,” so the clause begins with <strong>cum</strong>, and its verb <em>timeant</em> is the present subjunctive. <em>Quī</em> would give the clause two subjects.'},
+  {id:'ls31', k:4, en:'When the master heard the slaves, he called the boy.', fr:'Cum dominus servōs ______, puerum vocāvit.', a:'audīret', ds:['audiat','audīrent','audīre'],
+   why:'<em>Cum</em> meaning “when,” with a past main verb, takes the imperfect subjunctive, and <em>dominus</em> is singular: <strong>audīret</strong>.'},
+  {id:'ls32', k:4, en:'When the soldiers captured the city, the king praised the soldiers.', fr:'______ mīlitēs urbem caperent, rēx mīlitēs laudāvit.', a:'Cum', ds:['Ut','Nē','Quī'],
+   why:'The English says “when,” so the clause begins with <strong>cum</strong>, and its verb <em>caperent</em> is the imperfect subjunctive. <em>Ut</em> would make a purpose clause.'},
+  /* 5. the indirect question */
+  {id:'ls33', k:5, en:'The king asks where the soldiers are leading the horses.', fr:'Rēx rogat ubi mīlitēs equōs ______.', a:'dūcant', ds:['dūcunt','dūcerent','dūcere'],
+   why:'An indirect question takes the subjunctive, and after the present <em>rogat</em> it is present: <strong>dūcant</strong>. <em>Dūcunt</em> is indicative.'},
+  {id:'ls34', k:5, en:'The queen asks who is calling the girls.', fr:'Rēgīna rogat ______ puellās vocet.', a:'quis', ds:['quod','quōs','cūr'],
+   why:'“Who” as the subject of the question is <strong>quis</strong>. <em>Quod</em> means “because,” <em>cūr</em> means “why,” and <em>quōs</em> is masculine and cannot go with <em>puellās</em>.'},
+  {id:'ls35', k:5, en:'The teacher asked why the boys were reading the words.', fr:'Magister rogāvit cūr puerī verba ______.', a:'legerent', ds:['legunt','legant','legerētis'],
+   why:'An indirect question takes the subjunctive, and after the past <em>rogāvit</em> it is imperfect: <strong>legerent</strong>. <em>Legant</em> is present.'},
+  {id:'ls36', k:5, en:'The master asks what the slave is carrying.', fr:'Dominus rogat ______ servus portet.', a:'quid', ds:['quod','quem','cūr'],
+   why:'“What,” as the object of <em>portet</em>, is <strong>quid</strong>, not <em>quod</em>, which means “because.” <em>Quem</em> would mean “whom,” and <em>cūr</em> would mean “why.”'},
+  {id:'ls37', k:5, en:'The citizens asked where the king was sending the soldiers.', fr:'Cīvēs rogāvērunt ubi rēx mīlitēs ______.', a:'mitteret', ds:['mittit','mittat','mitterent'],
+   why:'An indirect question takes the subjunctive, and after the past <em>rogāvērunt</em> it is imperfect, singular to agree with <em>rēx</em>: <strong>mitteret</strong>.'},
+  {id:'ls38', k:5, en:'The girl asks why the queen fears the war.', fr:'Puella rogat ______ rēgīna bellum timeat.', a:'cūr', ds:['quod','ubi','quid'],
+   why:'“Why” is <strong>cūr</strong>. <em>Quod</em> means “because,” <em>ubi</em> means “where,” and <em>quid</em> would give <em>timeat</em> two objects.'},
+  {id:'ls39', k:5, en:'The king asked who was capturing the city.', fr:'Rēx rogāvit ______ urbem caperet.', a:'quis', ds:['quod','quem','cūr'],
+   why:'“Who” as the subject of the question is <strong>quis</strong>. <em>Quem</em> would give <em>caperet</em> two objects, and <em>cūr</em> means “why.”'},
+  {id:'ls40', k:5, en:'The poet asks what the girls see.', fr:'Poēta rogat quid puellae ______.', a:'videant', ds:['vident','vidērent','videat'],
+   why:'An indirect question takes the subjunctive, and after the present <em>rogat</em> it is present, plural to agree with <em>puellae</em>: <strong>videant</strong>.'}
+];
+function latSubjQ(d){
+  const it = pickSeen(LS_ITEMS, x => x.id);
+  const frame = it.fr.replace('______', '<span class="target">______</span>');
+  if(d >= 3){
+    return {
+      kind:'text', lang:'la', src:['ag','appown'], sid:'ls:' + it.id, _answer:it.a,
+      prompt:'Write the missing Latin word. Macrons are optional.',
+      sentence:frame, gloss:it.en, placeholder:'Type the Latin',
+      check(val){
+        if(normLat(val) === normLat(it.a)) return {right:true, note:it.why};
+        const wrote = String(val || '').trim();
+        return {right:false, note:it.why, also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:'la', src:['ag','appown'], sid:'ls:' + it.id, _answer:correct,
+    prompt:'Choose the missing Latin word.',
+    sentence:frame, gloss:it.en, options, correct,
+    check(i){
+      if(i === correct) return {right:true, note:it.why};
+      return {right:false, note:it.why, also:`The answer chosen was <em>${options[i]}</em>.`};
+    }
+  };
+}
+EX.latsubj = {
+  id:'latsubj', src:['ag','appown'], act:'IV', title:'The Subjunctive',
+  desc:'One word is missing from a Latin sentence: a present or imperfect subjunctive, <em>ut</em> or <em>nē</em> for a purpose, <em>ut</em> or <em>ut nōn</em> for a result, <em>cum</em> or its verb, or the question word or the verb of an indirect question.',
+  instr:'Supply the missing Latin word.',
+  introInstr:'',
+  intro:[
+    {h:'<strong>The forms and their sequence.</strong> After a present main verb a subordinate clause has the present subjunctive, and after a past main verb it has the imperfect subjunctive.',
+     eg:['<em>Pater fīlium mittit ut fīlius rēgem videat</em> means “the father sends the son so that the son may see the king.”']},
+    {h:'<strong>Purpose.</strong> A purpose clause begins with <em>ut</em>, or with <em>nē</em> when the purpose is negative, and never with <em>ut nōn</em>.',
+     eg:['<em>Pater fīlium mīsit nē fīlius mīlitēs vidēret</em> means “the father sent the son so that the son would not see the soldiers.”']},
+    {h:'<strong>Result.</strong> A word such as <em>ita</em>, <em>tot</em>, or <em>tantus</em> in the main clause shows that a result follows, and the result begins with <em>ut</em>, or with <em>ut nōn</em> when it is negative, and never with <em>nē</em>.',
+     eg:['<em>Rēgīna tot dōna mīsit ut cīvēs rēgīnam laudārent</em> means “the queen sent so many gifts that the citizens praised the queen.”']},
+    {h:'<strong><em>Cum</em> with the subjunctive.</strong> <em>Cum</em> meaning “when” or “although” takes the subjunctive.',
+     eg:['<em>Cum rēx mīlitēs vocāret, mīlitēs vēnērunt</em> means “when the king called the soldiers, the soldiers came.”']},
+    {h:'<strong>The indirect question.</strong> A question reported after a verb of asking begins with a question word such as <em>quis</em>, <em>quid</em>, <em>ubi</em>, or <em>cūr</em>, and has its verb in the subjunctive.',
+     eg:['<em>Dominus rogat quid servus portet</em> means “the master asks what the slave is carrying.”']}
+  ],
+  gen(d){ return latSubjQ(d); }
+};
+
 /* ---------- scansion ---------- */
 /* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
    The quantities follow the published scansion named in the source note. */
@@ -15021,7 +15160,7 @@ const EX_MODES = {
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
-  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], markup:['both','en']
+  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], latsubj:['la'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -15202,6 +15341,7 @@ const ACTS = [
      {kind:'ex', ex:'latmore'},
      {kind:'ex', ex:'latvoice'},
      {kind:'ex', ex:'latclause'},
+     {kind:'ex', ex:'latsubj'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
