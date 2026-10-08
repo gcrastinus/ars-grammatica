@@ -3521,7 +3521,7 @@ ${il({script:'राम + स् → रामः', dir:'dev', tr:'rāma + s →
   q:{ prompt:`For Pāṇini, <em>rāma</em> without an ending is…`,
       options:['Already a complete pada, ready for a sentence',
                'A stem, not yet a pada (a word of the sentence)',
-               'A root, a listed verbal root before its affixes',
+               'A listed verbal root before its affixes',
                'A particle, which needs no ending at all'],
       correct:1,
       explain:`The ending makes the word that can be used in a sentence, which is a stricter definition than our imposed name.` } },
@@ -7292,7 +7292,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
   [
     {title:'Letter-sound and sandhi', items:[
       {id:'vy1', src:['panini'], q:'A <em>varṇa</em> is closest to…', a:'A letter-sound, the least spoken piece',
-       ds:['A syllable, vowel and consonant together','A root, a listed verbal root','A word with its ending, a pada'], why:'It is the least spoken piece the phonetic school treats. The Indian art starts from spoken sound.'},
+       ds:['A syllable, vowel and consonant together','A listed verbal root','A word with its ending, a pada'], why:'It is the least spoken piece the phonetic school treats. The Indian art starts from spoken sound.'},
       {id:'vy2', src:['panini'], q:'Sandhi is…', a:'A lawful change of sounds where forms meet',
        ds:['A barbarism, a fault in one word','A rule for forming the plural','A change of meaning when words meet'], why:'Their arrangement begins with the sounds.',
        passage: il({script:'तत् + अपि → तदपि', dir:'dev', tr:'tat + api → tadapi', en:'even that'})},
@@ -7315,7 +7315,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
     ]},
     {title:'Stem, affix, root', items:[
       {id:'vy9', src:['panini'], q:'For Pāṇini, <em>rāma</em> without an ending is…', a:'A stem, not yet a pada (a word of the sentence)',
-       ds:['Already a complete pada, ready for a sentence','A root, a listed verbal root','A particle that needs no ending'], why:'A pada is a word of the sentence, and the ending makes the word usable there.',
+       ds:['Already a complete pada, ready for a sentence','A listed verbal root','A particle that needs no ending'], why:'A pada is a word of the sentence, and the ending makes the word usable there.',
        passage: il({script:'राम + स् → रामः', dir:'dev', tr:'rāma + s → rāmaḥ', en:'Rāma as a pada'})},
       {id:'vy10', src:['panini'], q:'<em>Gacchati</em> is, in this art, primarily…', a:'A root with affixes, derived by rule',
        ds:['A listed whole, learned as one word','A noun with a case ending','A compound of two names'], why:'It is derived by rule, not paired with another language.',
@@ -9719,6 +9719,9 @@ EX.endiag = enEx('endiag', 'The Diagram',
    An item carries lang 'en' or 'la'. An exercise lists the modes it allows.
    both: the set opens with English, then stays near six English questions in ten.
    en: English only. One mode is forced. No list means no choice is shown.
+   orig: English working text with its Latin or Greek original on request; no choice is shown and no language is steered.
+   On entry the set is probed to count its English and Latin items at that level. A language with no items is never asked for,
+   and a language with few items gets a smaller share, so that one item is not shown again and again.
    The block does not depend on a framework. It can be copied as it stands. */
 function textLang(raw){
   if(!raw) return null;
@@ -9790,17 +9793,43 @@ const EX_MODES = {
   decline:['both','en'], cases:['both','en'], produce:['both','en'], agree:['both','en'],
   govern:['both','en'], cong:['both','en'], workshop:['both','en'], vices:['both','en'],
   figures:['both','en'], suppos:['both','en'], congtruth:['both','en'],
+  clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
+function probeLangs(ex, d){
+  const m = ex && ex.modes;
+  if(!m || m.indexOf('both') < 0) return null;
+  const saved = state.sessionSeen;
+  const en = new Set(), la = new Set();
+  state.sessionSeen = [];
+  for(let i = 0; i < 160; i++){
+    let q;
+    try { q = ex.gen(d); } catch(e){ continue; }
+    if(!q) continue;
+    ensureLang(ex, q);
+    const id = q.sid || q.prompt;
+    (q.lang === 'la' ? la : en).add(id);
+  }
+  state.sessionSeen = saved;
+  return {en: en.size, la: la.size};
+}
+function bothLangs(){
+  const a = state.langAvail;
+  return !a || (a.en > 0 && a.la > 0);
+}
 function modeOf(ex){
   const m = ex && ex.modes;
   if(!m || !m.length) return null;
   if(m.indexOf('both') >= 0){
+    const a = state.ex === ex ? state.langAvail : null;
+    if(a && a.en === 0) return 'la';
+    if(a && a.la === 0) return 'en';
     return store.modes[ex.id] === 'en' ? 'en' : 'both';
   }
+  if(m[0] === 'orig') return null;
   return m[0];
 }
 function nextLang(ex){
@@ -9808,9 +9837,12 @@ function nextLang(ex){
   if(mode === 'en') return 'en';
   if(mode === 'la') return 'la';
   if(mode !== 'both') return null;
+  const a = state.langAvail;
+  /* About fifteen questions make a run; a Latin share above la/15 would repeat Latin items. */
+  const laShare = a ? Math.min(0.40, a.la / 15) : 0.40;
   const n = state.nEn + state.nLa;
   if(n < 2) return 'en';
-  return (state.nEn / n) >= 0.60 ? 'la' : 'en';
+  return (state.nLa / n) < laShare ? 'la' : 'en';
 }
 function ensureLang(ex, q){
   if(!q) return q;
@@ -9828,7 +9860,7 @@ function renderModeRow(){
   const ex = state.ex;
   if(!row) return;
   const allowed = ex && ex.modes;
-  if(!allowed || allowed.indexOf('both') < 0){
+  if(!allowed || allowed.indexOf('both') < 0 || !bothLangs()){
     row.hidden = true;
     row.textContent = '';
     return;
@@ -10260,6 +10292,7 @@ function startEx(e){
   state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   state.stageI = 0; state.stageStreak = 0; state.stageJustAdvanced = false;
   state.nEn = 0; state.nLa = 0;
+  state.langAvail = probeLangs(e, state.diff);
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = stagedInstr(e);
   $('ex-next').textContent = 'Next →';
@@ -10291,9 +10324,10 @@ function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
   const want = nextLang(state.ex);
-  let q = null, other = null, repeat = null;
+  const onlyWant = modeOf(state.ex) === 'en' || modeOf(state.ex) === 'la';
+  let freshWant = null, freshOther = null, repWant = null, repOther = null;
   const rejected = [];
-  for(let i = 0; i < 36; i++){
+  for(let i = 0; i < 60 && !freshWant; i++){
     const seenBefore = state.sessionSeen.slice();
     let got;
     try { got = state.ex.gen(state.diff); }
@@ -10302,25 +10336,25 @@ function nextQ(){
     ensureLang(state.ex, got);
     const id = got.sid;
     const fresh = !id || seenBefore.indexOf(id) < 0;
+    const match = !want || got.lang === want;
     if(!fresh){
-      if((!want || got.lang === want) && !repeat) repeat = got;
+      if(match){ if(!repWant) repWant = got; }
+      else if(!repOther) repOther = got;
       continue;
     }
-    if(want && got.lang !== want){
+    if(!match){
       for(let k = seenBefore.length; k < state.sessionSeen.length; k++) rejected.push(state.sessionSeen[k]);
-      other = got;
+      if(!freshOther) freshOther = got;
       continue;
     }
     if(id && state.sessionSeen.indexOf(id) < 0) state.sessionSeen.push(id);
-    q = got;
-    break;
+    freshWant = got;
   }
-  if(!q) q = repeat;
-  if(!q){
-    if(want === 'en' && modeOf(state.ex) === 'en')
-      q = {kind:'note', lang:'en', prompt:'This exercise has no English questions yet.'};
-    else q = other;
-  }
+  /* The student always gets a question: an unused one in the language asked for, then an unused one
+     in the other language (not in a one-language mode), then a repeat. */
+  let q = freshWant || (onlyWant ? null : freshOther) || repWant || (onlyWant ? null : repOther);
+  if(!q && want === 'en' && modeOf(state.ex) === 'en')
+    q = {kind:'note', lang:'en', prompt:'This exercise has no English questions yet.'};
   const keep = q && q.kind !== 'note' ? q.sid : null;
   rejected.forEach(id => {
     if(id === keep) return;
