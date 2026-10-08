@@ -5138,8 +5138,8 @@ const ROLE_NAME = {
 
 EX.cases = {
   id:'cases', src:['ag','appown'], act:'III', title:'Case and its Work',
-  desc:'English marks the work a word is doing by where it stands in the sentence, whereas Latin marks it by the ending. Read an English sentence, see what job the marked word is doing, and say what case Latin would put it in. This teaches case as a <em>function</em> rather than as a set of endings, which is the only way it ever sticks.',
-  instr:'What case would Latin use here?',
+  desc:'In English, case shows in pronouns, such as he or him, who or whom, and I or me after a preposition, and in the place a word stands. In Latin, the ending shows the case. English questions ask about the pronoun or the place. Latin questions ask which case Latin would use.',
+  instr:'English: the pronoun’s form, or what its place shows. Latin: the case Latin would use.',
   gen(d){
     const people = ['farmer','sailor','king','queen','soldier','teacher','boy','girl','messenger','captain','poet','judge','master','servant'];
     const things = ['book','horse','sword','gift','key','house','ship','letter'];
@@ -5181,7 +5181,7 @@ EX.cases = {
       third = `<span class="also">In ${L.name}: <strong>${f}</strong>.${n ? ' ' + n : ''}</span>`;
     }
     return {
-      kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role, lang:'en',
+      kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role, lang:'la',
       prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
       sentence: s.replace('<b>','<span class="target">').replace('</b>','</span>'),
       options, correct: options.indexOf(ans),
@@ -6189,7 +6189,7 @@ EX.decline = {
       const slots = [
         {s:`The <b>${n}</b> ${v}.`, a:'Declinable: a noun, which takes endings', why:`<em>${cap(n)}</em> is a noun. English still has a plural and a possessive; Latin would mark case.`},
         {s:`The sailor <b>${v}</b>.`, a:'Declinable: a verb, which takes endings', why:`The verb inflects for person, number, and tense. <em>${v}</em> is already a third-person ending in English.`},
-        {s:`The <b>${adj}</b> sailor waits.`, a:'Declinable: an adjective, declined with its noun', why:`In Latin the adjective takes the endings of the noun it adheres to. English keeps only the degrees (<em>braver, bravest</em>), but the tradition files the adjective with the declinable parts.`},
+        {s:`The <b>${adj}</b> sailor waits.`, a:'Declinable: an adjective, which takes degrees', why:`In Latin the adjective takes the endings of the noun it adheres to. English keeps only the degrees (<em>braver, bravest</em>), but the tradition files the adjective with the declinable parts.`},
         {s:`The sailor waits <b>${adv}</b>.`, a:'Indeclinable: an adverb, which keeps one form', why:`Adverbs keep one form. Time or manner here is an adverb’s work.`},
         {s:`She walked <b>${prep}</b> the gate.`, a:'Indeclinable: a preposition, one form', why:`Prepositions do not inflect. They govern a complement.`},
         {s:`The sailor <b>and</b> the farmer wait.`, a:'Indeclinable: a conjunction, one form', why:`<em>And</em> joins; joining is its work, and it does not take endings.`},
@@ -6201,7 +6201,7 @@ EX.decline = {
       const options = shuffle([it.a, ...sample([
         'Declinable: a noun, which takes endings',
         'Declinable: a verb, which takes endings',
-        'Declinable: an adjective, declined with its noun',
+        'Declinable: an adjective, which takes degrees',
         'Declinable: a pronoun, which still shows case',
         'Indeclinable: an adverb, which keeps one form',
         'Indeclinable: a preposition, one form',
@@ -6282,35 +6282,35 @@ EX.produce = {
    Government
    ============================================================ */
 const GOVERN_ITEMS = [
-  {id:'gv1', src:['ag'], s:'He loves the <b>girl</b>.',
+  {id:'gv1', src:['ag'], lang:'la', s:'He loves the <b>girl</b>.',
    q:'In Latin, the marked word, the direct object, is in the…',
    a:'Accusative', ds:['Nominative','Ablative','Genitive'],
    why:'Most verbs take the accusative of the thing the action falls on: <span class="lat">puellam amat</span>.'},
-  {id:'gv2', src:['ag'], s:'He uses a <b>sword</b>.',
+  {id:'gv2', src:['ag'], lang:'la', s:'He uses a <b>sword</b>.',
    q:'Latin <em>ūtor</em> (to use) governs the…',
    a:'Ablative', ds:['Accusative','Dative','Nominative'],
    why:'In <span class="lat">ūtitur gladio</span> we “use with” a thing. Government is a requirement of this verb, not a general rule of objects.'},
-  {id:'gv3', src:['ag'], s:'He remembers his <b>friend</b>.',
+  {id:'gv3', src:['ag'], lang:'la', s:'He remembers his <b>friend</b>.',
    q:'Latin <em>meminī</em> commonly governs the…',
    a:'Genitive', ds:['Accusative','Ablative','Vocative'],
    why:'The phrase is <span class="lat">meminit amici</span>. Some verbs take a genitive of the thing in mind, so we should not assume the accusative.'},
-  {id:'gv4', src:['ag'], s:'They walked <b>into the city</b>.',
+  {id:'gv4', src:['ag'], lang:'la', s:'They walked <b>into the city</b>.',
    q:'After Latin <em>in</em>, motion toward puts the noun in the…',
    a:'Accusative', ds:['Ablative','Dative','Nominative'],
    why:'<span class="lat">in urbem</span> means into the city, while place where is <span class="lat">in urbe</span>, ablative. The preposition is the same; the case is the government that changes with the meaning.'},
-  {id:'gv5', src:['ag'], s:'He waits <b>in the city</b>.',
+  {id:'gv5', src:['ag'], lang:'la', s:'He waits <b>in the city</b>.',
    q:'After Latin <em>in</em>, place where puts the noun in the…',
    a:'Ablative', ds:['Accusative','Genitive','Vocative'],
    why:'In <span class="lat">in urbe</span> there is no motion toward, so it is not the accusative.'},
-  {id:'gv6', src:['ag'], s:'She came <b>with a friend</b>.',
+  {id:'gv6', src:['ag'], lang:'la', s:'She came <b>with a friend</b>.',
    q:'Latin <em>cum</em> (with) governs the…',
    a:'Ablative', ds:['Accusative','Dative','Genitive'],
    why:'The phrase is <span class="lat">cum amico</span>. Accompaniment is an ablative’s work, and <em>cum</em> requires that case.'},
-  {id:'gv7', src:['ag'], s:'They marched <b>toward the camp</b>.',
+  {id:'gv7', src:['ag'], lang:'la', s:'They marched <b>toward the camp</b>.',
    q:'Latin <em>ad</em> (to, toward) governs the…',
    a:'Accusative', ds:['Ablative','Dative','Nominative'],
    why:'In <span class="lat">ad castra</span>, motion toward takes the accusative.'},
-  {id:'gv8', src:['ag'], s:'He gave the <b>sailor</b> a gift.',
+  {id:'gv8', src:['ag'], lang:'la', s:'He gave the <b>sailor</b> a gift.',
    q:'The person to whom something is given is, in Latin, in the…',
    a:'Dative', ds:['Accusative','Ablative','Genitive'],
    why:'This is double government: accusative of the gift, dative of the person (<span class="lat">nautae donum dedit</span>).'},
@@ -6356,7 +6356,7 @@ EX.govern = {
       const it = rand(d <= 1 ? slots.filter(x => x.a !== 'Dative') : slots);
       const options = shuffle([it.a, ...sample(['Nominative','Genitive','Dative','Accusative','Ablative','Vocative'].filter(c => c !== it.a), d <= 1 ? 2 : 3)]);
       return {
-        kind:'mc', src:['ag','appown'], sid:'gv:'+it.s, lang:'en',
+        kind:'mc', src:['ag','appown'], sid:'gv:'+it.s, lang:'la',
         prompt:'In Latin, the marked word would be in the…',
         sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
         options, correct: options.indexOf(it.a),
@@ -6667,7 +6667,7 @@ const VICE_ITEMS = [
    why:'Every word is English, but the verb does not fit its subject. Congruity has failed in the arrangement.'},
   {id:'vc9', src:['donatus','verg_pd'], s:'pars in frusta <b>secant</b> (Aeneid I.212)',
    q:'Donatus counts this as a solecism. In which accident does it fail?',
-   a:'Number: <em>secant</em> for <em>secat</em>, after <em>pars</em>',
+   a:'Number: <em>secant</em>, not <em>secat</em>',
    ds:['Case: <em>frusta</em> for <em>frustis</em>','Gender: <em>pars</em> is masculine','Tense: <em>secant</em> for <em>secuerunt</em>'],
    why:'Donatus gives this as a solecism by number: <span class="lat">pars in frusta secant pro secat</span>. <em>Pars</em> is singular, and the verb is plural, because the sense is “some of them.” In a poet the same thing is allowed as a figure.'},
   {id:'vc10', src:['donatus','verg_pd'], s:'<b>urbem</b> quam statuo vestra est (Aeneid I.573)',
@@ -6677,12 +6677,12 @@ const VICE_ITEMS = [
    why:'Donatus: <span class="lat">per casus, sicut urbem quam statuo vestra est pro urbs quam statuo</span>. <em>Urbem</em> is the subject of <em>est</em> and should be nominative; it has been drawn into the case of the relative <em>quam</em>.'},
   {id:'vc11', src:['donatus'], s:'<b>apud</b> amicum eo',
    q:'Donatus counts this as a solecism. What has gone wrong?',
-   a:'One preposition is put for another: <em>apud</em> for <em>ad</em>',
+   a:'<em>Apud</em> stands where <em>ad</em> is needed',
    ds:['A barbarism: <em>eo</em> is not a Latin form','Number: <em>amicum</em> for <em>amicos</em>','Nothing: <em>apud</em> and <em>ad</em> mean the same'],
    why:'Donatus gives <span class="lat">apud amicum eo pro ad amicum</span>. <em>Apud</em> means “at the house of,” place where; going toward a person needs <em>ad</em>. Each word is good Latin, and the fault is in the construction.'},
   {id:'vc12', src:['donatus','verg_pd'], s:'<b>torvum</b>que repente clamat (Aeneid VII.399)',
    q:'Donatus counts this as a solecism by the parts of speech. What has happened?',
-   a:'One part is put for another: <em>torvum</em> for <em>torve</em>',
+   a:'Noun for adverb: <em>torvum</em> for <em>torve</em>',
    ds:['A barbarism: <em>torvum</em> is not a Latin word','Case: <em>torvum</em> for <em>torvo</em>','Nothing: the line has no fault at all'],
    why:'Donatus: <span class="lat">torvumque repente clamat pro torve: nomen pro adverbio positum est</span>. A noun (here an adjective, filed under the noun) stands where an adverb is wanted. In a poet it is allowed as a figure.'}
 ];
@@ -6756,7 +6756,7 @@ const FIGDON_ITEMS = [
   {id:'fd6', src:['donatus'], q:'<em>Achilli</em> for <em>Achillis</em> is…', a:'Apocope: taken from the end',
    ds:['Syncope: taken from the middle','Aphaeresis: taken from the front','Antithesis: one letter for another'],
    why:'The last letter is cut off.'},
-  {id:'fd7', src:['donatus'], q:'A schoolboy writes <em>temno</em> for <em>contemno</em> in plain prose. What is it?', a:'A barbarism, since plain prose allows no such licence',
+  {id:'fd7', src:['donatus'], q:'A schoolboy writes <em>temno</em> for <em>contemno</em> in plain prose. What is it?', a:'A barbarism in plain prose',
    ds:['A metaplasm, as in a poem','A trope, a word carried over','A figure of thought, for the orator'],
    why:'Donatus teaches that the same change is a barbarism in common speech and a metaplasm in a poem, where it is allowed for the metre or for ornament.'},
   {id:'fd8', src:['donatus'], q:'In a poem, what does Donatus call a solecism that is allowed?', a:'A figure (schema), not a fault',
@@ -7584,7 +7584,7 @@ EX.vox = {
         {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'It is living sound from the mouth of an animal, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
         {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
         {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
-        {w:'thunder', a:'A sound in nature, made by no living voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
+        {w:'thunder', a:'A sound, but made by no living voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
         {w:'a cough', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice; but it cannot be caught in letters, and so for Donatus it is confused, or inarticulate. It signifies nothing by imposition.'}
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
@@ -7592,7 +7592,7 @@ EX.vox = {
         'Voice, but inarticulate and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
-        'A sound in nature, made by no living voice',
+        'A sound, but made by no living voice',
         'A complete sentence, though of one word'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
@@ -9777,30 +9777,30 @@ const AGE_SV = [  /* subject, right verb, wrong verb, rest, head, number, easy *
   ['The children in the village','were','was','asleep','children','plural',1],
   ['The pile of stones','is','are','high','pile','singular',1],
   ['The sound of the bells','was','were','loud','sound','singular',1],
-  ['The captain and the sailor','are','is','here','captain and sailor (joined by and)','plural',1],
-  ['The bread and the cheese','are','is','on the table','bread and cheese (joined by and)','plural',1],
+  ['The captain and the sailor','are','is','here','captain and sailor (joined by and)','plural',1,'And joins the captain and the sailor, so both are the subject and the verb is plural.'],
+  ['The bread and the cheese','are','is','on the table','bread and cheese (joined by and)','plural',1,'And joins the bread and the cheese, so both are the subject and the verb is plural.'],
   ['Each of the boys','is','are','ready','each','singular',0],
   ['Every one of the letters','was','were','opened','every one','singular',0],
   ['One of the horses','is','are','lame','one','singular',0],
   ['The number of guests','is','are','small','number','singular',0],
-  ['A number of guests','are','is','late','a number of guests (that is, several guests)','plural',0],
-  ['Neither the captain nor the sailors','are','is','ready','sailors, the nearer subject after neither…nor','plural',0],
-  ['Either the sailors or the captain','is','are','to blame','captain, the nearer subject after either…or','singular',0],
-  ['The news','is','are','good','news (singular, though it ends in -s)','singular',0],
-  ['Mathematics','is','are','hard','mathematics (singular, though it ends in -s)','singular',0],
-  ['The scissors','are','is','sharp','scissors (always plural)','plural',0],
+  ['A number of guests','are','is','late','a number of guests (that is, several guests)','plural',0,'A number of means several guests, so the verb is plural.'],
+  ['Neither the captain nor the sailors','are','is','ready','sailors, the nearer subject after neither…nor','plural',0,'After neither…nor, the verb agrees with the nearer subject, sailors, which is plural.'],
+  ['Either the sailors or the captain','is','are','to blame','captain, the nearer subject after either…or','singular',0,'After either…or, the verb agrees with the nearer subject, the captain, which is singular.'],
+  ['The news','is','are','good','news (singular, though it ends in -s)','singular',0,'News is singular. The s at the end does not make it plural.'],
+  ['Mathematics','is','are','hard','mathematics (singular, though it ends in -s)','singular',0,'Mathematics is singular. The s at the end does not make it plural.'],
+  ['The scissors','are','is','sharp','scissors (always plural)','plural',0,'Scissors takes a plural verb. It has no singular form in ordinary English.'],
   ['Everyone in the room','was','were','silent','everyone','singular',0],
   ['Nobody in the house','is','are','awake','nobody','singular',0],
   ['The teacher, with her pupils,','is','are','on the way','teacher (with does not join subjects)','singular',0],
-  ['The ship and its crew','were','was','lost','ship and crew (joined by and)','plural',0],
-  ['There','are','is','three gates in the wall','gates, which follow the verb','plural',0],
-  ['There','is','are','a ship in the harbour','ship, which follows the verb','singular',0],
-  ['Here','come','comes','the soldiers','soldiers, which follow the verb','plural',0],
-  ['The rest of the cake','is','are','gone','rest, which takes its number from cake','singular',0],
-  ['The rest of the apples','are','is','gone','rest, which takes its number from apples','plural',0],
-  ['Some of the water','was','were','spilled','some, which takes its number from water','singular',0],
-  ['Some of the cups','were','was','broken','some, which takes its number from cups','plural',0],
-  ['All of the bread','is','are','stale','all, which takes its number from bread','singular',0]
+  ['The ship and its crew','were','was','lost','ship and crew (joined by and)','plural',0,'And joins the ship and its crew, so both are the subject and the verb is plural.'],
+  ['There','are','is','three gates in the wall','gates, which follow the verb','plural',0,'There is not the subject. The subject is gates, after the verb, and it is plural.'],
+  ['There','is','are','a ship in the harbour','ship, which follows the verb','singular',0,'There is not the subject. The subject is ship, after the verb, and it is singular.'],
+  ['Here','come','comes','the soldiers','soldiers, which follow the verb','plural',0,'Here is not the subject. The subject is soldiers, after the verb, and it is plural.'],
+  ['The rest of the cake','is','are','gone','rest, which takes its number from cake','singular',0,'Rest takes its number from cake, the noun after of, and cake is singular.'],
+  ['The rest of the apples','are','is','gone','rest, which takes its number from apples','plural',0,'Rest takes its number from apples, the noun after of, and apples is plural.'],
+  ['Some of the water','was','were','spilled','some, which takes its number from water','singular',0,'Some takes its number from water, the noun after of, and water is singular.'],
+  ['Some of the cups','were','was','broken','some, which takes its number from cups','plural',0,'Some takes its number from cups, the noun after of, and cups is plural.'],
+  ['All of the bread','is','are','stale','all, which takes its number from bread','singular',0,'All takes its number from bread, the noun after of, and bread is singular.']
 ];
 const AGE_PE = [  /* subject, right verb, wrong verb, rest */
   ['I','am','is','ready'], ['He','is','am','ready'], ['I','have','has','the key'], ['She','has','have','the key'],
@@ -9820,10 +9820,10 @@ const AGE_PR = [  /* frame, right pronoun, wrong pronoun, antecedent, number */
   ['The wheel came off {} axle','its','their','wheel','singular'], ['The horses shook {} manes','their','its','horses','plural']
 ];
 const AGE_L = {
-  sound:'Sound: the verb and the pronoun both agree',
-  sv:'Faulty: the verb does not agree with its subject',
+  sound:'Sound: every word agrees as it should',
+  sv:'Faulty: the verb does not agree in number with its subject',
   pr:'Faulty: the pronoun does not agree with the word it stands for',
-  pe:'Faulty: the verb is in the wrong person'
+  pe:'Faulty: the verb has the wrong person'
 };
 function agreeEnglish(d){
   const kind = p2Weighted([[0.42,'sv'],[0.40,'pr'],[0.18,'pe']]);
@@ -9836,7 +9836,7 @@ function agreeEnglish(d){
     a = sound ? AGE_L.sound : AGE_L.sv;
     why = sound
       ? `The subject is <em>${r[4]}</em>, which is ${r[5]}, and the verb <em>${r[1]}</em> agrees with it.`
-      : `The subject is <em>${r[4]}</em>, which is ${r[5]}, so the verb must be <em>${r[1]}</em>, not <em>${r[2]}</em>. A phrase between subject and verb does not change the subject.`;
+      : `The subject is <em>${r[4]}</em>, which is ${r[5]}, so the verb must be <em>${r[1]}</em>, not <em>${r[2]}</em>. ${r[7] || 'A phrase between subject and verb does not change the subject.'}`;
   }else if(kind === 'pe'){
     const r = rand(AGE_PE);
     const v = sound ? r[1] : r[2];
@@ -9865,9 +9865,9 @@ const PDE_VERBS = [  /* base, past(s), participle(s) */
   ['see',['saw'],['seen']], ['take',['took'],['taken']], ['give',['gave'],['given']], ['write',['wrote'],['written']],
   ['ride',['rode'],['ridden']], ['drive',['drove'],['driven']], ['rise',['rose'],['risen']], ['speak',['spoke'],['spoken']],
   ['break',['broke'],['broken']], ['choose',['chose'],['chosen']], ['freeze',['froze'],['frozen']], ['steal',['stole'],['stolen']],
-  ['wake',['woke'],['woken']], ['fall',['fell'],['fallen']], ['eat',['ate'],['eaten']], ['know',['knew'],['known']],
+  ['wake',['woke','waked'],['woken','waked']], ['fall',['fell'],['fallen']], ['eat',['ate'],['eaten']], ['know',['knew'],['known']],
   ['grow',['grew'],['grown']], ['throw',['threw'],['thrown']], ['fly',['flew'],['flown']], ['draw',['drew'],['drawn']],
-  ['blow',['blew'],['blown']], ['wear',['wore'],['worn']], ['tear',['tore'],['torn']], ['forget',['forgot'],['forgotten']],
+  ['blow',['blew'],['blown']], ['wear',['wore'],['worn']], ['tear',['tore'],['torn']], ['forget',['forgot'],['forgotten','forgot']],
   ['bite',['bit'],['bitten']], ['hide',['hid'],['hidden']], ['do',['did'],['done']], ['bring',['brought'],['brought']],
   ['buy',['bought'],['bought']], ['think',['thought'],['thought']], ['teach',['taught'],['taught']], ['catch',['caught'],['caught']],
   ['fight',['fought'],['fought']], ['seek',['sought'],['sought']], ['feel',['felt'],['felt']], ['keep',['kept'],['kept']],
@@ -9886,7 +9886,7 @@ const PDE_PLURALS = [
   ['person',['people','persons']], ['louse',['lice']], ['fish',['fish','fishes']]
 ];
 const PDE_COMP = [  /* adjective, comparative(s), superlative(s) */
-  ['good',['better'],['best']], ['bad',['worse'],['worst']], ['little',['less'],['least']], ['many',['more'],['most']],
+  ['good',['better'],['best']], ['bad',['worse'],['worst']], ['little',['less','littler'],['least','littlest']], ['many',['more'],['most']],
   ['much',['more'],['most']], ['far',['farther','further'],['farthest','furthest']], ['big',['bigger'],['biggest']],
   ['happy',['happier'],['happiest']], ['easy',['easier'],['easiest']], ['hot',['hotter'],['hottest']], ['thin',['thinner'],['thinnest']],
   ['simple',['simpler'],['simplest']], ['beautiful',['more beautiful'],['most beautiful']], ['careful',['more careful'],['most careful']],
@@ -9999,7 +9999,7 @@ function governEnglish(d){
 const DCE_L = {
   noun:'Declinable: a noun, which takes endings',
   verb:'Declinable: a verb, which takes endings',
-  adjective:'Declinable: an adjective, declined with its noun',
+  adjective:'Declinable: an adjective, which takes degrees',
   pronoun:'Declinable: a pronoun, which still shows case',
   adverb:'Indeclinable: an adverb, which keeps one form',
   preposition:'Indeclinable: a preposition, one form',
@@ -10110,7 +10110,7 @@ const VXE_L = {
   word:'Voice, articulate, and already a word',
   lett:'Voice, articulate, but not yet a word',
   inar:'Voice, but inarticulate and not a word',
-  nat:'A sound in nature, made by no living voice',
+  nat:'A sound, but made by no living voice',
   sent:'A complete sentence, though of one word'
 };
 const VXE_ITEMS = [
@@ -10128,7 +10128,7 @@ const VXE_ITEMS = [
       'a lion’s roar','a cat’s mew','an owl’s hoot','a wolf’s howl','a pig’s grunt','a bird’s song','a baby’s cry'].map(w => ['inar', w]),
   ...['thunder','the wind in the trees','rain on a roof','waves on a beach','a door slamming','a bell ringing','a drum beaten',
       'hands clapping','footsteps on stone','a fire crackling','a stone falling into water','a tree falling','a clock ticking',
-      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking','a trumpet blown'].map(w => ['nat', w])
+      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking'].map(w => ['nat', w])
 ];
 const VXE_WHY = {
   word:'It is imposed to signify: it can be written in letters, so it is articulate, and it is a word.',
@@ -10155,7 +10155,7 @@ const LTE_SILENT = [  /* word, silent letter, sounded letters offered */
   ['sign','g',['s','i','n']],['design','g',['d','e','s','i','n']],['foreign','g',['f','o','r','n']],['gnat','g',['n','a','t']],
   ['handsome','d',['h','a','n','s','m']],['ballet','t',['b','a','l']],['depot','t',['d','e','p']]
 ];
-const LTE_SOUND = {s:'/s/ as in sun', k:'/k/ as in kit', z:'/z/ as in zoo', j:'/j/ as in jam', g:'/g/ as in got'};
+const LTE_SOUND = {s:'/s/ as in sun', k:'/k/ as in kit', z:'/z/ as in zoo', j:'the j sound in jam', g:'/g/ as in got'};
 const LTE_POWER = [  /* word, letter, sound key, note */
   ['city','c','s'],['cent','c','s'],['cell','c','s'],['face','c','s'],['ice','c','s'],['mice','c','s'],['rice','c','s'],['pencil','c','s'],
   ['cat','c','k'],['cup','c','k'],['cold','c','k'],['come','c','k'],['cake','c','k'],['coat','c','k'],['cave','c','k'],['cabin','c','k'],
@@ -10171,7 +10171,7 @@ const LTE_Y_L = {
 };
 const LTE_Y = [
   ...['my','by','fly','sky','cry','dry','try','why','shy','gym','myth','happy','baby','city','story','lady'].map(w => [w,'v']),
-  ...['yes','yet','yard','yellow','young','year','you','your','beyond','canyon','lawyer','yolk','yawn'].map(w => [w,'c']),
+  ...['yes','yet','yard','yellow','young','year','you','your','beyond','canyon','yolk','yawn'].map(w => [w,'c']),
   ...['day','play','key','they','boy','toy','grey','monkey','money','valley'].map(w => [w,'p'])
 ];
 function letterEnglish(d){
@@ -10187,7 +10187,7 @@ function letterEnglish(d){
     const a = LTE_SOUND[r[2]];
     const ds = Object.values(LTE_SOUND);
     const rule = r[1] === 'c' ? (r[2] === 's' ? 'Before <em>e</em>, <em>i</em>, or <em>y</em>, English <em>c</em> usually has the power /s/.' : 'Before <em>a</em>, <em>o</em>, or <em>u</em>, English <em>c</em> has the power /k/.')
-      : r[1] === 'g' ? (r[2] === 'j' ? 'Before <em>e</em>, <em>i</em>, or <em>y</em>, English <em>g</em> often has the power /j/.' : (['gift','get','girl','give'].indexOf(r[0]) >= 0 ? 'This word is an exception: here <em>g</em> keeps the power /g/ even before <em>e</em> or <em>i</em>.' : 'Before <em>a</em>, <em>o</em>, or <em>u</em>, English <em>g</em> has the power /g/.'))
+      : r[1] === 'g' ? (r[2] === 'j' ? 'Before <em>e</em>, <em>i</em>, or <em>y</em>, English <em>g</em> often has the j sound, as in jam.' : (['gift','get','girl','give'].indexOf(r[0]) >= 0 ? 'This word is an exception: here <em>g</em> keeps the power /g/ even before <em>e</em> or <em>i</em>.' : 'Before <em>a</em>, <em>o</em>, or <em>u</em>, English <em>g</em> has the power /g/.'))
       : (r[2] === 'z' ? 'Here <em>s</em> has the power /z/, as often between vowels or at the end of a short word.' : 'Here <em>s</em> has its plain power /s/.');
     return p2MC({sid:'lte:p:'+r[0], prompt:`In <em>${r[0]}</em>, what sound does the letter <strong>${r[1]}</strong> stand for?`, specimen: r[0],
       a, ds, why:`${rule} One shape can have more than one power, which is why the old grammarians asked of every letter its name, its shape, and its power.`}, d);
@@ -10265,7 +10265,7 @@ const VCE_SOL = [  /* sentence, explanation */
   ['Everyone <b>were</b> silent.','<em>Everyone</em> is singular and needs <em>was</em>.'],
   ['The news <b>are</b> good.','<em>News</em> is singular, though it ends in <em>-s</em>, and needs <em>is</em>.'],
   ['The man <b>which</b> came yesterday was a sailor.','<em>Which</em> is used of things; for a person the relative is <em>who</em>.'],
-  ['He arrived <b>quick</b> and left <b>slow</b>.','Adjectives stand where adverbs are needed: <em>quickly</em>, <em>slowly</em>. Donatus counts one part put for another among the solecisms.'],
+  ['He answered the captain <b>rude</b>.','An adjective stands where the adverb <em>rudely</em> is needed. Donatus counts one part put for another among the solecisms.'],
   ['She sings <b>beautiful</b>.','An adjective stands where the adverb <em>beautifully</em> is needed.'],
   ['The soldiers fought <b>brave</b>.','An adjective stands where the adverb <em>bravely</em> is needed.'],
   ['I <b>has</b> a question.','<em>I</em> needs <em>have</em>.'],
@@ -10384,19 +10384,19 @@ const FGE_ITEMS = [  /* question, pool, key, explanation */
   ['“the clatter of hooves” is…','tr','onoma','The word <em>clatter</em> is made from the sound itself.'],
   ['“swift-footed Achilles” is…','tr','epith','A describing word is joined to the name as a fixed title.'],
   ['“wise Nestor” is…','tr','epith','A describing word is joined to the name as a fixed title.'],
-  ['“Every day, every night, every hour, she waited” is…','sc','anaph','<em>Every</em> is repeated at the start of each member.'],
+  ['“Every day, every night, and every hour she waited” is…','sc','anaph','<em>Every</em> is repeated at the start of each member.'],
   ['“Not with gold, not with silver, not with fine words, but with work” is…','sc','anaph','<em>Not with</em> is repeated at the start of each member.'],
   ['“Run, run, run to the harbour!” is…','sc','epiz','The same word is repeated at once, with nothing between.'],
   ['“Alone, alone, he walked the shore” is…','sc','epiz','The same word is repeated at once, with nothing between.'],
   ['“He wanted power; power was his ruin” is…','sc','anadi','The last word of one clause begins the next.'],
   ['“We rested by the river, the river that had brought us home” is…','sc','anadi','The last word of one member begins the next.'],
   ['“And the wind, and the rain, and the dark came on” is…','sc','polys','Many joining words stand where one would serve.'],
-  ['“He came, he saw, he conquered,” the English of Caesar’s <em>veni, vidi, vici</em>, is…','sc','asyn','The joining words are left out.'],
-  ['“They rose, they ate, they left” is…','sc','asyn','The joining words are left out.'],
+  ['“I came, saw, conquered,” the English of Caesar’s <em>veni, vidi, vici</em> (Suetonius, Divus Iulius 37), is…','sc','asyn','The joining words are left out.'],
+  ['“They rose, ate, left” is…','sc','asyn','The joining words are left out.'],
   ['“She lost her hat and her temper” is…','sc','zeug','One verb, <em>lost</em>, serves two objects in two senses.'],
   ['“He took his coat and his leave” is…','sc','zeug','One verb, <em>took</em>, serves two objects in two senses.'],
   ['“A friend of friends, he befriended all” is…','sc','polypt','One word appears in several forms.'],
-  ['“Walking, talking, laughing, the children came home” is…','sc','homoeo','The members end alike.'],
+  ['“They were walking, talking, and laughing as they came home” is…','sc','homoeo','The members end alike.'],
   ['“The baker kneaded what he needed” is…','sc','paron','Two words of like sound and different sense are set side by side.']
 ];
 const FGE_LICENCE = [  /* question, answer key, word, full */
@@ -10423,9 +10423,9 @@ function figuresEnglish(d){
 /* ----- supposition in English sentences ----- */
 const SPE_TERMS = [  /* singular, plural, personal sentence, natural kind, syllables */
   ['horse','horses','Two horses pulled the cart.',1,1],['lion','lions','A lion was seen near the village.',1,2],
-  ['rose','roses','Every rose in the garden is red.',1,1],['oak','oaks','An oak stands by the gate.',1,1],
+  ['rose','roses','Every rose in the garden is red.',0,1],['oak','oaks','An oak stands by the gate.',0,1],
   ['man','men','A man is waiting at the gate.',1,1],['dog','dogs','Some dogs are barking.',1,1],
-  ['eagle','eagles','An eagle circled overhead.',1,2],['whale','whales','A whale swam past the ship.',1,1],
+  ['eagle','eagles','An eagle circled overhead.',0,2],['whale','whales','A whale swam past the ship.',0,1],
   ['wolf','wolves','Wolves howled in the hills.',1,1],['cat','cats','A cat sleeps by the fire.',1,1],
   ['river','rivers','A river runs past the town.',0,2],['star','stars','Every star shone brightly.',0,1],
   ['ship','ships','Three ships entered the harbour.',0,1],['city','cities','Some cities are very old.',0,2],
@@ -10449,7 +10449,7 @@ function supposEnglish(d){
       why:`A proper name stands for one singular thing, which Peter of Spain calls discrete supposition. A common term such as <em>city</em> would have common supposition.`}, d);
   }
   const t = rand(kind === 's' ? SPE_TERMS.filter(x => x[3]) : SPE_TERMS);
-  const P = `Personal supposition: actual ${t[1]}`;
+  const P = `Personal supposition: actual ${t[1]}, the things themselves`;
   if(kind === 'p'){
     return p2MC({sid:'spe:p:'+t[0], prompt:`What is <em>${t[0]}</em> (or <em>${t[1]}</em>) standing for here?`, sentence: t[2], a: P,
       ds:[P, S, M, D], src:['peterhisp'],
@@ -10490,6 +10490,127 @@ CT_ITEMS.push(
     .map(s => ({src:['te','arist_int'], s, c:false, t:null, lang:'en'}))
 );
 
+/* ----- cases: pronoun form in English, and what a word’s place shows ----- */
+const CSE_F = {
+  subj:'Subject form: it is the subject of a verb',
+  dobj:'Object form: it is the direct object of the verb',
+  prep:'Object form: it is the object of a preposition',
+  iobj:'Object form: it is the indirect object, and no preposition is written',
+  link:'Subject form: it renames the subject after a linking verb',
+  poss:'Possessive form: it tells whose'
+};
+const CSE_P = {
+  before:'The place marks the subject: the word stands before the verb',
+  after:'The place marks the direct object: the word stands after the verb and receives the action',
+  mid:'The place marks the indirect object: the word stands between the verb and the other object',
+  of:'The place marks the owner or the whole: the word follows of'
+};
+const CSE_FORM = [];
+const CSE_PLACE = [];
+[
+  ['<b>He</b> opened the gate.','He','opened'],['<b>She</b> wrote the letter.','She','wrote'],['<b>I</b> know the way.','I','know'],
+  ['<b>We</b> waited by the harbour.','We','waited'],['<b>They</b> brought the news.','They','brought'],
+  ['<b>He</b> guards the wall.','He','guards'],['<b>She</b> reads the book.','She','reads'],['<b>I</b> hear the bell.','I','hear'],
+  ['<b>We</b> hold the rope.','We','hold'],['<b>They</b> see the ship.','They','see']
+].forEach(([s, p, v]) => CSE_FORM.push([s, 'subj', `<em>${p}</em> is the subject of <em>${v}</em>, so it takes the subject form.`]));
+[
+  ['<b>Who</b> opened the gate?','opened'],['<b>Who</b> wrote the letter?','wrote'],['<b>Who</b> knows the way?','knows'],['<b>Who</b> waited by the harbour?','waited']
+].forEach(([s, v]) => CSE_FORM.push([s, 'subj', `<em>Who</em> is the subject of <em>${v}</em>, so the subject form is required, not <em>whom</em>.`]));
+[
+  ['The sailor <b>who</b> mended the sail has gone.','who','mended','The pronoun is the subject of <em>mended</em> in its own clause, so the subject form <em>who</em> is required.'],
+  ['We know <b>who</b> wrote the letter.','who','wrote','<em>Who</em> is the subject of <em>wrote</em>. The clause is the object of <em>know</em>, and that does not put the pronoun into the object form.'],
+  ['Give the prize to <b>whoever</b> finishes first.','whoever','finishes','<em>Whoever</em> is the subject of <em>finishes</em>. <em>To</em> governs the whole clause, not the pronoun.'],
+  ['Ask <b>whoever</b> is waiting at the gate.','whoever','is waiting','<em>Whoever</em> is the subject of <em>is waiting</em>. <em>Ask</em> governs the clause, not the pronoun.'],
+  ['The prize goes to <b>whoever</b> wins.','whoever','wins','<em>Whoever</em> is the subject of <em>wins</em>. <em>To</em> governs the whole clause, not the pronoun.'],
+  ['She is the one <b>who</b> paid the bill.','who','paid','<em>Who</em> is the subject of <em>paid</em> in its own clause, so the subject form is required.'],
+  ['Tell me <b>who</b> is coming.','who','is coming','<em>Who</em> is the subject of <em>is coming</em>. The clause is what is told, and the pronoun stays in the subject form.'],
+  ['<b>Who</b> do you think is at the door?','Who','is','<em>Who</em> is the subject of <em>is</em>. It is not the object of <em>think</em>.' ]
+].forEach(([s, , , why]) => CSE_FORM.push([s, 'subj', why]));
+[['him','he'],['her','she'],['me','I'],['us','we'],['them','they']].forEach(([o, sform]) => {
+  [
+    [`The captain saw <b>${o}</b> at the harbour.`,'saw'],
+    [`The teacher praised <b>${o}</b>.`,'praised'],
+    [`Nobody helped <b>${o}</b>.`,'helped'],
+    [`She thanked <b>${o}</b> warmly.`,'thanked']
+  ].forEach(([s, v]) => CSE_FORM.push([s, 'dobj', `<em>${cap(o)}</em> receives the action of <em>${v}</em>, so it is the direct object and takes the object form, not <em>${sform}</em>.`]));
+});
+[
+  ['<b>Whom</b> did the captain see?','see'],['<b>Whom</b> did the teacher praise?','praise'],
+  ['<b>Whom</b> did she thank?','thank'],['<b>Whom</b> did they follow?','follow']
+].forEach(([s, v]) => CSE_FORM.push([s, 'dobj', `<em>Whom</em> is the direct object of <em>${v}</em>, though it stands first in the question. The object form is required.`]));
+[['him','he','to','The captain spoke to'],['her','she','for','The letter is for'],['me','I','with','She walked with'],
+ ['us','we','from','The gift came from'],['them','they','without','They sailed without'],['him','he','against','We argued against']
+].forEach(([o, sform, prep, frame]) => {
+  CSE_FORM.push([`${frame} <b>${o}</b>.`, 'prep', `<em>${cap(prep)}</em> is a preposition, and its object takes the object form <em>${o}</em>, not <em>${sform}</em>.`]);
+});
+[
+  ['The letter is for <b>me</b>.','for','me','I'],['She came with <b>me</b>.','with','me','I'],
+  ['The gift is from <b>me</b>.','from','me','I'],['They left without <b>me</b>.','without','me','I'],
+  ['He spoke against <b>me</b>.','against','me','I'],['This is between you and <b>me</b>.','between','me','I'],
+  ['Between you and <b>him</b>, the plan failed.','between','him','he'],
+  ['This stays between you and <b>her</b>.','between','her','she'],
+  ['The road runs between you and <b>us</b>.','between','us','we'],
+  ['Nobody stands between you and <b>them</b>.','between','them','they']
+].forEach(([s, prep, o, sform]) => CSE_FORM.push([s, 'prep', `<em>${cap(prep)}</em> is a preposition, and its object takes the object form <em>${o}</em>, not <em>${sform}</em>.`]));
+[
+  ['To <b>whom</b> did you speak?','To'],['With <b>whom</b> did she travel?','With'],['For <b>whom</b> is this gift?','For'],
+  ['From <b>whom</b> did the letter come?','From'],['Against <b>whom</b> did they argue?','Against']
+].forEach(([s, prep]) => CSE_FORM.push([s, 'prep', `<em>${prep}</em> is a preposition, and its object takes the object form <em>whom</em>, not <em>who</em>.`]));
+[['him','he'],['her','she'],['me','I'],['us','we'],['them','they']].forEach(([o, sform]) => {
+  [
+    [`The queen gave <b>${o}</b> a reward.`,'gave','reward'],
+    [`She told <b>${o}</b> the news.`,'told','news'],
+    [`The teacher sent <b>${o}</b> a letter.`,'sent','letter']
+  ].forEach(([s, v, thing]) => CSE_FORM.push([s, 'iobj', `<em>${cap(o)}</em> names the one who receives the ${thing}. No preposition is written, so the object form is required, not <em>${sform}</em>.`]));
+});
+[
+  ['It was <b>I</b> who rang the bell.','I','was','it'],['It is <b>she</b> who decides.','she','is','it'],
+  ['That was <b>he</b> at the door.','he','was','that'],['It was <b>they</b> who found the ship.','they','was','it'],
+  ['It is <b>we</b> who must choose.','we','is','it'],['The winner is <b>he</b>.','he','is','the winner']
+].forEach(([s, p, v, subj]) => CSE_FORM.push([s, 'link', `<em>${cap(v)}</em> links <em>${p}</em> to the subject <em>${subj}</em>. The pronoun renames the subject, so it takes the subject form.`]));
+[
+  ['The sailor lost <b>his</b> rope.','His','rope'],['The queen lost <b>her</b> crown.','Her','crown'],
+  ['The dog wagged <b>its</b> tail.','Its','tail'],['We lost <b>our</b> way.','Our','way'],
+  ['They found <b>their</b> ship.','Their','ship'],['<b>Whose</b> book is this?','Whose','book'],
+  ['The house is <b>mine</b>.','Mine','house'],['The choice is <b>hers</b>.','Hers','choice']
+].forEach(([s, p, thing]) => CSE_FORM.push([s, 'poss', `<em>${p}</em> tells whose ${thing} it is, so it is the possessive form.`]));
+[
+  ['The <b>farmer</b> praised the sailor.','farmer'],['The <b>sailor</b> guarded the gate.','sailor'],
+  ['The <b>king</b> opened the letter.','king'],['The <b>queen</b> called the captain.','queen'],
+  ['The <b>teacher</b> read the book.','teacher'],['The <b>boy</b> carried the rope.','boy'],
+  ['The <b>messenger</b> brought the news.','messenger'],['The <b>judge</b> heard the case.','judge']
+].forEach(([s, w]) => CSE_PLACE.push([s, 'before', `<em>${cap(w)}</em> stands before the verb and does the action, so the place marks it as the subject.`]));
+[
+  ['The farmer praised the <b>sailor</b>.','sailor'],['The boy carried the <b>book</b>.','book'],
+  ['The girl read the <b>letter</b>.','letter'],['The captain opened the <b>gate</b>.','gate'],
+  ['The soldier drew the <b>sword</b>.','sword'],['The cook tasted the <b>soup</b>.','soup'],
+  ['The poet wrote a <b>song</b>.','song'],['The child found the <b>key</b>.','key']
+].forEach(([s, w]) => CSE_PLACE.push([s, 'after', `<em>${cap(w)}</em> stands after the verb and receives the action, so the place marks it as the direct object.`]));
+[
+  ['The queen gave the <b>sailor</b> a reward.','sailor','reward'],['She told the <b>children</b> a story.','children','story'],
+  ['The teacher sent the <b>king</b> a letter.','king','letter'],['We showed the <b>captain</b> the map.','captain','map'],
+  ['He brought the <b>cook</b> a basket.','cook','basket'],['They offered the <b>poet</b> a room.','poet','room'],
+  ['The master handed the <b>boy</b> a key.','boy','key'],['She wrote the <b>judge</b> a note.','judge','note']
+].forEach(([s, w, thing]) => CSE_PLACE.push([s, 'mid', `<em>${cap(w)}</em> stands between the verb and the other object, <em>${thing}</em>, so the place marks it as the indirect object.`]));
+[
+  ['The roof of the <b>temple</b> had fallen.','temple'],['The colour of the <b>leaves</b> is changing.','leaves'],
+  ['This is the house of the <b>king</b>.','king'],['The sound of the <b>bells</b> was loud.','bells'],
+  ['The name of the <b>ship</b> was painted on the bow.','ship'],['The end of the <b>road</b> is in sight.','road'],
+  ['We heard the cry of the <b>child</b>.','child'],['The walls of the <b>city</b> are high.','city']
+].forEach(([s, w]) => CSE_PLACE.push([s, 'of', `<em>${cap(w)}</em> follows <em>of</em>, so the place marks it as the owner or the whole. It is not the subject, and it is not the direct object.`]));
+function casesEnglish(d){
+  const form = Math.random() < 0.62;
+  const pool = form ? CSE_FORM : CSE_PLACE;
+  const easy = d <= 1
+    ? pool.filter(x => form ? (x[1] === 'subj' || x[1] === 'dobj' || x[1] === 'prep') : (x[1] === 'before' || x[1] === 'after'))
+    : pool;
+  const it = rand(easy);
+  const labels = form ? CSE_F : CSE_P;
+  return p2MC({sid:'cse:'+it[0], prompt: form ? 'Why does the marked pronoun take this form?' : 'What does the place of the marked word show?',
+    sentence: it[0], a: labels[it[1]], ds: Object.values(labels), why: it[2]}, d);
+}
+
+p2AddEnglish('cases', casesEnglish, 0.55);
 p2AddEnglish('agree', agreeEnglish, 0.5);
 p2AddEnglish('produce', produceEnglish, 0.5);
 p2AddEnglish('govern', governEnglish, 0.5);
