@@ -15459,6 +15459,67 @@ if(GRK){
     gen(d){ return grcMoreQ(d); }
   };
 }
+/* The four Greek sentence exercises: one blank in each frame of GREEK.sentence, with the mechanics of More of
+   the Latin Sentence. The feedback is the item's note, as in the Latin exercises. A typed answer that is wrong
+   is also shown the right form. An item whose frame is only the blank asks for the form that its English line
+   names. */
+function grcSentQ(pool, d){
+  const it = pickSeen(pool, x => x.id);
+  const bare = it.fr.trim() === '______';
+  const frame = bare ? '' : `<span lang="grc">${nfEsc(it.fr).replace('______', '<span class="target">______</span>')}</span>`;
+  const note = nfEsc(it.why);
+  if(d >= 3){
+    return {
+      kind:'text', lang:'grc', src:['smyth','appown'], sid:'gs:' + it.id, _answer:it.a,
+      prompt: bare ? 'Write the Greek form named.' : 'Write the missing Greek word.',
+      sentence:frame, gloss:nfEsc(it.en), placeholder:'Type the Greek form', hint:GRK_HINT,
+      check(val){
+        const got = normGrk(val);
+        if(got && got === normGrk(it.a)) return {right:true, note};
+        const wrote = String(val || '').trim();
+        const right = `The right form is <strong lang="grc">${nfEsc(it.a)}</strong>.`;
+        return {right:false, note, also: wrote ? `${right} The answer written was <em>${nfEsc(wrote)}</em>.` : `${right} Nothing was written.`};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:'grc', src:['smyth','appown'], sid:'gs:' + it.id, _answer:correct,
+    prompt: bare ? 'Choose the Greek form named.' : 'Choose the missing Greek word.',
+    sentence:frame, gloss:nfEsc(it.en), options, correct,
+    check(i){
+      if(i === correct) return {right:true, note};
+      return {right:false, note, also:`The answer chosen was <em>${nfEsc(options[i])}</em>.`};
+    }
+  };
+}
+const grkSpan = s => `<span lang="grc">${s}</span>`;
+if(GRK && GRK.sentence){
+  EX.grcsent = {
+    id:'grcsent', src:['smyth','appown'], act:'III', title:'More of the Greek Sentence',
+    desc:`One word is missing from a Greek sentence: a verb in another person, a personal pronoun, a noun in the dative or the genitive, a noun joined by ${grkSpan('καί')}, or a noun after a preposition of place. The word is chosen from tiles at the first levels and written at the higher ones.`,
+    instr:'Supply the missing Greek word.',
+    introInstr:'',
+    intro:[
+      {h:'<strong>Other persons.</strong> The ending of a Greek verb shows its person and number, so a pronoun subject is usually left out.',
+       eg:[`${grkSpan('τὸν νεᾱνίᾱν λῡ́ομεν')} means “we loose the young man.”`]},
+      {h:`<strong>The pronoun.</strong> A personal pronoun used as the object of a verb is in the accusative, and one used with ${grkSpan('πιστεύω')}, “trust,” is in the dative. The short forms ${grkSpan('με')}, ${grkSpan('μοι')}, ${grkSpan('σε')}, and ${grkSpan('σοι')} are enclitic, that is, they have no accent of their own and are pronounced with the word before them, so they cannot begin a sentence. The forms of ${grkSpan('αὐτός')} outside the nominative mean “him.”`,
+       eg:[`${grkSpan('ἐμὲ ὁ κριτὴς πέμπει')} means “the judge sends me”; ${grkSpan('ὁ κριτὴς πιστεύει μοι')} means “the judge trusts me”; ${grkSpan('ὁ ἄνθρωπος λῡ́ει αὐτόν')} means “the man looses him.”`]},
+      {h:'<strong>The dative.</strong> The person to whom something is given or sent is in the dative.',
+       eg:[`${grkSpan('ὁ ἄνθρωπος τῷ κριτῇ τὸ δῶρον πέμπει')} means “the man sends the gift to the judge.”`]},
+      {h:'<strong>The genitive.</strong> A noun in the genitive modifies another noun and keeps its own case, so it does not agree with that noun. It can stand between the article and the noun it modifies, and then it has its own article.',
+       eg:[`${grkSpan('ὁ τοῦ βασιλέως ἵππος ἀγαθός ἐστι')} means “the king’s horse is good.”`]},
+      {h:`<strong>The conjunction ${grkSpan('καί')}.</strong> The conjunction ${grkSpan('καί')} joins two words in the same case, because both are used in the same way in the sentence.`,
+       eg:[`${grkSpan('ὁ ἄνθρωπος καὶ ὁ κριτὴς τὸν ἵππον λῡ́ουσι')} means “the man and the judge loose the horse,” and both nouns are the subject, so both are in the nominative.`]},
+      {h:`<strong>Place.</strong> Place where is shown by ${grkSpan('ἐν')} with the dative, motion into a place by ${grkSpan('εἰς')} with the accusative, and motion out of a place by ${grkSpan('ἐκ')} with the genitive.`,
+       eg:[`${grkSpan('ὁ κριτὴς ἐν τῇ πόλει γράφει')} means “the judge writes in the city”; ${grkSpan('πέμπει τὸν φύλακα εἰς τὴν πόλιν')} means “he sends the watchman into the city”; ${grkSpan('ὁ βασιλεὺς ἐκ τῆς πόλεως τὸ δῶρον πέμπει')} means “the king sends the gift out of the city.”`]}
+    ],
+    modes:['grc'], langs:['grc'],
+    gen(d){ return grcSentQ(GRK.sentence.more, d); }
+  };
+}
 /* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
    "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
    items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
@@ -15654,7 +15715,9 @@ const ACTS = [
      {kind:'deck', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'},
      {kind:'ex', ex:'grcmore'}
-   ] : [])},
+   ].concat(GRK && GRK.sentence ? [
+     {kind:'ex', ex:'grcsent'}
+   ] : []) : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
    items:[
