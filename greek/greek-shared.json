@@ -1,0 +1,1728 @@
+{
+  "pos": [
+    {
+      "id": "gpos1",
+      "s": "<b>ὁ</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "orig": "The man looses the horse.",
+      "a": "article",
+      "note": "ὁ points out one man. Greek counts the article as a part of speech, and Latin has none.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos2",
+      "s": "γράφει ἐν <b>τῇ</b> χώρᾳ",
+      "orig": "He writes in the land.",
+      "a": "article",
+      "note": "τῇ points out the land, and the dative goes with ἐν. The article is a part of speech in Greek.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos3",
+      "s": "ὁ <b>φύλαξ</b> τὸ δῶρον πέμπει",
+      "orig": "The watchman sends the gift.",
+      "a": "noun",
+      "note": "φύλαξ names the watchman, and it is the subject of πέμπει.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos4",
+      "s": "πέμπει τὸ <b>δῶρον</b>",
+      "orig": "He sends the gift.",
+      "a": "noun",
+      "note": "δῶρον names the gift, and it is the object of πέμπει.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos5",
+      "s": "ὁ ἄνθρωπος τὸν ἵππον <b>λῡ́ει</b>",
+      "orig": "The man looses the horse.",
+      "a": "verb",
+      "note": "λῡ́ει says what the man does. It is the present, third person singular, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos6",
+      "s": "ἡ νῑ́κη ἀγαθή <b>ἐστι</b>",
+      "orig": "The victory is good.",
+      "a": "verb",
+      "note": "ἐστι says what the victory is. The form has no accent of its own, because it leans on ἀγαθή (§183).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos7",
+      "s": "ὁ <b>ἀγαθὸς</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "orig": "The good man looses the horse.",
+      "a": "adjective",
+      "note": "ἀγαθός tells what sort of man, and it adheres to ἄνθρωπος.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos8",
+      "s": "ἡ νῑ́κη <b>ἀγαθή</b> ἐστι",
+      "orig": "The victory is good.",
+      "a": "adjective",
+      "note": "ἀγαθή tells what sort of victory, across the verb. Before the enclitic it keeps the acute (§183).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos9",
+      "s": "ὁ ἄνθρωπος <b>σοφῶς</b> γράφει",
+      "orig": "The man writes wisely.",
+      "a": "adverb",
+      "note": "σοφῶς tells how he writes. An adverb in -ως keeps one form (§343, §345).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos10",
+      "s": "ὁ βασιλεὺς <b>κακῶς</b> ἄρχει τῶν ἀνθρώπων",
+      "orig": "The king rules the men badly.",
+      "a": "adverb",
+      "note": "κακῶς tells how he rules. Smyth prints κακῶς, and the gloss there is ill (§343).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos11",
+      "s": "<b>ἐν</b> τῇ χώρᾳ γράφει",
+      "orig": "He writes in the land.",
+      "a": "preposition",
+      "note": "ἐν stands before the noun and puts χώρᾳ in the dative (§1687).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos12",
+      "s": "πέμπει τὸν ἵππον <b>εἰς</b> τὴν χώρᾱν",
+      "orig": "He sends the horse into the land.",
+      "a": "preposition",
+      "note": "εἰς stands before the noun and puts χώρᾱν in the accusative (§1686).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos13",
+      "s": "ὁ φύλαξ <b>ἐκ</b> τῆς πόλεως πέμπει τὸ δῶρον",
+      "orig": "The watchman sends the gift out of the city.",
+      "a": "preposition",
+      "note": "ἐκ stands before the noun and puts πόλεως in the genitive (§1688).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos14",
+      "s": "ὁ ἄνθρωπος <b>καὶ</b> ὁ κριτὴς λῡ́ουσι τὸν ἵππον",
+      "orig": "The man and the judge loose the horse.",
+      "a": "conjunction",
+      "note": "καί joins the man and the judge. In this sentence it is a conjunction (§2868).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos15",
+      "s": "ὁ ἄνθρωπος λῡ́ει τὸν ἵππον, <b>ἀλλὰ</b> ὁ κριτὴς γράφει",
+      "orig": "The man looses the horse, but the judge writes.",
+      "a": "conjunction",
+      "note": "ἀλλά joins the two statements, and the second is set against the first (§2775).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos16",
+      "s": "ὁ <b>γὰρ</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "orig": "For the man looses the horse.",
+      "a": "conjunction",
+      "note": "γάρ means for, and it is a causal conjunction. It stands after the first word (§2803, §2810).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos17",
+      "s": "<b>ἐγὼ</b> τὸν ἵππον λῡ́ω",
+      "orig": "I loose the horse.",
+      "a": "pronoun",
+      "note": "ἐγώ stands in for the speaker, and it is the subject. The nominative is ἐγώ (§325).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos18",
+      "s": "ὁ κριτὴς <b>ἐμοὶ</b> πιστεύει",
+      "orig": "The judge trusts me.",
+      "a": "pronoun",
+      "note": "ἐμοί stands in for the person who is trusted. It is the dative of ἐγώ (§325).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos19",
+      "s": "ὁ <b>λῡ́ων</b> τὸν ἵππον ἄνθρωπος ἀγαθός ἐστι",
+      "orig": "The man who is loosing the horse is good.",
+      "a": "participle",
+      "note": "λῡ́ων depends on ἄνθρωπος and keeps the time of the verb. It is the present participle of λῡ́ω (§305).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos20",
+      "s": "ὁ κριτὴς <b>παιδεύων</b> τὸν νεᾱνίᾱν γράφει",
+      "orig": "The judge writes, educating the young man.",
+      "a": "participle",
+      "note": "παιδεύων depends on κριτής and keeps the time of the verb. Smyth prints παιδεύων, educating (§305).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos21",
+      "s": "<b>φεῦ</b>, ὁ ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "orig": "Alas, the man looses the horse.",
+      "a": "interjection",
+      "note": "φεῦ is a cry of grief. It neither names a thing nor joins a statement (§1407, §904).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gpos22",
+      "s": "<b>φεῦ</b> τοῦ ἀνθρώπου",
+      "orig": "Alas for the man.",
+      "a": "interjection",
+      "note": "φεῦ is a cry, and the genitive gives the cause. Smyth prints φεῦ τοῦ ἀνδρός (§1407).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "decline": [
+    {
+      "id": "gdec1",
+      "s": "ὁ <b>ἄνθρωπος</b> τὸν ἵππον λῡ́ει",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a noun, which takes endings",
+      "ds": [
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἄνθρωπος is a noun. It takes endings for case and number (§231).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec2",
+      "s": "ὁ φύλαξ ἐκ τῆς <b>πόλεως</b> πέμπει τὸ δῶρον",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a noun, which takes endings",
+      "ds": [
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "πόλεως is a noun, the genitive of πόλις. It takes endings for case and number (§268).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec3",
+      "s": "ὁ ἄνθρωπος τὸν ἵππον <b>λῡ́ει</b>",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a verb, which takes endings",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "λῡ́ει is a verb. It takes endings for person, number, and tense (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec4",
+      "s": "ἡ νῑ́κη ἀγαθή <b>ἐστι</b>",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a verb, which takes endings",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἐστι is a verb. It takes endings for person, number, and tense (§768).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec5",
+      "s": "ὁ <b>ἀγαθὸς</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: an adjective, which takes degrees",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἀγαθός is an adjective. It takes the endings of the noun, and an adjective takes degrees (§287).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec6",
+      "s": "ἡ <b>ἀληθὴς</b> ὁδὸς μακρά ἐστι",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: an adjective, which takes degrees",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἀληθής is an adjective. It takes endings for case and number, and an adjective takes degrees (§292).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec7",
+      "s": "<b>ἐγὼ</b> τὸν ἵππον λῡ́ω",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a pronoun, which still shows case",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἐγώ is a pronoun. It still shows case: ἐγώ, ἐμοῦ, ἐμοί, ἐμέ (§325).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec8",
+      "s": "ὁ κριτὴς <b>ἐμοὶ</b> πιστεύει",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Declinable: a pronoun, which still shows case",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἐμοί is a pronoun, the dative of ἐγώ. The case is still marked (§325).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec9",
+      "s": "ὁ ἄνθρωπος <b>σοφῶς</b> γράφει",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: an adverb, which keeps one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "σοφῶς is an adverb. It keeps one form (§343).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec10",
+      "s": "ὁ βασιλεὺς <b>κακῶς</b> ἄρχει τῶν ἀνθρώπων",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: an adverb, which keeps one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "κακῶς is an adverb. It keeps one form. Smyth prints it from κακῶν (§343).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec11",
+      "s": "γράφει <b>ἐν</b> τῇ χώρᾳ",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: a preposition, one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "ἐν is a preposition. It keeps one form, and it governs the dative (§1687).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec12",
+      "s": "πέμπει τὸν ἵππον <b>εἰς</b> τὴν χώρᾱν",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: a preposition, one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a conjunction, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "εἰς is a preposition. It keeps one form, and it governs the accusative (§1686).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec13",
+      "s": "ὁ ἄνθρωπος <b>καὶ</b> ὁ κριτὴς λῡ́ουσι τὸν ἵππον",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: a conjunction, one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "καί is a conjunction. It keeps one form (§2868).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec14",
+      "s": "ὁ <b>γὰρ</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: a conjunction, one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: an interjection, one form"
+      ],
+      "why": "γάρ is a conjunction. It keeps one form (§2810).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gdec15",
+      "s": "<b>φεῦ</b> τοῦ ἀνθρώπου",
+      "q": "Is the marked word declinable or indeclinable?",
+      "a": "Indeclinable: an interjection, one form",
+      "ds": [
+        "Declinable: a noun, which takes endings",
+        "Declinable: a verb, which takes endings",
+        "Declinable: an adjective, which takes degrees",
+        "Declinable: a pronoun, which still shows case",
+        "Indeclinable: an adverb, which keeps one form",
+        "Indeclinable: a preposition, one form",
+        "Indeclinable: a conjunction, one form"
+      ],
+      "why": "φεῦ is an interjection, a cry, and it keeps one form (§1407).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "gcase1",
+      "s": "ὁ <b>ἄνθρωπος</b> τὸν ἵππον λῡ́ει",
+      "q": "What case is the marked word?",
+      "a": "Nominative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "ἄνθρωπος is the subject of λῡ́ει. The subject stands in the nominative.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase2",
+      "s": "ὁ <b>φύλαξ</b> τὸ δῶρον πέμπει",
+      "q": "What case is the marked word?",
+      "a": "Nominative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "φύλαξ is the subject of πέμπει. The subject stands in the nominative (§256).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase3",
+      "s": "ὁ ἄνθρωπος τὸν <b>ἵππον</b> λῡ́ει",
+      "q": "What case is the marked word?",
+      "a": "Accusative",
+      "ds": [
+        "Nominative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "ἵππον is the object of λῡ́ει. The object stands in the accusative.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase4",
+      "s": "ὁ κριτὴς τὸν <b>βασιλέᾱ</b> παιδεύει",
+      "q": "What case is the marked word?",
+      "a": "Accusative",
+      "ds": [
+        "Nominative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "βασιλέᾱ is the object of παιδεύει. The accusative singular of βασιλεύς is βασιλέᾱ (§275).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase5",
+      "s": "ὁ τοῦ <b>βασιλέως</b> ἵππος ἀγαθός ἐστι",
+      "q": "What case is the marked word?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "βασιλέως marks the owner of the horse. That is the genitive of possession (§1297).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase6",
+      "s": "ὁ ἄνθρωπος ἀπὸ τῆς <b>θαλάττης</b> πέμπει τὸ δῶρον",
+      "q": "What case is the marked word?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἀπό takes the genitive, and the phrase marks separation (§1684). Greek has no ablative.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase7",
+      "s": "ὁ βασιλεὺς ἄρχει τῶν <b>ἀνθρώπων</b>",
+      "q": "What case is the marked word?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἄρχω takes the genitive of the people ruled (§1370). Smyth's example is the infinitive ἄρχειν, and ἄρχει has the thematic ending of §383.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase8",
+      "s": "πέμπει τὸ δῶρον τῷ <b>κριτῇ</b>",
+      "q": "What case is the marked word?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "κριτῇ is the person to whom the gift is sent. That person stands in the dative (§1469).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase9",
+      "s": "ὁ ἄνθρωπος τὸν ἵππον <b>λίθῳ</b> παύει",
+      "q": "What case is the marked word?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "λίθῳ is the means. The dative of means needs no preposition (§1507).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase10",
+      "s": "τῇ μακρᾷ <b>ἡμέρᾳ</b> ὁ βασιλεὺς γράφει",
+      "q": "What case is the marked word?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "ἡμέρᾳ is the time when. The dative of time when usually has an attributive, here μακρᾷ (§1539).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase11",
+      "s": "<b>ἄνθρωπε</b>, ὁ κριτὴς γράφει",
+      "q": "What case is the marked word?",
+      "a": "Vocative",
+      "ds": [
+        "Genitive",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἄνθρωπε is the person addressed. Smyth prints the vocative without ὦ (§1283).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase12",
+      "s": "<b>βασιλεῦ</b>, ὁ φύλαξ τὸ δῶρον πέμπει",
+      "q": "What case is the marked word?",
+      "a": "Vocative",
+      "ds": [
+        "Genitive",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "βασιλεῦ is the person addressed. The nominative is βασιλεύς (§275).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcase13",
+      "s": "<b>κριτὰ</b>, ἡ νῑ́κη ἀγαθή ἐστι",
+      "q": "What case is the marked word?",
+      "a": "Vocative",
+      "ds": [
+        "Genitive",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "κριτά is the vocative of κριτής, and it is the person addressed (§222). Before the next word the acute is written as a grave (§154).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "govern": [
+    {
+      "id": "ggov1",
+      "s": "γράφει ἐν τῇ <b>χώρᾳ</b>",
+      "q": "What case does ἐν take?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "ἐν takes the dative only (§1687). χώρᾳ is the dative of χώρᾱ.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov2",
+      "s": "πέμπει τὸν ἵππον εἰς τὴν <b>χώρᾱν</b>",
+      "q": "What case does εἰς take?",
+      "a": "Accusative",
+      "ds": [
+        "Nominative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "εἰς takes the accusative only (§1686). χώρᾱν is the accusative of χώρᾱ.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov3",
+      "s": "ὁ φύλαξ ἐκ τῆς <b>πόλεως</b> πέμπει τὸ δῶρον",
+      "q": "What case does ἐκ take?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἐκ takes the genitive only (§1688). Before a consonant the form is ἐκ (§136).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov4",
+      "s": "πέμπει τὸν ἵππον ἐξ <b>ὁδοῦ</b>",
+      "q": "What case does ἐξ take?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἐξ is the form of ἐκ before a vowel (§136), and it takes the genitive (§1688). ὁδοῦ is the genitive of ὁδός.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov5",
+      "s": "ὁ ἄνθρωπος ἀπὸ τῆς <b>θαλάττης</b> πέμπει τὸ δῶρον",
+      "q": "What case does ἀπό take?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "ἀπό takes the genitive only (§1684). The phrase marks separation.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov6",
+      "s": "ὁ ἄνθρωπος σὺν τῷ <b>κριτῇ</b> γράφει",
+      "q": "What case does σύν take?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "σύν takes the dative only (§1696). In Attic prose outside Xenophon, μετά with the genitive is the usual word, and σύν survives in old formulas and in Xenophon.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov7",
+      "s": "πέμπει τὸν ἵππον πρὸς τὴν <b>πόλιν</b>",
+      "q": "What case does πρός take here?",
+      "a": "Accusative",
+      "ds": [
+        "Nominative",
+        "Genitive",
+        "Dative"
+      ],
+      "why": "In this sentence πρός marks motion toward, and that use takes the accusative (§1695.3). πρός takes other cases in other senses.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov8",
+      "s": "ὁ ἵππος λῡ́εται ὑπὸ τοῦ <b>ἀνθρώπου</b>",
+      "q": "What case does ὑπό take for the personal agent?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "With a passive verb, ὑπό takes the genitive of the personal agent (§1698). λῡ́εται is the present passive, and the form is the same as the present middle (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov9",
+      "s": "ὁ βασιλεὺς ἄρχει τῶν <b>ἀνθρώπων</b>",
+      "q": "What case does ἄρχω take for the people ruled?",
+      "a": "Genitive",
+      "ds": [
+        "Vocative",
+        "Dative",
+        "Nominative"
+      ],
+      "why": "A verb of ruling takes the genitive (§1370). Smyth's example is the infinitive ἄρχειν. The finite form ἄρχει has the thematic ending of §383.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "ggov10",
+      "s": "ὁ κριτὴς <b>ἐμοὶ</b> πιστεύει",
+      "q": "What case does πιστεύω take?",
+      "a": "Dative",
+      "ds": [
+        "Accusative",
+        "Genitive",
+        "Nominative"
+      ],
+      "why": "πιστεύω takes the dative (§1745). ἐμοί is the dative of ἐγώ (§325).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "agree": [
+    {
+      "id": "gagr1",
+      "form": "ἀγαθὸς ἄνθρωπος",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; ἄνθρωπος, masculine, man",
+      "q": "Judge the phrase.",
+      "a": "Sound: the adjective agrees with its noun",
+      "ds": [
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ἄνθρωπος is masculine, nominative, singular. ἀγαθός matches it in gender, number, and case.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr2",
+      "form": "ἀγαθὴ ὁδός",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; ὁδός, feminine, way",
+      "q": "Judge the phrase.",
+      "a": "Sound: the adjective agrees with its noun",
+      "ds": [
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ὁδός is feminine, though it ends in -ος. ἀγαθή is the feminine nominative, and it matches.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr3",
+      "form": "ἀγαθὸν δῶρον",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; δῶρον, neuter, gift",
+      "q": "Judge the phrase.",
+      "a": "Sound: the adjective agrees with its noun",
+      "ds": [
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "δῶρον is neuter, nominative, singular. ἀγαθόν matches it.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr4",
+      "form": "ἀληθὴς ὁδός",
+      "gloss": "ἀληθής, true &nbsp;·&nbsp; ὁδός, feminine, way",
+      "q": "Judge the phrase.",
+      "a": "Sound: the adjective agrees with its noun",
+      "ds": [
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ὁδός is feminine. ἀληθής is the feminine form as well as the masculine, because the adjective has two endings (§292).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr5",
+      "form": "ἀγαθὸς ὁδός",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; ὁδός, feminine, way",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective disagrees in <b>gender</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ὁδός is feminine. ἀγαθός is masculine, so the adjective disagrees in gender. Case and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr6",
+      "form": "μακρὸς θάλαττα",
+      "gloss": "μακρός, long &nbsp;·&nbsp; θάλαττα, feminine, sea",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective disagrees in <b>gender</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "θάλαττα is feminine. μακρός is masculine, so the adjective disagrees in gender. Case and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr7",
+      "form": "σοφὸν ἐλπίς",
+      "gloss": "σοφός, wise &nbsp;·&nbsp; ἐλπίς, feminine, hope",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective disagrees in <b>gender</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ἐλπίς is feminine. σοφόν is neuter, so the adjective disagrees in gender. Case and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr8",
+      "form": "κακὴ βασιλεύς",
+      "gloss": "κακός, bad &nbsp;·&nbsp; βασιλεύς, masculine, king",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective disagrees in <b>gender</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the <b>number</b> does not agree",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "βασιλεύς is masculine. κακή is feminine, so the adjective disagrees in gender. Case and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr9",
+      "form": "ἀγαθοὶ ἄνθρωπος",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; ἄνθρωπος, masculine, man",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the <b>number</b> does not agree",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "ἄνθρωπος is singular and ἀγαθοί is plural. Gender and case match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr10",
+      "form": "ἀγαθὴ νῖκαι",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; νῑ́κη, feminine, victory",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the <b>number</b> does not agree",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "νῖκαι is plural and ἀγαθή is singular. Gender and case match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr11",
+      "form": "ἀληθεῖς πόλις",
+      "gloss": "ἀληθής, true &nbsp;·&nbsp; πόλις, feminine, city",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the <b>number</b> does not agree",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "πόλις is singular and ἀληθεῖς is plural. The adjective has two endings, so the feminine plural is ἀληθεῖς, and the fault is number.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr12",
+      "form": "κακὸν δῶρα",
+      "gloss": "κακός, bad &nbsp;·&nbsp; δῶρον, neuter, gift",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the <b>number</b> does not agree",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the adjective does not agree in <b>case</b>"
+      ],
+      "why": "δῶρα is plural and κακόν is singular. Gender and case match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr13",
+      "form": "ἀγαθοῦ ἵππος",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; ἵππος, masculine, horse",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective does not agree in <b>case</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree"
+      ],
+      "why": "ἵππος is nominative and ἀγαθοῦ is genitive. Gender and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr14",
+      "form": "ἀγαθῇ νῑ́κη",
+      "gloss": "ἀγαθός, good &nbsp;·&nbsp; νῑ́κη, feminine, victory",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective does not agree in <b>case</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree"
+      ],
+      "why": "νῑ́κη is nominative and ἀγαθῇ is dative. Gender and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr15",
+      "form": "μακρὰν ὁδός",
+      "gloss": "μακρός, long &nbsp;·&nbsp; ὁδός, feminine, way",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective does not agree in <b>case</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree"
+      ],
+      "why": "ὁδός is nominative, and it is feminine. μακράν is accusative. Gender and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gagr16",
+      "form": "σοφῷ κριτής",
+      "gloss": "σοφός, wise &nbsp;·&nbsp; κριτής, masculine, judge",
+      "q": "Judge the phrase.",
+      "a": "Faulty: the adjective does not agree in <b>case</b>",
+      "ds": [
+        "Sound: the adjective agrees with its noun",
+        "Faulty: the adjective disagrees in <b>gender</b>",
+        "Faulty: the <b>number</b> does not agree"
+      ],
+      "why": "κριτής is nominative and σοφῷ is dative. Gender and number match.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "produce": [
+    {
+      "id": "gprod1",
+      "lemma": "χώρᾱ",
+      "lemmaLine": "χώρᾱ, χώρᾱς, ἡ, land",
+      "want": "genitive plural",
+      "a": "χωρῶν",
+      "why": "χωρῶν is the genitive plural of χώρᾱ (§216).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod2",
+      "lemma": "νῑ́κη",
+      "lemmaLine": "νῑ́κη, νῑ́κης, ἡ, victory",
+      "want": "genitive singular",
+      "a": "νῑ́κης",
+      "why": "νῑ́κης is the genitive singular of νῑ́κη (§216).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod3",
+      "lemma": "θάλαττα",
+      "lemmaLine": "θάλαττα, θαλάττης, ἡ, sea",
+      "want": "genitive singular",
+      "a": "θαλάττης",
+      "why": "θαλάττης is the genitive singular of θάλαττα (§216).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod4",
+      "lemma": "μοῖρα",
+      "lemmaLine": "μοῖρα, μοίρᾱς, ἡ, fate",
+      "want": "accusative plural",
+      "a": "μοίρᾱς",
+      "why": "μοίρᾱς is the accusative plural of μοῖρα (§216).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod5",
+      "lemma": "νεᾱνίᾱς",
+      "lemmaLine": "νεᾱνίᾱς, νεᾱνίου, ὁ, young man",
+      "want": "genitive singular",
+      "a": "νεᾱνίου",
+      "why": "νεᾱνίου is the genitive singular of νεᾱνίᾱς (§222).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod6",
+      "lemma": "κριτής",
+      "lemmaLine": "κριτής, κριτοῦ, ὁ, judge",
+      "want": "vocative singular",
+      "a": "κριτά",
+      "why": "κριτά is the vocative singular of κριτής (§222).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod7",
+      "lemma": "ἵππος",
+      "lemmaLine": "ἵππος, ἵππου, ὁ, horse",
+      "want": "dative plural",
+      "a": "ἵπποις",
+      "why": "ἵπποις is the dative plural of ἵππος (§231).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod8",
+      "lemma": "ἄνθρωπος",
+      "lemmaLine": "ἄνθρωπος, ἀνθρώπου, ὁ, man",
+      "want": "vocative singular",
+      "a": "ἄνθρωπε",
+      "why": "ἄνθρωπε is the vocative singular of ἄνθρωπος (§231).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod9",
+      "lemma": "ὁδός",
+      "lemmaLine": "ὁδός, ὁδοῦ, ἡ, way",
+      "want": "genitive singular",
+      "a": "ὁδοῦ",
+      "why": "ὁδοῦ is the genitive singular of ὁδός (§231).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod10",
+      "lemma": "δῶρον",
+      "lemmaLine": "δῶρον, δώρου, τό, gift",
+      "want": "nominative plural",
+      "a": "δῶρα",
+      "why": "δῶρα is the nominative plural of δῶρον (§231).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod11",
+      "lemma": "φύλαξ",
+      "lemmaLine": "φύλαξ, φύλακος, ὁ, watchman",
+      "want": "dative singular",
+      "a": "φύλακι",
+      "why": "φύλακι is the dative singular of φύλαξ (§256).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod12",
+      "lemma": "ἐλπίς",
+      "lemmaLine": "ἐλπίς, ἐλπίδος, ἡ, hope",
+      "want": "accusative singular",
+      "a": "ἐλπίδα",
+      "why": "ἐλπίδα is the accusative singular of ἐλπίς (§257).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod13",
+      "lemma": "σῶμα",
+      "lemmaLine": "σῶμα, σώματος, τό, body",
+      "want": "genitive singular",
+      "a": "σώματος",
+      "why": "σώματος is the genitive singular of σῶμα (§258).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod14",
+      "lemma": "πόλις",
+      "lemmaLine": "πόλις, πόλεως, ἡ, city",
+      "want": "genitive singular",
+      "a": "πόλεως",
+      "why": "πόλεως is the genitive singular of πόλις (§268).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod15",
+      "lemma": "βασιλεύς",
+      "lemmaLine": "βασιλεύς, βασιλέως, ὁ, king",
+      "want": "accusative singular",
+      "a": "βασιλέᾱ",
+      "why": "βασιλέᾱ is the accusative singular of βασιλεύς (§275).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod16",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "present active indicative, third person singular",
+      "a": "λῡ́ει",
+      "why": "λῡ́ει is the present active indicative, third person singular, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod17",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "imperfect active indicative, third person singular",
+      "a": "ἔλῡε",
+      "why": "ἔλῡε is the imperfect active indicative, third person singular, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod18",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "future active indicative, third person singular",
+      "a": "λῡ́σει",
+      "why": "λῡ́σει is the future active indicative, third person singular, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod19",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "aorist active indicative, third person singular",
+      "a": "ἔλῡσε",
+      "why": "ἔλῡσε is the aorist active indicative, third person singular, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod20",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "aorist active indicative, first person plural",
+      "a": "ἐλῡ́σαμεν",
+      "why": "ἐλῡ́σαμεν is the aorist active indicative, first person plural, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod21",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "present active indicative, third person plural",
+      "a": "λῡ́ουσι",
+      "why": "λῡ́ουσι is the present active indicative, third person plural, of λῡ́ω (§383).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod22",
+      "lemma": "λῡ́ω",
+      "lemmaLine": "λῡ́ω, λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην, loose",
+      "want": "present middle indicative, third person singular",
+      "a": "λῡ́εται",
+      "why": "λῡ́εται is the present middle indicative, third person singular (§383). The same form is the present passive.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod23",
+      "lemma": "εἰμί",
+      "lemmaLine": "εἰμί, ἔσομαι, am",
+      "want": "present active indicative, third person singular",
+      "a": "ἐστί",
+      "why": "ἐστί is the present, third person singular, of εἰμί (§768). This is the dictionary form. In a sentence the accent follows the enclitic rules (§183).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gprod24",
+      "lemma": "εἰμί",
+      "lemmaLine": "εἰμί, ἔσομαι, am",
+      "want": "imperfect active indicative, third person singular",
+      "a": "ἦν",
+      "why": "ἦν is the imperfect, third person singular, of εἰμί (§768). The first person singular may be ἦ or ἦν. This answer is the third person, which is only ἦν.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "cong": [
+    {
+      "id": "gcong1",
+      "s": "ὁ ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "q": "How does this construction stand?",
+      "a": "Complete: the parts fit, and the sentence is finished",
+      "ds": [
+        "Congruous: the parts fit, but the sense is unfinished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "The article, the noun, and the object fit, and the finite verb finishes the sentence.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong2",
+      "s": "ἡ νῑ́κη ἀγαθή ἐστι",
+      "q": "How does this construction stand?",
+      "a": "Complete: the parts fit, and the sentence is finished",
+      "ds": [
+        "Congruous: the parts fit, but the sense is unfinished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "The adjective fits the noun, and ἐστι finishes the sentence.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong3",
+      "s": "ὁ ἄνθρωπος ἐν τῇ χώρᾳ γράφει",
+      "q": "How does this construction stand?",
+      "a": "Complete: the parts fit, and the sentence is finished",
+      "ds": [
+        "Congruous: the parts fit, but the sense is unfinished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "ἐν fits the dative, and the finite verb finishes the sentence.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong4",
+      "s": "ὁ ἀγαθὸς ἄνθρωπος",
+      "q": "How does this construction stand?",
+      "a": "Congruous: the parts fit, but the sense is unfinished",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "The adjective fits the noun. There is no verb, so the sense is not finished.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong5",
+      "s": "ἐν τῇ χώρᾳ",
+      "q": "How does this construction stand?",
+      "a": "Congruous: the parts fit, but the sense is unfinished",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "ἐν fits the dative. There is no verb, so the sense is not finished.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong6",
+      "s": "ἄνθρωπε",
+      "q": "How does this construction stand?",
+      "a": "Congruous: the parts fit, but the sense is unfinished",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Incongruous: the parts do not fit with one another, so the construction fails"
+      ],
+      "why": "ἄνθρωπε is the vocative (§1283). A vocative by itself does not finish a sentence (§904).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong7",
+      "s": "οἱ κριταὶ λῡ́ει τὸν ἵππον",
+      "q": "How does this construction stand?",
+      "a": "Incongruous: the parts do not fit with one another, so the construction fails",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Congruous: the parts fit, but the sense is unfinished"
+      ],
+      "why": "κριταί is plural and λῡ́ει is singular. The parts do not fit.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong8",
+      "s": "ὁ θάλαττα ἀγαθή ἐστι",
+      "q": "How does this construction stand?",
+      "a": "Incongruous: the parts do not fit with one another, so the construction fails",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Congruous: the parts fit, but the sense is unfinished"
+      ],
+      "why": "θάλαττα is feminine, and ὁ is masculine. The adjective fits the noun, and the article does not, so the construction fails.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gcong9",
+      "s": "πέμπει τὸν ἵππος",
+      "q": "How does this construction stand?",
+      "a": "Incongruous: the parts do not fit with one another, so the construction fails",
+      "ds": [
+        "Complete: the parts fit, and the sentence is finished",
+        "Congruous: the parts fit, but the sense is unfinished"
+      ],
+      "why": "τόν is accusative and ἵππος is nominative. The two do not agree, so the construction fails.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ],
+  "vices": [
+    {
+      "id": "gvice1",
+      "s": "ὁ ἄνθρωπος τὸν ἵππον <b>λῡ́ωμι</b>",
+      "q": "What kind of fault?",
+      "a": "Barbarism: a form Attic does not have",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "λῡ́ωμι is not an Attic form. The present, first person singular, of λῡ́ω is λῡ́ω (§383). The fault is in the one word.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice2",
+      "s": "τὰ <b>δώρονες</b> ἀγαθά ἐστι",
+      "q": "What kind of fault?",
+      "a": "Barbarism: a form Attic does not have",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "δώρονες is not an Attic form. The nominative plural of δῶρον is δῶρα (§231). The article and the adjective are real forms, and the fault is in the one word.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice3",
+      "s": "οἱ ἄνθρωποι τὸν ἵππον <b>ἔλῡσανε</b>",
+      "q": "What kind of fault?",
+      "a": "Barbarism: a form Attic does not have",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "ἔλῡσανε is not an Attic form. The aorist, third person plural, is ἔλῡσαν (§383). Movable ν is not added to that ending (§134).",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice4",
+      "s": "<b>οἱ</b> ἄνθρωπος τὸν ἵππον λῡ́ει",
+      "q": "What kind of fault?",
+      "a": "Solecism: good forms are badly joined",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "οἱ is a real plural article, and ἄνθρωπος is a real singular noun. The two do not agree in number, so the join fails.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice5",
+      "s": "ἡ νῑ́κη <b>ἀγαθός</b> ἐστι",
+      "q": "What kind of fault?",
+      "a": "Solecism: good forms are badly joined",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "ἀγαθός is a real adjective, and it is masculine. νῑ́κη is feminine, so the two do not agree. The fault is in the join.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice6",
+      "s": "ὁ ἄνθρωπος τῷ <b>ἵππον</b> λῡ́ει",
+      "q": "What kind of fault?",
+      "a": "Solecism: good forms are badly joined",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "τῷ is a real dative, and ἵππον is a real accusative. The two do not agree in case, so the join fails.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    },
+    {
+      "id": "gvice7",
+      "s": "ὁ ἄνθρωπος <b>λῡ́ουσι</b> τὸν ἵππον",
+      "q": "What kind of fault?",
+      "a": "Solecism: good forms are badly joined",
+      "ds": [
+        "No fault: the sentence is sound",
+        "A figure: the poets are allowed this departure"
+      ],
+      "why": "λῡ́ουσι is a real plural form (§383). The subject ἄνθρωπος is singular, so the verb does not fit it.",
+      "lang": "grc",
+      "src": [
+        "smyth"
+      ]
+    }
+  ]
+}

@@ -385,5 +385,261 @@
       "class": "third, two endings",
       "stem": "ἀληθεσ-"
     }
+  ],
+  "added_step2": [
+    {
+      "lemma": "ἐν",
+      "pos": "preposition",
+      "gloss": "in",
+      "smyth": 1687,
+      "note": "Proclitic (§179). With the dative only."
+    },
+    {
+      "lemma": "εἰς",
+      "pos": "preposition",
+      "gloss": "into",
+      "smyth": 1686,
+      "note": "Proclitic (§179). With the accusative only."
+    },
+    {
+      "lemma": "ἐκ",
+      "pos": "preposition",
+      "gloss": "out of",
+      "smyth": 1688,
+      "note": "Proclitic (§179). With the genitive only. ἐξ before a vowel, ἐκ before a consonant (§136)."
+    },
+    {
+      "lemma": "ἀπό",
+      "pos": "preposition",
+      "gloss": "from",
+      "smyth": 1684,
+      "note": "With the genitive only. The acute becomes a grave before the noun (§154)."
+    },
+    {
+      "lemma": "σύν",
+      "pos": "preposition",
+      "gloss": "with",
+      "smyth": 1696,
+      "note": "With the dative only. In Attic prose outside Xenophon, μετά with the genitive is the usual word."
+    },
+    {
+      "lemma": "πρός",
+      "pos": "preposition",
+      "gloss": "toward",
+      "smyth": 1695,
+      "note": "The items use the accusative, for motion toward (§1695.3)."
+    },
+    {
+      "lemma": "ὑπό",
+      "pos": "preposition",
+      "gloss": "by",
+      "smyth": 1698,
+      "note": "With the genitive of the personal agent and a passive verb (§1698.1.b)."
+    },
+    {
+      "lemma": "ἄρχω",
+      "pos": "verb",
+      "gloss": "rule",
+      "smyth": 1370,
+      "note": "With the genitive of the people ruled. The present ἄρχει follows the thematic ending of §383. Principal parts are not added here."
+    },
+    {
+      "lemma": "καί",
+      "pos": "conjunction",
+      "gloss": "and",
+      "smyth": 2868,
+      "note": "A copulative conjunction. It joins words, clauses, or sentences."
+    },
+    {
+      "lemma": "ἀλλά",
+      "pos": "conjunction",
+      "gloss": "but",
+      "smyth": 2775,
+      "note": "A strongly adversative conjunction, stronger than δέ."
+    },
+    {
+      "lemma": "γάρ",
+      "pos": "conjunction",
+      "gloss": "for",
+      "smyth": 2810,
+      "note": "Postpositive (§2803). Causal γάρ is a conjunction."
+    },
+    {
+      "lemma": "ἐγώ",
+      "pos": "pronoun",
+      "gloss": "I",
+      "smyth": 325,
+      "note": "The emphatic forms are ἐγώ, ἐμοῦ, ἐμοί, ἐμέ. The short forms μου, μοι, με are enclitic."
+    },
+    {
+      "lemma": "φεῦ",
+      "pos": "interjection",
+      "gloss": "alas",
+      "smyth": 1407,
+      "note": "A cry. With the genitive of cause: φεῦ τοῦ ἀνδρός."
+    },
+    {
+      "lemma": "ἡμέρᾱ",
+      "pos": "noun",
+      "gloss": "day",
+      "smyth": 1540,
+      "note": "Feminine, declined like χώρᾱ (§216). Smyth prints ἡμέρᾱ, ἡμέρᾱς, ἡμέρᾱν, and ἡμέραις. The dative singular ἡμέρᾳ is that declension’s dative. The dative of time when usually has an attributive (§1539)."
+    },
+    {
+      "lemma": "λίθος",
+      "pos": "noun",
+      "gloss": "stone",
+      "smyth": 1507,
+      "note": "Masculine, second declension, like ἵππος (§231). Smyth prints the genitive λίθου, the genitive plural λίθων, and the dative plural λίθοις as the means."
+    }
+  ],
+  "added_step3": [
+    {
+      "lemma": "σύ",
+      "pos": "pronoun",
+      "gloss": "you",
+      "smyth": 325,
+      "note": "The orthotone forms include σύ, σοῦ, σοί, and σέ. The enclitic forms are σου, σοι, and σε. An enclitic does not stand first (§187 a)."
+    },
+    {
+      "lemma": "αὐτός",
+      "pos": "pronoun",
+      "gloss": "self; him, her, it",
+      "smyth": 327,
+      "note": "Smyth prints the declension at §327. The neuter nominative and accusative are αὐτό. In an oblique case, standing alone, it means him, her, it, or them, and Attic uses it instead of οὗ, οἷ, ἕ (§328 b)."
+    },
+    {
+      "lemma": "βούλομαι",
+      "pos": "verb",
+      "gloss": "wish",
+      "smyth": 1992,
+      "note": "A verb of will. It takes the infinitive (§1991). Smyth prints βούλεται (§1996)."
+    },
+    {
+      "lemma": "ἐθέλω",
+      "pos": "verb",
+      "gloss": "be willing",
+      "smyth": 1992,
+      "note": "Attic prose. θέλω is poetic. It takes the infinitive. Smyth prints ἐθέλειν (§1991)."
+    },
+    {
+      "lemma": "δύναμαι",
+      "pos": "verb",
+      "gloss": "be able",
+      "smyth": 2000,
+      "note": "A verb of ability takes the infinitive. Smyth prints οὐκέτι ἐδύνατο … βιοτεύειν, and also δυνάμεθα with an infinitive (§1154) and δύναται with an infinitive (§3007)."
+    }
+  ],
+  "added_step3b": [
+    {
+      "lemma": "ὅς, ἥ, ὅ",
+      "pos": "pronoun",
+      "gloss": "who, which",
+      "smyth": 338,
+      "note": "Gender and number come from the antecedent, and the case comes from the use in its own clause (§2501). The forms below are the §338 table, without the dual.",
+      "forms": {
+        "sg": {
+          "nom": ["ὅς", "ἥ", "ὅ"],
+          "gen": ["οὗ", "ἧς", "οὗ"],
+          "dat": ["ᾧ", "ᾗ", "ᾧ"],
+          "acc": ["ὅν", "ἥν", "ὅ"]
+        },
+        "pl": {
+          "nom": ["οἵ", "αἵ", "ἅ"],
+          "gen": ["ὧν", "ὧν", "ὧν"],
+          "dat": ["οἷς", "αἷς", "οἷς"],
+          "acc": ["οὕς", "ᾱ̔́ς", "ἅ"]
+        }
+      }
+    },
+    {
+      "lemma": "ὅτι",
+      "pos": "conjunction",
+      "gloss": "because; that",
+      "smyth": 2240,
+      "note": "As because, ὅτι takes the indicative for a fact (§2241). After λέγω it introduces a statement in the indicative (§2577, §2017 b)."
+    },
+    {
+      "lemma": "εἰ",
+      "pos": "conjunction",
+      "gloss": "if",
+      "smyth": 2282,
+      "note": "A simple present or past condition has εἰ with the indicative (§2291). The negative of the protasis is μή (§2286)."
+    },
+    {
+      "lemma": "ἐᾱ́ν",
+      "pos": "conjunction",
+      "gloss": "if",
+      "smyth": 2283,
+      "note": "The ordinary Attic prose form of εἰ with ἄν. It takes the subjunctive (§2283, §2291). It is not the conjunction of a simple indicative condition."
+    },
+    {
+      "lemma": "ἵνα",
+      "pos": "conjunction",
+      "gloss": "in order that",
+      "smyth": 2193,
+      "note": "With the subjunctive after a primary tense. After a secondary tense, the optative or the subjunctive (§2196). The negative is μή."
+    },
+    {
+      "lemma": "μή",
+      "pos": "adverb",
+      "gloss": "not",
+      "smyth": 2193,
+      "note": "Negative of purpose (§2193), of a condition (§2286), and of a fear clause (§2221). With ὥστε and the infinitive the negative is generally μή (§2251)."
+    },
+    {
+      "lemma": "οὐ",
+      "pos": "adverb",
+      "gloss": "not",
+      "smyth": 137,
+      "forms": ["οὐ", "οὐκ", "οὐχ"],
+      "note": "οὐ before a consonant, οὐκ before a smooth vowel, οὐχ before a rough vowel (§137). Negative of a causal fact (§2240) and of ὥστε with a finite verb (§2251). In a fear that something may not happen, οὐ follows μή (§2221)."
+    },
+    {
+      "lemma": "ὥστε",
+      "pos": "conjunction",
+      "gloss": "so that",
+      "smyth": 2250,
+      "note": "With the infinitive, a natural result (§2258). With the indicative, an actual result (§2257)."
+    },
+    {
+      "lemma": "οὕτω",
+      "pos": "adverb",
+      "gloss": "so",
+      "smyth": 136,
+      "forms": ["οὕτω", "οὕτως"],
+      "note": "οὕτω before a consonant, οὕτως before a vowel (§136)."
+    },
+    {
+      "lemma": "φημί",
+      "pos": "verb",
+      "gloss": "say",
+      "smyth": 2017,
+      "forms": ["φημί", "φησί"],
+      "note": "In classical Greek φημί almost always takes the infinitive, with the subject in the accusative when it is a different person (§2017 a, §2016, §1975). Smyth prints φησί and φησὶ (§2016) and ἔφη. No other forms are added."
+    },
+    {
+      "lemma": "λέγω",
+      "pos": "verb",
+      "gloss": "say",
+      "smyth": 2017,
+      "forms": ["λέγω", "λέγει"],
+      "note": "Active λέγω with ὅτι or ὡς means say and takes the indicative (§2017 b, §2577). Smyth prints λέγει (§2614). Active λέγω with the infinitive means command (§2017 b)."
+    },
+    {
+      "lemma": "νομίζω",
+      "pos": "verb",
+      "gloss": "think",
+      "smyth": 2580,
+      "note": "A verb of thinking almost always takes the infinitive (§2580, §2016). Smyth prints νομίζω (§2576)."
+    },
+    {
+      "lemma": "φοβοῦμαι",
+      "pos": "verb",
+      "gloss": "fear",
+      "smyth": 2224,
+      "forms": ["φοβοῦμαι", "φοβεῖται"],
+      "note": "Printed at §2224 and §2225. A fear that something may happen takes μή with the subjunctive after a primary tense (§2221, §2225). The optative after a primary tense is rare (§2227). No further forms are added."
+    }
   ]
 }
