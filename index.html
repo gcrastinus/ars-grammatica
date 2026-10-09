@@ -1054,8 +1054,8 @@ const LAT_NOUNS = [
   {nom:'terra',   stem:'terr',    d:'d1',  g:'f', gloss:'land, earth'},
   {nom:'aqua',    stem:'aqu',     d:'d1',  g:'f', gloss:'water'},
   {nom:'rēgīna',  stem:'rēgīn',   d:'d1',  g:'f', gloss:'queen'},
-  {nom:'nauta',   stem:'naut',    d:'d1',  g:'m', gloss:'sailor', note:'masculine, though it declines like the feminines'},
-  {nom:'poēta',   stem:'poēt',    d:'d1',  g:'m', gloss:'poet',   note:'masculine, though it declines like the feminines'},
+  {nom:'nauta',   stem:'naut',    d:'d1',  g:'m', gloss:'sailor', note:' masculine, though it declines like the feminine nouns'},
+  {nom:'poēta',   stem:'poēt',    d:'d1',  g:'m', gloss:'poet',   note:' masculine, though it declines like the feminine nouns'},
   /* second masculine */
   {nom:'dominus', stem:'domin',   d:'d2m', g:'m', gloss:'master, lord'},
   {nom:'servus',  stem:'serv',    d:'d2m', g:'m', gloss:'slave, servant'},
@@ -1095,7 +1095,7 @@ const LAT_NOUNS = [
   {nom:'mare',    stem:'mar',     d:'d3ni',g:'n', gloss:'sea'},
   {nom:'animal',  stem:'animāl',  d:'d3ni',g:'n', gloss:'animal'},
   /* fourth */
-  {nom:'manus',   stem:'man',     d:'d4',  g:'f', gloss:'hand', note:'feminine, though it looks like the masculines'},
+  {nom:'manus',   stem:'man',     d:'d4',  g:'f', gloss:'hand', note:' feminine, though it looks like the masculines'},
   {nom:'exercitus',stem:'exercit',d:'d4',  g:'m', gloss:'army'},
   {nom:'senātus', stem:'senāt',   d:'d4',  g:'m', gloss:'senate'},
   {nom:'frūctus', stem:'frūct',   d:'d4',  g:'m', gloss:'fruit, profit'},
@@ -5153,7 +5153,7 @@ EX.latnoun = {
         const others = an.filter(a => !(a.cs === ans.cs && a.num === ans.num)).map(describeCase);
         if(hit){
           return {right:true, mark:{cs:hit.cs, num:hit.num},
-            note:`<strong>${form}</strong> is the ${describeCase(hit)} of <em>${e.nom}</em>, ${e.gloss}.${e.note ? ' Note: ' + e.note + '.' : ''}`,
+            note:`<strong>${form}</strong> is the ${describeCase(hit)} of <em>${e.nom}</em>, ${e.gloss}.${e.note ? ' It is' + e.note + '.' : ''}`,
             also: others.length ? `The same form is also the ${joinAn(others)}. Only the sentence around it could tell us which.` : null};
         }
         const said = `${CASE_NAME[ans.cs].toLowerCase()} ${NUM_NAME[ans.num].toLowerCase()}`;
@@ -5161,7 +5161,7 @@ EX.latnoun = {
         const wouldBe = nounEnding(e, ans.cs, ans.num);
         return {right:false, mark:{cs:right.cs, num:right.num},
           note:`<strong>${form}</strong> is the ${joinAn(all)} of <em>${e.nom}</em> (${DECL_NAME[e.d]} declension, ${GEN_NAME[e.g]}) and means ${e.gloss}.`,
-          also:`The answer given was the ${said}, which would have been <strong>${wouldBe}</strong>.${e.note ? ' Also worth knowing: ' + e.note + '.' : ''}`};
+          also:`The answer given was the ${said}, which would have been <strong>${wouldBe}</strong>.${e.note ? ' Also worth knowing:' + e.note + '.' : ''}`};
       }
     };
   }
@@ -5407,12 +5407,12 @@ EX.agree = {
         if(i === key){
           return {right:true,
             note: fault === 0
-              ? `Congruous. ${want} ${e.note ? '<br>Note: ' + cap(e.note) + '.' : ''}`
-              : `Right. ${want} ${e.note ? '<br>This one is often missed: ' + e.note + '.' : ''}`};
+              ? `Congruous. ${want} ${e.note ? '<br>It is' + cap(e.note) + '.' : ''}`
+              : `Right. ${want} ${e.note ? '<br>Students often miss this: the noun is' + e.note + '.' : ''}`};
         }
         return {right:false,
           note: fault === 0 ? `It is sound. ${want}` : `${AGREE_OPTS[fault].replace(/<\/?b>/g,'')}. ${want}`,
-          also: e.note ? `Worth knowing: ${e.note}.` : `Congruity is caused by the ways of signifying fitting, not by the meanings agreeing; that second thing is logic’s business.`};
+          also: e.note ? `Worth knowing:${e.note}.` : `Congruity is caused by the ways of signifying fitting, not by the meanings agreeing; that second thing is logic’s business.`};
       }
     };
   }
@@ -13825,7 +13825,7 @@ function latAgreeTyped(d){
       const ok = accepts.some(f => normLat(f) === normLat(val));
       const why = `<em>${form}</em> is ${readings.join(' or ')}, and ${GEN_NAME[e.g]}, so the adjective is <strong>${accepts.join('</strong> or <strong>')}</strong>.`
         + (accepts.length > 1 ? ' The noun form can be read more than one way, and each reading is accepted.' : '')
-        + (e.note ? ` Note: ${e.note}.` : '');
+        + (e.note ? ` It is${e.note}.` : '');
       if(ok) return {right:true, note:why};
       return {right:false, note:why, also:String(val||'').trim() ? `The answer written was <em>${nfEsc(String(val).trim())}</em>.` : 'Nothing was written.'};
     }
