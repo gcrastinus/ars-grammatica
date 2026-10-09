@@ -5858,7 +5858,7 @@ const LETTER_ITEMS = [
   {id:'l6', src:['priscian'], q:'In Latin <em>iam</em> (later written <em>jam</em>), the first <em>i</em> is…',
    a:'A consonant here, because a vowel follows it',
    ds:['A long vowel by nature, and a syllable of its own','A separate word, meaning “and,” joined to <em>am</em>','Not a letter at all, but a mark of breathing'],
-   why:'Latin <em>i</em> and <em>u</em> do double work. Beside a vowel they can be consonants; the later letters <em>j</em> and <em>v</em> only make that work visible.'},
+   why:'Latin <em>i</em> and <em>u</em> are used in two ways. Beside a vowel they can be consonants; the later letters <em>j</em> and <em>v</em> only make that use visible.'},
   {id:'l7', src:['appown'], q:'The newer names grapheme and phoneme line up with which older pair?',
    a:'Shape and power',
    ds:['Noun and verb','Long and short','Name and accent'],
@@ -5894,7 +5894,7 @@ const LETTER_ITEMS = [
   {id:'l15', src:['isidore','donatus'], q:'Why are <em>B</em>, <em>C</em>, <em>D</em>, <em>G</em>, <em>P</em>, and <em>T</em> called mutes?',
    a:'Without a vowel they cannot be sounded at all',
    ds:['They are written but never pronounced','They appear only at the end of a word','They are dropped from the line in verse'],
-   why:'Isidore says the mutes are never released without a vowel joined to them; take the vowel away and only a blocked murmur is left. The semivowels, by contrast, can be partly sounded alone, as <em>s</em> and <em>m</em> can.'},
+   why:'Isidore says the mutes are never released without a vowel joined to them; take the vowel away and only a blocked murmur is left. The semivowels, by contrast, can be partly pronounced alone, as <em>s</em> and <em>m</em> can.'},
 {id:'l16',src:['donatus','priscian'],q:'Latin <em>A</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>A</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
 {id:'l17',src:['donatus','priscian'],q:'Latin <em>E</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>E</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
 {id:'l18',src:['donatus','priscian'],q:'Latin <em>O</em>. Can this letter be sounded by itself?',a:'A vowel: it sounds on its own',ds:['A consonant: it needs a vowel','A mute: it sounds on its own','A consonant: it needs a vowel beside it'],why:'<em>O</em> is a vowel. It makes a complete sound by itself, and it can be a syllable.'},
@@ -5931,8 +5931,8 @@ EX.letter = {
         why = kind === 'v'
           ? `<strong>${C}</strong> is a vowel: it makes a complete sound by itself.`
           : kind === 's'
-          ? `<strong>${C}</strong> is a semivowel: it can be partly sounded without a vowel, and its name begins with <em>e</em> (<em>e${ch}</em>).`
-          : `<strong>${C}</strong> is a mute: it cannot be sounded at all without a vowel, and its name begins with its own sound (<em>${ch}e</em>).`;
+          ? `<strong>${C}</strong> is a semivowel: it can be partly pronounced without a vowel, and its name begins with <em>e</em> (<em>e${ch}</em>).`
+          : `<strong>${C}</strong> is a mute: it cannot be pronounced at all without a vowel, and its name begins with its own sound (<em>${ch}e</em>).`;
       }
       return {
         kind:'mc', src:['donatus','isidore'], sid:'lt:'+ch+(d <= 1 ? '1' : '2'), lang:'en',
@@ -12733,7 +12733,7 @@ function letterEnglish(d){
     const r = rand(LTE_SILENT);
     const opts = [r[1], ...r[2].filter(x => x !== r[1])];
     return p2MC({sid:'lte:s:'+r[0], prompt:`In <em>${r[0]}</em>, which of these letters is written but not sounded?`, specimen: r[0],
-      a: r[1], ds: opts, why:`The <strong>${r[1]}</strong> of <em>${r[0]}</em> is written and not sounded. The letter keeps its shape and its name, but here it has no power: shape and power have come apart, as they often do in English spelling.`}, d);
+      a: r[1], ds: opts, why:`The <strong>${r[1]}</strong> of <em>${r[0]}</em> is written and not pronounced. The letter keeps its shape and its name, but here it has no power: shape and power have come apart, as they often do in English spelling.`}, d);
   }
   if(kind === 'power'){
     const r = rand(LTE_POWER);
@@ -12749,7 +12749,7 @@ function letterEnglish(d){
   return p2MC({sid:'lte:y:'+r[0], prompt:`In <em>${r[0]}</em>, what is the letter <strong>y</strong> doing?`, specimen: r[0],
     a: LTE_Y_L[r[1]], ds: Object.values(LTE_Y_L),
     why: r[1] === 'v' ? `In <em>${r[0]}</em>, <em>y</em> makes a vowel sound by itself. Latin took <em>y</em> from Greek as a vowel; English uses it both ways.`
-       : r[1] === 'c' ? `In <em>${r[0]}</em>, <em>y</em> begins a syllable before a vowel and is sounded as a consonant, as Latin <em>i</em> is in <em>iam</em>.`
+       : r[1] === 'c' ? `In <em>${r[0]}</em>, <em>y</em> begins a syllable before a vowel and is pronounced as a consonant, as Latin <em>i</em> is in <em>iam</em>.`
        : `In <em>${r[0]}</em>, <em>y</em> joins the vowel before it, and the two letters together make one vowel sound.`}, d);
 }
 
