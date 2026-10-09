@@ -15507,6 +15507,25 @@ addGreek('cases', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
 addGreek('govern', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
 /* agree: the phrase to judge, with the four judgments, as the Latin phrases are judged. */
 addGreek('agree', it => makeMC(it, 4), 0.4);
+/* produce: the typed form, graded by the Greek comparison of The Greek Sentence. */
+function grkProduceQ(it){
+  const verb = /\bperson\b/.test(it.want);
+  return {
+    kind:'text', src: it.src, sid: it.id, lang: it.lang,
+    prompt:`Write the <strong>${it.want}</strong> of this ${verb ? 'verb' : 'noun'}.`,
+    specimen:`${it.lemma}<span class="lemma">${it.lemmaLine}</span>`,
+    placeholder:'Type the Greek form', hint: GRK_HINT, _key: it.a,
+    check(val){
+      const got = normGrk(val);
+      if(got && got === normGrk(it.a)) return {right:true, note: it.why};
+      const wrote = String(val || '').trim();
+      return {right:false,
+        note:`The ${it.want} of <em>${it.lemma}</em> is <strong>${it.a}</strong>. ${it.why}`,
+        also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+    }
+  };
+}
+addGreek('produce', grkProduceQ, 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
 function rowChoice(ex){
