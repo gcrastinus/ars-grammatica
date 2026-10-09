@@ -15538,6 +15538,28 @@ if(GRK && GRK.sentence){
     gen(d){ return grcSentQ(GRK.sentence.voice, d); }
   };
 }
+if(GRK && GRK.sentence){
+  EX.grcclause = {
+    id:'grcclause', src:['smyth','appown'], act:'III', title:'Clauses and the Genitive Absolute',
+    desc:`One word is missing from a Greek sentence: a relative pronoun, a word in a clause with ${grkSpan('ὅτι')} meaning “because,” a word in a condition with ${grkSpan('εἰ')}, a word in a statement reported after a verb of saying or thinking, or a noun, adjective, or participle in the genitive absolute.`,
+    instr:'Supply the missing Greek word.',
+    introInstr:'',
+    intro:[
+      {h:'<strong>The relative clause.</strong> The relative pronoun agrees with its antecedent in gender and number, but its case comes from its own clause.',
+       eg:[`${grkSpan('πέμπω τὸν ἵππον ὃν ὁ κριτὴς λῡ́ει')} means “I send the horse which the judge looses”; ${grkSpan('ὁ κριτὴς ᾧ πιστεύω ἀγαθός ἐστι')} means “the judge whom I trust is good.”`]},
+      {h:`<strong>${grkSpan('ὅτι')}, “because.”</strong> A clause that gives a fact as the reason begins with ${grkSpan('ὅτι')} and has its verb in the indicative, and its negative is ${grkSpan('οὐ')}.`,
+       eg:[`${grkSpan('ὁ κριτὴς πέμπει τὸ δῶρον ὅτι ὁ βασιλεὺς λῡ́ει τὸν ἵππον')} means “the judge sends the gift because the king looses the horse.”`]},
+      {h:`<strong>${grkSpan('εἰ')}, “if.”</strong> A simple condition begins with ${grkSpan('εἰ')} and has its verb in the indicative, present or past, and its negative is ${grkSpan('μή')}.`,
+       eg:[`${grkSpan('εἰ ὁ βασιλεὺς λῡ́ει τὸν ἵππον, ὁ κριτὴς πέμπει τὸ δῶρον')} means “if the king looses the horse, the judge sends the gift.”`]},
+      {h:`<strong>The reported statement.</strong> After ${grkSpan('φημί')}, “say,” and ${grkSpan('νομίζω')}, “think,” a reported statement usually has its verb in the infinitive and its subject in the accusative. When that subject is the same person as the subject of ${grkSpan('φημί')}, it is usually not expressed, and a word that agrees with it stays in the nominative. The present infinitive reports a present act, and the aorist infinitive reports a past one. After ${grkSpan('λέγω')} with ${grkSpan('ὅτι')}, “say that,” the verb stays in the indicative when the leading verb is present.`,
+       eg:[`${grkSpan('φησὶ τὸν βασιλέᾱ τὸν ἵππον λῡ́ειν')} and ${grkSpan('λέγει ὅτι ὁ βασιλεὺς τὸν ἵππον λῡ́ει')} both mean “he says that the king looses the horse”; ${grkSpan('ὁ κριτὴς φησὶ ἀγαθὸς εἶναι')} means “the judge says that he himself is good.”`]},
+      {h:'<strong>The genitive absolute.</strong> A noun and a participle that are not the subject or the object of the main verb can stand together in the genitive, apart from the main clause, and give the time or the cause of what the main clause says. The genitive absolute is the Greek counterpart of the Latin ablative absolute.',
+       eg:[`${grkSpan('τοῦ βασιλέως τὸν ἵππον λῡ́οντος, ὁ κριτὴς πέμπει τὸ δῶρον')} means “while the king is loosing the horse, the judge sends the gift”; ${grkSpan('τῆς ὁδοῦ μακρᾶς οὔσης, ὁ ἄνθρωπος πέμπει τὸν ἵππον')} means “because the road is long, the man sends the horse.”`]}
+    ],
+    modes:['grc'], langs:['grc'],
+    gen(d){ return grcSentQ(GRK.sentence.clause, d); }
+  };
+}
 /* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
    "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
    items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
@@ -15735,7 +15757,8 @@ const ACTS = [
      {kind:'ex', ex:'grcmore'}
    ].concat(GRK && GRK.sentence ? [
      {kind:'ex', ex:'grcsent'},
-     {kind:'ex', ex:'grcvoice'}
+     {kind:'ex', ex:'grcvoice'},
+     {kind:'ex', ex:'grcclause'}
    ] : []) : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
