@@ -807,6 +807,84 @@
         "λῡ́οιμεν"
       ],
       "why": "After the primary φοβεῖται, the fear clause has the subjunctive, and the subject is “we” (Smyth §2225, §383). λῡ́σομεν is future indicative, and λῡ́οιμεν is optative."
+    },
+    {
+      "id": "gmood30",
+      "k": 3,
+      "en": "The men loosed the horse, so that the judge loosed the young man.",
+      "fr": "οἱ ἄνθρωποι τὸν ἵππον ἔλῡσαν ὥστε ὁ κριτὴς τὸν νεᾱνίᾱν ______",
+      "a": "ἔλῡσε",
+      "ds": [
+        "λῡ́ειν",
+        "ἔλῡσαν",
+        "λῡ́σαιμι"
+      ],
+      "why": "The judge is nominative and singular, and he is not the subject of ἔλῡσαν, so the result that occurred is the aorist indicative ἔλῡσε (Smyth §939, §2257, §2274). λῡ́ειν is an infinitive, and a different subject of the infinitive would stand in the accusative (Smyth §1975). ἔλῡσαν is plural, and λῡ́σαιμι is optative and first person."
+    },
+    {
+      "id": "gmood31",
+      "k": 3,
+      "en": "The judge loosed the young man, so that the men loosed the horse.",
+      "fr": "ὁ κριτὴς τὸν νεᾱνίᾱν ἔλῡσεν ὥστε οἱ ἄνθρωποι τὸν ἵππον ______",
+      "a": "ἔλῡσαν",
+      "ds": [
+        "λῡ́ειν",
+        "ἔλῡσε",
+        "λῡ́σαιεν"
+      ],
+      "why": "The men are nominative and plural, and they are not the subject of ἔλῡσεν, so the result that occurred is the aorist indicative ἔλῡσαν (Smyth §939, §2257, §2274). λῡ́ειν is an infinitive, and a different subject of the infinitive would stand in the accusative, while ἔλῡσε is singular and λῡ́σαιεν is optative (Smyth §1975). ἔλῡσεν takes ν before the vowel (Smyth §134)."
+    },
+    {
+      "id": "gmood32",
+      "k": 3,
+      "en": "The judge loosed the horse, so that I educated the young man.",
+      "fr": "ὁ κριτὴς τὸν ἵππον ἔλῡσεν ὥστε ἐγὼ τὸν νεᾱνίᾱν ______",
+      "a": "ἐπαίδευσα",
+      "ds": [
+        "παιδεύειν",
+        "παιδεύοι",
+        "παιδεύσαιμι"
+      ],
+      "why": "ἐγώ is nominative, and it is a different subject from the judge, so the result that occurred is the aorist indicative ἐπαίδευσα (Smyth §939, §2257, §2274, §429). παιδεύειν is an infinitive, whose different subject would be accusative, παιδεύοι is third person optative, and παιδεύσαιμι is optative (Smyth §1975, §383). ἐγώ is written ἐγὼ before the next word, and ἔλῡσεν takes ν before the vowel (Smyth §154, §134)."
+    },
+    {
+      "id": "gmood33",
+      "k": 3,
+      "en": "The king is so wise that the young man rules the men.",
+      "fr": "ὁ βασιλεὺς οὕτω σοφός ἐστιν ὥστε τὸν νεᾱνίᾱν τῶν ἀνθρώπων ______",
+      "a": "ἄρχειν",
+      "ds": [
+        "ἄρχει",
+        "ἄρχω",
+        "παιδεύουσι"
+      ],
+      "why": "The young man is not the subject of ἐστιν, and he stands in the accusative, so the result that follows from what the king is takes the infinitive ἄρχειν, and ἄρχω takes the genitive of the people ruled (Smyth §2258, §1975, §1370). ἄρχει and ἄρχω are finite, and a finite verb takes a nominative subject, while παιδεύουσι is plural (Smyth §939, §423). βασιλεύς is written βασιλεὺς before the next word, οὕτω stands before a consonant, σοφός keeps its accent before ἐστιν, and ἐστιν takes ν before the vowel (Smyth §154, §136, §183 a, §134)."
+    },
+    {
+      "id": "gmood34",
+      "k": 3,
+      "en": "The judge is so wise that the young man is good.",
+      "fr": "ὁ κριτὴς οὕτω σοφός ἐστιν ὥστε τὸν νεᾱνίᾱν ἀγαθὸν ______",
+      "a": "εἶναι",
+      "ds": [
+        "ἐστί",
+        "ἦν",
+        "ἔσομαι"
+      ],
+      "why": "The young man is a different subject from the judge, so the young man and the adjective stand in the accusative with εἶναι, and the result follows from what the judge is (Smyth §2258, §1975, §768). ἐστί, ἦν, and ἔσομαι are finite, and a finite verb takes a nominative subject (Smyth §939). κριτής is written κριτὴς before the next word, οὕτω stands before a consonant, σοφός keeps its accent before ἐστιν, and ἐστιν takes ν before the vowel (Smyth §154, §136, §183 a, §134)."
+    },
+    {
+      "id": "gmood35",
+      "k": 3,
+      "en": "The king is so wise that the judge educates the young man.",
+      "fr": "ὁ βασιλεὺς οὕτω σοφός ἐστιν ὥστε τὸν κριτὴν τὸν νεᾱνίᾱν ______",
+      "a": "παιδεύειν",
+      "ds": [
+        "παιδεύουσι",
+        "παιδεύοι",
+        "παιδεύοιεν"
+      ],
+      "why": "The judge is a different subject from the king, and the young man is the object, so both stand in the accusative with παιδεύειν, the infinitive of a natural result (Smyth §2258, §1975). παιδεύουσι is indicative and plural, and παιδεύοι and παιδεύοιεν are optative, while a finite verb takes a nominative subject (Smyth §939, §383). βασιλεύς is written βασιλεὺς before the next word, οὕτω stands before a consonant, σοφός keeps its accent before ἐστιν, and ἐστιν takes ν before the vowel (Smyth §154, §136, §183 a, §134)."
     }
   ]
 }
