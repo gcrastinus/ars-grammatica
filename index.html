@@ -4688,7 +4688,7 @@ const POS_HARD = [
   {id:'ph9', lang:'en', src:['appown'], s:'He had seen the place <b>before</b>.', a:'adverb',
    note:'Nothing follows it, so it is not governing a noun; it tells us <em>when</em>, and when belongs to the verb.'},
   {id:'ph10', lang:'en', src:['appown'], s:'We bought fresh <b>paint</b> for the door.', a:'noun',
-   note:'The very same word is a verb in <em>we paint the door</em>. The list of the parts of speech is not a list of words but of the work words do.'},
+   note:'The very same word is a verb in <em>we paint the door</em>. The list of the parts of speech is not a list of words but of the ways words are used.'},
   {id:'ph11', lang:'en', src:['appown'], s:'The senate voted to <b>paint</b> the doors again.', a:'verb',
    note:'Here it says what is done. In <em>fresh paint</em> the same sound names a thing.'},
   {id:'ph12', lang:'en', src:['appown'], s:'<b>The</b> ancient city fell at last.', a:'article',
@@ -4772,7 +4772,7 @@ const POS_LAT = [
    note:'<em>Quod</em> here joins two statements. The same sound can be a relative pronoun, but here nothing is named by it; it only joins.'},
   {id:'pl12', src:['ag'], s:'Mīles <b>bene</b> pugnat.',
    orig:'The soldier fights well.', a:'adverb',
-   note:'<em>Bene</em> determines the verb. The related adjective is <em>bonus</em>: the same family doing different work, telling how rather than of what sort.'},
+   note:'<em>Bene</em> determines the verb. The related adjective is <em>bonus</em>: the same family is used in different ways, telling how rather than of what sort.'},
   {id:'pl13', src:['ag'], s:'<b>Nauta</b> in nāvī dormit.', orig:'The sailor sleeps in the ship.', a:'noun',
    note:'<em>Nauta</em> names the one who sleeps; it is nominative, the subject.'},
   {id:'pl14', src:['ag'], s:'Rēx <b>bonus</b> regnat.', orig:'The good king reigns.', a:'adjective',
@@ -4853,13 +4853,13 @@ const POS_OTHER = [
   {id:'po-de1', lang:'de', s:'<b>Der</b> alte Mann schläft.', orig:'The old man sleeps.', a:'article',
    note:'German marks case chiefly on the article. Latin has no such word; English <em>the</em> does the same pointing, without the case.'},
   {id:'po-de2', lang:'de', s:'Er läuft <b>schnell</b>.', orig:'He runs quickly.', a:'adverb',
-   note:'Here <em>schnell</em> tells how. In <em>ein schneller Hund</em> the same stem is an adjective. German often uses one form for both; the work still differs.'},
+   note:'Here <em>schnell</em> tells how. In <em>ein schneller Hund</em> the same stem is an adjective. German often uses one form for both, but the use is still different.'},
   {id:'po-de3', lang:'de', s:'Ich weiß, <b>dass</b> er kommt.', orig:'I know that he is coming.', a:'conjunction',
-   note:'<em>Dass</em> joins two statements. <em>Das</em> (one <em>s</em>) can be an article or a pronoun. Spelling follows the work.'},
+   note:'<em>Dass</em> joins two statements. <em>Das</em> (one <em>s</em>) can be an article or a pronoun. Spelling follows the use.'},
   {id:'po-de4', lang:'de', s:'Der Mann <b>und</b> die Frau warten.', orig:'The man and the woman wait.', a:'conjunction',
-   note:'<em>Und</em> joins two nouns, the same work as Latin <em>et</em>.'},
+   note:'<em>Und</em> joins two nouns, with the same use as Latin <em>et</em>.'},
   {id:'po-fr1', lang:'fr', s:'<b>Le</b> vieux chien dort.', orig:'The old dog sleeps.', a:'article',
-   note:'French has a definite article; Latin has none. The pointing is real work, even if Donatus did not have a name for it.'},
+   note:'French has a definite article; Latin has none. The pointing is a real use of the word, even if Donatus did not have a name for it.'},
   {id:'po-fr2', lang:'fr', s:'Il court <b>vite</b>.', orig:'He runs quickly.', a:'adverb',
    note:'<em>Vite</em> determines the verb. French usually keeps adjective and adverb apart (<em>rapide</em>, <em>rapidement</em>), where German often uses one form for both.'},
   {id:'po-fr3', lang:'fr', s:'Je sais <b>qu’</b>il arrive.', orig:'I know that he is arriving.', a:'conjunction',
@@ -4869,9 +4869,9 @@ const POS_OTHER = [
   {id:'po-gr1', lang:'grc', s:'<b>ὁ</b> ἀνὴρ τρέχει.', orig:'The man runs.', a:'article',
    note:'Greek has a definite article, and the Greek grammarians counted it among the eight parts. Latin has none, so Donatus’s eight put the interjection in its place.'},
   {id:'po-gr2', lang:'grc', s:'ὁ ἀνὴρ <b>καὶ</b> ἡ γυνὴ μένουσιν.', orig:'The man and the woman remain.', a:'conjunction',
-   note:'<em>καί</em> joins, as Latin <em>et</em> does: the same work in another sound.'},
+   note:'<em>καί</em> joins, as Latin <em>et</em> does: with the same use in another sound.'},
   {id:'po-gr3', lang:'grc', s:'ὁ <b>τρέχων</b> ἵππος πίπτει.', orig:'The running horse falls.', a:'participle',
-   note:'Greek uses the participle freely. <em>τρέχων</em> depends on <em>ἵππος</em> and keeps the flow, doing the same work as Latin <em>currēns</em>.'},
+   note:'Greek uses the participle freely. <em>τρέχων</em> depends on <em>ἵππος</em> and keeps the flow, with the same use as Latin <em>currēns</em>.'},
   {id:'po-de5', lang:'de', s:'Der <b>alte</b> Mann schläft.', orig:'The old man sleeps.', a:'adjective',
    note:'<em>Alte</em> adheres to <em>Mann</em> and agrees with it; after the article it takes the weak ending <em>-e</em>. It tells of what sort.'},
   {id:'po-de6', lang:'de', s:'<b>Er</b> läuft schnell.', orig:'He runs quickly.', a:'pronoun',
@@ -4979,7 +4979,7 @@ EX.pos = {
         lang: it.lang,
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note};
-          const kind = group ? 'work of a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
+          const kind = group ? 'marked group, used as a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
           return {right:false,
             note:`It is the ${kind}. ${note}`,
             also:`The answer chosen was <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
@@ -5314,7 +5314,7 @@ EX.cases = {
         if(i === options.indexOf(ans)) return {right:true, note: base + third};
         return {right:false,
           note: base + third,
-          also:`The answer chosen was the ${options[i]}, whose work is ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
+          also:`The answer chosen was the ${options[i]}, whose use is ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
       }
     };
   }
@@ -5509,7 +5509,7 @@ const CLAUSE_CORPUS = [
    passage:`Here they exposed their merchandise, and traded with the natives for five or six days; at the end of which time, <span class="target">when almost everything was sold</span>, there came down to the beach a number of women, and among them the daughter of the king, …`,
    orig:`πέμπτῃ δὲ ἢ ἕκτῃ ἡμέρῃ ἀπ’ ἧς ἀπίκοντο, <span class="target">ἐξεμπολημένων σφι σχεδὸν πάντων</span>, ἐλθεῖν ἐπὶ τὴν θάλασσαν γυναῖκας ἄλλας τε πολλὰς καὶ δὴ καὶ τοῦ βασιλέος θυγατέρα·`,
    source:'Herodotus I.1, trans. Rawlinson',
-   why:`<em>When</em> marks the time at which the women came down. Greek has no clause here: a genitive absolute (ἐξεμπολημένων … πάντων, “almost everything having been sold”) does the same work.`},
+   why:`<em>When</em> marks the time at which the women came down. Greek has no clause here: a genitive absolute (ἐξεμπολημένων … πάντων, “almost everything having been sold”) is used in the same way.`},
   {id:'he2', type:'speech', dmin:2, src:['rawlinson'], olang:'Greek',
    passage:`… but the Greeks made answer <span class="target">that, having received no reparation of the wrong done them in the seizure of Io the Argive, they should give none in this instance</span>.`,
    orig:`τοὺς δὲ ὑποκρίνασθαι <span class="target">ὡς οὐδὲ ἐκεῖνοι Ἰοῦς τῆς Ἀργείης ἔδοσάν σφι δίκας τῆς ἁρπαγῆς· οὐδὲ ὦν αὐτοὶ δώσειν ἐκείνοισι</span>.`,
@@ -5546,7 +5546,7 @@ const CLAUSE_CORPUS = [
    passage:`Thebans, <span class="target">if any knows the man by whom<br>Laius, son of Labdacus, was slain</span>,<br>I summon him to make clean shrift to me.`,
    orig:`<span class="target">ὅστις ποθ’ ὑμῶν Λάϊον τὸν Λαβδάκου<br>κάτοιδεν ἀνδρὸς ἐκ τίνος διώλετο</span>,<br>τοῦτον κελεύω πάντα σημαίνειν ἐμοί·`,
    source:'Sophocles, Oedipus Tyrannus 224–26, trans. Storr',
-   why:`The English is conditional (<em>if any knows</em>). The Greek is an indefinite relative, ὅστις … κάτοιδεν (“whoever knows”), which does the same work: it grants the case of someone who knows.`},
+   why:`The English is conditional (<em>if any knows</em>). The Greek is an indefinite relative, ὅστις … κάτοιδεν (“whoever knows”), which is used in the same way: it grants the case of someone who knows.`},
   {id:'so4', type:'purpose', dmin:2, src:['storr'], olang:'Greek',
    passage:`No, let me be a dweller on the hills,<br>On yonder mount Cithaeron, famed as mine,<br>My tomb predestined for me by my sire<br>And mother, while they lived, <span class="target">that I may die<br>Slain as they sought to slay me, when alive</span>.`,
    orig:`ἀλλ’ ἔα με ναίειν ὄρεσιν, ἔνθα κλῄζεται<br>οὑμὸς Κιθαιρὼν οὗτος, ὃν μήτηρ τέ μοι<br>πατήρ τ’ ἐθέσθην ζῶντε κύριον τάφον,<br><span class="target">ἵν’ ἐξ ἐκείνων, οἵ μ’ ἀπωλλύτην, θάνω</span>.`,
@@ -6361,7 +6361,7 @@ EX.decline = {
         {s:`The <b>${adj}</b> sailor waits.`, a:'Declinable: an adjective, which takes degrees', why:`In Latin the adjective takes the endings of the noun it adheres to. English keeps only the degrees (<em>braver, bravest</em>), but the tradition files the adjective with the declinable parts.`},
         {s:`The sailor waits <b>${adv}</b>.`, a:'Indeclinable: an adverb, which keeps one form', why:`Adverbs keep one form. A word that tells the time or the manner of the waiting is used as an adverb.`},
         {s:`She walked <b>${prep}</b> the gate.`, a:'Indeclinable: a preposition, one form', why:`Prepositions do not inflect. They govern a complement.`},
-        {s:`The sailor <b>and</b> the farmer wait.`, a:'Indeclinable: a conjunction, one form', why:`<em>And</em> joins; joining is its work, and it does not take endings.`},
+        {s:`The sailor <b>and</b> the farmer wait.`, a:'Indeclinable: a conjunction, one form', why:`<em>And</em> joins, and it is used only to join. It does not take endings.`},
         {s:`<b>He</b> waits at the gate.`, a:'Declinable: a pronoun, which still shows case', why:`<em>He / him / his</em> is a living case-system, small but real.`},
         {s:`<b>Alas</b>, the city has fallen.`, a:'Indeclinable: an interjection, one form', why:`It is a cry of the soul, Donatus’s eighth part, and it does not inflect.`}
       ];
@@ -7608,7 +7608,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
       {id:'vy16', lang:'en', src:['panini'], q:'Why can the words of <em>saḥ pustakaṃ paṭhati</em> change place and still be the same arrangement?',
        a:'Because the endings mark the roles',
        ds:['Because Sanskrit order never matters','Because sandhi decides the order','Because the verb always comes first'],
-       why:'The endings (vibhakti) mark the roles in the action (kāraka), so order is free to do other work.',
+       why:'The endings (vibhakti) mark the roles in the action (kāraka), so order is free for another use.',
        passage: il({script:'सः पुस्तकं पठति', dir:'dev', tr:'saḥ pustakaṃ paṭhati', en:'He reads a book.'})}
     ]},
     {title:'Compounds and report', items:[
@@ -7641,7 +7641,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
       {id:'vy24', lang:'en', src:['appown'], q:'Kāraka against Latin case: the difference is…',
        a:'Kāraka is a role; case is often the ending',
        ds:['They are the same list under two names','Kāraka is the ending, and case the role','Case belongs to verbs, and kāraka to nouns'],
-       why:'Kāraka is a role in the action; case, for us, is often the ending that marks a job. The two layers, roles and endings, must be kept apart.'}
+       why:'Kāraka is a role in the action; case, for us, is often the ending that marks a use. The two layers, roles and endings, must be kept apart.'}
     ]}
   ]);
 
@@ -7715,7 +7715,7 @@ EX.xiaoxue = tradEx('xiaoxue', ['shuowen','erya','qieyun','appown'], 'Graph, Sou
       {id:'xi14', lang:'en', src:['appown'], q:'How is the object marked in 王命之?',
        a:'By 之, and by order',
        ds:['By an ending on 王','By an empty word before 王','By a change in the graph 命'],
-       why:'There is no case-ending on the noun-graph; the empty word and the order do the work.',
+       why:'There is no case-ending on the noun-graph; the empty word and the order are used instead.',
        passage: il({script:'王命之', dir:'zh', tr:'wáng mìng zhī', en:'The king ordered it / him.'})},
       {id:'xi15', lang:'en', src:['appown'], q:'句 and 讀 are closest to…',
        a:'Our period and colon',
@@ -7769,7 +7769,7 @@ EX.nahw = tradEx('nahw', ['sibawayh','jumal','appown'], 'Name, Verb, and Particl
     ]},
     {title:'Iʿrāb and the governor', items:[
       {id:'nh5', lang:'en', src:['sibawayh'], q:'Iʿrāb is…', a:'The change of ending that marks the job',
-       ds:['The pattern of vowels laid on the root','The dropping of an ending in pause','The joining of two nouns in a construct'], why:'It is the art of the endings: the ending changes as the word’s job in the sentence changes.'},
+       ds:['The pattern of vowels laid on the root','The dropping of an ending in pause','The joining of two nouns in a construct'], why:'It is the art of the endings: the ending changes as the word’s use in the sentence changes.'},
       {id:'nh6', lang:'en', src:['sibawayh'], q:'What explains a noun’s ending, in this art?',
        a:'Its governor (ʿāmil)',
        ds:['Its place in alphabetical order','The tone in which it is spoken','Its root consonants'], why:'The governor requires rafʿ, naṣb, or jarr of it; once the governor is named, the ending is explained.'},
@@ -8028,7 +8028,7 @@ const PERIOD_ITEMS = [
    q:'<em>Musa</em>: what case?',
    a:'Vocative: the Muse is addressed',
    ds:['Nominative: the subject of <em>memora</em>','Ablative: by the Muse','Genitive: of the Muse'],
-   why:'The poet calls on the Muse. In the first declension the vocative has the same form as the nominative, so the work in the sentence decides the case.'},
+   why:'The poet calls on the Muse. In the first declension the vocative has the same form as the nominative, so the use in the sentence decides the case.'},
   {id:'pe13', src:['verg_pd','ag'], lat:`Musa, mihi causas memora, quo numine laeso,\nquidve dolens, regina deum tot volvere casus\ninsignem pietate virum, tot adire labores\nimpulerit.`, eng:`Muse, tell me the causes: for what offence to her divinity, or grieving at what, the queen of the gods drove a man famous for his piety to pass through so many misfortunes, to face so many labours.\n${LIT}`,
    q:'<em>memora</em>: what form?',
    a:'Imperative singular: “tell”',
@@ -9512,13 +9512,13 @@ const EN_POS = [
   posItem({id:'ep5', dmin:1, s:'The king waited <span class="target">at</span> the gate.', a:'Preposition',
     why:'<em>At</em> stands before <em>the gate</em> and ties it to the waiting. That is the preposition.'}),
   posItem({id:'ep6', dmin:1, s:'The king <span class="target">and</span> the queen waited.', a:'Conjunction',
-    why:'<em>And</em> joins two nouns, and joining is the whole of its work.'}),
+    why:'<em>And</em> joins two nouns, and it is used only to join.'}),
   posItem({id:'ep7', dmin:1, s:'<span class="target">He</span> waited at the gate.', a:'Pronoun',
     why:'<em>He</em> stands in for a noun and names no sort of thing. That is the pronoun.'}),
   posItem({id:'ep8', dmin:1, s:'<span class="target">Alas</span>, the city has fallen.', a:'Interjection',
     why:'<em>Alas</em> is a cry. It does not name, join, or assert. Donatus keeps this as the interjection.'}),
   posItem({id:'ep9', dmin:1, s:'<span class="target">The</span> old king waited.', a:'Article',
-    why:'<em>The</em> points out the king. Latin has no article, so Donatus does not count one. English does this work, and a modern class names it.'}),
+    why:'<em>The</em> points out the king. Latin has no article, so Donatus does not count one. English uses the word in this way, and a modern class names it.'}),
   posItem({id:'ep10', dmin:2, cite:CITE.mv, s:'How far that little <span class="target">candle</span> throws his beams!', a:'Noun',
     why:'<em>Candle</em> names the thing that throws its beams. A proper name is not required. A modern class calls this a noun, Donatus’s <span class="lat">nomen</span>.'}),
   posItem({id:'ep11', dmin:2, cite:CITE.ra30, s:'A soldier is formed in war, and a painter must <span class="target">copy</span> pictures.', a:'Verb',
@@ -9604,7 +9604,7 @@ const EN_POS = [
   posItem({id:'ep51', dmin:1, s:'They talked <span class="target">about</span> the storm.', a:'Preposition',
     why:'<em>About</em> takes <em>the storm</em> as its object and ties it to <em>talked</em>. A modern class calls this a preposition, Donatus’s <span class="lat">praepositio</span>.'}),
   posItem({id:'ep52', dmin:1, s:'Take the pen <span class="target">or</span> the pencil.', a:'Conjunction',
-    why:'<em>Or</em> joins <em>pen</em> and <em>pencil</em>, and joining is the whole of its work. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
+    why:'<em>Or</em> joins <em>pen</em> and <em>pencil</em>, and it is used only to join. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep53', dmin:1, s:'We stayed <span class="target">because</span> the rain began.', a:'Conjunction',
     why:'<em>Because</em> joins the reason, <em>the rain began</em>, to <em>we stayed</em>. A modern class calls this a conjunction, Donatus’s <span class="lat">coniunctio</span>.'}),
   posItem({id:'ep54', dmin:1, s:'<span class="target">The</span> harbour lights were dim.', a:'Article',
@@ -9692,7 +9692,7 @@ const EN_POS = [
   posItem({id:'ep95', dmin:4, cite:CITE.ra12, s:'Few things are <span class="target">impossible</span> to diligence and skill.', a:'Adjective',
     why:'<em>Impossible</em> describes <em>things</em> after the linking verb <em>are</em>. A modern class calls this an adjective. Donatus counts this use under the noun.'}),
   posItem({id:'ep96', dmin:4, cite:CITE.ra12, s:'<span class="target">Few</span> things are impossible to diligence and skill.', a:'Adjective',
-    why:'<em>Few</em> tells how many things. It cannot stand alone as the name of a thing, so the work is an adjective’s, though it sits in the subject’s place beside <em>things</em>. A modern class calls this an adjective. Donatus counts this use under the noun.'}),
+    why:'<em>Few</em> tells how many things. It cannot stand alone as the name of a thing, so it is used as an adjective, though it sits in the subject’s place beside <em>things</em>. A modern class calls this an adjective. Donatus counts this use under the noun.'}),
   posItem({id:'ep97', dmin:4, cite:CITE.ra29, s:'Of the blessings <span class="target">set</span> before you make your choice, and be content.', a:'Participle',
     why:'<em>Set</em> depends on <em>blessings</em>: the blessings placed before you. <em>Before you</em> belongs with the participle. Donatus counts the <span class="lat">participium</span> as a part of its own.'}),
   posItem({id:'ep98', dmin:4, cite:CITE.ra29, s:'Of the blessings set before you make your choice, and be <span class="target">content</span>.', a:'Adjective',
@@ -9766,7 +9766,7 @@ const EN_SENT = [
     why:'The first clause is S-LV-PN. <em>Is</em> is the linking verb, and <em>place</em> is the predicate nominative. The line then continues with a second predicate, <em>Can make</em>.'},
   {id:'es21', dmin:4, kind:'pick', cite:CITE.h4, q:'Click the simple subject. The folio spelling is kept.',
     words:[{t:'Vneasie'},{t:'lyes'},{t:'the'},{t:'Head,',ok:true},{t:'that'},{t:'weares'},{t:'a'},{t:'Crowne.'}],
-    why:'The order is inverted. <em>Head</em> is what lies uneasy, and so it is the subject. <em>Lyes</em> is the verb. <em>Vneasie</em> is an adjective describing the head, set first for emphasis; <em>lyes</em> here works almost as a linking verb. The relative clause <em>that weares a Crowne</em> depends on <em>Head</em>.'},
+    why:'The order is inverted. <em>Head</em> is what lies uneasy, and so it is the subject. <em>Lyes</em> is the verb. <em>Vneasie</em> is an adjective describing the head, set first for emphasis; <em>lyes</em> here is used almost as a linking verb. The relative clause <em>that weares a Crowne</em> depends on <em>Head</em>.'},
   patItem({id:'es22', dmin:1, cite:CITE.kjvPs1, s:'The LORD is my shepherd;', a:'S-LV-PN',
     why:'<em>Is</em> links, and <em>shepherd</em> is a noun renaming <em>the LORD</em>: a predicate nominative. <em>My</em> belongs to <em>shepherd</em>.'}),
   patItem({id:'es23', dmin:2, cite:CITE.bacon, s:'They perfect nature,', a:'S-V-DO',
@@ -9871,7 +9871,7 @@ const EN_SENT = [
     why:'<em>Faith</em> is what the clause is about. <em>Substance</em> renames it, and it is the predicate nominative. <em>Of things hoped for</em> tells which substance.'},
   {id:'es66', dmin:2, kind:'pick', cite:CITE.kjvMt11_30, q:'Click the predicate adjective in the first member.',
     words:[{t:'For'}, {t:'my'}, {t:'yoke'}, {t:'is'}, {t:'easy,',ok:true}, {t:'and'}, {t:'my'}, {t:'burden'}, {t:'is'}, {t:'light.'}],
-    why:'<em>Easy</em> describes the yoke after <em>is</em>. <em>Light</em> does the same work in the second member, for the burden.'},
+    why:'<em>Easy</em> describes the yoke after <em>is</em>. <em>Light</em> is used in the same way in the second member, for the burden.'},
   {id:'es67', dmin:2, kind:'pick', cite:CITE.kjvJn6_35, q:'Click the predicate nominative.',
     words:[{t:'I'}, {t:'am'}, {t:'the'}, {t:'bread',ok:true}, {t:'of'}, {t:'life:'}],
     why:'<em>Bread</em> renames the subject after <em>am</em>. <em>Of life</em> tells which bread. The noun stays in the nominative, and a modern class calls it a predicate nominative.'},
@@ -11715,7 +11715,7 @@ const MAKING_ITEMS = [
   mkItem('mk2',1,'combine','The captain checked the map. The navigator checked the map.',
     'The captain and the navigator checked the map.',
     ['The captain checked the map, the navigator checked it too.','The captain, the navigator checked the map.','The captain checked the map the navigator checked it too.'],
-    'One compound subject does the work of both sentences. The other versions are a comma splice, a broken subject with no <em>and</em>, and a run-on.'),
+    'One compound subject is used for both of the original sentences. The other versions are a comma splice, a broken subject with no <em>and</em>, and a run-on.'),
   mkItem('mk3',1,'combine','The oak fell in the storm. The old elm fell in the storm too.',
     'The oak and the old elm fell in the storm.',
     ['The oak and the old elm falls in the storm.','The oak and the old elm in the storm.','The oak fell in the storm the old elm fell too.'],
@@ -12566,7 +12566,7 @@ const DCE_WHY = {
   pronoun:'English pronouns keep a small case system: <em>he, him, his</em>; <em>they, them, their</em>.',
   adverb:'Adverbs keep one form; they say how, when, or where, and take no endings for case or person.',
   preposition:'A preposition keeps one form and governs the noun after it.',
-  conjunction:'A conjunction keeps one form; joining is its whole work.',
+  conjunction:'A conjunction keeps one form, and it is used only to join.',
   interjection:'An interjection is a cry, Donatus’s eighth part, and it keeps one form.'
 };
 function declineEnglish(d){
