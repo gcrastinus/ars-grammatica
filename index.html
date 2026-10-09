@@ -666,6 +666,12 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 .fw-check{margin-top:12px; border:1px solid var(--line); border-radius:11px; background:var(--panel2); padding:12px 16px}
 .fw-item{display:flex; gap:10px; align-items:flex-start; margin:8px 0; font-size:17px; line-height:1.45; cursor:pointer}
 .fw-item input{margin-top:5px}
+/* ------- quiz maker: kind of question ------- */
+.maker-rowwrap{display:flex; align-items:center; gap:10px; border-bottom:1px dashed var(--line)}
+.maker-rowwrap .maker-row{flex:1; border-bottom:none}
+.qz-fmt{font-family:'EB Garamond',serif; font-size:14.5px; padding:3px 6px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:7px; margin-right:6px}
+.qsection{font-family:'Cinzel',serif; font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin:22px 0 8px; padding-top:10px; border-top:1px solid #999}
+.kalso{font-weight:normal; font-style:italic}
 </style>
 </head>
 <body>
@@ -6160,7 +6166,7 @@ EX.syllable = {
         kind:'text', src:['ag'], sid:'sy:'+it.w+':td', lang:'la',
         prompt:`Divide <strong>${it.w}</strong> into syllables. Use hyphens (for example, pa-ter).`,
         specimen: it.w,
-        placeholder:'Write the syllables with hyphens',
+        placeholder:'Write the syllables with hyphens', _key:it.div,
         check(val){
           const ok = normSyll(val) === normSyll(it.div);
           if(ok) return {right:true, note:`The division is <strong>${it.div}</strong>. ${it.why}`};
@@ -6406,7 +6412,7 @@ EX.produce = {
         kind:'text', src: this.src, sid:'pdn:'+e.nom+':'+cs+':'+num, lang:'la',
         prompt:`Write the <strong>${want}</strong> of this noun.`,
         specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss}${d <= 2 ? ' · ' + DECL_NOTE[e.d] : ''}</span>`,
-        placeholder:'Type the Latin form',
+        placeholder:'Type the Latin form', _key:form,
         check(val){
           const ok = normLat(val) === normLat(form);
           if(ok) return {right:true, note:`<strong>${form}</strong> is the ${want} of <em>${e.nom}</em>, ${e.gloss}.`};
@@ -6429,7 +6435,7 @@ EX.produce = {
       kind:'text', src: this.src, sid:'pdv:'+e.lemma+':'+f.form+':'+want, lang:'la',
       prompt:`Write the <strong>${want}</strong> of this verb.`,
       specimen:`${e.lemma.split(',')[0]}<span class="lemma">${e.lemma}: ${e.gloss}${d <= 2 ? ' · ' + CONJ_NAME[e.conj] + ' conjugation' : ''}</span>`,
-      placeholder:'Type the Latin form',
+      placeholder:'Type the Latin form', _key:f.form,
       check(val){
         const ok = normLat(val) === normLat(f.form);
         if(ok) return {right:true, note:`<strong>${f.form}</strong> is the ${want}, from <em>${e.lemma}</em>.`};
@@ -8896,7 +8902,7 @@ function enText(it){
   return {
     kind:'text', src: it.src || ['appown','engclass'], sid: it.id, lang:'en',
     prompt: it.q, sentence: it.s || '', source: it.cite || '',
-    placeholder: it.placeholder || 'Type the answer',
+    placeholder: it.placeholder || 'Type the answer', _key: it.show || accepts[0], _accepts: accepts,
     check(val){
       const got = it.pat ? normPat(val) : normPlain(val);
       const ok = accepts.some(a => (it.pat ? normPat(a) : normPlain(a)) === got && got.length > 0);
@@ -12269,7 +12275,7 @@ function p2MC(o, d){
 function p2Text(o){
   return {
     kind:'text', lang:'en', src: o.src || ['appown','engclass'], sid: o.sid, prompt: o.prompt,
-    specimen: o.specimen, placeholder: 'Type the English form',
+    specimen: o.specimen, placeholder: 'Type the English form', _key: o.answers[0], _accepts: o.answers,
     check(val){
       const v = String(val || '').trim().toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ');
       const ok = o.answers.some(a => a.toLowerCase() === v);
@@ -13431,7 +13437,7 @@ function nfSentQ(o){
   const q = {
     kind:'text', lang:o.lang || 'en', src:o.src || ['appown','engclass'], sid:o.sid,
     prompt:o.prompt, sentence:o.sentence, specimen:o.specimen, gloss:o.gloss, long:true,
-    placeholder:o.placeholder || 'Type the sentence', _answer:o.model,
+    placeholder:o.placeholder || 'Type the sentence', _answer:o.model, _accepts:o.accepts,
     judge(val){
       if(acc.indexOf(normSent(val)) >= 0) return null;
       if(o.noJudge) return null;
@@ -13768,7 +13774,7 @@ function latBuildQ(d){
     return {
       kind:'text', lang:'la', src:['ag','appown'], sid:'lbt:' + right.join(' '), long:true,
       prompt:'Write this sentence in Latin. Macrons are optional, and any word order is accepted.',
-      sentence:s.en, gloss:lbLemmas(s), placeholder:'Type the Latin sentence', _answer:right.join(' '),
+      sentence:s.en, gloss:lbLemmas(s), placeholder:'Type the Latin sentence', _answer:right.join(' '), _keyNote:'Any order of these words is accepted.',
       check(val){
         const got = String(val || '').trim().split(/\s+/).map(normLat).filter(Boolean).sort().join(' ');
         if(got === want) return {right:true, note:why};
@@ -13814,7 +13820,7 @@ function latAgreeTyped(d){
     kind:'text', lang:'la', src:['te','ag'], sid:'agt:' + adj.nom + ':' + form,
     prompt:`Write <em>${adj.nom}</em> in the form that agrees with <em>${form}</em>.`,
     specimen:`${form}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss} · ${adj.nom}, ${adj.gloss}</span>`,
-    placeholder:'Type the Latin form', _answer:accepts[0],
+    placeholder:'Type the Latin form', _answer:accepts[0], _accepts:accepts,
     check(val){
       const ok = accepts.some(f => normLat(f) === normLat(val));
       const why = `<em>${form}</em> is ${readings.join(' or ')}, and ${GEN_NAME[e.g]}, so the adjective is <strong>${accepts.join('</strong> or <strong>')}</strong>.`
@@ -13849,7 +13855,7 @@ function latGovernTyped(d){
     kind:'text', lang:'la', src:['ag'], sid:'gvt:' + fr.p + ':' + fr.cs + ':' + form,
     prompt:`Complete the Latin for “${en}”: <em>${fr.p}</em> ___`,
     specimen:`${e.nom}<span class="lemma">${e.nom}, ${nounEnding(e,'gen','sg')}, ${GEN_NAME[e.g]}, ${e.gloss}</span>`,
-    placeholder:'Type the Latin form', _answer:form,
+    placeholder:'Type the Latin form', _answer:form, _accepts:[form, fr.p + ' ' + form],
     check(val){
       const why = `<em>${fr.p}</em>, ${fr.mean}, so “${en}” is <strong>${fr.p} ${form}</strong>, the ${CASE_NAME[fr.cs].toLowerCase()} ${num === 'sg' ? 'singular' : 'plural'}.`;
       if(normLat(val) === normLat(form) || normLat(val) === normLat(fr.p + form)) return {right:true, note:why};
@@ -16693,12 +16699,25 @@ function qzFormatLive(q, setTitle){
     }catch(e){}
   }else if(q.kind === 'text'){
     item.work = true;
-    item.instr = 'Write the form.';
-    try{
-      const r = q.check('');
-      item.explainHtml = r && r.note ? r.note : '';
-      item.answerText = qzStrip(r && r.note ? r.note : '');
-    }catch(e){}
+    item.typed = true;
+    const blank = /______/.test(q.sentence || '');
+    item.instr = blank ? 'Write the missing word on the line.' : 'Write the answer on the line.';
+    const key = q._key || (typeof q._answer === 'string' ? q._answer : '');
+    if(key){
+      const others = (q._accepts || []).filter(x => normLat(x) !== normLat(key) && normPlain(x) !== normPlain(key));
+      item.answerText = key + (others.length ? ` <span class="kalso">Also accepted: ${others.map(x => String(x).replace(/[.?!]+$/, '')).join('; ')}.</span>` : '')
+        + (q._keyNote ? ` <span class="kalso">${q._keyNote}</span>` : '');
+      try{
+        const r = q.check(key);
+        item.explainHtml = r && r.note ? r.note : '';
+      }catch(e){}
+    }else{
+      try{
+        const r = q.check('');
+        item.explainHtml = r && r.note ? r.note : '';
+        item.answerText = qzStrip(r && r.note ? r.note : '');
+      }catch(e){}
+    }
   }else if(q.kind === 'pick'){
     item.choices = (q.words || []).map(w => w.t);
     const hit = (q.words || []).find(w => w.ok);
@@ -16736,6 +16755,25 @@ function qzGenOne(ex, d){
 function qzFingerprint(q){
   return q.sid || ((q.prompt || '') + '|' + (q.specimen || '') + '|' + (q.sentence || '') + '|' + (q.passage || '')).slice(0, 240);
 }
+/* Which kinds of item an exercise can give: typed items, multiple-choice items, or both. */
+const QZ_KINDS = {};
+function qzKinds(ex){
+  if(QZ_KINDS[ex.id]) return QZ_KINDS[ex.id];
+  const saved = {seen: state.sessionSeen.slice(), stageI: state.stageI, streak: state.stageStreak, auctor: state.auctorId};
+  const k = {typed:false, choice:false};
+  for(let d = 1; d <= 5 && !(k.typed && k.choice); d++){
+    for(let i = 0; i < 40; i++){
+      state.sessionSeen = [];
+      let q;
+      try{ q = qzGenOne(ex, d); }catch(e){ continue; }
+      if(!q) continue;
+      if(q.kind === 'text') k.typed = true; else if(q.kind === 'mc' || q.kind === 'pick') k.choice = true;
+    }
+  }
+  state.sessionSeen = saved.seen; state.stageI = saved.stageI; state.stageStreak = saved.streak; state.auctorId = saved.auctor;
+  QZ_KINDS[ex.id] = k;
+  return k;
+}
 function buildMakerSets(){
   const box = $('qz-sets');
   if(!box) return;
@@ -16748,8 +16786,12 @@ function buildMakerSets(){
     exs.forEach(i => {
       const e = EX[i.ex];
       if(e.free) return;
-      html += `<label class="maker-row"><input type="checkbox" data-ex="${e.id}">
-        <span class="nm">${e.title}<span class="meta">${e.instr || ''}</span></span></label>`;
+      const k = qzKinds(e);
+      const fmt = k.typed && k.choice
+        ? `<select class="qz-fmt" data-ex="${e.id}" aria-label="Kind of question for ${e.title}"><option value="mc">Multiple choice</option><option value="typed">Typed</option><option value="both">Both</option></select>`
+        : '';
+      html += `<div class="maker-rowwrap"><label class="maker-row"><input type="checkbox" data-ex="${e.id}">
+        <span class="nm">${e.title}<span class="meta">${e.instr || ''}</span></span></label>${fmt}</div>`;
     });
   });
   box.innerHTML = html;
@@ -16813,13 +16855,27 @@ $('qz-gen').onclick = () => {
     ids.forEach(id => {
       const ex = EX[id];
       if(!ex || typeof ex.gen !== 'function') return;
+      const sel = document.querySelector(`#qz-sets select.qz-fmt[data-ex="${id}"]`);
+      const fmt = sel ? sel.value : 'any';
+      /* Some exercises give typed items only at the higher levels, and choices only at the lower ones;
+         when the chosen level has none of the kind asked for, the nearest level that has them is used. */
+      const levelsFor = want => {
+        const order = [diff];
+        for(let s = 1; s <= 4; s++){ if(diff + s <= 5) order.push(diff + s); if(diff - s >= 1) order.push(diff - s); }
+        return order;
+      };
       let made = 0, tries = 0;
-      while(made < n && tries < n * 40){
+      while(made < n && tries < n * 80){
         tries++;
+        const want = fmt === 'mc' ? 'choice' : fmt === 'typed' ? 'typed' : fmt === 'both' ? (made % 2 === 0 ? 'choice' : 'typed') : null;
+        const order = levelsFor(want);
+        const lv = want ? order[Math.min(order.length - 1, Math.floor(tries / 20))] : diff;
         let q;
-        try{ q = qzGenOne(ex, diff); }
+        try{ q = qzGenOne(ex, lv); }
         catch(e){ continue; }
         if(!q) continue;
+        if(want === 'typed' && q.kind !== 'text') continue;
+        if(want === 'choice' && q.kind !== 'mc' && q.kind !== 'pick' && !(fmt === 'both' && tries > n * 60)) continue;
         const fp = qzFingerprint(q);
         if(fps.has(fp)) continue;
         fps.add(fp);
@@ -16850,8 +16906,13 @@ $('qz-gen').onclick = () => {
       <div class="rubric"><b>Directions.</b> Answer every question. For multiple choice, circle the letter.
         Where a blank or ruled space is given, write the answer. Macrons are not required.</div>`;
 
+    /* Typed items print in their own section, after the others, and the key follows the same order. */
+    const ordered = items.filter(it => !it.typed).concat(items.filter(it => it.typed));
+    items.length = 0; ordered.forEach(it => items.push(it));
+    const firstTyped = items.findIndex(it => it.typed);
     let qs = '<ol class="qs">';
-    items.forEach(it => {
+    items.forEach((it, i) => {
+      if(i === firstTyped) qs += `</ol><div class="qsection">Typed answers. Each answer is written on its line, and macrons are not required.</div><ol class="qs" style="counter-reset:qn ${i}">`;
       qs += `<li class="qitem"><div class="qsetline">${it.doctrine ? 'Doctrine · ' : ''}${it.setTitle}</div>`;
       if(it.instr) qs += `<div class="qinstr">${it.instr}</div>`;
       qs += it.stemHtml || '';
