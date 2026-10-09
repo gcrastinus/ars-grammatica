@@ -15520,7 +15520,7 @@ function grkProduceQ(it){
       if(got && got === normGrk(it.a)) return {right:true, note: it.why};
       const wrote = String(val || '').trim();
       return {right:false,
-        note:`The ${it.want} of <em>${it.lemma}</em> is <strong>${it.a}</strong>. ${it.why}`,
+        note: it.why,
         also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
     }
   };
