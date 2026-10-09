@@ -208,6 +208,8 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .mode-row[hidden]{display:none !important}
 .lang-row[hidden], .lang-note[hidden]{display:none !important}
 .partner-soon{opacity:.5}
+.lang-btn:disabled{opacity:.5; cursor:default}
+.lang-btn:disabled:hover{border-color:var(--line); color:var(--ink-soft)}
 
 /* ------- cards ------- */
 .set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin-top:6px}
@@ -708,12 +710,13 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 
     <div class="rule"></div>
 
-    <div class="section-label partner-soon">The Partner Language</div>
-    <div class="lang-box partner-soon">
+    <div class="section-label partner-soon" id="partner-label">The Partner Language</div>
+    <div class="lang-box partner-soon" id="partner-box">
       <div class="lang-fixed">English and <strong>Latin</strong> are the primary languages used in every part of the course.
         Latin is the tradition’s own language, and every technical term here is a Latin term.
-        Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.</div>
-      <div class="soon-flag">Coming soon</div>
+        <span id="partner-text">Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.</span></div>
+      <div class="soon-flag" id="partner-flag">Coming soon</div>
+      <div class="lang-row" id="partner-row" hidden></div>
       <h4 hidden>A third language</h4>
       <div class="lang-row" id="lang-row" hidden></div>
       <div class="lang-note" id="lang-note" hidden></div>
@@ -1440,7 +1443,9 @@ const store = {
   totals:{},          /* exId -> {seen, right, best} */
   score:0, bestStreak:0,
   mistakes:[],
-  lang3:null, dark:null, diff:1, modes:{}
+  lang3:null, dark:null, diff:1, modes:{},
+  langs:{},           /* exId -> 'la' or 'grc', the partner language chosen for that exercise */
+  langPick:null       /* the last language chosen with the shortcut on the home screen */
 };
 let lang3Held = null;
 
@@ -1450,6 +1455,7 @@ function save(){
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
       mistakes: store.mistakes.slice(-60), lang3: lang3Held, dark: state.dark, diff: state.diff,
       modes: store.modes,
+      langs: store.langs, langPick: store.langPick,
       speakRate: state.speakRate
     }));
   }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
@@ -1464,6 +1470,8 @@ function load(){
     store.bestStreak = o.bestStreak || 0;
     store.mistakes = o.mistakes || [];
     store.modes = o.modes || {};
+    store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
+    store.langPick = (o.langPick === 'la' || o.langPick === 'grc') ? o.langPick : null;
     lang3Held = o.lang3 || null;
     state.lang3 = null;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
@@ -15308,6 +15316,16 @@ function bothLangs(){
   const a = state.langAvail;
   return !a || (a.en > 0 && a.la > 0);
 }
+/* The Greek content comes from greek.js. Without that file the course offers no Greek. */
+const GRK = (typeof window !== 'undefined' && window.GREEK && window.GREEK.cards) ? window.GREEK : null;
+/* An exercise offers Greek beside English by listing 'grc' in ex.langs. Its partner language is then
+   Latin or Greek, as chosen for that exercise; every other exercise keeps Latin. */
+function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
+function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
+function rowChoice(ex){
+  const mode = modeOf(ex);
+  return mode === 'both' && partnerOf(ex) === 'grc' ? 'grc' : mode;
+}
 function modeOf(ex){
   const m = ex && ex.modes;
   if(!m || !m.length) return null;
@@ -15330,7 +15348,7 @@ function nextLang(ex){
   const laShare = a ? Math.min(0.40, a.la / 15) : 0.40;
   const n = state.nEn + state.nLa;
   if(n < 2) return 'en';
-  return (state.nLa / n) < laShare ? 'la' : 'en';
+  return (state.nLa / n) < laShare ? partnerOf(ex) : 'en';
 }
 function ensureLang(ex, q){
   if(!q) return q;
@@ -15353,15 +15371,17 @@ function renderModeRow(){
   }
   row.hidden = false;
   row.textContent = '';
-  const cur = modeOf(ex);
-  [['both','English and Latin'],['en','English only']].forEach(pair => {
+  const cur = rowChoice(ex);
+  const greek = offersGreek(ex);
+  [['both','English and Latin']].concat(greek ? [['grc','English and Greek']] : [], [['en','English only']]).forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
     b.textContent = pair[1];
     b.onclick = () => {
-      if(modeOf(ex) === pair[0]) return;
-      store.modes[ex.id] = pair[0];
+      if(rowChoice(ex) === pair[0]) return;
+      store.modes[ex.id] = pair[0] === 'grc' ? 'both' : pair[0];
+      if(greek && pair[0] !== 'en') store.langs[ex.id] = pair[0] === 'grc' ? 'grc' : 'la';
       save();
       state.sessionSeen = [];
       state.nEn = 0;
@@ -15593,6 +15613,42 @@ function buildLangRow(){
   $('lang-note').innerHTML = L
     ? `<strong>${L.name}</strong> — ${L.cases.length === 1 ? L.cases[0] : L.caseCount + ' cases'}; word order ${L.order}. ${L.note}`
     : 'No third language is chosen. English and Latin alone make a complete course, and it is the course the tradition itself followed.';
+}
+
+/* The partner-language shortcut on the home screen. It sets every exercise that offers the language
+   chosen; an exercise without that language keeps its own setting, and each exercise can still be
+   changed on its own afterward. It never sets state.lang3. */
+function setPartnerAll(key){
+  Object.keys(EX).forEach(id => {
+    const ex = EX[id];
+    if(!ex || !ex.modes || ex.modes.indexOf('both') < 0) return;
+    const greek = offersGreek(ex);
+    if(key === 'grc' && !greek) return;
+    store.modes[id] = 'both';
+    if(greek) store.langs[id] = key;
+  });
+  store.langPick = key;
+  save();
+  buildPartnerRow();
+}
+function buildPartnerRow(){
+  const row = $('partner-row');
+  if(!GRK || !row) return;
+  $('partner-label').classList.remove('partner-soon');
+  $('partner-box').classList.remove('partner-soon');
+  $('partner-text').textContent = 'Ancient Greek is offered as a partner language. Choosing Latin or Greek here sets every exercise that offers that language, and each exercise can still be changed on its own.';
+  $('partner-flag').style.display = 'none';
+  row.hidden = false;
+  row.innerHTML = '';
+  [['la','Latin'],['grc','Greek'],['de','German (coming soon)'],['fr','French (coming soon)']].forEach(pair => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lang-btn' + (store.langPick === pair[0] ? ' sel' : '');
+    b.textContent = pair[1];
+    if(pair[0] === 'la' || pair[0] === 'grc') b.onclick = () => setPartnerAll(pair[0]);
+    else b.disabled = true;
+    row.appendChild(b);
+  });
 }
 
 function buildDiffRow(){
@@ -16962,6 +17018,7 @@ load();
 setDark(state.dark);
 
 buildLangRow();
+buildPartnerRow();
 buildDiffRow();
 buildHome();
 if(location.hash === '#maker') openMaker();
