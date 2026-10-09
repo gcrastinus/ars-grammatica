@@ -15308,7 +15308,7 @@ function probeLangs(ex, d){
     if(!q) continue;
     ensureLang(ex, q);
     const id = q.sid || q.prompt;
-    if(q.lang === 'la') la.add(id);
+    if(q.lang === 'la' || q.lang === 'grc') la.add(id);
     else if(q.lang === 'en') en.add(id);
   }
   state.sessionSeen = saved;
@@ -15459,11 +15459,54 @@ if(GRK){
     gen(d){ return grcMoreQ(d); }
   };
 }
+/* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
+   "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
+   items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
+   runs exactly as before. */
+function addGreek(id, makeQ, share){
+  const ex = EX[id];
+  const pool = GRK && GRK.shared && GRK.shared[id];
+  if(!ex || !Array.isArray(pool) || pool.length < 8) return;
+  const base = ex.gen;
+  ex.langs = ['grc'];
+  ex.gen = function(d){
+    if(partnerOf(ex) !== 'grc') return base.call(this, d);
+    if(share >= 1 || Math.random() < share) return makeQ(pickSeen(pool, x => x.id), d);
+    for(let i = 0; i < 20; i++){
+      const q = base.call(this, d);
+      if(q && q.lang !== 'la') return q;
+    }
+    return makeQ(pickSeen(pool, x => x.id), d);
+  };
+}
+/* pos: the marked-word question of The Parts of Speech, for a single marked word. */
+function grkPosQ(it, d){
+  const nOpt = d <= 1 ? 3 : 4;
+  const others = POS.filter(p => p !== it.a);
+  const options = shuffle([it.a, ...sample(others, Math.min(nOpt - 1, others.length))]);
+  const note = it.note || POS_WHY[it.a];
+  const q = {
+    kind:'mc', src: it.src, prompt:'Which part of speech is the marked word?',
+    sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+    options, correct: options.indexOf(it.a),
+    sid: it.id, lang: it.lang,
+    check(i){
+      if(i === options.indexOf(it.a)) return {right:true, note};
+      return {right:false,
+        note:`It is the <strong>${it.a}</strong>. ${note}`,
+        also:`The answer chosen was <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
+    }
+  };
+  if(it.orig){ q.orig = it.orig; q.olang = 'English'; }
+  return q;
+}
+addGreek('pos', grkPosQ, 0.35);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
 function rowChoice(ex){
   const mode = modeOf(ex);
-  return mode === 'both' && partnerOf(ex) === 'grc' ? 'grc' : mode;
+  if(mode === 'both' || (mode === 'la' && offersGreek(ex))) return partnerOf(ex) === 'grc' ? 'grc' : 'both';
+  return mode;
 }
 function modeOf(ex){
   const m = ex && ex.modes;
@@ -15480,7 +15523,7 @@ function modeOf(ex){
 function nextLang(ex){
   const mode = modeOf(ex);
   if(mode === 'en') return 'en';
-  if(mode === 'la') return 'la';
+  if(mode === 'la') return partnerOf(ex);
   if(mode !== 'both') return null;
   const a = state.langAvail;
   /* About fifteen questions make a run; a Latin share above la/15 would repeat Latin items. */
@@ -15503,7 +15546,7 @@ function renderModeRow(){
   const ex = state.ex;
   if(!row) return;
   const allowed = ex && ex.modes;
-  if(!allowed || allowed.indexOf('both') < 0 || !bothLangs()){
+  if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !offersGreek(ex))){
     row.hidden = true;
     row.textContent = '';
     return;
@@ -15512,7 +15555,9 @@ function renderModeRow(){
   row.textContent = '';
   const cur = rowChoice(ex);
   const greek = offersGreek(ex);
-  [['both','English and Latin']].concat(greek ? [['grc','English and Greek']] : [], [['en','English only']]).forEach(pair => {
+  /* An exercise that offers Greek shows its row even when it has no English questions, and then leaves out "English only". */
+  const noEn = greek && state.langAvail && state.langAvail.en === 0;
+  [['both','English and Latin']].concat(greek ? [['grc','English and Greek']] : [], noEn ? [] : [['en','English only']]).forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
@@ -15521,6 +15566,7 @@ function renderModeRow(){
       if(rowChoice(ex) === pair[0]) return;
       store.modes[ex.id] = pair[0] === 'grc' ? 'both' : pair[0];
       if(greek && pair[0] !== 'en') store.langs[ex.id] = pair[0] === 'grc' ? 'grc' : 'la';
+      if(greek) state.langAvail = probeLangs(ex, state.diff);
       save();
       state.sessionSeen = [];
       state.nEn = 0;
@@ -16073,7 +16119,7 @@ function nextQ(){
   });
   if(q && q.kind !== 'note'){
     if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
-    if(q.lang === 'la') state.nLa++;
+    if(q.lang === 'la' || q.lang === 'grc') state.nLa++;
     else if(q.lang === 'en') state.nEn++;
   }
   state.q = q;
