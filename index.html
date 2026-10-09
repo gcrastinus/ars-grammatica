@@ -5736,7 +5736,7 @@ const CLAUSE_CORPUS = [
 
 EX.clauses = {
   id:'clauses', src:['ag','appown'], act:'IV', title:'Clauses in the Authors',
-  desc:'A short passage from Plato, the tragedians, the historians, or Augustine, in an older public-domain translation, with one clause marked; name the work it is doing. The Greek or the Latin is there to be shown. The store is finite, since these are the authors and not a generator.',
+  desc:'A short passage from Plato, the tragedians, the historians, or Augustine, in an older public-domain translation, with one clause marked; name how it is used. The Greek or the Latin is there to be shown. The store is finite, since these are the authors and not a generator.',
   instr:'What kind of clause is the marked construction?',
   gen(d){
     const pool = CLAUSE_CORPUS.filter(x => (x.dmin || 1) <= d);
@@ -8565,7 +8565,7 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
       {h:`<strong>Truth is not asked.</strong> <em>homo albus</em> is congruous and incomplete; <em>homo est albus</em> is complete. Whether the man is white belongs to logic.`}
     ],
     clauses:[
-      {h:`<strong>A clause is marked in a real author.</strong> Name the work it is doing: purpose, result, time, cause, condition, the relative, indirect speech, or another.`},
+      {h:`<strong>A clause is marked in a real author.</strong> We name its kind: purpose, result, time, cause, condition, the relative, indirect speech, or another.`},
       {h:`<strong>The store is finite</strong>, since these are the authors and not a generator. English is the working text, with Latin or Greek on request, and the same difficult period may return with a different mark.`}
     ],
     workshop:[
