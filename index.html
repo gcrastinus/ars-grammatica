@@ -1095,7 +1095,7 @@ const LAT_NOUNS = [
   {nom:'mare',    stem:'mar',     d:'d3ni',g:'n', gloss:'sea'},
   {nom:'animal',  stem:'animāl',  d:'d3ni',g:'n', gloss:'animal'},
   /* fourth */
-  {nom:'manus',   stem:'man',     d:'d4',  g:'f', gloss:'hand', note:' feminine, though it looks like the masculines'},
+  {nom:'manus',   stem:'man',     d:'d4',  g:'f', gloss:'hand', note:' feminine, though it looks like the masculine nouns'},
   {nom:'exercitus',stem:'exercit',d:'d4',  g:'m', gloss:'army'},
   {nom:'senātus', stem:'senāt',   d:'d4',  g:'m', gloss:'senate'},
   {nom:'frūctus', stem:'frūct',   d:'d4',  g:'m', gloss:'fruit, profit'},
@@ -4869,9 +4869,9 @@ const POS_OTHER = [
   {id:'po-gr1', lang:'grc', s:'<b>ὁ</b> ἀνὴρ τρέχει.', orig:'The man runs.', a:'article',
    note:'Greek has a definite article, and the Greek grammarians counted it among the eight parts. Latin has none, so Donatus’s eight put the interjection in its place.'},
   {id:'po-gr2', lang:'grc', s:'ὁ ἀνὴρ <b>καὶ</b> ἡ γυνὴ μένουσιν.', orig:'The man and the woman remain.', a:'conjunction',
-   note:'<em>καί</em> joins, as Latin <em>et</em> does: with the same use in another sound.'},
+   note:'<em>καί</em> joins words as Latin <em>et</em> does; it is the same word in another sound.'},
   {id:'po-gr3', lang:'grc', s:'ὁ <b>τρέχων</b> ἵππος πίπτει.', orig:'The running horse falls.', a:'participle',
-   note:'Greek uses the participle freely. <em>τρέχων</em> depends on <em>ἵππος</em> and keeps the flow, with the same use as Latin <em>currēns</em>.'},
+   note:'Greek uses the participle freely. <em>τρέχων</em> depends on <em>ἵππος</em> and keeps the flow, and is used as Latin <em>currēns</em> is.'},
   {id:'po-de5', lang:'de', s:'Der <b>alte</b> Mann schläft.', orig:'The old man sleeps.', a:'adjective',
    note:'<em>Alte</em> adheres to <em>Mann</em> and agrees with it; after the article it takes the weak ending <em>-e</em>. It tells of what sort.'},
   {id:'po-de6', lang:'de', s:'<b>Er</b> läuft schnell.', orig:'He runs quickly.', a:'pronoun',
@@ -4979,7 +4979,7 @@ EX.pos = {
         lang: it.lang,
         check(i){
           if(i === options.indexOf(it.a)) return {right:true, note};
-          const kind = group ? 'marked group, used as a <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
+          const kind = group ? 'marked group, used as ' + (/^[aeiou]/i.test(it.a) ? 'an' : 'a') + ' <strong>' + it.a + '</strong>' : '<strong>' + it.a + '</strong>';
           return {right:false,
             note:`It is the ${kind}. ${note}`,
             also:`The answer chosen was <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
@@ -5161,7 +5161,7 @@ EX.latnoun = {
         const wouldBe = nounEnding(e, ans.cs, ans.num);
         return {right:false, mark:{cs:right.cs, num:right.num},
           note:`<strong>${form}</strong> is the ${joinAn(all)} of <em>${e.nom}</em> (${DECL_NAME[e.d]} declension, ${GEN_NAME[e.g]}) and means ${e.gloss}.`,
-          also:`The answer given was the ${said}, which would have been <strong>${wouldBe}</strong>.${e.note ? ' Also worth knowing:' + e.note + '.' : ''}`};
+          also:`The answer given was the ${said}, which would have been <strong>${wouldBe}</strong>.${e.note ? ' This noun is' + e.note + '.' : ''}`};
       }
     };
   }
@@ -5314,7 +5314,7 @@ EX.cases = {
         if(i === options.indexOf(ans)) return {right:true, note: base + third};
         return {right:false,
           note: base + third,
-          also:`The answer chosen was the ${options[i]}, whose use is ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
+          also:`The answer chosen was the ${options[i]}, which expresses ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
       }
     };
   }
@@ -5408,11 +5408,11 @@ EX.agree = {
           return {right:true,
             note: fault === 0
               ? `Congruous. ${want} ${e.note ? '<br>It is' + cap(e.note) + '.' : ''}`
-              : `Right. ${want} ${e.note ? '<br>Students often miss this: the noun is' + e.note + '.' : ''}`};
+              : `Right. ${want} ${e.note ? '<br>This noun is' + e.note + '.' : ''}`};
         }
         return {right:false,
           note: fault === 0 ? `It is sound. ${want}` : `${AGREE_OPTS[fault].replace(/<\/?b>/g,'')}. ${want}`,
-          also: e.note ? `Worth knowing:${e.note}.` : `Congruity is caused by the ways of signifying fitting, not by the meanings agreeing; that second thing is logic’s business.`};
+          also: e.note ? `This noun is${e.note}.` : `Congruity is caused by the ways of signifying fitting, not by the meanings agreeing; that second thing is logic’s business.`};
       }
     };
   }
@@ -7608,7 +7608,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
       {id:'vy16', lang:'en', src:['panini'], q:'Why can the words of <em>saḥ pustakaṃ paṭhati</em> change place and still be the same arrangement?',
        a:'Because the endings mark the roles',
        ds:['Because Sanskrit order never matters','Because sandhi decides the order','Because the verb always comes first'],
-       why:'The endings (vibhakti) mark the roles in the action (kāraka), so order is free for another use.',
+       why:'The endings (vibhakti) mark the roles in the action (kāraka), so the order of words is free to serve another purpose.',
        passage: il({script:'सः पुस्तकं पठति', dir:'dev', tr:'saḥ pustakaṃ paṭhati', en:'He reads a book.'})}
     ]},
     {title:'Compounds and report', items:[
@@ -7641,7 +7641,7 @@ EX.vyakarana = tradEx('vyakarana', ['yaska','panini','patanjali','bhartrhari'], 
       {id:'vy24', lang:'en', src:['appown'], q:'Kāraka against Latin case: the difference is…',
        a:'Kāraka is a role; case is often the ending',
        ds:['They are the same list under two names','Kāraka is the ending, and case the role','Case belongs to verbs, and kāraka to nouns'],
-       why:'Kāraka is a role in the action; case, for us, is often the ending that marks a use. The two layers, roles and endings, must be kept apart.'}
+       why:'Kāraka is a role in the action; case, for us, is often the ending that shows how the word is used. The two layers, roles and endings, must be kept apart.'}
     ]}
   ]);
 
@@ -11048,11 +11048,11 @@ const EN_FAULT = [
   fltItem({id:'eu99', dmin:4, s:'The clerk called the mate answered.', a:'A run-on sentence',
     why:'<em>The clerk called</em> and <em>the mate answered</em> are fused, with no mark and no conjunction. A run-on fuses two independent clauses, with no mark and no conjunction. The fault is in the arrangement, a solecism.'}),
   fltItem({id:'eu100', dmin:4, cite:CITE.mac, s:'Clive was now twenty-five years old.', a:'A sound sentence, with no fault',
-    why:'One clause. <em>Was</em> links, and <em>old</em> describes Clive. Macaulay is quoted, not mended. The sentence is complete, and each part is where its use requires.'}),
+    why:'One clause. <em>Was</em> links, and <em>old</em> describes Clive. We quote him as he wrote; we do not correct him. The sentence is complete, and each part is where its use requires.'}),
   fltItem({id:'eu101', dmin:4, cite:CITE.kjvEx20_15, s:'Thou shalt not steal.', a:'A sound sentence, with no fault',
     why:'The commandment is one independent clause. <em>Shalt</em> is the verb, and <em>not</em> limits it. The sentence is sound, and we do not rewrite it. The sentence is complete, and each part is where its use requires.'}),
   fltItem({id:'eu102', dmin:4, cite:CITE.ra12, s:'Few things are impossible to diligence and skill.', a:'A sound sentence, with no fault',
-    why:'One independent clause. <em>Are</em> links, and <em>impossible</em> describes <em>things</em>. The sentence is sound. Johnson is quoted, not mended. The sentence is complete, and each part is where its use requires.'})
+    why:'One independent clause. <em>Are</em> links, and <em>impossible</em> describes <em>things</em>. The sentence is sound. We quote him as he wrote; we do not correct him. The sentence is complete, and each part is where its use requires.'})
 ];
 
 const birds = {subj:'Birds', verb:'sing'};
@@ -11715,7 +11715,7 @@ const MAKING_ITEMS = [
   mkItem('mk2',1,'combine','The captain checked the map. The navigator checked the map.',
     'The captain and the navigator checked the map.',
     ['The captain checked the map, the navigator checked it too.','The captain, the navigator checked the map.','The captain checked the map the navigator checked it too.'],
-    'One compound subject is used for both of the original sentences. The other versions are a comma splice, a broken subject with no <em>and</em>, and a run-on.'),
+    'One compound subject serves both of the original sentences. The other versions are a comma splice, a broken subject with no <em>and</em>, and a run-on.'),
   mkItem('mk3',1,'combine','The oak fell in the storm. The old elm fell in the storm too.',
     'The oak and the old elm fell in the storm.',
     ['The oak and the old elm falls in the storm.','The oak and the old elm in the storm.','The oak fell in the storm the old elm fell too.'],
