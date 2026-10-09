@@ -14486,10 +14486,10 @@ const FW_ITEMS = [
    checks:['Does the clause begin with <em>who</em>, <em>whom</em>, <em>whose</em>, <em>which</em>, or <em>that</em>?','Does the clause stand right after the subject it describes?','Does the clause have its own verb?','Does the main verb agree with the subject?']},
   {id:'fwe6', lang:'en', task:'Write a sentence with a relative clause that describes the object.',
    model:'I bought a book that explains the stars.',
-   checks:['Does the clause begin with <em>who</em>, <em>whom</em>, <em>whose</em>, <em>which</em>, or <em>that</em>?','Does the clause stand right after the object it describes?','Is <em>who</em> used for a person and <em>which</em> or <em>that</em> for a thing?']},
+   checks:['Does the clause begin with <em>who</em>, <em>whom</em>, <em>whose</em>, <em>which</em>, or <em>that</em>?','Does the clause stand right after the object it describes?','Is <em>who</em> or <em>that</em> used for a person, and <em>which</em> or <em>that</em> for a thing?']},
   {id:'fwe7', lang:'en', task:'Write a sentence with a relative clause that begins with <em>whose</em>.',
    model:'The boy whose father is a sailor won the race.',
-   checks:['Does <em>whose</em> stand right before the noun it goes with?','Does the clause stand right after the noun it describes?','Is the personal pronoun (<em>his</em>, <em>her</em>) left out of the clause?']},
+   checks:['Does <em>whose</em> stand right before the noun it goes with?','Does the clause stand right after the noun it describes?','Does <em>whose</em> stand alone, without <em>his</em> or <em>her</em> after it?']},
   {id:'fwe8', lang:'en', task:'Write a sentence with an adverb clause that tells when, beginning with <em>when</em>.',
    model:'When the bell rang, the students left the room.',
    checks:['Does the clause have its own subject and verb?','Is the clause joined to a main clause that can stand alone?','When the clause comes first, is it followed by a comma?']},
@@ -16841,6 +16841,7 @@ $('qz-gen').onclick = () => {
     state.sessionSeen = [];
     const items = [];
     const fps = new Set();
+    const short = [];
 
     if(docN){
       const docs = qzPickDoctrine(ids, docN);
@@ -16859,30 +16860,36 @@ $('qz-gen').onclick = () => {
       const fmt = sel ? sel.value : 'any';
       /* Some exercises give typed items only at the higher levels, and choices only at the lower ones;
          when the chosen level has none of the kind asked for, the nearest level that has them is used. */
-      const levelsFor = want => {
+      const levelsFor = () => {
         const order = [diff];
         for(let s = 1; s <= 4; s++){ if(diff + s <= 5) order.push(diff + s); if(diff - s >= 1) order.push(diff - s); }
         return order;
       };
-      let made = 0, tries = 0;
-      while(made < n && tries < n * 80){
-        tries++;
-        const want = fmt === 'mc' ? 'choice' : fmt === 'typed' ? 'typed' : fmt === 'both' ? (made % 2 === 0 ? 'choice' : 'typed') : null;
-        const order = levelsFor(want);
-        const lv = want ? order[Math.min(order.length - 1, Math.floor(tries / 20))] : diff;
-        let q;
-        try{ q = qzGenOne(ex, lv); }
-        catch(e){ continue; }
-        if(!q) continue;
-        if(want === 'typed' && q.kind !== 'text') continue;
-        if(want === 'choice' && q.kind !== 'mc' && q.kind !== 'pick' && !(fmt === 'both' && tries > n * 60)) continue;
-        const fp = qzFingerprint(q);
-        if(fps.has(fp)) continue;
-        fps.add(fp);
-        if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
-        items.push(qzFormatLive(q, ex.title));
-        made++;
+      /* Each item is drawn on its own: its attempts start at the chosen level and move to the nearest
+         levels that have its kind, so one hard item does not push the rest to a level without their kind. */
+      const order = levelsFor();
+      let made = 0;
+      for(let slot = 0; slot < n; slot++){
+        const want = fmt === 'mc' ? 'choice' : fmt === 'typed' ? 'typed' : fmt === 'both' ? (slot % 2 === 0 ? 'choice' : 'typed') : null;
+        const limit = want ? 20 * order.length : 80;
+        for(let k = 0; k < limit; k++){
+          const lv = want ? order[Math.floor(k / 20)] : diff;
+          let q;
+          try{ q = qzGenOne(ex, lv); }
+          catch(e){ continue; }
+          if(!q) continue;
+          if(want === 'typed' && q.kind !== 'text') continue;
+          if(want === 'choice' && q.kind !== 'mc' && q.kind !== 'pick') continue;
+          const fp = qzFingerprint(q);
+          if(fps.has(fp)) continue;
+          fps.add(fp);
+          if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
+          items.push(qzFormatLive(q, ex.title));
+          made++;
+          break;
+        }
       }
+      if(made < n) short.push(`${ex.title} could supply ${made} of the ${n} questions asked for.`);
     });
 
     state.sessionSeen = saved.seen;
@@ -16943,7 +16950,7 @@ $('qz-gen').onclick = () => {
     $('quiz-paper').classList.add('show');
     $('qz-print').style.display = '';
     const nDoc = items.filter(x => x.doctrine).length;
-    qzSetStatus('<b>'+items.length+' questions</b> ready'+(nDoc ? ' ('+nDoc+' doctrine)' : '')+'. Scroll down to review, then Print / Save as PDF.', 'ok');
+    qzSetStatus('<b>'+items.length+' questions</b> ready'+(nDoc ? ' ('+nDoc+' doctrine)' : '')+'. Scroll down to review, then Print / Save as PDF.'+(short.length ? ' '+short.join(' ') : ''), 'ok');
     $('quiz-paper').scrollIntoView({behavior:'smooth', block:'start'});
   }catch(e){
     qzSetStatus(e.message || String(e), 'err');

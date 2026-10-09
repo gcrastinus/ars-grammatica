@@ -415,6 +415,38 @@ function emitExercise(key, ex, rand, SRC) {
   if (ex.blurb) { lines.push(htmlToMarkup(ex.blurb)); lines.push(''); }
   if (ex.notes) { lines.push(htmlToMarkup(ex.notes)); lines.push(''); }
 
+  if (ex.free) {
+    // Writing from a Model: every task with its model sentence and checklist
+    if (ex.instr) { lines.push('Instruction on the task: ' + htmlToMarkup(ex.instr).replace(/\n+/g, ' ').trim()); lines.push(''); }
+    // Draw the tasks with a separate random stream, then use the main stream exactly as the sampler
+    // would have, so that the samples printed for every later exercise stay the same.
+    const tasks = new Map();
+    const mainRandom = Math.random;
+    Math.random = seededRandom(1);
+    for (let n = 0; n < 600 && tasks.size < 200; n++) {
+      let item;
+      try { item = ex.gen(1); } catch (e) { continue; }
+      if (!item || tasks.has(item.sid)) continue;
+      tasks.set(item.sid, item);
+    }
+    Math.random = mainRandom;
+    sampleExercise(ex, rand, 3);
+    const list = [...tasks.values()].sort((a, b) => {
+      const pa = a.sid.match(/fw(e|l)(\d+)/), pb = b.sid.match(/fw(e|l)(\d+)/);
+      return pa[1] === pb[1] ? (+pa[2]) - (+pb[2]) : (pa[1] === 'e' ? -1 : 1);
+    });
+    lines.push(`Each task is printed with its model sentence and its checklist. ${list.length} tasks.`);
+    lines.push('');
+    list.forEach(it => {
+      lines.push(`@task ${it.sid.replace(/^fw:/, '')} (${it.lang === 'la' ? 'Latin' : 'English'})`);
+      lines.push('Task: ' + htmlToMarkup(it.prompt).replace(/\n+/g, ' ').trim());
+      lines.push('Model: ' + htmlToMarkup(it.model).replace(/\n+/g, ' ').trim());
+      lines.push('Checklist:');
+      (it.checks || []).forEach(c => lines.push('- ' + htmlToMarkup(c).replace(/\n+/g, ' ').trim()));
+      lines.push('');
+    });
+    return lines.join('\n');
+  }
   lines.push('Two notes, then the drill. A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty you chose.');
   lines.push('');
   if (ex.instr) {
