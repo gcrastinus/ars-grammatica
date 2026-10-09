@@ -5839,58 +5839,6 @@ window.GREEK = {
     "why": "After a secondary tense, ἵνα still introduces purpose, and the optative is one mood that clause allows (Smyth §2193, §2196). ὅτι would mean because or that, and ὥστε would introduce a result."
    },
    {
-    "id": "gmood17",
-    "k": 3,
-    "en": "The king is so wise as to educate the young man.",
-    "fr": "ὁ βασιλεὺς οὕτω σοφός ἐστιν ὥστε τὸν νεᾱνίᾱν ______",
-    "a": "παιδεύειν",
-    "ds": [
-     "παιδεύει",
-     "παιδεύῃ",
-     "παιδεύσαι"
-    ],
-    "why": "The sentence says what he is wise enough to do, a natural result, so ὥστε takes the infinitive (Smyth §2258, §2251). παιδεύει would state an actual fact, and παιδεύῃ is subjunctive. οὕτω stands before a consonant, and ἐστιν takes ν before the vowel (Smyth §136, §134)."
-   },
-   {
-    "id": "gmood18",
-    "k": 3,
-    "en": "The king is so good that he educates the young man.",
-    "fr": "ὁ βασιλεὺς οὕτως ἀγαθός ἐστιν ὥστε τὸν νεᾱνίᾱν ______",
-    "a": "παιδεύει",
-    "ds": [
-     "παιδεύειν",
-     "παιδεύῃ",
-     "παιδεύοι"
-    ],
-    "why": "The clause states an actual result, so ὥστε takes the indicative (Smyth §2257). παιδεύειν would state only a natural result, and παιδεύῃ is subjunctive."
-   },
-   {
-    "id": "gmood19",
-    "k": 3,
-    "en": "The gift is so good as for the judge to send it.",
-    "fr": "τὸ δῶρον οὕτως ἀγαθόν ἐστιν ὥστε τὸν κριτὴν ______ αὐτό",
-    "a": "πέμπειν",
-    "ds": [
-     "πέμπει",
-     "παιδεύειν",
-     "πέμπω"
-    ],
-    "why": "This is a natural result with a subject of its own, so ὥστε takes the infinitive, and the judge stands in the accusative (Smyth §2258, §1975). πέμπει and πέμπω are indicative, and παιδεύειν would mean educate."
-   },
-   {
-    "id": "gmood20",
-    "k": 3,
-    "en": "The gift is so good that the judge sends it.",
-    "fr": "τὸ δῶρον οὕτως ἀγαθόν ἐστιν ὥστε ὁ κριτὴς ______ αὐτό",
-    "a": "πέμπει",
-    "ds": [
-     "πέμπειν",
-     "πέμπων",
-     "πέμπω"
-    ],
-    "why": "The clause states an actual result, and the judge is its subject, so ὥστε takes the indicative πέμπει (Smyth §2257). πέμπειν is the infinitive of a natural result."
-   },
-   {
     "id": "gmood21",
     "k": 3,
     "en": "The judge is so wise that he does not send the gift.",
