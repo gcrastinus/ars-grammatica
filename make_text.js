@@ -182,7 +182,8 @@ function loadApp(htmlPath) {
   // greek.js (beside index.html) defines window.GREEK; the app builds its Greek deck, paradigms and exercise from it.
   const greekPath = path.join(path.dirname(htmlPath), 'greek.js');
   const greekCode = fs.existsSync(greekPath) ? fs.readFileSync(greekPath, 'utf8') + '\n;\n' : '';
-  const dataCode = greekCode + all.slice(0, cut) + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC };\n`;
+  const dataCode = greekCode + all.slice(0, cut)
+    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, GRK: typeof GRK === 'undefined' ? null : GRK, store, state };\n`;
   const sandbox = {
     console, Math, Date, Array, Object, String, Number, Boolean, JSON, RegExp, Error, Map, Set,
     parseInt, parseFloat, isNaN, Infinity, undefined, NaN, setTimeout, clearTimeout,
@@ -479,7 +480,36 @@ function emitExercise(key, ex, rand, SRC) {
   return lines.join('\n');
 }
 
-function buildText({ DECKS, EX, ACTS, SRC }, htmlPath) {
+/** Every Greek item of a shared exercise, drawn as the app draws it with English and Greek chosen. A separate
+ *  random stream is used, and the app's state is restored, so that the samples printed elsewhere stay the same. */
+function emitGreek(key, ex, app) {
+  const pool = app.GRK && app.GRK.shared && app.GRK.shared[key];
+  if (!Array.isArray(pool) || !ex.langs || ex.langs.indexOf('grc') < 0) return '';
+  const { store, state } = app;
+  const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key];
+  Math.random = seededRandom(7);
+  store.modes[key] = 'both';
+  store.langs[key] = 'grc';
+  const lines = ['#### Greek', '', `With English and Greek chosen, these Greek items take the place of the Latin ones. Every Greek item is printed: ${pool.length} items.`, ''];
+  pool.forEach((it, i) => {
+    let q = null;
+    for (let t = 0; t < 400 && !q; t++) {
+      state.sessionSeen = pool.filter(x => x.id !== it.id).map(x => x.id);
+      let c;
+      try { c = ex.gen(5); } catch (e) { c = null; }
+      if (c && c.sid === it.id) q = c;
+    }
+    lines.push(q ? formatExample(q, i + 1, 5) : `@example ${i + 1}\nid: ${it.id}\n(not drawn)\n`);
+    lines.push('');
+  });
+  Math.random = mainRandom;
+  state.sessionSeen = seen;
+  if (mode === undefined) delete store.modes[key]; else store.modes[key] = mode;
+  if (lang === undefined) delete store.langs[key]; else store.langs[key] = lang;
+  return lines.join('\n');
+}
+
+function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Seed Math.random for reproducible exercise samples
   const rand = seededRandom(20261005);
@@ -514,6 +544,8 @@ function buildText({ DECKS, EX, ACTS, SRC }, htmlPath) {
         parts.push('-'.repeat(72));
         parts.push('');
         parts.push(emitExercise(it.ex, ex, rand, SRC));
+        const greek = emitGreek(it.ex, ex, { GRK, store, state });
+        if (greek) parts.push(greek);
         parts.push('');
       }
     }
