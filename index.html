@@ -15520,6 +15520,24 @@ if(GRK && GRK.sentence){
     gen(d){ return grcSentQ(GRK.sentence.more, d); }
   };
 }
+if(GRK && GRK.sentence){
+  EX.grcvoice = {
+    id:'grcvoice', src:['smyth','appown'], act:'III', title:'The Passive, the Infinitive, and the Participle in Greek',
+    desc:'One word is missing from a Greek sentence: a passive verb or the noun that goes with it, an infinitive that completes another verb, or a participle that agrees with its noun.',
+    instr:'Supply the missing Greek word.',
+    introInstr:'',
+    intro:[
+      {h:`<strong>The passive.</strong> A passive verb has as its subject the one who receives the action, and the doer, when it is named, is in the genitive with ${grkSpan('ὑπό')}. In the present and the imperfect the passive has the same forms as the middle.`,
+       eg:[`${grkSpan('ὁ ἵππος ὑπὸ τοῦ ἀνθρώπου λῡ́εται')} means “the horse is loosed by the man.”`]},
+      {h:`<strong>The infinitive.</strong> An infinitive can complete a verb such as ${grkSpan('βούλομαι')}, “wish,” ${grkSpan('ἐθέλω')}, “be willing,” ${grkSpan('δύναμαι')}, “be able,” or ${grkSpan('κελεύω')}, “order,” and it does not change for person or number. After ${grkSpan('κελεύω')} the person who is ordered is in the accusative.`,
+       eg:[`${grkSpan('τὸν ἵππον λῡ́ειν βούλομαι')} means “I wish to loose the horse”; ${grkSpan('τὸν ἄνθρωπον τὸν ἵππον λῡ́ειν κελεύω')} means “I order the man to loose the horse.”`]},
+      {h:'<strong>The participle.</strong> A participle is a verbal adjective, so it agrees with its noun in gender, number, and case. With the article it describes its noun, as in “the man who looses the horse”; without the article it adds a circumstance, as in “while loosing the horse” or “being good.”',
+       eg:[`${grkSpan('ὁ λῡ́ων τὸν ἵππον ἄνθρωπος ἀγαθός ἐστι')} means “the man who looses the horse is good”; ${grkSpan('ὁ ἄνθρωπος ἀγαθὸς ὢν τὸν ἵππον λῡ́ει')} means “the man, being good, looses the horse.”`]}
+    ],
+    modes:['grc'], langs:['grc'],
+    gen(d){ return grcSentQ(GRK.sentence.voice, d); }
+  };
+}
 /* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
    "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
    items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
@@ -15716,7 +15734,8 @@ const ACTS = [
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'},
      {kind:'ex', ex:'grcmore'}
    ].concat(GRK && GRK.sentence ? [
-     {kind:'ex', ex:'grcsent'}
+     {kind:'ex', ex:'grcsent'},
+     {kind:'ex', ex:'grcvoice'}
    ] : []) : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
