@@ -15526,6 +15526,8 @@ function grkProduceQ(it){
   };
 }
 addGreek('produce', grkProduceQ, 0.4);
+/* cong: the three judgments, with the prompt the Latin items use. */
+addGreek('cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
 function rowChoice(ex){
