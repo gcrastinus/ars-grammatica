@@ -7353,7 +7353,7 @@ const TYPO_ITEMS = [
 
 EX.typo = {
   id:'typo', src:['greenberg','ag','appown'], act:'VIII', title:'Typology',
-  desc:'Word order; case against configuration; isolating, fusional, and agglutinating languages. A short specimen is given and the question is its type, with the classical claim in view that the variation is in the marks, not in the work.',
+  desc:'Word order; case against configuration; isolating, fusional, and agglutinating languages. A short specimen is given and the question is its type, with the classical claim in view that the variation is in the marks, not in the ways words are used.',
   instr:'Name the type, or the preferred order.',
   gen(d){
     const pool = d <= 1 ? TYPO_ITEMS.filter(x => ['ty1','ty2','ty4','ty5','ty9','ty14'].indexOf(x.id) >= 0) : TYPO_ITEMS;
@@ -8625,11 +8625,11 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
     ],
     typo:[
       {h:`<strong>How languages actually differ:</strong> word order, case against configuration, and isolating, fusional, and agglutinating structure.`},
-      {h:`<strong>The classical claim, tested:</strong> the variation is in the sounds and the marks, not in the kinds of work words do.`}
+      {h:`<strong>The classical claim is that</strong> the variation is in the sounds and the marks, not in the ways words are used.`}
     ],
     ug:[
       {h:`<strong>Two universal grammars.</strong> The classical account grounds the common shape in things as the mind understands them; Chomsky grounds it in the structure of the mind.`},
-      {h:`<strong>They agree that the variety is in some sense on the surface.</strong> They part on what the common shape is for.`}
+      {h:`<strong>They agree that the variety is in some sense on the surface.</strong> They differ on what the common shape is for.`}
     ]
   };
   Object.keys(I).forEach(k => {
