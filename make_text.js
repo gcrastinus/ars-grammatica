@@ -179,7 +179,10 @@ function loadApp(htmlPath) {
   let cut = all.indexOf('/* ---- text-to-speech');
   if (cut < 0) cut = all.indexOf('function speechReader');
   if (cut < 0) cut = all.length;
-  const dataCode = all.slice(0, cut) + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC };\n`;
+  // greek.js (beside index.html) defines window.GREEK; the app builds its Greek deck, paradigms and exercise from it.
+  const greekPath = path.join(path.dirname(htmlPath), 'greek.js');
+  const greekCode = fs.existsSync(greekPath) ? fs.readFileSync(greekPath, 'utf8') + '\n;\n' : '';
+  const dataCode = greekCode + all.slice(0, cut) + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC };\n`;
   const sandbox = {
     console, Math, Date, Array, Object, String, Number, Boolean, JSON, RegExp, Error, Map, Set,
     parseInt, parseFloat, isNaN, Infinity, undefined, NaN, setTimeout, clearTimeout,

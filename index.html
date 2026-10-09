@@ -337,6 +337,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   text-transform:uppercase; color:var(--gold); margin-bottom:6px;
 }
 .q-gloss{text-align:center; font-style:italic; color:var(--ink-soft); font-size:16.5px; margin:-12px 0 20px}
+.q-hint{text-align:center; font-style:italic; color:var(--ink-soft); font-size:14.5px; margin:8px auto 0; max-width:560px; line-height:1.45}
 
 .il{margin:12px 0 16px; padding:12px 16px; background:var(--panel2); border-left:2px solid var(--gold-soft); border-radius:0 8px 8px 0}
 .il-script{font-size:26px; line-height:1.45; margin-bottom:4px; color:var(--ink)}
@@ -15342,7 +15343,8 @@ const GRK_LBL = {
 };
 const grkLbl = k => GRK_LBL[k] || nfEsc(k);
 const grkCell = v => Array.isArray(v) ? v.map(nfEsc).join(' or ') : nfEsc(v);
-const grkTable = rows => `<div class="para-wrap"><table class="para">${rows.join('')}</table></div>`;
+/* Rows and cells are separated by whitespace so that the text export keeps each row on its own line. */
+const grkTable = rows => `<div class="para-wrap"><table class="para">\n${rows.map(r => r.replace(/<\/t([dh])><t/g, '</t$1> <t')).join('\n')}\n</table></div>`;
 function grkHead(t){
   return `<p><strong>${nfEsc(t.lemma)}</strong>${t.gloss ? ` (${nfEsc(t.gloss)})` : ''}, Smyth §${nfEsc(t.smyth)}</p>`;
 }
@@ -15384,6 +15386,77 @@ if(GRK){
     sub: 'The tables as Smyth prints them',
     panels: [P.article].concat(P.nouns, P.adjectives).map(t => ({src:['smyth'], h: grkHead(t) + grkNounTable(t)}))
       .concat(P.verbs.map(v => ({src:['smyth'], h: grkHead(v) + grkVerbTables(v)})))
+  };
+}
+/* The Greek Sentence: one blank in each frame of greek-items.json, with the mechanics of More of the Latin
+   Sentence. The feedback gives the right form, the English, and one sentence copied from the Greek cards. */
+function grkSay(card, sentence){
+  const c = GRK && GRK.cards.cards.find(x => x.heading === card);
+  return c && c.text.indexOf(sentence) >= 0 ? sentence : '';
+}
+const GRK_RULE = {
+  article: ['The article', 'The article stands with its noun and agrees with the noun in gender, number, and case.'],
+  case:    ['Stem and ending', 'The ending marks the case, the person, or the number.'],
+  person:  ['Person and number', 'The ending of the verb shows the person and the number of the subject.'],
+  aorist:  ['The aorist', 'The aorist (ἀόριστος) is the simple past.'],
+  middle:  ['The middle', 'In the middle voice the subject acts on itself or for itself.']
+};
+const grkRule = kind => GRK_RULE[kind] ? grkSay(GRK_RULE[kind][0], GRK_RULE[kind][1]) : '';
+/* Typed Greek is compared without accents, breathings, iota subscript, macrons, or case, with final ς as σ.
+   Plain Latin letters are read as Greek through one fixed map. The same comparison is checked in
+   greek/build_greek.js, so that no wrong option can ever match an answer. */
+const GRK_BETA = {a:'α', b:'β', g:'γ', d:'δ', e:'ε', z:'ζ', h:'η', q:'θ', i:'ι', k:'κ', l:'λ', m:'μ', n:'ν',
+  c:'ξ', o:'ο', p:'π', r:'ρ', s:'σ', t:'τ', u:'υ', f:'φ', x:'χ', y:'ψ', w:'ω'};
+function normGrk(s){
+  return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[a-z]/g, c => GRK_BETA[c]).replace(/ς/g, 'σ').replace(/[^\u0370-\u03ff]/g, '');
+}
+const GRK_HINT = 'Accents, breathings, iota subscripts, and macrons are optional. Latin letters may also be typed: a b g d e z h q i k l m n c o p r s t u f x y w for α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω.';
+function grcMoreQ(d){
+  const it = pickSeen(GRK.items.items, x => x.id);
+  const frame = `<span lang="grc">${nfEsc(it.frame).replace('______', '<span class="target">______</span>')}</span>`;
+  const note = `The right form is <strong lang="grc">${nfEsc(it.answer)}</strong>, and the sentence means “${nfEsc(it.en)}” ${grkRule(it.kind)}`;
+  if(d > 2){
+    return {
+      kind:'text', lang:'grc', src:['smyth','appown'], sid:'gm:' + it.id, _answer:it.answer,
+      prompt:'Write the missing Greek word.',
+      sentence:frame, gloss:nfEsc(it.en), placeholder:'Type the Greek form', hint:GRK_HINT,
+      check(val){
+        const got = normGrk(val);
+        if(got && got === normGrk(it.answer)) return {right:true, note};
+        const wrote = String(val || '').trim();
+        return {right:false, note, also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.answer].concat(sample(it.wrong, Math.min(n, it.wrong.length))));
+  const correct = options.indexOf(it.answer);
+  return {
+    kind:'mc', lang:'grc', src:['smyth','appown'], sid:'gm:' + it.id, _answer:correct,
+    prompt:'Choose the missing Greek word.',
+    sentence:frame, gloss:nfEsc(it.en), options, correct,
+    check(i){
+      if(i === correct) return {right:true, note};
+      return {right:false, note, also:`The answer chosen was <em>${nfEsc(options[i])}</em>.`};
+    }
+  };
+}
+if(GRK){
+  EX.grcmore = {
+    id:'grcmore', src:['smyth','appown'], act:'III', title:'The Greek Sentence',
+    desc:'One word is missing from a Greek sentence: an article, a noun in its case, a verb in its person, an aorist, or a middle form. The word is chosen from tiles at the first levels and written at the higher ones.',
+    instr:'Supply the missing Greek word.',
+    introInstr:'',
+    intro:[
+      {h:'<strong>The article.</strong> ' + grkRule('article'), eg:[grkSay('The article', 'ὁ ἄνθρωπος means the man.')]},
+      {h:'<strong>Case.</strong> ' + grkRule('case'), eg:[grkSay('Stem and ending', 'In νῑ́κης the ending -ς marks the genitive singular.')]},
+      {h:'<strong>Person.</strong> ' + grkRule('person'), eg:[grkSay('Person and number', 'The subject of παιδεύω is I.')]},
+      {h:'<strong>The aorist.</strong> ' + grkRule('aorist'), eg:[grkSay('The aorist', 'ἐπαίδευσε means he educated.')]},
+      {h:'<strong>The middle.</strong> ' + grkRule('middle'), eg:[grkSay('The middle', 'παύει means he stops someone else, and παύεται means he ceases.')]}
+    ],
+    modes:['grc'], langs:['grc'],
+    gen(d){ return grcMoreQ(d); }
   };
 }
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
@@ -15506,7 +15579,8 @@ const ACTS = [
    ].concat(GRK ? [
      {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description},
      {kind:'deck', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
-      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'}
+      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'},
+     {kind:'ex', ex:'grcmore'}
    ] : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
@@ -16075,6 +16149,7 @@ function renderQ(){
     html += `<textarea class="answer-in fw-in" id="q-free" rows="3" autocomplete="off" spellcheck="false" placeholder="${q.placeholder || ''}"></textarea>`;
   }else if(q.kind === 'text'){
     html += `<input class="answer-in" id="q-text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.placeholder || 'Type the form'}">`;
+    if(q.hint) html += `<div class="q-hint">${q.hint}</div>`;
   }
   html += `<div id="q-fb"></div>`;
   box.innerHTML = html;
