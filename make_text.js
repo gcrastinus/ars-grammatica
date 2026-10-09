@@ -509,6 +509,58 @@ function emitGreek(key, ex, app) {
   return lines.join('\n');
 }
 
+/** The four Greek sentence exercises and their pools in GREEK.sentence. */
+const GREEK_SENTENCE = { grcsent: 'more', grcvoice: 'voice', grcclause: 'clause', grcmood: 'mood' };
+
+/** A Greek sentence exercise: its introduction, then every item, kind by kind, drawn as the app draws it with
+ *  tiles (level 2). A separate random stream is used, and the app's state is restored, so that the samples
+ *  printed for every other exercise stay the same. */
+function emitGreekSentence(key, ex, app) {
+  const pool = app.GRK && app.GRK.sentence && app.GRK.sentence[GREEK_SENTENCE[key]];
+  if (!Array.isArray(pool)) return '';
+  const { state } = app;
+  const lines = [`@exercise ${key}`, `Title: ${ex.title || key}`, ''];
+  if (ex.desc) { lines.push(htmlToMarkup(ex.desc)); lines.push(''); }
+  if (ex.instr) { lines.push('Instruction on the question: ' + htmlToMarkup(ex.instr).replace(/\n+/g, ' ').trim()); lines.push(''); }
+  lines.push('Introduction:');
+  lines.push('');
+  (ex.intro || []).forEach(p => {
+    lines.push(htmlToMarkup(p.h).replace(/\n+/g, ' ').trim());
+    (p.eg || []).forEach(g => lines.push('Example: ' + htmlToMarkup(g).replace(/\n+/g, ' ').trim()));
+    lines.push('');
+  });
+  lines.push(`The word is chosen from tiles at levels 1 and 2 and typed from level 3. Every item is printed as it is drawn at level 2: ${pool.length} items.`);
+  lines.push('');
+  const mainRandom = Math.random, seen = state.sessionSeen;
+  Math.random = seededRandom(11);
+  const kinds = [...new Set(pool.map(it => it.k))];
+  let n = 0;
+  kinds.forEach(k => {
+    const items = pool.filter(it => it.k === k);
+    const intro = (ex.intro || [])[kinds.indexOf(k)];
+    const head = intro ? (/<strong>([\s\S]*?)<\/strong>/.exec(intro.h) || [])[1] : null;
+    lines.push(`#### Kind ${k}${head ? '. ' + htmlToMarkup(head).replace(/\.$/, '').trim() : ''}`);
+    lines.push('');
+    lines.push(`${items.length} items.`);
+    lines.push('');
+    items.forEach(it => {
+      let q = null;
+      for (let t = 0; t < 50 && !q; t++) {
+        state.sessionSeen = pool.filter(x => x.id !== it.id).map(x => x.id);
+        let c;
+        try { c = ex.gen(2); } catch (e) { c = null; }
+        if (c && c.sid === 'gs:' + it.id) q = c;
+      }
+      n++;
+      lines.push(q ? formatExample(q, n, 2) : `@example ${n}\nid: ${it.id}\n(not drawn)\n`);
+      lines.push('');
+    });
+  });
+  Math.random = mainRandom;
+  state.sessionSeen = seen;
+  return lines.join('\n');
+}
+
 function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Seed Math.random for reproducible exercise samples
@@ -543,7 +595,7 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
         if (ex.desc) parts.push(htmlToMarkup(ex.desc).replace(/\n+/g, ' ').trim());
         parts.push('-'.repeat(72));
         parts.push('');
-        parts.push(emitExercise(it.ex, ex, rand, SRC));
+        parts.push(GREEK_SENTENCE[it.ex] ? emitGreekSentence(it.ex, ex, { GRK, state }) : emitExercise(it.ex, ex, rand, SRC));
         const greek = emitGreek(it.ex, ex, { GRK, store, state });
         if (greek) parts.push(greek);
         parts.push('');
