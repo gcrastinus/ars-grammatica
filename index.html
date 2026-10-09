@@ -7208,7 +7208,7 @@ const FIG_ITEMS = [
 
 EX.figura = {
   id:'figura', src:['arist_se','appown'], act:'VII', title:'The Figure of Speech',
-  desc:'Aristotle’s fallacy of arguing from the shape of the word to the shape of the thing, which is made out of grammar and judged by logic.',
+  desc:'Aristotle’s fallacy of arguing from the form of the word to the way the thing is, which is made out of grammar and judged by logic.',
   instr:'What has been read off the word as if it were in the thing?',
   gen(d){
     const pool = d <= 1 ? FIG_ITEMS.filter(x => ['fg1','fg2','fg3','fg5','fg6','fg7','fg8'].indexOf(x.id) >= 0) : FIG_ITEMS;
@@ -8620,7 +8620,7 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
       {h:`<strong>This is where grammar hands over to logic.</strong> Signification belongs to the word, and supposition to the term in a sentence.`}
     ],
     figura:[
-      {h:`<strong>The figure of speech:</strong> arguing from the shape of the word to the shape of the thing. The word follows the thing, but imperfectly.`},
+      {h:`<strong>The figure of speech</strong> is an argument from the form of a word to the way a thing is. The word follows the thing, but imperfectly.`},
       {h:`<em>Nothing</em> is a noun; therefore nothing is a kind of thing. That inference is the fallacy.`}
     ],
     typo:[
