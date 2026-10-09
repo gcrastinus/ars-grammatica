@@ -5821,7 +5821,7 @@ EX.congtruth = {
         const verdict = !it.c
           ? 'The construction fails. The hearer may guess the thought, and the thought may be true; but logic is handed a guess, not a definite sentence. Grammar’s judgment comes first.'
           : (it.t ? 'It is well formed, and what it says is so. Grammar has judged the one, and logic the other.'
-                  : 'It is well formed, and false. Grammar has done its work and has no judgment about the falsehood, which belongs to logic.');
+                  : 'It is well formed, and false. Grammar has judged the sentence; whether it is false is for logic to judge.');
         if(i === ans) return {right:true, note: verdict + (it.note ? '<br><br>' + it.note : '')};
         return {right:false, note: verdict + (it.note ? '<br><br>' + it.note : ''),
           also: i === 2 ? 'The answer chosen judged the construction faulty. Taken as a construction only, and without regard to whether it is so, it is well formed.'
@@ -6561,7 +6561,7 @@ const CONG_ITEMS = [
    why:'The adjective fits the noun. Completeness requires a finite verb: <em>homo est albus</em>.'},
   {id:'cg5', lang:'la', src:['te'], s:'homo est albus',
    a:CG_C, ds:[CG_B, CG_I],
-   why:'The construction fits, and a finite verb makes the sentence complete. Grammar has done its work. Whether the man is in fact white is not asked here.'},
+   why:'The construction fits, and a finite verb makes the sentence complete. Grammar has judged the sentence. Whether the man is in fact white is not asked here.'},
   {id:'cg6', lang:'en', src:['te'], s:'If the sailor waits',
    a:CG_I, ds:[CG_B, CG_C],
    why:'It is well formed as a clause, and the <em>if</em> leaves the sense unfinished. A subordinate clause is not complete on its own.'},
