@@ -15329,6 +15329,63 @@ if(GRK){
     panels: GRK.cards.cards.map(c => ({src:['smyth'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
   };
 }
+/* The Greek paradigms: one panel for each table of greek-paradigms.json. The cells are the stored forms;
+   nothing is generated. */
+const GRK_LBL = {
+  sg:'Singular', du:'Dual', pl:'Plural',
+  nom:'Nominative', gen:'Genitive', dat:'Dative', acc:'Accusative', voc:'Vocative',
+  m:'Masculine', f:'Feminine', n:'Neuter',
+  '1s':'1st singular', '2s':'2nd singular', '3s':'3rd singular', '2d':'2nd dual', '3d':'3rd dual',
+  '1p':'1st plural', '2p':'2nd plural', '3p':'3rd plural',
+  present:'Present', imperfect:'Imperfect', future:'Future', aorist:'Aorist',
+  active:'Active', middle_passive:'Middle and passive', future_middle_form:'Future, middle in form'
+};
+const grkLbl = k => GRK_LBL[k] || nfEsc(k);
+const grkCell = v => Array.isArray(v) ? v.map(nfEsc).join(' or ') : nfEsc(v);
+const grkTable = rows => `<div class="para-wrap"><table class="para">${rows.join('')}</table></div>`;
+function grkHead(t){
+  return `<p><strong>${nfEsc(t.lemma)}</strong>${t.gloss ? ` (${nfEsc(t.gloss)})` : ''}, Smyth §${nfEsc(t.smyth)}</p>`;
+}
+function grkNounTable(t){
+  const nums = Object.keys(t.forms);
+  const cases = ['nom','gen','dat','acc','voc'].filter(c => nums.some(n => t.forms[n][c] !== undefined));
+  const gendered = nums.some(n => cases.some(c => t.forms[n][c] && typeof t.forms[n][c] === 'object' && !Array.isArray(t.forms[n][c])));
+  if(!gendered){
+    return grkTable([`<tr><th></th>${nums.map(n => `<th>${grkLbl(n)}</th>`).join('')}</tr>`]
+      .concat(cases.map(c => `<tr><td>${grkLbl(c)}</td>${nums.map(n => `<td class="f">${t.forms[n][c] === undefined ? '' : grkCell(t.forms[n][c])}</td>`).join('')}</tr>`)));
+  }
+  const gens = ['m','f','n'];
+  const rows = [`<tr><th></th>${gens.map(g => `<th>${grkLbl(g)}</th>`).join('')}</tr>`];
+  nums.forEach(n => {
+    rows.push(`<tr><th colspan="4">${grkLbl(n)}</th></tr>`);
+    cases.filter(c => t.forms[n][c] !== undefined).forEach(c => {
+      rows.push(`<tr><td>${grkLbl(c)}</td>${gens.map(g => `<td class="f">${t.forms[n][c][g] === undefined ? '' : grkCell(t.forms[n][c][g])}</td>`).join('')}</tr>`);
+    });
+  });
+  return grkTable(rows);
+}
+function grkVerbTables(v){
+  const persons = ['1s','2s','3s','2d','3d','1p','2p','3p'];
+  return Object.keys(v).filter(k => v[k] && typeof v[k] === 'object' && !Array.isArray(v[k])).map(voice => {
+    const block = v[voice];
+    const flat = persons.some(p => block[p] !== undefined);
+    const tenses = flat ? [null] : Object.keys(block);
+    const col = t => t === null ? block : block[t];
+    const rows = [`<tr><th></th>${tenses.map(t => `<th>${t === null ? grkLbl(voice) : grkLbl(t)}</th>`).join('')}</tr>`]
+      .concat(persons.filter(p => tenses.some(t => col(t)[p] !== undefined))
+        .map(p => `<tr><td>${grkLbl(p)}</td>${tenses.map(t => `<td class="f">${col(t)[p] === undefined ? '' : grkCell(col(t)[p])}</td>`).join('')}</tr>`));
+    return (flat ? '' : `<p><em>${grkLbl(voice)}</em></p>`) + grkTable(rows);
+  }).join('');
+}
+if(GRK){
+  const P = GRK.paradigms;
+  DECKS.grcpar = {
+    title: 'Greek Paradigms',
+    sub: 'The tables as Smyth prints them',
+    panels: [P.article].concat(P.nouns, P.adjectives).map(t => ({src:['smyth'], h: grkHead(t) + grkNounTable(t)}))
+      .concat(P.verbs.map(v => ({src:['smyth'], h: grkHead(v) + grkVerbTables(v)})))
+  };
+}
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
 function rowChoice(ex){
@@ -15447,7 +15504,9 @@ const ACTS = [
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
      {kind:'ex', ex:'produce'}
    ].concat(GRK ? [
-     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description}
+     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description},
+     {kind:'deck', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
+      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'}
    ] : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
