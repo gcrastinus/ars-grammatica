@@ -657,6 +657,15 @@ ol.keys{margin:0; padding:0; list-style:none; counter-reset:qn}
 .ws-h{font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:4px 0 6px}
 .ws-check{font-size:16px; color:var(--ink-soft); display:flex; align-items:center; gap:6px}
 .judge-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+/* ------- writing from a model ------- */
+textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
+.fw-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+@media (max-width:640px){ .fw-pair{grid-template-columns:1fr} }
+.fw-box{border:1px solid var(--line); border-radius:11px; background:var(--panel); padding:12px 16px}
+.fw-box p{margin:4px 0 0; font-size:18px; line-height:1.5}
+.fw-check{margin-top:12px; border:1px solid var(--line); border-radius:11px; background:var(--panel2); padding:12px 16px}
+.fw-item{display:flex; gap:10px; align-items:flex-start; margin:8px 0; font-size:17px; line-height:1.45; cursor:pointer}
+.fw-item input{margin-top:5px}
 </style>
 </head>
 <body>
@@ -14448,6 +14457,113 @@ EX.latsubj = {
   gen(d){ return latSubjQ(d); }
 };
 
+/* ---------- Writing from a Model ---------- */
+/* The student writes a whole sentence. It is not graded: a free sentence cannot be graded reliably. After
+   it is written, it is shown beside a model, with a short checklist that the student ticks. Nothing is
+   scored, recorded, or kept once the next task is drawn. */
+const FW_ITEMS = [
+  /* English */
+  {id:'fwe1', lang:'en', task:'Write a sentence whose subject is a singular noun followed by a prepositional phrase with a plural noun, as in “the box of apples.”',
+   model:'The list of names is on the table.',
+   checks:['Is the subject the noun before the phrase, not the noun inside it?','Does the verb agree with that subject in number?','Does the sentence have both a subject and a predicate?']},
+  {id:'fwe2', lang:'en', task:'Write a sentence with a compound subject joined by <em>and</em>.',
+   model:'The captain and the sailor are ready.',
+   checks:['Are the two parts of the subject joined by <em>and</em>?','Is the verb plural, to agree with the compound subject?','Does the sentence have both a subject and a predicate?']},
+  {id:'fwe3', lang:'en', task:'Write a sentence with a prepositional phrase that tells where.',
+   model:'The children played in the garden.',
+   checks:['Does the phrase begin with a preposition and end with its object?','Does the phrase modify the verb by telling where?','Does the phrase have no subject and verb of its own?']},
+  {id:'fwe4', lang:'en', task:'Write a sentence with a prepositional phrase that tells which one.',
+   model:'The house on the hill is old.',
+   checks:['Does the phrase begin with a preposition and end with its object?','Does the phrase stand right after the noun it modifies?','Does the phrase tell which one, as an adjective would?']},
+  {id:'fwe5', lang:'en', task:'Write a sentence with a relative clause that describes the subject.',
+   model:'The woman who lives next door is a doctor.',
+   checks:['Does the clause begin with <em>who</em>, <em>whom</em>, <em>whose</em>, <em>which</em>, or <em>that</em>?','Does the clause stand right after the subject it describes?','Does the clause have its own verb?','Does the main verb agree with the subject?']},
+  {id:'fwe6', lang:'en', task:'Write a sentence with a relative clause that describes the object.',
+   model:'I bought a book that explains the stars.',
+   checks:['Does the clause begin with <em>who</em>, <em>whom</em>, <em>whose</em>, <em>which</em>, or <em>that</em>?','Does the clause stand right after the object it describes?','Is <em>who</em> used for a person and <em>which</em> or <em>that</em> for a thing?']},
+  {id:'fwe7', lang:'en', task:'Write a sentence with a relative clause that begins with <em>whose</em>.',
+   model:'The boy whose father is a sailor won the race.',
+   checks:['Does <em>whose</em> stand right before the noun it goes with?','Does the clause stand right after the noun it describes?','Is the personal pronoun (<em>his</em>, <em>her</em>) left out of the clause?']},
+  {id:'fwe8', lang:'en', task:'Write a sentence with an adverb clause that tells when, beginning with <em>when</em>.',
+   model:'When the bell rang, the students left the room.',
+   checks:['Does the clause have its own subject and verb?','Is the clause joined to a main clause that can stand alone?','When the clause comes first, is it followed by a comma?']},
+  {id:'fwe9', lang:'en', task:'Write a sentence with an adverb clause that tells why, beginning with <em>because</em>.',
+   model:'Because the road was icy, the driver went slowly.',
+   checks:['Does the clause give the reason for the main clause?','Is the clause joined to a main clause, and not written as a sentence by itself?','When the clause comes first, is it followed by a comma?']},
+  {id:'fwe10', lang:'en', task:'Write a sentence with an adverb clause of contrast, beginning with <em>although</em>.',
+   model:'Although she was tired, she kept working.',
+   checks:['Does the main clause say something that one would not expect after the <em>although</em> clause?','Is the clause joined to a main clause, and not written as a sentence by itself?','When the clause comes first, is it followed by a comma?']},
+  {id:'fwe11', lang:'en', task:'Write a sentence with an appositive that renames the subject.',
+   model:'Mr. Lee, a former sailor, teaches us history.',
+   checks:['Does the appositive rename the noun right before it?','Is the appositive set off by commas on both sides?','Does the verb agree with the subject, not with the appositive?']},
+  {id:'fwe12', lang:'en', task:'Write a sentence with an appositive that renames the object.',
+   model:'We met Dr. Ruiz, a surgeon.',
+   checks:['Does the appositive rename the noun right before it?','Is the appositive set off by a comma?','Is the appositive a noun phrase, without a verb of its own?']},
+  /* Latin */
+  {id:'fwl1', lang:'la', task:'Write a Latin sentence with a subject, a verb, and an object, and an adjective that agrees with one of the nouns.',
+   model:'Rēx fortis urbem magnam videt.',
+   checks:['Is the subject in the nominative?','Is the object in the accusative?','Does the verb agree with the subject in number?','Does the adjective agree with its noun in gender, number, and case?']},
+  {id:'fwl2', lang:'la', task:'Write a Latin sentence with a subject, a verb, and an object, and a phrase that tells where the action happens.',
+   model:'Nautae in silvā equōs vident.',
+   checks:['Is the subject in the nominative and the object in the accusative?','Is the place shown by <em>in</em> with the ablative?','Does the verb agree with the subject in number?']},
+  {id:'fwl3', lang:'la', task:'Write a Latin sentence in which someone sends something to a person, with the person in the dative.',
+   model:'Rēgīna nautae dōnum mittit.',
+   checks:['Is the person to whom the thing is sent in the dative?','Is the thing sent in the accusative?','Does the verb agree with the subject in number?']},
+  {id:'fwl4', lang:'la', task:'Write a Latin sentence in which someone sends things to more than one person, with the persons in the dative plural.',
+   model:'Pater fīliīs dōna mittit.',
+   checks:['Are the persons in the dative plural?','Are the things sent in the accusative?','Does the verb agree with the subject in number?']},
+  {id:'fwl5', lang:'la', task:'Write a Latin sentence with a noun in the genitive that modifies another noun.',
+   model:'Puer equum rēgis videt.',
+   checks:['Is the noun that modifies another noun in the genitive?','Does it keep its own case, without agreeing with the noun it modifies?','Is the object of the verb in the accusative?']},
+  {id:'fwl6', lang:'la', task:'Write a Latin sentence with a noun in the genitive plural that modifies another noun.',
+   model:'Magister verba puerōrum audit.',
+   checks:['Is the noun that modifies another noun in the genitive plural?','Does it keep its own case, without agreeing with the noun it modifies?','Does the verb agree with the subject in number?']},
+  {id:'fwl7', lang:'la', task:'Write a Latin sentence with a relative clause that describes the object.',
+   model:'Rēx mīlitem, quem rēgīna laudat, vocat.',
+   checks:['Does the relative pronoun agree with its antecedent in gender and number?','Does the relative pronoun take its case from its own clause?','Does each clause have its own verb?']},
+  {id:'fwl8', lang:'la', task:'Write a Latin sentence with a relative clause that describes the subject.',
+   model:'Puella, quae poētam laudat, verba legit.',
+   checks:['Does the relative pronoun agree with its antecedent in gender and number?','Does the relative pronoun take its case from its own clause?','Does the main verb agree with the subject of the main clause?']},
+  {id:'fwl9', lang:'la', task:'Write a Latin sentence that begins with an ablative absolute: a noun and a perfect passive participle in the ablative.',
+   model:'Urbe captā mīlitēs rēgem laudant.',
+   checks:['Are the noun and the participle both in the ablative?','Does the participle agree with the noun in gender and number?','Does the main clause have its own subject and verb?']},
+  {id:'fwl10', lang:'la', task:'Write a Latin sentence that begins with an ablative absolute in the plural.',
+   model:'Dōnīs missīs rēgīna puellās vocat.',
+   checks:['Are the noun and the participle both in the ablative plural?','Does the participle agree with the noun in gender?','Is the noun of the ablative absolute a different person or thing from the subject of the main clause?']},
+  {id:'fwl11', lang:'la', task:'Write a Latin sentence with a purpose clause after a past main verb.',
+   model:'Rēgīna nautam mīsit ut nauta rēgem audīret.',
+   checks:['Does the purpose clause begin with <em>ut</em>?','Is the verb of the purpose clause in the imperfect subjunctive, after the past main verb?','Does the verb of the purpose clause agree with its subject?']},
+  {id:'fwl12', lang:'la', task:'Write a Latin sentence with a negative purpose clause after a present main verb.',
+   model:'Cīvēs urbem mūniunt nē mīlitēs urbem capiant.',
+   checks:['Does the negative purpose clause begin with <em>nē</em>, not <em>ut nōn</em>?','Is the verb of the purpose clause in the present subjunctive, after the present main verb?','Does the verb of the purpose clause agree with its subject?']}
+];
+EX.freewrite = {
+  id:'freewrite', src:['appown'], act:'IV', title:'Writing from a Model', free:true,
+  desc:'A sentence written from a short task, in English or in Latin, set beside a model sentence, with a checklist of questions to ask of it. The sentence is not graded.',
+  instr:'Write one sentence for the task.',
+  gen(d){
+    const it = pickSeen(FW_ITEMS, x => x.id);
+    return {kind:'free', lang:it.lang, src:['appown'], sid:'fw:' + it.id, prompt:it.task, model:it.model, checks:it.checks,
+      placeholder: it.lang === 'la' ? 'Write a Latin sentence' : 'Write an English sentence'};
+  }
+};
+function freeShow(q){
+  const inp = $('q-free');
+  const wrote = inp ? inp.value.trim() : '';
+  if(inp) inp.disabled = true;
+  state.locked = true;
+  $('q-fb').innerHTML = `<div class="fw-pair">
+      <div class="fw-box"><div class="ws-h">The sentence written</div><p>${nfEsc(wrote)}</p></div>
+      <div class="fw-box"><div class="ws-h">A model sentence</div><p>${q.model}</p></div>
+    </div>
+    <div class="fw-check"><div class="ws-h">Questions to ask of the sentence written</div>
+      ${q.checks.map((c, i) => `<label class="fw-item"><input type="checkbox"> <span>${c}</span></label>`).join('')}
+    </div>`;
+  $('ex-submit').style.display = 'none';
+  $('ex-next').textContent = 'Next →';
+  $('ex-next').style.display = '';
+}
+
 /* ---------- scansion ---------- */
 /* Latin: each line is stored as words; each syllable is followed by _ (long), ^ (short), or ~ (elided).
    The quantities follow the published scansion named in the source note. */
@@ -15160,7 +15276,7 @@ const EX_MODES = {
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
-  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], latsubj:['la'], markup:['both','en']
+  meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], latsubj:['la'], freewrite:['both','en'], markup:['both','en']
 };
 Object.keys(EX_MODES).forEach(id => { if(EX[id]) EX[id].modes = EX_MODES[id].slice(); });
 
@@ -15342,6 +15458,7 @@ const ACTS = [
      {kind:'ex', ex:'latvoice'},
      {kind:'ex', ex:'latclause'},
      {kind:'ex', ex:'latsubj'},
+     {kind:'ex', ex:'freewrite'},
      {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
      {kind:'ex', ex:'cong'},
@@ -15763,6 +15880,11 @@ function nextQ(){
 function updateScore(){
   const gain = DIFF[state.diff].gain, loss = DIFF[state.diff].loss;
   const bar = $('ex-progress');
+  if(state.ex && state.ex.free){
+    $('ex-score').textContent = '';
+    if(bar) bar.style.width = '0%';
+    return;
+  }
   if(state.ex && state.ex.staged){
     const e = state.ex;
     const need = e.stageNeed || 3;
@@ -15817,6 +15939,8 @@ function renderQ(){
     html += `<div class="acc-grid" id="q-chips"></div>`;
   }else if(q.kind === 'widget'){
     html += `<div class="q-widget" id="q-widget"></div>`;
+  }else if(q.kind === 'free'){
+    html += `<textarea class="answer-in fw-in" id="q-free" rows="3" autocomplete="off" spellcheck="false" placeholder="${q.placeholder || ''}"></textarea>`;
   }else if(q.kind === 'text'){
     html += `<input class="answer-in" id="q-text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${q.placeholder || 'Type the form'}">`;
   }
@@ -15875,6 +15999,12 @@ function renderQ(){
     });
     $('ex-submit').style.display = '';
     $('ex-submit').disabled = true;
+  }else if(q.kind === 'free'){
+    const inp = box.querySelector('#q-free');
+    $('ex-submit').style.display = '';
+    $('ex-submit').disabled = true;
+    inp.addEventListener('input', () => { $('ex-submit').disabled = !inp.value.trim(); });
+    setTimeout(() => inp.focus(), 40);
   }else if(q.kind === 'widget'){
     $('ex-submit').style.display = '';
     $('ex-submit').disabled = true;
@@ -15892,6 +16022,7 @@ function renderQ(){
 
 function submit(ansMC){
   const q = state.q;
+  if(q && q.kind === 'free'){ if(!state.locked) freeShow(q); return; }
   if(!q || q.kind === 'note' || typeof q.check !== 'function') return;
   const ans = (q.kind === 'mc' || q.kind === 'pick') ? ansMC
             : q.kind === 'text' ? (($('q-text') && $('q-text').value) || '')
@@ -16031,7 +16162,7 @@ document.addEventListener('keydown', ev => {
   }
   if(ev.key === 'Enter'){
     if(state.locked) nextQ();
-    else if((state.q.kind === 'chips' || state.q.kind === 'text' || state.q.kind === 'widget') && !state.judging && !$('ex-submit').disabled && $('ex-submit').style.display !== 'none') submit(null);
+    else if((state.q.kind === 'chips' || state.q.kind === 'text' || state.q.kind === 'widget' || state.q.kind === 'free') && !state.judging && !$('ex-submit').disabled && $('ex-submit').style.display !== 'none') submit(null);
     ev.preventDefault(); return;
   }
   if(state.locked || (state.q.kind !== 'mc' && state.q.kind !== 'pick')) return;
@@ -16616,6 +16747,7 @@ function buildMakerSets(){
     html += `<div class="maker-act">${label}</div>`;
     exs.forEach(i => {
       const e = EX[i.ex];
+      if(e.free) return;
       html += `<label class="maker-row"><input type="checkbox" data-ex="${e.id}">
         <span class="nm">${e.title}<span class="meta">${e.instr || ''}</span></span></label>`;
     });
