@@ -1129,5 +1129,93 @@
         "3p": "ἔσονται"
       }
     }
-  ]
+  ],
+  "moods": {
+    "smyth": 383,
+    "note": "Active present and aorist subjunctive and optative. The λῡ́ω columns are copied from the §383 table, including the second aorist-optative forms that section prints beside the first. Duals are kept because the table prints them. παιδεύω is the same uncontracted vowel verb (§376 a): the final vowel of the stem stays, and the accent is recessive (§423). Final -αι and -οι count as long in the optative (§427), which is why the third person singular aorist optative is παιδεύσαι, the form §427 prints. The other παιδεύω forms are that formation, not a second printed table.",
+    "λυω": {
+      "present_subjunctive": {
+        "1s": "λῡ́ω",
+        "2s": "λῡ́ῃς",
+        "3s": "λῡ́ῃ",
+        "2d": "λῡ́ητον",
+        "3d": "λῡ́ητον",
+        "1p": "λῡ́ωμεν",
+        "2p": "λῡ́ητε",
+        "3p": "λῡ́ωσι"
+      },
+      "present_optative": {
+        "1s": "λῡ́οιμι",
+        "2s": "λῡ́οις",
+        "3s": "λῡ́οι",
+        "2d": "λῡ́οιτον",
+        "3d": "λῡοίτην",
+        "1p": "λῡ́οιμεν",
+        "2p": "λῡ́οιτε",
+        "3p": "λῡ́οιεν"
+      },
+      "aorist_subjunctive": {
+        "1s": "λῡ́σω",
+        "2s": "λῡ́σῃς",
+        "3s": "λῡ́σῃ",
+        "2d": "λῡ́σητον",
+        "3d": "λῡ́σητον",
+        "1p": "λῡ́σωμεν",
+        "2p": "λῡ́σητε",
+        "3p": "λῡ́σωσι"
+      },
+      "aorist_optative": {
+        "1s": "λῡ́σαιμι",
+        "2s": ["λῡ́σαις", "λῡ́σειας"],
+        "3s": ["λῡ́σαι", "λῡ́σειε"],
+        "2d": "λῡ́σαιτον",
+        "3d": "λῡσαίτην",
+        "1p": "λῡ́σαιμεν",
+        "2p": "λῡ́σαιτε",
+        "3p": ["λῡ́σαιεν", "λῡ́σειαν"]
+      }
+    },
+    "παιδευω": {
+      "present_subjunctive": {
+        "1s": "παιδεύω",
+        "2s": "παιδεύῃς",
+        "3s": "παιδεύῃ",
+        "2d": "παιδεύητον",
+        "3d": "παιδεύητον",
+        "1p": "παιδεύωμεν",
+        "2p": "παιδεύητε",
+        "3p": "παιδεύωσι"
+      },
+      "present_optative": {
+        "1s": "παιδεύοιμι",
+        "2s": "παιδεύοις",
+        "3s": "παιδεύοι",
+        "2d": "παιδεύοιτον",
+        "3d": "παιδευοίτην",
+        "1p": "παιδεύοιμεν",
+        "2p": "παιδεύοιτε",
+        "3p": "παιδεύοιεν"
+      },
+      "aorist_subjunctive": {
+        "1s": "παιδεύσω",
+        "2s": "παιδεύσῃς",
+        "3s": "παιδεύσῃ",
+        "2d": "παιδεύσητον",
+        "3d": "παιδεύσητον",
+        "1p": "παιδεύσωμεν",
+        "2p": "παιδεύσητε",
+        "3p": "παιδεύσωσι"
+      },
+      "aorist_optative": {
+        "1s": "παιδεύσαιμι",
+        "2s": ["παιδεύσαις", "παιδεύσειας"],
+        "3s": ["παιδεύσαι", "παιδεύσειε"],
+        "2d": "παιδεύσαιτον",
+        "3d": "παιδευσαίτην",
+        "1p": "παιδεύσαιμεν",
+        "2p": "παιδεύσαιτε",
+        "3p": ["παιδεύσαιεν", "παιδεύσειαν"]
+      }
+    }
+  }
 }

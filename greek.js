@@ -290,7 +290,7 @@ window.GREEK = {
      "κελεύω",
      "κελεύσω",
      "ἐκέλευσα",
-     "κεκέλευκα",
+     "κεκέλευκα [CHECK]",
      "κεκέλευσμαι",
      "ἐκελεύσθην"
     ],
@@ -319,8 +319,8 @@ window.GREEK = {
      "πέμψω",
      "ἔπεμψα",
      "πέπομφα",
-     "πέπεμμαι",
-     "ἐπέμφθην"
+     "πέπεμμαι [CHECK]",
+     "ἐπέμφθην [CHECK]"
     ],
     "gloss": "send",
     "smyth": 545,
@@ -1824,7 +1824,113 @@ window.GREEK = {
      "3p": "ἔσονται"
     }
    }
-  ]
+  ],
+  "moods": {
+   "smyth": 383,
+   "note": "Active present and aorist subjunctive and optative. The λῡ́ω columns are copied from the §383 table, including the second aorist-optative forms that section prints beside the first. Duals are kept because the table prints them. παιδεύω is the same uncontracted vowel verb (§376 a): the final vowel of the stem stays, and the accent is recessive (§423). Final -αι and -οι count as long in the optative (§427), which is why the third person singular aorist optative is παιδεύσαι, the form §427 prints. The other παιδεύω forms are that formation, not a second printed table.",
+   "λυω": {
+    "present_subjunctive": {
+     "1s": "λῡ́ω",
+     "2s": "λῡ́ῃς",
+     "3s": "λῡ́ῃ",
+     "2d": "λῡ́ητον",
+     "3d": "λῡ́ητον",
+     "1p": "λῡ́ωμεν",
+     "2p": "λῡ́ητε",
+     "3p": "λῡ́ωσι"
+    },
+    "present_optative": {
+     "1s": "λῡ́οιμι",
+     "2s": "λῡ́οις",
+     "3s": "λῡ́οι",
+     "2d": "λῡ́οιτον",
+     "3d": "λῡοίτην",
+     "1p": "λῡ́οιμεν",
+     "2p": "λῡ́οιτε",
+     "3p": "λῡ́οιεν"
+    },
+    "aorist_subjunctive": {
+     "1s": "λῡ́σω",
+     "2s": "λῡ́σῃς",
+     "3s": "λῡ́σῃ",
+     "2d": "λῡ́σητον",
+     "3d": "λῡ́σητον",
+     "1p": "λῡ́σωμεν",
+     "2p": "λῡ́σητε",
+     "3p": "λῡ́σωσι"
+    },
+    "aorist_optative": {
+     "1s": "λῡ́σαιμι",
+     "2s": [
+      "λῡ́σαις",
+      "λῡ́σειας"
+     ],
+     "3s": [
+      "λῡ́σαι",
+      "λῡ́σειε"
+     ],
+     "2d": "λῡ́σαιτον",
+     "3d": "λῡσαίτην",
+     "1p": "λῡ́σαιμεν",
+     "2p": "λῡ́σαιτε",
+     "3p": [
+      "λῡ́σαιεν",
+      "λῡ́σειαν"
+     ]
+    }
+   },
+   "παιδευω": {
+    "present_subjunctive": {
+     "1s": "παιδεύω",
+     "2s": "παιδεύῃς",
+     "3s": "παιδεύῃ",
+     "2d": "παιδεύητον",
+     "3d": "παιδεύητον",
+     "1p": "παιδεύωμεν",
+     "2p": "παιδεύητε",
+     "3p": "παιδεύωσι"
+    },
+    "present_optative": {
+     "1s": "παιδεύοιμι",
+     "2s": "παιδεύοις",
+     "3s": "παιδεύοι",
+     "2d": "παιδεύοιτον",
+     "3d": "παιδευοίτην",
+     "1p": "παιδεύοιμεν",
+     "2p": "παιδεύοιτε",
+     "3p": "παιδεύοιεν"
+    },
+    "aorist_subjunctive": {
+     "1s": "παιδεύσω",
+     "2s": "παιδεύσῃς",
+     "3s": "παιδεύσῃ",
+     "2d": "παιδεύσητον",
+     "3d": "παιδεύσητον",
+     "1p": "παιδεύσωμεν",
+     "2p": "παιδεύσητε",
+     "3p": "παιδεύσωσι"
+    },
+    "aorist_optative": {
+     "1s": "παιδεύσαιμι",
+     "2s": [
+      "παιδεύσαις",
+      "παιδεύσειας"
+     ],
+     "3s": [
+      "παιδεύσαι",
+      "παιδεύσειε"
+     ],
+     "2d": "παιδεύσαιτον",
+     "3d": "παιδευσαίτην",
+     "1p": "παιδεύσαιμεν",
+     "2p": "παιδεύσαιτε",
+     "3p": [
+      "παιδεύσαιεν",
+      "παιδεύσειαν"
+     ]
+    }
+   }
+  }
  },
  "cards": {
   "title": "Greek beside Latin",
@@ -4096,6 +4202,1810 @@ window.GREEK = {
     "src": [
      "smyth"
     ]
+   }
+  ]
+ },
+ "sentence": {
+  "more": [
+   {
+    "id": "gmore1",
+    "k": 1,
+    "en": "I loose the horse.",
+    "fr": "τὸν ἵππον ______",
+    "a": "λῡ́ω",
+    "ds": [
+     "λῡ́εις",
+     "λῡ́ει",
+     "ἔλῡε"
+    ],
+    "why": "The subject is “I,” and the ending of λῡ́ω shows the first person singular, so the pronoun is not written (Smyth §929, §383). λῡ́εις would be said to one person, and ἔλῡε is imperfect."
+   },
+   {
+    "id": "gmore2",
+    "k": 1,
+    "en": "You (one person) loose the watchman.",
+    "fr": "τὸν φύλακα ______",
+    "a": "λῡ́εις",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ω",
+     "λῡ́ετε"
+    ],
+    "why": "The subject is “you,” one person, and the ending shows the second person singular, so the pronoun is not written (Smyth §929, §383). λῡ́ει would mean that someone else looses the watchman, and λῡ́ετε would be said to more than one person."
+   },
+   {
+    "id": "gmore3",
+    "k": 1,
+    "en": "He looses the gift.",
+    "fr": "τὸ δῶρον ______",
+    "a": "λῡ́ει",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́ω",
+     "λῡ́εις"
+    ],
+    "why": "The ending shows the third person singular, so no pronoun is written (Smyth §383, §325 d). λῡ́ουσι would mean that more than one person looses the gift, and λῡ́ω would mean that the speaker does."
+   },
+   {
+    "id": "gmore4",
+    "k": 1,
+    "en": "We loose the young man.",
+    "fr": "τὸν νεᾱνίᾱν ______",
+    "a": "λῡ́ομεν",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́ετε",
+     "λῡ́ει"
+    ],
+    "why": "The subject is “we,” and the ending shows the first person plural, so the pronoun is not written (Smyth §929, §383). λῡ́ουσι would mean “they loose,” and λῡ́ετε would be said to more than one person."
+   },
+   {
+    "id": "gmore5",
+    "k": 1,
+    "en": "You all loose the king.",
+    "fr": "τὸν βασιλέᾱ ______",
+    "a": "λῡ́ετε",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́εις",
+     "λῡ́ομεν"
+    ],
+    "why": "The subject is “you,” more than one person, and the ending shows the second person plural, so the pronoun is not written (Smyth §929, §383). λῡ́εις would be said to one person, and λῡ́ουσι would mean “they loose.”"
+   },
+   {
+    "id": "gmore6",
+    "k": 1,
+    "en": "They loose the horses.",
+    "fr": "τοὺς ἵππους ______",
+    "a": "λῡ́ουσι",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ομεν",
+     "λῡ́ετε"
+    ],
+    "why": "The ending shows the third person plural, so no pronoun is written (Smyth §383). λῡ́ει would have one person as its subject, and λῡ́ομεν would mean that the speakers loose the horses."
+   },
+   {
+    "id": "gmore7",
+    "k": 1,
+    "en": "I am in the city.",
+    "fr": "ἐν τῇ πόλει ______",
+    "a": "εἰμί",
+    "ds": [
+     "ἐστί",
+     "εἶ",
+     "ἐσμέν"
+    ],
+    "why": "The subject is “I,” and εἰμί is the first person singular, so the pronoun is not written (Smyth §929, §768). ἐστί is the third person, and ἐσμέν is the first person plural. After πόλει, which has the acute on the penult, the two-syllable form keeps its accent (Smyth §183 d)."
+   },
+   {
+    "id": "gmore8",
+    "k": 1,
+    "en": "You (one person) are in the land.",
+    "fr": "ἐν τῇ χώρᾳ ______",
+    "a": "εἶ",
+    "ds": [
+     "εἰμί",
+     "ἐστί",
+     "ἐστέ"
+    ],
+    "why": "The subject is “you,” one person, and εἶ is the second person singular of εἰμί, so the pronoun is not written (Smyth §929, §768). εἶ is not enclitic (Smyth §181 c). εἰμί would mean “I am,” and ἐστέ would be said to more than one person."
+   },
+   {
+    "id": "gmore9",
+    "k": 2,
+    "en": "The judge sends me.",
+    "fr": "______ ὁ κριτὴς πέμπει",
+    "a": "ἐμὲ",
+    "ds": [
+     "με",
+     "ἐγὼ",
+     "μοι"
+    ],
+    "why": "The pronoun is the object of πέμπει, so it is accusative, and because it stands first the long form is used, with the acute written as a grave before the next word (Smyth §325, §187 a, §154). An enclitic cannot stand first, so με cannot stand there, and ἐγώ is the subject form."
+   },
+   {
+    "id": "gmore10",
+    "k": 2,
+    "en": "The judge sends you (one person).",
+    "fr": "ὁ κριτὴς πέμπει ______",
+    "a": "σε",
+    "ds": [
+     "σύ",
+     "σοί",
+     "ἐμέ"
+    ],
+    "why": "The pronoun is the object of πέμπει, so it is accusative (Smyth §325). Nothing in the sentence marks emphasis, so the enclitic σε is used and it has no accent (Smyth §325 a, §181). σύ is the subject form, and σοί is dative."
+   },
+   {
+    "id": "gmore11",
+    "k": 2,
+    "en": "The king sends you (one person).",
+    "fr": "______ ὁ βασιλεὺς πέμπει",
+    "a": "σὲ",
+    "ds": [
+     "σὺ",
+     "σοὶ",
+     "με"
+    ],
+    "why": "The pronoun is the object, so it is accusative (Smyth §325). It stands first, so it keeps an accent, and the acute is grave before the next word (Smyth §187 a, §154). σύ is the subject form, and με is the first person."
+   },
+   {
+    "id": "gmore12",
+    "k": 2,
+    "en": "The judge trusts me.",
+    "fr": "ὁ κριτὴς πιστεύει ______",
+    "a": "μοι",
+    "ds": [
+     "με",
+     "ἐγώ",
+     "σοι"
+    ],
+    "why": "πιστεύω takes the dative of the person trusted (Smyth §1745). Nothing marks emphasis, so the enclitic μοι is used (Smyth §325 a). με is accusative, and σοι is the second person."
+   },
+   {
+    "id": "gmore13",
+    "k": 2,
+    "en": "The king trusts me.",
+    "fr": "______ ὁ βασιλεὺς πιστεύει",
+    "a": "ἐμοὶ",
+    "ds": [
+     "μοι",
+     "ἐμὲ",
+     "με"
+    ],
+    "why": "πιστεύω takes the dative (Smyth §1745). The pronoun stands first, so the long form ἐμοί is used, written ἐμοὶ before the next word (Smyth §325 a, §154). μοι cannot stand first, and ἐμέ is accusative."
+   },
+   {
+    "id": "gmore14",
+    "k": 2,
+    "en": "The man trusts you (one person).",
+    "fr": "ὁ ἄνθρωπος πιστεύει ______",
+    "a": "σοι",
+    "ds": [
+     "σε",
+     "σύ",
+     "μοι"
+    ],
+    "why": "πιστεύω takes the dative (Smyth §1745). Nothing marks emphasis, so the enclitic σοι is used (Smyth §325 a). σε is accusative, and μοι is the first person."
+   },
+   {
+    "id": "gmore15",
+    "k": 2,
+    "en": "The man looses him.",
+    "fr": "ὁ ἄνθρωπος λῡ́ει ______",
+    "a": "αὐτόν",
+    "ds": [
+     "αὐτός",
+     "αὐτῷ",
+     "αὐτοῦ"
+    ],
+    "why": "The pronoun is the object of λῡ́ει, so it is the accusative αὐτόν, and it means a person other than the subject (Smyth §327, §328 b). αὐτός is the subject form, and αὐτῷ is dative."
+   },
+   {
+    "id": "gmore16",
+    "k": 2,
+    "en": "The judge trusts him.",
+    "fr": "ὁ κριτὴς πιστεύει ______",
+    "a": "αὐτῷ",
+    "ds": [
+     "αὐτόν",
+     "αὐτός",
+     "αὐτοῦ"
+    ],
+    "why": "πιστεύω takes the dative, so the pronoun is αὐτῷ, which means to him (Smyth §1745, §327). αὐτόν is accusative, and αὐτός is the subject form."
+   },
+   {
+    "id": "gmore17",
+    "k": 3,
+    "en": "The man sends the gift to the judge.",
+    "fr": "ὁ ἄνθρωπος τῷ ______ τὸ δῶρον πέμπει",
+    "a": "κριτῇ",
+    "ds": [
+     "κριτὴν",
+     "κριτὴς",
+     "κριτὰ"
+    ],
+    "why": "The judge is the person to whom the gift is sent, so κριτής is in the dative, and τῷ agrees with it (Smyth §1469). Smyth’s example is πέμπων αὐτῷ ἄγγελον. κριτήν would make the judge another object of πέμπει, and κριτά is the vocative."
+   },
+   {
+    "id": "gmore18",
+    "k": 3,
+    "en": "The king sends the horse to the man.",
+    "fr": "ὁ βασιλεὺς τῷ ______ τὸν ἵππον πέμπει",
+    "a": "ἀνθρώπῳ",
+    "ds": [
+     "ἄνθρωπον",
+     "ἄνθρωπε",
+     "ἀνθρώπου"
+    ],
+    "why": "The man is the person to whom the horse is sent, so the noun is in the dative with τῷ (Smyth §1469). ἄνθρωπον would make the man the object of πέμπει, and ἄνθρωπε is the vocative."
+   },
+   {
+    "id": "gmore19",
+    "k": 3,
+    "en": "The judge sends the gift to the king.",
+    "fr": "ὁ κριτὴς τῷ ______ τὸ δῶρον πέμπει",
+    "a": "βασιλεῖ",
+    "ds": [
+     "βασιλέᾱ",
+     "βασιλεὺς",
+     "βασιλέως"
+    ],
+    "why": "The king is the person to whom the gift is sent, so βασιλεύς is in the dative with τῷ (Smyth §1469). βασιλέᾱ would make the king the object, and βασιλέως is genitive."
+   },
+   {
+    "id": "gmore20",
+    "k": 3,
+    "en": "The watchman sends the horse to the young man.",
+    "fr": "ὁ φύλαξ τῷ ______ τὸν ἵππον πέμπει",
+    "a": "νεᾱνίᾳ",
+    "ds": [
+     "νεᾱνίᾱν",
+     "νεᾱνίᾱς",
+     "νεᾱνίου"
+    ],
+    "why": "The young man is the person to whom the horse is sent, so the noun is in the dative with τῷ (Smyth §1469). νεᾱνίᾱν is accusative, and νεᾱνίᾱς is the subject form."
+   },
+   {
+    "id": "gmore21",
+    "k": 3,
+    "en": "The man sends the gifts to the judges.",
+    "fr": "ὁ ἄνθρωπος τοῖς ______ τὰ δῶρα πέμπει",
+    "a": "κριταῖς",
+    "ds": [
+     "κριτᾱ̀ς",
+     "κριταὶ",
+     "κριτῶν"
+    ],
+    "why": "The gifts are sent to more than one judge, so the noun is dative plural, and τοῖς agrees with it (Smyth §1469). κριτᾱ́ς is accusative plural, and κριταί is the subject form."
+   },
+   {
+    "id": "gmore22",
+    "k": 3,
+    "en": "The king sends the horse to the watchmen.",
+    "fr": "ὁ βασιλεὺς τοῖς ______ τὸν ἵππον πέμπει",
+    "a": "φύλαξι",
+    "ds": [
+     "φύλακας",
+     "φύλακες",
+     "φύλαξ"
+    ],
+    "why": "The horse is sent to more than one watchman, so φύλαξ is dative plural with τοῖς (Smyth §1469). φύλακας is accusative plural, and φύλαξ is the subject form."
+   },
+   {
+    "id": "gmore23",
+    "k": 3,
+    "en": "The judge sends the gift to the men.",
+    "fr": "ὁ κριτὴς τοῖς ______ τὸ δῶρον πέμπει",
+    "a": "ἀνθρώποις",
+    "ds": [
+     "ἀνθρώπους",
+     "ἄνθρωποι",
+     "ἀνθρώπων"
+    ],
+    "why": "The gift is sent to more than one man, so the noun is dative plural with τοῖς (Smyth §1469). ἀνθρώπους is accusative, and ἄνθρωποι is the subject form."
+   },
+   {
+    "id": "gmore24",
+    "k": 3,
+    "en": "The young man sends the horse to the watchman.",
+    "fr": "ὁ νεᾱνίᾱς τῷ ______ τὸν ἵππον πέμπει",
+    "a": "φύλακι",
+    "ds": [
+     "φύλακα",
+     "φύλαξ",
+     "φύλακος"
+    ],
+    "why": "The watchman is the person to whom the horse is sent, so the noun is dative singular with τῷ (Smyth §1469). φύλακα would make him the object of πέμπει, and φύλαξ is the subject form."
+   },
+   {
+    "id": "gmore25",
+    "k": 4,
+    "en": "The king’s horse is good.",
+    "fr": "ὁ τοῦ ______ ἵππος ἀγαθός ἐστι",
+    "a": "βασιλέως",
+    "ds": [
+     "βασιλεῖ",
+     "βασιλέᾱ",
+     "βασιλεὺς"
+    ],
+    "why": "The horse belongs to the king, so βασιλεύς is genitive and stands between ὁ and ἵππος, and τοῦ agrees with that genitive (Smyth §1297, §1154). βασιλεῖ is dative, and βασιλέᾱ is accusative. After the oxytone ἀγαθός, ἐστι has no accent (Smyth §183 a)."
+   },
+   {
+    "id": "gmore26",
+    "k": 4,
+    "en": "The man’s victory is good.",
+    "fr": "ἡ τοῦ ______ νῑ́κη ἀγαθή ἐστι",
+    "a": "ἀνθρώπου",
+    "ds": [
+     "ἀνθρώπῳ",
+     "ἄνθρωπον",
+     "ἄνθρωπος"
+    ],
+    "why": "The victory belongs to the man, so ἄνθρωπος is genitive between ἡ and νῑ́κη (Smyth §1297, §1154). τοῦ agrees with that genitive. ἀνθρώπῳ is dative, and ἄνθρωπος would be a second subject."
+   },
+   {
+    "id": "gmore27",
+    "k": 4,
+    "en": "The judge’s gift is good.",
+    "fr": "τὸ τοῦ ______ δῶρον ἀγαθόν ἐστι",
+    "a": "κριτοῦ",
+    "ds": [
+     "κριτῇ",
+     "κριτὴν",
+     "κριτὴς"
+    ],
+    "why": "The gift belongs to the judge, so κριτής is genitive between τό and δῶρον (Smyth §1297, §1154). κριτῇ is dative, and κριτήν is accusative."
+   },
+   {
+    "id": "gmore28",
+    "k": 4,
+    "en": "The city’s road is long.",
+    "fr": "ἡ τῆς ______ ὁδὸς μακρά ἐστι",
+    "a": "πόλεως",
+    "ds": [
+     "πόλει",
+     "πόλιν",
+     "πόλεων"
+    ],
+    "why": "The road belongs to the city, so πόλις is genitive singular, and τῆς agrees with πόλεως (Smyth §1297, §1154). πόλει is dative, and πόλεων is plural. ὁδός is feminine, so the adjective is μακρά."
+   },
+   {
+    "id": "gmore29",
+    "k": 4,
+    "en": "The young man’s land is long.",
+    "fr": "ἡ τοῦ ______ χώρᾱ μακρά ἐστι",
+    "a": "νεᾱνίου",
+    "ds": [
+     "νεᾱνίᾳ",
+     "νεᾱνίᾱν",
+     "νεᾱνίᾱς"
+    ],
+    "why": "The land belongs to the young man, so the noun is genitive between ἡ and χώρᾱ (Smyth §1297, §1154). νεᾱνίᾳ is dative, and νεᾱνίᾱς is the subject form. χώρᾱ is feminine, so the adjective is μακρά."
+   },
+   {
+    "id": "gmore30",
+    "k": 4,
+    "en": "The watchman’s body is good.",
+    "fr": "τὸ τοῦ ______ σῶμα ἀγαθόν ἐστι",
+    "a": "φύλακος",
+    "ds": [
+     "φύλακι",
+     "φύλακα",
+     "φύλακας"
+    ],
+    "why": "The body belongs to the watchman, so φύλαξ is genitive singular between τό and σῶμα (Smyth §1297, §1154). φύλακι is dative, and φύλακας is accusative plural."
+   },
+   {
+    "id": "gmore31",
+    "k": 4,
+    "en": "The men’s hope is good.",
+    "fr": "ἡ τῶν ______ ἐλπὶς ἀγαθή ἐστι",
+    "a": "ἀνθρώπων",
+    "ds": [
+     "ἀνθρώποις",
+     "ἀνθρώπους",
+     "ἄνθρωποι"
+    ],
+    "why": "The hope belongs to more than one man, so the noun is genitive plural, and τῶν agrees with it (Smyth §1297, §1154). ἀνθρώποις is dative, and ἄνθρωποι is the subject form."
+   },
+   {
+    "id": "gmore32",
+    "k": 4,
+    "en": "The cities’ victory is good.",
+    "fr": "ἡ τῶν ______ νῑ́κη ἀγαθή ἐστι",
+    "a": "πόλεων",
+    "ds": [
+     "πόλεσι",
+     "πόλεις",
+     "πόλιν"
+    ],
+    "why": "The victory belongs to more than one city, so πόλις is genitive plural with τῶν (Smyth §1297, §1154). πόλεσι is dative plural, and πόλιν is accusative singular."
+   },
+   {
+    "id": "gmore33",
+    "k": 5,
+    "en": "The man and the judge loose the horse.",
+    "fr": "ὁ ἄνθρωπος καὶ ὁ ______ τὸν ἵππον λῡ́ουσι",
+    "a": "κριτὴς",
+    "ds": [
+     "κριτὴν",
+     "κριτοῦ",
+     "κριτῇ"
+    ],
+    "why": "καί joins the judge to the man, and both are the subject of the plural verb λῡ́ουσι, so both are nominative (Smyth §2868, §964). κριτήν is accusative, and κριτῇ is dative."
+   },
+   {
+    "id": "gmore34",
+    "k": 5,
+    "en": "The king sends the horse and the watchman.",
+    "fr": "ὁ βασιλεὺς τὸν ἵππον καὶ τὸν ______ πέμπει",
+    "a": "φύλακα",
+    "ds": [
+     "φύλαξ",
+     "φύλακι",
+     "φύλακος"
+    ],
+    "why": "καί joins the watchman to the horse, and both are the object of πέμπει, so both are accusative (Smyth §2868). τόν agrees with φύλακα. φύλαξ is the subject form, and φύλακι is dative."
+   },
+   {
+    "id": "gmore35",
+    "k": 5,
+    "en": "The man trusts the judge and the king.",
+    "fr": "ὁ ἄνθρωπος τῷ κριτῇ καὶ τῷ ______ πιστεύει",
+    "a": "βασιλεῖ",
+    "ds": [
+     "βασιλέᾱ",
+     "βασιλεὺς",
+     "βασιλέως"
+    ],
+    "why": "καί joins the king to the judge. πιστεύω takes the dative, so both nouns are dative, and τῷ agrees with βασιλεῖ (Smyth §2868, §1745). βασιλέᾱ is accusative, and βασιλέως is genitive."
+   },
+   {
+    "id": "gmore36",
+    "k": 5,
+    "en": "The king rules the men and the judges.",
+    "fr": "ὁ βασιλεὺς τῶν ἀνθρώπων καὶ τῶν ______ ἄρχει",
+    "a": "κριτῶν",
+    "ds": [
+     "κριταῖς",
+     "κριταὶ",
+     "κριτᾱ̀ς"
+    ],
+    "why": "καί joins the judges to the men. ἄρχω takes the genitive of the people ruled, so both nouns are genitive, and τῶν agrees with κριτῶν (Smyth §2868, §1370). κριταῖς is dative, and κριταί is the subject form."
+   },
+   {
+    "id": "gmore37",
+    "k": 5,
+    "en": "The watchman and the young man are good.",
+    "fr": "ὁ φύλαξ καὶ ὁ ______ ἀγαθοί εἰσι",
+    "a": "νεᾱνίᾱς",
+    "ds": [
+     "νεᾱνίᾱν",
+     "νεᾱνίᾳ",
+     "νεᾱνίου"
+    ],
+    "why": "καί joins the young man to the watchman, and both are the subject of the plural verb, so both are nominative, and the adjective is plural with them (Smyth §2868, §964). νεᾱνίᾱν is accusative, and νεᾱνίᾳ is dative."
+   },
+   {
+    "id": "gmore38",
+    "k": 5,
+    "en": "The sea and the road are long.",
+    "fr": "ἡ θάλαττα καὶ ἡ ______ μακραί εἰσι",
+    "a": "ὁδὸς",
+    "ds": [
+     "ὁδὸν",
+     "ὁδῷ",
+     "ὁδοῦ"
+    ],
+    "why": "καί joins the road to the sea, and both are the subject of the plural verb, so both are nominative (Smyth §2868, §964). ὁδός is feminine, so the adjective is the feminine plural μακραί. ὁδόν is accusative, and ὁδῷ is dative."
+   },
+   {
+    "id": "gmore39",
+    "k": 5,
+    "en": "The judge sends the horses and the men.",
+    "fr": "ὁ κριτὴς τοὺς ἵππους καὶ τοὺς ______ πέμπει",
+    "a": "ἀνθρώπους",
+    "ds": [
+     "ἄνθρωποι",
+     "ἀνθρώπων",
+     "ἀνθρώποις"
+    ],
+    "why": "καί joins the men to the horses, and both are the object of πέμπει, so both are accusative plural (Smyth §2868). ἄνθρωποι is the subject form, and ἀνθρώποις is dative."
+   },
+   {
+    "id": "gmore40",
+    "k": 5,
+    "en": "The watchman sends the gift and the horse.",
+    "fr": "ὁ φύλαξ τὸ δῶρον καὶ τὸν ______ πέμπει",
+    "a": "ἵππον",
+    "ds": [
+     "ἵππος",
+     "ἵππῳ",
+     "ἵππου"
+    ],
+    "why": "καί joins the horse to the gift, and both are the object of πέμπει, so the horse is accusative, and τόν agrees with ἵππον (Smyth §2868). ἵππος is the subject form, and ἵππῳ is dative."
+   },
+   {
+    "id": "gmore41",
+    "k": 6,
+    "en": "The judge writes in the city.",
+    "fr": "ὁ κριτὴς ἐν τῇ ______ γράφει",
+    "a": "πόλει",
+    "ds": [
+     "πόλιν",
+     "πόλεως",
+     "πόλεις"
+    ],
+    "why": "Place where is ἐν with the dative, and τῇ agrees with πόλει (Smyth §1687). πόλιν is accusative, the case εἰς would take, and πόλεως is genitive, the case ἐκ would take."
+   },
+   {
+    "id": "gmore42",
+    "k": 6,
+    "en": "The man sends the horse into the land.",
+    "fr": "ὁ ἄνθρωπος τὸν ἵππον εἰς τὴν ______ πέμπει",
+    "a": "χώρᾱν",
+    "ds": [
+     "χώρᾳ",
+     "χώρᾱς",
+     "χωρῶν"
+    ],
+    "why": "Motion to a place is εἰς with the accusative, and τήν agrees with χώρᾱν (Smyth §1686). χώρᾳ is dative, the case ἐν would take, and χώρᾱς is genitive."
+   },
+   {
+    "id": "gmore43",
+    "k": 6,
+    "en": "The king sends the gift out of the city.",
+    "fr": "ὁ βασιλεὺς ἐκ τῆς ______ τὸ δῶρον πέμπει",
+    "a": "πόλεως",
+    "ds": [
+     "πόλιν",
+     "πόλει",
+     "πόλεις"
+    ],
+    "why": "Motion out of a place is ἐκ with the genitive, and τῆς agrees with πόλεως (Smyth §1688). πόλιν is accusative, and πόλει is dative. ἐκ stands before τῆς, which begins with a consonant (Smyth §136)."
+   },
+   {
+    "id": "gmore44",
+    "k": 6,
+    "en": "The watchman is on the road.",
+    "fr": "ὁ φύλαξ ἐν τῇ ______ ἐστι",
+    "a": "ὁδῷ",
+    "ds": [
+     "ὁδόν",
+     "ὁδοῦ",
+     "ὁδέ"
+    ],
+    "why": "Place where is ἐν with the dative, and τῇ agrees with ὁδῷ (Smyth §1687). ὁδόν is accusative, and ὁδέ is the vocative. ὁδῷ has a circumflex, so ἐστι has no accent, and the oxytone ὁδέ keeps its acute before that enclitic (Smyth §183 a, §183 b)."
+   },
+   {
+    "id": "gmore45",
+    "k": 6,
+    "en": "He sends the watchman into the city.",
+    "fr": "πέμπει τὸν φύλακα εἰς τὴν ______",
+    "a": "πόλιν",
+    "ds": [
+     "πόλει",
+     "πόλεως",
+     "πόλεις"
+    ],
+    "why": "Motion to a place is εἰς with the accusative, and τήν agrees with πόλιν (Smyth §1686). πόλει is dative, the case ἐν would take, and πόλεως is genitive."
+   },
+   {
+    "id": "gmore46",
+    "k": 6,
+    "en": "The young man sends the horse out of the land.",
+    "fr": "ὁ νεᾱνίᾱς ἐκ τῆς ______ τὸν ἵππον πέμπει",
+    "a": "χώρᾱς",
+    "ds": [
+     "χώρᾳ",
+     "χώρᾱν",
+     "χωρῶν"
+    ],
+    "why": "Motion out of a place is ἐκ with the genitive, and τῆς agrees with χώρᾱς (Smyth §1688). χώρᾳ is dative, and χώρᾱν is accusative. ἐκ stands before τῆς, which begins with a consonant (Smyth §136)."
+   },
+   {
+    "id": "gmore47",
+    "k": 6,
+    "en": "The man is in the land.",
+    "fr": "ὁ ἄνθρωπος ἐν τῇ ______ ἐστί",
+    "a": "χώρᾳ",
+    "ds": [
+     "χώρᾱν",
+     "χώρᾱς",
+     "χωρῶν"
+    ],
+    "why": "Place where is ἐν with the dative, and τῇ agrees with χώρᾳ (Smyth §1687). χώρᾱν is accusative, and χώρᾱς is genitive. χώρᾳ has the acute on the penult, so the two-syllable ἐστί keeps its accent (Smyth §183 d)."
+   },
+   {
+    "id": "gmore48",
+    "k": 6,
+    "en": "The judge sends the horse to the road.",
+    "fr": "ὁ κριτὴς τὸν ἵππον εἰς τὴν ______ πέμπει",
+    "a": "ὁδὸν",
+    "ds": [
+     "ὁδῷ",
+     "ὁδοῦ",
+     "ὁδοὶ"
+    ],
+    "why": "Motion to a place is εἰς with the accusative, and τήν agrees with ὁδόν (Smyth §1686). ὁδῷ is dative, the case ἐν would take, and ὁδοῦ is genitive."
+   }
+  ],
+  "voice": [
+   {
+    "id": "gvoice1",
+    "k": 1,
+    "en": "The horse is loosed by the man.",
+    "fr": "ὁ ἵππος ὑπὸ τοῦ ἀνθρώπου ______",
+    "a": "λῡ́εται",
+    "ds": [
+     "λῡ́ονται",
+     "λῡ́ει",
+     "λῡ́ουσι"
+    ],
+    "why": "The horse receives the loosing, so the verb is present passive and singular (Smyth §1698, §383). The present passive uses the middle endings (Smyth §356 b). λῡ́ονται would need a plural subject, and λῡ́ει is active."
+   },
+   {
+    "id": "gvoice2",
+    "k": 1,
+    "en": "The horses are loosed by the king.",
+    "fr": "οἱ ἵπποι ὑπὸ τοῦ βασιλέως ______",
+    "a": "λῡ́ονται",
+    "ds": [
+     "λῡ́εται",
+     "λῡ́ουσι",
+     "λῡ́ει"
+    ],
+    "why": "The horses receive the loosing, and the subject is plural, so the verb is λῡ́ονται (Smyth §1698, §383). λῡ́εται is singular, and λῡ́ουσι is active."
+   },
+   {
+    "id": "gvoice3",
+    "k": 1,
+    "en": "The gift was being loosed by the judge.",
+    "fr": "τὸ δῶρον ὑπὸ τοῦ κριτοῦ ______",
+    "a": "ἐλῡ́ετο",
+    "ds": [
+     "ἐλῡ́οντο",
+     "ἔλῡε",
+     "ἔλῡον"
+    ],
+    "why": "The English is past and ongoing, so the verb is the imperfect passive, and the gift is singular, so the form is ἐλῡ́ετο (Smyth §383, §1698). ἐλῡ́οντο is plural, and ἔλῡε is active."
+   },
+   {
+    "id": "gvoice4",
+    "k": 1,
+    "en": "I am loosed by the young man.",
+    "fr": "ὑπὸ τοῦ νεᾱνίου ______",
+    "a": "λῡ́ομαι",
+    "ds": [
+     "λῡ́εται",
+     "λῡ́ω",
+     "λῡ́ομεν"
+    ],
+    "why": "The ending shows the first person singular, and the subject receives the loosing, so the verb is λῡ́ομαι (Smyth §383, §1698). λῡ́εται is the third person, and λῡ́ω is active."
+   },
+   {
+    "id": "gvoice5",
+    "k": 1,
+    "en": "We are loosed by the king.",
+    "fr": "ὑπὸ τοῦ βασιλέως ______",
+    "a": "λῡόμεθα",
+    "ds": [
+     "λῡ́ονται",
+     "λῡ́ομεν",
+     "ἐλῡόμεθα"
+    ],
+    "why": "The ending shows the first person plural, and the subject receives the loosing, so the verb is the present λῡόμεθα (Smyth §383, §1698). ἐλῡόμεθα is the imperfect, and λῡ́ομεν is active."
+   },
+   {
+    "id": "gvoice6",
+    "k": 1,
+    "en": "You all are loosed by the watchman.",
+    "fr": "ὑπὸ τοῦ φύλακος ______",
+    "a": "λῡ́εσθε",
+    "ds": [
+     "λῡ́ετε",
+     "λῡ́ονται",
+     "ἐλῡ́εσθε"
+    ],
+    "why": "The ending shows the second person plural, and the subject receives the loosing, so the verb is the present λῡ́εσθε (Smyth §383, §1698). λῡ́ετε is active, and ἐλῡ́εσθε is the imperfect."
+   },
+   {
+    "id": "gvoice7",
+    "k": 1,
+    "en": "The young man is loosed by the judge.",
+    "fr": "ὁ νεᾱνίᾱς λῡ́εται ὑπὸ τοῦ ______",
+    "a": "κριτοῦ",
+    "ds": [
+     "κριτής",
+     "κριτήν",
+     "κριτῇ"
+    ],
+    "why": "With a passive verb, ὑπό takes the genitive of the personal agent, and τοῦ agrees with κριτοῦ (Smyth §1698). κριτής is the subject form, and κριτήν is accusative."
+   },
+   {
+    "id": "gvoice8",
+    "k": 1,
+    "en": "The men are loosed by the watchman.",
+    "fr": "οἱ ______ ὑπὸ τοῦ φύλακος λῡ́ονται",
+    "a": "ἄνθρωποι",
+    "ds": [
+     "ἀνθρώπους",
+     "ἄνθρωπον",
+     "ἀνθρώπων"
+    ],
+    "why": "The men are the subject of the passive verb λῡ́ονται, so ἄνθρωπος is nominative plural, and οἱ agrees with it (Smyth §1698). A passive verb has no object. ἀνθρώπους is accusative, and ἀνθρώπων is genitive."
+   },
+   {
+    "id": "gvoice9",
+    "k": 2,
+    "en": "I wish to loose the horse.",
+    "fr": "τὸν ἵππον ______ βούλομαι",
+    "a": "λῡ́ειν",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́ει",
+     "λῡ́ων"
+    ],
+    "why": "βούλομαι is the finite verb, and the present infinitive completes it (Smyth §1991, §1992). λῡ́ουσι and λῡ́ει are finite, so either one would leave the sentence with two finite verbs and no conjunction. λῡ́ων is a participle."
+   },
+   {
+    "id": "gvoice10",
+    "k": 2,
+    "en": "The man wishes to rule the men.",
+    "fr": "ὁ ἄνθρωπος τῶν ἀνθρώπων ______ βούλεται",
+    "a": "ἄρχειν",
+    "ds": [
+     "ἄρχω",
+     "ἄρχει",
+     "λῡ́ειν"
+    ],
+    "why": "βούλεται is the finite verb, and ἄρχειν completes it (Smyth §1992, §1370). ἄρχω and ἄρχει are finite, so either one would be a second finite verb. λῡ́ειν means to loose, but the sentence means to rule."
+   },
+   {
+    "id": "gvoice11",
+    "k": 2,
+    "en": "I order the man to loose the horse.",
+    "fr": "τὸν ἄνθρωπον τὸν ἵππον ______ κελεύω",
+    "a": "λῡ́ειν",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ουσι",
+     "λῡ́ων"
+    ],
+    "why": "κελεύω takes an accusative and an infinitive, so λῡ́ειν completes it, and the man is the accusative subject (Smyth §1996). λῡ́ει and λῡ́ουσι are finite, and λῡ́ων is a participle."
+   },
+   {
+    "id": "gvoice12",
+    "k": 2,
+    "en": "I order the young man to send the gift.",
+    "fr": "τὸν ______ τὸ δῶρον πέμπειν κελεύω",
+    "a": "νεᾱνίᾱν",
+    "ds": [
+     "νεᾱνίᾱς",
+     "νεᾱνίᾳ",
+     "νεᾱνίου"
+    ],
+    "why": "The young man is the one who is ordered to send the gift, so he is the accusative subject of πέμπειν (Smyth §1996). τόν agrees with νεᾱνίᾱν. νεᾱνίᾱς is the subject form, and νεᾱνίᾳ is dative."
+   },
+   {
+    "id": "gvoice13",
+    "k": 2,
+    "en": "I am willing to loose the watchman.",
+    "fr": "τὸν φύλακα ______ ἐθέλω",
+    "a": "λῡ́ειν",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́ει",
+     "λῡ́ων"
+    ],
+    "why": "ἐθέλω is the finite verb of will, and the infinitive completes it (Smyth §1992). In Attic prose the verb is ἐθέλω. λῡ́ουσι would be a second finite verb, and λῡ́ων is a participle."
+   },
+   {
+    "id": "gvoice14",
+    "k": 2,
+    "en": "The man is able to loose the horse.",
+    "fr": "ὁ ἄνθρωπος τὸν ἵππον ______ δύναται",
+    "a": "λῡ́ειν",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ων",
+     "λῡ́ουσι"
+    ],
+    "why": "δύναμαι means be able, and the infinitive completes it (Smyth §2000). Smyth prints δύναται with an infinitive (§3007). λῡ́ει and λῡ́ουσι are finite, and λῡ́ων is a participle."
+   },
+   {
+    "id": "gvoice15",
+    "k": 2,
+    "en": "We are able to rule the men.",
+    "fr": "τῶν ἀνθρώπων ______ δυνάμεθα",
+    "a": "ἄρχειν",
+    "ds": [
+     "ἄρχω",
+     "ἄρχει",
+     "λῡ́ειν"
+    ],
+    "why": "δυνάμεθα is the finite verb, and ἄρχειν completes it (Smyth §2000, §1370). Smyth prints δυνάμεθα with an infinitive (§1154). ἄρχω and ἄρχει are finite, but λῡ́ειν means to loose."
+   },
+   {
+    "id": "gvoice16",
+    "k": 2,
+    "en": "The horse wishes to be loosed.",
+    "fr": "ὁ ἵππος ______ βούλεται",
+    "a": "λῡ́εσθαι",
+    "ds": [
+     "λῡ́ειν",
+     "λῡ́εται",
+     "λῡ́ονται"
+    ],
+    "why": "The horse is the one that receives the loosing, so the infinitive is the present passive λῡ́εσθαι, which has the middle form (Smyth §356 b, §383, §1992). λῡ́ειν is active and would mean that the horse looses something. λῡ́εται and λῡ́ονται are finite."
+   },
+   {
+    "id": "gvoice17",
+    "k": 3,
+    "en": "The man who looses the horse is good.",
+    "fr": "ὁ ______ τὸν ἵππον ἄνθρωπος ἀγαθός ἐστι",
+    "a": "λῡ́ων",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́οντες",
+     "λῡ́οντα"
+    ],
+    "why": "The participle stands between ὁ and ἄνθρωπος, so it is attributive, and it agrees with ἄνθρωπος in the masculine, the singular, and the nominative (Smyth §2049, §1154, §305). λῡ́ει is finite, and λῡ́οντες is plural."
+   },
+   {
+    "id": "gvoice18",
+    "k": 3,
+    "en": "The judge sends the man who looses the horse.",
+    "fr": "ὁ κριτὴς τὸν ______ τὸν ἵππον ἄνθρωπον πέμπει",
+    "a": "λῡ́οντα",
+    "ds": [
+     "λῡ́ων",
+     "λῡ́οντες",
+     "λῡ́ουσαν"
+    ],
+    "why": "The participle stands between τόν and ἄνθρωπον, so it is attributive, and it agrees with ἄνθρωπον in the masculine, the singular, and the accusative (Smyth §2049, §305). λῡ́ων is nominative, and λῡ́ουσαν is feminine."
+   },
+   {
+    "id": "gvoice19",
+    "k": 3,
+    "en": "The men who loose the horse are good.",
+    "fr": "οἱ ______ τὸν ἵππον ἄνθρωποι ἀγαθοί εἰσι",
+    "a": "λῡ́οντες",
+    "ds": [
+     "λῡ́ων",
+     "λῡ́ουσαι",
+     "λῡ́οντας"
+    ],
+    "why": "The participle stands between οἱ and ἄνθρωποι, so it is attributive, and it agrees with ἄνθρωποι in the masculine, the plural, and the nominative (Smyth §2049, §305). λῡ́ων is singular, and λῡ́ουσαι is feminine."
+   },
+   {
+    "id": "gvoice20",
+    "k": 3,
+    "en": "The man sends the gift while loosing the horse.",
+    "fr": "ὁ ἄνθρωπος τὸν ἵππον ______ τὸ δῶρον πέμπει",
+    "a": "λῡ́ων",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́οντες",
+     "λῡ́οντα"
+    ],
+    "why": "The participle has no article, and it agrees with the subject ὁ ἄνθρωπος, so it sets the circumstance of the sending (Smyth §2054, §2056). λῡ́ει is finite, and λῡ́οντα is accusative."
+   },
+   {
+    "id": "gvoice21",
+    "k": 3,
+    "en": "The man, being good, looses the horse.",
+    "fr": "ὁ ἄνθρωπος ἀγαθὸς ______ τὸν ἵππον λῡ́ει",
+    "a": "ὢν",
+    "ds": [
+     "οὖσα",
+     "ὄντες",
+     "ὂν"
+    ],
+    "why": "ὤν has no article, and it agrees with ὁ ἄνθρωπος, so it is circumstantial, and before the next word the acute is written as a grave (Smyth §2054, §305, §154). οὖσα is feminine, and ὂν is neuter."
+   },
+   {
+    "id": "gvoice22",
+    "k": 3,
+    "en": "The road, being long, is good.",
+    "fr": "ἡ ὁδὸς μακρὰ ______ ἀγαθή ἐστι",
+    "a": "οὖσα",
+    "ds": [
+     "ὢν",
+     "οὖσαι",
+     "οὖσαν"
+    ],
+    "why": "οὖσα has no article, and it agrees with ἡ ὁδός, which is feminine, singular, and nominative (Smyth §2054, §305). ὢν is masculine, and οὖσαν is accusative. ὁδός is feminine, so the adjectives are feminine too."
+   },
+   {
+    "id": "gvoice23",
+    "k": 3,
+    "en": "The gift, being good, is in the land.",
+    "fr": "τὸ δῶρον ἀγαθὸν ______ ἐν τῇ χώρᾳ ἐστί",
+    "a": "ὂν",
+    "ds": [
+     "ὢν",
+     "οὖσα",
+     "ὄντα"
+    ],
+    "why": "The participle agrees with τὸ δῶρον, which is neuter, singular, and nominative, so the form is ὄν, written ὂν before the next word (Smyth §2054, §305, §154). ὢν is masculine, and οὖσα is feminine. χώρᾳ has the acute on the penult, so ἐστί keeps its accent (Smyth §183 d)."
+   },
+   {
+    "id": "gvoice24",
+    "k": 3,
+    "en": "The men, being good, loose the horse.",
+    "fr": "οἱ ἄνθρωποι ἀγαθοὶ ______ τὸν ἵππον λῡ́ουσι",
+    "a": "ὄντες",
+    "ds": [
+     "ὢν",
+     "οὖσαι",
+     "ὄντα"
+    ],
+    "why": "ὄντες has no article, and it agrees with οἱ ἄνθρωποι in the masculine, the plural, and the nominative (Smyth §2054, §305). ὢν is singular, and οὖσαι is feminine."
+   }
+  ],
+  "clause": [
+   {
+    "id": "gcls1",
+    "k": 1,
+    "en": "The judge sends the man who looses the horse.",
+    "fr": "ὁ κριτὴς πέμπει τὸν ἄνθρωπον ______ λῡ́ει τὸν ἵππον",
+    "a": "ὃς",
+    "ds": [
+     "ὃν",
+     "ἣ",
+     "οἳ"
+    ],
+    "why": "The man is masculine and singular, and the relative is the subject of λῡ́ει, so it is the nominative ὅς, written ὃς before the next word (Smyth §2501, §338, §154). ὅν would be the object of λῡ́ει, and ἥ is feminine."
+   },
+   {
+    "id": "gcls2",
+    "k": 1,
+    "en": "I send the horse which the judge looses.",
+    "fr": "πέμπω τὸν ἵππον ______ ὁ κριτὴς λῡ́ει",
+    "a": "ὃν",
+    "ds": [
+     "ὃς",
+     "ἣν",
+     "οὓς"
+    ],
+    "why": "The horse is masculine and singular, and the relative is the object of λῡ́ει, so it is accusative, written ὃν before the next word (Smyth §2501, §338, §154). ὅς would be a second subject of λῡ́ει, and ἥν is feminine."
+   },
+   {
+    "id": "gcls3",
+    "k": 1,
+    "en": "The city which the king educates is good.",
+    "fr": "ἡ πόλις ______ ὁ βασιλεὺς παιδεύει ἀγαθή ἐστι",
+    "a": "ἣν",
+    "ds": [
+     "ἣ",
+     "ὃν",
+     "αἳ"
+    ],
+    "why": "The city is feminine and singular, and the relative is the object of παιδεύει, so it is accusative, written ἣν before the next word (Smyth §2501, §338, §154). ἥ would stand as a second subject beside ὁ βασιλεύς, and ὅν is masculine."
+   },
+   {
+    "id": "gcls4",
+    "k": 1,
+    "en": "He trusts the hope which is good.",
+    "fr": "πιστεύει τῇ ἐλπίδι ______ ἀγαθή ἐστι",
+    "a": "ἣ",
+    "ds": [
+     "ἣν",
+     "ὃς",
+     "ὃ"
+    ],
+    "why": "The hope is feminine and singular, and the relative is the subject of ἐστι, so it is nominative, written ἣ before the next word, and not the dative of the antecedent (Smyth §2501, §338, §154). ἥν is accusative, ὅς is masculine, and ὅ is neuter."
+   },
+   {
+    "id": "gcls5",
+    "k": 1,
+    "en": "The gift which the judge sends is good.",
+    "fr": "τὸ δῶρον ______ ὁ κριτὴς πέμπει ἀγαθόν ἐστι",
+    "a": "ὃ",
+    "ds": [
+     "ὃν",
+     "ὃς",
+     "ἣ"
+    ],
+    "why": "The gift is neuter and singular, and the relative is the object of πέμπει, so the form is ὅ, written ὃ before the next word (Smyth §2501, §338, §154). ὅν and ὅς are masculine, and ἥ is feminine."
+   },
+   {
+    "id": "gcls6",
+    "k": 1,
+    "en": "The king sends the men who loose the horse.",
+    "fr": "ὁ βασιλεὺς πέμπει τοὺς ἀνθρώπους ______ λῡ́ουσι τὸν ἵππον",
+    "a": "οἳ",
+    "ds": [
+     "ὃς",
+     "οὓς",
+     "αἳ"
+    ],
+    "why": "The men are masculine and plural, and the relative is the subject of λῡ́ουσι, so it is nominative plural, written οἳ before the next word (Smyth §2501, §338, §154). ὅς is singular, and οὕς would be the object, but τὸν ἵππον is already the object."
+   },
+   {
+    "id": "gcls7",
+    "k": 1,
+    "en": "The judge whom I trust is good.",
+    "fr": "ὁ κριτὴς ______ πιστεύω ἀγαθός ἐστι",
+    "a": "ᾧ",
+    "ds": [
+     "ὃν",
+     "ὃς",
+     "ὃ"
+    ],
+    "why": "πιστεύω takes the dative, and the relative takes its case from its own clause, so it is ᾧ (Smyth §2501, §1745, §338). ὅν would be the object of a verb that takes the accusative, ὅς would be a second subject of πιστεύω, and ὅ is neuter."
+   },
+   {
+    "id": "gcls8",
+    "k": 1,
+    "en": "The men whom the king rules are good.",
+    "fr": "οἱ ἄνθρωποι ______ ὁ βασιλεὺς ἄρχει ἀγαθοί εἰσι",
+    "a": "ὧν",
+    "ds": [
+     "οὓς",
+     "οἳ",
+     "οἷς"
+    ],
+    "why": "ἄρχω takes the genitive of the people ruled, and the relative takes its case from its own clause, so it is ὧν (Smyth §2501, §1370, §338). οὕς is accusative, and οἵ would be a second subject of ἄρχει."
+   },
+   {
+    "id": "gcls9",
+    "k": 2,
+    "en": "The judge sends the gift because the king looses the horse.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ______ ὁ βασιλεὺς λῡ́ει τὸν ἵππον",
+    "a": "ὅτι",
+    "ds": [
+     "ὃς",
+     "εἰ",
+     "ἵνα"
+    ],
+    "why": "The clause gives the cause, so the conjunction is ὅτι, and λῡ́ει stays in the indicative (Smyth §2240, §2241). ὅς would be a relative, but the clause already has ὁ βασιλεύς as its subject. ἵνα would mean in order that."
+   },
+   {
+    "id": "gcls10",
+    "k": 2,
+    "en": "The king sends the horse because the judge is good.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸν ἵππον ὅτι ὁ κριτὴς ἀγαθός ______",
+    "a": "ἐστι",
+    "ds": [
+     "εἶναι",
+     "ᾖ",
+     "εἰσί"
+    ],
+    "why": "A causal clause that states a fact takes the indicative, so the verb is ἐστι (Smyth §2241). εἶναι is an infinitive, and ᾖ is subjunctive. εἰσί is plural, but ὁ κριτής is singular."
+   },
+   {
+    "id": "gcls11",
+    "k": 2,
+    "en": "The judge sends the gift because the king does not loose the horse.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ὅτι ὁ βασιλεὺς τὸν ἵππον ______ λῡ́ει",
+    "a": "οὐ",
+    "ds": [
+     "μὴ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "The negative of a causal fact is οὐ, and οὐ is the form before a consonant (Smyth §2240, §137). μή is the negative of purpose, of the protasis, and of a fear. οὐκ stands before a smooth vowel, and οὐχ before a rough vowel."
+   },
+   {
+    "id": "gcls12",
+    "k": 2,
+    "en": "The king sends the gift because the men loose the horse.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸ δῶρον ὅτι οἱ ἄνθρωποι τὸν ἵππον ______",
+    "a": "λῡ́ουσι",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ωσι",
+     "λῡ́ειν"
+    ],
+    "why": "The subject οἱ ἄνθρωποι is plural, and a fact takes the indicative, so the verb is λῡ́ουσι (Smyth §2241, §383). λῡ́ει is singular, and λῡ́ωσι is subjunctive."
+   },
+   {
+    "id": "gcls13",
+    "k": 2,
+    "en": "The judge sends the gift because the king loosed the horse.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ὅτι ὁ βασιλεὺς τὸν ἵππον ______",
+    "a": "ἔλῡσε",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́σῃ",
+     "λῦσαι"
+    ],
+    "why": "The loosing is a past fact, so the causal clause has the aorist indicative (Smyth §2241, §383). λῡ́ει is present, and λῡ́σῃ is subjunctive. λῦσαι is the aorist infinitive."
+   },
+   {
+    "id": "gcls14",
+    "k": 2,
+    "en": "The judge sends the gift because the men are good.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ὅτι οἱ ἄνθρωποι ἀγαθοί ______",
+    "a": "εἰσι",
+    "ds": [
+     "ἐστι",
+     "εἶναι",
+     "ὦσι"
+    ],
+    "why": "The men are plural, and a causal fact takes the indicative, so the verb is εἰσι (Smyth §2241). ἐστι is singular, and ὦσι is subjunctive. After the oxytone ἀγαθοί the enclitic has no accent (Smyth §183 a)."
+   },
+   {
+    "id": "gcls15",
+    "k": 2,
+    "en": "The judge sends the gift because you loose the horse.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ὅτι τὸν ἵππον ______",
+    "a": "λῡ́εις",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ῃς",
+     "λῡ́ειν"
+    ],
+    "why": "The subject is “you,” one person, and a causal fact takes the indicative, so the verb is λῡ́εις (Smyth §2241, §383). λῡ́ει would mean that someone else looses the horse, and λῡ́ῃς is subjunctive."
+   },
+   {
+    "id": "gcls16",
+    "k": 3,
+    "en": "If the king looses the horse, the judge sends the gift.",
+    "fr": "______ ὁ βασιλεὺς λῡ́ει τὸν ἵππον, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "εἰ",
+    "ds": [
+     "ἐᾱ̀ν",
+     "οὐ",
+     "ὅτι"
+    ],
+    "why": "A simple present condition has εἰ with the indicative (Smyth §2291, §2282). ἐᾱ́ν takes the subjunctive, and οὐ is a negative, not a conjunction."
+   },
+   {
+    "id": "gcls17",
+    "k": 3,
+    "en": "If the judge is good, the king sends the horse.",
+    "fr": "εἰ ὁ κριτὴς ἀγαθός ______, ὁ βασιλεὺς πέμπει τὸν ἵππον",
+    "a": "ἐστιν",
+    "ds": [
+     "ᾖ",
+     "εἴη",
+     "εἶναι"
+    ],
+    "why": "A simple present condition has the indicative, and ν stands before the vowel (Smyth §2291, §134). ᾖ is subjunctive and would stand with ἐᾱ́ν, and εἴη is optative. After ἀγαθός the enclitic has no accent (Smyth §183 a)."
+   },
+   {
+    "id": "gcls18",
+    "k": 3,
+    "en": "If the men were loosing the horse, the judge sends the gift.",
+    "fr": "εἰ οἱ ἄνθρωποι τὸν ἵππον ______, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "ἔλῡον",
+    "ds": [
+     "λῡ́ουσι",
+     "λῡ́ωσι",
+     "ἔλῡσαν"
+    ],
+    "why": "The loosing went on in the past, so the protasis has the imperfect indicative (Smyth §2291, §383). λῡ́ουσι is present, and λῡ́ωσι is subjunctive. ἔλῡσαν is aorist, a single act rather than a continued one."
+   },
+   {
+    "id": "gcls19",
+    "k": 3,
+    "en": "If the king loosed the horse, the judge sends the gift.",
+    "fr": "εἰ ὁ βασιλεὺς τὸν ἵππον ______, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "ἔλῡσεν",
+    "ds": [
+     "ἔλῡσαν",
+     "λῡ́ει",
+     "λῡ́σῃ"
+    ],
+    "why": "The loosing is one past act, so the protasis has the aorist indicative, with ν before the vowel (Smyth §2291, §383, §134). ἔλῡσαν is plural, and λῡ́σῃ is subjunctive."
+   },
+   {
+    "id": "gcls20",
+    "k": 3,
+    "en": "If the king does not loose the horse, the judge sends the gift.",
+    "fr": "εἰ ______ ὁ βασιλεὺς λῡ́ει τὸν ἵππον, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "μὴ",
+    "ds": [
+     "οὐ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "The negative of the protasis is μή, written μὴ before the next word (Smyth §2286, §154). οὐ is the negative of a statement of fact. Before the rough breathing of ὁ, that negative would be spelled οὐχ, and οὐκ stands before a smooth vowel (Smyth §137)."
+   },
+   {
+    "id": "gcls21",
+    "k": 3,
+    "en": "If the men loose the horse, the king sends the gift.",
+    "fr": "εἰ οἱ ἄνθρωποι τὸν ἵππον ______, ὁ βασιλεὺς πέμπει τὸ δῶρον",
+    "a": "λῡ́ουσιν",
+    "ds": [
+     "λῡ́σαιεν",
+     "λῡ́ωσι",
+     "ἔλῡον"
+    ],
+    "why": "A simple present condition has the indicative, and οἱ ἄνθρωποι is plural, so the verb is λῡ́ουσι, with ν before the vowel (Smyth §2291, §383, §134). λῡ́σαιεν is optative, λῡ́ωσι is subjunctive, and ἔλῡον is imperfect."
+   },
+   {
+    "id": "gcls22",
+    "k": 3,
+    "en": "If you loose the horse, the judge sends the gift.",
+    "fr": "εἰ τὸν ἵππον ______, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "λῡ́εις",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́ῃς",
+     "λῡ́ειν"
+    ],
+    "why": "A simple present condition has the indicative, and the subject is “you,” one person, so the verb is λῡ́εις (Smyth §2291, §383). λῡ́ῃς is subjunctive, and λῡ́ει would mean that someone else looses the horse."
+   },
+   {
+    "id": "gcls23",
+    "k": 4,
+    "en": "He says that the king looses the horse.",
+    "fr": "φησὶ τὸν βασιλέᾱ τὸν ἵππον ______",
+    "a": "λῡ́ειν",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́οιμι",
+     "λῦσαι"
+    ],
+    "why": "φημί takes the infinitive, and a present fact is the present infinitive (Smyth §2016, §2017 a, §1867 a). λῡ́ει is indicative, and λῡ́οιμι is optative. λῦσαι would make the loosing past."
+   },
+   {
+    "id": "gcls24",
+    "k": 4,
+    "en": "He says that the judge is good.",
+    "fr": "φησὶ τὸν ______ ἀγαθὸν εἶναι",
+    "a": "κριτὴν",
+    "ds": [
+     "κριτὴς",
+     "κριτῇ",
+     "κριτοῦ"
+    ],
+    "why": "The subject of the infinitive is not the subject of φησί, so it stands in the accusative, written κριτὴν before the next word (Smyth §1975, §2016, §154). κριτής is nominative, and κριτῇ is dative."
+   },
+   {
+    "id": "gcls25",
+    "k": 4,
+    "en": "He says that the king looses the horse.",
+    "fr": "λέγει ὅτι ὁ βασιλεὺς τὸν ἵππον ______",
+    "a": "λῡ́ει",
+    "ds": [
+     "λῡ́ειν",
+     "λῡ́ῃ",
+     "λῡ́οι"
+    ],
+    "why": "λέγω with ὅτι takes the indicative, and the leading verb is present, so the optative is not used (Smyth §2577, §2017 b). λῡ́ειν is the infinitive, and with the active of λέγω the infinitive means a command (Smyth §2017 b)."
+   },
+   {
+    "id": "gcls26",
+    "k": 4,
+    "en": "I think that the horse is good.",
+    "fr": "νομίζω τὸν ἵππον ἀγαθὸν ______",
+    "a": "εἶναι",
+    "ds": [
+     "ἐστι",
+     "λῡ́ειν",
+     "εἴη"
+    ],
+    "why": "A verb of thinking takes the infinitive (Smyth §2016, §2580). ἐστι is indicative, and λῡ́ειν would mean that the horse looses something."
+   },
+   {
+    "id": "gcls27",
+    "k": 4,
+    "en": "The judge says that he himself is good.",
+    "fr": "ὁ κριτὴς φησὶ ______ εἶναι",
+    "a": "ἀγαθὸς",
+    "ds": [
+     "ἀγαθὸν",
+     "ἀγαθῷ",
+     "ἀγαθοῦ"
+    ],
+    "why": "The subject of the infinitive is the same as the subject of φησί, so it is omitted, and the adjective is nominative, written ἀγαθὸς before εἶναι (Smyth §1973, §2017 a, §154). ἀγαθόν would be the predicate of a different subject, in the accusative (Smyth §1975)."
+   },
+   {
+    "id": "gcls28",
+    "k": 4,
+    "en": "He says that the men loose the horse.",
+    "fr": "λέγει ὅτι οἱ ἄνθρωποι τὸν ἵππον ______",
+    "a": "λῡ́ουσι",
+    "ds": [
+     "λῡ́οιεν",
+     "λῡ́ειν",
+     "λῡ́ωσι"
+    ],
+    "why": "ὅτι with λέγω takes the indicative, and οἱ ἄνθρωποι is plural (Smyth §2577, §2017 b). λῡ́οιεν is optative, λῡ́ωσι is subjunctive, and λῡ́ειν is the infinitive of a command with active λέγω (Smyth §2017 b)."
+   },
+   {
+    "id": "gcls29",
+    "k": 4,
+    "en": "He says that the judge is good.",
+    "fr": "λέγει ὅτι ὁ κριτὴς ἀγαθός ______",
+    "a": "ἐστι",
+    "ds": [
+     "εἶναι",
+     "ᾖ",
+     "εἴη"
+    ],
+    "why": "λέγω with ὅτι takes the indicative (Smyth §2577). εἶναι is the infinitive used after φημί and νομίζω, and ᾖ is subjunctive. After ἀγαθός the enclitic has no accent (Smyth §183 a)."
+   },
+   {
+    "id": "gcls30",
+    "k": 4,
+    "en": "He says that the king loosed the horse.",
+    "fr": "φησὶ τὸν βασιλέᾱ τὸν ἵππον ______",
+    "a": "λῦσαι",
+    "ds": [
+     "λῡ́ειν",
+     "ἔλῡσε",
+     "λῡ́σῃ"
+    ],
+    "why": "φημί takes the infinitive, and the aorist infinitive stands for an aorist indicative (Smyth §2016, §1867 d). λῡ́ειν is present, and ἔλῡσε is the indicative itself."
+   },
+   {
+    "id": "gcls31",
+    "k": 5,
+    "en": "While the king is loosing the horse, the judge sends the gift.",
+    "fr": "τοῦ βασιλέως τὸν ἵππον ______, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "λῡ́οντος",
+    "ds": [
+     "λῡ́οντας",
+     "λῡ́οντα",
+     "λῡούσης"
+    ],
+    "why": "The king is not the subject or the object of πέμπει, so the phrase stands in the genitive absolute, and λῡ́οντος agrees with βασιλέως (Smyth §2070, §305). λῡ́οντας is accusative plural, and λῡούσης is feminine."
+   },
+   {
+    "id": "gcls32",
+    "k": 5,
+    "en": "Because the road is long, the man sends the horse.",
+    "fr": "τῆς ὁδοῦ μακρᾶς ______, ὁ ἄνθρωπος πέμπει τὸν ἵππον",
+    "a": "οὔσης",
+    "ds": [
+     "ὄντος",
+     "οὖσα",
+     "οὖσαν"
+    ],
+    "why": "The road is not in the main construction, so the phrase is a genitive absolute, and οὔσης agrees with ὁδοῦ (Smyth §2070, §305). ὄντος is masculine, and οὖσα is nominative."
+   },
+   {
+    "id": "gcls33",
+    "k": 5,
+    "en": "While the gift is good, the judge sends the horse.",
+    "fr": "τοῦ δώρου ἀγαθοῦ ______, ὁ κριτὴς πέμπει τὸν ἵππον",
+    "a": "ὄντος",
+    "ds": [
+     "οὔσης",
+     "ὂν",
+     "ὄντα"
+    ],
+    "why": "The gift is not in the main construction, so the phrase is a genitive absolute, and ὄντος agrees with δώρου in the neuter (Smyth §2070, §305). οὔσης is feminine, and ὄν is nominative."
+   },
+   {
+    "id": "gcls34",
+    "k": 5,
+    "en": "While the men are loosing the horse, the king sends the gift.",
+    "fr": "τῶν ἀνθρώπων τὸν ἵππον ______, ὁ βασιλεὺς πέμπει τὸ δῶρον",
+    "a": "λῡόντων",
+    "ds": [
+     "λῡ́οντος",
+     "λῡ́οντες",
+     "λῡ́οντας"
+    ],
+    "why": "The men are not the subject or the object of πέμπει, so the phrase is a genitive absolute, and λῡόντων is genitive plural (Smyth §2070, §305). λῡ́οντος is singular, and λῡ́οντες is nominative."
+   },
+   {
+    "id": "gcls35",
+    "k": 5,
+    "en": "While the guard is good, the king sends the horse.",
+    "fr": "τοῦ ______ ἀγαθοῦ ὄντος, ὁ βασιλεὺς πέμπει τὸν ἵππον",
+    "a": "φύλακος",
+    "ds": [
+     "φυλάκων",
+     "φύλακα",
+     "φύλακι"
+    ],
+    "why": "The guard is not in the main construction, so the noun stands in the genitive with ὄντος (Smyth §2070, §305). φυλάκων is plural, and φύλακα is accusative."
+   },
+   {
+    "id": "gcls36",
+    "k": 5,
+    "en": "While the victories are good, the king sends the gift.",
+    "fr": "τῶν νῑκῶν ἀγαθῶν ______, ὁ βασιλεὺς πέμπει τὸ δῶρον",
+    "a": "οὐσῶν",
+    "ds": [
+     "ὄντων",
+     "οὖσαι",
+     "οὔσης"
+    ],
+    "why": "The victories are not in the main construction, so the phrase is a genitive absolute, and οὐσῶν agrees with νῑκῶν in the feminine plural (Smyth §2070, §305). ὄντων is masculine or neuter, and οὔσης is singular."
+   },
+   {
+    "id": "gcls37",
+    "k": 5,
+    "en": "Because the hope is good, the judge sends the gift.",
+    "fr": "τῆς ἐλπίδος ______ οὔσης, ὁ κριτὴς πέμπει τὸ δῶρον",
+    "a": "ἀγαθῆς",
+    "ds": [
+     "ἀγαθὴ",
+     "ἀγαθὸν",
+     "ἀγαθοῦ"
+    ],
+    "why": "The hope is not in the main construction, so the phrase is a genitive absolute, and ἀγαθῆς agrees with ἐλπίδος in the genitive feminine (Smyth §2070). ἀγαθή is nominative, and ἀγαθοῦ is masculine."
+   }
+  ],
+  "mood": [
+   {
+    "id": "gmood1",
+    "k": 1,
+    "en": "Present subjunctive, third person singular, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́ῃ",
+    "ds": [
+     "λῦε",
+     "λῡ́οι",
+     "λῡ́σῃ"
+    ],
+    "why": "The present subjunctive lengthens the thematic vowel, so the third person singular is λῡ́ῃ (Smyth §383). λῦε is the imperative, λῡ́οι is optative, and λῡ́σῃ is aorist."
+   },
+   {
+    "id": "gmood2",
+    "k": 1,
+    "en": "Present subjunctive, third person plural, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́ωσι",
+    "ds": [
+     "λῦε",
+     "λῡ́οιεν",
+     "λῡ́σωσι"
+    ],
+    "why": "The present subjunctive, third person plural, is λῡ́ωσι (Smyth §383). λῦε is the imperative, λῡ́οιεν is optative, and λῡ́σωσι is aorist."
+   },
+   {
+    "id": "gmood3",
+    "k": 1,
+    "en": "Present optative, third person singular, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́οι",
+    "ds": [
+     "λῦε",
+     "λῡ́ῃ",
+     "λῡ́σαι"
+    ],
+    "why": "The present optative, third person singular, is λῡ́οι (Smyth §383). λῦε is the imperative, λῡ́ῃ is subjunctive, and λῡ́σαι is the aorist optative."
+   },
+   {
+    "id": "gmood4",
+    "k": 1,
+    "en": "Present optative, first person singular, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́οιμι",
+    "ds": [
+     "λῡ́ω",
+     "λῡ́οι",
+     "λῡ́σαιμι"
+    ],
+    "why": "The present optative, first person singular, is λῡ́οιμι (Smyth §383). λῡ́ω is indicative or present subjunctive, λῡ́οι is the third person, and λῡ́σαιμι is aorist."
+   },
+   {
+    "id": "gmood5",
+    "k": 1,
+    "en": "Aorist subjunctive, third person singular, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́σῃ",
+    "ds": [
+     "λῡ́σει",
+     "λῡ́σαι",
+     "ἔλῡσε"
+    ],
+    "why": "The aorist subjunctive, third person singular, is λῡ́σῃ (Smyth §383). λῡ́σει is future indicative, λῡ́σαι is optative, and ἔλῡσε is the aorist indicative."
+   },
+   {
+    "id": "gmood6",
+    "k": 1,
+    "en": "Aorist optative, third person singular, of “loose.”",
+    "fr": "______",
+    "a": "λῡ́σαι",
+    "ds": [
+     "λῡ́σῃ",
+     "λῡ́σει",
+     "ἔλῡσε"
+    ],
+    "why": "The aorist optative, third person singular, is λῡ́σαι (Smyth §383). λῡ́σῃ is subjunctive, λῡ́σει is future indicative, and ἔλῡσε is the aorist indicative."
+   },
+   {
+    "id": "gmood7",
+    "k": 1,
+    "en": "Present subjunctive, third person singular, of “educate.”",
+    "fr": "______",
+    "a": "παιδεύῃ",
+    "ds": [
+     "λῦε",
+     "παιδεύοι",
+     "παιδεύσῃ"
+    ],
+    "why": "παιδεύω is the same kind of verb as λῡ́ω, so the present subjunctive, third person singular, is παιδεύῃ (Smyth §376 a, §383, §423). λῦε is the imperative of λῡ́ω, παιδεύοι is optative, and παιδεύσῃ is aorist."
+   },
+   {
+    "id": "gmood8",
+    "k": 1,
+    "en": "Aorist optative, third person singular, of “educate.”",
+    "fr": "______",
+    "a": "παιδεύσαι",
+    "ds": [
+     "παιδεύσῃ",
+     "παιδεύει",
+     "ἐπαίδευσα"
+    ],
+    "why": "Smyth prints παιδεύσαι as the aorist optative, third person singular (Smyth §427, §383). παιδεύσῃ is subjunctive, παιδεύει is the present indicative, and ἐπαίδευσα is the aorist indicative."
+   },
+   {
+    "id": "gmood9",
+    "k": 2,
+    "en": "The king sends the horse in order that the judge may loose it.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸν ἵππον ἵνα ὁ κριτὴς ______ αὐτόν",
+    "a": "λῡ́σῃ",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́σαι",
+     "λῡ́ειν"
+    ],
+    "why": "After a primary tense, purpose takes the subjunctive (Smyth §2196, §2193). λῡ́σαι is optative, and λῡ́ει is indicative. αὐτόν is the horse, not the subject (Smyth §328 b)."
+   },
+   {
+    "id": "gmood10",
+    "k": 2,
+    "en": "The king sends the horse in order that the judge may not loose it.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸν ἵππον ἵνα ὁ κριτὴς ______ λῡ́σῃ αὐτόν",
+    "a": "μὴ",
+    "ds": [
+     "οὐ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "The negative of purpose is μή, written μὴ before the next word (Smyth §2193, §2196, §154). οὐ is the negative of a statement. οὐκ stands before a smooth vowel, and οὐχ before a rough vowel (Smyth §137)."
+   },
+   {
+    "id": "gmood11",
+    "k": 2,
+    "en": "The judge educates the young man in order that the king may loose the horse.",
+    "fr": "ὁ κριτὴς παιδεύει τὸν νεᾱνίᾱν ______ ὁ βασιλεὺς λῡ́σῃ τὸν ἵππον",
+    "a": "ἵνα",
+    "ds": [
+     "ὅτι",
+     "εἰ",
+     "ὥστε"
+    ],
+    "why": "Purpose is introduced by ἵνα, with the subjunctive after a primary tense (Smyth §2193, §2196). ὅτι would mean because or that, and ὥστε would introduce a result."
+   },
+   {
+    "id": "gmood12",
+    "k": 2,
+    "en": "The king sends the gift in order that the men may loose the horse.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸ δῶρον ἵνα οἱ ἄνθρωποι τὸν ἵππον ______",
+    "a": "λῡ́σωσι",
+    "ds": [
+     "λῡ́σῃ",
+     "λῡ́σουσι",
+     "λῡ́σαιεν"
+    ],
+    "why": "After a primary tense, purpose takes the subjunctive, and οἱ ἄνθρωποι is plural, so the verb is λῡ́σωσι (Smyth §2196, §383). λῡ́σῃ is singular, and λῡ́σουσι is future indicative. λῡ́σαιεν is optative."
+   },
+   {
+    "id": "gmood13",
+    "k": 2,
+    "en": "The king sends the horse in order that you may loose it.",
+    "fr": "ὁ βασιλεὺς πέμπει τὸν ἵππον ἵνα ______ αὐτόν",
+    "a": "λῡ́σῃς",
+    "ds": [
+     "λῡ́σῃ",
+     "λῡ́σεις",
+     "λῡ́σαις"
+    ],
+    "why": "After a primary tense, purpose takes the subjunctive, and the subject is “you,” one person, so the form is λῡ́σῃς (Smyth §2196, §383). λῡ́σεις is future indicative, and λῡ́σαις is optative."
+   },
+   {
+    "id": "gmood14",
+    "k": 2,
+    "en": "The judge sends the gift in order that we may educate the young man.",
+    "fr": "ὁ κριτὴς πέμπει τὸ δῶρον ἵνα τὸν νεᾱνίᾱν ______",
+    "a": "παιδεύσωμεν",
+    "ds": [
+     "παιδεύσω",
+     "παιδεύσαιμεν",
+     "παιδεύοιμεν"
+    ],
+    "why": "After a primary tense, purpose takes the subjunctive, and the subject is “we,” so the form is παιδεύσωμεν (Smyth §2196, §376 a, §423). παιδεύσω is singular, παιδεύσαιμεν is the aorist optative, and παιδεύοιμεν is the present optative."
+   },
+   {
+    "id": "gmood15",
+    "k": 2,
+    "en": "The men were loosing the horse in order that the judge might not educate the young man.",
+    "fr": "οἱ ἄνθρωποι τὸν ἵππον ἔλῡον ἵνα ὁ κριτὴς τὸν νεᾱνίᾱν ______ παιδεύοι",
+    "a": "μὴ",
+    "ds": [
+     "οὐ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "After the imperfect, the purpose clause stands here in the optative, and its negative is μή, written μὴ before the next word (Smyth §2196, §2193, §154). οὐ is the negative of a statement, not of purpose."
+   },
+   {
+    "id": "gmood16",
+    "k": 2,
+    "en": "The men were educating the young man in order that the king might loose the horse.",
+    "fr": "οἱ ἄνθρωποι τὸν νεᾱνίᾱν ἐπαίδευον ______ ὁ βασιλεὺς λῡ́σαι τὸν ἵππον",
+    "a": "ἵνα",
+    "ds": [
+     "ὅτι",
+     "εἰ",
+     "ὥστε"
+    ],
+    "why": "After a secondary tense, ἵνα still introduces purpose, and the optative is one mood that clause allows (Smyth §2193, §2196). ὅτι would mean because or that, and ὥστε would introduce a result."
+   },
+   {
+    "id": "gmood17",
+    "k": 3,
+    "en": "The king is so wise as to educate the young man.",
+    "fr": "ὁ βασιλεὺς οὕτω σοφός ἐστιν ὥστε τὸν νεᾱνίᾱν ______",
+    "a": "παιδεύειν",
+    "ds": [
+     "παιδεύει",
+     "παιδεύῃ",
+     "παιδεύσαι"
+    ],
+    "why": "The sentence says what he is wise enough to do, a natural result, so ὥστε takes the infinitive (Smyth §2258, §2251). παιδεύει would state an actual fact, and παιδεύῃ is subjunctive. οὕτω stands before a consonant, and ἐστιν takes ν before the vowel (Smyth §136, §134)."
+   },
+   {
+    "id": "gmood18",
+    "k": 3,
+    "en": "The king is so good that he educates the young man.",
+    "fr": "ὁ βασιλεὺς οὕτως ἀγαθός ἐστιν ὥστε τὸν νεᾱνίᾱν ______",
+    "a": "παιδεύει",
+    "ds": [
+     "παιδεύειν",
+     "παιδεύῃ",
+     "παιδεύοι"
+    ],
+    "why": "The clause states an actual result, so ὥστε takes the indicative (Smyth §2257). παιδεύειν would state only a natural result, and παιδεύῃ is subjunctive."
+   },
+   {
+    "id": "gmood19",
+    "k": 3,
+    "en": "The gift is so good as for the judge to send it.",
+    "fr": "τὸ δῶρον οὕτως ἀγαθόν ἐστιν ὥστε τὸν κριτὴν ______ αὐτό",
+    "a": "πέμπειν",
+    "ds": [
+     "πέμπει",
+     "παιδεύειν",
+     "πέμπω"
+    ],
+    "why": "This is a natural result with a subject of its own, so ὥστε takes the infinitive, and the judge stands in the accusative (Smyth §2258, §1975). πέμπει and πέμπω are indicative, and παιδεύειν would mean educate."
+   },
+   {
+    "id": "gmood20",
+    "k": 3,
+    "en": "The gift is so good that the judge sends it.",
+    "fr": "τὸ δῶρον οὕτως ἀγαθόν ἐστιν ὥστε ὁ κριτὴς ______ αὐτό",
+    "a": "πέμπει",
+    "ds": [
+     "πέμπειν",
+     "πέμπων",
+     "πέμπω"
+    ],
+    "why": "The clause states an actual result, and the judge is its subject, so ὥστε takes the indicative πέμπει (Smyth §2257). πέμπειν is the infinitive of a natural result."
+   },
+   {
+    "id": "gmood21",
+    "k": 3,
+    "en": "The judge is so wise that he does not send the gift.",
+    "fr": "ὁ κριτὴς οὕτω σοφός ἐστιν ὥστε τὸ δῶρον ______ πέμπει",
+    "a": "οὐ",
+    "ds": [
+     "μὴ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "An actual result has the indicative, and the negative of that finite verb is οὐ, the form before a consonant (Smyth §2257, §2251, §137). μή is the negative used with ὥστε and the infinitive."
+   },
+   {
+    "id": "gmood22",
+    "k": 3,
+    "en": "The men are so good that they loose the horse.",
+    "fr": "οἱ ἄνθρωποι οὕτως ἀγαθοί εἰσιν ὥστε τὸν ἵππον ______",
+    "a": "λῡ́ουσι",
+    "ds": [
+     "λῡ́οιεν",
+     "λῡ́ειν",
+     "λῡ́ωσι"
+    ],
+    "why": "The clause states an actual result, so the verb is indicative, and οἱ ἄνθρωποι is plural (Smyth §2257, §383). λῡ́οιεν is optative, λῡ́ειν would be a natural result, and λῡ́ωσι is subjunctive."
+   },
+   {
+    "id": "gmood23",
+    "k": 4,
+    "en": "I fear that the king may loose the horse.",
+    "fr": "φοβοῦμαι ______ ὁ βασιλεὺς λῡ́σῃ τὸν ἵππον",
+    "a": "μὴ",
+    "ds": [
+     "ἵνα",
+     "ὅτι",
+     "εἰ"
+    ],
+    "why": "A fear that something may happen is introduced by μή, written μὴ before the next word, with the subjunctive after a primary tense (Smyth §2221, §2225, §154). ἵνα would mean in order that, and ὅτι would mean that or because."
+   },
+   {
+    "id": "gmood24",
+    "k": 4,
+    "en": "He fears that the judge may educate the young man.",
+    "fr": "φοβεῖται μὴ ὁ κριτὴς τὸν νεᾱνίᾱν ______",
+    "a": "παιδεύσῃ",
+    "ds": [
+     "παιδεύει",
+     "παιδεύσαι",
+     "παιδεύειν"
+    ],
+    "why": "After the primary tense φοβεῖται, the fear clause has the subjunctive (Smyth §2225, §383). The optative after a primary tense is rare (Smyth §2227). παιδεύει is indicative."
+   },
+   {
+    "id": "gmood25",
+    "k": 4,
+    "en": "I fear that the men may loose the horse.",
+    "fr": "φοβοῦμαι μὴ οἱ ἄνθρωποι τὸν ἵππον ______",
+    "a": "λῡ́σωσι",
+    "ds": [
+     "λῡ́σῃ",
+     "λῡ́σουσι",
+     "λῡ́σαιεν"
+    ],
+    "why": "After φοβοῦμαι the fear clause has the subjunctive, and οἱ ἄνθρωποι is plural (Smyth §2225, §383). λῡ́σουσι is future indicative, and λῡ́σαιεν is optative."
+   },
+   {
+    "id": "gmood26",
+    "k": 4,
+    "en": "I fear that the king may not loose the horse.",
+    "fr": "φοβοῦμαι μὴ ______ λῡ́σῃ τὸν ἵππον ὁ βασιλεύς",
+    "a": "οὐ",
+    "ds": [
+     "μὴ",
+     "οὐκ",
+     "οὐχ"
+    ],
+    "why": "A fear that something may not happen has μὴ οὐ, and the verb stays in the subjunctive (Smyth §2221, §2225). οὐ is the form before a consonant (Smyth §137). A second μή is not the negative of the verb."
+   },
+   {
+    "id": "gmood27",
+    "k": 4,
+    "en": "I fear that you may loose the horse.",
+    "fr": "φοβοῦμαι μὴ τὸν ἵππον ______",
+    "a": "λῡ́σῃς",
+    "ds": [
+     "λῡ́σῃ",
+     "λῡ́σεις",
+     "λῡ́σαις"
+    ],
+    "why": "After φοβοῦμαι the fear clause has the subjunctive, and the subject is “you,” one person (Smyth §2225, §383). λῡ́σεις is future indicative, and λῡ́σαις is optative."
+   },
+   {
+    "id": "gmood28",
+    "k": 4,
+    "en": "I fear that the king is loosing the horse.",
+    "fr": "φοβοῦμαι μὴ ὁ βασιλεὺς τὸν ἵππον ______",
+    "a": "λῡ́ῃ",
+    "ds": [
+     "λῡ́ει",
+     "λῡ́οι",
+     "λῡ́ειν"
+    ],
+    "why": "The fear is that the loosing is going on, so the present subjunctive stands after φοβοῦμαι (Smyth §2225, §383). λῡ́ει is indicative, and the optative is not the mood after a primary tense (Smyth §2227)."
+   },
+   {
+    "id": "gmood29",
+    "k": 4,
+    "en": "He fears that we may loose the horse.",
+    "fr": "φοβεῖται μὴ τὸν ἵππον ______",
+    "a": "λῡ́σωμεν",
+    "ds": [
+     "λῡ́σω",
+     "λῡ́σομεν",
+     "λῡ́οιμεν"
+    ],
+    "why": "After the primary φοβεῖται, the fear clause has the subjunctive, and the subject is “we” (Smyth §2225, §383). λῡ́σομεν is future indicative, and λῡ́οιμεν is optative."
    }
   ]
  }
