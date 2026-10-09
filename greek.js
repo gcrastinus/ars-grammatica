@@ -3080,22 +3080,6 @@ window.GREEK = {
     ]
    },
    {
-    "id": "gcase8",
-    "s": "πέμπει τὸ δῶρον τῷ <b>κριτῇ</b>",
-    "q": "What case is the marked word?",
-    "a": "Dative",
-    "ds": [
-     "Accusative",
-     "Genitive",
-     "Nominative"
-    ],
-    "why": "κριτῇ is the person to whom the gift is sent. That person stands in the dative (§1469).",
-    "lang": "grc",
-    "src": [
-     "smyth"
-    ]
-   },
-   {
     "id": "gcase9",
     "s": "ὁ ἄνθρωπος τὸν ἵππον <b>λίθῳ</b> παύει",
     "q": "What case is the marked word?",
@@ -3106,22 +3090,6 @@ window.GREEK = {
      "Nominative"
     ],
     "why": "λίθῳ is the means. The dative of means needs no preposition (§1507).",
-    "lang": "grc",
-    "src": [
-     "smyth"
-    ]
-   },
-   {
-    "id": "gcase10",
-    "s": "τῇ μακρᾷ <b>ἡμέρᾳ</b> ὁ βασιλεὺς γράφει",
-    "q": "What case is the marked word?",
-    "a": "Dative",
-    "ds": [
-     "Accusative",
-     "Genitive",
-     "Nominative"
-    ],
-    "why": "ἡμέρᾳ is the time when. The dative of time when usually has an attributive, here μακρᾷ (§1539).",
     "lang": "grc",
     "src": [
      "smyth"
@@ -3220,22 +3188,6 @@ window.GREEK = {
      "Nominative"
     ],
     "why": "ἐκ takes the genitive only (§1688). Before a consonant the form is ἐκ (§136).",
-    "lang": "grc",
-    "src": [
-     "smyth"
-    ]
-   },
-   {
-    "id": "ggov4",
-    "s": "πέμπει τὸν ἵππον ἐξ <b>ὁδοῦ</b>",
-    "q": "What case does ἐξ take?",
-    "a": "Genitive",
-    "ds": [
-     "Vocative",
-     "Dative",
-     "Nominative"
-    ],
-    "why": "ἐξ is the form of ἐκ before a vowel (§136), and it takes the genitive (§1688). ὁδοῦ is the genitive of ὁδός.",
     "lang": "grc",
     "src": [
      "smyth"
