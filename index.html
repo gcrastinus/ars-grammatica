@@ -5263,7 +5263,7 @@ const ROLE_NAME = {
 EX.cases = {
   id:'cases', src:['ag','appown'], act:'III', title:'Case and its Work',
   desc:'In English, case shows in pronouns, such as he or him, who or whom, and I or me after a preposition, and in the place a word stands. In Latin, the ending shows the case. English questions ask about the pronoun or the place. Latin questions ask which case Latin would use.',
-  instr:'English: the pronoun’s form, or what its place shows. Latin: the case Latin would use.',
+  instr:'In English the question is the pronoun’s form, or what its place shows; in Latin it is the case Latin would use.',
   gen(d){
     const people = ['farmer','sailor','king','queen','soldier','teacher','boy','girl','messenger','captain','poet','judge','master','servant'];
     const things = ['book','horse','sword','gift','key','house','ship','letter'];
@@ -8543,9 +8543,9 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
       {h:`<strong>Only the single-word forms are asked.</strong> The perfect passive is a participle plus <em>sum</em>, and belongs to syntax. Where the same form has two analyses, the feedback says so.`}
     ],
     cases:[
-      {h:`<strong>Case is a job, not an ending.</strong> English marks the job by where the word sits, and Latin marks it by the ending; see the job first, and then name the case.`},
+      {h:`<strong>A case shows how a word is used; it is not just an ending.</strong> English marks that use by where the word sits, and Latin marks it by the ending; we see the use first, and then name the case.`},
       {h:`<strong>The six Latin cases</strong>: nominative (subject), genitive (of), dative (to/for), accusative (object, or motion toward), ablative (from, with, in, by), vocative (address).`,
-       eg:['<em>The farmer praises the girl</em>: <em>farmer</em> is nominative work, and <em>girl</em> is accusative work.']}
+       eg:['<em>The farmer praises the girl</em>: <em>farmer</em> is the subject, in the nominative, and <em>girl</em> is the object, in the accusative.']}
     ],
     produce:[
       {h:`<strong>The inverse of parsing.</strong> The lemma and the accidents are given, and the answer is the form; this is the drill that shows whether the tables are known.`},
