@@ -942,6 +942,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 
 </div>
 
+<script src="greek.js"></script>
 <script>
 /* ====================================================================
    LATIN MORPHOLOGY ENGINE
@@ -15320,6 +15321,14 @@ function bothLangs(){
 const GRK = (typeof window !== 'undefined' && window.GREEK && window.GREEK.cards) ? window.GREEK : null;
 /* An exercise offers Greek beside English by listing 'grc' in ex.langs. Its partner language is then
    Latin or Greek, as chosen for that exercise; every other exercise keeps Latin. */
+/* Greek beside Latin: the study deck, one panel for each card of greek-cards.json, heading and text as written there. */
+if(GRK){
+  DECKS.grccards = {
+    title: GRK.cards.title,
+    sub: GRK.cards.description,
+    panels: GRK.cards.cards.map(c => ({src:['smyth'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
+  };
+}
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
 function rowChoice(ex){
@@ -15437,7 +15446,9 @@ const ACTS = [
      {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
      {kind:'ex', ex:'produce'}
-   ]},
+   ].concat(GRK ? [
+     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description}
+   ] : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
    items:[

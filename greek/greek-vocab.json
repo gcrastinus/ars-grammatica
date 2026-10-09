@@ -1,0 +1,389 @@
+{
+  "language": "grc",
+  "dialect": "Attic",
+  "source": "Herbert Weir Smyth, Greek Grammar, read at https://grammata.pages.dev/ (college section numbers). Meanings are Smyth's glosses where he gives one.",
+  "nouns": [
+    {
+      "lemma": "χώρᾱ",
+      "gen": "χώρᾱς",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 1,
+      "gloss": "land",
+      "smyth": 216
+    },
+    {
+      "lemma": "νῑ́κη",
+      "gen": "νῑ́κης",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 1,
+      "gloss": "victory",
+      "smyth": 216
+    },
+    {
+      "lemma": "θάλαττα",
+      "gen": "θαλάττης",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 1,
+      "gloss": "sea",
+      "smyth": 216,
+      "note": "Smyth's Attic paradigm is θάλαττα, with ττ, not θάλασσα."
+    },
+    {
+      "lemma": "μοῖρα",
+      "gen": "μοίρᾱς",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 1,
+      "gloss": "fate",
+      "smyth": 216
+    },
+    {
+      "lemma": "νεᾱνίᾱς",
+      "gen": "νεᾱνίου",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 1,
+      "gloss": "young man",
+      "smyth": 222
+    },
+    {
+      "lemma": "κριτής",
+      "gen": "κριτοῦ",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 1,
+      "gloss": "judge",
+      "smyth": 222
+    },
+    {
+      "lemma": "ἵππος",
+      "gen": "ἵππου",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 2,
+      "gloss": "horse",
+      "smyth": 231
+    },
+    {
+      "lemma": "ἄνθρωπος",
+      "gen": "ἀνθρώπου",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 2,
+      "gloss": "man",
+      "smyth": 231
+    },
+    {
+      "lemma": "ὁδός",
+      "gen": "ὁδοῦ",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 2,
+      "gloss": "way",
+      "smyth": 231
+    },
+    {
+      "lemma": "δῶρον",
+      "gen": "δώρου",
+      "gender": "n",
+      "article": "τό",
+      "declension": 2,
+      "gloss": "gift",
+      "smyth": 231
+    },
+    {
+      "lemma": "φύλαξ",
+      "gen": "φύλακος",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 3,
+      "gloss": "watchman",
+      "smyth": 256,
+      "note": "§241 also glosses φύλαξ as guard."
+    },
+    {
+      "lemma": "ἐλπίς",
+      "gen": "ἐλπίδος",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 3,
+      "gloss": "hope",
+      "smyth": 257
+    },
+    {
+      "lemma": "σῶμα",
+      "gen": "σώματος",
+      "gender": "n",
+      "article": "τό",
+      "declension": 3,
+      "gloss": "body",
+      "smyth": 258
+    },
+    {
+      "lemma": "πόλις",
+      "gen": "πόλεως",
+      "gender": "f",
+      "article": "ἡ",
+      "declension": 3,
+      "gloss": "city",
+      "smyth": 268
+    },
+    {
+      "lemma": "βασιλεύς",
+      "gen": "βασιλέως",
+      "gender": "m",
+      "article": "ὁ",
+      "declension": 3,
+      "gloss": "king",
+      "smyth": 275
+    }
+  ],
+  "verbs": [
+    {
+      "lemma": "λῡ́ω",
+      "principal_parts": [
+        "λῡ́ω",
+        "λῡ́σω",
+        "ἔλῡσα",
+        "λέλυκα",
+        "λέλυμαι",
+        "ἐλύθην"
+      ],
+      "gloss": "loose",
+      "smyth": 369,
+      "kind": "vowel, uncontracted"
+    },
+    {
+      "lemma": "παιδεύω",
+      "principal_parts": [
+        "παιδεύω",
+        "παιδεύσω",
+        "ἐπαίδευσα",
+        "πεπαίδευκα",
+        "πεπαίδευμαι",
+        "ἐπαιδεύθην"
+      ],
+      "gloss": "educate",
+      "smyth": 376,
+      "note": "Same uncontracted vowel type as λῡ́ω (§376 a). Smyth prints παιδεύω and παιδεύουσι (§423) and ἐπαίδευον, ἐπαίδευσα, and the pluperfect stem ἐπεπαιδεύκη (§429). The other parts follow that stem, the reduplication of §440, and the recessive accent of §423."
+    },
+    {
+      "lemma": "παύω",
+      "principal_parts": [
+        "παύω",
+        "παύσω",
+        "ἔπαυσα",
+        "πέπαυκα",
+        "πέπαυμαι",
+        "ἐπαύθην"
+      ],
+      "gloss": "stop",
+      "smyth": 607,
+      "note": "§607 glosses παύω as make cease, and the middle παύομαι as cease. The parts follow λῡ́ω (§369, §440, §423). §489 b notes that a sigma in the aorist of παύω is a later form in the manuscripts, so the aorist passive here is ἐπαύθην."
+    },
+    {
+      "lemma": "φονεύω",
+      "principal_parts": [
+        "φονεύω",
+        "φονεύσω",
+        "ἐφόνευσα",
+        "πεφόνευκα",
+        "πεφόνευμαι",
+        "ἐφονεύθην"
+      ],
+      "gloss": "murder",
+      "smyth": 441,
+      "note": "§441 prints the perfect πεφόνευκα and the gloss murder. §607 glosses the same verb as slay."
+    },
+    {
+      "lemma": "χορεύω",
+      "principal_parts": [
+        "χορεύω",
+        "χορεύσω",
+        "ἐχόρευσα",
+        "κεχόρευκα",
+        "κεχόρευμαι",
+        "ἐχορεύθην"
+      ],
+      "gloss": "dance",
+      "smyth": 441,
+      "note": "§441 prints κεχόρευκα. An initial aspirate is reduplicated by the smooth stop (§441)."
+    },
+    {
+      "lemma": "βασιλεύω",
+      "principal_parts": [
+        "βασιλεύω",
+        "βασιλεύσω",
+        "ἐβασίλευσα",
+        "βεβασίλευκα",
+        "βεβασίλευμαι",
+        "ἐβασιλεύθην"
+      ],
+      "gloss": "be king",
+      "smyth": 607,
+      "note": "§607 glosses βασιλεύω as am king, and names it as a denominative of βασιλεύς. The parts follow παιδεύω."
+    },
+    {
+      "lemma": "βουλεύω",
+      "principal_parts": [
+        "βουλεύω",
+        "βουλεύσω",
+        "ἐβούλευσα",
+        "βεβούλευκα",
+        "βεβούλευμαι",
+        "ἐβουλεύθην"
+      ],
+      "gloss": "consult",
+      "smyth": 607,
+      "note": "§607 glosses the active βουλεύω as consult, and the middle βουλεύομαι as deliberate. Reduplication of β is βε-, as in βέβλαφα (§440)."
+    },
+    {
+      "lemma": "θεραπεύω",
+      "principal_parts": [
+        "θεραπεύω",
+        "θεραπεύσω",
+        "ἐθεράπευσα",
+        "τεθεράπευκα",
+        "τεθεράπευμαι",
+        "ἐθεραπεύθην"
+      ],
+      "gloss": "tend",
+      "smyth": 808,
+      "note": "§808 lists θεραπεύω with the gloss tend. Initial θ is reduplicated by τ (§441)."
+    },
+    {
+      "lemma": "πιστεύω",
+      "principal_parts": [
+        "πιστεύω",
+        "πιστεύσω",
+        "ἐπίστευσα",
+        "πεπίστευκα",
+        "πεπίστευμαι",
+        "ἐπιστεύθην"
+      ],
+      "gloss": "trust",
+      "smyth": 819,
+      "note": "§819 glosses πιστεύω as trust. The parts follow the uncontracted vowel type of παιδεύω (§376 a, §607)."
+    },
+    {
+      "lemma": "θῡ́ω",
+      "principal_parts": [
+        "θῡ́ω",
+        "θῡ́σω",
+        "ἔθῡσα",
+        "τέθυκα",
+        "τέθυμαι",
+        "ἐτύθην"
+      ],
+      "gloss": "sacrifice",
+      "smyth": 607,
+      "note": "§607 glosses θῡ́ω as sacrifice. §500 gives υ long in the present. §441 prints the perfect τέθυκα, with υ short, as in λέλυκα beside λῡ́ω (§374). §588 prints the aorist passive ἐτύθην."
+    },
+    {
+      "lemma": "κελεύω",
+      "principal_parts": [
+        "κελεύω",
+        "κελεύσω",
+        "ἐκέλευσα",
+        "κεκέλευκα",
+        "κεκέλευσμαι",
+        "ἐκελεύσθην"
+      ],
+      "gloss": "order",
+      "smyth": 489,
+      "note": "§489 prints κελεύω order, κεκέλευσμαι, ἐκελεύσθην, with σ added. §489 a says that other verbs in -ευω form the aorist passive in -θην, without σ. The perfect active κεκέλευκα was not printed in the sections read."
+    },
+    {
+      "lemma": "γράφω",
+      "principal_parts": [
+        "γράφω",
+        "γράψω",
+        "ἔγραψα",
+        "γέγραφα",
+        "γέγραμμαι",
+        "ἐγράφην"
+      ],
+      "gloss": "write",
+      "smyth": 369,
+      "note": "The aorist passive in §369 is the second aorist ἐγράφην, not a first aorist."
+    },
+    {
+      "lemma": "πέμπω",
+      "principal_parts": [
+        "πέμπω",
+        "πέμψω",
+        "ἔπεμψα",
+        "πέπομφα",
+        "πέπεμμαι",
+        "ἐπέμφθην"
+      ],
+      "gloss": "send",
+      "smyth": 545,
+      "note": "§545 prints ἔπεμψα and ἐπεμψάμην, and glosses πέμπω as send. The future πέμψω has the same ψ. §478 and §569 print the second perfect πέπομφα. The perfect middle and the aorist passive were not printed in the sections read."
+    },
+    {
+      "lemma": "εἰμί",
+      "principal_parts": [
+        "εἰμί",
+        "ἔσομαι"
+      ],
+      "gloss": "am",
+      "smyth": 768,
+      "note": "εἰμί has only the present and future systems (§768). There is no Attic aorist and no perfect."
+    }
+  ],
+  "adjectives": [
+    {
+      "lemma": "ἀγαθός",
+      "feminine": "ἀγαθή",
+      "neuter": "ἀγαθόν",
+      "gloss": "good",
+      "smyth": 287,
+      "class": "first and second, three endings"
+    },
+    {
+      "lemma": "μακρός",
+      "feminine": "μακρά",
+      "neuter": "μακρόν",
+      "gloss": "long",
+      "smyth": 287,
+      "class": "first and second, three endings, feminine α after ρ"
+    },
+    {
+      "lemma": "ἄξιος",
+      "feminine": "ἀξίᾱ",
+      "neuter": "ἄξιον",
+      "gloss": "worthy",
+      "smyth": 287,
+      "class": "first and second, three endings, feminine ᾱ after ι"
+    },
+    {
+      "lemma": "σοφός",
+      "feminine": "σοφή",
+      "neuter": "σοφόν",
+      "gloss": "wise",
+      "smyth": 287,
+      "note": "Listed at §287 with the adjectives declined like ἀγαθός. Oxytone, so the accents sit where they sit in ἀγαθός."
+    },
+    {
+      "lemma": "κακός",
+      "feminine": "κακή",
+      "neuter": "κακόν",
+      "gloss": "bad",
+      "smyth": 287,
+      "note": "Listed at §287 with the adjectives declined like ἀγαθός."
+    },
+    {
+      "lemma": "ἀληθής",
+      "feminine": "ἀληθής",
+      "neuter": "ἀληθές",
+      "gloss": "true",
+      "smyth": 292,
+      "class": "third, two endings",
+      "stem": "ἀληθεσ-"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "title": "Greek beside Latin",
+  "description": "What Attic Greek has, and where it differs from Latin.",
+  "cards": [
+    {
+      "heading": "Attic Greek",
+      "text": "We set Attic Greek beside Latin. The forms here are the forms of classical Athens. We do not use Homer's forms here."
+    },
+    {
+      "heading": "Breathings",
+      "text": "A word that begins with a vowel takes a breathing. The rough breathing is the sound of h, as in ὁ. The smooth breathing marks that the word does not begin with h, as in ἐστί. A word that begins with ρ also takes the rough breathing. Latin writes neither mark."
+    },
+    {
+      "heading": "Accent",
+      "text": "Greek writes the accent on the word. The acute, the grave, and the circumflex mark the pitch of a syllable, and the circumflex stands only on a long vowel or a diphthong. When another word follows, we write a grave for an acute on the last syllable, as in τὸν ἄνθρωπον. A word with the acute on its last syllable keeps that acute when an enclitic follows, as in ἀγαθή ἐστι. Latin does not mark the accent of an ordinary word. We learn the accent with the form."
+    },
+    {
+      "heading": "The article",
+      "text": "Greek has a definite article, ὁ, ἡ, τό, the. Latin has none. The article stands with its noun and agrees with the noun in gender, number, and case. ὁ ἄνθρωπος means the man. ἄνθρωπος, with no article, is not the same phrase."
+    },
+    {
+      "heading": "The forms of the article",
+      "text": "In the singular the nominative is ὁ, ἡ, τό, the genitive is τοῦ, τῆς, τοῦ, the dative is τῷ, τῇ, τῷ, and the accusative is τόν, τήν, τό. In the plural the nominative is οἱ, αἱ, τά, the genitive is τῶν for all three genders, the dative is τοῖς, ταῖς, τοῖς, and the accusative is τούς, τᾱ́ς, τά. The article has no vocative. ὁ, ἡ, οἱ, and αἱ are proclitics, and they take no accent."
+    },
+    {
+      "heading": "The five cases",
+      "text": "Greek has five cases: the nominative, the genitive, the dative, the accusative, and the vocative. The older names are ὀνομαστική, γενική, δοτική, αἰτιατική, and κλητική."
+    },
+    {
+      "heading": "No ablative",
+      "text": "Greek has no ablative. Where Latin uses the ablative, Greek uses the genitive or the dative. A Latin preposition takes the accusative or the ablative. A Greek preposition takes the genitive, the dative, or the accusative, and some prepositions take more than one of those cases. ἐν, in, takes the dative, as in ἐν τῇ χώρᾳ, in the land. ἐκ, out of, and ἀπό, from, take the genitive, as in ἐκ τῆς πόλεως, out of the city."
+    },
+    {
+      "heading": "The vocative",
+      "text": "The vocative is the case of address. ὦ κριτά addresses the judge, and κριτά is not the nominative κριτής. ὦ φύλαξ uses the same form as the nominative."
+    },
+    {
+      "heading": "The dual",
+      "text": "Greek has three numbers, the singular, the dual, and the plural. The dual is the number for two. Latin has no dual in the noun or in the verb. The dual of the article is τώ in the nominative and the accusative, and τοῖν in the genitive and the dative, for all three genders. The feminine dual forms τᾱ́ and ταῖν are very rare in the authors, and they are unknown on Attic prose inscriptions. The dual is uncommon in Attic prose."
+    },
+    {
+      "heading": "Nouns",
+      "text": "We list a noun by the nominative, the genitive singular, and the gender. χώρᾱ, χώρᾱς, feminine, means land, and the genitive shows the stem. Greek, like Latin, groups nouns in declensions. The nouns here are of the first, the second, and the third, and the endings are not the Latin endings. Attic writes θάλαττα, with ττ, for the sea."
+    },
+    {
+      "heading": "Gender",
+      "text": "Every noun has gender, masculine, feminine, or neuter, as in Latin. The article shows the gender. ὁ ἵππος is masculine, ἡ ὁδός is feminine, and τὸ δῶρον is neuter. ὁδός ends in ος, but it is feminine, so the article is ἡ. The ending does not always show the gender."
+    },
+    {
+      "heading": "Adjectives",
+      "text": "An adjective agrees with its noun in gender, number, and case. ἀγαθὸς ἄνθρωπος is a good man, ἀγαθὴ νῑ́κη is a good victory, and ἀγαθὸν δῶρον is a good gift. ἀληθής, true, has one form for the masculine and the feminine, and the neuter is ἀληθές."
+    },
+    {
+      "heading": "Person and number",
+      "text": "The ending of the verb shows the person and the number of the subject. The subject of παιδεύω is I. The subject of παιδεύει is he, she, or it. The subject of παιδεύουσι is they. The noun that is the subject of the verb stands in the nominative, as in ὁ ἄνθρωπος παιδεύει."
+    },
+    {
+      "heading": "Present, imperfect, and future",
+      "text": "The present indicative says that the action goes on now. παιδεύει means he educates. The imperfect says that it went on in the past. ἐπαίδευε means he was educating. The future says that it will happen. παιδεύσει means he will educate. The imperfect takes the augment, which is ἐ before a consonant."
+    },
+    {
+      "heading": "The aorist",
+      "text": "The aorist (ἀόριστος) is the simple past. ἐπαίδευσε means he educated. The aorist does not by itself say that the action went on, which is what the imperfect says, or that a result is still on hand, which is what the perfect says. Latin has no aorist of its own. For a simple past, Latin uses the perfect. The aorist, like the imperfect, takes the augment."
+    },
+    {
+      "heading": "The middle",
+      "text": "Greek has a middle voice beside the active and the passive. In the middle voice the subject acts on itself or for itself. παύει means he stops someone else, and παύεται means he ceases. λῡ́ει means he looses someone else, and λῡ́εται means he ransoms him. Latin has no middle voice."
+    },
+    {
+      "heading": "Middle and passive forms",
+      "text": "In the present, the imperfect, the perfect, and the pluperfect, the passive uses the middle forms. παύεται can mean he ceases, or he is stopped, and the rest of the sentence shows which is meant. The future passive and the aorist passive have forms of their own. In λῡ́ομαι the second person singular is λῡ́ῃ or λῡ́ει."
+    },
+    {
+      "heading": "εἰμί",
+      "text": "εἰμί means am, as Latin sum does. It has a present, an imperfect, ἦ or ἦν, and a future, ἔσομαι, I shall be, and the future is middle in form. Attic εἰμί has no aorist. The dissyllabic forms of the present indicative are enclitic, and εἶ is not. ἐστί is written ἔστι at the start of a sentence, when it means exists or is possible, and after οὐκ, μή, εἰ, ὡς, καί, ἀλλά, and τοῦτο."
+    },
+    {
+      "heading": "Particles",
+      "text": "Greek has particles, small words that are not inflected and that show how one clause stands to another. Some particles are conjunctions. καί means and, ἀλλά means but, γάρ means for, and οὖν means therefore. μέν and δέ mark the two sides of a pair. Latin does not have μέν and δέ."
+    },
+    {
+      "heading": "Principal parts",
+      "text": "We list a regular verb by six principal parts, the first person singular of the present, the future, the aorist, the perfect active, the perfect middle, and the aorist passive. λῡ́ω, loose, has the parts λῡ́σω, ἔλῡσα, λέλυκα, λέλυμαι, ἐλύθην. From those parts we build the other forms. εἰμί does not have this set of six."
+    },
+    {
+      "heading": "The object",
+      "text": "The direct object of a verb stands in the accusative. In παιδεύει τὸν ἄνθρωπον, he educates the man, τὸν ἄνθρωπον is the object of παιδεύει. Some verbs take the genitive or the dative, and then that case belongs to the meaning of the verb."
+    },
+    {
+      "heading": "Movable nu",
+      "text": "Some forms may take a ν at the end, above all before a vowel. ἐστί and ἐστίν are one form, and so are the third person plural in σι and the dative plural in σι. Movable ν also comes on third-person singulars in -ε, such as ἔλῡσε(ν). The added ν does not change the case, the person, or the number."
+    },
+    {
+      "heading": "The hexameter",
+      "text": "The dactylic hexameter is a line of six feet. A foot is a dactyl, one long syllable and two short syllables, or a spondee, two long syllables. Homer uses this meter, and so do Virgil and Ovid. Homer's Greek is older than Attic, and a form that fits the meter in Homer is not, for that reason, the Attic form."
+    },
+    {
+      "heading": "Stem and ending",
+      "text": "The form in the sentence is a stem and an ending. In νῑ́κης the ending -ς marks the genitive singular. In παιδεύομεν the ending -ομεν marks the first person plural, and the subject of the verb is we. The ending marks the case, the person, or the number."
+    },
+    {
+      "heading": "The macron",
+      "text": "A macron over α, ι, or υ marks the vowel as long. Smyth prints it so that the quantity is visible, and these paradigms keep his marks. The macron is a teaching mark, and ancient writing did not use it. The accent and the breathing belong to the traditional text. They were not written in classical Attic."
+    }
+  ]
+}

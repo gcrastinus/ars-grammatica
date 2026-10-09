@@ -1,0 +1,487 @@
+{
+  "language": "grc",
+  "dialect": "Attic",
+  "source": "One blank in each Greek frame. The answer is the form that belongs in the sentence, including a grave where §154 requires it and the enclitic accent of §183. Wrong forms are real forms that do not fit the frame.",
+  "items": [
+    {
+      "id": "art-1",
+      "kind": "article",
+      "en": "The man educates the horse.",
+      "frame": "______ ἄνθρωπος παιδεύει τὸν ἵππον.",
+      "answer": "ὁ",
+      "wrong": [
+        "ἡ",
+        "τὸ",
+        "οἱ"
+      ]
+    },
+    {
+      "id": "art-2",
+      "kind": "article",
+      "en": "The victory is good.",
+      "frame": "______ νῑ́κη ἀγαθή ἐστι.",
+      "answer": "ἡ",
+      "wrong": [
+        "ὁ",
+        "τὸ",
+        "αἱ"
+      ]
+    },
+    {
+      "id": "art-3",
+      "kind": "article",
+      "en": "The gift is good.",
+      "frame": "______ δῶρον ἀγαθόν ἐστι.",
+      "answer": "τὸ",
+      "wrong": [
+        "ὁ",
+        "ἡ",
+        "τὰ"
+      ]
+    },
+    {
+      "id": "art-4",
+      "kind": "article",
+      "en": "The judges educate the young man.",
+      "frame": "οἱ κριταὶ παιδεύουσι ______ νεᾱνίᾱν.",
+      "answer": "τὸν",
+      "wrong": [
+        "ὁ",
+        "τὴν",
+        "τοὺς"
+      ]
+    },
+    {
+      "id": "art-5",
+      "kind": "article",
+      "en": "The hope of the judges is good.",
+      "frame": "ἡ ἐλπὶς ______ κριτῶν ἀγαθή ἐστι.",
+      "answer": "τῶν",
+      "wrong": [
+        "τὸν",
+        "τὰ",
+        "τοὺς"
+      ]
+    },
+    {
+      "id": "art-6",
+      "kind": "article",
+      "en": "He writes in the land.",
+      "frame": "γράφει ἐν ______ χώρᾳ.",
+      "answer": "τῇ",
+      "wrong": [
+        "τὴν",
+        "τῆς",
+        "τὸ"
+      ]
+    },
+    {
+      "id": "art-7",
+      "kind": "article",
+      "en": "They send the gifts.",
+      "frame": "πέμπουσι ______ δῶρα.",
+      "answer": "τὰ",
+      "wrong": [
+        "τὸ",
+        "τοὺς",
+        "τᾱ̀ς"
+      ]
+    },
+    {
+      "id": "art-8",
+      "kind": "article",
+      "en": "The horses of the king are good.",
+      "frame": "οἱ ἵπποι ______ βασιλέως ἀγαθοί εἰσι.",
+      "answer": "τοῦ",
+      "wrong": [
+        "τὸν",
+        "τῷ",
+        "τῶν"
+      ]
+    },
+    {
+      "id": "case-1",
+      "kind": "case",
+      "en": "He educates the man.",
+      "frame": "παιδεύει τὸν ______.",
+      "answer": "ἄνθρωπον",
+      "wrong": [
+        "ἄνθρωπος",
+        "ἀνθρώπου",
+        "ἀνθρώπῳ"
+      ]
+    },
+    {
+      "id": "case-2",
+      "kind": "case",
+      "en": "They loose the horse.",
+      "frame": "λῡ́ουσι τὸν ______.",
+      "answer": "ἵππον",
+      "wrong": [
+        "ἵππος",
+        "ἵππου",
+        "ἵππῳ"
+      ]
+    },
+    {
+      "id": "case-3",
+      "kind": "case",
+      "en": "He sends the gift.",
+      "frame": "πέμπει τὸ ______.",
+      "answer": "δῶρον",
+      "wrong": [
+        "δῶρα",
+        "δώρου",
+        "δώρῳ"
+      ]
+    },
+    {
+      "id": "case-4",
+      "kind": "case",
+      "en": "The gift is in the land.",
+      "frame": "τὸ δῶρον ἐν τῇ ______ ἐστί.",
+      "answer": "χώρᾳ",
+      "wrong": [
+        "χώραις",
+        "χώρᾱς",
+        "χώρᾱν"
+      ]
+    },
+    {
+      "id": "case-5",
+      "kind": "case",
+      "en": "He sends the man out of the city.",
+      "frame": "πέμπει τὸν ἄνθρωπον ἐκ τῆς ______.",
+      "answer": "πόλεως",
+      "wrong": [
+        "πόλιν",
+        "πόλει",
+        "πόλεις"
+      ]
+    },
+    {
+      "id": "case-6",
+      "kind": "case",
+      "en": "They dance with the king.",
+      "frame": "χορεύουσι σὺν τῷ ______.",
+      "answer": "βασιλεῖ",
+      "wrong": [
+        "βασιλεύς",
+        "βασιλέως",
+        "βασιλέᾱ"
+      ]
+    },
+    {
+      "id": "case-7",
+      "kind": "case",
+      "en": "He stops the judge.",
+      "frame": "παύει τὸν ______.",
+      "answer": "κριτήν",
+      "wrong": [
+        "κριτής",
+        "κριτοῦ",
+        "κριτῇ"
+      ]
+    },
+    {
+      "id": "case-8",
+      "kind": "case",
+      "en": "The men are far from the sea.",
+      "frame": "οἱ ἄνθρωποί εἰσιν ἀπὸ τῆς ______.",
+      "answer": "θαλάττης",
+      "wrong": [
+        "θάλαττα",
+        "θάλατταν",
+        "θαλάττῃ"
+      ]
+    },
+    {
+      "id": "pers-1",
+      "kind": "person",
+      "en": "I educate the man.",
+      "frame": "τὸν ἄνθρωπον ______.",
+      "answer": "παιδεύω",
+      "wrong": [
+        "παιδεύεις",
+        "παιδεύει",
+        "παιδεύομεν"
+      ]
+    },
+    {
+      "id": "pers-2",
+      "kind": "person",
+      "en": "You educate the man.",
+      "frame": "τὸν ἄνθρωπον ______.",
+      "answer": "παιδεύεις",
+      "wrong": [
+        "παιδεύω",
+        "παιδεύει",
+        "παιδεύετε"
+      ]
+    },
+    {
+      "id": "pers-3",
+      "kind": "person",
+      "en": "The man educates the horse.",
+      "frame": "ὁ ἄνθρωπος τὸν ἵππον ______.",
+      "answer": "παιδεύει",
+      "wrong": [
+        "παιδεύω",
+        "παιδεύουσι",
+        "παιδεύομεν"
+      ]
+    },
+    {
+      "id": "pers-4",
+      "kind": "person",
+      "en": "We educate the young man.",
+      "frame": "τὸν νεᾱνίᾱν ______.",
+      "answer": "παιδεύομεν",
+      "wrong": [
+        "παιδεύω",
+        "παιδεύετε",
+        "παιδεύουσι"
+      ]
+    },
+    {
+      "id": "pers-5",
+      "kind": "person",
+      "en": "All of you loose the horse.",
+      "frame": "τὸν ἵππον ______.",
+      "answer": "λῡ́ετε",
+      "wrong": [
+        "λῡ́ω",
+        "λῡ́ει",
+        "λῡ́ουσι"
+      ]
+    },
+    {
+      "id": "pers-6",
+      "kind": "person",
+      "en": "The judges loose the man.",
+      "frame": "οἱ κριταὶ τὸν ἄνθρωπον ______.",
+      "answer": "λῡ́ουσι",
+      "wrong": [
+        "λῡ́ει",
+        "λῡ́ομεν",
+        "λῡ́εις"
+      ]
+    },
+    {
+      "id": "pers-7",
+      "kind": "person",
+      "en": "I am a young man.",
+      "frame": "νεᾱνίᾱς ______.",
+      "answer": "εἰμί",
+      "wrong": [
+        "εἶ",
+        "ἐστί",
+        "ἐσμέν"
+      ]
+    },
+    {
+      "id": "pers-8",
+      "kind": "person",
+      "en": "You are a young man.",
+      "frame": "νεᾱνίᾱς ______.",
+      "answer": "εἶ",
+      "wrong": [
+        "εἰμί",
+        "ἐστί",
+        "εἰσί"
+      ]
+    },
+    {
+      "id": "aor-1",
+      "kind": "aorist",
+      "en": "He educated the man.",
+      "frame": "τὸν ἄνθρωπον ______.",
+      "answer": "ἐπαίδευσε",
+      "wrong": [
+        "παιδεύει",
+        "ἐπαίδευε",
+        "παιδεύσει"
+      ]
+    },
+    {
+      "id": "aor-2",
+      "kind": "aorist",
+      "en": "They loosed the horse.",
+      "frame": "τὸν ἵππον ______.",
+      "answer": "ἔλῡσαν",
+      "wrong": [
+        "λῡ́ουσι",
+        "ἔλῡον",
+        "λῡ́σουσι"
+      ]
+    },
+    {
+      "id": "aor-3",
+      "kind": "aorist",
+      "en": "I educated the judge.",
+      "frame": "τὸν κριτὴν ______.",
+      "answer": "ἐπαίδευσα",
+      "wrong": [
+        "παιδεύω",
+        "ἐπαίδευον",
+        "παιδεύσω"
+      ]
+    },
+    {
+      "id": "aor-4",
+      "kind": "aorist",
+      "en": "We loosed the gifts.",
+      "frame": "τὰ δῶρα ______.",
+      "answer": "ἐλῡ́σαμεν",
+      "wrong": [
+        "λῡ́ομεν",
+        "ἐλῡ́ομεν",
+        "λῡ́σομεν"
+      ]
+    },
+    {
+      "id": "aor-5",
+      "kind": "aorist",
+      "en": "The king sacrificed.",
+      "frame": "ὁ βασιλεὺς ______.",
+      "answer": "ἔθῡσε",
+      "wrong": [
+        "θῡ́ει",
+        "ἔθῡε",
+        "θῡ́σει"
+      ]
+    },
+    {
+      "id": "aor-6",
+      "kind": "aorist",
+      "en": "She stopped the horse.",
+      "frame": "τὸν ἵππον ______.",
+      "answer": "ἔπαυσε",
+      "wrong": [
+        "παύει",
+        "ἔπαυε",
+        "παύσει"
+      ]
+    },
+    {
+      "id": "aor-7",
+      "kind": "aorist",
+      "en": "The judges danced.",
+      "frame": "οἱ κριταὶ ______.",
+      "answer": "ἐχόρευσαν",
+      "wrong": [
+        "χορεύουσι",
+        "ἐχόρευον",
+        "χορεύσουσι"
+      ]
+    },
+    {
+      "id": "aor-8",
+      "kind": "aorist",
+      "en": "We educated the king.",
+      "frame": "τὸν βασιλέᾱ ______.",
+      "answer": "ἐπαιδεύσαμεν",
+      "wrong": [
+        "παιδεύομεν",
+        "ἐπαιδεύομεν",
+        "παιδεύσομεν"
+      ]
+    },
+    {
+      "id": "mid-1",
+      "kind": "middle",
+      "en": "The man ceases.",
+      "frame": "ὁ ἄνθρωπος ______.",
+      "answer": "παύεται",
+      "wrong": [
+        "παύει",
+        "ἐπαύετο",
+        "παύονται"
+      ]
+    },
+    {
+      "id": "mid-2",
+      "kind": "middle",
+      "en": "The men cease.",
+      "frame": "οἱ ἄνθρωποι ______.",
+      "answer": "παύονται",
+      "wrong": [
+        "παύουσι",
+        "παύεται",
+        "ἐπαύοντο"
+      ]
+    },
+    {
+      "id": "mid-3",
+      "kind": "middle",
+      "en": "I ransom the man.",
+      "frame": "τὸν ἄνθρωπον ______.",
+      "answer": "λῡ́ομαι",
+      "wrong": [
+        "λῡ́ω",
+        "λῡ́σομαι",
+        "ἐλῡόμην"
+      ]
+    },
+    {
+      "id": "mid-4",
+      "kind": "middle",
+      "en": "We ransom the judge.",
+      "frame": "τὸν κριτὴν ______.",
+      "answer": "λῡόμεθα",
+      "wrong": [
+        "λῡ́ομεν",
+        "λῡ́εσθε",
+        "ἐλῡόμεθα"
+      ]
+    },
+    {
+      "id": "mid-5",
+      "kind": "middle",
+      "en": "He ransoms the horse.",
+      "frame": "τὸν ἵππον ______.",
+      "answer": "λῡ́εται",
+      "wrong": [
+        "λῡ́ει",
+        "λῡ́σεται",
+        "ἐλῡ́ετο"
+      ]
+    },
+    {
+      "id": "mid-6",
+      "kind": "middle",
+      "en": "I ransomed the man.",
+      "frame": "τὸν ἄνθρωπον ______.",
+      "answer": "ἐλῡσάμην",
+      "wrong": [
+        "ἔλῡσα",
+        "ἐλῡσάμεθα",
+        "λῡ́ομαι"
+      ]
+    },
+    {
+      "id": "mid-7",
+      "kind": "middle",
+      "en": "They ransomed the judge.",
+      "frame": "τὸν κριτὴν ______.",
+      "answer": "ἐλῡ́σαντο",
+      "wrong": [
+        "ἔλῡσαν",
+        "ἐλῡσάμεθα",
+        "λῡ́ονται"
+      ]
+    },
+    {
+      "id": "mid-8",
+      "kind": "middle",
+      "en": "All of you get the judges set free.",
+      "frame": "τοὺς κριτᾱ̀ς ______.",
+      "answer": "λῡ́εσθε",
+      "wrong": [
+        "λῡ́ετε",
+        "λῡ́ονται",
+        "ἐλῡ́εσθε"
+      ]
+    }
+  ]
+}
