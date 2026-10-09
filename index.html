@@ -15560,6 +15560,26 @@ if(GRK && GRK.sentence){
     gen(d){ return grcSentQ(GRK.sentence.clause, d); }
   };
 }
+if(GRK && GRK.sentence){
+  EX.grcmood = {
+    id:'grcmood', src:['smyth','appown'], act:'III', title:'The Subjunctive and the Optative',
+    desc:`One word is missing from a Greek sentence, or one form of a verb is asked for: a present or aorist subjunctive or optative, ${grkSpan('ἵνα')} or ${grkSpan('μή')} in a purpose clause, the verb or its negative after ${grkSpan('ὥστε')} in a result clause, or a word in a clause of fearing.`,
+    instr:'Supply the missing Greek word.',
+    introInstr:'',
+    intro:[
+      {h:`<strong>The forms.</strong> The subjunctive lengthens the vowel that joins the stem to the ending, and the optative has a diphthong (two vowels in one syllable) before the ending. In ${grkSpan('λῡ́ω')} and ${grkSpan('παιδεύω')} the aorist adds a sigma to the stem.`,
+       eg:[`${grkSpan('λῡ́ῃ')} is the present subjunctive, third person singular, of ${grkSpan('λῡ́ω')}, and ${grkSpan('λῡ́σῃ')} is the aorist subjunctive; ${grkSpan('λῡ́οι')} is the present optative, and ${grkSpan('λῡ́σαι')} is the aorist optative.`]},
+      {h:`<strong>Purpose.</strong> A purpose clause begins with ${grkSpan('ἵνα')}, “in order that,” and has its verb in the subjunctive after a primary tense (a present or a future). After a secondary tense (a past tense such as the imperfect or the aorist) it has the optative or the subjunctive. Its negative is ${grkSpan('μή')}.`,
+       eg:[`${grkSpan('ὁ βασιλεὺς πέμπει τὸν ἵππον ἵνα ὁ κριτὴς λῡ́σῃ αὐτόν')} means “the king sends the horse in order that the judge may loose it”; ${grkSpan('οἱ ἄνθρωποι τὸν νεᾱνίᾱν ἐπαίδευον ἵνα ὁ βασιλεὺς λῡ́σαι τὸν ἵππον')} means “the men were educating the young man in order that the king might loose the horse.”`]},
+      {h:`<strong>Result.</strong> A word such as ${grkSpan('οὕτω')}, “so,” in the main clause shows that a result follows, and ${grkSpan('ὥστε')} introduces the result. With the infinitive the result is one that would naturally follow, but with the indicative it is stated as a fact, and then its negative is ${grkSpan('οὐ')}.`,
+       eg:[`${grkSpan('ὁ βασιλεὺς οὕτω σοφός ἐστιν ὥστε τὸν νεᾱνίᾱν παιδεύειν')} means “the king is so wise as to educate the young man”; ${grkSpan('ὁ βασιλεὺς οὕτως ἀγαθός ἐστιν ὥστε τὸν νεᾱνίᾱν παιδεύει')} means “the king is so good that he educates the young man.”`]},
+      {h:`<strong>Fear.</strong> After a verb of fearing such as ${grkSpan('φοβοῦμαι')}, “I fear,” in a primary tense, the thing feared is introduced by ${grkSpan('μή')} and has its verb in the subjunctive. When the fear is that something may not happen, the clause has ${grkSpan('μὴ οὐ')}.`,
+       eg:[`${grkSpan('φοβοῦμαι μὴ ὁ βασιλεὺς λῡ́σῃ τὸν ἵππον')} means “I fear that the king may loose the horse.”`]}
+    ],
+    modes:['grc'], langs:['grc'],
+    gen(d){ return grcSentQ(GRK.sentence.mood, d); }
+  };
+}
 /* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
    "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
    items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
@@ -15758,7 +15778,8 @@ const ACTS = [
    ].concat(GRK && GRK.sentence ? [
      {kind:'ex', ex:'grcsent'},
      {kind:'ex', ex:'grcvoice'},
-     {kind:'ex', ex:'grcclause'}
+     {kind:'ex', ex:'grcclause'},
+     {kind:'ex', ex:'grcmood'}
    ] : []) : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
