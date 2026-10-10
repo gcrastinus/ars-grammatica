@@ -18,17 +18,17 @@ const vocab = read('vocab'), paradigms = read('paradigms'), cards = read('cards'
 
 /* Left out because FRENCH-STEP1-REPORT.md, section 5, lists the point each one rests on as unsure. The cards Gender
    and Adjective agreement were restored after Larousse was opened: victoire/81858 prints "victoire nom féminin", and
-   bon/10103 prints "bon, bonne adjectif". */
+   bon/10103 prints "bon, bonne adjectif". The card Number and the item fprod3 were restored on Larousse junior,
+   s.v. cadeau (junior/cadeau/2550), which prints "Mes amis m'ont offert des cadeaux pour mon anniversaire." and
+   "Au pluriel : des cadeaux."; the main entry, cadeau/12020, prints no plural. */
 const LEFT_OUT = {
   items: {
     fdec5: 'section 5, point 3: the note on comparison with plus or moins',
     fdec6: 'section 5, point 3: the note on comparison with plus or moins',
-    fprod3: 'section 5, point 6: the plural cadeaux is cited from Larousse junior, not the main entry',
     fprod5: 'section 5, point 2: bonne was not seen printed',
     fprod18: 'section 5, point 5: the note on the imperative aie'
   },
   cards: {
-    'Number': 'section 5, point 6: the plural cadeaux is cited from Larousse junior; the main entry, cadeau/12020, prints no plural',
     'Beau and vieux': 'section 5, point 7: the literary use of vieux before a vowel',
     'The present subjunctive': 'section 5, points 4 and 5: the trigger il faut que, and que j’aie'
   }

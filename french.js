@@ -131,7 +131,7 @@ window.FRENCH = {
     "gender": "f",
     "article": "la",
     "gloss": "victory",
-    "ref": "Gender feminine and plural victoires. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    "ref": "Larousse, s.v. victoire, nom féminin, larousse.fr/dictionnaires/francais/victoire/81858, read 2026-10-10. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
    }
   ],
   "verbs": [
@@ -544,7 +544,7 @@ window.FRENCH = {
    },
    {
     "lemma": "victoire",
-    "ref": "Gender feminine and plural victoires. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel).",
+    "ref": "Larousse, s.v. victoire, nom féminin, larousse.fr/dictionnaires/francais/victoire/81858, read 2026-10-10. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel).",
     "forms": {
      "sg": "victoire",
      "pl": "victoires"
@@ -1149,6 +1149,10 @@ window.FRENCH = {
    {
     "heading": "Gender",
     "text": "Every French noun is masculine or feminine. Latin has a third gender, the neuter, and French has none. The article shows the gender. Le livre is masculine, and la table is feminine. The ending does not always show the gender, since livre ends in e and is masculine, and victoire is feminine for a reason the ending alone does not settle."
+   },
+   {
+    "heading": "Number",
+    "text": "A French noun has two numbers, the singular and the plural, as a Latin noun has. A regular plural adds s, and that s is usually silent. Some plurals change the stem. The plural of cheval is chevaux, and the plural of cadeau is cadeaux. The article marks number as well. Les is plural, and le and la are singular."
    },
    {
     "heading": "No case on the noun",
@@ -2170,6 +2174,18 @@ window.FRENCH = {
     "want": "plural",
     "a": "chevaux",
     "why": "The plural of cheval is chevaux. The stem changes, and the ending is x.",
+    "lang": "fr",
+    "src": [
+     "larousse"
+    ]
+   },
+   {
+    "id": "fprod3",
+    "lemma": "cadeau",
+    "lemmaLine": "cadeau, cadeaux, masculine, gift",
+    "want": "plural",
+    "a": "cadeaux",
+    "why": "The plural of cadeau is cadeaux. A noun in -eau takes -x.",
     "lang": "fr",
     "src": [
      "larousse"
