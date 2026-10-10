@@ -15679,6 +15679,15 @@ function grkProduceQ(it){
 addGreek('produce', grkProduceQ, 0.4);
 /* cong: the three judgments, with the prompt the Latin items use. */
 addGreek('cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
+/* French in the shared exercises, in the same way: an exercise with a French pool of at least eight items in
+   FRENCH.shared offers "English and French", and the French items take the place of the Latin ones. The questions
+   are built as the Greek ones are. Vices has seven French items, so it is not offered in French. */
+addPartner('fr', FRA, 'pos', grkPosQ, 0.35);
+addPartner('fr', FRA, 'decline', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.35);
+addPartner('fr', FRA, 'cases', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
+addPartner('fr', FRA, 'govern', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
+addPartner('fr', FRA, 'agree', it => makeMC(it, 4), 0.4);
+addPartner('fr', FRA, 'cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
