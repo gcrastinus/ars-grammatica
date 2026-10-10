@@ -1376,50 +1376,6 @@ function tryUnseen(make, tries){
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const art = w => /^[aeiou]/i.test(w) ? 'an' : 'a';
 
-/* ---------- the language registry ---------- */
-/* English and Latin are always present. One further language may be added.
-   Every module supplies the same shape; an exercise for which the chosen
-   language has no data falls back to Latin and says so. The app never
-   generates a form in a language it cannot vouch for. */
-const LANGS = {
-  grc: {
-    key:'grc', name:'Ancient Greek', adj:'Greek',
-    cases:['nominative','genitive','dative','accusative','vocative'],
-    caseCount:5, order:'flexible SOV',
-    note:'There are five cases; the uses of the Latin ablative are divided between the genitive and the dative. Tense is aspect first and time second, a fact the modists never had to reckon with.',
-    caseFor:{subject:'nominative', dObject:'accusative', iObject:'dative',
-             possess:'genitive', means:'dative', address:'vocative',
-             from:'genitive', with:'dative'},
-    caseNote:{means:'Greek has no ablative: means and instrument go to the dative.',
-              from:'Greek has no ablative: separation and source go to the genitive.',
-              with:'Greek has no ablative: accompaniment goes to the dative, usually with σύν.'}
-  },
-  de: {
-    key:'de', name:'German', adj:'German',
-    cases:['nominative','genitive','dative','accusative'],
-    caseCount:4, order:'V2 main, SOV subordinate',
-    note:'The four cases are carried chiefly on the article rather than on the noun. This is worth noticing: the case is still there, but it has moved to a different word.',
-    caseFor:{subject:'nominative', dObject:'accusative', iObject:'dative',
-             possess:'genitive', means:'dative', address:'nominative',
-             from:'dative', with:'dative'},
-    caseNote:{means:'German uses the dative after <i>mit</i>.',
-              from:'German uses the dative after <i>von</i> and <i>aus</i>.',
-              address:'German has no vocative; one addresses in the nominative.'}
-  },
-  fr: {
-    key:'fr', name:'French', adj:'French',
-    cases:['(no case on nouns)'],
-    caseCount:0, order:'SVO',
-    note:'French has lost case on the noun altogether and keeps it only in the pronouns (<i>je / me / moi</i>). It marks the same functions by word order and by prepositions, exactly as English does, and that raises exactly the question the modists would ask: has the <i>mode</i> gone, or only the ending?',
-    caseFor:{subject:'subject position (no ending)', dObject:'object position (no ending)',
-             iObject:'<i>à</i> + noun', possess:'<i>de</i> + noun',
-             means:'<i>avec</i> / <i>par</i> + noun', address:'no marking',
-             from:'<i>de</i> + noun', with:'<i>avec</i> + noun'},
-    caseNote:{subject:'French marks the subject by its place before the verb, not by an ending.',
-              dObject:'French marks the object by its place after the verb, not by an ending.'}
-  }
-};
-
 const LAT_CASE_FOR = {
   subject:'nominative', dObject:'accusative', iObject:'dative',
   possess:'genitive', means:'ablative', address:'vocative',
