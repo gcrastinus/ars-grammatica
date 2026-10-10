@@ -20,12 +20,12 @@ const vocab = read('vocab'), paradigms = read('paradigms'), cards = read('cards'
    and Adjective agreement were restored after Larousse was opened: victoire/81858 prints "victoire nom féminin", and
    bon/10103 prints "bon, bonne adjectif". The card Number and the item fprod3 were restored on Larousse junior,
    s.v. cadeau (junior/cadeau/2550), which prints "Mes amis m'ont offert des cadeaux pour mon anniversaire." and
-   "Au pluriel : des cadeaux."; the main entry, cadeau/12020, prints no plural. */
+   "Au pluriel : des cadeaux."; the main entry, cadeau/12020, prints no plural. The item fprod5 was restored on the
+   same bon/10103 entry. */
 const LEFT_OUT = {
   items: {
     fdec5: 'section 5, point 3: the note on comparison with plus or moins',
     fdec6: 'section 5, point 3: the note on comparison with plus or moins',
-    fprod5: 'section 5, point 2: bonne was not seen printed',
     fprod18: 'section 5, point 5: the note on the imperative aie'
   },
   cards: {

@@ -2204,6 +2204,18 @@ window.FRENCH = {
     ]
    },
    {
+    "id": "fprod5",
+    "lemma": "bon",
+    "lemmaLine": "bon, bonne, good",
+    "want": "feminine singular",
+    "a": "bonne",
+    "why": "The feminine singular of bon is bonne. The n is doubled.",
+    "lang": "fr",
+    "src": [
+     "lawless"
+    ]
+   },
+   {
     "id": "fprod6",
     "lemma": "beau",
     "lemmaLine": "beau, bel, belle, beautiful",
