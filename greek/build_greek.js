@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
  * build_greek.js: read the Greek JSON files in this folder and write greek.js at the repository root.
- * greek.js defines one global, window.GREEK = {vocab, paradigms, cards, items, shared, sentence}, with every
+ * greek.js defines one global, window.GREEK = {vocab, paradigms, cards, items, shared, sentence, notes}, with every
  * string exactly as it stands in the JSON. GREEK.sentence holds the four pools of greek-sentence-a.json
- * (more, voice) and greek-sentence-b.json (clause, mood). Run from the repository root:
+ * (more, voice) and greek-sentence-b.json (clause, mood). GREEK.notes holds the approved Greek notes of
+ * greek-notes.json: notes.decks[deck][panel index, from 0].text or .explain, and notes.exercises[exercise][item id].
+ * Each note keeps its entry number in GREEK-NOTES-PROPOSED.md. Run from the repository root:
  *   node greek/build_greek.js
  */
 'use strict';
@@ -14,7 +16,7 @@ const here = __dirname;
 const out = path.join(here, '..', 'greek.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(here, 'greek-' + name + '.json'), 'utf8'));
 const GREEK = { vocab: read('vocab'), paradigms: read('paradigms'), cards: read('cards'), items: read('items'), shared: read('shared'),
-  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')) };
+  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')), notes: read('notes') };
 
 /* Every string must already be in Unicode NFC. Nothing here normalizes or rewrites a form. */
 const problems = [];
@@ -22,6 +24,17 @@ const problems = [];
   if(typeof o === 'string'){ if(o !== o.normalize('NFC')) problems.push(at + ' is not NFC: ' + o); return; }
   if(o && typeof o === 'object') for(const k of Object.keys(o)) walk(o[k], at + '.' + k);
 })(GREEK, 'GREEK');
+
+/* The notes are shown as plain text after the existing text, so each one has an entry number and a note with no markup. */
+const noteLists = [];
+Object.keys(GREEK.notes.decks).forEach(d => Object.keys(GREEK.notes.decks[d]).forEach(i => Object.keys(GREEK.notes.decks[d][i])
+  .forEach(part => noteLists.push(['notes.decks.' + d + '.' + i + '.' + part, GREEK.notes.decks[d][i][part]]))));
+Object.keys(GREEK.notes.exercises).forEach(e => Object.keys(GREEK.notes.exercises[e])
+  .forEach(id => noteLists.push(['notes.exercises.' + e + '.' + id, GREEK.notes.exercises[e][id]])));
+noteLists.forEach(([at, list]) => (Array.isArray(list) ? list : [null]).forEach(n => {
+  if(!n || typeof n.entry !== 'number' || typeof n.note !== 'string' || !n.note.trim()) problems.push(at + ': a note lacks its entry number or its text');
+  else if(/[<>&]/.test(n.note)) problems.push(at + ': the note of entry ' + n.entry + ' contains markup');
+}));
 
 /* Grading safety. The exercise compares typed Greek without accents, breathings, iota subscript, macrons, or
    case, and reads plain Latin letters as Greek. This is the same comparison as normGrk in index.html. Under it,
@@ -114,4 +127,5 @@ fs.writeFileSync(out,
 console.log('Grading safety: ' + GREEK.items.items.length + ' items, no wrong option matches its answer.');
 console.log('Shared items: ' + Object.keys(GREEK.shared).filter(k => Array.isArray(GREEK.shared[k])).map(k => k + ' ' + GREEK.shared[k].length).join(', ') + '; each has one key, and the produce keys are distinct.');
 console.log('Sentence items: ' + SENTENCE_POOLS.map(k => k + ' ' + GREEK.sentence[k].length).join(', ') + '; each has one key and one blank, and no wrong option matches its key.');
+console.log('Notes: ' + noteLists.reduce((t, l) => t + l[1].length, 0) + ' notes in ' + noteLists.length + ' places.');
 console.log('Wrote ' + out);

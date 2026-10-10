@@ -1,0 +1,78 @@
+{
+ "decks": {
+  "govern": {
+   "0": {
+    "text": [
+     {
+      "entry": 17,
+      "note": "See the Greek deck, card 7 and card 21."
+     },
+     {
+      "entry": 18,
+      "note": "Greek ἐν takes the dative only, as in ἐν τῇ χώρᾳ, in the land. Motion to a place is εἰς with the accusative, as in εἰς τὴν χώρᾱν. See also the Greek deck, card 7."
+     }
+    ]
+   },
+   "1": {
+    "text": [
+     {
+      "entry": 19,
+      "note": "See the Greek deck, card 7."
+     }
+    ],
+    "explain": [
+     {
+      "entry": 20,
+      "note": "See the Greek deck, card 7."
+     }
+    ]
+   }
+  }
+ },
+ "exercises": {
+  "clauses": {
+   "li1": [
+    {
+     "entry": 28,
+     "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, \"while the king looses.\""
+    }
+   ],
+   "li3": [
+    {
+     "entry": 29,
+     "note": "After a primary tense, Greek keeps the mood of the direct question. After a secondary tense, the optative may be used instead."
+    }
+   ],
+   "sa1": [
+    {
+     "entry": 30,
+     "note": "After a verb of striving, Greek usually takes ὅπως with the future indicative, and the negative is μή. ὅπως with the subjunctive is less common."
+    }
+   ],
+   "ta3": [
+    {
+     "entry": 31,
+     "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, \"while the king looses.\""
+    }
+   ],
+   "au2": [
+    {
+     "entry": 32,
+     "note": "Greek purpose is introduced by ἵνα, ὅπως, or ὡς, and the negative is μή. The subjunctive follows a primary tense, and the optative may follow a secondary tense."
+    }
+   ],
+   "au3": [
+    {
+     "entry": 33,
+     "note": "When the end is still to come, Greek uses ἕως ἄν with the subjunctive after a primary verb, and ἕως with the optative after a secondary verb."
+    }
+   ],
+   "au4": [
+    {
+     "entry": 34,
+     "note": "Greek introduces an alternative question with πότερον and ἤ, or with εἰ and ἤ. After a primary tense the mood of the direct question remains, and after a secondary tense the optative may stand."
+    }
+   ]
+  }
+ }
+}
