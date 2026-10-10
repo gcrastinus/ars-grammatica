@@ -2158,7 +2158,7 @@ window.FRENCH = {
    {
     "id": "fprod1",
     "lemma": "roi",
-    "lemmaLine": "roi, rois, masculine, king",
+    "lemmaLine": "roi, masculine, king",
     "want": "plural",
     "a": "rois",
     "why": "The plural of roi adds s. The singular is roi.",
@@ -2170,7 +2170,7 @@ window.FRENCH = {
    {
     "id": "fprod2",
     "lemma": "cheval",
-    "lemmaLine": "cheval, chevaux, masculine, horse",
+    "lemmaLine": "cheval, masculine, horse",
     "want": "plural",
     "a": "chevaux",
     "why": "The plural of cheval is chevaux. The stem changes, and the ending is x.",
@@ -2182,7 +2182,7 @@ window.FRENCH = {
    {
     "id": "fprod3",
     "lemma": "cadeau",
-    "lemmaLine": "cadeau, cadeaux, masculine, gift",
+    "lemmaLine": "cadeau, masculine, gift",
     "want": "plural",
     "a": "cadeaux",
     "why": "The plural of cadeau is cadeaux. A noun in -eau takes -x.",
@@ -2194,7 +2194,7 @@ window.FRENCH = {
    {
     "id": "fprod4",
     "lemma": "ami",
-    "lemmaLine": "ami, amie, masculine, friend",
+    "lemmaLine": "ami, masculine, friend",
     "want": "feminine singular",
     "a": "amie",
     "why": "The feminine of ami is amie. The article before it is l’, because the word begins with a vowel.",
@@ -2206,7 +2206,7 @@ window.FRENCH = {
    {
     "id": "fprod5",
     "lemma": "bon",
-    "lemmaLine": "bon, bonne, good",
+    "lemmaLine": "bon, good",
     "want": "feminine singular",
     "a": "bonne",
     "why": "The feminine singular of bon is bonne. The n is doubled.",
@@ -2218,7 +2218,7 @@ window.FRENCH = {
    {
     "id": "fprod6",
     "lemma": "beau",
-    "lemmaLine": "beau, bel, belle, beautiful",
+    "lemmaLine": "beau, beautiful",
     "want": "masculine singular used before a vowel",
     "a": "bel",
     "why": "Before a masculine noun that begins with a vowel, beau becomes bel. Larousse gives bel as that form.",
@@ -2231,7 +2231,7 @@ window.FRENCH = {
    {
     "id": "fprod7",
     "lemma": "vieux",
-    "lemmaLine": "vieux, vieil, vieille, old",
+    "lemmaLine": "vieux, old",
     "want": "feminine plural",
     "a": "vieilles",
     "why": "The feminine plural of vieux is vieilles.",
@@ -2244,7 +2244,7 @@ window.FRENCH = {
    {
     "id": "fprod8",
     "lemma": "heureux",
-    "lemmaLine": "heureux, heureuse, happy",
+    "lemmaLine": "heureux, happy",
     "want": "feminine singular",
     "a": "heureuse",
     "why": "The feminine singular of heureux is heureuse. The masculine plural stays heureux.",
