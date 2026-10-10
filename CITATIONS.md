@@ -361,7 +361,7 @@ the course's rule — St Thomas's texts first, Nieto for the framing:
   (`aq_st13`, checked); *Metaphysics* IX.6 1048b18–35 on seeing and having seen
   (`arist_met9`, not checked; absent from the Latin text St Thomas commented on);
   deponents and the Greek middle (Smyth).
-- **Case and its Work** — new study deck in Act III (the exercise had none): *casus*
+- **Case** — new study deck in Act III (the exercise had none): *casus*
   and the upright nominative (*In Peri herm.* I lect. 4, checked); subjective,
   objective, and possessive genitive; predicate accusative (*Ancum Marcium regem populus
   creavit*); the case recognized before the meaning.

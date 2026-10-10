@@ -463,7 +463,7 @@ function emitExercise(key, ex, rand, SRC) {
     });
     return lines.join('\n');
   }
-  lines.push('Two notes, then the drill. A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty you chose.');
+  lines.push('The exercise begins with two notes. A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.');
   lines.push('');
   if (ex.instr) {
     lines.push('Instruction on the question: ' + htmlToMarkup(ex.instr).replace(/\n+/g, ' ').trim());
