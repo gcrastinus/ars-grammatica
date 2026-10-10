@@ -189,8 +189,12 @@ function loadApp(htmlPath) {
   // greek.js (beside index.html) defines window.GREEK; the app builds its Greek deck, paradigms and exercise from it.
   const greekPath = path.join(path.dirname(htmlPath), 'greek.js');
   const greekCode = fs.existsSync(greekPath) ? fs.readFileSync(greekPath, 'utf8') + '\n;\n' : '';
-  const dataCode = greekCode + all.slice(0, cut)
-    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, GRK: typeof GRK === 'undefined' ? null : GRK, store, state };\n`;
+  // french.js and german.js define window.FRENCH and window.GERMAN in the same way.
+  const partnerCode = ['french.js', 'german.js'].map(f => path.join(path.dirname(htmlPath), f))
+    .map(p => fs.existsSync(p) ? fs.readFileSync(p, 'utf8') + '\n;\n' : '').join('');
+  const dataCode = greekCode + partnerCode + all.slice(0, cut)
+    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
+      PARTNERS: { fr: typeof FRA === 'undefined' ? null : FRA, de: typeof DEU === 'undefined' ? null : DEU } };\n`;
   const sandbox = {
     console, Math, Date, Array, Object, String, Number, Boolean, JSON, RegExp, Error, Map, Set,
     parseInt, parseFloat, isNaN, Infinity, undefined, NaN, setTimeout, clearTimeout,
@@ -491,14 +495,19 @@ function emitExercise(key, ex, rand, SRC) {
 /** Every Greek item of a shared exercise, drawn as the app draws it with English and Greek chosen. A separate
  *  random stream is used, and the app's state is restored, so that the samples printed elsewhere stay the same. */
 function emitGreek(key, ex, app) {
-  const pool = app.GRK && app.GRK.shared && app.GRK.shared[key];
-  if (!Array.isArray(pool) || !ex.langs || ex.langs.indexOf('grc') < 0) return '';
+  return emitPartner(key, ex, app, 'grc', app.GRK, 'Greek');
+}
+
+/** The items of a partner language (code, with its data and its name) in a shared exercise, as emitGreek prints the Greek. */
+function emitPartner(key, ex, app, code, data, name) {
+  const pool = data && data.shared && data.shared[key];
+  if (!Array.isArray(pool) || !ex.langs || ex.langs.indexOf(code) < 0) return '';
   const { store, state } = app;
   const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key];
   Math.random = seededRandom(7);
   store.modes[key] = 'both';
-  store.langs[key] = 'grc';
-  const lines = ['#### Greek', '', `With English and Greek chosen, these Greek items take the place of the Latin ones. Every Greek item is printed: ${pool.length} items.`, ''];
+  store.langs[key] = code;
+  const lines = [`#### ${name}`, '', `With English and ${name} chosen, these ${name} items take the place of the Latin ones. Every ${name} item is printed: ${pool.length} items.`, ''];
   pool.forEach((it, i) => {
     let q = null;
     for (let t = 0; t < 400 && !q; t++) {
@@ -569,7 +578,7 @@ function emitGreekSentence(key, ex, app) {
   return lines.join('\n');
 }
 
-function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
+function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state, PARTNERS }, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Seed Math.random for reproducible exercise samples
   const rand = seededRandom(20261005);
@@ -606,6 +615,10 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
         parts.push(GREEK_SENTENCE[it.ex] ? emitGreekSentence(it.ex, ex, { GRK, state }) : emitExercise(it.ex, ex, rand, SRC));
         const greek = emitGreek(it.ex, ex, { GRK, store, state });
         if (greek) parts.push(greek);
+        [['de', 'German'], ['fr', 'French']].forEach(([code, name]) => {
+          const text = emitPartner(it.ex, ex, { store, state }, code, PARTNERS && PARTNERS[code], name);
+          if (text) parts.push(text);
+        });
         const notes = GRK && GRK.notes ? GRK.notes.exercises[it.ex] : null;
         if (notes) {
           parts.push('Greek notes, shown after the explanation of these items when Greek is chosen:');
