@@ -4968,7 +4968,7 @@ EX.pos = {
   id:'pos', src:['donatus','ag','appown'], act:'II', title:'The Parts of Speech',
   desc:'A word, a phrase, or a clause is marked, and the question is how it is used here, in English and Latin, and in Greek, German, or French when chosen. A set is complete at 100 points.',
   instr:'Say how the marked word, phrase, or clause is used.',
-  introInstr:'Two notes, then the drill. A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty chosen on the home screen.',
+  introInstr:'The exercise begins with two notes. A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.',
   intro:[
     {h:`<strong>A part of speech is decided by how a word is used.</strong> Donatus counts eight: noun, pronoun, verb, adverb, participle, conjunction, preposition, interjection; English adds the article. The list is not a list of dictionary entries, and so we ask what the marked word is doing <em>here</em>.`,
      eg:['<em>We bought paint</em>: <em>paint</em> names a stuff (noun).',
@@ -8539,7 +8539,7 @@ EX.auctores = {
   }
 };
 
-const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong answers take away, and the stakes follow the difficulty chosen on the home screen.';
+const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.';
 (function attachIntros(){
   const I = {
     vox:[
@@ -8662,7 +8662,7 @@ const SET_NOTE = 'A set is complete at 100 points; correct answers add, wrong an
   Object.keys(I).forEach(k => {
     if(!EX[k] || EX[k].intro) return;
     EX[k].intro = I[k];
-    EX[k].introInstr = 'Two notes, then the drill. ' + SET_NOTE;
+    EX[k].introInstr = 'The exercise begins with two notes. ' + SET_NOTE;
   });
 })();
 
