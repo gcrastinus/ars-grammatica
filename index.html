@@ -8474,7 +8474,8 @@ const AUCTORES = [
       ds:['A purpose clause depending on ἐπαινοῦσι','A genitive absolute standing apart from the sentence','An incomplete clause until ἵνα is supplied'],
       why:'μέν looks forward to a δέ that comes later, but this clause is already an independent clause with its own verb, ἐπαινοῦσι. Hypotaxis would need ἵνα, ὅτι, or a relative.'}
    ]},
-  {id:'gor-hel-1', shelf:'greek', author:'Gorgias', work:'Encomium of Helen', locus:'1',
+  /* unverified: the text has not been checked against a named public-domain edition, so it is not listed. */
+  {id:'gor-hel-1', shelf:'greek', unverified:true, author:'Gorgias', work:'Encomium of Helen', locus:'1',
    comm:'Smyth on μέν and δέ, and on the omission of ἐστί', src:['smyth'],
    lat:`κόσμος πόλει μὲν εὐανδρία, σώματι δὲ κάλλος, ψυχῇ δὲ σοφία, …`,
    eng:`The adornment of a city is good men; of a body, beauty; of a soul, wisdom; …\n${LIT}`,
@@ -8504,7 +8505,7 @@ EX.auctores = {
     const id = state.auctorId;
     let a = AUCTORES.filter(x => x.id === id)[0];
     if(!a){
-      const shelf = AUCTORES.filter(x => x.shelf !== 'greek' || state.lang3 === 'grc');
+      const shelf = auctorShelf();
       a = rand(shelf);
     }
     const it = pickSeen(a.items, x => a.id + ':' + x.q);
@@ -16350,15 +16351,16 @@ function buildHome(){
 /* ---------- study decks ---------- */
 let deck = null, deckI = 0, deckAnswered = false;
 
+/* The Greek shelf is listed when Greek is chosen on the home screen. A passage marked unverified is not listed. */
 function auctorShelf(){
-  return AUCTORES.filter(a => a.shelf !== 'greek' || state.lang3 === 'grc');
+  return AUCTORES.filter(a => !a.unverified && (a.shelf !== 'greek' || store.langPick === 'grc'));
 }
 function openPick(which){
   if(which !== 'auctores') return;
   $('pick-title').textContent = 'Twenty passages';
   $('pick-sub').textContent = 'Latin is the text. English is shown on request. Construction only.';
   $('pick-note').innerHTML = 'Shared loci with Ars Rhetorica. Choose one period. The questions are government, agreement, cola, and whether a construction is paratactic or hypotactic. The key is a named commentary, not a lecture on the story.'
-    + (state.lang3 === 'grc' ? ' A Greek shelf is included because Ancient Greek is the partner language.' : '');
+    + (store.langPick === 'grc' ? ' A Greek shelf is included because Ancient Greek is the partner language.' : '');
   const grid = $('pick-grid');
   grid.innerHTML = '';
   auctorShelf().forEach(a => {
