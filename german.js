@@ -2575,7 +2575,7 @@ window.GERMAN = {
     "id": "dprod9",
     "lemma": "gut",
     "lemmaLine": "gut, good",
-    "want": "strong declension, neuter nominative singular",
+    "want": "strong neuter nominative singular",
     "a": "gutes",
     "why": "With no article, the strong neuter nominative of gut is gutes. The same spelling is the strong neuter accusative. The cell asked is the nominative.",
     "lang": "de",
