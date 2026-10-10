@@ -1,0 +1,1021 @@
+{
+  "language": "de",
+  "dialect": "modern standard",
+  "source": "Duden online, read 2026-10-09. Articles and noun tables from the Duden declension pages and the learner article page. Adjective endings from Deklination zu gemischt. Pronouns from the Duden entries named on the pronoun object. Verbs from the Duden conjugation pages, indicative present, Präteritum, Perfekt, and Konjunktiv II only. The Konjunktiv I, the Futur, the Plusquamperfekt, and the imperative are printed on those pages and are not entered. Prepositions from Was sind Präpositionen?, Präpositionen mit Genitiv, and the für, Akkusativ, and Dativ entries.",
+  "article": {
+    "lemma": "der, die, das; ein, eine",
+    "gloss": "the; a",
+    "ref": "Duden, Was sind Artikel?, duden.de/sprachwissen/fuer-lernende/wortarten-artikel, read 2026-10-09. Duden, s.v. Nullartikel, duden.de/rechtschreibung/Nullartikel, read 2026-10-09, says the indefinite plural stands with the Nullartikel. The ein-word endings are the ones Duden prints with kein on Deklination zu gemischt, Gemischte Beugung, read 2026-10-09. The neuter and plural definite forms are the ones printed on Deklination zu Buch, Frau, and König.",
+    "note": "The definite article has four cases, three genders, and a plural. The indefinite article has no plural. The Duden learner page prints die Frau, der Frau, der Frau, die Frau and der Mann, des Mann[e]s, dem Mann, den Mann. Ein follows kein without the initial k, and only in the singular. No item asks a contracted article.",
+    "definite": {
+      "sg": {
+        "m": {
+          "nom": "der",
+          "gen": "des",
+          "dat": "dem",
+          "acc": "den"
+        },
+        "f": {
+          "nom": "die",
+          "gen": "der",
+          "dat": "der",
+          "acc": "die"
+        },
+        "n": {
+          "nom": "das",
+          "gen": "des",
+          "dat": "dem",
+          "acc": "das"
+        }
+      },
+      "pl": {
+        "nom": "die",
+        "gen": "der",
+        "dat": "den",
+        "acc": "die"
+      }
+    },
+    "indefinite": {
+      "sg": {
+        "m": {
+          "nom": "ein",
+          "gen": "eines",
+          "dat": "einem",
+          "acc": "einen"
+        },
+        "f": {
+          "nom": "eine",
+          "gen": "einer",
+          "dat": "einer",
+          "acc": "eine"
+        },
+        "n": {
+          "nom": "ein",
+          "gen": "eines",
+          "dat": "einem",
+          "acc": "ein"
+        }
+      },
+      "pl": null
+    }
+  },
+  "nouns": [
+    {
+      "lemma": "König",
+      "ref": "Duden, Deklination zu König, duden.de/deklination/substantive/Koenig, read 2026-10-09. Singular der König, den König, dem König, des Königs. Plural die Könige, die Könige, den Königen, der Könige.",
+      "forms": {
+        "sg": {
+          "nom": "König",
+          "gen": "Königs",
+          "dat": "König",
+          "acc": "König"
+        },
+        "pl": {
+          "nom": "Könige",
+          "gen": "Könige",
+          "dat": "Königen",
+          "acc": "Könige"
+        }
+      }
+    },
+    {
+      "lemma": "Frau",
+      "ref": "Duden, Deklination zu Frau, duden.de/deklination/substantive/Frau, read 2026-10-09. Singular die Frau, die Frau, der Frau, der Frau. Plural die Frauen, die Frauen, den Frauen, der Frauen. Duden, Was sind Artikel?, prints the same singular article forms.",
+      "forms": {
+        "sg": {
+          "nom": "Frau",
+          "gen": "Frau",
+          "dat": "Frau",
+          "acc": "Frau"
+        },
+        "pl": {
+          "nom": "Frauen",
+          "gen": "Frauen",
+          "dat": "Frauen",
+          "acc": "Frauen"
+        }
+      },
+      "note": "The noun itself does not change in the singular. The article shows the case. The plural already ends in -n, so the dative plural adds nothing."
+    },
+    {
+      "lemma": "Mann",
+      "ref": "Duden, Was sind Artikel?, duden.de/sprachwissen/fuer-lernende/wortarten-artikel, read 2026-10-09, prints der Mann, des Mann[e]s, dem Mann, den Mann. Duden, s.v. Mann, duden.de/rechtschreibung/Mann_Person, read 2026-10-09, prints Genitiv des Mann[e]s, Plural die Männer.",
+      "forms": {
+        "sg": {
+          "nom": "Mann",
+          "gen": "Mannes",
+          "dat": "Mann",
+          "acc": "Mann"
+        },
+        "pl": {
+          "nom": "Männer",
+          "gen": "Männer",
+          "dat": "Männern",
+          "acc": "Männer"
+        }
+      },
+      "note": "Duden prints both Mannes and Manns. Mannes is the form stored. Manns is not asked. The dative plural Männern was not on the Mann page. It adds n, the ending Duden prints on den Königen, den Freunden, and den Pferden. The older dative dem Manne is not stored."
+    },
+    {
+      "lemma": "Pferd",
+      "ref": "Duden, Deklination zu Pferd, duden.de/deklination/substantive/Pferd, read 2026-10-09. Singular das Pferd, das Pferd, dem Pferd, des Pferdes, Pferds. Plural die Pferde, die Pferde, den Pferden, der Pferde.",
+      "forms": {
+        "sg": {
+          "nom": "Pferd",
+          "gen": "Pferdes",
+          "dat": "Pferd",
+          "acc": "Pferd"
+        },
+        "pl": {
+          "nom": "Pferde",
+          "gen": "Pferde",
+          "dat": "Pferden",
+          "acc": "Pferde"
+        }
+      },
+      "note": "Duden prints both Pferdes and Pferds. Pferdes is the form stored. Pferds is not asked."
+    },
+    {
+      "lemma": "Stadt",
+      "ref": "Duden, Deklination zu Stadt, duden.de/deklination/substantive/Stadt, read 2026-10-09. Singular die Stadt, die Stadt, der Stadt, der Stadt. Plural die Städte, die Städte, den Städten, der Städte.",
+      "forms": {
+        "sg": {
+          "nom": "Stadt",
+          "gen": "Stadt",
+          "dat": "Stadt",
+          "acc": "Stadt"
+        },
+        "pl": {
+          "nom": "Städte",
+          "gen": "Städte",
+          "dat": "Städten",
+          "acc": "Städte"
+        }
+      },
+      "note": "The plural umlaut is Städte. The dative plural is Städten."
+    },
+    {
+      "lemma": "Buch",
+      "ref": "Duden, Deklination zu Buch, duden.de/deklination/substantive/Buch, read 2026-10-09. Singular das Buch, das Buch, dem Buch, des Buches, Buchs. Plural die Bücher, die Bücher, den Büchern, der Bücher.",
+      "forms": {
+        "sg": {
+          "nom": "Buch",
+          "gen": "Buches",
+          "dat": "Buch",
+          "acc": "Buch"
+        },
+        "pl": {
+          "nom": "Bücher",
+          "gen": "Bücher",
+          "dat": "Büchern",
+          "acc": "Bücher"
+        }
+      },
+      "note": "Duden prints both Buches and Buchs. Buches is the form stored. Buchs is not asked."
+    },
+    {
+      "lemma": "Garten",
+      "ref": "Duden, Deklination zu Garten, duden.de/deklination/substantive/Garten, read 2026-10-09. Singular der Garten, den Garten, dem Garten, des Gartens. Plural die Gärten, die Gärten, den Gärten, der Gärten.",
+      "forms": {
+        "sg": {
+          "nom": "Garten",
+          "gen": "Gartens",
+          "dat": "Garten",
+          "acc": "Garten"
+        },
+        "pl": {
+          "nom": "Gärten",
+          "gen": "Gärten",
+          "dat": "Gärten",
+          "acc": "Gärten"
+        }
+      },
+      "note": "The plural already ends in -n, so the dative plural is Gärten, the same spelling as the other plural cases."
+    },
+    {
+      "lemma": "Meer",
+      "ref": "Duden, Deklination zu Meer, duden.de/deklination/substantive/Meer, read 2026-10-09. Singular das Meer, das Meer, dem Meer, des Meeres, Meers. Plural die Meere, die Meere, den Meeren, der Meere.",
+      "forms": {
+        "sg": {
+          "nom": "Meer",
+          "gen": "Meeres",
+          "dat": "Meer",
+          "acc": "Meer"
+        },
+        "pl": {
+          "nom": "Meere",
+          "gen": "Meere",
+          "dat": "Meeren",
+          "acc": "Meere"
+        }
+      },
+      "note": "Duden prints both Meeres and Meers. Meeres is the form stored. Meers is not asked."
+    },
+    {
+      "lemma": "Freund",
+      "ref": "Duden, Deklination zu Freund, duden.de/deklination/substantive/Freund, read 2026-10-09. Singular der Freund, den Freund, dem Freund, des Freundes, Freunds. Plural die Freunde, die Freunde, den Freunden, der Freunde.",
+      "forms": {
+        "sg": {
+          "nom": "Freund",
+          "gen": "Freundes",
+          "dat": "Freund",
+          "acc": "Freund"
+        },
+        "pl": {
+          "nom": "Freunde",
+          "gen": "Freunde",
+          "dat": "Freunden",
+          "acc": "Freunde"
+        }
+      },
+      "note": "Duden prints both Freundes and Freunds. Freundes is the form stored. Freunds is not asked."
+    },
+    {
+      "lemma": "Mensch",
+      "ref": "Duden, Deklination zu Mensch, duden.de/deklination/substantive/Mensch_Individuum, read 2026-10-09. Singular der Mensch, den Menschen, dem Menschen, des Menschen. Plural die Menschen, die Menschen, den Menschen, der Menschen.",
+      "forms": {
+        "sg": {
+          "nom": "Mensch",
+          "gen": "Menschen",
+          "dat": "Menschen",
+          "acc": "Menschen"
+        },
+        "pl": {
+          "nom": "Menschen",
+          "gen": "Menschen",
+          "dat": "Menschen",
+          "acc": "Menschen"
+        }
+      },
+      "note": "Weak masculine. The nominative singular is the only form without -n. Every other case, singular and plural, is Menschen."
+    },
+    {
+      "lemma": "Haus",
+      "ref": "Duden, s.v. Haus, duden.de/rechtschreibung/Haus, read 2026-10-09, prints das Haus, Genitiv des Hauses, and the plural Häuser. The declension page for Haus was not found. The dative singular Haus and the dative plural Häusern follow the neuter pattern Duden prints in full for Buch, Pferd, and Meer.",
+      "forms": {
+        "sg": {
+          "nom": "Haus",
+          "gen": "Hauses",
+          "dat": "Haus",
+          "acc": "Haus"
+        },
+        "pl": {
+          "nom": "Häuser",
+          "gen": "Häuser",
+          "dat": "Häusern",
+          "acc": "Häuser"
+        }
+      },
+      "note": "The full four-case table was not on the page opened for Haus. No item asks a cell of Haus. The older dative Hause, in the set phrase im Hause, is not stored."
+    }
+  ],
+  "adjectives": [
+    {
+      "lemma": "gut",
+      "gloss": "good",
+      "class": "regular endings; strong, weak, and mixed",
+      "ref": "Duden, s.v. gut, duden.de/rechtschreibung/gut, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, duden.de/sprachwissen/sprachratgeber/steigerung-komparation-deutsche-adjektive, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
+      "note": "The positive takes the regular endings. Duden, Die Steigerung, prints the compared forms besser and am besten. Those forms are not asked. The gut entry prints guten Morgen, guten Mutes, and aus gutem Grund. The full grid below is the ending table applied to the stem gut.",
+      "strong": {
+        "sg": {
+          "m": {
+            "nom": "guter",
+            "gen": "guten",
+            "dat": "gutem",
+            "acc": "guten"
+          },
+          "f": {
+            "nom": "gute",
+            "gen": "guter",
+            "dat": "guter",
+            "acc": "gute"
+          },
+          "n": {
+            "nom": "gutes",
+            "gen": "guten",
+            "dat": "gutem",
+            "acc": "gutes"
+          }
+        },
+        "pl": {
+          "nom": "gute",
+          "gen": "guter",
+          "dat": "guten",
+          "acc": "gute"
+        }
+      },
+      "weak": {
+        "sg": {
+          "m": {
+            "nom": "gute",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "guten"
+          },
+          "f": {
+            "nom": "gute",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "gute"
+          },
+          "n": {
+            "nom": "gute",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "gute"
+          }
+        },
+        "pl": {
+          "nom": "guten",
+          "gen": "guten",
+          "dat": "guten",
+          "acc": "guten"
+        }
+      },
+      "mixed": {
+        "sg": {
+          "m": {
+            "nom": "guter",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "guten"
+          },
+          "f": {
+            "nom": "gute",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "gute"
+          },
+          "n": {
+            "nom": "gutes",
+            "gen": "guten",
+            "dat": "guten",
+            "acc": "gutes"
+          }
+        },
+        "pl": {
+          "nom": "guten",
+          "gen": "guten",
+          "dat": "guten",
+          "acc": "guten"
+        }
+      }
+    },
+    {
+      "lemma": "klein",
+      "gloss": "small",
+      "class": "regular endings; strong, weak, and mixed",
+      "ref": "Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
+      "note": "The positive takes the regular endings. No compared form is asked. The own declension page for klein was not opened. The endings are the ones Duden prints for a regular adjective.",
+      "strong": {
+        "sg": {
+          "m": {
+            "nom": "kleiner",
+            "gen": "kleinen",
+            "dat": "kleinem",
+            "acc": "kleinen"
+          },
+          "f": {
+            "nom": "kleine",
+            "gen": "kleiner",
+            "dat": "kleiner",
+            "acc": "kleine"
+          },
+          "n": {
+            "nom": "kleines",
+            "gen": "kleinen",
+            "dat": "kleinem",
+            "acc": "kleines"
+          }
+        },
+        "pl": {
+          "nom": "kleine",
+          "gen": "kleiner",
+          "dat": "kleinen",
+          "acc": "kleine"
+        }
+      },
+      "weak": {
+        "sg": {
+          "m": {
+            "nom": "kleine",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleinen"
+          },
+          "f": {
+            "nom": "kleine",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleine"
+          },
+          "n": {
+            "nom": "kleine",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleine"
+          }
+        },
+        "pl": {
+          "nom": "kleinen",
+          "gen": "kleinen",
+          "dat": "kleinen",
+          "acc": "kleinen"
+        }
+      },
+      "mixed": {
+        "sg": {
+          "m": {
+            "nom": "kleiner",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleinen"
+          },
+          "f": {
+            "nom": "kleine",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleine"
+          },
+          "n": {
+            "nom": "kleines",
+            "gen": "kleinen",
+            "dat": "kleinen",
+            "acc": "kleines"
+          }
+        },
+        "pl": {
+          "nom": "kleinen",
+          "gen": "kleinen",
+          "dat": "kleinen",
+          "acc": "kleinen"
+        }
+      }
+    },
+    {
+      "lemma": "groß",
+      "gloss": "great, large",
+      "class": "regular endings; strong, weak, and mixed",
+      "ref": "Duden, s.v. groß, duden.de/rechtschreibung/grosz, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
+      "note": "The stem keeps ß before an ending. Duden prints größer and größte, so ß stays. The token große was not on that page. No compared form is asked. Duden, Die Steigerung, prints groß, größer, am größten, and says am größesten is not the form.",
+      "strong": {
+        "sg": {
+          "m": {
+            "nom": "großer",
+            "gen": "großen",
+            "dat": "großem",
+            "acc": "großen"
+          },
+          "f": {
+            "nom": "große",
+            "gen": "großer",
+            "dat": "großer",
+            "acc": "große"
+          },
+          "n": {
+            "nom": "großes",
+            "gen": "großen",
+            "dat": "großem",
+            "acc": "großes"
+          }
+        },
+        "pl": {
+          "nom": "große",
+          "gen": "großer",
+          "dat": "großen",
+          "acc": "große"
+        }
+      },
+      "weak": {
+        "sg": {
+          "m": {
+            "nom": "große",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "großen"
+          },
+          "f": {
+            "nom": "große",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "große"
+          },
+          "n": {
+            "nom": "große",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "große"
+          }
+        },
+        "pl": {
+          "nom": "großen",
+          "gen": "großen",
+          "dat": "großen",
+          "acc": "großen"
+        }
+      },
+      "mixed": {
+        "sg": {
+          "m": {
+            "nom": "großer",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "großen"
+          },
+          "f": {
+            "nom": "große",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "große"
+          },
+          "n": {
+            "nom": "großes",
+            "gen": "großen",
+            "dat": "großen",
+            "acc": "großes"
+          }
+        },
+        "pl": {
+          "nom": "großen",
+          "gen": "großen",
+          "dat": "großen",
+          "acc": "großen"
+        }
+      }
+    }
+  ],
+  "pronouns": {
+    "ref": "Duden, s.v. ich, du, ihn, ihm, sie, euer, unser, read 2026-10-09. ich, duden.de/rechtschreibung/ich; du, duden.de/rechtschreibung/du; ihn, duden.de/rechtschreibung/ihn; ihm, duden.de/rechtschreibung/ihm; sie, duden.de/rechtschreibung/sie; euer, duden.de/rechtschreibung/euer_dieser_dieses_euch_ihr; unser, duden.de/rechtschreibung/unser_wir.",
+    "note": "Four cases. Duden prints meiner, and marks mein as veraltet. Duden prints deiner, and marks dein as veraltet. Duden prints ihrer for the feminine and for the plural, and marks the older ihr as veraltet. ihn is Akkusativ von er. ihm is Dativ von er and of es. euer is Genitiv von ihr, and Duden says not eurer. unser is Genitiv von wir, marked gehoben, and Duden says not unserer. The entries for uns, euch, and seiner were not opened. Sie with a capital is the formal address, and Duden prints Sie, Ihrer, Ihnen, Sie on the sie page. The verb with Sie is the third-person plural form. No item turns on the capital alone.",
+    "forms": {
+      "1s": {
+        "nom": "ich",
+        "gen": "meiner",
+        "dat": "mir",
+        "acc": "mich"
+      },
+      "2s": {
+        "nom": "du",
+        "gen": "deiner",
+        "dat": "dir",
+        "acc": "dich"
+      },
+      "3s_m": {
+        "nom": "er",
+        "gen": "seiner",
+        "dat": "ihm",
+        "acc": "ihn"
+      },
+      "3s_f": {
+        "nom": "sie",
+        "gen": "ihrer",
+        "dat": "ihr",
+        "acc": "sie"
+      },
+      "3s_n": {
+        "nom": "es",
+        "gen": "seiner",
+        "dat": "ihm",
+        "acc": "es"
+      },
+      "1p": {
+        "nom": "wir",
+        "gen": "unser",
+        "dat": "uns",
+        "acc": "uns"
+      },
+      "2p": {
+        "nom": "ihr",
+        "gen": "euer",
+        "dat": "euch",
+        "acc": "euch"
+      },
+      "3p": {
+        "nom": "sie",
+        "gen": "ihrer",
+        "dat": "ihnen",
+        "acc": "sie"
+      },
+      "2_formal": {
+        "nom": "Sie",
+        "gen": "Ihrer",
+        "dat": "Ihnen",
+        "acc": "Sie"
+      }
+    }
+  },
+  "verbs": [
+    {
+      "lemma": "sein",
+      "gloss": "be",
+      "kind": "irregular",
+      "auxiliary": "sein",
+      "ref": "Duden, Konjugation zu sein, duden.de/konjugation/sein_Hilfsverb, read 2026-10-09",
+      "note": "The Perfekt uses sein: bin gewesen. The Konjunktiv II second person singular is printed as wärest, wärst, and the second person plural as wäret, wärt. The form stored is the one Duden prints first. The short form is not asked. The Konjunktiv I is printed on the page and is not entered.",
+      "present": {
+        "1s": "bin",
+        "2s": "bist",
+        "3s": "ist",
+        "1p": "sind",
+        "2p": "seid",
+        "3p": "sind"
+      },
+      "praeteritum": {
+        "1s": "war",
+        "2s": "warst",
+        "3s": "war",
+        "1p": "waren",
+        "2p": "wart",
+        "3p": "waren"
+      },
+      "perfekt": {
+        "1s": "bin gewesen",
+        "2s": "bist gewesen",
+        "3s": "ist gewesen",
+        "1p": "sind gewesen",
+        "2p": "seid gewesen",
+        "3p": "sind gewesen"
+      },
+      "konjunktiv_ii": {
+        "1s": "wäre",
+        "2s": "wärest",
+        "3s": "wäre",
+        "1p": "wären",
+        "2p": "wäret",
+        "3p": "wären"
+      },
+      "partizip": "gewesen"
+    },
+    {
+      "lemma": "haben",
+      "gloss": "have",
+      "kind": "irregular",
+      "auxiliary": "haben",
+      "ref": "Duden, Konjugation zu haben, duden.de/konjugation/haben_Vollverb, read 2026-10-09",
+      "note": "The present second and third persons drop the b of the stem: hast, hat. The Perfekt uses haben: hat gehabt. The Konjunktiv II is hätte, hättest, hätte, hätten, hättet, hätten. The reflexive parentheses on the Duden line are not part of the form.",
+      "present": {
+        "1s": "habe",
+        "2s": "hast",
+        "3s": "hat",
+        "1p": "haben",
+        "2p": "habt",
+        "3p": "haben"
+      },
+      "praeteritum": {
+        "1s": "hatte",
+        "2s": "hattest",
+        "3s": "hatte",
+        "1p": "hatten",
+        "2p": "hattet",
+        "3p": "hatten"
+      },
+      "perfekt": {
+        "1s": "habe gehabt",
+        "2s": "hast gehabt",
+        "3s": "hat gehabt",
+        "1p": "haben gehabt",
+        "2p": "habt gehabt",
+        "3p": "haben gehabt"
+      },
+      "konjunktiv_ii": {
+        "1s": "hätte",
+        "2s": "hättest",
+        "3s": "hätte",
+        "1p": "hätten",
+        "2p": "hättet",
+        "3p": "hätten"
+      },
+      "partizip": "gehabt"
+    },
+    {
+      "lemma": "werden",
+      "gloss": "become",
+      "kind": "irregular",
+      "auxiliary": "sein",
+      "ref": "Duden, Konjugation zu werden, duden.de/konjugation/werden_Vollverb, read 2026-10-09",
+      "note": "The Präteritum line prints ward, wurde and wardst, wurdest. The form stored is wurde, wurdest, wurde, wurden, wurdet, wurden. Ward is the older form and is not asked. The Perfekt of the full verb uses sein: ist geworden. When werden is the passive auxiliary, the participle is worden. That passive is not entered. The Konjunktiv II is würde, würdest, würde, würden, würdet, würden.",
+      "present": {
+        "1s": "werde",
+        "2s": "wirst",
+        "3s": "wird",
+        "1p": "werden",
+        "2p": "werdet",
+        "3p": "werden"
+      },
+      "praeteritum": {
+        "1s": "wurde",
+        "2s": "wurdest",
+        "3s": "wurde",
+        "1p": "wurden",
+        "2p": "wurdet",
+        "3p": "wurden"
+      },
+      "perfekt": {
+        "1s": "bin geworden",
+        "2s": "bist geworden",
+        "3s": "ist geworden",
+        "1p": "sind geworden",
+        "2p": "seid geworden",
+        "3p": "sind geworden"
+      },
+      "konjunktiv_ii": {
+        "1s": "würde",
+        "2s": "würdest",
+        "3s": "würde",
+        "1p": "würden",
+        "2p": "würdet",
+        "3p": "würden"
+      },
+      "partizip": "geworden"
+    },
+    {
+      "lemma": "machen",
+      "gloss": "make, do",
+      "kind": "weak",
+      "auxiliary": "haben",
+      "ref": "Duden, Konjugation zu machen, duden.de/konjugation/machen, read 2026-10-09. Duden, Konjunktiv II oder würde-Form, duden.de/sprachwissen/sprachratgeber/Konjunktiv-2-oder-würde-Form, read 2026-10-09, says the Konjunktiv II of a weak verb has the same spelling as the Präteritum, and gives ich liebte, er liebte.",
+      "note": "Present: mache, machst, macht, machen, macht, machen. The third person singular and the second person plural are both macht. Präteritum: machte, machtest, machte, machten, machtet, machten. The Konjunktiv II is that same set of spellings. No item asks it. Duden says the würde construction is the clearer one when the two spellings match, and the page illustrates it with wohnen. The Perfekt is hat gemacht.",
+      "present": {
+        "1s": "mache",
+        "2s": "machst",
+        "3s": "macht",
+        "1p": "machen",
+        "2p": "macht",
+        "3p": "machen"
+      },
+      "praeteritum": {
+        "1s": "machte",
+        "2s": "machtest",
+        "3s": "machte",
+        "1p": "machten",
+        "2p": "machtet",
+        "3p": "machten"
+      },
+      "perfekt": {
+        "1s": "habe gemacht",
+        "2s": "hast gemacht",
+        "3s": "hat gemacht",
+        "1p": "haben gemacht",
+        "2p": "habt gemacht",
+        "3p": "haben gemacht"
+      },
+      "konjunktiv_ii": {
+        "1s": "machte",
+        "2s": "machtest",
+        "3s": "machte",
+        "1p": "machten",
+        "2p": "machtet",
+        "3p": "machten"
+      },
+      "partizip": "gemacht"
+    },
+    {
+      "lemma": "sprechen",
+      "gloss": "speak",
+      "kind": "strong",
+      "auxiliary": "haben",
+      "ref": "Duden, Konjugation zu sprechen, duden.de/konjugation/sprechen, read 2026-10-09",
+      "note": "The present changes e to i in the second and third persons singular: sprichst, spricht. The Konjunktiv II second person is printed as sprächest, sprächst and sprächet, sprächt. The form stored is the one Duden prints first. The short form is not asked. The participle is gesprochen.",
+      "present": {
+        "1s": "spreche",
+        "2s": "sprichst",
+        "3s": "spricht",
+        "1p": "sprechen",
+        "2p": "sprecht",
+        "3p": "sprechen"
+      },
+      "praeteritum": {
+        "1s": "sprach",
+        "2s": "sprachst",
+        "3s": "sprach",
+        "1p": "sprachen",
+        "2p": "spracht",
+        "3p": "sprachen"
+      },
+      "perfekt": {
+        "1s": "habe gesprochen",
+        "2s": "hast gesprochen",
+        "3s": "hat gesprochen",
+        "1p": "haben gesprochen",
+        "2p": "habt gesprochen",
+        "3p": "haben gesprochen"
+      },
+      "konjunktiv_ii": {
+        "1s": "spräche",
+        "2s": "sprächest",
+        "3s": "spräche",
+        "1p": "sprächen",
+        "2p": "sprächet",
+        "3p": "sprächen"
+      },
+      "partizip": "gesprochen"
+    },
+    {
+      "lemma": "geben",
+      "gloss": "give",
+      "kind": "strong",
+      "auxiliary": "haben",
+      "ref": "Duden, Konjugation zu geben, duden.de/konjugation/geben, read 2026-10-09",
+      "note": "The present changes e to i: gibst, gibt. The participle is gegeben. The Konjunktiv II second person is printed as gäbest, gäbst and gäbet, gäbt. The form stored is the one Duden prints first. The short form is not asked. Duden, Der Gebrauch von Präpositionalobjekten, duden.de/sprachwissen/sprachratgeber/Der-Gebrauch-von-Präpositionalobjekten, read 2026-10-09, says geben takes a subject, a dative for the receiver, and an accusative for the thing given, and prints Sie gab ihm eine Ohrfeige.",
+      "present": {
+        "1s": "gebe",
+        "2s": "gibst",
+        "3s": "gibt",
+        "1p": "geben",
+        "2p": "gebt",
+        "3p": "geben"
+      },
+      "praeteritum": {
+        "1s": "gab",
+        "2s": "gabst",
+        "3s": "gab",
+        "1p": "gaben",
+        "2p": "gabt",
+        "3p": "gaben"
+      },
+      "perfekt": {
+        "1s": "habe gegeben",
+        "2s": "hast gegeben",
+        "3s": "hat gegeben",
+        "1p": "haben gegeben",
+        "2p": "habt gegeben",
+        "3p": "haben gegeben"
+      },
+      "konjunktiv_ii": {
+        "1s": "gäbe",
+        "2s": "gäbest",
+        "3s": "gäbe",
+        "1p": "gäben",
+        "2p": "gäbet",
+        "3p": "gäben"
+      },
+      "partizip": "gegeben"
+    },
+    {
+      "lemma": "kommen",
+      "gloss": "come",
+      "kind": "strong",
+      "auxiliary": "sein",
+      "ref": "Duden, Konjugation zu kommen, duden.de/konjugation/kommen, read 2026-10-09",
+      "note": "The present does not change the vowel: kommst, kommt. The third person singular and the second person plural are both kommt. The Perfekt uses sein: ist gekommen. The Konjunktiv II second person is printed as kämest, kämst and kämet, kämt. The form stored is the one Duden prints first. The short form is not asked.",
+      "present": {
+        "1s": "komme",
+        "2s": "kommst",
+        "3s": "kommt",
+        "1p": "kommen",
+        "2p": "kommt",
+        "3p": "kommen"
+      },
+      "praeteritum": {
+        "1s": "kam",
+        "2s": "kamst",
+        "3s": "kam",
+        "1p": "kamen",
+        "2p": "kamt",
+        "3p": "kamen"
+      },
+      "perfekt": {
+        "1s": "bin gekommen",
+        "2s": "bist gekommen",
+        "3s": "ist gekommen",
+        "1p": "sind gekommen",
+        "2p": "seid gekommen",
+        "3p": "sind gekommen"
+      },
+      "konjunktiv_ii": {
+        "1s": "käme",
+        "2s": "kämest",
+        "3s": "käme",
+        "1p": "kämen",
+        "2p": "kämet",
+        "3p": "kämen"
+      },
+      "partizip": "gekommen"
+    },
+    {
+      "lemma": "sehen",
+      "gloss": "see",
+      "kind": "strong",
+      "auxiliary": "haben",
+      "ref": "Duden, Konjugation zu sehen, duden.de/konjugation/sehen, read 2026-10-09",
+      "note": "The present has siehst and sieht. The Perfekt line prints gesehen/sehen. The form stored is hat gesehen. The sehen beside it on that line is the Ersatzinfinitiv used with a modal, and it is not asked. The Konjunktiv II is sähe, with sähest, sähst and sähet, säht in the second person. The form stored is the one Duden prints first. The short form is not asked.",
+      "present": {
+        "1s": "sehe",
+        "2s": "siehst",
+        "3s": "sieht",
+        "1p": "sehen",
+        "2p": "seht",
+        "3p": "sehen"
+      },
+      "praeteritum": {
+        "1s": "sah",
+        "2s": "sahst",
+        "3s": "sah",
+        "1p": "sahen",
+        "2p": "saht",
+        "3p": "sahen"
+      },
+      "perfekt": {
+        "1s": "habe gesehen",
+        "2s": "hast gesehen",
+        "3s": "hat gesehen",
+        "1p": "haben gesehen",
+        "2p": "habt gesehen",
+        "3p": "haben gesehen"
+      },
+      "konjunktiv_ii": {
+        "1s": "sähe",
+        "2s": "sähest",
+        "3s": "sähe",
+        "1p": "sähen",
+        "2p": "sähet",
+        "3p": "sähen"
+      },
+      "partizip": "gesehen"
+    }
+  ],
+  "prepositions": {
+    "ref": "Duden, Was sind Präpositionen?, duden.de/sprachwissen/fuer-lernende/wortarten-präpositionen, read 2026-10-09. Duden, Präpositionen mit Genitiv, duden.de/sprachwissen/sprachratgeber/Präpositionen-mit-Genitiv, read 2026-10-09. Duden, s.v. für, Präposition mit Akkusativ, duden.de/rechtschreibung/fuer_statt, read 2026-10-09. Duden, s.v. Akkusativ, prints that gegen governs the accusative. Duden, s.v. Dativ, prints that bei governs the dative exclusively today.",
+    "note": "A preposition keeps one form and requires a case. dank and laut take the genitive or the dative, and they are not asked. wegen with a bare singular whose genitive would end in -(e)s often leaves the noun uninflected, as in wegen Umbau. That pattern is not asked. The learner page prints the two-way pattern with in: Ich bin im Haus, and Ich gehe in die Stadt. The dative answers wo, and the accusative answers wohin. The same pair of questions is the school rule for an, auf, hinter, neben, über, unter, vor, and zwischen. Those eight words were not on the page opened here, and no item asks one of them. Duden prints the contractions zum, from zu plus dem, and fürs, from für plus das. No item asks a contraction.",
+    "accusative": [
+      {
+        "lemma": "für",
+        "gloss": "for",
+        "ref": "Duden, s.v. für, Präposition mit Akkusativ"
+      },
+      {
+        "lemma": "ohne",
+        "gloss": "without",
+        "ref": "Duden, Was sind Präpositionen?, ohne with the accusative, ohne jeden Zweifel"
+      },
+      {
+        "lemma": "gegen",
+        "gloss": "against",
+        "ref": "Duden, s.v. Akkusativ, die Präposition gegen regiert den Akkusativ"
+      },
+      {
+        "lemma": "bis",
+        "gloss": "until, up to",
+        "ref": "Duden, Was sind Präpositionen?, bis with the accusative",
+        "note": "Bis often stands with a second preposition. No item asks bis."
+      }
+    ],
+    "dative": [
+      {
+        "lemma": "mit",
+        "gloss": "with",
+        "ref": "Duden, Was sind Präpositionen?, mit with the dative"
+      },
+      {
+        "lemma": "zu",
+        "gloss": "to",
+        "ref": "Duden, Was sind Präpositionen?, zu with the dative, zu einer Geschichte. zu plus dem is zum."
+      },
+      {
+        "lemma": "bei",
+        "gloss": "at, near, with",
+        "ref": "Duden, s.v. Dativ, bei governs the dative exclusively today"
+      }
+    ],
+    "genitive": [
+      {
+        "lemma": "während",
+        "gloss": "during",
+        "ref": "Duden, Präpositionen mit Genitiv, names während"
+      },
+      {
+        "lemma": "wegen",
+        "gloss": "because of",
+        "ref": "Duden, Präpositionen mit Genitiv, names wegen"
+      },
+      {
+        "lemma": "statt",
+        "gloss": "instead of",
+        "ref": "Duden, Präpositionen mit Genitiv, names statt"
+      },
+      {
+        "lemma": "aufgrund",
+        "gloss": "on the basis of",
+        "ref": "Duden, Was sind Präpositionen?, aufgrund des Wetters"
+      },
+      {
+        "lemma": "hinsichtlich",
+        "gloss": "with regard to",
+        "ref": "Duden, Was sind Präpositionen?, names hinsichtlich with the genitive"
+      }
+    ],
+    "two_way": [
+      {
+        "lemma": "in",
+        "gloss": "in, into",
+        "dative": "place where",
+        "accusative": "place to which",
+        "examples": [
+          "Ich bin im Haus.",
+          "Ich gehe in die Stadt."
+        ],
+        "ref": "Duden, Was sind Präpositionen?, the wo and wohin examples"
+      }
+    ]
+  }
+}

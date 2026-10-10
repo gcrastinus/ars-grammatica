@@ -1,0 +1,98 @@
+{
+  "title": "German beside Latin",
+  "description": "What modern German has, and where it differs from Latin.",
+  "cards": [
+    {
+      "heading": "Modern German",
+      "text": "We set modern German beside Latin. The forms here are the forms of standard written German, the German of the school grammar and of the Duden. We do not use an older stage of the language, and we do not use a regional dialect."
+    },
+    {
+      "heading": "Umlauts and ß",
+      "text": "German writes an umlaut on a, o, and u, so ä, ö, and ü are letters of the word. The plural of Mann is Männer, the plural of Stadt is Städte, and the plural of Buch is Bücher. Latin, as we print it, uses the macron for quantity. German uses the umlaut as part of the spelling, and a spelling that drops it is a different spelling. After a long vowel or a diphthong, German writes ß, as in groß. Duden prints the compared forms größer and größte, and the ß stays. The conjunction dass is written with ss. Das, the article, is another word."
+    },
+    {
+      "heading": "The article",
+      "text": "German has an article, and Latin has none. The article stands with its noun and agrees with the noun in gender, number, and case. Der König means the king, and ein König means a king. A German noun in an ordinary sentence has an article or some other determiner. We count the article as a part of speech in German, as the Greek grammarians counted it in Greek."
+    },
+    {
+      "heading": "The forms of the article",
+      "text": "The definite article in the singular is der, die, das in the nominative. The masculine accusative is den, the masculine and neuter dative is dem, and the masculine and neuter genitive is des. The feminine genitive and the feminine dative are both der, and the feminine accusative is die. In the plural, die is nominative and accusative, den is dative, and der is genitive, for all three genders. The indefinite article is ein, eine in the nominative, einen in the masculine accusative, einem and einer in the dative, and eines and einer in the genitive. It has no plural. The plural of an indefinite noun stands with no article, which Duden calls the Nullartikel."
+    },
+    {
+      "heading": "The four cases",
+      "text": "German has four cases: the nominative, the accusative, the dative, and the genitive. The German names are Nominativ, Akkusativ, Dativ, and Genitiv. Duden gives Wenfall as another name of the accusative, and Wemfall as another name of the dative. The nominative is the case of the subject. The accusative is the case of the direct object. The dative is the case of the indirect object, the person to whom something is given. The genitive marks the possessor, as in des Königs, of the king."
+    },
+    {
+      "heading": "No ablative",
+      "text": "German has no ablative. Where Latin uses the ablative, German uses a preposition with the dative or the accusative, or, for the possessor, the genitive. Mit dem König means with the king, and the noun is dative. In der Stadt means in the city, and that too is dative when the phrase names the place where. Latin in takes the ablative for place and the accusative for motion. German in makes that same difference, and both cases are cases German still has."
+    },
+    {
+      "heading": "Address",
+      "text": "German has no separate vocative. Latin marks address with the vocative, and the form can differ from the nominative. German uses the nominative form, and the tone of the sentence shows that someone is being addressed. König is the nominative, and it is also the form of address. The article has no vocative either."
+    },
+    {
+      "heading": "Gender",
+      "text": "Every German noun is masculine, feminine, or neuter. Latin has the same three genders. The article shows the gender when the ending of the noun does not. Der König is masculine, die Frau is feminine, and das Buch is neuter. The ending does not always show the gender. Buch ends in a consonant and is neuter, and Stadt ends in a consonant and is feminine."
+    },
+    {
+      "heading": "Number",
+      "text": "A German noun has two numbers, the singular and the plural, as a Latin noun has. German has no dual. Some plurals add -e, as in Pferd, Pferde. Some add -n or -en, as in Frau, Frauen. Some change the stem vowel and add an ending, as in Buch, Bücher and Stadt, Städte. Garten becomes Gärten, and the plural already ends in -n. The article marks number as well. Die is the nominative plural, and der, die, and das in the singular are singular."
+    },
+    {
+      "heading": "Case on the noun",
+      "text": "A German noun does change for case, and it changes less often than a Latin noun. A strong masculine or neuter adds -(e)s in the genitive singular, so des Königs and des Buches. Duden also prints a shorter genitive for several of these nouns, such as des Buchs beside des Buches. We store the longer form and we do not ask the shorter one. The dative plural adds -n if the plural does not already end in -n or -s, so den Königen and den Büchern. In the other singular cases a strong noun often keeps one spelling, and the article shows the case. Der König, den König, and dem König are three cases, and the noun is spelled König in all three."
+    },
+    {
+      "heading": "The weak noun",
+      "text": "A weak masculine adds -n in every case except the nominative singular. Mensch is the model. The nominative is der Mensch. The accusative is den Menschen, the dative is dem Menschen, and the genitive is des Menschen. The plural is Menschen in every case. Latin has no class quite like this. A strong noun such as König adds the genitive -s and leaves the other singular forms unchanged. The weak noun adds -n and does not add -s."
+    },
+    {
+      "heading": "Adjective endings",
+      "text": "An adjective agrees with its noun in gender, number, and case. The ending depends on what stands before the adjective. After der, die, or das the ending is weak, so der gute König, die gute Frau, and das gute Buch. After ein the ending is mixed, so ein guter König, eine gute Frau, and ein gutes Buch. With no article the ending is strong, so guter König, gute Frau, and gutes Buch. The strong ending carries the mark that the definite article would have carried. Duden prints the three sets. Gut is compared with besser and am besten, and those forms are not asked."
+    },
+    {
+      "heading": "Personal pronouns",
+      "text": "The personal pronoun has four cases, as a German noun does. Ich is nominative, mich is accusative, mir is dative, and meiner is genitive. Du, dich, dir, and deiner follow the same order. Er has the accusative ihn and the dative ihm. Sie for a feminine noun keeps sie in the nominative and the accusative, and the dative is ihr. The plural sie has the dative ihnen. Wir has uns for the accusative and the dative, and the genitive is unser. Ihr has euch for the accusative and the dative, and the genitive is euer. Duden marks the older genitives mein and dein as no longer the ordinary forms. Sie with a capital is the formal address, and the verb with it is the plural form."
+    },
+    {
+      "heading": "Person and number",
+      "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. German writes the pronoun in an ordinary statement. Ich sehe has the speaker as its subject. Er sieht has he, or a masculine it, as its subject. Sie sieht has she, or a feminine it, as its subject. Sie sehen, with the plural ending, has they as its subject, or it is the formal address. The capital and the ending together show which is meant."
+    },
+    {
+      "heading": "The present",
+      "text": "The present says that the action goes on now, or that it is habitual, or that it is so in general. Er spricht means he speaks, or he is speaking. A weak verb such as machen adds the endings -e, -st, -t, -en, -t, and -en to the stem. A strong verb may change the vowel in the second and third persons singular. Sprechen has sprichst and spricht. Geben has gibst and gibt. Sehen has siehst and sieht. Kommen does not change the vowel, so the forms are kommst and kommt."
+    },
+    {
+      "heading": "The Präteritum",
+      "text": "The Präteritum is the simple past. Er sprach means he spoke, or he was speaking. Written narrative often uses this tense. Spoken German often uses the Perfekt for the same past. We store both, and the name of the tense shows which cell is meant. War is the Präteritum of sein, hatte of haben, and wurde of werden. Duden also prints the older ward beside wurde. We store wurde, and we do not ask ward. A weak verb adds -te, so machte. A strong verb changes the stem, so sprach, gab, kam, and sah."
+    },
+    {
+      "heading": "The Perfekt",
+      "text": "The Perfekt is haben or sein with the past participle. It is the ordinary past of a completed action, and in speech it is the ordinary past more broadly. Latin uses one perfect form, without an auxiliary. Sehen, sprechen, geben, machen, and haben take haben, so the third person is hat gesehen, hat gesprochen, hat gegeben, hat gemacht, and hat gehabt. Sein, werden, and kommen take sein, so the third person is ist gewesen, ist geworden, and ist gekommen. The participle does not add an adjective ending in this tense. When werden helps to form the passive, the participle is worden, not geworden. That passive is not in this table."
+    },
+    {
+      "heading": "The Konjunktiv II",
+      "text": "The Konjunktiv II is the mood for what is imagined or contrary to fact. Wäre is the form for sein, hätte for haben, and würde for werden. A strong verb often takes an umlaut on the Präteritum stem: sprach becomes spräche, gab becomes gäbe, kam becomes käme, and sah becomes sähe. A weak verb has the same spelling in the Konjunktiv II and in the Präteritum, so machte is both. Duden says the construction with würde is the clearer one when the two spellings match, and the page illustrates it with wohnen. We store the simple form of machen, and we do not ask it, because the spelling is also the Präteritum. Where Duden prints a longer and a shorter second person, as wärest and wärst, we store the form printed first, and we do not ask the short form."
+    },
+    {
+      "heading": "Sein, haben, and werden",
+      "text": "Sein means be, as Latin sum does, and haben means have. Werden means become, and it is also the auxiliary of the future and of the passive. Those two further uses are real, and this table enters werden as the full verb, to become. Sein and kommen take sein in the Perfekt. Haben and the weak verb machen take haben. Werden as a full verb takes sein, so the Perfekt is ist geworden. The present of sein is bin, bist, ist, sind, seid, sind. The present of haben is habe, hast, hat, haben, habt, haben. The present of werden is werde, wirst, wird, werden, werdet, werden."
+    },
+    {
+      "heading": "Strong and weak verbs",
+      "text": "A weak verb keeps its stem and forms the Präteritum with -te and the participle with ge- and -t. Machen is the model: machte, gemacht. A strong verb changes the stem vowel, and the participle ends in -en. Sprechen, geben, kommen, and sehen are the strong verbs in this set. From machen we build the other regular weak verbs. A strong verb has to be learned from its own table. The participle of a simple verb takes ge- at the front, so gesprochen and gesehen. The infinitive itself does not."
+    },
+    {
+      "heading": "Prepositions and case",
+      "text": "A German preposition keeps one form, and it requires a case of the noun. Für, ohne, and gegen take the accusative. Mit, zu, and bei take the dative. Während, wegen, and statt take the genitive in standard written German. Dank and laut take either the genitive or the dative, and we do not ask them. Latin prepositions take the accusative or the ablative. German prepositions take the accusative, the dative, or the genitive, and one small set takes either the dative or the accusative."
+    },
+    {
+      "heading": "The two-way preposition",
+      "text": "In takes the dative for the place where and the accusative for the place to which. Duden asks wo for the dative and wohin for the accusative. Ich bin im Haus names the place where, and the printed form is im. Ich gehe in die Stadt names the place to which, and die Stadt is accusative. The same pair of questions belongs to the two-way set. The page we opened prints in. The other members of that set are an, auf, hinter, neben, über, unter, vor, and zwischen, and no item asks one of those eight."
+    },
+    {
+      "heading": "Stem and ending",
+      "text": "The form in the sentence is a stem and an ending. In spricht the vowel of the stem has changed, and -t marks the third person singular. In Königen the ending -en marks the dative plural, on the plural stem König-. In guten the ending -en is the weak ending of the adjective, and the article beside it has already marked gender and case. The ending and the article together mark the gender, the number, and the case of a noun phrase, and the ending of the verb marks the person and the number a second time, beside the subject pronoun."
+    }
+  ]
+}
