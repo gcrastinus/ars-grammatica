@@ -1716,6 +1716,9 @@ const SRC = {
   leconjugueur:{kind:'study', short:'<i>Le Conjugueur</i>',
        full:'<i>Le Conjugueur</i> (lefigaro.fr), the tables of être, avoir, parler, finir, vendre, aller, faire, and venir, read on October 9, 2026. Used for the French in this course.',
        note:''},
+  duden:{kind:'study', short:'Duden online',
+       full:'Duden online (duden.de), the declension and conjugation tables, the dictionary entries, and the Sprachwissen pages on the article, the prepositions, the interjection, and the Konjunktiv II, read on October 9, 2026. Used for the German in this course.',
+       note:''},
 
   /* ---------- other traditions: native arts of speech ---------- */
   msl:{kind:'primary', short:'Old Babylonian Grammatical Texts (<i>MSL</i> IV)',
@@ -15352,7 +15355,15 @@ if(GRK){
     panels: GRK.cards.cards.map(c => ({src:['smyth'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
   };
 }
-/* French beside Latin: the study deck, one panel for each card of french-cards.json, as the Greek deck is built. */
+/* German beside Latin and French beside Latin: the study decks, one panel for each card of german-cards.json and of
+   french-cards.json, as the Greek deck is built. */
+if(DEU){
+  DECKS.decards = {
+    title: DEU.cards.title,
+    sub: DEU.cards.description,
+    panels: DEU.cards.cards.map(c => ({src:['duden'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
+  };
+}
 if(FRA){
   DECKS.frcards = {
     title: FRA.cards.title,
@@ -15869,6 +15880,8 @@ const ACTS = [
      {kind:'ex', ex:'produce'}
    ].concat(GRK ? [
      {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description}
+   ] : [], DEU ? [
+     {kind:'deck', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description}
    ] : [], FRA ? [
      {kind:'deck', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description}
    ] : [], GRK ? [
