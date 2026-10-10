@@ -721,9 +721,6 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
         <span id="partner-text">Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.</span></div>
       <div class="soon-flag" id="partner-flag">Coming soon</div>
       <div class="lang-row" id="partner-row" hidden></div>
-      <h4 hidden>A third language</h4>
-      <div class="lang-row" id="lang-row" hidden></div>
-      <div class="lang-note" id="lang-note" hidden></div>
     </div>
 
     <div class="section-label">Difficulty</div>
@@ -1441,7 +1438,7 @@ const DIFF = {
 /* ---------- state and storage ---------- */
 const KEY = 'arsgram.v1';
 const state = {
-  diff:1, lang3:null, dark:false, nEn:0, nLa:0,
+  diff:1, dark:false, nEn:0, nLa:0,
   ex:null, q:null, locked:false, score:0, answered:0, correct:0,
   streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null, speakRate:1,
   pendingComplete:false, runBest:0
@@ -1450,17 +1447,16 @@ const store = {
   totals:{},          /* exId -> {seen, right, best} */
   score:0, bestStreak:0,
   mistakes:[],
-  lang3:null, dark:null, diff:1, modes:{},
+  dark:null, diff:1, modes:{},
   langs:{},           /* exId -> 'la', 'grc', 'fr', or 'de', the partner language chosen for that exercise */
   langPick:null       /* the last language chosen with the shortcut on the home screen */
 };
-let lang3Held = null;
 
 function save(){
   try{
     localStorage.setItem(KEY, JSON.stringify({
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
-      mistakes: store.mistakes.slice(-60), lang3: lang3Held, dark: state.dark, diff: state.diff,
+      mistakes: store.mistakes.slice(-60), dark: state.dark, diff: state.diff,
       modes: store.modes,
       langs: store.langs, langPick: store.langPick,
       speakRate: state.speakRate
@@ -1479,8 +1475,6 @@ function load(){
     store.modes = o.modes || {};
     store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
     store.langPick = ['la','grc','fr','de'].indexOf(o.langPick) >= 0 ? o.langPick : null;
-    lang3Held = o.lang3 || null;
-    state.lang3 = null;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
     if(o.speakRate) state.speakRate = o.speakRate;
@@ -4976,10 +4970,11 @@ EX.pos = {
          'Clause: <em>I know <u>that he arrived</u></em>, used as a noun (the object of <em>know</em>).']}
   ],
   gen(d){
-    const L = state.lang3;
     const nOpt = d <= 1 ? 3 : 4;
     const roll = Math.random();
-    const otherPool = POS_OTHER.filter(x => L && x.lang === L);
+    /* POS_OTHER (German and French) belonged to the old third-language choice and is not drawn; the French and
+       German pools of the shared exercises take its place. */
+    const otherPool = [];
     const otherP = (d >= 2 && otherPool.length) ? 0.12 : 0;
     const ruleP = d <= 1 ? 0.10 : 0.08;
     const latP = 0.18;
@@ -5322,13 +5317,6 @@ EX.cases = {
     const ans = LAT_CASE_FOR[it.role];
     const options = shuffle([ans, ...sample(CASES.map(c => CASE_NAME[c].toLowerCase()).filter(c => c !== ans),
                                             d <= 1 ? 2 : 3)]);
-    const L = state.lang3 ? LANGS[state.lang3] : null;
-    let third = '';
-    if(L){
-      const f = L.caseFor[it.role];
-      const n = L.caseNote && L.caseNote[it.role];
-      third = `<span class="also">In ${L.name}: <strong>${f}</strong>.${n ? ' ' + n : ''}</span>`;
-    }
     return {
       kind:'mc', src: this.src, sid:'cs:'+s+':'+it.role, lang:'la',
       prompt:`The marked word is <strong>${ROLE_NAME[it.role]}</strong>. What case does that call for in Latin?`,
@@ -5336,9 +5324,9 @@ EX.cases = {
       options, correct: options.indexOf(ans),
       check(i){
         const base = `<strong>${cap(ans)}.</strong> ${cap(CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === ans)])}.`;
-        if(i === options.indexOf(ans)) return {right:true, note: base + third};
+        if(i === options.indexOf(ans)) return {right:true, note: base};
         return {right:false,
-          note: base + third,
+          note: base,
           also:`The answer chosen was the ${options[i]}, which expresses ${CASE_JOB[CASES.find(c => CASE_NAME[c].toLowerCase() === options[i])]}.`};
       }
     };
@@ -16194,26 +16182,9 @@ function ladderSvg(){
 }
 
 /* ---------- home ---------- */
-function buildLangRow(){
-  const row = $('lang-row');
-  row.innerHTML = '';
-  const opts = [{key:null, name:'None'}, ...Object.values(LANGS)];
-  opts.forEach(o => {
-    const b = document.createElement('button');
-    b.className = 'lang-btn' + (state.lang3 === o.key ? ' sel' : '');
-    b.textContent = o.name;
-    b.onclick = () => { state.lang3 = o.key; save(); buildLangRow(); };
-    row.appendChild(b);
-  });
-  const L = state.lang3 ? LANGS[state.lang3] : null;
-  $('lang-note').innerHTML = L
-    ? `<strong>${L.name}</strong> — ${L.cases.length === 1 ? L.cases[0] : L.caseCount + ' cases'}; word order ${L.order}. ${L.note}`
-    : 'No third language is chosen. English and Latin alone make a complete course, and it is the course the tradition itself followed.';
-}
-
 /* The partner-language shortcut on the home screen. It sets every exercise that offers the language
    chosen; an exercise without that language keeps its own setting, and each exercise can still be
-   changed on its own afterward. It never sets state.lang3. */
+   changed on its own afterward. */
 function setPartnerAll(key){
   Object.keys(EX).forEach(id => {
     const ex = EX[id];
@@ -17578,10 +17549,8 @@ $('qz-gen').onclick = () => {
     const date = $('qz-date').value.trim() || qzToday();
     const covers = [...new Set(items.map(it => it.setTitle))];
     const levelLabel = (DIFF[diff] && DIFF[diff].label) || ('Difficulty ' + ROMAN[diff]);
-    const L = state.lang3 ? LANGS[state.lang3] : null;
-
     let head = `<div class="qhead"><h1>Ars Grammatica · Quiz</h1>
-      <div class="meta">${course ? course+' · ' : ''}${teacher ? teacher+' · ' : ''}${date}<br>${levelLabel}${L ? ' · Partner language: '+L.name : ''}</div></div>
+      <div class="meta">${course ? course+' · ' : ''}${teacher ? teacher+' · ' : ''}${date}<br>${levelLabel}</div></div>
       <div class="namerow"><span>Name</span><span class="sm">Score</span></div>
       <div class="covers"><b>Covers:</b> ${covers.join('; ')}</div>
       <div class="rubric"><b>Directions.</b> Answer every question. For multiple choice, circle the letter.
@@ -17635,7 +17604,6 @@ $('qz-gen').onclick = () => {
 load();
 setDark(state.dark);
 
-buildLangRow();
 buildPartnerRow();
 buildDiffRow();
 buildHome();
