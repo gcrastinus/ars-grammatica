@@ -4832,32 +4832,6 @@ const POS_RULES = [
    ds:['It is used as a noun, because it is the subject of <em>arrived</em>.','It is used as an adjective, because it tells which storm is meant.','It is used as a conjunction, because it joins two sentences.'],
    why:'A prepositional phrase is often used as an adverb (telling when, where, or how) or as an adjective (telling which one). The eight name the function; the marked thing need not be one word.'}
 ];
-const POS_OTHER = [
-  {id:'po-de1', lang:'de', s:'<b>Der</b> alte Mann schläft.', orig:'The old man sleeps.', a:'article',
-   note:'German marks case chiefly on the article. Latin has no such word; English <em>the</em> does the same pointing, without the case.'},
-  {id:'po-de2', lang:'de', s:'Er läuft <b>schnell</b>.', orig:'He runs quickly.', a:'adverb',
-   note:'Here <em>schnell</em> tells how. In <em>ein schneller Hund</em> the same stem is an adjective. German often uses one form for both, but the use is still different.'},
-  {id:'po-de3', lang:'de', s:'Ich weiß, <b>dass</b> er kommt.', orig:'I know that he is coming.', a:'conjunction',
-   note:'<em>Dass</em> joins two statements. <em>Das</em> (one <em>s</em>) can be an article or a pronoun. Spelling follows the use.'},
-  {id:'po-de4', lang:'de', s:'Der Mann <b>und</b> die Frau warten.', orig:'The man and the woman wait.', a:'conjunction',
-   note:'<em>Und</em> joins two nouns, with the same use as Latin <em>et</em>.'},
-  {id:'po-fr1', lang:'fr', s:'<b>Le</b> vieux chien dort.', orig:'The old dog sleeps.', a:'article',
-   note:'French has a definite article; Latin has none. The pointing is a real use of the word, even if Donatus did not have a name for it.'},
-  {id:'po-fr2', lang:'fr', s:'Il court <b>vite</b>.', orig:'He runs quickly.', a:'adverb',
-   note:'<em>Vite</em> determines the verb. French usually keeps adjective and adverb apart (<em>rapide</em>, <em>rapidement</em>), where German often uses one form for both.'},
-  {id:'po-fr3', lang:'fr', s:'Je sais <b>qu’</b>il arrive.', orig:'I know that he is arriving.', a:'conjunction',
-   note:'<em>Que</em> here joins two statements, like English <em>that</em> in <em>I know that he arrives</em>.'},
-  {id:'po-fr4', lang:'fr', s:'<b>Hélas</b>, la ville est tombée.', orig:'Alas, the city has fallen.', a:'interjection',
-   note:'It is an affect of the soul, the same eighth part as Latin <em>heu</em> and English <em>alas</em>.'},
-  {id:'po-de5', lang:'de', s:'Der <b>alte</b> Mann schläft.', orig:'The old man sleeps.', a:'adjective',
-   note:'<em>Alte</em> adheres to <em>Mann</em> and agrees with it; after the article it takes the weak ending <em>-e</em>. It tells of what sort.'},
-  {id:'po-de6', lang:'de', s:'<b>Er</b> läuft schnell.', orig:'He runs quickly.', a:'pronoun',
-   note:'<em>Er</em> points without describing. The adverb is <em>schnell</em>.'},
-  {id:'po-fr5', lang:'fr', s:'Le <b>vieux</b> chien dort.', orig:'The old dog sleeps.', a:'adjective',
-   note:'<em>Vieux</em> adheres to <em>chien</em>. French keeps adjective and adverb apart more often than German.'},
-  {id:'po-fr6', lang:'fr', s:'<b>Il</b> court vite.', orig:'He runs quickly.', a:'pronoun',
-   note:'<em>Il</em> is the subject pronoun. Latin would often omit it.'}
-];
 
 /* Hard sentences may be reused with a different mark; simple generated
    sentences are not reused. Phrase/clause items mark a group, not a word. */
@@ -4928,8 +4902,7 @@ EX.pos = {
   gen(d){
     const nOpt = d <= 1 ? 3 : 4;
     const roll = Math.random();
-    /* POS_OTHER (German and French) belonged to the old third-language choice and is not drawn; the French and
-       German pools of the shared exercises take its place. */
+    /* No other-language items are drawn here; the French and German pools of the shared exercises take their place. */
     const otherPool = [];
     const otherP = (d >= 2 && otherPool.length) ? 0.12 : 0;
     const ruleP = d <= 1 ? 0.10 : 0.08;
@@ -6027,18 +6000,6 @@ const SYLL_ITEMS = [
    a:'It pulls the stress onto the syllable just before it',
    ds:['It leaves the accent where it was before','It moves the stress to the first syllable','It takes the stress on itself, as the last syllable'],
    why:'<em>Virum</em> would be stressed on <em>vi</em> (two syllables). <em>Virúmque</em> is stressed on <em>um</em>.'},
-  {id:'sy4', lang:'en', src:['appown'], q:'German ordinary word-stress falls…',
-   a:'On the first syllable of the stem',
-   ds:['On the last sounded syllable of the phrase','On the penult if it is long, as in Latin','On the prefix, whatever kind it is'],
-   why:'In <em>sprechen</em> and <em>gesprochen</em> the stress stays on the stem (<em>sprech-</em>, <em>sproch-</em>). The prefixes <em>ge-, be-, ver-</em> are not the stem.'},
-  {id:'sy10', lang:'en', src:['appown'], q:'In German <em>verstehen</em>, the stress is on…',
-   a:'<em>ste</em>, the stem',
-   ds:['<em>ver-</em>, because prefixes take the stress in German','<em>hen</em>, the last syllable, as in French','The penult, because it is long, as in Latin'],
-   why:'<em>Ver-</em> is an inseparable prefix and is unstressed, whereas separable prefixes (<em>an-, auf-</em>) do take the stress.'},
-  {id:'sy5', lang:'en', src:['appown'], q:'French ordinary stress falls…',
-   a:'On the last sounded syllable of the phrase',
-   ds:['On the first syllable of the stem, as in German','On the penult if it is long, as in Latin','On every other syllable, in alternation'],
-   why:'A mute <em>e</em> is not counted, and there is no penult to measure.'},
   {id:'sy6', lang:'en', src:['smyth'], q:'The three Greek accent marks are…',
    a:'Acute, grave, and circumflex',
    ds:['Long, short, and common','Rough, smooth, and middle breathing','Diaeresis, macron, and breve'],
@@ -6057,20 +6018,6 @@ const SYLL_ITEMS = [
    why:'So <em>pa-trem</em> and <em>a-grī</em>. Allen and Greenough note that a mute plus a liquid often does <em>not</em> make position; in <em>pa-tris</em> the <em>a</em> may stay short.'}
 ];
 const SYLL_OTHER = [
-  {id:'de1', lang:'de', w:'sprechen', syll:['spre','chen'], acc:0,
-   why:'The stress falls at the start of the stem, SPRE-chen, and not by the Latin rule of the penult.'},
-  {id:'de2', lang:'de', w:'gesprochen', syll:['ge','spro','chen'], acc:1,
-   why:'The prefix <em>ge-</em> is unstressed, and the stem <em>sproch-</em> takes the stress: ge-SPRO-chen.'},
-  {id:'de3', lang:'de', w:'verstehen', syll:['ver','ste','hen'], acc:1,
-   why:'Inseparable <em>ver-</em> is unstressed: ver-STE-hen.'},
-  {id:'de4', lang:'de', w:'ankommen', syll:['an','kom','men'], acc:0,
-   why:'This is a separable prefix, AN-kommen, and the prefix takes the stress.'},
-  {id:'fr1', lang:'fr', w:'parler', syll:['par','ler'], acc:1,
-   why:'Said alone, the word is stressed on the last sounded syllable: par-LER. There is no penult to measure.'},
-  {id:'fr2', lang:'fr', w:'possibilité', syll:['po','ssi','bi','li','té'], acc:4,
-   why:'The stress falls on the last sounded syllable, -TÉ. Mute <em>e</em> is not in play here.'},
-  {id:'fr3', lang:'fr', w:'table', syll:['table'], acc:0,
-   why:'Mute <em>e</em> leaves one sounded syllable in speech; the written <em>e</em> is not counted.'},
   {id:'en1', lang:'en', w:'teacher', syll:['tea','cher'], acc:0,
    why:'The stress is on the first syllable: TEA-cher. This is English stress, not Latin quantity.'},
   {id:'en2', lang:'en', w:'together', syll:['to','ge','ther'], acc:1,
@@ -6224,7 +6171,7 @@ EX.syllable = {
       const core = d <= 1
         ? ['sy1','sy2','sy3','sy7']
         : ['sy1','sy2','sy3','sy7','sy8','sy9','sy12','sy13'];
-      const extra = L === 'de' ? ['sy4','sy10'] : L === 'fr' ? ['sy5'] : L === 'grc' ? ['sy6','sy11'] : [];
+      const extra = L === 'grc' ? ['sy6','sy11'] : [];
       const ids = core.concat(d <= 1 ? [] : extra);
       const rules = SYLL_ITEMS.filter(x => ids.indexOf(x.id) >= 0);
       return makeMC(pickSeen(rules.length ? rules : SYLL_ITEMS, x => x.id), d <= 1 ? 3 : 4);
