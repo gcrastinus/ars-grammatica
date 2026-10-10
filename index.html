@@ -948,6 +948,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 
 <script src="greek.js"></script>
 <script src="french.js"></script>
+<script src="german.js"></script>
 <script>
 /* ====================================================================
    LATIN MORPHOLOGY ENGINE
@@ -15335,8 +15336,9 @@ function bothLangs(){
 }
 /* The Greek content comes from greek.js. Without that file the course offers no Greek. */
 const GRK = (typeof window !== 'undefined' && window.GREEK && window.GREEK.cards) ? window.GREEK : null;
-/* The French content comes from french.js, in the same way. */
+/* The French content comes from french.js, and the German from german.js, in the same way. */
 const FRA = (typeof window !== 'undefined' && window.FRENCH && window.FRENCH.cards) ? window.FRENCH : null;
+const DEU = (typeof window !== 'undefined' && window.GERMAN && window.GERMAN.cards) ? window.GERMAN : null;
 /* The partner languages, in the order of the home screen, and the label of each on an exercise's choice. */
 const PARTNER_KEYS = ['grc','de','fr'];
 const PARTNER_ROW = {grc:'English and Greek', de:'English and German', fr:'English and French'};
@@ -16074,8 +16076,8 @@ function setPartnerAll(key){
 }
 function buildPartnerRow(){
   const row = $('partner-row');
-  const has = {la:true, grc:!!GRK, de:false, fr:!!FRA};
-  if(!(GRK || FRA) || !row) return;
+  const has = {la:true, grc:!!GRK, de:!!DEU, fr:!!FRA};
+  if(!(GRK || FRA || DEU) || !row) return;
   $('partner-label').classList.remove('partner-soon');
   $('partner-box').classList.remove('partner-soon');
   const names = [['grc','Ancient Greek','Greek'],['de','German','German'],['fr','French','French']].filter(n => has[n[0]]);
