@@ -6512,17 +6512,7 @@ const GOVERN_ITEMS = [
    q:'What has gone wrong?',
    a:'<em>Between</em> governs the object form: <em>me</em>, not <em>I</em>',
    ds:['<em>Between</em> cannot take a pronoun','The sentence is incongruous in every word','Nothing: usage has made this correct in every register'],
-   why:'English still has government on the pronouns. The preposition wants <em>me</em>. The fault is common enough that people defend it; the grammar of the older form is not in doubt.'},
-  {id:'gv10', lang:'de', src:['appown'], s:'Er geht in <b>die Stadt</b>.',
-   q:'German <em>in die Stadt</em> (into the city) uses the accusative because…',
-   a:'There is motion toward a place (<em>wohin?</em>)',
-   ds:['German has no dative','<em>Stadt</em> is always accusative','The verb <em>geht</em> always takes the accusative'],
-   why:'With two-way prepositions, <em>wohin?</em> takes the accusative and <em>wo?</em> the dative. <em>Er ist in der Stadt</em> would be the dative, place where. Latin <em>in</em> makes the same cut with accusative against ablative.'},
-  {id:'gv11', lang:'de', src:['appown'], s:'Er ist in <b>der Stadt</b>.',
-   q:'German <em>in der Stadt</em> (in the city) uses the dative because…',
-   a:'It answers <em>wo?</em>: place where, not motion toward',
-   ds:['All German prepositions take the dative','<em>Ist</em> always takes the dative','The accusative is only for time'],
-   why:'It is location, not motion. Compare Latin <span class="lat">in urbe</span> (ablative) against <span class="lat">in urbem</span> (accusative).'}
+   why:'English still has government on the pronouns. The preposition wants <em>me</em>. The fault is common enough that people defend it; the grammar of the older form is not in doubt.'}
 ];
 
 EX.govern = {
@@ -6562,7 +6552,6 @@ EX.govern = {
     }
     let pool = GOVERN_ITEMS.slice();
     if(d <= 1) pool = pool.filter(x => ['gv1','gv4','gv5','gv6','gv7','gv8'].indexOf(x.id) >= 0);
-    if(state.lang3 !== 'de') pool = pool.filter(x => x.id !== 'gv10' && x.id !== 'gv11');
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
 };
