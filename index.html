@@ -15758,6 +15758,29 @@ function fraMatch(val, it){
 }
 const FRA_HINT = 'Accents and the cedilla are optional.';
 addPartner('fr', FRA, 'produce', it => partnerProduceQ(FRA, it, fraMatch, 'Type the French form', FRA_HINT), 0.4);
+/* Typed German is compared without case, and with the apostrophe and the spaces made uniform. Ä, ö, ü, and ß may be
+   written as themselves or as ae, oe, ue, and ss, and the umlaut may be left off. A spelling that is itself another
+   form in the same table (Garten for Gärten) is not accepted for the key, and the hint of that item then says that
+   the umlaut is required. The same comparison is checked in german/build_german.js. */
+const DEU_UMLAUT = {'ä':['ä','ae','a'], 'ö':['ö','oe','o'], 'ü':['ü','ue','u'], 'ß':['ß','ss']};
+function deuVariants(key){
+  let out = [''];
+  for(const c of partnerLc(key)) out = [].concat(...out.map(v => (DEU_UMLAUT[c] || [c]).map(r => v + r)));
+  return out;
+}
+function deuRefused(it){
+  const others = partnerForms(DEU, it.lemma).map(partnerLc).filter(f => f !== partnerLc(it.a));
+  return deuVariants(it.a).filter(v => others.indexOf(v) >= 0);
+}
+function deuMatch(val, it){
+  const got = partnerLc(val);
+  if(!got) return false;
+  if(got === partnerLc(it.a)) return true;
+  return deuVariants(it.a).indexOf(got) >= 0 && deuRefused(it).indexOf(got) < 0;
+}
+const DEU_HINT = 'The umlaut is optional, and ä, ö, ü, and ß may also be written ae, oe, ue, and ss.';
+const DEU_HINT_KEEP = 'Ä, ö, ü, and ß may also be written ae, oe, ue, and ss. The umlaut is required, because the same spelling without it is another form of this word.';
+addPartner('de', DEU, 'produce', it => partnerProduceQ(DEU, it, deuMatch, 'Type the German form', deuRefused(it).length ? DEU_HINT_KEEP : DEU_HINT), 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
