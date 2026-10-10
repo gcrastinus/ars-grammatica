@@ -947,6 +947,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 </div>
 
 <script src="greek.js"></script>
+<script src="french.js"></script>
 <script>
 /* ====================================================================
    LATIN MORPHOLOGY ENGINE
@@ -1449,7 +1450,7 @@ const store = {
   score:0, bestStreak:0,
   mistakes:[],
   lang3:null, dark:null, diff:1, modes:{},
-  langs:{},           /* exId -> 'la' or 'grc', the partner language chosen for that exercise */
+  langs:{},           /* exId -> 'la', 'grc', 'fr', or 'de', the partner language chosen for that exercise */
   langPick:null       /* the last language chosen with the shortcut on the home screen */
 };
 let lang3Held = null;
@@ -1476,7 +1477,7 @@ function load(){
     store.mistakes = o.mistakes || [];
     store.modes = o.modes || {};
     store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
-    store.langPick = (o.langPick === 'la' || o.langPick === 'grc') ? o.langPick : null;
+    store.langPick = ['la','grc','fr','de'].indexOf(o.langPick) >= 0 ? o.langPick : null;
     lang3Held = o.lang3 || null;
     state.lang3 = null;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
@@ -15311,18 +15312,25 @@ function probeLangs(ex, d){
     if(!q) continue;
     ensureLang(ex, q);
     const id = q.sid || q.prompt;
-    if(q.lang === 'la' || q.lang === 'grc') la.add(id);
+    if(partnerSide(q.lang)) la.add(id);
     else if(q.lang === 'en') en.add(id);
   }
   state.sessionSeen = saved;
   return {en: en.size, la: la.size};
 }
+/* Latin, or a partner language that takes Latin's place: these questions count on the Latin side of the run. */
+function partnerSide(lang){ return lang === 'la' || lang === 'grc' || lang === 'fr' || lang === 'de'; }
 function bothLangs(){
   const a = state.langAvail;
   return !a || (a.en > 0 && a.la > 0);
 }
 /* The Greek content comes from greek.js. Without that file the course offers no Greek. */
 const GRK = (typeof window !== 'undefined' && window.GREEK && window.GREEK.cards) ? window.GREEK : null;
+/* The French content comes from french.js, in the same way. */
+const FRA = (typeof window !== 'undefined' && window.FRENCH && window.FRENCH.cards) ? window.FRENCH : null;
+/* The partner languages, in the order of the home screen, and the label of each on an exercise's choice. */
+const PARTNER_KEYS = ['grc','de','fr'];
+const PARTNER_ROW = {grc:'English and Greek', de:'English and German', fr:'English and French'};
 /* An exercise offers Greek beside English by listing 'grc' in ex.langs. Its partner language is then
    Latin or Greek, as chosen for that exercise; every other exercise keeps Latin. */
 /* Greek beside Latin: the study deck, one panel for each card of greek-cards.json, heading and text as written there. */
@@ -15587,14 +15595,16 @@ if(GRK && GRK.sentence){
    "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
    items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
    runs exactly as before. */
-function addGreek(id, makeQ, share){
+function addGreek(id, makeQ, share){ addPartner('grc', GRK, id, makeQ, share); }
+/* The same for any partner language: key is its code, and data.shared[id] is its pool for the exercise. */
+function addPartner(key, data, id, makeQ, share){
   const ex = EX[id];
-  const pool = GRK && GRK.shared && GRK.shared[id];
+  const pool = data && data.shared && data.shared[id];
   if(!ex || !Array.isArray(pool) || pool.length < 8) return;
   const base = ex.gen;
-  ex.langs = ['grc'];
+  ex.langs = (ex.langs || []).concat(key);
   ex.gen = function(d){
-    if(partnerOf(ex) !== 'grc') return base.call(this, d);
+    if(partnerOf(ex) !== key) return base.call(this, d);
     if(share >= 1 || Math.random() < share) return makeQ(pickSeen(pool, x => x.id), d);
     for(let i = 0; i < 20; i++){
       const q = base.call(this, d);
@@ -15653,10 +15663,15 @@ addGreek('produce', grkProduceQ, 0.4);
 /* cong: the three judgments, with the prompt the Latin items use. */
 addGreek('cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
-function partnerOf(ex){ return offersGreek(ex) && store.langs[ex.id] === 'grc' ? 'grc' : 'la'; }
+/* The partner languages an exercise offers beside Latin, from ex.langs. */
+function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
+function partnerOf(ex){
+  const k = ex ? store.langs[ex.id] : null;
+  return partnerKeys(ex).indexOf(k) >= 0 ? k : 'la';
+}
 function rowChoice(ex){
   const mode = modeOf(ex);
-  if(mode === 'both' || (mode === 'la' && offersGreek(ex))) return partnerOf(ex) === 'grc' ? 'grc' : 'both';
+  if(mode === 'both' || (mode === 'la' && partnerKeys(ex).length)){ const p = partnerOf(ex); return p === 'la' ? 'both' : p; }
   return mode;
 }
 function modeOf(ex){
@@ -15697,7 +15712,7 @@ function renderModeRow(){
   const ex = state.ex;
   if(!row) return;
   const allowed = ex && ex.modes;
-  if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !offersGreek(ex))){
+  if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !partnerKeys(ex).length)){
     row.hidden = true;
     row.textContent = '';
     return;
@@ -15705,18 +15720,19 @@ function renderModeRow(){
   row.hidden = false;
   row.textContent = '';
   const cur = rowChoice(ex);
-  const greek = offersGreek(ex);
-  /* An exercise that offers Greek shows its row even when it has no English questions, and then leaves out "English only". */
+  const partners = partnerKeys(ex);
+  const greek = partners.length > 0;
+  /* An exercise that offers a partner language shows its row even when it has no English questions, and then leaves out "English only". */
   const noEn = greek && state.langAvail && state.langAvail.en === 0;
-  [['both','English and Latin']].concat(greek ? [['grc','English and Greek']] : [], noEn ? [] : [['en','English only']]).forEach(pair => {
+  [['both','English and Latin']].concat(partners.map(k => [k, PARTNER_ROW[k]]), noEn ? [] : [['en','English only']]).forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
     b.textContent = pair[1];
     b.onclick = () => {
       if(rowChoice(ex) === pair[0]) return;
-      store.modes[ex.id] = pair[0] === 'grc' ? 'both' : pair[0];
-      if(greek && pair[0] !== 'en') store.langs[ex.id] = pair[0] === 'grc' ? 'grc' : 'la';
+      store.modes[ex.id] = pair[0] === 'en' ? 'en' : 'both';
+      if(greek && pair[0] !== 'en') store.langs[ex.id] = pair[0] === 'both' ? 'la' : pair[0];
       if(greek) state.langAvail = probeLangs(ex, state.diff);
       save();
       state.sessionSeen = [];
@@ -15968,10 +15984,10 @@ function setPartnerAll(key){
   Object.keys(EX).forEach(id => {
     const ex = EX[id];
     if(!ex || !ex.modes || ex.modes.indexOf('both') < 0) return;
-    const greek = offersGreek(ex);
-    if(key === 'grc' && !greek) return;
+    const partners = partnerKeys(ex);
+    if(key !== 'la' && partners.indexOf(key) < 0) return;
     store.modes[id] = 'both';
-    if(greek) store.langs[id] = key;
+    if(partners.length) store.langs[id] = key;
   });
   store.langPick = key;
   save();
@@ -15979,19 +15995,24 @@ function setPartnerAll(key){
 }
 function buildPartnerRow(){
   const row = $('partner-row');
-  if(!GRK || !row) return;
+  const has = {la:true, grc:!!GRK, de:false, fr:!!FRA};
+  if(!(GRK || FRA) || !row) return;
   $('partner-label').classList.remove('partner-soon');
   $('partner-box').classList.remove('partner-soon');
-  $('partner-text').textContent = 'Ancient Greek is offered as a partner language. Choosing Latin or Greek here sets every exercise that offers that language, and each exercise can still be changed on its own.';
+  const names = [['grc','Ancient Greek','Greek'],['de','German','German'],['fr','French','French']].filter(n => has[n[0]]);
+  const list = (a, word) => a.length < 3 ? a.join(` ${word} `) : `${a.slice(0, -1).join(', ')}, ${word} ${a[a.length - 1]}`;
+  $('partner-text').textContent = names.length === 1 && has.grc
+    ? 'Ancient Greek is offered as a partner language. Choosing Latin or Greek here sets every exercise that offers that language, and each exercise can still be changed on its own.'
+    : `${list(names.map(n => n[1]), 'and')} are offered as partner languages. Choosing ${list(['Latin'].concat(names.map(n => n[2])), 'or')} here sets every exercise that offers that language, and each exercise can still be changed on its own.`;
   $('partner-flag').style.display = 'none';
   row.hidden = false;
   row.innerHTML = '';
-  [['la','Latin'],['grc','Greek'],['de','German (coming soon)'],['fr','French (coming soon)']].forEach(pair => {
+  [['la','Latin'],['grc','Greek'],['de', has.de ? 'German' : 'German (coming soon)'],['fr', has.fr ? 'French' : 'French (coming soon)']].forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'lang-btn' + (store.langPick === pair[0] ? ' sel' : '');
     b.textContent = pair[1];
-    if(pair[0] === 'la' || pair[0] === 'grc') b.onclick = () => setPartnerAll(pair[0]);
+    if(has[pair[0]]) b.onclick = () => setPartnerAll(pair[0]);
     else b.disabled = true;
     row.appendChild(b);
   });
@@ -16290,7 +16311,7 @@ function nextQ(){
   });
   if(q && q.kind !== 'note'){
     if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
-    if(q.lang === 'la' || q.lang === 'grc') state.nLa++;
+    if(partnerSide(q.lang)) state.nLa++;
     else if(q.lang === 'en') state.nEn++;
   }
   state.q = q;
