@@ -16,7 +16,9 @@ const out = path.join(here, '..', 'french.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(here, 'french-' + name + '.json'), 'utf8'));
 const vocab = read('vocab'), paradigms = read('paradigms'), cards = read('cards'), items = read('items');
 
-/* Left out because FRENCH-STEP1-REPORT.md, section 5, lists the point each one rests on as unsure. */
+/* Left out because FRENCH-STEP1-REPORT.md, section 5, lists the point each one rests on as unsure. The cards Gender
+   and Adjective agreement were restored after Larousse was opened: victoire/81858 prints "victoire nom féminin", and
+   bon/10103 prints "bon, bonne adjectif". */
 const LEFT_OUT = {
   items: {
     fdec5: 'section 5, point 3: the note on comparison with plus or moins',
@@ -26,9 +28,7 @@ const LEFT_OUT = {
     fprod18: 'section 5, point 5: the note on the imperative aie'
   },
   cards: {
-    'Gender': 'section 5, point 1: the gender of victoire was not checked on its own entry',
-    'Number': 'section 5, point 6: the plural cadeaux is cited from Larousse junior',
-    'Adjective agreement': 'section 5, point 2: bonne was not seen printed',
+    'Number': 'section 5, point 6: the plural cadeaux is cited from Larousse junior; the main entry, cadeau/12020, prints no plural',
     'Beau and vieux': 'section 5, point 7: the literary use of vieux before a vowel',
     'The present subjunctive': 'section 5, points 4 and 5: the trigger il faut que, and que j’aie'
   }

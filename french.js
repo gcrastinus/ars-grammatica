@@ -1147,8 +1147,16 @@ window.FRENCH = {
     "text": "The definite article is le before a masculine singular noun, la before a feminine singular noun, and les before a plural noun. Before a vowel or a mute h, an h that is not pronounced, le and la become l’. The indefinite article is un, une, and des. The partitive, for an unspecified amount, is du, de la, de l’, and des. À contracts with le and les, and the results are au and aux. De contracts with le and les, and the results are du and des. À la, à l’, de la, and de l’ stay in two words."
    },
    {
+    "heading": "Gender",
+    "text": "Every French noun is masculine or feminine. Latin has a third gender, the neuter, and French has none. The article shows the gender. Le livre is masculine, and la table is feminine. The ending does not always show the gender, since livre ends in e and is masculine, and victoire is feminine for a reason the ending alone does not settle."
+   },
+   {
     "heading": "No case on the noun",
     "text": "A French noun does not change for case. Latin marks the nominative, the genitive, the dative, the accusative, the ablative, and the vocative on the noun. French keeps one form of the noun for the subject, for the object, and for the object of a preposition. In le roi vend le cheval, each noun has the form it would have in another place in the sentence. What Latin marks by case, French marks by the order of the words and by the preposition, and, for a pronoun, by a change of form."
+   },
+   {
+    "heading": "Adjective agreement",
+    "text": "An adjective agrees with its noun in gender and number. It does not agree in case, because the noun has no case. Un bon roi is masculine and singular, une bonne femme is feminine and singular, les bons rois is masculine and plural, and les bonnes femmes is feminine and plural. Bon adds e for the feminine and s for the plural, and the feminine singular doubles the n, so the form is bonne. A short adjective such as bon, petit, or grand usually stands before the noun."
    },
    {
     "heading": "Subject, object, and stressed pronouns",
@@ -2183,7 +2191,7 @@ window.FRENCH = {
     "id": "fprod6",
     "lemma": "beau",
     "lemmaLine": "beau, bel, belle, beautiful",
-    "want": "masculine singular, before a vowel",
+    "want": "masculine singular used before a vowel",
     "a": "bel",
     "why": "Before a masculine noun that begins with a vowel, beau becomes bel. Larousse gives bel as that form.",
     "lang": "fr",

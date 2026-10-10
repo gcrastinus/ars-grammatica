@@ -1056,7 +1056,7 @@
       "id": "fprod6",
       "lemma": "beau",
       "lemmaLine": "beau, bel, belle, beautiful",
-      "want": "masculine singular, before a vowel",
+      "want": "masculine singular used before a vowel",
       "a": "bel",
       "why": "Before a masculine noun that begins with a vowel, beau becomes bel. Larousse gives bel as that form.",
       "lang": "fr",
