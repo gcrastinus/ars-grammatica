@@ -6152,7 +6152,8 @@ EX.syllable = {
   desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill; English is always asked, and Greek, German, or French when that language is chosen. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
   instr:'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
-    const L = state.lang3;
+    /* Greek words and the Greek rules are added when Greek is chosen for this exercise. */
+    const L = partnerOf(EX.syllable) === 'grc' ? 'grc' : null;
     const lat = ACCENT_WORDS.filter(w => (w.dmin || 1) <= d);
     const roll = Math.random();
     const otherPool = SYLL_OTHER.filter(x => x.lang === 'en' || (L && x.lang === L));
@@ -6169,7 +6170,7 @@ EX.syllable = {
         const n = String(it.syll.length);
         const options = countOpts(it.syll.length);
         return {
-          kind:'mc', src:['appown'], sid:'sy:'+it.id+':n', lang: it.lang === 'en' ? 'en' : 'la',
+          kind:'mc', src:['appown'], sid:'sy:'+it.id+':n', lang: it.lang === 'en' ? 'en' : it.lang === 'grc' ? 'grc' : 'la',
           prompt:`How many pronounced syllables in <em>${it.w}</em>?`,
           specimen: it.w,
           options, correct: options.indexOf(n),
@@ -6178,7 +6179,7 @@ EX.syllable = {
       }
       const options = shuffle(it.syll.slice());
       return {
-        kind:'mc', src:['appown'], sid:'sy:'+it.id+':pl', lang: it.lang === 'en' ? 'en' : 'la',
+        kind:'mc', src:['appown'], sid:'sy:'+it.id+':pl', lang: it.lang === 'en' ? 'en' : it.lang === 'grc' ? 'grc' : 'la',
         prompt:`Which syllable of <em>${it.w}</em> is stressed?`,
         specimen: it.w,
         gloss: it.syll.join(' · '),
@@ -15797,6 +15798,9 @@ function grcScanQ(it, d){
   };
 }
 addPartner('grc', GRK && GRK.meter ? {shared:{meter:GRK.meter.lines}} : null, 'meter', grcScanQ, 0.5);
+/* syllable: Greek is offered for Syllable, Quantity and Accent, and adds the Greek words (gr1 to gr3) and the two
+   Greek rules (sy6, sy11) beside the Latin and English questions. */
+if(GRK) EX.syllable.langs = ['grc'];
 /* French in the shared exercises, in the same way: an exercise with a French pool of at least eight items in
    FRENCH.shared offers "English and French", and the French items take the place of the Latin ones. The questions
    are built as the Greek ones are. Vices has seven French items, so it is not offered in French. */
