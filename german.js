@@ -2478,7 +2478,7 @@ window.GERMAN = {
    {
     "id": "dprod1",
     "lemma": "König",
-    "lemmaLine": "König, des Königs, masculine, king",
+    "lemmaLine": "König, masculine, king",
     "want": "genitive singular",
     "a": "Königs",
     "why": "The genitive singular of König is Königs. Duden prints des Königs, and no second spelling.",
@@ -2502,7 +2502,7 @@ window.GERMAN = {
    {
     "id": "dprod3",
     "lemma": "Stadt",
-    "lemmaLine": "Stadt, Städte, feminine, city",
+    "lemmaLine": "Stadt, feminine, city",
     "want": "nominative plural",
     "a": "Städte",
     "why": "The nominative plural of Stadt is Städte. The accusative plural and the genitive plural have the same spelling. The dative plural is Städten.",
@@ -2514,7 +2514,7 @@ window.GERMAN = {
    {
     "id": "dprod4",
     "lemma": "Mensch",
-    "lemmaLine": "Mensch, Menschen, weak, human being",
+    "lemmaLine": "Mensch, masculine, human being",
     "want": "accusative singular",
     "a": "Menschen",
     "why": "The accusative singular of the weak noun Mensch is Menschen. The same spelling is the dative singular, the genitive singular, and every plural case. The cell asked is the accusative singular. The nominative singular is Mensch.",
@@ -2526,7 +2526,7 @@ window.GERMAN = {
    {
     "id": "dprod5",
     "lemma": "Garten",
-    "lemmaLine": "Garten, Gärten, masculine, garden",
+    "lemmaLine": "Garten, masculine, garden",
     "want": "nominative plural",
     "a": "Gärten",
     "why": "The nominative plural of Garten is Gärten. The plural already ends in -n, so the dative plural has the same spelling.",
@@ -2562,7 +2562,7 @@ window.GERMAN = {
    {
     "id": "dprod8",
     "lemma": "Garten",
-    "lemmaLine": "Garten, des Gartens, masculine, garden",
+    "lemmaLine": "Garten, masculine, garden",
     "want": "genitive singular",
     "a": "Gartens",
     "why": "The genitive singular of Garten is Gartens. Duden prints des Gartens, and no second spelling.",
