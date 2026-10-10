@@ -6120,5 +6120,1695 @@ window.GREEK = {
     ]
    }
   }
+ },
+ "meter": {
+  "title": "Greek hexameter lines",
+  "description": "Sixteen lines of Homer for Meter and Scansion: the first eight lines of Iliad I and the first eight lines of Odyssey I that pass every test below.",
+  "text": {
+   "Iliad": "Homer, Iliad I. Greek text of D. B. Monro and T. W. Allen, Homeri Opera (Oxford, Oxford University Press, 1920), as printed by the Perseus Digital Library, Perseus:text:1999.01.0133, read 2026-10-10.",
+   "Odyssey": "Homer, Odyssey I. Greek text of A. T. Murray, The Odyssey with an English Translation (Cambridge, MA, Harvard University Press; London, William Heinemann, 1919), as printed by the Perseus Digital Library, Perseus:text:1999.01.0135, read 2026-10-10. Perseus does not print the Monro and Allen Odyssey."
+  },
+  "scansion": "The syllables and their quantities are those published at hypotactic.com (Greek and Latin Meter), files iliad1 and odyssey1, read 2026-10-10.",
+  "selection": "A line is left out if the published scansion marks correption (Smyth §148.1), synizesis (§60), hiatus, metrical lengthening or a lengthening before a liquid or a digamma, or a short syllable before a stop and a liquid; if a syllable before a stop and a liquid is long (common quantity, §145); if α, ι, or υ is marked long by nature (its quantity must be learned by observation, §147, and Homer sometimes lengthens it in the meter, §28); if a syllable runs across two words; if the line has an elision mark or a raised dot; or if the letters differ from the Perseus text.",
+  "rules": {
+   "n": "Long by nature: the syllable has η or ω, a diphthong, an iota subscript, or a circumflex (Smyth §143, §146 a, §147 a).",
+   "p": "Long by position: two consonants or a double consonant follow its vowel, in the same word or the next (Smyth §144).",
+   "s": "Short: the vowel is short and a vowel or a single consonant follows (Smyth §142).",
+   "a": "The last syllable of the line, which may be long or short."
+  },
+  "lines": [
+   {
+    "id": "gmet-il1-26",
+    "work": "Iliad",
+    "book": 1,
+    "line": 26,
+    "text": "μή σε γέρον κοίλῃσιν ἐγὼ παρὰ νηυσὶ κιχείω",
+    "words": [
+     [
+      [
+       "μή",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "σε",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "γέ",
+       "S",
+       "s"
+      ],
+      [
+       "ρον",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "κοί",
+       "L",
+       "n"
+      ],
+      [
+       "λῃ",
+       "L",
+       "n"
+      ],
+      [
+       "σιν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐ",
+       "S",
+       "s"
+      ],
+      [
+       "γὼ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "πα",
+       "S",
+       "s"
+      ],
+      [
+       "ρὰ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "νηυ",
+       "L",
+       "n"
+      ],
+      [
+       "σὶ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "κι",
+       "S",
+       "s"
+      ],
+      [
+       "χεί",
+       "L",
+       "n"
+      ],
+      [
+       "ω",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D26",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 26). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-50",
+    "work": "Iliad",
+    "book": 1,
+    "line": 50,
+    "text": "οὐρῆας μὲν πρῶτον ἐπῴχετο καὶ κύνας ἀργούς,",
+    "words": [
+     [
+      [
+       "οὐ",
+       "L",
+       "n"
+      ],
+      [
+       "ρῆ",
+       "L",
+       "n"
+      ],
+      [
+       "ας",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "μὲν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "πρῶ",
+       "L",
+       "n"
+      ],
+      [
+       "τον",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐπ",
+       "S",
+       "s"
+      ],
+      [
+       "ῴ",
+       "L",
+       "n"
+      ],
+      [
+       "χε",
+       "S",
+       "s"
+      ],
+      [
+       "το",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "καὶ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κύ",
+       "S",
+       "s"
+      ],
+      [
+       "νας",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἀρ",
+       "L",
+       "p"
+      ],
+      [
+       "γούς,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D50",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 50). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-53",
+    "work": "Iliad",
+    "book": 1,
+    "line": 53,
+    "text": "ἐννῆμαρ μὲν ἀνὰ στρατὸν ᾤχετο κῆλα θεοῖο,",
+    "words": [
+     [
+      [
+       "ἐν",
+       "L",
+       "p"
+      ],
+      [
+       "νῆ",
+       "L",
+       "n"
+      ],
+      [
+       "μαρ",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "μὲν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἀ",
+       "S",
+       "s"
+      ],
+      [
+       "νὰ",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "στρα",
+       "S",
+       "s"
+      ],
+      [
+       "τὸν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ᾤ",
+       "L",
+       "n"
+      ],
+      [
+       "χε",
+       "S",
+       "s"
+      ],
+      [
+       "το",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "κῆ",
+       "L",
+       "n"
+      ],
+      [
+       "λα",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "θε",
+       "S",
+       "s"
+      ],
+      [
+       "οῖ",
+       "L",
+       "n"
+      ],
+      [
+       "ο,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SDDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D53",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 53). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-60",
+    "work": "Iliad",
+    "book": 1,
+    "line": 60,
+    "text": "ἂψ ἀπονοστήσειν, εἴ κεν θάνατόν γε φύγοιμεν,",
+    "words": [
+     [
+      [
+       "ἂψ",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "ἀ",
+       "S",
+       "s"
+      ],
+      [
+       "πο",
+       "S",
+       "s"
+      ],
+      [
+       "νοσ",
+       "L",
+       "p"
+      ],
+      [
+       "τή",
+       "L",
+       "n"
+      ],
+      [
+       "σειν,",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "εἴ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κεν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "θά",
+       "S",
+       "s"
+      ],
+      [
+       "να",
+       "S",
+       "s"
+      ],
+      [
+       "τόν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "γε",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "φύ",
+       "S",
+       "s"
+      ],
+      [
+       "γοι",
+       "L",
+       "n"
+      ],
+      [
+       "μεν,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSSDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D60",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 60). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-129",
+    "work": "Iliad",
+    "book": 1,
+    "line": 129,
+    "text": "δῷσι πόλιν Τροίην εὐτείχεον ἐξαλαπάξαι.",
+    "words": [
+     [
+      [
+       "δῷ",
+       "L",
+       "n"
+      ],
+      [
+       "σι",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "πό",
+       "S",
+       "s"
+      ],
+      [
+       "λιν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "Τροί",
+       "L",
+       "n"
+      ],
+      [
+       "ην",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "εὐ",
+       "L",
+       "n"
+      ],
+      [
+       "τεί",
+       "L",
+       "n"
+      ],
+      [
+       "χε",
+       "S",
+       "s"
+      ],
+      [
+       "ον",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐξ",
+       "L",
+       "p"
+      ],
+      [
+       "α",
+       "S",
+       "s"
+      ],
+      [
+       "λα",
+       "S",
+       "s"
+      ],
+      [
+       "πά",
+       "L",
+       "p"
+      ],
+      [
+       "ξαι.",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSSDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D129",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 129). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-137",
+    "work": "Iliad",
+    "book": 1,
+    "line": 137,
+    "text": "εἰ δέ κε μὴ δώωσιν ἐγὼ δέ κεν αὐτὸς ἕλωμαι",
+    "words": [
+     [
+      [
+       "εἰ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "δέ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "κε",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "μὴ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "δώ",
+       "L",
+       "n"
+      ],
+      [
+       "ω",
+       "L",
+       "n"
+      ],
+      [
+       "σιν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐ",
+       "S",
+       "s"
+      ],
+      [
+       "γὼ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "δέ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "κεν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "αὐ",
+       "L",
+       "n"
+      ],
+      [
+       "τὸς",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἕ",
+       "S",
+       "s"
+      ],
+      [
+       "λω",
+       "L",
+       "n"
+      ],
+      [
+       "μαι",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D137",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 137). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-189",
+    "work": "Iliad",
+    "book": 1,
+    "line": 189,
+    "text": "στήθεσσιν λασίοισι διάνδιχα μερμήριξεν,",
+    "words": [
+     [
+      [
+       "στή",
+       "L",
+       "n"
+      ],
+      [
+       "θεσ",
+       "L",
+       "p"
+      ],
+      [
+       "σιν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "λα",
+       "S",
+       "s"
+      ],
+      [
+       "σί",
+       "S",
+       "s"
+      ],
+      [
+       "οι",
+       "L",
+       "n"
+      ],
+      [
+       "σι",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "δι",
+       "S",
+       "s"
+      ],
+      [
+       "άν",
+       "L",
+       "p"
+      ],
+      [
+       "δι",
+       "S",
+       "s"
+      ],
+      [
+       "χα",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "μερ",
+       "L",
+       "p"
+      ],
+      [
+       "μή",
+       "L",
+       "n"
+      ],
+      [
+       "ρι",
+       "L",
+       "p"
+      ],
+      [
+       "ξεν,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SDDDS",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D189",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 189). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-il1-207",
+    "work": "Iliad",
+    "book": 1,
+    "line": 207,
+    "text": "ἦλθον ἐγὼ παύσουσα τὸ σὸν μένος, αἴ κε πίθηαι,",
+    "words": [
+     [
+      [
+       "ἦλ",
+       "L",
+       "n"
+      ],
+      [
+       "θον",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐ",
+       "S",
+       "s"
+      ],
+      [
+       "γὼ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "παύ",
+       "L",
+       "n"
+      ],
+      [
+       "σου",
+       "L",
+       "n"
+      ],
+      [
+       "σα",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "τὸ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "σὸν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "μέ",
+       "S",
+       "s"
+      ],
+      [
+       "νος,",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "αἴ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κε",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "πί",
+       "S",
+       "s"
+      ],
+      [
+       "θη",
+       "L",
+       "n"
+      ],
+      [
+       "αι,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D1%3Aline%3D207",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=iliad1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (iliad1, line 207). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-7",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 7,
+    "text": "αὐτῶν γὰρ σφετέρῃσιν ἀτασθαλίῃσιν ὄλοντο,",
+    "words": [
+     [
+      [
+       "αὐ",
+       "L",
+       "n"
+      ],
+      [
+       "τῶν",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "γὰρ",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "σφε",
+       "S",
+       "s"
+      ],
+      [
+       "τέ",
+       "S",
+       "s"
+      ],
+      [
+       "ρῃ",
+       "L",
+       "n"
+      ],
+      [
+       "σιν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἀ",
+       "S",
+       "s"
+      ],
+      [
+       "τασ",
+       "L",
+       "p"
+      ],
+      [
+       "θα",
+       "S",
+       "s"
+      ],
+      [
+       "λί",
+       "S",
+       "s"
+      ],
+      [
+       "ῃ",
+       "L",
+       "n"
+      ],
+      [
+       "σιν",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ὄ",
+       "S",
+       "s"
+      ],
+      [
+       "λον",
+       "L",
+       "p"
+      ],
+      [
+       "το,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SDDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D7",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 7). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-70",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 70,
+    "text": "ἀντίθεον Πολύφημον, ὅου κράτος ἐστὶ μέγιστον",
+    "words": [
+     [
+      [
+       "ἀν",
+       "L",
+       "p"
+      ],
+      [
+       "τί",
+       "S",
+       "s"
+      ],
+      [
+       "θε",
+       "S",
+       "s"
+      ],
+      [
+       "ον",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "Πο",
+       "S",
+       "s"
+      ],
+      [
+       "λύ",
+       "S",
+       "s"
+      ],
+      [
+       "φη",
+       "L",
+       "n"
+      ],
+      [
+       "μον,",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ὅ",
+       "S",
+       "s"
+      ],
+      [
+       "ου",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κρά",
+       "S",
+       "s"
+      ],
+      [
+       "τος",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐσ",
+       "L",
+       "p"
+      ],
+      [
+       "τὶ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "μέ",
+       "S",
+       "s"
+      ],
+      [
+       "γισ",
+       "L",
+       "p"
+      ],
+      [
+       "τον",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DDDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D70",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 70). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-82",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 82,
+    "text": "εἰ μὲν δὴ νῦν τοῦτο φίλον μακάρεσσι θεοῖσιν,",
+    "words": [
+     [
+      [
+       "εἰ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "μὲν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "δὴ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "νῦν",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "τοῦ",
+       "L",
+       "n"
+      ],
+      [
+       "το",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "φί",
+       "S",
+       "s"
+      ],
+      [
+       "λον",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "μα",
+       "S",
+       "s"
+      ],
+      [
+       "κά",
+       "S",
+       "s"
+      ],
+      [
+       "ρεσ",
+       "L",
+       "p"
+      ],
+      [
+       "σι",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "θε",
+       "S",
+       "s"
+      ],
+      [
+       "οῖ",
+       "L",
+       "n"
+      ],
+      [
+       "σιν,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D82",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 82). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-90",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 90,
+    "text": "εἰς ἀγορὴν καλέσαντα κάρη κομόωντας Ἀχαιοὺς",
+    "words": [
+     [
+      [
+       "εἰς",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "ἀ",
+       "S",
+       "s"
+      ],
+      [
+       "γο",
+       "S",
+       "s"
+      ],
+      [
+       "ρὴν",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κα",
+       "S",
+       "s"
+      ],
+      [
+       "λέ",
+       "S",
+       "s"
+      ],
+      [
+       "σαν",
+       "L",
+       "p"
+      ],
+      [
+       "τα",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "κά",
+       "S",
+       "s"
+      ],
+      [
+       "ρη",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "κο",
+       "S",
+       "s"
+      ],
+      [
+       "μό",
+       "S",
+       "s"
+      ],
+      [
+       "ων",
+       "L",
+       "n"
+      ],
+      [
+       "τας",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "Ἀ",
+       "S",
+       "s"
+      ],
+      [
+       "χαι",
+       "L",
+       "n"
+      ],
+      [
+       "οὺς",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DDDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D90",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 90). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-105",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 105,
+    "text": "εἰδομένη ξείνῳ, Ταφίων ἡγήτορι Μέντῃ.",
+    "words": [
+     [
+      [
+       "εἰ",
+       "L",
+       "n"
+      ],
+      [
+       "δο",
+       "S",
+       "s"
+      ],
+      [
+       "μέ",
+       "S",
+       "s"
+      ],
+      [
+       "νη",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "ξεί",
+       "L",
+       "n"
+      ],
+      [
+       "νῳ,",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "Τα",
+       "S",
+       "s"
+      ],
+      [
+       "φί",
+       "S",
+       "s"
+      ],
+      [
+       "ων",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "ἡ",
+       "L",
+       "n"
+      ],
+      [
+       "γή",
+       "L",
+       "n"
+      ],
+      [
+       "το",
+       "S",
+       "s"
+      ],
+      [
+       "ρι",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "Μέν",
+       "L",
+       "p"
+      ],
+      [
+       "τῃ.",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSDSD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D105",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 105). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-114",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 114,
+    "text": "ἧστο γὰρ ἐν μνηστῆρσι φίλον τετιημένος ἦτορ,",
+    "words": [
+     [
+      [
+       "ἧσ",
+       "L",
+       "n"
+      ],
+      [
+       "το",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "γὰρ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "μνησ",
+       "L",
+       "n"
+      ],
+      [
+       "τῆρ",
+       "L",
+       "n"
+      ],
+      [
+       "σι",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "φί",
+       "S",
+       "s"
+      ],
+      [
+       "λον",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "τε",
+       "S",
+       "s"
+      ],
+      [
+       "τι",
+       "S",
+       "s"
+      ],
+      [
+       "η",
+       "L",
+       "n"
+      ],
+      [
+       "μέ",
+       "S",
+       "s"
+      ],
+      [
+       "νος",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἦ",
+       "L",
+       "n"
+      ],
+      [
+       "τορ,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "DSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D114",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 114). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-116",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 116,
+    "text": "μνηστήρων τῶν μὲν σκέδασιν κατὰ δώματα θείη,",
+    "words": [
+     [
+      [
+       "μνησ",
+       "L",
+       "n"
+      ],
+      [
+       "τή",
+       "L",
+       "n"
+      ],
+      [
+       "ρων",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "τῶν",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "μὲν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "σκέ",
+       "S",
+       "s"
+      ],
+      [
+       "δα",
+       "S",
+       "s"
+      ],
+      [
+       "σιν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "κα",
+       "S",
+       "s"
+      ],
+      [
+       "τὰ",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "δώ",
+       "L",
+       "n"
+      ],
+      [
+       "μα",
+       "S",
+       "s"
+      ],
+      [
+       "τα",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "θεί",
+       "L",
+       "n"
+      ],
+      [
+       "η,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D116",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 116). The last syllable of the line is marked as either."
+   },
+   {
+    "id": "gmet-od1-147",
+    "work": "Odyssey",
+    "book": 1,
+    "line": 147,
+    "text": "σῖτον δὲ δμῳαὶ παρενήνεον ἐν κανέοισιν,",
+    "words": [
+     [
+      [
+       "σῖ",
+       "L",
+       "n"
+      ],
+      [
+       "τον",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "δὲ",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "δμῳ",
+       "L",
+       "n"
+      ],
+      [
+       "αὶ",
+       "L",
+       "n"
+      ]
+     ],
+     [
+      [
+       "παρ",
+       "S",
+       "s"
+      ],
+      [
+       "ε",
+       "S",
+       "s"
+      ],
+      [
+       "νή",
+       "L",
+       "n"
+      ],
+      [
+       "νε",
+       "S",
+       "s"
+      ],
+      [
+       "ον",
+       "S",
+       "s"
+      ]
+     ],
+     [
+      [
+       "ἐν",
+       "L",
+       "p"
+      ]
+     ],
+     [
+      [
+       "κα",
+       "S",
+       "s"
+      ],
+      [
+       "νέ",
+       "S",
+       "s"
+      ],
+      [
+       "οι",
+       "L",
+       "n"
+      ],
+      [
+       "σιν,",
+       "L",
+       "a"
+      ]
+     ]
+    ],
+    "feet": "SSDDD",
+    "text_url": "http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0135%3Abook%3D1%3Aline%3D147",
+    "scansion_url": "https://hypotactic.com/latin/index.html?Use_Id=odyssey1",
+    "scansion_check": "Each syllable has the quantity published at hypotactic.com (odyssey1, line 147). The last syllable of the line is marked as either."
+   }
+  ]
  }
 };

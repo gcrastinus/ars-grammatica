@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
  * build_greek.js: read the Greek JSON files in this folder and write greek.js at the repository root.
- * greek.js defines one global, window.GREEK = {vocab, paradigms, cards, items, shared, sentence, notes}, with every
+ * greek.js defines one global, window.GREEK = {vocab, paradigms, cards, items, shared, sentence, notes, meter}, with every
  * string exactly as it stands in the JSON. GREEK.sentence holds the four pools of greek-sentence-a.json
  * (more, voice) and greek-sentence-b.json (clause, mood). GREEK.notes holds the approved Greek notes of
  * greek-notes.json: notes.decks[deck][panel index, from 0].text or .explain, and notes.exercises[exercise][item id].
- * Each note keeps its entry number in GREEK-NOTES-PROPOSED.md. Run from the repository root:
+ * Each note keeps its entry number in GREEK-NOTES-PROPOSED.md. GREEK.meter holds the hexameter lines of greek-meter.json
+ * for Meter and Scansion. Run from the repository root:
  *   node greek/build_greek.js
  */
 'use strict';
@@ -16,7 +17,7 @@ const here = __dirname;
 const out = path.join(here, '..', 'greek.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(here, 'greek-' + name + '.json'), 'utf8'));
 const GREEK = { vocab: read('vocab'), paradigms: read('paradigms'), cards: read('cards'), items: read('items'), shared: read('shared'),
-  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')), notes: read('notes') };
+  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')), notes: read('notes'), meter: read('meter') };
 
 /* Every string must already be in Unicode NFC. Nothing here normalizes or rewrites a form. */
 const problems = [];
@@ -117,6 +118,47 @@ SENTENCE_POOLS.forEach(name => (GREEK.sentence[name] || []).forEach(it => {
   });
 }));
 
+/* The hexameter lines. Each line is the Perseus text divided into syllables: [text, 'L' or 'S', kind], where the kind is
+   n (long by nature), p (long by position), s (short), or a (the last syllable of the line). The syllables joined give
+   the text. The marks make five dactyls or spondees and a last foot of two syllables, as the stored feet say. Each
+   syllable also meets its rule: a syllable long by nature has η or ω, a diphthong, an iota subscript, or a circumflex
+   (Smyth §143, §146 a, §147 a); a syllable long by position has two consonants or a double consonant after its vowel
+   (§144); a short syllable has neither (§142). */
+const VOWEL = /[αεηιουω]/;
+const plain = t => t.normalize('NFD').toLowerCase().replace(/[^\u0345α-ως]/g, '').replace(/ς/g, 'σ');
+const meterIds = new Set();
+(GREEK.meter.lines || []).forEach(line => {
+  const at = 'meter.' + line.id;
+  if(meterIds.has(line.id) || ids.has(line.id)) problems.push(at + ': the id is repeated');
+  meterIds.add(line.id);
+  const syl = [].concat(...line.words);
+  if(line.words.map(w => w.map(x => x[0]).join('')).join(' ') !== line.text) problems.push(at + ': the syllables do not give the text');
+  syl.forEach((x, i) => {
+    if(!/^[LS]$/.test(x[1]) || !/^[npsa]$/.test(x[2])) problems.push(at + ': the mark of ' + x[0] + ' is not known');
+    if((x[2] === 'a') !== (i === syl.length - 1)) problems.push(at + ': only the last syllable is marked as the last');
+  });
+  const ks = syl.map(x => x[1]);
+  let i = 0, feet = '';
+  for(let f = 0; f < 5; f++){
+    if(ks.slice(i, i + 3).join('') === 'LSS'){ feet += 'D'; i += 3; }
+    else if(ks.slice(i, i + 2).join('') === 'LL'){ feet += 'S'; i += 2; }
+    else break;
+  }
+  if(feet !== line.feet || ks.length - i !== 2 || ks[i] !== 'L') problems.push(at + ': the marks do not make the hexameter ' + line.feet);
+  syl.forEach((x, k) => {
+    const nfd = x[0].normalize('NFD'), b = plain(x[0]);
+    const nuc = (b.match(/[αεηιουω]+/) || [''])[0];
+    const longVowel = /[ηω]/.test(nuc) || /αι|αυ|ει|ευ|οι|ου|υι|ηυ/.test(nuc) || nfd.indexOf('\u0345') >= 0 || nfd.indexOf('\u0342') >= 0;
+    const after = b.replace(/^[^αεηιουω]*[αεηιουω]+/, '').replace(/\u0345/g, '');
+    const next = k + 1 < syl.length ? plain(syl[k + 1][0]).replace(/\u0345/g, '').match(/^[^αεηιουω]*/)[0] : '';
+    const cons = after + next;
+    const position = cons.length >= 2 || /[ζξψ]/.test(cons);
+    if(x[2] === 'n' && (!longVowel || x[1] !== 'L')) problems.push(at + ': ' + x[0] + ' is marked long by nature without a long vowel or diphthong');
+    if(x[2] === 'p' && (!position || x[1] !== 'L')) problems.push(at + ': ' + x[0] + ' is marked long by position without two consonants after it');
+    if(x[2] === 's' && (longVowel || position || x[1] !== 'S')) problems.push(at + ': ' + x[0] + ' is marked short, but the rule makes it long');
+  });
+});
+
 if(problems.length){
   console.error(problems.join('\n'));
   process.exit(1);
@@ -128,4 +170,5 @@ console.log('Grading safety: ' + GREEK.items.items.length + ' items, no wrong op
 console.log('Shared items: ' + Object.keys(GREEK.shared).filter(k => Array.isArray(GREEK.shared[k])).map(k => k + ' ' + GREEK.shared[k].length).join(', ') + '; each has one key, and the produce keys are distinct.');
 console.log('Sentence items: ' + SENTENCE_POOLS.map(k => k + ' ' + GREEK.sentence[k].length).join(', ') + '; each has one key and one blank, and no wrong option matches its key.');
 console.log('Notes: ' + noteLists.reduce((t, l) => t + l[1].length, 0) + ' notes in ' + noteLists.length + ' places.');
+console.log('Meter: ' + GREEK.meter.lines.length + ' hexameter lines; each makes its feet, and each syllable meets its rule.');
 console.log('Wrote ' + out);
