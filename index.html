@@ -15688,6 +15688,56 @@ addPartner('fr', FRA, 'cases', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
 addPartner('fr', FRA, 'govern', (it, d) => makeMC(it, d <= 1 ? 3 : 4), 0.4);
 addPartner('fr', FRA, 'agree', it => makeMC(it, 4), 0.4);
 addPartner('fr', FRA, 'cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
+/* produce in a partner language other than Greek: the typed form, with the prompt and feedback of the Greek
+   produce items. A lemma with a table among the adjectives of the language's paradigms is called an adjective.
+   match(val, it) is the language's comparison. */
+function partnerProduceQ(data, it, match, placeholder, hint){
+  const adj = ((data.paradigms && data.paradigms.adjectives) || []).some(e => e.lemma === it.lemma);
+  const kind = adj ? 'adjective' : /\bperson\b/.test(it.want) ? 'verb' : 'noun';
+  return {
+    kind:'text', src: it.src, sid: it.id, lang: it.lang,
+    prompt:`Write the <strong>${it.want}</strong> of this ${kind}.`,
+    specimen:`${it.lemma}<span class="lemma">${it.lemmaLine}</span>`,
+    placeholder, hint, _key: it.a,
+    check(val){
+      if(match(val, it)) return {right:true, note: it.why};
+      const wrote = String(val || '').trim();
+      return {right:false,
+        note: it.why,
+        also: wrote ? `The answer written was <em>${nfEsc(wrote)}</em>.` : 'Nothing was written.'};
+    }
+  };
+}
+/* The forms stored for a lemma in a language's paradigms: the lemma and every cell of its table. */
+const PARTNER_META = ['lemma', 'gloss', 'ref', 'note', 'kind', 'auxiliary', 'class', 'src'];
+function partnerForms(data, lemma){
+  const P = data.paradigms || {};
+  const entry = [].concat(P.nouns || [], P.adjectives || [], P.verbs || []).find(e => e.lemma === lemma);
+  const found = [lemma];
+  (function walk(o){
+    if(typeof o === 'string'){ found.push(o); return; }
+    if(Array.isArray(o)) o.forEach(walk);
+    else if(o && typeof o === 'object') Object.keys(o).forEach(k => { if(PARTNER_META.indexOf(k) < 0) walk(o[k]); });
+  })(entry || {});
+  return found;
+}
+const partnerLc = s => String(s || '').normalize('NFC').toLowerCase().replace(/[\u2019']/g, '\u2019').replace(/\s+/g, ' ').trim();
+/* Typed French is compared without accents, the cedilla, or case, and with the apostrophe and the spaces made
+   uniform. A spelling that is itself another form in the same table is not accepted for the key. The same
+   comparison is checked in french/build_french.js. */
+function normFra(s){
+  return String(s || '').replace(/<[^>]*>/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[\u2019']/g, '\u2019').replace(/\s+/g, ' ').trim();
+}
+function fraMatch(val, it){
+  const got = partnerLc(val);
+  if(!got) return false;
+  if(got === partnerLc(it.a)) return true;
+  if(normFra(val) !== normFra(it.a)) return false;
+  return partnerForms(FRA, it.lemma).map(partnerLc).indexOf(got) < 0;
+}
+const FRA_HINT = 'Accents and the cedilla are optional.';
+addPartner('fr', FRA, 'produce', it => partnerProduceQ(FRA, it, fraMatch, 'Type the French form', FRA_HINT), 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
