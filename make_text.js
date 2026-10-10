@@ -123,7 +123,12 @@ function formatQuestion(q) {
   return lines.join('\n');
 }
 
-function formatPanel(panel, index1, SRC) {
+/** The approved Greek notes (GREEK.notes) of one panel, a deck explanation or an item, printed as the app shows them with Greek chosen. */
+function greekNoteLines(list) {
+  return (list || []).map(n => 'Greek note: ' + n.note);
+}
+
+function formatPanel(panel, index1, SRC, greek) {
   const chunks = [];
   chunks.push(`@panel ${index1}`);
   chunks.push('');
@@ -131,10 +136,12 @@ function formatPanel(panel, index1, SRC) {
     chunks.push(htmlToMarkup(panel.h));
     chunks.push('');
   }
+  if (greek && greek.text) { chunks.push(...greekNoteLines(greek.text)); chunks.push(''); }
   if (panel.q) {
     chunks.push(formatQuestion(panel.q));
     chunks.push('');
   }
+  if (greek && greek.explain) { chunks.push(...greekNoteLines(greek.explain)); chunks.push(''); }
   // multi-stage panels
   if (Array.isArray(panel.stages)) {
     panel.stages.forEach((st, i) => {
@@ -388,7 +395,8 @@ function actBanner(act) {
   return lines.join('\n');
 }
 
-function emitDeck(key, deck, SRC) {
+function emitDeck(key, deck, SRC, GRK) {
+  const greek = GRK && GRK.notes ? GRK.notes.decks[key] : null;
   const lines = [];
   lines.push('-'.repeat(72));
   lines.push(`STUDY — ${deck.title}`);
@@ -400,7 +408,7 @@ function emitDeck(key, deck, SRC) {
   if (deck.sub) lines.push(`Small heading: ${deck.sub}`);
   lines.push('');
   (deck.panels || []).forEach((p, i) => {
-    lines.push(formatPanel(p, i + 1, SRC));
+    lines.push(formatPanel(p, i + 1, SRC, greek && greek[i]));
     lines.push('');
   });
   return lines.join('\n');
@@ -584,7 +592,7 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
       if (it.kind === 'deck') {
         const deck = DECKS[it.deck];
         if (!deck) continue;
-        parts.push(emitDeck(it.deck, deck, SRC));
+        parts.push(emitDeck(it.deck, deck, SRC, GRK));
         parts.push('');
       } else if (it.kind === 'ex') {
         const ex = EX[it.ex];
@@ -598,6 +606,12 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state }, htmlPath) {
         parts.push(GREEK_SENTENCE[it.ex] ? emitGreekSentence(it.ex, ex, { GRK, state }) : emitExercise(it.ex, ex, rand, SRC));
         const greek = emitGreek(it.ex, ex, { GRK, store, state });
         if (greek) parts.push(greek);
+        const notes = GRK && GRK.notes ? GRK.notes.exercises[it.ex] : null;
+        if (notes) {
+          parts.push('Greek notes, shown after the explanation of these items when Greek is chosen:');
+          parts.push('');
+          Object.keys(notes).forEach(id => { parts.push(`@item ${id}`); parts.push(...greekNoteLines(notes[id])); parts.push(''); });
+        }
         parts.push('');
       }
     }

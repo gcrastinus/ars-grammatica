@@ -398,6 +398,9 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .feedback .fb-points{font-family:'Cinzel',serif; font-size:13px; letter-spacing:.08em}
 .feedback.good .fb-points{color:var(--good-text)}
 .feedback.bad .fb-points{color:var(--bad-text)}
+.greek-note{margin-top:14px; padding-top:10px; border-top:1px dashed var(--line)}
+.greek-note .greek-label{font-family:'Cinzel',serif; font-size:14px; letter-spacing:.14em; text-transform:uppercase; display:block}
+.greek-note p{margin:6px 0 0}
 .q-progress{height:5px; background:var(--track); border-radius:3px; margin:0 0 16px; overflow:hidden}
 .q-progress-fill{height:100%; width:0; background:var(--gold); transition:width .25s ease}
 
@@ -16117,6 +16120,21 @@ function openPick(which){
   show('scr-pick');
 }
 
+/* The approved Greek notes (GREEK.notes). With Greek chosen in the partner-language shortcut on the home screen,
+   a deck panel, a deck explanation or an item explanation that has a note shows it after the existing text,
+   in a block labeled Greek. Otherwise nothing is added. */
+function greekNote(list){
+  if(store.langPick !== 'grc' || !Array.isArray(list) || !list.length) return '';
+  return `<div class="greek-note"><span class="greek-label">Greek</span>${list.map(n => `<p>${nfEsc(n.note)}</p>`).join('')}</div>`;
+}
+function deckGreekNote(part){
+  const notes = GRK && GRK.notes ? GRK.notes.decks[Object.keys(DECKS).find(k => DECKS[k] === deck)] : null;
+  return greekNote(notes && notes[deckI] && notes[deckI][part]);
+}
+function exGreekNote(q){
+  const notes = GRK && GRK.notes && state.ex ? GRK.notes.exercises[state.ex.id] : null;
+  return greekNote(notes && q && q.sid ? notes[q.sid] : null);
+}
 function openDeck(key){
   deck = DECKS[key]; deckI = 0;
   $('deck-title').textContent = deck.title;
@@ -16129,7 +16147,7 @@ function renderDeck(){
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
-  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}${srcLine(p.src)}</div>`;
+  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}${srcLine(p.src)}${deckGreekNote('text')}</div>`;
   if(p.q){
     const box = document.createElement('div');
     box.className = 'panel';
@@ -16153,7 +16171,7 @@ function renderDeck(){
         box.querySelector('#deck-fb').innerHTML =
           `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Right' : 'Not so'}</span>
            ${p.q.explain}${!good && p.q.wrong ? `<span class="also">${p.q.wrong}</span>` : ''}
-           ${srcLine(p.src)}</div>`;
+           ${srcLine(p.src)}${deckGreekNote('explain')}</div>`;
         deckAnswered = true;
         $('deck-next').disabled = false;
       };
@@ -16519,7 +16537,7 @@ function submit(ansMC){
        <span class="verdict">${res.right ? 'Right' : 'Not so'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
        ${res.also ? `<span class="also">${res.also}</span>` : ''}
        ${extra}
-       ${srcLine(q.src || state.ex.src)}</div>`;
+       ${srcLine(q.src || state.ex.src)}${exGreekNote(q)}</div>`;
   $('ex-submit').style.display = 'none';
   if(state.ex && state.ex.staged){
     $('ex-next').textContent = state.pendingComplete ? 'Finish Exercise Set ⟶' : 'Next →';
