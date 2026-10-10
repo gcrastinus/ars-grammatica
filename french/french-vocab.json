@@ -1,0 +1,387 @@
+{
+  "language": "fr",
+  "dialect": "modern standard",
+  "source": "Modern standard French. Verb forms that are tabulated are taken from Le Conjugueur (lefigaro.fr), the Bescherelle-style tables, read 2026-10-09. Articles and pronouns are taken from Lawless French (lawlessfrench.com), read 2026-10-09. Beau and vieux are taken from Larousse, read 2026-10-09. French nouns have no genitive and no declension number, so those Greek fields are not used. The parallel fields are plural, gender, and article.",
+  "nouns": [
+    {
+      "lemma": "roi",
+      "plural": "rois",
+      "gender": "m",
+      "article": "le",
+      "gloss": "king",
+      "ref": "Larousse, s.v. roi, nom masculin, larousse.fr/dictionnaires/francais/roi/69725, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "femme",
+      "plural": "femmes",
+      "gender": "f",
+      "article": "la",
+      "gloss": "woman",
+      "ref": "Larousse, s.v. femme, nom féminin, larousse.fr/dictionnaires/francais/femme/33217, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "homme",
+      "plural": "hommes",
+      "gender": "m",
+      "article": "l’",
+      "gloss": "man",
+      "note": "The definite article elides: l’homme, not le homme.",
+      "ref": "Larousse, s.v. homme, nom masculin, larousse.fr/dictionnaires/francais/homme/40240, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "cheval",
+      "plural": "chevaux",
+      "gender": "m",
+      "article": "le",
+      "gloss": "horse",
+      "note": "The plural is chevaux. A plural chevals is not a French form.",
+      "ref": "Larousse, s.v. cheval, chevaux, nom masculin, larousse.fr/dictionnaires/francais/cheval/15173, read 2026-10-09. Larousse, s.v. pluriel, gives chevaux as the plural of cheval. Larousse junior, s.v. cheval, prints Au pluriel: des chevaux."
+    },
+    {
+      "lemma": "ville",
+      "plural": "villes",
+      "gender": "f",
+      "article": "la",
+      "gloss": "city",
+      "ref": "Larousse, s.v. ville, nom féminin, larousse.fr/dictionnaires/francais/ville/82000, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "mer",
+      "plural": "mers",
+      "gender": "f",
+      "article": "la",
+      "gloss": "sea",
+      "note": "This is the sea. Larousse lists maire and mère as homonyms, and those are other words.",
+      "ref": "Larousse, s.v. mer, nom féminin, larousse.fr/dictionnaires/francais/mer/50562, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "livre",
+      "plural": "livres",
+      "gender": "m",
+      "article": "le",
+      "gloss": "book",
+      "note": "This is the book, Larousse livre 1, nom masculin. The feminine livre is the pound, and it is another word. Livres is also a form of the verb livrer, which is not in this set.",
+      "ref": "Larousse, s.v. livre, nom masculin, assemblage de feuilles, larousse.fr/dictionnaires/francais/livre/47531, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "maison",
+      "plural": "maisons",
+      "gender": "f",
+      "article": "la",
+      "gloss": "house",
+      "ref": "Larousse, s.v. maison, nom féminin, larousse.fr/dictionnaires/francais/maison/48725, read 2026-10-09. Larousse, s.v. féminin, names maison among feminine nouns for things. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "ami",
+      "plural": "amis",
+      "gender": "m",
+      "article": "l’",
+      "gloss": "friend",
+      "feminine": "amie",
+      "feminine_plural": "amies",
+      "note": "The headword is ami, amie. The article elides before the vowel.",
+      "ref": "Larousse, Dictionnaire de français, s.v. ami, amie, read 2026-10-09. The headword prints both genders. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "cadeau",
+      "plural": "cadeaux",
+      "gender": "m",
+      "article": "le",
+      "gloss": "gift",
+      "note": "A noun in -eau takes -x in the plural: cadeaux.",
+      "ref": "Larousse junior, s.v. cadeau, nom masculin, Au pluriel: des cadeaux, larousse.fr/dictionnaires/junior/cadeau/2550, read 2026-10-09. Larousse, s.v. pluriel, names x as a written plural mark."
+    },
+    {
+      "lemma": "route",
+      "plural": "routes",
+      "gender": "f",
+      "article": "la",
+      "gloss": "road",
+      "ref": "Gender feminine and plural routes. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "jour",
+      "plural": "jours",
+      "gender": "m",
+      "article": "le",
+      "gloss": "day",
+      "ref": "Gender masculine and plural jours. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "table",
+      "plural": "tables",
+      "gender": "f",
+      "article": "la",
+      "gloss": "table",
+      "ref": "Larousse, s.v. féminin, names table among feminine nouns for things, larousse.fr/dictionnaires/francais/féminin/33208, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel). The own entry for table was not opened."
+    },
+    {
+      "lemma": "jardin",
+      "plural": "jardins",
+      "gender": "m",
+      "article": "le",
+      "gloss": "garden",
+      "ref": "Gender masculine and plural jardins. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    },
+    {
+      "lemma": "victoire",
+      "plural": "victoires",
+      "gender": "f",
+      "article": "la",
+      "gloss": "victory",
+      "ref": "Gender feminine and plural victoires. The own Larousse entry was not opened in this pass. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
+    }
+  ],
+  "verbs": [
+    {
+      "lemma": "être",
+      "gloss": "be",
+      "kind": "irregular",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "avoir",
+      "gloss": "have",
+      "kind": "irregular",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "parler",
+      "gloss": "speak",
+      "kind": "regular -er, first group",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "finir",
+      "gloss": "finish",
+      "kind": "regular -ir, second group",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "vendre",
+      "gloss": "sell",
+      "kind": "regular -re, third group",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "aller",
+      "gloss": "go",
+      "kind": "irregular, third group",
+      "auxiliary": "être",
+      "tabulated": true,
+      "note": "Aller ends in -er and is not in the first group. Le Conjugueur gives three stems: va- in the present, ir- in the future, all- elsewhere.",
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "faire",
+      "gloss": "do, make",
+      "kind": "irregular, third group",
+      "auxiliary": "avoir",
+      "tabulated": true,
+      "note": "The second person plural of the present is faites, and the first person plural is faisons.",
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "venir",
+      "gloss": "come",
+      "kind": "irregular, third group",
+      "auxiliary": "être",
+      "tabulated": true,
+      "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
+    },
+    {
+      "lemma": "voir",
+      "gloss": "see",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "prendre",
+      "gloss": "take",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "dire",
+      "gloss": "say",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "pouvoir",
+      "gloss": "be able",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "vouloir",
+      "gloss": "wish, want",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "savoir",
+      "gloss": "know",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    },
+    {
+      "lemma": "écrire",
+      "gloss": "write",
+      "kind": "irregular, third group",
+      "tabulated": false,
+      "note": "Finite forms are not entered. No item asks for one.",
+      "ref": "Lemma only. Le Conjugueur, lefigaro.fr, read 2026-10-09 was not opened for this verb."
+    }
+  ],
+  "adjectives": [
+    {
+      "lemma": "bon",
+      "feminine": "bonne",
+      "gloss": "good",
+      "class": "regular, with nn in the feminine",
+      "note": "The feminine is bonne, bonnes. The masculine plural is bons. The n is doubled in the feminine. No compared form is asked.",
+      "ref": "Laura K. Lawless, Lawless French, Agreement, lawlessfrench.com/grammar/agreement/, read 2026-10-09 The four forms are the ordinary ones. The own Larousse entry for this adjective was not opened in this pass."
+    },
+    {
+      "lemma": "petit",
+      "feminine": "petite",
+      "gloss": "small",
+      "class": "regular",
+      "ref": "Laura K. Lawless, Lawless French, Agreement, lawlessfrench.com/grammar/agreement/, read 2026-10-09 The four forms are the ordinary ones. The own Larousse entry for this adjective was not opened in this pass."
+    },
+    {
+      "lemma": "grand",
+      "feminine": "grande",
+      "gloss": "great, tall",
+      "class": "regular",
+      "ref": "Laura K. Lawless, Lawless French, Agreement, lawlessfrench.com/grammar/agreement/, read 2026-10-09 The four forms are the ordinary ones. The own Larousse entry for this adjective was not opened in this pass."
+    },
+    {
+      "lemma": "beau",
+      "feminine": "belle",
+      "gloss": "beautiful",
+      "class": "masculine singular bel before a vowel or a mute h",
+      "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
+      "note": "Lawless prints beau, bel, belle, beaux, belles, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for bel."
+    },
+    {
+      "lemma": "vieux",
+      "feminine": "vieille",
+      "gloss": "old",
+      "class": "masculine singular vieil before a vowel or a mute h",
+      "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
+      "note": "Lawless prints vieux, vieil, vieille, vieux, vieilles, with the example un vieil homme, and says there is no special plural, as in trois vieux hommes. Larousse says vieil is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps vieux before a vowel. The form asked here is vieil."
+    },
+    {
+      "lemma": "heureux",
+      "feminine": "heureuse",
+      "gloss": "happy",
+      "class": "regular -eux, feminine -euse",
+      "ref": "Larousse, s.v. heureux, heureuse, adjectif, larousse.fr/dictionnaires/francais/heureux/39846, read 2026-10-09. Lawless, Agreement, says an adjective agrees in gender and number."
+    }
+  ],
+  "other": [
+    {
+      "lemma": "dans",
+      "pos": "preposition",
+      "gloss": "in, into",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "avec",
+      "pos": "preposition",
+      "gloss": "with",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "pour",
+      "pos": "preposition",
+      "gloss": "for",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "sans",
+      "pos": "preposition",
+      "gloss": "without",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "à",
+      "pos": "preposition",
+      "gloss": "to, at",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "de",
+      "pos": "preposition",
+      "gloss": "of, from",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    },
+    {
+      "lemma": "et",
+      "pos": "conjunction",
+      "gloss": "and",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "mais",
+      "pos": "conjunction",
+      "gloss": "but",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "bien",
+      "pos": "adverb",
+      "gloss": "well",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "souvent",
+      "pos": "adverb",
+      "gloss": "often",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "hélas",
+      "pos": "interjection",
+      "gloss": "alas",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "ah",
+      "pos": "interjection",
+      "gloss": "ah",
+      "ref": "Ordinary function word of standard French."
+    },
+    {
+      "lemma": "ce",
+      "pos": "pronoun",
+      "gloss": "this, that",
+      "note": "With est, the vowel drops: c’est. After c’est the pronoun is the stressed form.",
+      "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
+    }
+  ]
+}

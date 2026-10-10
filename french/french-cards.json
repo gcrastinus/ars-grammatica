@@ -1,0 +1,86 @@
+{
+  "title": "French beside Latin",
+  "description": "What modern French has, and where it differs from Latin.",
+  "cards": [
+    {
+      "heading": "Modern French",
+      "text": "We set modern French beside Latin. The forms here are the forms of standard written French, the French of the school grammar and of the dictionary. We do not use Old French, and we do not use a regional dialect."
+    },
+    {
+      "heading": "Accents and the cedilla",
+      "text": "French writes an accent on a vowel, and it writes a cedilla under c. The acute, as in été, the grave, as in où and à, and the circumflex, as in être, belong to the spelling. The cedilla, as in français, marks that c is pronounced s before a, o, or u. An accent can distinguish two words, so a and à are not the same word, and ou and où are not the same word. Latin, as we print it, uses the macron for quantity. French uses these marks as letters of the word."
+    },
+    {
+      "heading": "The article",
+      "text": "French has an article, and Latin has none. The article stands with its noun and agrees with the noun in gender and number. Le roi means the king, and un roi means a king. A French noun in an ordinary sentence has an article or some other determiner. We count the article as a part of speech in French, as the Greek grammarians counted it in Greek."
+    },
+    {
+      "heading": "The forms of the article",
+      "text": "The definite article is le before a masculine singular noun, la before a feminine singular noun, and les before a plural noun. Before a vowel or a mute h, an h that is not pronounced, le and la become l’. The indefinite article is un, une, and des. The partitive, for an unspecified amount, is du, de la, de l’, and des. À contracts with le and les, and the results are au and aux. De contracts with le and les, and the results are du and des. À la, à l’, de la, and de l’ stay in two words."
+    },
+    {
+      "heading": "Gender",
+      "text": "Every French noun is masculine or feminine. Latin has a third gender, the neuter, and French has none. The article shows the gender. Le livre is masculine, and la table is feminine. The ending does not always show the gender, since livre ends in e and is masculine, and victoire is feminine for a reason the ending alone does not settle."
+    },
+    {
+      "heading": "Number",
+      "text": "A French noun has two numbers, the singular and the plural, as a Latin noun has. A regular plural adds s, and that s is usually silent. Some plurals change the stem. The plural of cheval is chevaux, and the plural of cadeau is cadeaux. The article marks number as well. Les is plural, and le and la are singular."
+    },
+    {
+      "heading": "No case on the noun",
+      "text": "A French noun does not change for case. Latin marks the nominative, the genitive, the dative, the accusative, the ablative, and the vocative on the noun. French keeps one form of the noun for the subject, for the object, and for the object of a preposition. In le roi vend le cheval, each noun has the form it would have in another place in the sentence. What Latin marks by case, French marks by the order of the words and by the preposition, and, for a pronoun, by a change of form."
+    },
+    {
+      "heading": "Adjective agreement",
+      "text": "An adjective agrees with its noun in gender and number. It does not agree in case, because the noun has no case. Un bon roi is masculine and singular, une bonne femme is feminine and singular, les bons rois is masculine and plural, and les bonnes femmes is feminine and plural. Bon adds e for the feminine and s for the plural, and the feminine singular doubles the n, so the form is bonne. A short adjective such as bon, petit, or grand usually stands before the noun."
+    },
+    {
+      "heading": "Beau and vieux",
+      "text": "Beau and vieux have a second masculine singular, used before a vowel or a mute h. Beau becomes bel, as in un bel ami, and vieux becomes vieil, as in un vieil ami. Larousse gives those as the forms to use. The feminine is belle and vieille, and the masculine plural is beaux and vieux. A literary sentence sometimes keeps vieux before a vowel. The form we use before the vowel is vieil."
+    },
+    {
+      "heading": "Subject, object, and stressed pronouns",
+      "text": "The pronoun keeps a difference that the noun has lost. The subject forms are je, tu, il, elle, on, nous, vous, ils, and elles. The direct-object forms are me, te, le, la, nous, vous, and les. The indirect-object forms are me, te, lui, nous, vous, and leur. The stressed forms, also called disjunctive, are moi, toi, lui, elle, soi, nous, vous, eux, and elles. Je is the subject of the verb, me is the object, and moi stands where the form is stressed, above all after a preposition. Nous and vous have one spelling in all four uses, so the place in the sentence shows the use."
+    },
+    {
+      "heading": "Person and number",
+      "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. French writes the pronoun in an ordinary statement. The subject of je parle is the speaker. The subject of il parle is he, or a masculine it. The subject of ils parlent is they. Elles is used for a group that is feminine throughout, and ils is used for a masculine group and for a mixed group. On takes the third person singular, whether it means one, or people, or we."
+    },
+    {
+      "heading": "The present",
+      "text": "The present indicative says that the action goes on now, or that it is habitual, or that it is so in general. Il parle means he speaks, or he is speaking. A regular verb in -er, such as parler, has the endings e, es, e, ons, ez, and ent. A regular verb in -ir of the finir type inserts -iss- in the plural: finis, finis, finit, finissons, finissez, finissent. A regular verb in -re of the vendre type has vends, vends, vend, vendons, vendez, vendent. The third person singular of vendre adds no letter."
+    },
+    {
+      "heading": "The passé composé",
+      "text": "The passé composé is the ordinary past of a completed action. Latin uses the perfect for that past. Il a parlé means he spoke, or he has spoken. The form is the present of avoir or of être, with the past participle. Parler, finir, vendre, faire, être, and avoir take avoir. Aller and venir take être, and the participle then agrees with the subject, so elle est allée and ils sont venus. With avoir, the participle does not agree with the subject. It agrees with a direct object that stands before the verb. That further agreement is real, and a single cell of the table does not show the sentence in which it is made."
+    },
+    {
+      "heading": "The imparfait",
+      "text": "The imparfait says that the action went on in the past, or that it was habitual then. Il parlait means he was speaking, or he used to speak. The passé composé does not by itself say either of those things. The endings are ais, ais, ait, ions, iez, aient, on the stem of the first person plural of the present, without -ons. Nous parlions is the spelling of the imparfait of parler, and it is also the spelling of the present subjunctive. The rest of the sentence shows which is meant."
+    },
+    {
+      "heading": "The future",
+      "text": "The future says that the action will happen. Il parlera means he will speak. A regular verb takes the infinitive as its stem, or the infinitive of an -re verb without the final e, and then the endings ai, as, a, ons, ez, ont. Être, avoir, aller, faire, and venir do not use that stem. Their future stems are ser-, aur-, ir-, fer-, and viendr-. Je serai is the future of être. Je serais is the conditional, which is another mood, and it is not the future."
+    },
+    {
+      "heading": "The present subjunctive",
+      "text": "The subjonctif présent is a mood. It stands in a subordinate clause after que, when the main clause requires it, as it does after il faut que. Il faut que le roi finisse, and finisse is the present subjunctive of finir. A regular verb uses the endings e, es, e, ions, iez, ent. Avoir and être do not follow that pattern: the forms are que j’aie and qu’il ait, and que je sois and qu’il soit. For parler, the singular and the third person plural are spelled like the present indicative. The conjunction and the main verb show the mood."
+    },
+    {
+      "heading": "Être and avoir",
+      "text": "Être means be, as Latin sum does, and avoir means have. Both are irregular, and both are auxiliaries of the passé composé. Avoir forms that tense for most verbs, as in j’ai parlé. Être forms it for aller and for venir, and for the other verbs of motion and of change of state that go with them, as in je suis allé and je suis venu. Être itself takes avoir, so the passé composé is j’ai été. The participle été does not take a feminine ending."
+    },
+    {
+      "heading": "The three groups",
+      "text": "The school grammar sorts the verbs into three groups. The first group is the verbs in -er, except aller, and parler is the model. The second group is the verbs in -ir that take -iss-, and finir is the model. The third group holds the rest, including the verbs in -re, such as vendre, and the irregulars, such as aller, faire, and venir. Aller ends in -er and still belongs to the third group. From the model we build the other regular verbs of that group. A third-group verb has to be learned from its own table."
+    },
+    {
+      "heading": "Stem and ending",
+      "text": "The form in the sentence is a stem and an ending. In parlons the ending -ons marks the first person plural, and in finissons the same ending follows -iss-. In parlé the ending marks the past participle of an -er verb. The subject pronoun marks the person a second time, because several written endings of an -er verb are pronounced alike. The ending and the pronoun together mark the person and the number."
+    },
+    {
+      "heading": "Elision",
+      "text": "A small set of words drops a final vowel before another vowel or a mute h, and the spelling marks the loss with an apostrophe. Je, me, te, le, la, ne, de, and que do this, so the written forms are j’ai, l’ami, and d’un roi. Si drops its vowel only before il and ils. The elided spelling is the same word, not a new one. L’ami is le or la with the vowel dropped, and the gender is still the gender of the noun."
+    }
+  ]
+}
