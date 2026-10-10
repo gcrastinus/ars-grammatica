@@ -6056,12 +6056,6 @@ window.GREEK = {
        "entry": 19,
        "note": "See the Greek deck, card 7."
       }
-     ],
-     "explain": [
-      {
-       "entry": 20,
-       "note": "See the Greek deck, card 7."
-      }
      ]
     }
    }
@@ -6071,7 +6065,7 @@ window.GREEK = {
     "li1": [
      {
       "entry": 28,
-      "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, \"while the king looses.\""
+      "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, “while the king looses.”"
      }
     ],
     "li3": [
@@ -6089,7 +6083,7 @@ window.GREEK = {
     "ta3": [
      {
       "entry": 31,
-      "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, \"while the king looses.\""
+      "note": "Where Latin uses the ablative absolute, Greek uses the genitive absolute: a noun and a participle, both in the genitive, outside the main construction, as in τοῦ βασιλέως λῡ́οντος, “while the king looses.”"
      }
     ],
     "au2": [
