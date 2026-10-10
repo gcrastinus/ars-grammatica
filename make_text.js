@@ -495,7 +495,9 @@ function emitExercise(key, ex, rand, SRC) {
 /** Every Greek item of a shared exercise, drawn as the app draws it with English and Greek chosen. A separate
  *  random stream is used, and the app's state is restored, so that the samples printed elsewhere stay the same. */
 function emitGreek(key, ex, app) {
-  return emitPartner(key, ex, app, 'grc', app.GRK, 'Greek');
+  // The Greek lines of Meter and Scansion are in GREEK.meter, not in GREEK.shared.
+  const data = key === 'meter' && app.GRK && app.GRK.meter ? { shared: { meter: app.GRK.meter.lines } } : app.GRK;
+  return emitPartner(key, ex, app, 'grc', data, 'Greek');
 }
 
 /** The items of a partner language (code, with its data and its name) in a shared exercise, as emitGreek prints the Greek. */

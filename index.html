@@ -1630,6 +1630,12 @@ const SRC = {
   hypo:{kind:'study', short:'<i>Greek and Latin Meter</i>, hypotactic.com',
        full:'The long, short, and elided syllables of the Latin lines in the scansion exercise follow the scansion published at hypotactic.com (<i>Greek and Latin Meter</i>), for Virgil, <i>Aeneid</i> I, and Ovid, <i>Metamorphoses</i> I. Lines that need synizesis, hiatus, consonantal <i>i</i> inside a word, or another license are left out of the exercise.',
        note:'The source of the quantities in the Latin scansion exercise.'},
+  hypogrc:{kind:'study', short:'<i>Greek and Latin Meter</i>, hypotactic.com (Homer)',
+       full:'The long and short syllables of the Greek lines in the scansion exercise follow the scansion published at hypotactic.com (<i>Greek and Latin Meter</i>), for Homer, <i>Iliad</i> I and <i>Odyssey</i> I. Lines that need correption, synizesis, hiatus, a lengthening in the meter, or a syllable of common quantity are left out of the exercise.',
+       note:'The source of the quantities in the Greek scansion exercise.'},
+  homer_pd:{kind:'primary', short:'Homer, <i>Iliad</i> and <i>Odyssey</i>',
+       full:'Homer, <i>Iliad</i> I, in the text of D. B. Monro and T. W. Allen (Oxford, 1920), and <i>Odyssey</i> I, in the text of A. T. Murray (Harvard and Heinemann, 1919), both as printed by Perseus. The Greek lines of the scansion exercise are copied from these texts letter for letter.',
+       note:''},
   engclass:{kind:'study', short:'The ordinary English grammar, and Reed and Kellogg’s diagram',
        full:'The names in the English unit (direct object, predicate nominative, gerund, dependent clause, and the rest) are the names of an ordinary modern class. Each is set beside the traditional name this course uses, where there is one. The diagrams follow the method of Alonzo Reed and Brainerd Kellogg, <i>Higher Lessons in English</i> (1877 and later printings), which is in the public domain. Sentences quoted from English authors follow the edition named in each citation; where that text is a modern-spelling transcription, as for Shakespeare, the citation says so. No modern editor’s commentary is copied.',
        note:'A bridge from the accidents of the word to the sentence.'},
@@ -15692,6 +15698,124 @@ function grkProduceQ(it){
 addGreek('produce', grkProduceQ, 0.4);
 /* cong: the three judgments, with the prompt the Latin items use. */
 addGreek('cong', it => { const q = makeMC(it, 3); q.prompt = 'How does this construction stand?'; return q; }, 0.4);
+/* meter: the Greek hexameter lines of GREEK.meter, with the marking mechanics of the Latin lines. With Greek chosen,
+   these lines take the place of the Latin ones; the Latin lines and their code are not changed. Each syllable is
+   stored with its mark and its kind (n, p, s, or a for the last syllable), and a syllable marked wrongly is
+   explained by the rule of Smyth that settles it. */
+const GRK_SCAN_WHY = {
+  p:'long by position, because two consonants or a double consonant follow its vowel (Smyth §144)',
+  s:'short, because its vowel is short and a vowel or a single consonant follows it (Smyth §142)'
+};
+/* A syllable long by nature: the reason names what makes it long. */
+function grkScanWhy(x){
+  if(x.why !== 'n') return GRK_SCAN_WHY[x.why];
+  const nfd = x.t.normalize('NFD').toLowerCase();
+  const b = nfd.replace(/[^α-ω]/g, '');
+  if(nfd.indexOf('\u0345') >= 0) return 'long by nature, because its long vowel has an iota subscript (Smyth §143)';
+  if(/αι|αυ|ει|ευ|οι|ου|υι|ηυ/.test(b)) return 'long by nature, because it has a diphthong (Smyth §143)';
+  if(/[ηω]/.test(b)) return 'long by nature, because its vowel is η or ω (Smyth §143)';
+  return 'long by nature, because its vowel has the circumflex, which stands only on a long vowel (Smyth §147 a)';
+}
+const GRK_SCAN_WORK = {Iliad:'Homer, <em>Iliad</em> I', Odyssey:'Homer, <em>Odyssey</em> I'};
+const grkScanBare = t => t.replace(/[,.;·]/g, '');
+function grkFeetHtml(line){
+  const syl = [].concat(...line.words);
+  const out = []; let i = 0;
+  line.feet.split('').concat(['last']).forEach(f => {
+    const n = f === 'D' ? 3 : 2;
+    out.push(syl.slice(i, i + n).map(x => nfEsc(grkScanBare(x[0]))).join('-'));
+    i += n;
+  });
+  return out.join(' | ');
+}
+function grcScanQ(it, d){
+  const cite = `${GRK_SCAN_WORK[it.work]}.${it.line}`;
+  const src = ['hypogrc','homer_pd','smyth'];
+  const feetNote = `The feet are ${grkFeetHtml(it)}: ${it.feet.split('').map(f => FOOT_NAME[f]).join(', ')}, and a sixth foot of two syllables.`;
+  if(d >= 3 && Math.random() < 0.3){
+    const want = it.feet;
+    return {
+      kind:'text', lang:'grc', src, sid:'scf:' + it.id,
+      prompt:'Write the first five feet of this hexameter, D for a dactyl and S for a spondee (for example, DSDSD).',
+      sentence:`<span lang="grc">${nfEsc(it.text)}</span>`, source:cite,
+      placeholder:'Type five letters', _answer:want,
+      check(val){
+        const v = String(val || '').toUpperCase().replace(/[^DS]/g, '');
+        if(v === want) return {right:true, note:feetNote};
+        return {right:false, note:feetNote, also:v ? `The answer written was <em>${nfEsc(String(val).trim())}</em>; the pattern is <strong>${want}</strong>.` : 'Nothing was written.'};
+      }
+    };
+  }
+  const flat = [];
+  it.words.forEach((w, wi) => w.forEach(x => flat.push({s:{t:x[0], k:x[1], why:x[2]}, wi})));
+  const live = flat;
+  const lastLive = live[live.length - 1];
+  const given = new Set();
+  if(d <= 1){
+    const cand = live.filter(x => x !== lastLive);
+    sample(cand, Math.floor(cand.length / 2)).forEach(x => given.add(x));
+  }
+  return {
+    kind:'widget', lang:'grc', src, sid:it.id, source:cite,
+    prompt:'Mark each syllable long (–) or short (∪). Tap a syllable to change its mark.',
+    printInstr:'Mark each syllable long or short.', printAnswer:grkFeetHtml(it), _answer:live.map(x => x.s.k),
+    mount(host, ready){
+      const marks = new Map();
+      given.forEach(x => marks.set(x, x.s.k));
+      host.innerHTML = '<div class="sc-line" lang="grc"></div><div class="bd-help">The last syllable of the line may be long or short; either mark is accepted there.</div>';
+      const lineEl = host.querySelector('.sc-line');
+      let locked = false;
+      const btns = new Map();
+      it.words.forEach((w, wi) => {
+        const wEl = document.createElement('span'); wEl.className = 'sc-word';
+        flat.filter(x => x.wi === wi).forEach(x => {
+          const b = document.createElement('button'); b.type = 'button';
+          b.className = 'sc-syl' + (given.has(x) ? ' given' : '');
+          b.innerHTML = `<span class="sc-mark"></span><span class="sc-t">${nfEsc(x.s.t)}</span>`;
+          if(given.has(x)) b.disabled = true;
+          b.onclick = () => {
+            if(locked) return;
+            const cur = marks.get(x);
+            marks.set(x, cur === 'L' ? 'S' : cur === 'S' ? undefined : 'L');
+            if(marks.get(x) === undefined) marks.delete(x);
+            paint();
+          };
+          btns.set(x, b);
+          wEl.appendChild(b);
+        });
+        lineEl.appendChild(wEl);
+      });
+      function paint(){
+        btns.forEach((b, x) => {
+          const m = marks.get(x);
+          b.querySelector('.sc-mark').textContent = m === 'L' ? '–' : m === 'S' ? '∪' : '';
+        });
+        ready(live.every(x => marks.has(x)));
+      }
+      paint();
+      return {
+        value(){ return live.map(x => marks.get(x)); },
+        lock(res){
+          locked = true;
+          live.forEach(x => {
+            const b = btns.get(x); b.disabled = true;
+            const ok = x === lastLive || marks.get(x) === x.s.k;
+            b.classList.add(ok ? 'right' : 'wrong');
+            if(!ok) b.querySelector('.sc-mark').textContent = x.s.k === 'L' ? '–' : '∪';
+          });
+        }
+      };
+    },
+    check(v){
+      const wrong = [];
+      live.forEach((x, i) => { if(x !== lastLive && v[i] !== x.s.k) wrong.push(i); });
+      if(!wrong.length) return {right:true, note:feetNote};
+      const reasons = wrong.slice(0, 3).map(i => `<em>${nfEsc(grkScanBare(live[i].s.t))}</em> is ${grkScanWhy(live[i].s)}.`);
+      return {right:false, note:feetNote, also:`${wrong.length === 1 ? 'One syllable is' : cap(numWord(wrong.length) || String(wrong.length)) + ' syllables are'} marked wrongly, and the right marks are now shown. ` + reasons.join(' ')};
+    }
+  };
+}
+addPartner('grc', GRK && GRK.meter ? {shared:{meter:GRK.meter.lines}} : null, 'meter', grcScanQ, 0.5);
 /* French in the shared exercises, in the same way: an exercise with a French pool of at least eight items in
    FRENCH.shared offers "English and French", and the French items take the place of the Latin ones. The questions
    are built as the Greek ones are. Vices has seven French items, so it is not offered in French. */
