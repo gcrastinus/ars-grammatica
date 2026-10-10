@@ -1706,6 +1706,15 @@ const SRC = {
   smyth:{kind:'study', short:'Smyth, <i>Greek Grammar</i>',
        full:'Herbert Weir Smyth, <i>A Greek Grammar for Colleges</i>. Used for the Greek accent in Act I, and for the Greek shelf of the auctor drill when Ancient Greek is the partner language.',
        note:''},
+  lawless:{kind:'study', short:'Lawless, <i>Lawless French</i>',
+       full:'Laura K. Lawless, <i>Lawless French</i> (lawlessfrench.com), the pages on the article, on agreement, on the irregular adjectives, and on the subject, direct-object, indirect-object, and stressed pronouns, read on October 9, 2026. Used for the French in this course.',
+       note:''},
+  larousse:{kind:'study', short:'Larousse, <i>Dictionnaire de français</i>',
+       full:'Larousse, <i>Dictionnaire de français</i> (larousse.fr), the entries for the French nouns and adjectives, read on October 9, 2026. Used for the French in this course.',
+       note:''},
+  leconjugueur:{kind:'study', short:'<i>Le Conjugueur</i>',
+       full:'<i>Le Conjugueur</i> (lefigaro.fr), the tables of être, avoir, parler, finir, vendre, aller, faire, and venir, read on October 9, 2026. Used for the French in this course.',
+       note:''},
 
   /* ---------- other traditions: native arts of speech ---------- */
   msl:{kind:'primary', short:'Old Babylonian Grammatical Texts (<i>MSL</i> IV)',
@@ -15341,6 +15350,14 @@ if(GRK){
     panels: GRK.cards.cards.map(c => ({src:['smyth'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
   };
 }
+/* French beside Latin: the study deck, one panel for each card of french-cards.json, as the Greek deck is built. */
+if(FRA){
+  DECKS.frcards = {
+    title: FRA.cards.title,
+    sub: FRA.cards.description,
+    panels: FRA.cards.cards.map(c => ({src:['lawless','larousse','leconjugueur'], h:`<p><strong>${nfEsc(c.heading)}</strong></p><p>${nfEsc(c.text)}</p>`}))
+  };
+}
 /* The Greek paradigms: one panel for each table of greek-paradigms.json. The cells are the stored forms;
    nothing is generated. */
 const GRK_LBL = {
@@ -15790,7 +15807,10 @@ const ACTS = [
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
      {kind:'ex', ex:'produce'}
    ].concat(GRK ? [
-     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description},
+     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description}
+   ] : [], FRA ? [
+     {kind:'deck', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description}
+   ] : [], GRK ? [
      {kind:'deck', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'},
      {kind:'ex', ex:'grcmore'}
