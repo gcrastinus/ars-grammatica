@@ -4574,7 +4574,7 @@ const EN_CONJ = ['and','but','or'];
 /* Sentences for the parts-of-speech drill, every word tagged (word/part). Made for the drill; plain, sensible English. */
 const EN_TAGGED = [
   'The/article old/adjective dog/noun sleeps/verb by/preposition the/article fire/noun',
-  'The/article farmer/noun ploughs/verb the/article field/noun slowly/adverb',
+  'The/article farmer/noun plows/verb the/article field/noun slowly/adverb',
   'She/pronoun reads/verb the/article letter/noun carefully/adverb',
   'They/pronoun walked/verb along/preposition the/article river/noun',
   'The/article king/noun and/conjunction the/article queen/noun arrived/verb yesterday/adverb',
@@ -4617,7 +4617,7 @@ const EN_TAGGED = [
   'The/article doctor/noun visited/verb the/article patient/noun early/adverb',
   'We/pronoun often/adverb walk/verb by/preposition the/article sea/noun',
   'The/article broken/participle cup/noun lay/verb on/preposition the/article floor/noun',
-  'The/article travellers/noun crossed/verb the/article desert/noun slowly/adverb',
+  'The/article travelers/noun crossed/verb the/article desert/noun slowly/adverb',
   'He/pronoun carried/verb the/article basket/noun carefully/adverb',
   'The/article moon/noun rose/verb above/preposition the/article mountains/noun',
   'The/article boys/noun ran,/verb and/conjunction the/article dogs/noun followed/verb',
@@ -4629,7 +4629,7 @@ const EN_TAGGED = [
   'The/article swift/adjective horse/noun won/verb the/article race/noun',
   'The/article clock/noun stopped/verb suddenly/adverb',
   'The/article guests/noun arrived/verb late/adverb',
-  'The/article ship/noun sailed/verb toward/preposition the/article harbour/noun',
+  'The/article ship/noun sailed/verb toward/preposition the/article harbor/noun',
   'Alas,/interjection the/article old/adjective tree/noun fell/verb',
   'The/article frightened/participle deer/noun ran/verb into/preposition the/article forest/noun',
   'We/pronoun ate/verb bread/noun and/conjunction cheese/noun under/preposition the/article trees/noun'
@@ -4772,7 +4772,7 @@ const POS_LAT = [
    note:'<em>Nōs</em> points at the speakers without describing them.'},
   {id:'pl20', src:['ag'], s:'Mīles <b>fortiter</b> pugnat.', orig:'The soldier fights bravely.', a:'adverb',
    note:'<em>Fortiter</em> is the adverb from <em>fortis</em>. It tells how, not of what sort.'},
-  {id:'pl21', src:['ag'], s:'Agricola <b>agrum</b> arat.', orig:'The farmer ploughs the field.', a:'noun',
+  {id:'pl21', src:['ag'], s:'Agricola <b>agrum</b> arat.', orig:'The farmer plows the field.', a:'noun',
    note:'<em>Agrum</em> is the object, in the accusative. It still names a field.'},
   {id:'pl22', src:['ag'], s:'<b>Magna</b> nāvis nāvigat.', orig:'The great ship sails.', a:'adjective',
    note:'<em>Magna</em> adheres to <em>nāvis</em> and cannot stand alone without it.'},
@@ -5219,7 +5219,7 @@ EX.cases = {
     const carried = ['book','sword','gift','rope','key','basket','letter'];
     const blades = ['sword','knife','axe','sickle'];
     const companions = ['friend','brother','son','servant'];
-    const places = ['city','camp','temple','house','field','garden','harbour'];
+    const places = ['city','camp','temple','house','field','garden','harbor'];
     const frames = [
       {role:'subject', make:()=>{ const a = rand(people); return `The <b>${a}</b> praises the ${rand(people.filter(x => x !== a))}.`; }},
       {role:'subject', make:()=>`The <b>${rand(people)}</b> guarded the gate.`},
@@ -6414,7 +6414,7 @@ EX.govern = {
   gen(d){
     if(Math.random() < 0.5){
       const person = rand(['sailor','farmer','girl','boy','friend','king']);
-      const place = rand(['city','camp','temple','garden','field','harbour']);
+      const place = rand(['city','camp','temple','garden','field','harbor']);
       const slots = [
         {s:`He loves the <b>${person}</b>.`, a:'Accusative',
          why:`Most verbs take the accusative of the thing the action falls on.`},
