@@ -224,6 +224,9 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 /* Studies with no exercise of their own, such as the three language decks, stand side by side. */
 .set-beside{grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
 .set-pair-ex > .set-card{flex:1}
+/* A row marked full (What Grammar Is) spans both columns. */
+.set-pair.full{grid-template-columns:1fr}
+.set-pair.full > .set-pair-ex:empty{display:none}
 /* Under a Latin row that also has material in a third language, when none is chosen. */
 /* The groups of a section on the home page, and the choice of another language in a section. */
 .grp-label{grid-column:1 / -1; margin:14px 0 2px; font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
@@ -17182,7 +17185,7 @@ const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
    gloss:'Begin here: what the art is, and what it is for.',
    items:[
-     {kind:'row', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
+     {kind:'row', deck:'prelim', full:true, tag:'STUDY · START HERE', title:'What Grammar Is',
       desc:'The name of the art, its definition, its matter and parts, what it is for, and what the grammarian does. Well formed against true.', ex:[]}
    ]},
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
@@ -17564,7 +17567,7 @@ function buildHome(){
         if(!DECKS[item.deck]) return;
         const exs = (item.ex || []).filter(id => EX[id]);
         const row = document.createElement('div');
-        row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '');
+        row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '') + (item.full ? ' full' : '');
         row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true, act));
         const right = document.createElement('div');
         right.className = 'set-pair-ex';
