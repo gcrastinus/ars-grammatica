@@ -15442,6 +15442,49 @@ DECKS.latbuild = {
                'Because Latin has no subject, and every noun receives the action.'],
       correct:0,
       explain:'The nominative marks the subject and the accusative the object, wherever they stand. English has lost those endings in its nouns, and so it relies on order.' } },
+
+{ src:['ag','appown'], h:`<p><strong>Persons and pronouns.</strong> The ending of a Latin verb shows the person and number of its subject, so a pronoun subject is usually left out: <em>poētam laudāmus</em> means “we praise the poet.” A personal pronoun is written when it is the object of the verb, or when it names the person to whom something is given, and then it takes the case of that use.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>Subject (nominative)</th> <th>Object (accusative)</th> <th>To or for (dative)</th></tr>
+<tr><td>I, me</td> <td class="f">ego</td> <td class="f">mē</td> <td class="f">mihi</td></tr>
+<tr><td>You, one person</td> <td class="f">tū</td> <td class="f">tē</td> <td class="f">tibi</td></tr>
+<tr><td>We, us</td> <td class="f">nōs</td> <td class="f">nōs</td> <td class="f">nōbīs</td></tr>
+<tr><td>You, more than one</td> <td class="f">vōs</td> <td class="f">vōs</td> <td class="f">vōbīs</td></tr>
+</table></div>
+<p><em>Puella mē videt</em> means “the girl sees me,” and <em>puer mihi dōnum dat</em> means “the boy gives me a gift.”</p>`,
+  q:{ prompt:`<em>Poēta ______ videt</em> (the poet sees us). Which pronoun fills the blank?`,
+      options:['<em>nōs</em>','<em>nōbīs</em>','<em>vōs</em>','<em>mē</em>'],
+      correct:0,
+      explain:`“Us” is the object of <em>videt</em>, so the pronoun is in the accusative, and the accusative of “we” is <em>nōs</em>. <em>Nōbīs</em> is the dative, “to us”; <em>vōs</em> means “you,” more than one; and <em>mē</em> means “me.”` } },
+
+{ src:['ag','appown'], h:`<p><strong>The dative and the genitive.</strong> The person to whom or for whom something is done is in the dative: <em>puer puellae dōnum dat</em>, “the boy gives a gift to the girl.” A noun in the genitive modifies another noun, often to show whose it is, and it keeps its own case, so it does not agree with the noun it modifies: <em>equus rēgis magnus est</em>, “the king’s horse is large.”</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>Dative singular</th> <th>Dative plural</th> <th>Genitive singular</th> <th>Genitive plural</th></tr>
+<tr><td>puella</td> <td class="f">puellae</td> <td class="f">puellīs</td> <td class="f">puellae</td> <td class="f">puellārum</td></tr>
+<tr><td>servus</td> <td class="f">servō</td> <td class="f">servīs</td> <td class="f">servī</td> <td class="f">servōrum</td></tr>
+<tr><td>rēx</td> <td class="f">rēgī</td> <td class="f">rēgibus</td> <td class="f">rēgis</td> <td class="f">rēgum</td></tr>
+<tr><td>cīvis</td> <td class="f">cīvī</td> <td class="f">cīvibus</td> <td class="f">cīvis</td> <td class="f">cīvium</td></tr>
+</table></div>
+<p>In the first declension <em>puellae</em> is both the dative and the genitive singular, so the sentence decides which it is. In <em>terra rēgīnae</em>, “the queen’s land,” <em>rēgīnae</em> modifies <em>terra</em> and is genitive.</p>`,
+  q:{ prompt:`In <em>equus rēgis magnus est</em>, why is <em>rēgis</em> not in the nominative, as <em>equus</em> is?`,
+      options:['Because it modifies <em>equus</em> as a genitive, and a genitive keeps its own case',
+               'Because it is the object of <em>est</em>',
+               'Because it names the one to whom the horse is given',
+               'Because a noun of the third declension cannot agree with a noun of the second'],
+      correct:0,
+      explain:`<em>Rēgis</em> tells whose horse it is, and that is the work of the genitive. An adjective would agree with <em>equus</em>, but a noun in the genitive keeps its own case. The person to whom something is given would be in the dative, <em>rēgī</em>.` } },
+
+{ src:['ag','appown'], h:`<p><strong><em>Et</em>, and place where.</strong> <em>Et</em> (and) joins two words that are used in the same way, and so they stand in the same case. In <em>rēx servōs et nautās vocat</em>, both <em>servōs</em> and <em>nautās</em> are the object of <em>vocat</em>, and both are accusative. Two subjects joined by <em>et</em> are both nominative, and they usually take a plural verb: <em>puella et puer urbem vident</em>, “the girl and the boy see the city.”</p>
+<p>Place where is shown by <em>in</em> with the ablative, and motion into a place by <em>in</em> with the accusative:</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Latin</th> <th>Case</th> <th>Meaning</th></tr>
+<tr><td class="f">in silvā</td> <td>ablative</td> <td>in the forest (place where)</td></tr>
+<tr><td class="f">in silvam</td> <td>accusative</td> <td>into the forest (motion into)</td></tr>
+</table></div>`,
+  q:{ prompt:`Which phrase means “in the city,” as the place where something happens?`,
+      options:['<em>in urbe</em>','<em>in urbem</em>','<em>in urbs</em>','<em>in urbis</em>'],
+      correct:0,
+      explain:`Place where takes <em>in</em> with the ablative, and the ablative singular of <em>urbs</em> is <em>urbe</em>. <em>In urbem</em> means “into the city,” and <em>urbs</em> and <em>urbis</em> are the nominative and the genitive.` } }
 ]};
 
 /* -------------------------------------------------------------- */
