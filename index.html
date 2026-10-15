@@ -12308,6 +12308,60 @@ EX.enform = enEx('enform', 'Agreement, Case, and the Verb',
   ],
   EN_FORM);
 
+/* The Accidents of English (section III): a short rundown of every accident English still shows, with a drill. */
+DECKS.enacc = {
+  title:'The Accidents of English',
+  sub:'Number, case, person, gender, comparison, and the verb’s tense, aspect, mood, voice, and principal parts',
+  panels:[
+
+{ src:['engclass','appown'], h:`<p>We already hear that “dog” and “dogs” are one word, and that “sing” and “sang” are one verb. English keeps fewer endings than Latin, but it still shows accidents.</p>
+<p><strong>THE NOUN.</strong> A noun has <strong>number</strong>: “ship,” “ships”; “child,” “children”; “sheep,” the same in both. It has one case ending left, the <strong>possessive</strong>: “the sailor’s rope,” “the sailors’ ropes.” Subject and object are shown by place, not by ending: “The dog bit the man.”</p>
+<p><strong>THE PRONOUN.</strong> The personal pronouns keep three cases, subjective “I, he, she, we, they, who,” objective “me, him, her, us, them, whom,” and possessive “my, his, her, our, their, whose.” They show <strong>person</strong> (“I,” “you,” “he”), <strong>number</strong> (“I,” “we”), and, in the third person singular, <strong>gender</strong> (“he,” “she,” “it”).</p>
+<p><strong>THE ADJECTIVE.</strong> An adjective has <strong>comparison</strong>: positive “tall,” comparative “taller,” superlative “tallest”; or with “more” and “most,” “more careful”; or irregular, “good, better, best.”</p>`,
+  q:{ prompt:'Which English accident is still shown by an ending on the noun itself?',
+      options:['Number and the possessive case','Subject and object case','Gender','Person'],
+      correct:0,
+      explain:'“Ships,” “the sailor’s”: number and the possessive. Subject and object are shown by place in the sentence.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>THE VERB.</strong> The English verb has <strong>person</strong> and <strong>number</strong>, though only one ending shows them: the “-s” of the third person singular present, “she walks” against “they walk.” “Be” keeps more: “I am,” “you are,” “he is.”</p>
+<p><strong>Tense and aspect.</strong> English has two tenses made by the verb itself, present “walk” and past “walked.” The rest are made with helping verbs: future “will walk,” perfect “has walked,” progressive “is walking.” The perfect and progressive mark <strong>aspect</strong>, whether the act is complete or going on.</p>
+<p><strong>Mood.</strong> Indicative states, “He is here”; imperative commands, “Be here”; subjunctive supposes or wishes, “If he were here,” “I insist that he be here.”</p>
+<p><strong>Voice.</strong> Active, “The dog bit the man”; passive, made with “be” and the past participle, “The man was bitten by the dog.”</p>
+<p><strong>Principal parts.</strong> An English verb is learned by three: present, past, past participle. Regular verbs add “-ed,” “walk, walked, walked”; irregular verbs change, “sing, sang, sung,” “go, went, gone.”</p>`,
+  q:{ prompt:'In “If he were here,” “were” is in which mood?',
+      options:['Subjunctive','Indicative','Imperative','Infinitive'],
+      correct:0,
+      explain:'It supposes something not so. The indicative would be “he was here.”' } }
+  ]
+};
+
+const EN_ACC = [
+  {id:'ea1', dmin:1, q:'What accident does the “-s” show in “ships”?', a:'Number: plural', ds:['Possessive case','Person','Tense'], why:'“Ship” is singular, “ships” plural.'},
+  {id:'ea2', dmin:1, q:'Which is the plural of “child”?', a:'“children”', ds:['“childs”','“childes”','“child’s”'], why:'An old plural in “-en,” kept from Old English. “Child’s” is the possessive.'},
+  {id:'ea3', dmin:1, q:'In “the sailor’s rope,” “sailor’s” is in which case?', a:'Possessive', ds:['Subjective','Objective','Plural'], why:'The apostrophe and “s” show possession, the one case ending English nouns keep.'},
+  {id:'ea4', dmin:2, q:'Which shows the possessive of the plural “sailors”?', a:'“the sailors’ ropes”', ds:['“the sailor’s ropes”','“the sailors’s ropes”','“the sailors ropes”'], why:'A plural ending in “-s” takes the apostrophe alone.'},
+  {id:'ea5', dmin:1, q:'Which pronoun is in the objective case?', a:'“him”', ds:['“he”','“his”','“who”'], why:'“He” is subjective, “his” possessive; “him” is the object form.'},
+  {id:'ea6', dmin:1, q:'Which sentence puts the pronoun in the case its use requires?', a:'“She and I left early.”', ds:['“Her and me left early.”','“Me and her left early.”','“Her and I left early.”'], why:'Subjects take the subjective case: “she,” “I.”'},
+  {id:'ea7', dmin:2, q:'What accidents does “they” show?', a:'Third person, plural, subjective case', ds:['Third person, singular, objective case','First person, plural, subjective case','Second person, plural, possessive case'], why:'“They” is the subject form of the third person plural.'},
+  {id:'ea8', dmin:2, q:'Which English pronouns show gender?', a:'The third person singular: “he,” “she,” “it”', ds:['All personal pronouns','Only “who” and “whom”','None; English has no gender'], why:'Only the third person singular distinguishes masculine, feminine, and neuter.'},
+  {id:'ea9', dmin:1, q:'“Taller” is which degree of comparison?', a:'Comparative', ds:['Positive','Superlative','Possessive'], why:'Positive “tall,” comparative “taller,” superlative “tallest.”'},
+  {id:'ea10', dmin:2, q:'Which is the superlative of “good”?', a:'“best”', ds:['“goodest”','“better”','“most good”'], why:'“Good, better, best” is irregular.'},
+  {id:'ea11', dmin:1, q:'In “she walks,” the “-s” shows…', a:'Third person singular present', ds:['Plural number','Past tense','Possessive case'], why:'It is the one personal ending left on most English verbs.'},
+  {id:'ea12', dmin:2, q:'“has walked” is in which tense or aspect?', a:'Present perfect: the act complete', ds:['Past progressive','Future','Present progressive'], why:'“Have” with the past participle marks the perfect.'},
+  {id:'ea13', dmin:2, q:'“was walking” shows which aspect?', a:'Progressive: the act going on', ds:['Perfect: the act complete','Simple: no aspect marked','Passive voice'], why:'“Be” with the “-ing” participle marks the progressive.'},
+  {id:'ea14', dmin:2, q:'In “I insist that he be here,” “be” is in which mood?', a:'Subjunctive', ds:['Indicative','Imperative','Infinitive'], why:'After a demand English keeps the subjunctive “be,” not “is.”'},
+  {id:'ea15', dmin:1, q:'“Close the door” is in which mood?', a:'Imperative', ds:['Indicative','Subjunctive','Passive'], why:'It commands.'},
+  {id:'ea16', dmin:2, q:'Which sentence is in the passive voice?', a:'“The letter was written by the clerk.”', ds:['“The clerk wrote the letter.”','“The clerk was writing the letter.”','“The clerk has written the letter.”'], why:'“Be” with the past participle, and the doer in a “by” phrase.'},
+  {id:'ea17', dmin:2, q:'Which are the principal parts of “sing”?', a:'“sing, sang, sung”', ds:['“sing, singed, singed”','“sing, sung, sang”','“sing, sang, sang”'], why:'Present, past, past participle.'},
+  {id:'ea18', dmin:3, q:'Which are the principal parts of “go”?', a:'“go, went, gone”', ds:['“go, goed, gone”','“go, went, went”','“go, gone, went”'], why:'“Went” is borrowed from an old verb “wend.”'}
+];
+EX.enacc = enEx('enacc', 'The Accidents of English',
+  'Name the accident a form shows, or choose the right form: number and the possessive, pronoun case, person, and gender, comparison, and the verb’s person, tense, aspect, mood, voice, and principal parts.',
+  'Name the accident, or choose the form.',
+  [{h:'<strong>English keeps a few accidents.</strong> Number and the possessive on the noun; case, person, number, and gender on the pronoun; comparison on the adjective; person, number, tense, aspect, mood, and voice on the verb.',
+    eg:['“the sailors’ ropes”: plural, possessive.','“The man was bitten”: passive voice, past tense.']}],
+  EN_ACC);
+
 EX.enfault = enEx('enfault', 'Common Faults in English',
   'Name the fragment, the run-on, the comma splice, the dangling modifier, or the misplaced modifier, or say that the sentence is sound. These sit beside barbarism and solecism.',
   'Name the fault, or say that the sentence is sound.',
@@ -17329,6 +17383,8 @@ const ACTS = [
       desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
      {kind:'row', deck:'casework', tag:'STUDY', title:'Inflection: Case and the Verb',
       desc:'The accidents of the noun and the verb, in brief. What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
+     {kind:'row', deck:'enacc', full:true, tag:'STUDY · ENGLISH GRAMMAR', title:'The Accidents of English',
+      desc:'Every accident English still shows: number and the possessive case of the noun; case, person, number, and gender of the pronoun; comparison of the adjective; the verb’s person, number, tense and aspect, mood, voice, and principal parts.', ex:['enacc']},
      {kind:'row', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
