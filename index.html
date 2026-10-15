@@ -2272,15 +2272,15 @@ DECKS.vox = {
       correct:1,
       explain:`Voice is living sound; the mark comes after it, and a sentence and a thought come later still.` } },
 
-{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, that is, a sound the voice makes that letters cannot capture.</p>` },
+{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice (Donatus’s <em>vox confusa</em>), that is, voice that cannot be written in letters: a sound the voice makes that letters cannot capture.</p>` },
 
-{ src:['donatus','priscian','arist_anima'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice is voice that can be written in letters, as every spoken word can be. Confused voice is a sound the voice makes that letters cannot capture, such as a groan or the bark of a dog. Priscian adds that a groan signifies something of the mind of the one who utters it, although it cannot be written. A cough, however, is not voice at all, although an animal makes it, because Aristotle holds that voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8).</p>
+{ src:['donatus','priscian','arist_anima'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice is voice that can be written in letters, as every spoken word can be. Confused voice (<em>vox confusa</em>) is voice that cannot be written in letters, that is, a sound the voice makes that letters cannot capture, such as a groan or the bark of a dog. Priscian adds that a groan signifies something of the mind of the one who utters it, although it cannot be written. A cough, however, is not voice at all, although an animal makes it, because Aristotle holds that voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8).</p>
 <p>Such sound may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
   q:{ prompt:`Why can a groan never be a barbarism?`,
       options:['Because groans are always well formed, being natural','Because barbarism is a fault in a word, and a groan is not one',
                'Because the word barbarism is reserved for foreign words used in Latin','Because only what is written down can be barbarous'],
       correct:1,
-      explain:`Barbarism is proper to the word and does not exist below the level of the word, and inarticulate voice is by definition not a word.` } },
+      explain:`Barbarism is proper to the word and does not exist below the level of the word, and confused voice is by definition not a word.` } },
 
 { src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> Articulate voice can be divided into letters. It is still not a word, but it is the kind of sound of which words are made.</p>
 <p>Animal sounds signify by nature, whereas names signify by human choice, that is, by imposition (the assigning of a sound to signify something). A bark signifies something to which the dog wishes to draw attention; a name is a sound that has been imposed by human choice.</p>
@@ -7821,8 +7821,8 @@ EX.vox = {
   gen(d){
     if(Math.random() < 0.45){
       const sounds = [
-        {w:'a groan', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice. It cannot be written in letters, and so in Donatus’s division it is confused. (Priscian would call it articulate but unlettered, since it shows the sufferer’s pain.) It is not a word.'},
-        {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'An animal utters it with something signified, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
+        {w:'a groan', a:'Voice, but confused and not a word', why:'It is air struck, and so it is voice. It cannot be written in letters, and so in Donatus’s division it is confused. (Priscian would call it articulate but unlettered, since it shows the sufferer’s pain.) It is not a word.'},
+        {w:'a dog’s bark', a:'Voice, but confused and not a word', why:'An animal utters it with something signified, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
         {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
         {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
         {w:'thunder', a:'A sound, but not voice', why:'Following Aristotle (<em>De anima</em> II.8), it is a sound but not voice, because no animal utters it with something signified, and grammar starts from voice. In his widest sense of voice (struck air), Priscian counts even <em>crepitus</em> and <em>mugitus</em> as voice, inarticulate and unwritable.'},
@@ -7830,7 +7830,7 @@ EX.vox = {
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
       const options = shuffle([it.a, ...sample([
-        'Voice, but inarticulate and not a word',
+        'Voice, but confused and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
         'A sound, but not voice',
@@ -7851,12 +7851,12 @@ EX.vox = {
        a:'Voice: living sound, struck and heard', ds:['The written letter, the mark of a sound','A sentence, words arranged to say one thing','A name, a sound set by human choice'],
        why:'Voice is air struck, and the letter is that sound as it can be written; a sentence comes much later.'},
       {id:'vx2', lang:'en', src:['donatus'], q:'In Donatus’s division, a groan is a voice. Is it articulate?',
-       a:'It is a voice, and inarticulate', ds:['It is not a voice, but a noise of the body','It is articulate, because it shows the speaker’s pain','It is a word, because it signifies pain'],
+       a:'It is a voice, and confused', ds:['It is not a voice, but a noise of the body','It is articulate, because it shows the speaker’s pain','It is a word, because it signifies pain'],
        why:'For Donatus, articulate voice is voice that can be caught in letters. A groan cannot, and so it is confused. Indication by nature is not yet a word.'},
-      {id:'vx3', lang:'en', src:['donatus'], q:'Why can inarticulate voice never be a barbarism?',
+      {id:'vx3', lang:'en', src:['donatus'], q:'Why can confused voice never be a barbarism?',
        a:'Barbarism is a fault in a word, and there is no word',
        ds:['Because groans are natural, and so always correct','Because only vowels, and not cries, can be barbarous','Because only what is written can be barbarous'],
-       why:'Barbarism is proper to the word and does not exist below the level of the word. Inarticulate voice is by definition not a word.'},
+       why:'Barbarism is proper to the word and does not exist below the level of the word. Confused voice is by definition not a word.'},
       {id:'vx4', lang:'en', src:['arist_int'], q:'Animal sounds signify by nature. Names signify by…',
        a:'Human choice: imposition',
        ds:['Nature, as a groan does','Writing, once they are set down','Likeness, as a picture signifies'],
@@ -12359,7 +12359,7 @@ function syllableEnglish(d){
 const VXE_L = {
   word:'Voice, articulate, and already a word',
   lett:'Voice, articulate, but not yet a word',
-  inar:'Voice, but inarticulate and not a word',
+  inar:'Voice, but confused and not a word',
   nat:'A sound, but not voice',
   sent:'A complete sentence, though of one word'
 };
