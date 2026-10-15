@@ -173,9 +173,17 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .intro-note strong{color:var(--ink)}
 
 .diff-row{display:flex; justify-content:center; gap:14px; flex-wrap:wrap}
-.art-row{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:14px}
-.art-btn{font:inherit; font-size:14px; padding:7px 14px; border:1px solid var(--rule, #ccc); background:transparent; color:var(--ink-soft); border-radius:4px; cursor:pointer}
-.art-btn.sel{color:var(--ink); border-color:var(--ink); font-weight:600}
+.art-row{display:flex; justify-content:center; gap:0; margin-top:14px}
+/* The two courses, as a segmented control in the style of the Free Practice / Guided Path switch of Ars Syllogistica. */
+.art-btn{
+  padding:9px 22px; border:1.5px solid var(--line); background:var(--card); cursor:pointer;
+  font-family:inherit; font-size:17px; color:var(--ink-soft); transition:all .15s;
+}
+.art-btn:first-child{border-radius:22px 0 0 22px}
+.art-btn:last-child{border-radius:0 22px 22px 0; border-left:none}
+.art-btn.sel{background:var(--gold); border-color:var(--gold); color:#fff}
+.art-btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+@media (max-width:480px){ .art-btn{padding:8px 13px; font-size:15px} }
 .art-note{font-size:14px; color:var(--ink-soft); border-left:2px solid var(--rule, #ccc); padding:6px 12px; margin:0 0 14px}
 .diff-btn{
   font-family:'Cinzel',serif; font-size:17px; width:54px; height:44px; cursor:pointer;
@@ -750,7 +758,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     <div class="section-label">Difficulty</div>
     <div class="diff-row" id="diff-row"></div>
     <div class="diff-desc" id="diff-desc"></div>
-    <div class="art-row" id="art-row"></div>
+    <div class="art-row" id="art-row" role="group" aria-label="Choose the course"></div>
 
     <div class="rule"></div>
 
@@ -17834,7 +17842,7 @@ function buildDiffRow(){
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'art-btn' + (store.art === v ? ' sel' : ''); b.textContent = label;
       b.setAttribute('aria-pressed', store.art === v ? 'true' : 'false');
-      b.onclick = () => { if(store.art === v) return; store.art = v; save(); buildDiffRow(); buildHome(); };
+      b.onclick = () => { if(store.art === v) return; store.art = v; save(); buildDiffRow(); buildHome(); const f = $('art-row').querySelector('.sel'); if(f) f.focus(); };
       ar.appendChild(b);
     });
   }
