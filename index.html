@@ -15357,6 +15357,70 @@ DECKS.latvoice = {
 ]};
 
 /* -------------------------------------------------------------- */
+DECKS.latsubj = {
+  title:'The Subjunctive',
+  sub:'The present and imperfect subjunctive, and four of their uses',
+  panels:[
+
+{ src:['ag','appown'], h:`<p><strong>THE SUBJUNCTIVE.</strong> The subjunctive is the mood that Latin uses in many subordinate clauses, such as clauses of purpose and result and the indirect question, and in some independent sentences, such as a wish or an exhortation. The indicative, by contrast, states a fact or asks a direct question.</p>
+<p>The present subjunctive has the sign <em>-ē-</em> in the first conjugation and <em>-ā-</em> in the others, before the active personal endings; in the first person singular the ending is <em>-m</em>. The verb <em>sum</em> (to be) has a present subjunctive of its own.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>amō</th> <th>moneō</th> <th>regō</th> <th>capiō</th> <th>audiō</th> <th>sum</th></tr>
+<tr><td>First singular</td> <td class="f">amem</td> <td class="f">moneam</td> <td class="f">regam</td> <td class="f">capiam</td> <td class="f">audiam</td> <td class="f">sim</td></tr>
+<tr><td>Second singular</td> <td class="f">amēs</td> <td class="f">moneās</td> <td class="f">regās</td> <td class="f">capiās</td> <td class="f">audiās</td> <td class="f">sīs</td></tr>
+<tr><td>Third singular</td> <td class="f">amet</td> <td class="f">moneat</td> <td class="f">regat</td> <td class="f">capiat</td> <td class="f">audiat</td> <td class="f">sit</td></tr>
+<tr><td>First plural</td> <td class="f">amēmus</td> <td class="f">moneāmus</td> <td class="f">regāmus</td> <td class="f">capiāmus</td> <td class="f">audiāmus</td> <td class="f">sīmus</td></tr>
+<tr><td>Second plural</td> <td class="f">amētis</td> <td class="f">moneātis</td> <td class="f">regātis</td> <td class="f">capiātis</td> <td class="f">audiātis</td> <td class="f">sītis</td></tr>
+<tr><td>Third plural</td> <td class="f">ament</td> <td class="f">moneant</td> <td class="f">regant</td> <td class="f">capiant</td> <td class="f">audiant</td> <td class="f">sint</td></tr>
+</table></div>`,
+  q:{ prompt:`Which of these is the present subjunctive of <em>videō, vidēre</em>?`,
+      options:['<em>videat</em>','<em>videt</em>','<em>vidēbat</em>','<em>vidēret</em>'],
+      correct:0,
+      explain:`<em>Videō</em> is of the second conjugation, so its present subjunctive has <em>-ā-</em> after the <em>e</em> of the stem: <em>videat</em>. <em>Videt</em> is the present indicative, <em>vidēbat</em> the imperfect indicative, and <em>vidēret</em> the imperfect subjunctive.` } },
+
+{ src:['ag'], h:`<p><strong>The imperfect subjunctive.</strong> The imperfect subjunctive is made by adding the personal endings to the present active infinitive: <em>amāre</em> with <em>-m</em> gives <em>amārem</em>. The <em>e</em> before the ending is long, except before <em>-m</em>, <em>-t</em>, and <em>-nt</em>; and <em>sum</em> follows the same rule, since its infinitive is <em>esse</em>.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>amō</th> <th>moneō</th> <th>regō</th> <th>capiō</th> <th>audiō</th> <th>sum</th></tr>
+<tr><td>First singular</td> <td class="f">amārem</td> <td class="f">monērem</td> <td class="f">regerem</td> <td class="f">caperem</td> <td class="f">audīrem</td> <td class="f">essem</td></tr>
+<tr><td>Second singular</td> <td class="f">amārēs</td> <td class="f">monērēs</td> <td class="f">regerēs</td> <td class="f">caperēs</td> <td class="f">audīrēs</td> <td class="f">essēs</td></tr>
+<tr><td>Third singular</td> <td class="f">amāret</td> <td class="f">monēret</td> <td class="f">regeret</td> <td class="f">caperet</td> <td class="f">audīret</td> <td class="f">esset</td></tr>
+<tr><td>First plural</td> <td class="f">amārēmus</td> <td class="f">monērēmus</td> <td class="f">regerēmus</td> <td class="f">caperēmus</td> <td class="f">audīrēmus</td> <td class="f">essēmus</td></tr>
+<tr><td>Second plural</td> <td class="f">amārētis</td> <td class="f">monērētis</td> <td class="f">regerētis</td> <td class="f">caperētis</td> <td class="f">audīrētis</td> <td class="f">essētis</td></tr>
+<tr><td>Third plural</td> <td class="f">amārent</td> <td class="f">monērent</td> <td class="f">regerent</td> <td class="f">caperent</td> <td class="f">audīrent</td> <td class="f">essent</td></tr>
+</table></div>`,
+  q:{ prompt:`What is the imperfect subjunctive, third person plural, of <em>dūcō, dūcere</em>?`,
+      options:['<em>dūcerent</em>','<em>dūcant</em>','<em>dūcunt</em>','<em>dūcēbant</em>'],
+      correct:0,
+      explain:`The infinitive <em>dūcere</em> with the ending <em>-nt</em> gives <em>dūcerent</em>. <em>Dūcant</em> is the present subjunctive, <em>dūcunt</em> the present indicative, and <em>dūcēbant</em> the imperfect indicative.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Four uses.</strong> The subjunctive is used in these four kinds of clause, among others:</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Clause</th> <th>Introduced by</th> <th>Example</th></tr>
+<tr><td>Purpose, the end aimed at</td> <td><em>ut</em> (so that); <em>nē</em> (so that not) when the purpose is negative</td> <td><em>Pater fīlium mittit ut fīlius rēgem videat</em>, “the father sends the son so that the son may see the king.”</td></tr>
+<tr><td>Result, what followed</td> <td><em>ut</em> (that); <em>ut nōn</em> (that not) when the result is negative; usually after <em>ita</em> (so), <em>tot</em> (so many), or <em>tantus</em> (so great) in the main clause</td> <td><em>Rēgīna tot dōna mīsit ut cīvēs rēgīnam laudārent</em>, “the queen sent so many gifts that the citizens praised the queen.”</td></tr>
+<tr><td><em>Cum</em> clause</td> <td><em>cum</em> meaning “when,” in a narrative of past events, or <em>cum</em> meaning “although”</td> <td><em>Cum rēx mīlitēs vocāret, mīlitēs vēnērunt</em>, “when the king called the soldiers, the soldiers came.”</td></tr>
+<tr><td>Indirect question, a question reported after a verb of asking</td> <td>a question word, such as <em>quis</em> (who), <em>quid</em> (what), <em>ubi</em> (where), <em>cūr</em> (why)</td> <td><em>Dominus rogat quid servus portet</em>, “the master asks what the slave is carrying.”</td></tr>
+</table></div>
+<p>A negative purpose is introduced by <em>nē</em>, and a negative result by <em>ut nōn</em>; so the negative shows which of the two clauses is meant.</p>`,
+  q:{ prompt:`<em>Pater fīlium monet ______ fīlius bellum timeat</em> (the father warns the son so that the son may not fear the war). Which word begins the clause?`,
+      options:['<em>nē</em>','<em>ut nōn</em>','<em>ut</em>','<em>cum</em>'],
+      correct:0,
+      explain:`The clause names the end that the warning aims at, so it is a purpose clause, and a negative purpose is introduced by <em>nē</em>. <em>Ut nōn</em> introduces a negative result, and <em>ut</em> alone would mean “so that the son may fear.”` } },
+
+{ src:['ag','appown'], h:`<p><strong>The sequence of tenses.</strong> In these clauses the tense of the subjunctive depends, as a rule, on the tense of the main verb. After a present main verb the subordinate clause has the present subjunctive; after a past main verb, such as a perfect or an imperfect, it has the imperfect subjunctive, although a result clause sometimes departs from this rule.</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Main verb</th> <th>Subordinate clause</th></tr>
+<tr><td><em>Pater fīlium mittit</em> (present)</td> <td><em>ut fīlius rēgem videat</em> (present subjunctive)</td></tr>
+<tr><td><em>Pater fīlium mīsit</em> (perfect)</td> <td><em>ut fīlius rēgem vidēret</em> (imperfect subjunctive)</td></tr>
+</table></div>
+<p>The study “The Kinds of Clause” gives the full account of these clauses and of the other kinds.</p>`,
+  q:{ prompt:`<em>Magister puerōs monuit ut puerī verba ______</em> (the teacher warned the boys so that the boys would hear the words). Which form of <em>audiō</em> fills the blank?`,
+      options:['<em>audīrent</em>','<em>audiant</em>','<em>audiunt</em>','<em>audīret</em>'],
+      correct:0,
+      explain:`<em>Monuit</em> is past, so the purpose clause has the imperfect subjunctive, and <em>puerī</em> is plural: <em>audīrent</em>. <em>Audiant</em> is present, <em>audiunt</em> is indicative, and <em>audīret</em> is singular.` } }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.latbuild = {
   title:'Building the Latin Sentence',
   sub:'From the meaning to the forms',
