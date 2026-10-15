@@ -169,7 +169,6 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   margin:24px auto 6px; max-width:640px; padding:15px 20px; line-height:1.5;
   border:1px solid var(--line); border-radius:12px; background:var(--card); box-shadow:var(--shadow);
 }
-.deck-sec{font-variant:small-caps; letter-spacing:.04em; color:var(--gold); margin:0 0 .6em}
 .intro-note::before{content:"❧\00a0"; color:var(--gold)}
 .intro-note strong{color:var(--ink)}
 
@@ -1429,14 +1428,6 @@ function load(){
     if(!raw) return;
     const o = JSON.parse(raw);
     store.totals = o.totals || {};
-    /* The three exercises now joined in Basic Material of Language: their counts carry over to it once. */
-    if(!store.totals.basics){
-      const ks = ['vox','letter','decline'].filter(k => store.totals[k]);
-      if(ks.length){
-        store.totals.basics = ks.reduce((a, k) => { const t = store.totals[k]; return {seen:a.seen + (t.seen || 0), right:a.right + (t.right || 0), best:Math.max(a.best, t.best || 0)}; }, {seen:0, right:0, best:0});
-        ks.forEach(k => { delete store.totals[k]; });
-      }
-    }
     store.score = o.score || 0;
     store.bestStreak = o.bestStreak || 0;
     store.mistakes = o.mistakes || [];
@@ -1520,9 +1511,6 @@ const SRC = {
   arist_int:{kind:'primary', short:'Aristotle, <i>De interpretatione</i> 1',
        full:'Aristotle, <i>De interpretatione</i> (<i>Peri hermeneias</i>) 1, 16a9–16: “As sometimes there is thought in the soul without its being true or false, but sometimes it must be one or the other, so it is in vocal sound; for in composition and division there is truth and falsity… Names and verbs, then, are like thought without composition or division, for example, ‘man’ and ‘white’ when nothing is added; for neither is yet true or false.” Checked against the text as printed with St Thomas’s commentary on the <i>Peri hermeneias</i>. Thomas of Erfurt cites this very chapter — <i>circa quam compositionem consistit veritas et falsitas, ut dicitur I Peri. Cap. 1</i>.',
        note:'The root of everything this course says about where truth begins — and St Thomas, commenting, adds that truth and falsity are in the intellect’s composing and dividing, not in the simple concept.'},
-  arist_anima:{kind:'primary', short:'Aristotle, <i>De anima</i> II.8',
-       full:'Aristotle, <i>De anima</i> II.8, 420b27–33: voice is the striking of the inhaled air against the windpipe by the soul in those parts; “for not every sound of an animal is voice (for it is possible to make a sound with the tongue, and as those do who cough), but what strikes must be ensouled and with some imagination, since voice is a sound that signifies” (this course’s literal rendering of <i>οὐ γὰρ πᾶς ζῴου ψόφος φωνή … ἀλλὰ δεῖ ἔμψυχόν τε εἶναι τὸ τύπτον καὶ μετὰ φαντασίας τινός· σημαντικὸς γὰρ δή τις ψόφος ἐστὶν ἡ φωνή</i>).',
-       note:'The natural philosopher’s account of voice, which St Thomas repeats in his commentary on the <i>Peri hermeneias</i>. It is the ground for saying that a cough is a sound of an animal but not voice.'},
   helias:{kind:'primary', short:'Peter Helias, <i>Summa super Priscianum</i>',
        full:'Peter Helias, <i>Summa super Priscianum</i> (12th c.): <i>partes huius artis sunt quatuor: … prima pars scientia de litteris, secunda de sillabis, tertia de dictionibus, quarta de oratione</i> — quoted in Bursill-Hall from Thurot. Bursill-Hall notes expressly that <b>Priscian and Donatus did not have this fourfold division</b>: Donatus gives only <i>vox, littera, syllaba</i>, and Priscian treats <i>vox, littera</i> in Book I and <i>syllaba, dictio, oratio</i> in Book II.',
        note:'The medieval division this course’s acts follow — a twelfth-century arrangement of Priscian, not a Roman one.'},
@@ -2221,9 +2209,9 @@ DECKS.vox = {
       correct:1,
       explain:`Voice is living sound; the mark comes after it, and a sentence and a thought come later still.` } },
 
-{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, which cannot.</p>` },
+{ src:['appown'], h:`<p>Which is a word: “hello” or the sound of a cough? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, which cannot.</p>` },
 
-{ src:['donatus','priscian','arist_anima'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice can be written in letters. A groan or the bark of a dog cannot be written. (A cough is also a sound made by an animal, but Aristotle denies that it is voice at all, because voice is produced by the soul with some imagination, as a sound that signifies.)</p>
+{ src:['donatus','priscian'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice can be written in letters. A cough, a groan, or the bark of a dog cannot be written.</p>
 <p>Such sound may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
   q:{ prompt:`Why can a groan never be a barbarism?`,
       options:['Because groans are always well formed, being natural','Because barbarism is a fault in a word, and a groan is not one',
@@ -2231,7 +2219,7 @@ DECKS.vox = {
       correct:1,
       explain:`Barbarism is proper to the word and does not exist below the level of the word, and inarticulate voice is by definition not a word.` } },
 
-{ src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> In Donatus’s sense, articulate voice is voice that can be divided into letters. It need not be a word (the syllable “ba,” said alone, is articulate and signifies nothing), but it is the kind of sound of which words are made.</p>
+{ src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> Articulate voice can be divided into letters. It is still not a word, but it is the kind of sound of which words are made.</p>
 <p>Animal sounds signify by nature, whereas names signify by human choice, that is, by imposition (the assigning of a sound to signify something). A bark signifies something to which the dog wishes to draw attention; a name is a sound that has been imposed by human choice.</p>
 <p>Priscian divides voice more finely, by two questions. Is it joined to some meaning in the speaker’s mind? Then it is <strong>articulate</strong>. Can it be written? Then it is <strong>lettered</strong>. So there are four kinds. <em>The sailor waits</em> is articulate and lettered, and so is <em>Arma virumque cano</em>. A groan or a whistle is articulate but unlettered, since it shows something of the speaker’s mind but cannot be written. English <em>bzz</em>, written for a noise, means nothing, and so does <em>Coax</em>, the croak of a frog. Each can be written, and each is lettered but inarticulate. A crash is neither.</p>
 <p>What Donatus calls articulate, Priscian calls lettered; so when we meet the word <em>articulate</em>, we must ask whose sense is meant.</p>`,
@@ -3250,27 +3238,6 @@ unaskable. John of St. Thomas, after speculative grammar had been dropped, still
 signification stop at a concept with no further reach.</p>
 <p>This course keeps both accounts open. The exercises ask for the types, and for where the two universal grammars agree and part; they do not ask for a winner.</p>` }
 ]};
-
-/* -------------------------------------------------------------- */
-/* Basic Material of Language: the cards of three short decks, in course order.
-   The four decks stay defined (the quiz maker and the exercises still name them), but only this one is listed. */
-const BASICS_SECTIONS = [
-  ['vox','Voice Articulate and Inarticulate'], ['letter','Letter and Sound'], ['decline','Declinable and Indeclinable']
-];
-DECKS.basics = {
-  title:'Basic Material of Language',
-  sub:'Voice and letter, declinable and indeclinable, and the two faults',
-  panels:[]
-};
-BASICS_SECTIONS.forEach(([k, t]) => {
-  const src = DECKS[k];
-  src.panels.forEach((p, i) => {
-    const c = Object.assign({}, p);
-    if(i === 0) c.h = `<p class="deck-sec">${t}</p>` + p.h;
-    c.from = k;
-    DECKS.basics.panels.push(c);
-  });
-});
 
 /* -------------------------------------------------------------- */
 DECKS.scribal = {
@@ -7785,25 +7752,25 @@ EX.nahw = tradEx('nahw', ['sibawayh','jumal','appown'], 'Name, Verb, and Particl
   ]);
 
 EX.vox = {
-  id:'vox', src:['donatus','priscian','arist_int','arist_anima'], act:'I', title:'Voice Articulate and Inarticulate',
+  id:'vox', src:['donatus','priscian','arist_int'], act:'I', title:'Voice Articulate and Inarticulate',
   desc:'Given a sound (a groan, a bark, a name, a letter), say whether it is voice, whether it is articulate, and whether it is yet a word.',
   instr:'Voice, articulate or not, and why grammar begins here.',
   gen(d){
     if(Math.random() < 0.45){
       const sounds = [
         {w:'a groan', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice. It cannot be written in letters, and so in Donatus’s division it is confused, or inarticulate. (Priscian would call it articulate but unlettered, since it shows the sufferer’s pain.) It is not a word.'},
-        {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'It is uttered by an animal as a sign of something it feels, and so it is voice; it cannot be written in letters, and so it is inarticulate in Donatus’s sense; and indication by nature is not yet a word.'},
+        {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'It is living sound from the mouth of an animal, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
         {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
         {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
-        {w:'thunder', a:'A sound, but not voice', why:'No animal utters it, so it is a sound but not voice, and grammar starts from voice.'},
-        {w:'a cough', a:'A sound, but not voice', why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is produced by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). A cough signifies nothing, either by nature or by imposition.'}
+        {w:'thunder', a:'A sound, but made by no living voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
+        {w:'a cough', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice; but it cannot be caught in letters, and so for Donatus it is confused, or inarticulate. It signifies nothing by imposition.'}
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
       const options = shuffle([it.a, ...sample([
         'Voice, but inarticulate and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
-        'A sound, but not voice',
+        'A sound, but made by no living voice',
         'A complete sentence, though of one word'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
@@ -7873,7 +7840,7 @@ EX.vox = {
 {id:'vx17',lang:'en',src:['donatus'],q:'What is a spoken name, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'A name is voice that can be written. For Donatus that is articulate voice.'},
 {id:'vx18',lang:'en',src:['donatus'],q:'What is a groan, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A groan is voice, and it cannot be written in letters. For Donatus it is confused, or inarticulate.'},
 {id:'vx19',lang:'en',src:['donatus'],q:'What is a dog’s bark, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A bark is living voice, and it cannot be written in letters. For Donatus it is confused.'},
-{id:'vx20',lang:'en',src:['donatus','arist_anima'],q:'What is a cough, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'Donatus defines voice only as air struck, perceptible to hearing, and by that definition a cough counts as voice; it cannot be written in letters, so in his division it is confused. Aristotle, however, denies that a cough is voice at all, because it is not uttered with any imagination of signifying (<em>De anima</em> II.8).'},
+{id:'vx20',lang:'en',src:['donatus'],q:'What is a cough, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A cough is air struck, and so it is voice. It cannot be written in letters, so for Donatus it is confused.'},
 {id:'vx21',lang:'en',src:['donatus'],q:'What is a hiss, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A hiss is voice, and it cannot be written in letters. For Donatus it is confused. It is not yet a word.'},
 {id:'vx22',lang:'en',src:['donatus'],q:'For Donatus, what is articulate voice?',a:'Voice that can be caught in letters',ds:['Noise that can be caught in letters','A cry that cannot be written down','Voice that cannot be caught in letters'],why:'Articulate voice is voice that can be caught in letters. A noise is not the definition, and voice that cannot be written is the other kind.'},
 {id:'vx23',lang:'en',src:['donatus'],q:'For Donatus, what is confused voice?',a:'Voice that cannot be caught in letters',ds:['Articulate voice, which can be written','A word, because it can be written','Voice, and articulate: it cannot be written'],why:'Confused voice cannot be caught in letters. It is still voice. It is not articulate.'},
@@ -12606,7 +12573,7 @@ const VXE_L = {
   word:'Voice, articulate, and already a word',
   lett:'Voice, articulate, but not yet a word',
   inar:'Voice, but inarticulate and not a word',
-  nat:'A sound, but not voice',
+  nat:'A sound, but made by no living voice',
   sent:'A complete sentence, though of one word'
 };
 const VXE_ITEMS = [
@@ -12620,25 +12587,22 @@ const VXE_ITEMS = [
       'the letter <em>T</em>, sounded','the letter <em>K</em>, sounded','the syllable <em>ba</em>, said alone','the syllable <em>ta</em>, said alone',
       'the syllable <em>mi</em>, said alone','the syllable <em>lo</em>, said alone','the made-up sound <em>blityri</em>','the made-up sound <em>glorp</em>',
       'the syllables <em>la-la-la</em>, sung','a baby’s babbling <em>ba-ba-ba</em>','the letter <em>E</em>, sounded','the syllable <em>pu</em>, said alone'].map(w => ['lett', w]),
-  ...['a groan','a sigh','a yawn','a laugh','a sob','a scream','a dog’s bark','a cow’s low','a horse’s neigh','a sheep’s bleat',
+  ...['a groan','a cough','a sigh','a yawn','a laugh','a sob','a scream','a dog’s bark','a cow’s low','a horse’s neigh','a sheep’s bleat',
       'a lion’s roar','a cat’s mew','an owl’s hoot','a wolf’s howl','a pig’s grunt','a bird’s song','a baby’s cry'].map(w => ['inar', w]),
   ...['thunder','the wind in the trees','rain on a roof','waves on a beach','a door slamming','a bell ringing','a drum beaten',
       'hands clapping','footsteps on stone','a fire crackling','a stone falling into water','a tree falling','a clock ticking',
-      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking'].map(w => ['nat', w]),
-  ['cough', 'a cough']
+      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking'].map(w => ['nat', w])
 ];
 const VXE_WHY = {
   word:'It is imposed to signify: it can be written in letters, so it is articulate, and it is a word.',
-  lett:'It can be written in letters, so for Donatus it is articulate, but it signifies nothing by itself, so it is not yet a word. (Priscian would call it lettered but inarticulate, since it is joined to no meaning in the mind.) The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
-  inar:'An animal utters it as a sign of something it feels, so it is voice; it cannot be written in letters, so for Donatus it is confused, or inarticulate, and it is not a word.',
-  nat:'No animal utters it as voice, so it is a sound but not voice, and grammar begins from voice.',
-  cough:'An animal makes it, but Aristotle denies that a cough is voice, because voice is produced by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So it is a sound, but not voice.'
+  lett:'It can be written in letters, so it is articulate, but it signifies nothing by itself, so it is not yet a word. The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
+  inar:'It comes from the mouth of a living thing, so it is voice; it cannot be written in letters, so for Donatus it is confused, or inarticulate, and it is not a word.',
+  nat:'No living thing makes it with its mouth, so it is a sound but not a voice, and grammar begins from voice.'
 };
 function voxEnglish(d){
   const pool = d <= 1 ? VXE_ITEMS.filter(x => x[0] !== 'lett' || !/blityri|glorp|babbling/.test(x[1])) : VXE_ITEMS;
   const it = rand(pool);
-  const lab = it[0] === 'cough' ? 'nat' : it[0];
-  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[lab], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src: it[0] === 'cough' ? ['arist_anima'] : ['donatus','priscian']}, d);
+  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[it[0]], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src:['donatus','priscian']}, d);
 }
 
 /* ----- letter: English letters, silent letters, and the powers of c, g, s, y ----- */
@@ -15587,61 +15551,11 @@ AUCTORES.forEach(a => {
   (a.items || []).forEach(it => { it.lang = 'la'; });
 });
 
-/* Basic Material of Language: one mastery exercise drawn from the three former exercises (vox, letter, and
-   decline), whose generators keep their own handling of the difficulty and their hands-on drills. The set is
-   finished when each section has its quota of correct answers (three, four, or five, by difficulty) and every
-   missed question has come back and been answered correctly. */
-const BASICS_EX = ['vox','letter','decline'];
-const BASICS_TITLES = {vox:'Voice', letter:'Letter and Sound', decline:'Declinable and Indeclinable'};
-function basicsNeed(d){ return d <= 1 ? 3 : d <= 3 ? 4 : 5; }
-EX.basics = {
-  id:'basics', act:'I', title:'Basic Material of Language', mastery:true,
-  masteryParts: BASICS_EX, masteryTitles: BASICS_TITLES, masteryNeed: basicsNeed,
-  src:['donatus','priscian','arist_int','arist_anima'],
-  desc:'A review of the whole deck (voice, letter and sound, and declinable and indeclinable) that ends only when each part has been mastered.',
-  instr:'Each section needs its number of correct answers, and every missed question returns until it is answered correctly.',
-  intro:[
-    {h:`<strong>One exercise for the whole deck.</strong> The questions come from the three sections in turn, and the drills on sounds and letters are kept, so that we classify sounds and letters as well as recall the doctrine.`},
-    {h:`<strong>The set is finished by mastery, not by points.</strong> Each section needs three correct answers at the first difficulty, four at the second and third, and five at the fourth and fifth. A missed question comes back a few questions later, and the set is not finished until every missed question has been answered correctly.`}
-  ],
-  introInstr:'The exercise begins with two notes.',
-  gen(d){
-    const m = state.mastery;
-    let open = BASICS_EX.filter(k => EX[k] && (!m || (m.got[k] || 0) < m.need));
-    if(!open.length) open = BASICS_EX.filter(k => EX[k]);
-    const k = rand(open);
-    const sub = EX[k];
-    const had = Object.prototype.hasOwnProperty.call(store.langs, k), old = store.langs[k];
-    const want = store.langs.basics;
-    if(want && sub.langs && sub.langs.indexOf(want) >= 0) store.langs[k] = want; else delete store.langs[k];
-    try {
-      const q = sub.gen.call(sub, d);
-      if(q) q.part = k;
-      return q;
-    } finally {
-      if(had) store.langs[k] = old; else delete store.langs[k];
-    }
-  }
-};
-/* The mastery rule, shared by every exercise marked mastery: each of its parts needs m.need correct
-   answers to fresh questions, and each missed question returns (three questions later) until it is
-   answered correctly. An exercise without parts counts all its answers together. */
-function masteryParts(){ return (state.ex && state.ex.masteryParts) || ['all']; }
-function masteryTotals(){
-  const m = state.mastery, parts = masteryParts();
-  const got = parts.reduce((a, k) => a + Math.min(m.need, m.got[k] || 0), 0);
-  return {got, need: m.need * parts.length, review: m.review.length};
-}
-function masteryDone(){
-  const t = masteryTotals();
-  return t.got >= t.need && t.review === 0;
-}
-
 const EX_MODES = {
   vox:['both','en'], letter:['both','en'], syllable:['both','en'], pos:['both','en'],
   decline:['both','en'], cases:['both','en'], produce:['both','en'], agree:['both','en'],
   govern:['both','en'], cong:['both','en'], workshop:['both','en'], vices:['both','en'],
-  figures:['both','en'], suppos:['both','en'], congtruth:['both','en'], basics:['both','en'],
+  figures:['both','en'], suppos:['both','en'], congtruth:['both','en'],
   clauses:['orig'],
   latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
@@ -16240,20 +16154,6 @@ const DEU_HINT_KEEP = 'Ä, ö, ü, and ß may also be written ae, oe, ue, and ss
 addPartner('de', DEU, 'produce', it => partnerProduceQ(DEU, it, deuMatch, 'Type the German form', deuRefused(it).length ? DEU_HINT_KEEP : DEU_HINT), 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
-/* Syllable, Quantity and Accent finishes by mastery as well: six, eight, or ten correct answers by difficulty,
-   and every missed question answered correctly on its return. */
-EX.syllable.mastery = true;
-EX.syllable.masteryNeed = d => d <= 1 ? 6 : d <= 3 ? 8 : 10;
-EX.syllable.instr = 'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required. A missed question returns until it is answered correctly.';
-EX.syllable.introInstr = 'The exercise begins with two notes. The set is finished by mastery: six correct answers at the first difficulty, eight at the second and third, and ten at the fourth and fifth, and every missed question must come back and be answered correctly.';
-/* Meter and Scansion finishes by mastery in the same way: four, five, or six lines or questions correct by
-   difficulty, and every missed line scanned again correctly on its return. */
-EX.meter.mastery = true;
-EX.meter.masteryNeed = d => d <= 1 ? 4 : d <= 3 ? 5 : 6;
-EX.meter.instr = 'Mark the syllables, write the feet, or name the meter. A missed line returns until it is scanned correctly.';
-EX.meter.introInstr = 'The exercise begins with a note. The set is finished by mastery: four correct answers at the first difficulty, five at the second and third, and six at the fourth and fifth, and every missed line or question must come back and be answered correctly.';
-/* Basic Material of Language offers every partner language that one of its sections offers. */
-EX.basics.langs = BASICS_EX.reduce((a, k) => a.concat(((EX[k] && EX[k].langs) || []).filter(x => a.indexOf(x) < 0)), []);
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
 function partnerOf(ex){
   const k = ex ? store.langs[ex.id] : null;
@@ -16346,8 +16246,10 @@ const ACTS = [
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'The matter of speech before meaning: voice, then letter, then syllable.',
    items:[
-     {kind:'row', deck:'basics', tag:'STUDY', title:'Basic Material of Language',
-      desc:'Voice articulate and inarticulate; letter and sound; and declinable and indeclinable. One exercise at the end reviews all of them until each item is mastered.', ex:['basics']},
+     {kind:'row', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
+      desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.', ex:['vox']},
+     {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
+      desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
      {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']},
      {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
@@ -16358,6 +16260,8 @@ const ACTS = [
    items:[
      {kind:'row', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
       desc:'A part of speech is decided by how a word is used: Donatus’s eight, and the Greek eight with the article, beginning with the noun and the verb.', ex:['pos']},
+     {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
+      desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
@@ -16779,9 +16683,7 @@ function startEx(e){
   state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   state.stageI = 0; state.stageStreak = 0; state.stageJustAdvanced = false;
   state.nEn = 0; state.nLa = 0;
-  state.mastery = e.mastery ? {need: e.masteryNeed(state.diff), got:{}, review:[], n:0} : null;
   state.langAvail = probeLangs(e, state.diff);
-  if(state.mastery) state.mastery.got = {};
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = stagedInstr(e);
   $('ex-next').textContent = 'Next →';
@@ -16812,19 +16714,6 @@ function stagedInstr(e){
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
-  const mq = state.mastery;
-  if(mq && mq.review.length){
-    const t = masteryTotals();
-    const due = mq.review.findIndex(r => r.due <= mq.n);
-    const at = due >= 0 ? due : (t.got >= t.need ? 0 : -1);
-    if(at >= 0){
-      const r = mq.review.splice(at, 1)[0];
-      r.q._review = true;
-      state.q = r.q; state.locked = false; chipSel = {};
-      renderQ(); updateScore();
-      return;
-    }
-  }
   const want = nextLang(state.ex);
   const onlyWant = modeOf(state.ex) === 'en' || modeOf(state.ex) === 'la';
   let freshWant = null, freshOther = null, repWant = null, repOther = null;
@@ -16881,13 +16770,6 @@ function updateScore(){
   if(state.ex && state.ex.free){
     $('ex-score').textContent = '';
     if(bar) bar.style.width = '0%';
-    return;
-  }
-  if(state.mastery && state.ex && state.ex.mastery){
-    const m = state.mastery, t = masteryTotals();
-    const per = state.ex.masteryParts ? ' · ' + state.ex.masteryParts.map(k => `${state.ex.masteryTitles[k]} ${Math.min(m.need, m.got[k] || 0)}/${m.need}`).join(' · ') : '';
-    $('ex-score').textContent = `Mastery: ${t.got} of ${t.need} correct · ${t.review} to review${per}`;
-    if(bar) bar.style.width = Math.max(0, Math.min(100, (t.got / (t.need + t.review)) * 100)) + '%';
     return;
   }
   if(state.ex && state.ex.staged){
@@ -17105,26 +16987,7 @@ function submit(ansMC){
       extra = `<span class="also">A miss sends this topic’s count back to zero.</span>`;
     }
   }
-  if(state.mastery){
-    const m = state.mastery;
-    m.n++;
-    const k = state.ex.masteryParts ? q.part : 'all';
-    if(res.right){
-      if(!q._review && k) m.got[k] = (m.got[k] || 0) + 1;
-      if(q._review) extra = `<span class="also">This question was missed before and is now answered correctly.</span>`;
-    }else if(['mc','chips','text','pick','widget'].indexOf(q.kind) >= 0){
-      m.review.push({q, due: m.n + 3});
-      extra = `<span class="also">This question will come back for review a few questions from now.</span>`;
-    }
-    q._review = false;
-    if(masteryDone()){
-      state.pendingComplete = true;
-      extra += `<span class="also">${state.ex.masteryParts ? 'Every section has its number of correct answers' : 'The number of correct answers needed has been reached'}, and every missed question has been answered correctly. The set is finished.</span>`;
-    }
-  }
-  const pts = state.mastery
-    ? (() => { const t = masteryTotals(); return `${t.got} of ${t.need} correct`; })()
-    : (state.ex && state.ex.staged)
+  const pts = (state.ex && state.ex.staged)
     ? `${res.right ? state.stageStreak : 0} of ${state.ex.stageNeed || 3} correct in a row`
     : (res.right ? `+${gain}` : `−${loss}`);
   if(stageAdvance){
@@ -17132,7 +16995,7 @@ function submit(ansMC){
     state.stageStreak = 0;
     state.sessionSeen = [];
   }
-  const ptsLabel = (state.mastery || (state.ex && state.ex.staged)) ? pts : `${pts} points`;
+  const ptsLabel = (state.ex && state.ex.staged) ? pts : `${pts} points`;
   box.querySelector('#q-fb').innerHTML =
     `<div class="feedback ${res.right ? 'good' : 'bad'}">
        <span class="verdict">${res.right ? 'Correct' : 'Incorrect'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
@@ -17140,7 +17003,7 @@ function submit(ansMC){
        ${extra}
        ${srcLine(q.src || state.ex.src)}${exGreekNote(q)}</div>`;
   $('ex-submit').style.display = 'none';
-  if(state.mastery || (state.ex && state.ex.staged)){
+  if(state.ex && state.ex.staged){
     $('ex-next').textContent = state.pendingComplete ? 'Finish Exercise Set ⟶' : 'Next →';
   }else if(state.score >= 100){
     state.pendingComplete = true;
