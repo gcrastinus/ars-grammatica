@@ -219,8 +219,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   align-items:stretch;
 }
 .set-pair-ex{display:flex; flex-direction:column; gap:16px}
-/* With several exercises on the right, the study card keeps its own height. */
-.set-pair.multi > .set-card{align-self:start}
+/* A study and its exercises keep one height: the study stretches to the column of exercises beside it. */
 /* Studies with no exercise of their own, such as the three language decks, stand side by side. */
 .set-beside{grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
 .set-pair-ex > .set-card{flex:1}
@@ -6041,6 +6040,33 @@ const CT_ITEMS = [
 ];
 const CT_OPTS = ['Congruous and true', 'Congruous but false',
                  'Incongruous, since the construction fails, whatever the truth of what is meant'];
+
+DECKS.congtruth = {
+  title:'Congruity and Truth',
+  sub:'Well formed is not the same as true',
+  panels:[
+
+{ src:['te','priscian'], h:`<p><strong>TWO QUESTIONS.</strong> We already hear that “The chimaera runs” is a proper English sentence, and that no chimaera runs anywhere. Every sentence raises two questions: is it well formed, and is what it says so? Grammar answers the first, and logic the second.</p>
+<p>Priscian asks of a construction that it be a fitting arrangement of words showing a complete sense. The modists name the two conditions <strong>congruity</strong> and <strong>completeness</strong>. Neither of them is truth.</p>`,
+  q:{ prompt:'“The chimaera runs” is…',
+      options:['Congruous and complete, but false','Incongruous, because no chimaera exists','Incomplete, because the verb has no object','True, because it is well formed'],
+      correct:0,
+      explain:'The noun and the verb agree, and the sense is complete. That nothing answers to it is a question for logic, not for grammar.' } },
+
+{ src:['te','arist_int'], h:`<p><strong>Why they come apart.</strong> Thomas of Erfurt grounds congruity in the modes of signifying: <em>chimaera</em> signifies by the mode of a substance, and so it can stand as the subject of <em>currit</em>, whether or not anything answers to it. The grammarian judges how the words are joined, not whether the thing is so.</p>
+<p>Aristotle, in <i>On Interpretation</i>, makes truth and falsity belong to the statement that joins or separates, and only there. A sentence must first be well formed to be true or false; being well formed does not make it either.</p>`,
+  q:{ prompt:'<em>Homo currit</em> and <em>chimaera currit</em> differ in…',
+      options:['Truth, not congruity','Congruity, not truth','Both congruity and truth','Neither'],
+      correct:0,
+      explain:'Both join a noun of substance to a verb in agreement. Only the first can be true of something.' } },
+
+{ src:['te','appown'], h:`<p><strong>The four cases.</strong> A sentence can be congruous and true (“The sun rises”), congruous and false (“The sun is square”), or incongruous, as “The sun rise,” and then it is not yet fit to be true or false, though a hearer may guess what it was meant to say. The exercise asks each sentence both questions, one after the other.</p>`,
+  q:{ prompt:'What should we ask first of a sentence?',
+      options:['Whether it is well formed','Whether it is true','Whether it is pleasing','Whether it is long'],
+      correct:0,
+      explain:'Only a well-formed sentence is handed to logic to be judged true or false.' } }
+  ]
+};
 
 EX.congtruth = {
   id:'congtruth', src:['te','arist_int'], act:'VII', title:'Congruity and Truth',
@@ -17530,7 +17556,9 @@ const ACTS = [
      {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
       desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
      {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
-      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong', 'congtruth']},
+      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong']},
+     {kind:'row', deck:'congtruth', tag:'STUDY', title:'Congruity and Truth',
+      desc:'Well formed is not the same as true: <em>the chimaera runs</em> is congruous and complete, and false. Grammar judges the first question, and logic the second.', ex:['congtruth']},
      {kind:'row', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
       desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause']},
      {kind:'row', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
@@ -17606,7 +17634,6 @@ const ACTS = [
       desc:'What a word means, against what it stands for in <em>this</em> proposition: <em>Man is a species</em> and <em>a man is running</em> show one word with two suppositions.', ex:['suppos']},
      {kind:'row', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
       desc:'Aristotle’s fallacy: arguing from the shape of the word to the shape of the thing.', ex:['figura']},
-     {kind:'ex', ex:'congtruth'},
      {kind:'row', deck:'service', tag:'STUDY', title:'Grammar in the Service of the Sciences',
       desc:'<em>In principio erat</em>; <em>Hoc est corpus meum</em>; the naming of God; seeing and having seen. Grammar gives the form, and the higher science judges the thing.', ex:['service']}
    ]},
@@ -18855,7 +18882,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 const QZ_DECK_FOR_EX = {
   latpos:['latpos','pos'], latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
   produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
-  congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period']
+  congtruth:['congtruth','cong','prelim'], servius4:['period'], livyperiod:['period']
 };
 function qzToday(){
   return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
