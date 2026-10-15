@@ -2682,17 +2682,13 @@ the word and the result still be English.</p>`,
       correct:1,
       explain:`The clause is what is known, so it is the object of <em>know</em> and is used as a noun. The older grammars call such a clause a substantive clause. The question is how the group is used, not whether it is a single word.` } },
 
-{ src:['appown','donatus'], h:`<p><strong>How to tell.</strong> It is not enough to look the word up; the question is what it is doing in this sentence.</p>
-<p><em>that</em>: <em>I know that he came</em> (conjunction). <em>That is mine</em> (pronoun). <em>I know that man</em> (adjective).</p>
-<p><em>before</em>: <em>before the storm</em> (preposition). <em>He had seen it before</em> (adverb).</p>
-<p><em>fast</em>: <em>a fast horse</em> (adjective). <em>He drove fast</em> (adverb).</p>
-<p>Latin <em>cum</em> is a preposition in <em>cum amico</em> (with a friend) and a conjunction in <em>cum venit</em> (when he comes).</p>
-<p>The exercises mark one word and ask how it is used. Latin is asked beside English, so that the eight are not mistaken for an English list; and Greek, German, or French is asked when it has been chosen as the third language, especially for the article, which Latin does not have.</p>`,
-  q:{ prompt:`In <em>I know that man</em>, what work is <em>that</em> doing?`,
-      options:['Conjunction: it joins two statements','Pronoun: it stands in for a noun',
-               'Adjective: it picks out a particular man','Adverb: it tells how the knowing is done'],
-      correct:2,
-      explain:`In <em>That man</em>, <em>that</em> points at one man among men, and depends on the noun. In <em>I know that he came</em>, the same sound joins two statements and is a conjunction.` } },
+{ src:['appown','donatus'], h:`<p><strong>How to tell.</strong> It is not enough to look the word up; the question is what it is doing in this sentence. Latin <em>cum</em> is a preposition in <em>cum amico</em> (with a friend) and a conjunction in <em>cum venit</em> (when he comes). The English examples are in The Eight in English.</p>
+<p>The exercise asks Donatus’s eight in Latin sentences, with questions on the rules of the parts.</p>`,
+  q:{ prompt:`In <em>cum venit</em>, “when he comes,” what work is <em>cum</em> doing?`,
+      options:['Conjunction: it joins a clause to the sentence','Preposition: it governs a noun in the ablative',
+               'Adverb: it tells how he comes','Pronoun: it stands for a person'],
+      correct:0,
+      explain:`With <em>venit</em> after it and no noun to govern, <em>cum</em> introduces a clause. In <em>cum amico</em> the same word governs the ablative and is a preposition.` } },
 
 { src:['te','appown'], h:`<p><strong>The work, then the reasons.</strong> Anyone can be taught the list. The art is to say how a word is used here, and to arrange words so that they say something definite.</p>
 <p>There is a further question: why are the parts these parts, and not others? Why should every language have something like a noun and something like a verb? Asking that is not what makes the art liberal; it is the beginning of speculative grammar, the part of the art that asks for causes. Priscian gives the parts and their accidents, but seldom says why they are these, whereas the modists try to. This course takes the question up in Act VI, after the accidents and the construction are known.</p>
@@ -5081,27 +5077,17 @@ const POS_GROUP = [
 
 EX.pos = {
   id:'pos', src:['donatus','ag','appown'], act:'II', title:'The Parts of Speech',
-  desc:'A word, a phrase, or a clause is marked, and the question is how it is used here, in English and Latin. A set is complete at 100 points.',
+  desc:'A word in a Latin sentence is marked, and the question is how it is used here, among Donatus’s eight; with questions on the rules of the parts. A set is complete at 100 points.',
   instr:'Say how the marked word, phrase, or clause is used.',
   introInstr:'The exercise begins with two notes. A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.',
   intro:[
-    {h:`<strong>A part of speech is decided by how a word is used.</strong> Donatus counts eight: noun, pronoun, verb, adverb, participle, conjunction, preposition, interjection; English adds the article. The list is not a list of dictionary entries, and so we ask what the marked word is doing <em>here</em>.`,
-     eg:['<em>We bought paint</em>: <em>paint</em> names a stuff (noun).',
-         '<em>We paint the door</em>: the same sound says what is done (verb).']},
-    {h:`<strong>A phrase or a clause can be used in the same way.</strong> The eight name the function, and the marked thing need not be a single word.`,
-     eg:['Phrase: <em>They arrived <u>after the storm</u></em>, used as an adverb (it tells when).',
-         'Clause: <em>I know <u>that he arrived</u></em>, used as a noun (the object of <em>know</em>).']}
+    {h:`<strong>A part of speech is decided by how a word is used.</strong> Donatus counts eight: noun, pronoun, verb, adverb, participle, conjunction, preposition, interjection. The adjective he files under the noun.`,
+     eg:['<em>Cum amico</em>: <em>cum</em> governs a noun (preposition).',
+         '<em>Cum venit</em>: the same word introduces a clause (conjunction).']}
   ],
   gen(d){
     const nOpt = d <= 1 ? 3 : 4;
     const roll = Math.random();
-    /* No other-language items are drawn here; the French and German pools of the shared exercises take their place. */
-    const otherPool = [];
-    const otherP = (d >= 2 && otherPool.length) ? 0.12 : 0;
-    const ruleP = d <= 1 ? 0.10 : 0.08;
-    const latP = 0.18;
-    const groupP = d <= 1 ? 0.10 : d === 2 ? 0.18 : 0.26;
-    const hardP = d <= 1 ? 0.06 : d === 2 ? 0.16 : 0.24;
 
     function markedQ(it, srcFallback){
       const group = it.span === 'phrase' || it.span === 'clause';
@@ -5130,46 +5116,13 @@ EX.pos = {
       if(it.orig){ q.orig = it.orig; q.olang = 'English'; }
       return q;
     }
-    function tryUnseen(make, tries){
-      for(let i = 0; i < (tries || 14); i++){
-        const q = make();
-        const id = q.sid;
-        if(!id || state.sessionSeen.indexOf(id) < 0){
-          if(id) state.sessionSeen.push(id);
-          return q;
-        }
-      }
-      const q = make();
-      if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
-      return q;
-    }
-    function easyEn(){
-      const line = rand(EN_TAGGED);
-      const parts = line.split(' ').map(w => { const k = w.lastIndexOf('/'); return {t:w.slice(0,k), a:w.slice(k+1)}; });
-      const tags = [...new Set(parts.map(p => p.a))].filter(t => (t !== 'article' || Math.random() < 0.25) && (d > 1 || ['noun','verb'].indexOf(t) < 0 || Math.random() < 0.3));
-      const tag = rand(tags.length ? tags : ['article']);
-      const idx = parts.map((p,i) => p.a === tag ? i : -1).filter(i => i >= 0);
-      const pick = rand(idx);
-      const s = parts.map((p,i) => i === pick ? `<b>${p.t.replace(/,$/,'')}</b>${/,$/.test(p.t) ? ',' : ''}` : p.t).join(' ') + (line.indexOf('!') >= 0 ? '' : '.');
-      return markedQ({
-        id: 'ge:' + s, lang:'en',
-        s, a: parts[pick].a, src:['appown'], note: POS_WHY[parts[pick].a]
-      }, ['appown']);
-    }
-
-    if(otherPool.length && roll < otherP)
-      return markedQ(pickSeen(otherPool, x => x.id), ['appown']);
-    if(roll < otherP + ruleP){
+    /* Donatus's eight in Latin sentences, and questions on the rules of the parts; the English sentences are asked
+       in The Eight in English. */
+    if(roll < (d <= 1 ? 0.25 : 0.35)){
       const rules = d <= 1 ? POS_RULES.filter(x => ['pr1','pr2','pr3','pr5','pr11','pr12'].indexOf(x.id) >= 0) : POS_RULES;
       return makeMC(pickSeen(rules, x => x.id), nOpt);
     }
-    if(roll < otherP + ruleP + latP)
-      return markedQ(pickSeen(POS_LAT, x => x.id), ['ag']);
-    if(roll < otherP + ruleP + latP + groupP)
-      return markedQ(pickSeen(d <= 1 ? POS_GROUP.filter(x => ['pg1','pg2','pg3','pg10','pg22','pg24'].indexOf(x.id) >= 0) : POS_GROUP, x => x.id), ['appown']);
-    if(roll < otherP + ruleP + latP + groupP + hardP)
-      return markedQ(pickSeen(d <= 2 ? POS_HARD.filter(x => Number(x.id.slice(2)) <= 15) : POS_HARD, x => x.id), ['appown']);
-    return tryUnseen(easyEn, 16);
+    return markedQ(pickSeen(POS_LAT, x => x.id), ['ag']);
   }
 };
 
