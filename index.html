@@ -282,6 +282,18 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .modern::before{content:"Modern books call this — "; font-style:normal; letter-spacing:.04em; color:var(--gold); font-size:14px; font-family:'Cinzel',serif}
 .deck-nav{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:20px}
 .deck-end{display:flex; justify-content:center; margin-top:28px}
+/* The passage view: the passage stays at the top while the cards change below it. */
+.psg-fixed{position:sticky; top:0; z-index:5; max-height:46vh; overflow:auto; margin-bottom:14px}
+.psg-ref{font-family:'Cinzel',serif; font-size:13px; letter-spacing:.12em; color:var(--gold); margin-bottom:8px}
+.psg-lat{font-size:20px; line-height:1.6; color:var(--ink)}
+.psg-lat .target{border-bottom:2px solid var(--gold); padding:0 3px 1px; color:var(--target); background:var(--target-bg); font-weight:600; border-radius:2px}
+.psg-eng{margin-top:10px; font-style:italic; color:var(--ink-soft); line-height:1.5}
+.psg-list{display:flex; flex-direction:column; gap:8px; margin:14px 0}
+.psg-pick{text-align:left; padding:10px 14px; border:1px solid var(--line); border-radius:8px; background:var(--panel2); color:var(--ink); cursor:pointer; font:inherit; display:flex; flex-direction:column; gap:2px}
+.psg-pick:hover{border-color:var(--gold-soft)}
+.psg-pick-ref{font-weight:600}
+.psg-pick-lat{font-style:italic; color:var(--ink-soft)}
+@media (max-width:700px){ .psg-fixed{max-height:38vh} .psg-lat{font-size:18px} }
 .deck-count{font-style:italic; color:var(--ink-soft); font-size:16px}
 
 /* ------- buttons ------- */
@@ -467,6 +479,7 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .q-sentence .rk,.q-passage .rk,.panel .rk{margin:14px auto 6px}
 .opt .rk{margin:4px 0; pointer-events:none}
 .opt.right,.opt.wrong{color:#fff}
+.opt.right em,.opt.wrong em,.opt.right i,.opt.wrong i{color:inherit}
 .pick-line{display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:2px 1px; margin:6px 0 18px}
 .pick-word{
   font-family:'EB Garamond',serif; font-size:23px; line-height:1.45; padding:2px 5px;
@@ -761,6 +774,23 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
       <button class="btn primary" id="deck-next">Next →</button>
     </div>
     <div class="deck-end"><button class="btn" id="deck-end">End</button></div>
+  </div>
+
+  <!-- ============ PASSAGES ============ -->
+  <div class="screen" id="scr-psg">
+    <header>
+      <div class="ornament">❦</div>
+      <h1 id="psg-title" style="font-size:32px"></h1>
+      <div class="subtitle" id="psg-sub"></div>
+      <div id="psg-src"></div>
+    </header>
+    <div id="psg-body"></div>
+    <div class="deck-nav" id="psg-nav">
+      <button class="btn" id="psg-back">← Back</button>
+      <span class="deck-count" id="psg-count"></span>
+      <button class="btn primary" id="psg-next">Next →</button>
+    </div>
+    <div class="deck-end"><button class="btn" id="psg-end">End</button></div>
   </div>
 
   <!-- ============ EXERCISE INTRO ============ -->
@@ -1512,6 +1542,18 @@ const SRC = {
   arist_anima:{kind:'primary', short:'Aristotle, <i>De anima</i> II.8',
        full:'Aristotle, <i>De anima</i> II.8, 420b27–33: voice is the striking of the inhaled air against the windpipe by the soul in those parts; “for not every sound of an animal is voice (for it is possible to make a sound with the tongue, and as those do who cough), but what strikes must be ensouled and with some imagination, since voice is a sound that signifies” (this course’s literal rendering of <i>οὐ γὰρ πᾶς ζῴου ψόφος φωνή … ἀλλὰ δεῖ ἔμψυχόν τε εἶναι τὸ τύπτον καὶ μετὰ φαντασίας τινός· σημαντικὸς γὰρ δή τις ψόφος ἐστὶν ἡ φωνή</i>).',
        note:'The natural philosopher’s account of voice, which St Thomas repeats in his commentary on the <i>Peri hermeneias</i>. It is the ground for saying that a cough is a sound made by an animal, but not voice.'},
+  ovid_am:{kind:'primary', short:'Ovid, <i>Amores</i>',
+       full:'Ovid, <i>Amores</i> I.1.1–4, as printed by The Latin Library (thelatinlibrary.com/ovid/ovid.amor1.shtml), read 2026-10-15. The English is this course’s literal rendering.',
+       note:'The opening of Ovid’s love elegies, which explains the elegiac couplet.'},
+  catull:{kind:'primary', short:'Catullus, <i>Carmina</i>',
+       full:'Catullus, <i>Carmina</i> 5.1–6, as printed by The Latin Library (thelatinlibrary.com/catullus.shtml), read 2026-10-15. The English is this course’s literal rendering.',
+       note:'A poem in hendecasyllables.'},
+  hor_carm:{kind:'primary', short:'Horace, <i>Carmina</i>',
+       full:'Horace, <i>Carmina</i> I.22.1–8, as printed by The Latin Library (thelatinlibrary.com/horace/carm1.shtml), read 2026-10-15. The English is this course’s literal rendering.',
+       note:'An ode in sapphic stanzas.'},
+  ambr_hymn:{kind:'primary', short:'Ambrose, <i>Hymni</i>',
+       full:'Ambrose, <i>Hymni</i> 1 (<i>Aeterne rerum conditor</i>), lines 1–8, as printed by The Latin Library (thelatinlibrary.com/ambrose/hymns.html), read 2026-10-15, with its spelling (<i>jam</i>). The English is this course’s literal rendering.',
+       note:'A hymn in iambic dimeters, the meter of the Ambrosian hymns.'},
   helias:{kind:'primary', short:'Peter Helias, <i>Summa super Priscianum</i>',
        full:'Peter Helias, <i>Summa super Priscianum</i> (12th c.): <i>partes huius artis sunt quatuor: … prima pars scientia de litteris, secunda de sillabis, tertia de dictionibus, quarta de oratione</i> — quoted in Bursill-Hall from Thurot. Bursill-Hall notes expressly that <b>Priscian and Donatus did not have this fourfold division</b>: Donatus gives only <i>vox, littera, syllaba</i>, and Priscian treats <i>vox, littera</i> in Book I and <i>syllaba, dictio, oratio</i> in Book II.',
        note:'The medieval division this course’s acts follow — a twelfth-century arrangement of Priscian, not a Roman one.'},
@@ -1724,6 +1766,8 @@ const SRC = {
    null leaves a key out of the list; a function gives the label for a particular deck, or undefined for the
    register's own short form. */
 const DECK_SRC = {
+  livy_r: 'Livy, <i>Ab urbe condita</i>', yonge: 'Cicero', sallust_w: 'Sallust, <i>Bellum Catilinae</i>', tacitus_cb: 'Tacitus',
+  aug_pd: 'Augustine, <i>Confessiones</i>', boeth_loeb: 'Boethius, <i>De consolatione philosophiae</i>', verg_pd: 'Virgil, <i>Aeneis</i>', servius: 'Servius, <i>In Vergilii Aeneidos commentarii</i>',
   appown: null,
   engclass: k => k === 'endiag' ? 'Reed and Kellogg' : null,
   ag: 'Allen and Greenough, <i>New Latin Grammar</i>',
@@ -1753,6 +1797,8 @@ function deckSrcLabel(key, k){
 /* The top list of each study deck: the main sources of its doctrine, about four. A source the deck quotes, and that is
    not also a main source, is cited only on the card where the quotation stands (DECK_CITE, by card number from 0). */
 const DECK_TOP = {
+  latprose:['livy_r','yonge','sallust_w','tacitus_cb','aug_pd','boeth_loeb','ag'],
+  latpoetry:['verg_pd','ovid_am','catull','hor_carm','ambr_hymn','servius','ag'],
   prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
   traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
   period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'],
@@ -8211,6 +8257,412 @@ EX.livyperiod = {
   }
 };
 
+/* ====================================================================
+   PASSAGES: Latin prose and Latin poetry, read through and drilled
+   --------------------------------------------------------------------
+   Each passage stays fixed at the top while the cards change below it. The first card gives the context; each
+   later card (parts) highlights one stretch of the passage, in reading order, and says what it is and how it
+   works; the questions (qs) highlight a stretch and ask about its construction. t is the exact stretch of the
+   Latin to highlight, and each t is found after the one before it.
+   Prose texts are those of the retired Twenty passages and of A Livian Period: Cicero (Clark and Peterson, Oxford,
+   as printed by Perseus, except In Catilinam II, from The Latin Library), Sallust (Ahlberg), Livy (Foster), Tacitus
+   (Fisher; Furneaux), Augustine (O'Donnell), and Boethius (Rand and Stewart). English is the named translator's, or
+   this course's literal rendering, as marked.
+   ==================================================================== */
+const LIT_R = '— literal rendering (this course’s)';
+const PASSAGES = {
+'liv-1': {author:'Livy', work:'Ab urbe condita', locus:'I.1.1', src:['livy_r','ag'],
+  lat: LIVY_LAT, eng: LIVY_ENG,
+  ctx:'Livy opens his history of Rome with the fall of Troy. Before he tells of Aeneas, he states what is generally agreed: that the Greeks spared two Trojans, Aeneas and Antenor, and he gives two reasons. The whole is one period, and every clause in it depends, directly or through another, on <em>satis constat</em>, “it is well agreed.”',
+  parts:[
+   {t:'iam primum omnium satis constat', h:'The main verb', n:'<em>Constat</em>, “it is agreed,” is impersonal, and it is the main verb of the period. What is agreed follows as an accusative and infinitive, so the rest of the sentence is a report of facts.'},
+   {t:'Troia capta', h:'An ablative absolute', n:'A noun and a participle in the ablative, standing apart from the main construction, give a circumstance: Troy having been taken, that is, after Troy was taken.'},
+   {t:'in ceteros saevitum esse Troianos', h:'An impersonal passive infinitive', n:'<em>Saevire</em>, “to rage,” takes no object, so its passive is impersonal: <em>saevitum esse</em>, “that there was raging.” <em>In</em> with the accusative means “against,” and <em>ceteros … Troianos</em> is divided by the verb.'},
+   {t:'duobus, Aeneae Antenorique', h:'A dative, with two names in apposition', n:'<em>Duobus</em> is dative, the persons from whom something is withheld, and <em>Aeneae Antenorique</em> stand in apposition to it; <em>-que</em> joins the two names.'},
+   {t:'et vetusti iure hospitii et quia pacis reddendaeque Helenae semper auctores fuerunt', h:'Two causes joined by et … et', n:'The first cause is a phrase in the ablative, “by the right of old guest-friendship”; the second is a clause with <em>quia</em> and the indicative, “because they had always been advocates of peace and of giving Helen back.” <em>Reddendae</em> is a gerundive agreeing with <em>Helenae</em>, and both genitives depend on <em>auctores</em>.'},
+   {t:'omne ius belli Achivos abstinuisse', h:'The second infinitive', n:'<em>Abstinuisse</em> is the second infinitive after <em>constat</em>, and <em>Achivos</em> is its subject, in the accusative: that the Greeks withheld every right of war. <em>Omne ius belli</em> is the thing withheld.'}],
+  qs:[
+   {t:'Troia capta', q:'<em>Troia capta</em> is…', a:'An ablative absolute: a circumstance on which the period depends', ds:['The nominative subject of <em>constat</em>, “that Troy was taken is agreed”','An accusative of the town, the object of <em>saevitum esse</em>','A relative clause, taking up Troy, whose verb has been left out'], why:'A noun and a participle in the ablative, standing apart from the rest as a circumstance, make an ablative absolute: Troy having been taken. <em>Satis constat</em> then governs the infinitives <em>saevitum esse</em> and <em>abstinuisse</em>.'},
+   {t:'saevitum esse', q:'<em>saevitum esse</em>: what form is it?', a:'An impersonal passive infinitive: “that violence was done”', ds:['A perfect active infinitive, with <em>ceteros</em> as its subject','A supine of purpose, “in order to rage,” after a verb of motion','A future infinitive, “to be about to rage”'], why:'<em>Saevire</em> takes no object, and so its passive is impersonal: <em>saevitum est</em>, “there was raging.” As an infinitive it depends on <em>constat</em>. <em>In ceteros</em> tells against whom.'},
+   {t:'Aeneae Antenorique', q:'<em>Aeneae Antenorique</em> stands in apposition to <em>duobus</em>. What is the case?', a:'Dative: the persons from whom the rights of war were withheld', ds:['Genitive: the rights of war that belonged to Aeneas and Antenor','Nominative: the subjects of <em>fuerunt</em> in the <em>quia</em>-clause','Ablative: the persons by whom the war was waged on Troy'], why:'Here <em>abstinere</em> takes the thing withheld in the accusative (<em>omne ius belli</em>) and the persons from whom it is withheld in the dative (Allen and Greenough §381, on verbs of taking away). <em>Duobus</em> is that dative, and the names stand in apposition to it.'},
+   {t:'reddendaeque', q:'<em>pacis reddendaeque Helenae</em>: what is <em>reddendae</em>?', a:'A gerundive agreeing with <em>Helenae</em>', ds:['A gerund, with <em>Helenae</em> as its object','A future active participle, “about to return”','A perfect passive participle, “returned”'], why:'The gerundive agrees with its noun: <em>Helenae reddendae</em>, “of Helen to be given back,” that is, of giving Helen back. Latin prefers this to a gerund with an object.'},
+   {t:'Achivos', q:'<em>Achivos</em>: how does it stand?', a:'As the subject accusative of <em>abstinuisse</em>, in the reported statement', ds:['As the object of <em>constat</em>, the thing that is agreed','As an accusative of exclamation: “the Achaeans!”','As the object of <em>saevitum esse</em>, the ones raged against'], why:'In the accusative and infinitive after <em>constat</em>, the subject of the infinitive is accusative: “that the Achaeans withheld every right of war.”'}]},
+
+'cic-cat1-1': {author:'Cicero', work:'In Catilinam', locus:'I.1', src:['yonge','dcc','ag'],
+  lat:'quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia?',
+  eng:'When, O Catiline, do you mean to cease abusing our patience? How long is that madness of yours still to mock us? When is there to be an end of that unbridled audacity of yours, swaggering about as it does now?\n— Yonge',
+  ctx:'Cicero, consul in 63 BC, spoke the first speech against Catiline in the senate, with Catiline present. He opens without any preface, with three questions put to Catiline himself.',
+  parts:[
+   {t:'quo usque tandem abutere', h:'The first question', n:'<em>Quo usque</em>, “how far,” asks here about time: how long. <em>Abutere</em> is the second person singular of the future of the deponent <em>abutor</em>, “abuse,” with the ending <em>-re</em> for <em>-ris</em>.'},
+   {t:'Catilina', h:'The vocative', n:'<em>Catilina</em> is vocative: Cicero addresses him by name. The name of the person addressed stands outside the construction of the sentence.'},
+   {t:'patientia nostra', h:'The ablative with abutor', n:'<em>Abutor</em>, like <em>utor</em>, governs the ablative, so the thing abused, <em>patientia nostra</em>, is in the ablative.'},
+   {t:'quam diu etiam furor iste tuus nos eludet', h:'The second question', n:'A new question with its own finite verb, <em>eludet</em>, future. <em>Furor</em> is the subject, and <em>iste</em>, “that … of yours,” often carries contempt. <em>Nos</em> is the object.'},
+   {t:'quem ad finem sese effrenata iactabit audacia', h:'The third question', n:'<em>Quem ad finem</em>, “to what end,” asks how far. <em>Audacia</em>, the subject, is held to the end, and <em>effrenata</em> agrees with it; <em>sese</em> is the reflexive object of <em>iactabit</em>: “to what end will unbridled audacity vaunt itself?”'}],
+  qs:[
+   {t:'quo usque tandem abutere', q:'How do the three questions stand to one another?', a:'Parataxis: three independent questions of like build', ds:['Hypotaxis: the second and third are purpose clauses after the first','One period, joined by an <em>ut</em> that is understood throughout','A chain of relative clauses, all of them taking up <em>Catilina</em>'], why:'Each question has its own finite verb (<em>abutere, eludet, iactabit</em>), and none depends on another. They are companion constructions, not hypotaxis.'},
+   {t:'patientia nostra', q:'<em>patientia nostra</em> after <em>abutere</em> is…', a:'Ablative: <em>abutor</em> governs the ablative', ds:['Accusative, the direct object of <em>abutere</em>','Nominative, the subject of the verb <em>abutere</em>','Dative of disadvantage, “to the cost of our patience”'], why:'<em>Abutor</em>, like <em>utor</em>, takes the ablative. The vocative <em>Catilina</em> is address, not the object.'},
+   {t:'eludet', q:'What tense is <em>eludet</em>?', a:'Future indicative', ds:['Present indicative','Present subjunctive','Perfect indicative'], why:'<em>Eludo</em> is of the third conjugation, where <em>-et</em> marks the future: <em>eludet</em>, “will mock.” The present would be <em>eludit</em>.'},
+   {t:'effrenata', q:'<em>effrenata</em> agrees with…', a:'<em>audacia</em>, the subject of <em>iactabit</em>', ds:['<em>sese</em>, the object of <em>iactabit</em>','<em>finem</em>, the end asked about','<em>Catilina</em>, the man addressed'], why:'<em>Effrenata</em> is nominative feminine singular and agrees with <em>audacia</em>, which Cicero holds back to the end of the question. <em>Sese</em> and <em>finem</em> are accusative.'}]},
+
+'cic-cat2-1': {author:'Cicero', work:'In Catilinam', locus:'II.1', src:['yonge','ag'],
+  lat:'Tandem aliquando, Quirites, L. Catilinam furentem audacia, scelus anhelantem, pestem patriae nefarie molientem, vobis atque huic urbi ferro flammaque minitantem ex urbe vel eiecimus vel emisimus vel ipsum egredientem verbis prosecuti sumus.',
+  eng:'At length at last, citizens, Lucius Catiline, raging with audacity, breathing out crime, wickedly plotting the ruin of his country, threatening you and this city with sword and flame, we have either driven out of the city, or let go, or followed with our words as he went out of his own accord.\n'+LIT_R,
+  ctx:'The day after the first speech, Catiline left Rome, and Cicero spoke to the people. The opening sentence is one long period: four participles describe Catiline, and three verbs, joined by <em>vel</em>, offer three ways of describing his departure.',
+  parts:[
+   {t:'Tandem aliquando, Quirites', h:'The opening and the address', n:'<em>Tandem aliquando</em> means “at long last,” and <em>Quirites</em>, the citizens of Rome, are addressed in the vocative.'},
+   {t:'L. Catilinam', h:'The object, named first', n:'<em>Catilinam</em> is accusative, the object of the verbs at the end of the sentence. Cicero names the man first and holds the verbs back.'},
+   {t:'furentem audacia, scelus anhelantem, pestem patriae nefarie molientem, vobis atque huic urbi ferro flammaque minitantem', h:'Four participles', n:'Four present participles in the accusative agree with <em>Catilinam</em>, and each has its own complement: <em>audacia</em> is an ablative of cause, <em>scelus</em> is the object of <em>anhelantem</em>, <em>pestem patriae</em> is the object of <em>molientem</em>, and <em>vobis atque huic urbi</em> is dative with <em>minitantem</em>, with <em>ferro flammaque</em> as the ablative of means.'},
+   {t:'ex urbe vel eiecimus vel emisimus vel ipsum egredientem verbis prosecuti sumus', h:'Three verbs joined by vel … vel … vel', n:'<em>Vel … vel … vel</em> offers three alternatives: we drove him out, or let him go, or saw him off with words as he went of his own accord. <em>Prosecuti sumus</em> is the perfect of a deponent verb, active in meaning, and <em>ipsum egredientem</em> is its object.'}],
+  qs:[
+   {t:'furentem audacia, scelus anhelantem, pestem patriae nefarie molientem, vobis atque huic urbi ferro flammaque minitantem', q:'The four participles agree with…', a:'<em>Catilinam</em>, the object of the verbs of driving out', ds:['<em>Quirites</em>, the citizens addressed','<em>urbe</em>, the city from which he is driven, in the ablative','the subject of <em>eiecimus</em>, “we”'], why:'The four participles are accusative singular and agree with <em>Catilinam</em>, the object of <em>eiecimus</em>, <em>emisimus</em>, and <em>prosecuti sumus</em>.'},
+   {t:'vobis atque huic urbi', q:'<em>vobis atque huic urbi</em> with <em>minitantem</em> is in which case?', a:'Dative: the persons and the city threatened', ds:['Ablative: the means of the threat','Accusative: the object of <em>minitantem</em>','Genitive: depending on <em>ferro</em>'], why:'<em>Minitor</em> takes the dative of the person threatened and the ablative of the thing threatened with: <em>vobis … ferro flammaque minitantem</em>.'},
+   {t:'vel eiecimus vel emisimus vel', q:'What does <em>vel … vel … vel</em> join?', a:'Three verbs, offered as alternative ways of describing one event', ds:['Three subordinate clauses of purpose','Three objects of one verb','Three conditions, each with its own result'], why:'<em>Vel</em> leaves the choice to the hearer: drove him out, or let him go, or saw him off. All three verbs share the object <em>Catilinam</em>.'},
+   {t:'prosecuti sumus', q:'<em>prosecuti sumus</em> is…', a:'The perfect of a deponent verb, active in meaning: “we followed”', ds:['A perfect passive: “we were followed”','A future perfect: “we shall have followed”','A participle used as an adjective with <em>verbis</em>'], why:'<em>Prosequor</em> is deponent, so its perfect, passive in form, is active in meaning, and <em>ipsum egredientem</em> is its object.'}]},
+
+'cic-ver-1': {author:'Cicero', work:'In Verrem', locus:'Actio prima 1', src:['yonge','ag'],
+  lat:'quod erat optandum maxime, iudices, et quod unum ad invidiam vestri ordinis infamiamque iudiciorum sedandam maxime pertinebat, id non humano consilio sed prope divinitus datum atque oblatum vobis summo rei publicae tempore videtur.',
+  eng:'What was most to be wished, judges, and what alone bore most on quieting the ill will against your order and the ill repute of the courts, this seems to have been given and offered to you, at a supreme moment for the republic, not by human design but almost by divine gift.\n'+LIT_R,
+  ctx:'In 70 BC Cicero prosecuted Verres, a former governor of Sicily, for extortion. The juries were then drawn from the senate, and they were widely thought to be corrupt. Cicero opens by telling the judges that this trial is a gift to them, a chance to restore the good name of their order.',
+  parts:[
+   {t:'quod erat optandum maxime, iudices', h:'A relative clause before its antecedent', n:'<em>Quod</em>, “that which,” begins a relative clause whose antecedent, <em>id</em>, comes later. <em>Optandum</em> is a gerundive: “what was most to be wished.” <em>Iudices</em> is vocative.'},
+   {t:'et quod unum ad invidiam vestri ordinis infamiamque iudiciorum sedandam maxime pertinebat', h:'A second relative clause', n:'<em>Et</em> joins a second relative clause to the first. <em>Ad</em> with the gerundive phrase <em>invidiam … infamiamque … sedandam</em> gives the end: “toward quieting the ill will … and the ill repute.” One gerundive serves both nouns and agrees with the nearer.'},
+   {t:'id', h:'The antecedent', n:'<em>Id</em> takes up both relative clauses, and it is the subject of the main verb.'},
+   {t:'non humano consilio sed prope divinitus', h:'Two means set against each other', n:'<em>Non … sed</em> sets an ablative of means, <em>humano consilio</em>, against an adverb, <em>divinitus</em>: not by human design but almost by divine gift.'},
+   {t:'datum atque oblatum vobis summo rei publicae tempore videtur', h:'The main verb', n:'<em>Videtur</em>, “seems,” is the main verb, and <em>datum atque oblatum</em> (with <em>esse</em> understood) completes it: “seems to have been given and offered.” <em>Vobis</em> is dative with the participles, and <em>summo … tempore</em> is an ablative of time.'}],
+  qs:[
+   {t:'quod erat optandum maxime', q:'The two <em>quod</em> clauses depend on…', a:'<em>id</em>: they are relative clauses naming what was given', ds:['<em>videtur</em>, as clauses of cause, “because”','<em>iudices</em>, as relative clauses describing the judges','<em>tempore</em>, as clauses of time'], why:'<em>Quod</em> here is the relative, “that which,” and both clauses are taken up by <em>id</em>, the subject of <em>videtur</em>.'},
+   {t:'optandum', q:'<em>optandum</em> is…', a:'A gerundive: “to be wished”', ds:['A gerund governing an object','A supine of purpose','A present participle'], why:'With <em>erat</em>, the gerundive says what was to be done: <em>quod erat optandum</em>, “what was to be wished.”'},
+   {t:'sedandam', q:'<em>sedandam</em> agrees with…', a:'<em>infamiam</em>, the nearer noun, and serves for <em>invidiam</em> as well', ds:['<em>ordinis</em>, the order of the judges','<em>iudiciorum</em>, the courts','<em>id</em>, the subject of the main verb'], why:'One gerundive serves both feminine nouns joined by <em>-que</em>, and it agrees in form with the nearer one: <em>ad invidiam … infamiamque … sedandam</em>, “toward quieting the ill will and the ill repute.”'},
+   {t:'videtur', q:'What is the main verb of the period?', a:'<em>videtur</em>, with <em>id</em> as its subject', ds:['<em>erat</em>, in the first relative clause','<em>pertinebat</em>, in the second relative clause','<em>datum</em>, a participle that stands alone'], why:'The two relative clauses are taken up by <em>id</em>, and <em>id … datum atque oblatum … videtur</em> is the main clause.'}]},
+
+'cic-phil-1': {author:'Cicero', work:'Philippicae', locus:'I.1', src:['yonge','ag'],
+  lat:'ante quam de re publica, patres conscripti, dicam ea quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.',
+  eng:'Before I speak about the republic, conscript fathers, the things which I think must be said at this time, I will set out to you briefly the plan of my departure and of my return.\n'+LIT_R,
+  ctx:'In September 44 BC, after Caesar’s death, Cicero returned to Rome and spoke in the senate against Antony. He begins by promising to explain why he had set out from Italy and why he came back.',
+  parts:[
+   {t:'ante quam de re publica, patres conscripti, dicam', h:'A clause of time with the subjunctive', n:'<em>Ante quam</em> with the subjunctive <em>dicam</em> marks an act still to come: before I speak. <em>Patres conscripti</em> is the address to the senators.'},
+   {t:'ea quae dicenda hoc tempore arbitror', h:'The object and its relative clause', n:'<em>Ea</em>, “those things,” is the object of <em>dicam</em>, and <em>quae … arbitror</em> describes them: which I think must be said (<em>dicenda</em>, a gerundive, with <em>esse</em> understood) at this time.'},
+   {t:'exponam vobis breviter', h:'The main verb', n:'<em>Exponam</em> is the main verb, future indicative: I will set out. <em>Vobis</em> is the dative of the persons addressed.'},
+   {t:'consilium et profectionis et reversionis meae', h:'Two genitives joined by et … et', n:'<em>Consilium</em> is the object of <em>exponam</em>, and the two genitives depend on it: the plan both of my departure and of my return.'}],
+  qs:[
+   {t:'ante quam', q:'<em>ante quam … dicam</em> depends on…', a:'<em>exponam</em>, the main verb: “before I speak, I will set out”', ds:['<em>arbitror</em>, as its object','<em>dicenda</em>, as a clause of purpose','Nothing: it is an independent wish'], why:'<em>Ante quam … dicam</em> is a clause of time depending on <em>exponam</em>. <em>Dicam</em> is the subjunctive of an act anticipated.'},
+   {t:'dicenda', q:'<em>dicenda</em> (with <em>esse</em> understood) says…', a:'What must be said: a gerundive of obligation', ds:['What has been said: a perfect participle','What is being said: a present participle','What he will say: a future active participle'], why:'The gerundive with <em>esse</em> expresses what must be done: <em>quae dicenda (esse) arbitror</em>, “which I think must be said.”'},
+   {t:'exponam', q:'<em>exponam</em> here is…', a:'The future indicative, the main verb: “I will set out”', ds:['The present subjunctive of a purpose clause','The imperfect subjunctive after <em>ante quam</em>','The perfect indicative: “I have set out”'], why:'<em>Exponam</em> could be the future indicative or the present subjunctive, since the forms are the same in the first person singular. Here it is the main verb of a statement, so it is the future.'},
+   {t:'et profectionis et reversionis', q:'The genitives <em>profectionis</em> and <em>reversionis</em> depend on…', a:'<em>consilium</em>: the plan of my departure and of my return', ds:['<em>exponam</em>, as its objects','<em>vobis</em>, as possessors','<em>tempore</em>, as genitives of time'], why:'The two genitives, joined by <em>et … et</em>, depend on the noun <em>consilium</em>, the object of <em>exponam</em>.'}]},
+
+'sal-cat-1': {author:'Sallust', work:'Bellum Catilinae', locus:'5', src:['sallust_w','ag'],
+  lat:'L. Catilina, nobili genere natus, fuit magna vi et animi et corporis sed ingenio malo pravoque.',
+  eng:'Lucius Catiline was a man of noble birth, and of eminent mental and personal endowments; but of a vicious and depraved disposition.\n— Watson',
+  ctx:'Sallust introduces Catiline with a short portrait before he tells of the conspiracy. The sentence describes him by his birth, his strength, and his nature.',
+  parts:[
+   {t:'L. Catilina', h:'The subject', n:'<em>Catilina</em> is the subject, in the nominative, and the main verb is <em>fuit</em>.'},
+   {t:'nobili genere natus', h:'The ablative of origin', n:'<em>Natus</em>, “born,” takes the ablative of the family from which one comes: born of a noble family.'},
+   {t:'fuit magna vi et animi et corporis', h:'An ablative of quality', n:'A noun with an adjective in the ablative can describe a person: he was of great force. <em>Animi</em> and <em>corporis</em> are genitives depending on <em>vi</em>, joined by <em>et … et</em>: of both mind and body.'},
+   {t:'sed ingenio malo pravoque', h:'A second ablative of quality', n:'<em>Sed</em> sets a second ablative of quality against the first: but of an evil and depraved nature. <em>-que</em> joins the two adjectives.'}],
+  qs:[
+   {t:'nobili genere', q:'<em>nobili genere</em> with <em>natus</em> is…', a:'An ablative of origin: born of a noble family', ds:['An ablative absolute: the family being noble','A dative: born for a noble family','An ablative of time: at a noble time'], why:'Verbs of being born and descended take the ablative of the stock or family: <em>nobili genere natus</em>.'},
+   {t:'magna vi', q:'<em>magna vi … ingenio malo</em> are…', a:'Ablatives of quality, said of Catiline with <em>fuit</em>', ds:['Ablatives of means: he was by great force','Ablatives of cause: he was because of great force','Datives of possession with <em>fuit</em>'], why:'A noun with an adjective in the ablative can describe a person: he was of great force, of an evil nature. <em>Sed</em> joins the second such ablative to the first under <em>fuit</em>.'},
+   {t:'et animi et corporis', q:'<em>animi</em> and <em>corporis</em> depend on…', a:'<em>vi</em>: the force of mind and of body', ds:['<em>fuit</em>, as genitives of value','<em>genere</em>, as genitives of origin','<em>natus</em>, as the parents'], why:'The genitives depend on the noun <em>vi</em>, and <em>et … et</em> joins them: great force both of mind and of body.'},
+   {t:'pravoque', q:'In <em>malo pravoque</em>, what does <em>-que</em> join?', a:'The two adjectives agreeing with <em>ingenio</em>', ds:['<em>ingenio</em> to <em>corporis</em>','The sentence to the next one','<em>malo</em> to <em>fuit</em>'], why:'<em>-que</em> joins <em>pravo</em> to <em>malo</em>, and both adjectives agree with <em>ingenio</em>.'}]},
+
+'liv-tar-1': {author:'Livy', work:'Ab urbe condita', locus:'I.54', src:['livy_r','ag'],
+  lat:'inde in consilia publica adhiberi. ubi cum de aliis rebus adsentiri se veteribus Gabinis diceret, quibus eae notiores essent, ipse identidem belli auctor esse et in eo sibi praecipuam prudentiam adsumere, quod utriusque populi vires nosset …',
+  eng:'He was admitted to the meetings of the national council. Whilst expressing his agreement with the elders of Gabii on other subjects, on which they were better informed, he was continually urging them to war, and claimed to speak with special authority, because he was acquainted with the strength of each nation, …\n— Roberts',
+  ctx:'Sextus Tarquinius, son of the last king of Rome, has fled to the town of Gabii, pretending to be an exile from his father’s cruelty. Livy tells how he won the trust of the Gabines, and he tells it with historical infinitives.',
+  parts:[
+   {t:'inde in consilia publica adhiberi', h:'A historical infinitive', n:'<em>Adhiberi</em>, a present passive infinitive, stands for a past finite verb: then he was admitted to the public councils. This is the historical infinitive of narrative.'},
+   {t:'ubi cum de aliis rebus adsentiri se veteribus Gabinis diceret', h:'A cum clause with a reported statement', n:'<em>Ubi</em>, “there,” takes up the councils. <em>Cum</em> with the imperfect subjunctive <em>diceret</em> gives the circumstance: while he said. After <em>diceret</em>, <em>se adsentiri</em> is an accusative and infinitive, “that he agreed,” and <em>veteribus Gabinis</em> is dative with <em>adsentiri</em>.'},
+   {t:'quibus eae notiores essent', h:'A relative clause of cause', n:'<em>Quibus</em> takes up <em>veteribus Gabinis</em>, and the subjunctive <em>essent</em> gives the reason within what he said: since those matters were better known to them.'},
+   {t:'ipse identidem belli auctor esse et in eo sibi praecipuam prudentiam adsumere', h:'Two more historical infinitives', n:'<em>Esse</em> and <em>adsumere</em> are historical infinitives, with <em>ipse</em> as their subject in the nominative: he himself was again and again the advocate of war, and claimed for himself a special wisdom in this.'},
+   {t:'quod utriusque populi vires nosset', h:'A clause of reason', n:'<em>Quod</em> with the subjunctive <em>nosset</em> (for <em>novisset</em>) gives the reason he put forward: because he knew the strength of each people.'}],
+  qs:[
+   {t:'adhiberi', q:'<em>adhiberi</em>, and later <em>esse</em> and <em>adsumere</em>, are…', a:'Historical infinitives, standing for past finite verbs', ds:['Infinitives depending on <em>diceret</em>, in a reported statement','Infinitives of purpose','Infinitives depending on an understood verb of wishing'], why:'Livy tells the story here with historical infinitives: an infinitive standing in narrative for a past finite verb, with its subject in the nominative (<em>ipse</em>).'},
+   {t:'cum', q:'<em>cum … diceret</em> is…', a:'A clause of time and circumstance, with the imperfect subjunctive', ds:['A clause of cause with the indicative','A preposition with the ablative','A condition contrary to fact'], why:'<em>Cum</em> with the imperfect subjunctive in narrative gives the circumstances of the main action: while he was saying.'},
+   {t:'adsentiri se', q:'<em>adsentiri se</em> after <em>diceret</em> is…', a:'An accusative and infinitive: “that he agreed”', ds:['A historical infinitive with its subject','A reflexive passive: “he was agreed with”','An infinitive of purpose'], why:'A verb of saying takes the reported statement in the accusative and infinitive, and <em>se</em> refers to the subject of <em>diceret</em>.'},
+   {t:'nosset', q:'<em>nosset</em> is…', a:'The pluperfect subjunctive of <em>nosco</em>, shortened from <em>novisset</em>: “he knew”', ds:['The present subjunctive of <em>nosco</em>: “he may know”','The imperfect indicative: “he was knowing”','An infinitive: “to know”'], why:'<em>Novi</em>, “I have learned,” means “I know,” so the pluperfect means “he knew.” The subjunctive after <em>quod</em> gives the reason as he stated it.'}]},
+
+'liv-hor-1': {author:'Livy', work:'Ab urbe condita', locus:'II.10', src:['livy_r','ag'],
+  lat:'pons sublicius iter paene hostibus dedit, ni unus vir fuisset, Horatius Cocles; id munimentum illo die fortuna urbis Romanae habuit.',
+  eng:'The enemy would have forced their way over the Sublician bridge had it not been for one man, Horatius Cocles. The good fortune of Rome provided him as her bulwark on that memorable day.\n— Roberts',
+  ctx:'When the Etruscans under Porsenna attacked Rome, the wooden bridge over the Tiber nearly let them into the city. Livy introduces Horatius Cocles, who held the bridge while it was cut down behind him.',
+  parts:[
+   {t:'pons sublicius iter paene hostibus dedit', h:'The main clause', n:'<em>Pons sublicius</em>, the bridge on wooden piles, is the subject; <em>iter</em> is the object of <em>dedit</em>, and <em>hostibus</em> is dative: it almost gave a way to the enemy. <em>Paene</em>, “almost,” modifies <em>dedit</em>.'},
+   {t:'ni unus vir fuisset, Horatius Cocles', h:'A condition contrary to fact', n:'<em>Ni</em> with the pluperfect subjunctive <em>fuisset</em> states a condition that did not hold: had there not been one man. <em>Horatius Cocles</em> stands in apposition to <em>vir</em>.'},
+   {t:'id munimentum illo die fortuna urbis Romanae habuit', h:'A second sentence', n:'<em>Fortuna</em> is the subject and <em>habuit</em> the verb; <em>id munimentum</em>, the object, is Horatius himself: the fortune of the city of Rome had that defense on that day. <em>Illo die</em> is an ablative of time.'}],
+  qs:[
+   {t:'hostibus', q:'<em>hostibus</em> is…', a:'Dative: the ones to whom a way was almost given', ds:['Ablative: by the enemy','Ablative absolute: the enemy being present','Genitive: the way of the enemy'], why:'<em>Dedit</em> takes the thing given, <em>iter</em>, in the accusative and the receiver, <em>hostibus</em>, in the dative.'},
+   {t:'ni unus vir fuisset', q:'<em>ni unus vir fuisset</em> is…', a:'A condition contrary to fact: “almost gave” stands for “would have given”', ds:['A relative clause taking up <em>pons</em>, the bridge','A purpose clause depending on <em>iter</em>','A second main fact, set beside the first'], why:'<em>Ni</em> with the pluperfect subjunctive states a condition that did not hold. <em>Paene dedit</em>, “almost gave,” stands where a conclusion contrary to fact would stand.'},
+   {t:'Horatius Cocles', q:'<em>Horatius Cocles</em> stands…', a:'In apposition to <em>vir</em>, naming the man', ds:['As the subject of <em>dedit</em>','As a vocative, addressed by Livy','As the object of <em>habuit</em>'], why:'The name is in the nominative, like <em>vir</em>, and it tells who the one man was.'},
+   {t:'illo die', q:'<em>illo die</em> is…', a:'An ablative of time: on that day', ds:['An ablative of means: by that day','A dative: for that day','An accusative of duration: for the whole day'], why:'The ablative of a word of time, without a preposition, tells when something happened.'}]},
+
+'aug-1': {author:'Augustine', work:'Confessiones', locus:'I.1', src:['aug_pd','ag'],
+  lat:'… quia fecisti nos ad te et inquietum est cor nostrum donec requiescat in te.',
+  eng:'… for Thou madest us for Thyself, and our heart is restless, until it repose in Thee.\n— Pusey',
+  ctx:'Augustine opens the <em>Confessions</em> with praise of God, and then gives the reason that a human being wishes to praise him. He speaks to God throughout, in the second person.',
+  parts:[
+   {t:'quia fecisti nos ad te', h:'A clause of cause', n:'<em>Quia</em> with the indicative gives a reason as a fact: because you made us. <em>Fecisti</em> is the second person singular, addressed to God, and <em>ad te</em>, “toward you,” gives the end for which we were made.'},
+   {t:'et inquietum est cor nostrum', h:'A second clause', n:'<em>Et</em> joins a second clause. <em>Cor nostrum</em> is the subject, and <em>inquietum</em>, neuter to agree with <em>cor</em>, is the predicate adjective with <em>est</em>.'},
+   {t:'donec requiescat in te', h:'A clause of time', n:'<em>Donec</em> with the subjunctive marks an end looked forward to: until it rest in you.'}],
+  qs:[
+   {t:'fecisti', q:'<em>fecisti</em> is…', a:'Second person singular perfect: “you made,” said to God', ds:['First person singular perfect: “I made”','Third person singular perfect: “he made”','Second person plural perfect: “you all made”'], why:'The ending <em>-isti</em> marks the second person singular of the perfect. Augustine addresses God throughout the book.'},
+   {t:'inquietum', q:'<em>inquietum</em> agrees with…', a:'<em>cor</em>, which is neuter', ds:['<em>nos</em>, the object of <em>fecisti</em>','<em>te</em>, God','Nothing: it is an adverb'], why:'<em>Cor</em> is a neuter noun, and the predicate adjective with <em>est</em> agrees with it: <em>inquietum est cor nostrum</em>.'},
+   {t:'donec requiescat', q:'<em>donec requiescat</em> depends on…', a:'<em>inquietum est</em>: it bounds the restlessness in time', ds:['<em>fecisti</em>, as a purpose clause','<em>ad te</em>, as a relative clause naming God','Nothing: it is a third main clause'], why:'<em>Donec</em> with the subjunctive marks an end looked forward to. <em>Et</em> joins the two main clauses, and <em>donec</em> depends on the second.'}]},
+
+'boe-1': {author:'Boethius', work:'De consolatione philosophiae', locus:'I, prose 1', src:['boeth_loeb','ag'],
+  lat:'Haec dum mecum tacitus ipse reputarem querimoniamque lacrimabilem stili officio signarem, adstitisse mihi supra uerticem uisa est mulier …',
+  eng:'While I ruminated these things with myself, and determined to set forth my woful complaint in writing, methought I saw a woman stand above my head, …\n— trans. “I. T.” (1609), revised by H. F. Stewart',
+  ctx:'Boethius wrote the <em>Consolation</em> in prison, awaiting execution. The book opens with a poem of lament; this prose section begins as Philosophy appears to him. The text writes <em>u</em> for <em>v</em>.',
+  parts:[
+   {t:'Haec dum mecum tacitus ipse reputarem', h:'A clause of time', n:'<em>Dum</em> with the imperfect subjunctive, as later Latin often has it: while I was turning these things over with myself. <em>Haec</em>, the object, stands first, and <em>tacitus ipse</em> agrees with the understood subject, “I.”'},
+   {t:'querimoniamque lacrimabilem stili officio signarem', h:'A second verb in the same clause', n:'<em>-que</em> joins <em>signarem</em> to <em>reputarem</em> under the same <em>dum</em>: and was marking my tearful complaint by the service of the pen. <em>Stili officio</em> is an ablative of means.'},
+   {t:'adstitisse mihi supra uerticem', h:'A perfect infinitive', n:'<em>Adstitisse</em> is a perfect infinitive depending on <em>uisa est</em>: seemed to have stood. <em>Mihi</em> is dative with <em>adstitisse</em>, and <em>supra uerticem</em>, “above my head,” gives the place.'},
+   {t:'uisa est mulier', h:'The main clause', n:'<em>Mulier</em> is the subject and <em>uisa est</em> the verb: a woman seemed. The main clause comes last, after the clause of time and the infinitive that depends on it.'}],
+  qs:[
+   {t:'dum', q:'<em>dum … reputarem</em> depends on…', a:'<em>uisa est</em>, the main verb of the period', ds:['<em>mulier</em>, as a purpose clause','<em>uerticem</em>, as the noun it governs','Nothing: it is an independent wish'], why:'<em>Dum … reputarem … signarem</em> is a clause of time, with the subjunctive as later Latin often has it with <em>dum</em>. The main clause is <em>uisa est mulier</em>.'},
+   {t:'tacitus', q:'<em>tacitus</em> agrees with…', a:'The understood subject of <em>reputarem</em>, “I”', ds:['<em>haec</em>, the things turned over','<em>mulier</em>, the woman','<em>stili</em>, the pen'], why:'<em>Tacitus ipse</em> is nominative masculine singular and describes the speaker, the subject of <em>reputarem</em>.'},
+   {t:'stili officio', q:'<em>stili officio</em> is…', a:'An ablative of means: by the service of the pen', ds:['A dative of purpose: for the service of the pen','An ablative absolute: the pen having served','A genitive of the thing marked'], why:'The ablative without a preposition gives the means by which the complaint was marked. <em>Stili</em> is genitive, depending on <em>officio</em>.'},
+   {t:'adstitisse', q:'<em>adstitisse</em> is…', a:'A perfect infinitive depending on <em>uisa est</em>', ds:['A perfect indicative','A present infinitive of purpose','A historical infinitive'], why:'<em>Videor</em> takes an infinitive: <em>adstitisse uisa est</em>, “she seemed to have stood.” The perfect infinitive marks an act complete before the seeming.'}]},
+
+/* The five prose passages of the drill. */
+'cic-cat1-2': {author:'Cicero', work:'In Catilinam', locus:'I.2', src:['yonge','dcc','ag'],
+  lat:'O tempora, o mores! senatus haec intellegit, consul videt; hic tamen vivit. vivit? immo vero etiam in senatum venit, …',
+  eng:'Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives! aye, he comes even into the senate.\n— Yonge',
+  ctx:'A few lines into the first speech against Catiline, Cicero turns from Catiline to the state of the times: the senate and the consul know what he is doing, and yet he lives and even comes into the senate.',
+  parts:[
+   {t:'O tempora, o mores', h:'The accusative of exclamation', n:'With <em>o</em>, the accusative can stand alone as an exclamation: what times, what customs!'},
+   {t:'senatus haec intellegit, consul videt', h:'Two clauses without a conjunction', n:'Two short independent clauses stand side by side with no joining word, an arrangement called asyndeton. <em>Haec</em>, neuter plural, is the object of both verbs.'},
+   {t:'hic tamen vivit', h:'The turn', n:'<em>Hic</em>, “this man,” is Catiline, the subject of <em>vivit</em>, and <em>tamen</em>, “nevertheless,” sets this clause against the two before it.'},
+   {t:'vivit? immo vero etiam in senatum venit', h:'The verb repeated as a question', n:'The verb is asked again as a question of its own, and <em>immo vero</em>, “nay rather,” corrects it upward: he even comes into the senate. <em>In</em> with the accusative gives motion into.'}],
+  qs:[
+   {t:'O tempora, o mores', q:'<em>O tempora, o mores!</em> is…', a:'An exclamation, in the accusative of exclamation', ds:['Two vocatives, addressing the times and the customs','The subjects of <em>intellegit</em>','Two nominatives in apposition to <em>senatus</em>'], why:'With <em>o</em>, an accusative can stand alone as an exclamation (Allen and Greenough §397 d): what times, what customs! The times are not addressed but deplored.'},
+   {t:'senatus haec intellegit, consul videt', q:'<em>senatus haec intellegit, consul videt</em> is…', a:'Parataxis of two complete clauses, without a conjunction', ds:['A relative clause taking up <em>tempora</em>','<em>videt</em> depending on <em>intellegit</em> as its purpose','One verb governing both nominatives as objects'], why:'There are two short independent clauses and no joining word. This arrangement without a conjunction is called asyndeton.'},
+   {t:'haec', q:'<em>haec</em> is…', a:'Neuter plural accusative, the object of <em>intellegit</em> and <em>videt</em>', ds:['Feminine singular nominative, the subject','Neuter plural nominative, the subject of <em>videt</em>','Ablative singular: “in this way”'], why:'<em>Haec</em>, “these things,” is what the senate understands and the consul sees.'},
+   {t:'vivit?', q:'In <em>vivit?</em> after <em>vivit</em>, the second is…', a:'A new independent question repeating the verb', ds:['A subordinate clause of result after <em>tamen</em>','A relative clause taking up the pronoun <em>hic</em>','An incomplete clause until <em>ut</em> is supplied'], why:'The same verb stands again as a question of its own, a new independent clause beside the one before.'},
+   {t:'in senatum', q:'<em>in senatum</em>: what are the case and the sense?', a:'Accusative with <em>in</em>: motion into the senate', ds:['Ablative: place where, in the senate','Nominative: the senate comes','Dative: for the senate'], why:'With a verb of motion such as <em>venit</em>, <em>in</em> with the accusative gives the place into which.'}]},
+
+'cic-milo-1': {author:'Cicero', work:'Pro Milone', locus:'1', src:['yonge','ag'],
+  lat:'Etsi vereor, iudices, ne turpe sit pro fortissimo viro dicere incipientem timere, …',
+  eng:'Although I fear, judges, that it may be shameful, when beginning to speak for a most brave man, to be afraid, …\n'+LIT_R,
+  ctx:'In 52 BC Cicero defended Milo, who was charged with the killing of Clodius. The court was surrounded by soldiers, and Cicero begins by admitting that he is afraid.',
+  parts:[
+   {t:'Etsi vereor, iudices', h:'A concession', n:'<em>Etsi</em>, “although,” grants a fact: although I fear. <em>Iudices</em> is vocative.'},
+   {t:'ne turpe sit', h:'A clause of fearing', n:'After a verb of fearing, <em>ne</em> with the subjunctive gives the thing feared, where English says “that”: that it may be shameful.'},
+   {t:'pro fortissimo viro dicere incipientem timere', h:'The infinitive subject', n:'<em>Timere</em> is the subject of <em>turpe sit</em>: to be afraid is shameful. <em>Incipientem</em> agrees with the understood subject of <em>timere</em>, one beginning to speak, and <em>dicere</em> completes <em>incipientem</em>. <em>Pro fortissimo viro</em>, “on behalf of a most brave man,” goes with <em>dicere</em>.'}],
+  qs:[
+   {t:'Etsi', q:'<em>Etsi</em> introduces…', a:'A concession: “although”', ds:['A condition: “if”','A cause: “because”','A purpose: “in order that”'], why:'<em>Etsi</em> grants a fact that might seem to stand against the main thought: although I fear.'},
+   {t:'ne turpe sit', q:'In <em>vereor … ne turpe sit</em>, what is the <em>ne</em>-clause?', a:'A clause of fearing after <em>vereor</em>', ds:['A negative purpose clause: “so that it may not be shameful”','A prohibition: “let it not be shameful”','A result clause after <em>etsi</em>'], why:'After a verb of fearing, <em>ne</em> with the subjunctive gives the thing feared, where English says “that.”'},
+   {t:'fortissimo', q:'<em>fortissimo</em> is…', a:'A superlative adjective in the ablative, with <em>viro</em> after <em>pro</em>', ds:['A comparative adverb','A superlative in the dative, the indirect object','A nominative agreeing with the speaker'], why:'<em>Pro</em> takes the ablative, and <em>fortissimo</em>, “most brave,” agrees with <em>viro</em>.'},
+   {t:'incipientem', q:'<em>incipientem</em> agrees with…', a:'The understood subject of <em>timere</em>: one who is beginning', ds:['<em>viro</em>, the brave man','<em>iudices</em>, the judges','<em>turpe</em>, the shameful thing'], why:'<em>Incipientem</em> is accusative, and the subject of an infinitive is accusative: for one beginning to speak to be afraid.'},
+   {t:'timere', q:'<em>timere</em> is…', a:'An infinitive used as the subject of <em>turpe sit</em>', ds:['An infinitive of purpose after <em>dicere</em>','A historical infinitive','An imperative'], why:'An infinitive can be the subject of <em>est</em> with an adjective: to be afraid is shameful.'}]},
+
+'sal-caes-1': {author:'Sallust', work:'Bellum Catilinae', locus:'51', src:['sallust_w','ag'],
+  lat:'Omnis homines, patres conscripti, qui de rebus dubiis consultant, ab odio, amicitia, ira atque misericordia vacuos esse decet.',
+  eng:'It becomes all men, Conscript Fathers, who deliberate on dubious matters, to be influenced neither by hatred, affection, anger, nor pity.\n— Watson',
+  ctx:'In the debate on the punishment of the conspirators, Sallust gives Julius Caesar a speech urging the senate not to act in anger. This is its first sentence.',
+  parts:[
+   {t:'Omnis homines', h:'The subject of the infinitive', n:'<em>Omnis</em> is the accusative plural in <em>-is</em>, the same as <em>omnes</em>. <em>Omnis homines</em> is the subject of <em>vacuos esse</em>, and so it is accusative.'},
+   {t:'qui de rebus dubiis consultant', h:'A relative clause', n:'<em>Qui</em> takes up <em>homines</em> and tells which men: those who deliberate about doubtful matters.'},
+   {t:'ab odio, amicitia, ira atque misericordia', h:'The ablative of separation', n:'<em>Vacuus</em>, “free,” takes the ablative of what one is free from, here with <em>ab</em>. The four nouns stand in a list, with <em>atque</em> before the last.'},
+   {t:'vacuos esse decet', h:'The impersonal verb', n:'<em>Decet</em>, “it is fitting,” is impersonal and takes an accusative and infinitive: it is fitting that all men be free. <em>Vacuos</em> agrees with <em>homines</em>.'}],
+  qs:[
+   {t:'Omnis homines', q:'What are the case and the use of <em>omnis homines</em>?', a:'Accusative plural, the subject of the infinitive <em>vacuos esse</em>', ds:['Nominative plural, the subject of <em>decet</em>','Genitive singular, “of every man”','Vocative, addressing all men'], why:'<em>Omnis</em> is an accusative plural in <em>-is</em>. With <em>decet</em>, the persons for whom something is fitting stand in the accusative as the subject of the infinitive.'},
+   {t:'qui de rebus dubiis consultant', q:'<em>qui … consultant</em> depends on…', a:'<em>homines</em>: a relative clause telling which men', ds:['<em>patres conscripti</em>, the senators addressed','<em>decet</em>, as a clause of cause','<em>rebus</em>, the matters deliberated'], why:'The relative takes up <em>homines</em>, the subject of the infinitive. <em>Decet</em> then governs <em>vacuos esse</em>.'},
+   {t:'ab odio', q:'<em>ab odio, amicitia, ira atque misericordia</em> is…', a:'An ablative of separation with <em>vacuos</em>: free from these', ds:['An ablative of agent: by hatred and the rest','An ablative of cause: because of hatred','An ablative of time'], why:'<em>Vacuus</em> takes the ablative of what one is free from, here with <em>ab</em>.'},
+   {t:'decet', q:'<em>decet</em> is…', a:'An impersonal verb governing an accusative and an infinitive', ds:['A personal verb with <em>homines</em> as its subject','A verb in the subjunctive of purpose','A deponent verb'], why:'<em>Decet</em>, “it is fitting,” has no personal subject; what is fitting stands in the infinitive, with its subject in the accusative.'}]},
+
+'liv-luc-1': {author:'Livy', work:'Ab urbe condita', locus:'I.58', src:['livy_r','ag'],
+  lat:'… postquam satis tuta circa sopitique omnes videbantur, stricto gladio ad dormientem Lucretiam venit sinistraque manu mulieris pectore oppresso …',
+  eng:'When all around seemed safe and everybody fast asleep, he went in the frenzy of his passion with a naked sword to the sleeping Lucretia, and placing his left hand on her breast, said, …\n— Roberts',
+  ctx:'Sextus Tarquinius, the king’s son, came at night to the house of Collatinus while he was away, and went to the room of Lucretia, his wife. Livy tells it in one sentence of circumstances leading to the main verb.',
+  parts:[
+   {t:'postquam satis tuta circa sopitique omnes videbantur', h:'A clause of time', n:'<em>Postquam</em> with the indicative <em>videbantur</em> gives the time: after everything around seemed safe and all asleep. <em>Tuta circa</em> and <em>sopiti omnes</em> are two subjects with their predicates, joined by <em>-que</em>.'},
+   {t:'stricto gladio', h:'An ablative absolute', n:'A noun and a participle in the ablative give a circumstance: the sword having been drawn, that is, with drawn sword.'},
+   {t:'ad dormientem Lucretiam venit', h:'The main verb', n:'<em>Venit</em> is the main verb, and <em>ad … Lucretiam</em> gives the goal. <em>Dormientem</em>, a present participle, agrees with <em>Lucretiam</em>.'},
+   {t:'sinistraque manu mulieris pectore oppresso', h:'A second ablative absolute', n:'<em>Pectore oppresso</em> is another ablative absolute, her breast having been pressed down, and <em>sinistra manu</em> is the ablative of means: with his left hand. <em>Mulieris</em> is genitive, depending on <em>pectore</em>.'}],
+  qs:[
+   {t:'postquam', q:'<em>postquam … videbantur</em> is…', a:'A clause of time with the indicative', ds:['A clause of cause with the subjunctive','A relative clause','A condition'], why:'<em>Postquam</em>, “after,” takes the indicative and gives the time of the main action.'},
+   {t:'sopitique', q:'<em>sopiti</em> agrees with…', a:'<em>omnes</em>, the second subject of <em>videbantur</em>', ds:['<em>tuta</em>, the things around','The understood subject of <em>venit</em>','<em>Lucretiam</em>'], why:'<em>Sopiti</em> is nominative masculine plural, the predicate of <em>omnes</em>: all seemed asleep. <em>-que</em> joins it to the first clause.'},
+   {t:'stricto gladio', q:'<em>stricto gladio</em> is…', a:'An ablative absolute: the sword having been drawn', ds:['A dative after <em>venit</em>, “he came to the drawn sword”','A nominative agreeing with the understood subject, Tarquin','An accusative, the object of the verb <em>venit</em>'], why:'A noun and a participle in the ablative stand apart as a circumstance of <em>venit</em>. Roberts renders it as a phrase, “with a naked sword.”'},
+   {t:'dormientem', q:'<em>dormientem</em> is…', a:'A present participle agreeing with <em>Lucretiam</em>', ds:['A gerund, “by sleeping”','A perfect participle, “having slept”','An infinitive'], why:'<em>Dormientem</em> is the accusative singular of the present participle, and it agrees with <em>Lucretiam</em> after <em>ad</em>: to the sleeping Lucretia.'},
+   {t:'pectore oppresso', q:'<em>mulieris pectore oppresso</em> is…', a:'A second ablative absolute: the woman’s breast pressed down', ds:['The object of <em>venit</em>','A dative of the person affected','An ablative of comparison'], why:'The noun <em>pectore</em> and the participle <em>oppresso</em> stand in the ablative as a circumstance, with <em>sinistra manu</em> as the means.'}]},
+
+'tac-cal-1': {author:'Tacitus', work:'Agricola', locus:'30', src:['tacitus_cb','ag'],
+  lat:'auferre trucidare rapere falsis nominibus imperium, atque ubi solitudinem faciunt, pacem appellant.',
+  eng:'To carry off, to slaughter, to plunder, they call by false names empire; and where they make a desert, they call it peace.\n'+LIT_R,
+  ctx:'Tacitus gives a speech to Calgacus, a British chief, before the battle with the Roman army of Agricola. These are the last words of his description of the Romans.',
+  parts:[
+   {t:'auferre trucidare rapere', h:'Three infinitives used as nouns', n:'Three infinitives, without a conjunction, name actions as things: to carry off, to slaughter, to plunder. They are the object of <em>appellant</em>, which is understood here from the end of the sentence.'},
+   {t:'falsis nominibus imperium', h:'The name given', n:'<em>Imperium</em> is the predicate accusative, the name they give those actions, and <em>falsis nominibus</em> is the ablative of manner: by false names.'},
+   {t:'atque ubi solitudinem faciunt', h:'A clause of place', n:'<em>Ubi</em> with the indicative gives a place or occasion as a fact: where they make a desert.'},
+   {t:'pacem appellant', h:'The main verb', n:'<em>Appellant</em> takes the predicate accusative <em>pacem</em>, and its object, the desert they have made, is understood: they call it peace.'}],
+  qs:[
+   {t:'auferre trucidare rapere', q:'The three infinitives are…', a:'Infinitives used as nouns, the object of an understood <em>appellant</em>', ds:['Historical infinitives standing for past verbs','Infinitives of purpose','Imperatives'], why:'An infinitive can name an action as a thing. Here the three are what the Romans call empire.'},
+   {t:'falsis nominibus', q:'<em>falsis nominibus</em> is…', a:'An ablative of manner: by false names', ds:['A dative: for false names','An ablative absolute','The object of <em>appellant</em>'], why:'The ablative with an adjective tells how the naming is done.'},
+   {t:'imperium', q:'<em>imperium</em> stands as…', a:'The predicate accusative: the name given to those actions', ds:['The subject of the sentence','A genitive depending on <em>nominibus</em>','An ablative of means'], why:'A verb of calling takes two accusatives, the thing named and the name: they call plundering empire.'},
+   {t:'ubi solitudinem faciunt', q:'<em>ubi … faciunt</em> depends on…', a:'<em>appellant</em>, the main verb: “they call it peace”', ds:['<em>imperium</em>, as a relative clause naming the empire','Nothing: the two verbs are independent and equal','<em>auferre</em>, as a clause of purpose'], why:'<em>Ubi … faciunt</em> depends on <em>appellant</em>: where, or whenever, they make a desert. <em>Ubi</em> with the indicative states a repeated fact.'}]},
+
+/* Poetry. Virgil from Greenough's text as printed by Perseus, with Dryden's English. Ovid, Catullus, Horace, and
+   Ambrose as printed by The Latin Library (read 2026-10-15), with this course's literal rendering. */
+'verg-1': {author:'Virgil', work:'Aeneid', locus:'I.1–11', meter:'Dactylic hexameter', src:['verg_pd','dcc','ag'],
+  lat:'Arma virumque cano, Troiae qui primus ab oris\nItaliam, fato profugus, Laviniaque venit\nlitora, multum ille et terris iactatus et alto\nvi superum saevae memorem Iunonis ob iram;\nmulta quoque et bello passus, dum conderet urbem,\ninferretque deos Latio, genus unde Latinum,\nAlbanique patres, atque altae moenia Romae.\nMusa, mihi causas memora, quo numine laeso,\nquidve dolens, regina deum tot volvere casus\ninsignem pietate virum, tot adire labores\nimpulerit. Tantaene animis caelestibus irae?',
+  eng:'Arms, and the man I sing, who, forc’d by fate,\nAnd haughty Juno’s unrelenting hate,\nExpell’d and exil’d, left the Trojan shore.\nLong labours, both by sea and land, he bore,\nAnd in the doubtful war, before he won\nThe Latian realm, and built the destin’d town;\nHis banish’d gods restor’d to rites divine,\nAnd settled sure succession in his line,\nFrom whence the race of Alban fathers come,\nAnd the long glories of majestic Rome.\nO Muse! the causes and the crimes relate;\nWhat goddess was provok’d, and whence her hate;\nFor what offence the Queen of Heav’n began\nTo persecute so brave, so just a man;\nInvolv’d his anxious life in endless cares,\nExpos’d to wants, and hurried into wars!\nCan heav’nly minds such high resentment show,\nOr exercise their spite in human woe?\n— Dryden',
+  ctx:'Virgil opens the <em>Aeneid</em> by stating his subject, the man and his wars, in one long period of seven lines, and then asks the Muse for the cause of Juno’s anger. The meter is the dactylic hexameter. Poetry keeps the grammar of prose, but it places the words more freely.',
+  parts:[
+   {t:'Arma virumque cano', h:'The main verb and its two objects', n:'<em>Cano</em>, “I sing,” governs two accusatives, <em>arma</em> and <em>virum</em>, joined by <em>-que</em>.'},
+   {t:'Troiae qui primus ab oris', h:'A relative clause', n:'<em>Qui</em> takes up <em>virum</em>, and its verb is <em>venit</em> in the next line. <em>Troiae … ab oris</em>, “from the shores of Troy,” is divided by <em>qui primus</em>.'},
+   {t:'Italiam, fato profugus, Laviniaque venit', h:'Place to which without a preposition', n:'<em>Italiam</em> and <em>Lavinia … litora</em> are accusatives of the place to which, without a preposition, as poetry allows. <em>Fato profugus</em>, “an exile by fate,” describes the man.'},
+   {t:'multum ille et terris iactatus et alto', h:'A participle with two places', n:'<em>Ille</em> is the man again, and <em>iactatus</em>, “tossed,” agrees with him. <em>Et terris … et alto</em> gives the places, by land and by sea, in the ablative.'},
+   {t:'vi superum saevae memorem Iunonis ob iram', h:'Two causes', n:'<em>Vi superum</em>, “by the force of the gods above,” is an ablative of means, with <em>superum</em> as an older genitive plural for <em>superorum</em>. <em>Ob</em> governs <em>iram</em>, and <em>memorem</em> agrees with <em>iram</em>: because of the unforgetting anger of cruel Juno.'},
+   {t:'dum conderet urbem', h:'A clause of anticipation', n:'<em>Dum</em> with the subjunctive marks an end looked forward to: until he should found a city.'},
+   {t:'genus unde Latinum', h:'A relative adverb', n:'<em>Unde</em>, “from whom,” begins a relative clause whose verb (<em>est</em> or <em>ortum est</em>) is understood: from whom came the Latin race.'},
+   {t:'Musa, mihi causas memora', h:'The invocation', n:'<em>Musa</em> is vocative, and <em>memora</em> is the imperative: Muse, tell me the causes.'},
+   {t:'quo numine laeso', h:'An indirect question', n:'<em>Quo numine laeso</em>, “what divine will having been wounded,” is an ablative absolute that is also a question. With <em>quidve dolens</em> it makes an indirect question after <em>memora</em>, whose verb is <em>impulerit</em>.'},
+   {t:'Tantaene animis caelestibus irae?', h:'An independent question', n:'<em>-ne</em> marks a new question, with <em>sunt</em> understood, and <em>animis caelestibus</em> is a dative of possession: are there such angers in heavenly minds?'}],
+  qs:[
+   {t:'virumque', q:'<em>virumque</em> is joined to <em>arma</em> how?', a:'By <em>-que</em>: two objects of <em>cano</em>, side by side', ds:['As a relative clause, since <em>virum</em> is taken up by <em>qui</em>','By hypotaxis, as if <em>ut</em> were understood before <em>virum</em>','As a nominative, since <em>-que</em> changes the case of <em>virum</em>'], why:'Both accusatives are objects of <em>cano</em>. <em>-que</em> joins them as companions, and neither depends on the other.'},
+   {t:'qui', q:'<em>qui … venit</em> depends on…', a:'<em>virum</em>, the man just named, as its antecedent', ds:['<em>arma</em>, the first object','<em>litora</em>, the shores he reached','<em>cano</em>, as the thing sung'], why:'The relative takes up the man. Its own verb is <em>venit</em>, so <em>qui</em> is nominative.'},
+   {t:'Italiam', q:'<em>Italiam</em> with <em>venit</em> is…', a:'An accusative of the place to which, without a preposition', ds:['The direct object of <em>cano</em>','A nominative, the subject of <em>venit</em>','An ablative of place where'], why:'Prose would say <em>in Italiam</em>; poetry often gives the place to which in the bare accusative.'},
+   {t:'dum conderet', q:'How does <em>dum conderet</em> depend?', a:'Hypotaxis: <em>dum</em> with the subjunctive, of a goal awaited', ds:['Parataxis: <em>dum</em> joins a second, equal fact','Hypotaxis of cause: <em>dum</em> means “because”','No dependence, since <em>conderet</em> has its own subject'], why:'<em>Dum</em> with the subjunctive marks an end anticipated: until he should found a city.'},
+   {t:'impulerit', q:'<em>impulerit</em> is subjunctive because…', a:'It is an indirect question after <em>memora</em>', ds:['It is a purpose clause, telling why the Muse is asked','It is a result clause following <em>tot</em>, “so many”','Poetic license lets the subjunctive stand for the indicative'], why:'<em>Memora</em> governs <em>quo … quidve … impulerit</em>, and a reported question takes the subjunctive.'},
+   {t:'Tantaene animis caelestibus irae?', q:'<em>Tantaene … irae?</em> is…', a:'An independent question beside the invocation', ds:['A relative clause taking up <em>virum</em>','A purpose clause depending on <em>impulerit</em>','An incomplete clause, since no verb can be supplied'], why:'<em>-ne</em> marks a new question, and <em>sunt</em> is understood. It does not depend on <em>memora</em>.'}]},
+
+'ov-am-1': {author:'Ovid', work:'Amores', locus:'I.1.1–4', meter:'Elegiac couplet', src:['ovid_am','ag'],
+  lat:'Arma gravi numero violentaque bella parabam\nedere, materia conveniente modis.\npar erat inferior versus—risisse Cupido\ndicitur atque unum surripuisse pedem.',
+  eng:'Arms and violent wars I was preparing to bring forth in weighty measure, with the matter suited to the meter. The lower verse was equal; Cupid is said to have laughed and to have stolen one foot.\n'+LIT_R,
+  ctx:'Ovid begins his love poems by explaining why they are not epic. He meant to write of wars in hexameters, but Cupid stole a foot from the second line, and so the elegiac couplet was made: a hexameter followed by a shorter line, the pentameter.',
+  parts:[
+   {t:'Arma gravi numero violentaque bella parabam', h:'The imperfect of intention', n:'<em>Parabam</em>, imperfect, “I was preparing,” presents the plan as going on and not carried out. <em>Arma</em> and <em>bella</em> are the objects of <em>edere</em>, and <em>gravi numero</em> is an ablative of manner: in a weighty meter.'},
+   {t:'edere, materia conveniente modis', h:'The infinitive and an ablative absolute', n:'<em>Edere</em>, “to bring forth,” completes <em>parabam</em>. <em>Materia conveniente</em> is an ablative absolute, the matter being suited, and <em>modis</em> is dative with <em>conveniente</em>: to the meters.'},
+   {t:'par erat inferior versus', h:'A predicate adjective', n:'<em>Inferior versus</em>, the lower line, is the subject, and <em>par</em> is the predicate: it was equal, that is, it too was a hexameter.'},
+   {t:'risisse Cupido', h:'The personal construction with dicitur', n:'<em>Cupido … dicitur</em>, “Cupid is said,” takes the infinitive <em>risisse</em>, “to have laughed”: Latin makes the person the subject of <em>dicitur</em>.'},
+   {t:'atque unum surripuisse pedem', h:'A second infinitive', n:'<em>Surripuisse</em> is the second infinitive after <em>dicitur</em>, joined by <em>atque</em>. <em>Unum … pedem</em> is its object, divided around the verb: one foot.'}],
+  qs:[
+   {t:'parabam', q:'<em>parabam</em> is…', a:'Imperfect: “I was preparing,” a plan not carried out', ds:['Perfect: “I prepared,” a finished act','Present: “I prepare”','Pluperfect: “I had prepared”'], why:'The imperfect presents the action as going on, and here as intended but not completed, because Cupid interfered.'},
+   {t:'materia conveniente', q:'<em>materia conveniente</em> is…', a:'An ablative absolute: the matter being suited', ds:['The subject of <em>edere</em>','A dative with <em>modis</em>','An ablative of comparison'], why:'A noun and a participle in the ablative give a circumstance: with the matter suited to the meters.'},
+   {t:'modis', q:'<em>modis</em> is…', a:'Dative with <em>conveniente</em>: suited to the meters', ds:['Ablative of means: by the meters','Accusative plural, the object of <em>edere</em>','Genitive singular'], why:'<em>Convenio</em>, “suit,” takes the dative of the thing suited.'},
+   {t:'risisse Cupido', q:'How does <em>risisse</em> stand?', a:'As an infinitive with <em>dicitur</em>: Cupid is said to have laughed', ds:['As a historical infinitive','As an infinitive of purpose','As the subject of <em>erat</em>'], why:'With <em>dicitur</em>, Latin makes the person the subject and puts the action in the infinitive. The perfect infinitive marks a past act.'},
+   {t:'unum', q:'<em>unum</em> agrees with…', a:'<em>pedem</em>, at the end of the line', ds:['<em>Cupido</em>','<em>versus</em>','<em>inferior</em>'], why:'Both are accusative masculine singular: <em>unum … pedem</em>, one foot. Poetry often divides an adjective from its noun.'}]},
+
+'cat-5': {author:'Catullus', work:'Carmina', locus:'5.1–6', meter:'Hendecasyllable', src:['catull','ag'],
+  lat:'Vivamus mea Lesbia, atque amemus,\nrumoresque senum severiorum\nomnes unius aestimemus assis!\nsoles occidere et redire possunt:\nnobis cum semel occidit brevis lux,\nnox est perpetua una dormienda.',
+  eng:'Let us live, my Lesbia, and let us love, and let us value all the rumors of rather severe old men at a single penny. Suns can set and return; for us, when once the brief light has set, one perpetual night must be slept.\n'+LIT_R,
+  ctx:'Catullus urges Lesbia to live and love without regard to the talk of old men, because life is short. The meter is the hendecasyllable, a line of eleven syllables.',
+  parts:[
+   {t:'Vivamus mea Lesbia, atque amemus', h:'Hortatory subjunctives', n:'<em>Vivamus</em> and <em>amemus</em> are present subjunctives of exhortation: let us live, let us love. <em>Mea Lesbia</em> is vocative.'},
+   {t:'rumoresque senum severiorum', h:'The object, and a comparative', n:'<em>Rumores</em> is the object of <em>aestimemus</em> in the next line, and <em>senum</em> is a genitive plural. <em>Severiorum</em> is a comparative, “rather severe.”'},
+   {t:'omnes unius aestimemus assis', h:'The genitive of value', n:'<em>Unius … assis</em>, “at one as,” the smallest coin, is a genitive of value with <em>aestimemus</em>, a third hortatory subjunctive.'},
+   {t:'soles occidere et redire possunt', h:'Complementary infinitives', n:'<em>Possunt</em> takes two infinitives, <em>occidere</em> and <em>redire</em>: suns can set and return.'},
+   {t:'nobis cum semel occidit brevis lux', h:'A clause of time', n:'<em>Cum</em> with the indicative <em>occidit</em> gives the time: when once the brief light has set. <em>Nobis</em> goes with <em>dormienda</em> in the next line.'},
+   {t:'nox est perpetua una dormienda', h:'The gerundive of obligation', n:'<em>Dormienda est</em>, the gerundive with <em>est</em>, says what must be done: one perpetual night must be slept. <em>Nobis</em> is the dative of the agent, by us.'}],
+  qs:[
+   {t:'Vivamus', q:'<em>vivamus</em> is…', a:'A present subjunctive of exhortation: “let us live”', ds:['A present indicative: “we live”','A future: “we shall live”','An imperative plural'], why:'The present subjunctive in the first person plural urges an action that includes the speaker.'},
+   {t:'unius', q:'<em>unius … assis</em> is…', a:'A genitive of value: at one as', ds:['A genitive of possession: of one coin','An ablative of price','A nominative'], why:'Verbs of valuing take the genitive of the value set on a thing.'},
+   {t:'occidere et redire', q:'<em>occidere</em> and <em>redire</em> depend on…', a:'<em>possunt</em>, as complementary infinitives', ds:['<em>soles</em>, as nouns in apposition','<em>aestimemus</em>, as its objects','Nothing: they are historical infinitives'], why:'<em>Possum</em> is completed by an infinitive: they are able to set and to return.'},
+   {t:'cum semel occidit', q:'<em>cum … occidit</em> is…', a:'A clause of time with the indicative: when once it has set', ds:['A causal clause with the subjunctive','A preposition with the ablative','A concessive clause'], why:'<em>Cum</em> with the indicative gives the time simply: when once the light has set.'},
+   {t:'dormienda', q:'In <em>nobis … nox est perpetua una dormienda</em>, what is <em>nobis</em>?', a:'The dative of the agent with the gerundive', ds:['An ablative of means','The subject of <em>est</em>','A dative of purpose'], why:'With the gerundive of obligation, the person who must act stands in the dative: one night must be slept by us.'}]},
+
+'hor-c-1-22': {author:'Horace', work:'Carmina', locus:'I.22.1–8', meter:'Sapphic stanza', src:['hor_carm','ag'],
+  lat:'Integer vitae scelerisque purus\nnon eget Mauris iaculis neque arcu\nnec venenatis gravida sagittis,\nFusce, pharetra,\nsive per Syrtis iter aestuosas\nsive facturus per inhospitalem\nCaucasum vel quae loca fabulosus\nlambit Hydaspes.',
+  eng:'The man who is upright in his life and clean of crime does not need Moorish javelins nor a bow, nor a quiver heavy with poisoned arrows, Fuscus, whether he is about to make his way through the sweltering Syrtes, or through the inhospitable Caucasus, or the places that the storied Hydaspes washes.\n'+LIT_R,
+  ctx:'Horace writes to his friend Aristius Fuscus that the upright man needs no weapons, wherever he travels. The meter is the sapphic stanza: three sapphic lines and a short adonic.',
+  parts:[
+   {t:'Integer vitae scelerisque purus', h:'The subject, described', n:'The subject is the man, understood, described by two adjectives: <em>integer vitae</em>, whole in his life, and <em>sceleris purus</em>, clean of crime. Both genitives tell in what respect.'},
+   {t:'non eget Mauris iaculis neque arcu', h:'Egeo with the ablative', n:'<em>Eget</em>, “needs,” takes the ablative: <em>Mauris iaculis</em>, Moorish javelins, and <em>arcu</em>, a bow.'},
+   {t:'nec venenatis gravida sagittis', h:'A third ablative', n:'<em>Gravida</em> agrees with <em>pharetra</em> in the next line, a third ablative with <em>eget</em>, and <em>venenatis … sagittis</em> is an ablative with <em>gravida</em>: heavy with poisoned arrows.'},
+   {t:'Fusce, pharetra', h:'The address', n:'<em>Fusce</em> is the vocative of <em>Fuscus</em>, the friend addressed, and <em>pharetra</em> is the quiver.'},
+   {t:'sive per Syrtis iter aestuosas', h:'Sive … sive', n:'<em>Sive … sive</em> gives alternatives: whether through the Syrtes or through the Caucasus. <em>Syrtis</em> is an accusative plural in <em>-is</em>, and <em>aestuosas</em> agrees with it; <em>iter</em> is the object of <em>facturus</em>.'},
+   {t:'sive facturus per inhospitalem', h:'A future participle', n:'<em>Facturus</em>, the future active participle, agrees with the understood man: about to make his way.'},
+   {t:'vel quae loca fabulosus', h:'A relative clause with its antecedent inside', n:'<em>Quae loca</em> puts the antecedent inside the relative clause: or the places which the storied Hydaspes washes. <em>Fabulosus</em> agrees with <em>Hydaspes</em>, the subject of <em>lambit</em>.'}],
+  qs:[
+   {t:'vitae', q:'<em>integer vitae</em>: what is <em>vitae</em>?', a:'A genitive telling in what respect: whole in life', ds:['A dative: whole for life','A nominative plural','A locative'], why:'Poetry uses the genitive with an adjective to tell in what respect the adjective holds: upright of life.'},
+   {t:'eget', q:'<em>eget</em> governs…', a:'The ablative: <em>iaculis</em>, <em>arcu</em>, and <em>pharetra</em>', ds:['The accusative','The dative','The genitive only'], why:'<em>Egeo</em>, “need,” takes the ablative of what is needed (and sometimes the genitive).'},
+   {t:'Fusce', q:'<em>Fusce</em> is…', a:'Vocative: Fuscus, the friend addressed', ds:['Ablative: by Fuscus','Nominative: the subject of <em>eget</em>','Genitive: of Fuscus'], why:'A noun of the second declension in <em>-us</em> has a vocative in <em>-e</em>.'},
+   {t:'Syrtis', q:'<em>Syrtis</em> is…', a:'Accusative plural, with <em>per</em>', ds:['Genitive singular','Nominative singular','Ablative plural'], why:'Some third-declension nouns have an accusative plural in <em>-is</em>; <em>aestuosas</em>, agreeing with it, shows the case.'},
+   {t:'facturus', q:'<em>facturus</em> is…', a:'A future active participle: about to make', ds:['A perfect passive participle','A gerundive','A present participle'], why:'The ending <em>-urus</em> marks the future active participle, here agreeing with the understood man.'}]},
+
+'amb-1': {author:'Ambrose', work:'Hymni', locus:'1.1–8', meter:'Iambic dimeter', src:['ambr_hymn','ag'],
+  lat:'Aeterne rerum conditor,\nNoctem diemque qui regis,\nEt temporum das tempora,\nUt alleves fastidium,\nPraeco diei jam sonat,\nNoctis profundae pervigil,\nNocturna lux viantibus,\nA nocte noctem segregans.',
+  eng:'Eternal maker of things, who rule night and day and give the times their times, that you may lighten weariness: the herald of the day now sounds, watchful through the deep night, a light in the night for travelers, setting night apart from night.\n'+LIT_R,
+  ctx:'Ambrose, bishop of Milan in the fourth century, wrote hymns for the people to sing. This one is for the morning, and its herald of the day is the cock. The meter is the iambic dimeter, four iambs to a line, in stanzas of four lines. The text as printed writes <em>j</em> for consonant <em>i</em>.',
+  parts:[
+   {t:'Aeterne rerum conditor', h:'The address', n:'<em>Conditor</em>, “maker,” and <em>aeterne</em> are vocative: God is addressed. <em>Rerum</em>, “of things,” is a genitive depending on <em>conditor</em>.'},
+   {t:'Noctem diemque qui regis', h:'A relative clause in the second person', n:'<em>Qui</em> takes up the one addressed, so its verb is in the second person: who rule. <em>Noctem diemque</em> is the object.'},
+   {t:'Et temporum das tempora', h:'A second verb', n:'<em>Et</em> joins <em>das</em> to <em>regis</em> in the same relative clause: and give the times of the seasons. <em>Temporum</em> is genitive plural.'},
+   {t:'Ut alleves fastidium', h:'A clause of purpose', n:'<em>Ut</em> with the present subjunctive <em>alleves</em> gives the purpose: that you may lighten weariness.'},
+   {t:'Praeco diei jam sonat', h:'A new sentence', n:'<em>Praeco</em>, the herald, is the subject of <em>sonat</em>, and <em>diei</em> is genitive: the herald of the day now sounds.'},
+   {t:'Noctis profundae pervigil', h:'An adjective with the genitive', n:'<em>Pervigil</em>, “watchful,” agrees with <em>praeco</em>, and <em>noctis profundae</em> tells through what: watchful through the deep night.'},
+   {t:'Nocturna lux viantibus', h:'Apposition and a dative', n:'<em>Lux</em> stands in apposition to <em>praeco</em>: a light in the night. <em>Viantibus</em>, a present participle used as a noun, is dative: for travelers.'},
+   {t:'A nocte noctem segregans', h:'A present participle', n:'<em>Segregans</em> agrees with <em>praeco</em>: separating night from night, that is, dividing the night at cockcrow.'}],
+  qs:[
+   {t:'Aeterne', q:'<em>aeterne … conditor</em> is…', a:'Vocative: God is addressed', ds:['Nominative: the subject of <em>regis</em>','Ablative: by the eternal maker','Genitive'], why:'<em>Aeterne</em> is the vocative of <em>aeternus</em>, and <em>conditor</em> has the same form in the vocative as in the nominative.'},
+   {t:'qui regis', q:'Why is <em>regis</em> in the second person?', a:'Its subject <em>qui</em> takes up the one addressed', ds:['Because it is an imperative','Because <em>qui</em> is always second person','Because it agrees with <em>noctem</em>'], why:'A relative takes the person of its antecedent, and the antecedent is God, addressed as “you.”'},
+   {t:'Ut alleves', q:'<em>ut alleves</em> is…', a:'A clause of purpose with the present subjunctive', ds:['A clause of result after <em>tempora</em>','An indirect question','A clause of time: as you lighten'], why:'<em>Ut</em> with the subjunctive gives the end for which the times are given: that you may lighten weariness.'},
+   {t:'viantibus', q:'<em>viantibus</em> is…', a:'A present participle used as a noun, in the dative: for travelers', ds:['An ablative absolute','A nominative plural','A future participle'], why:'<em>Viantes</em>, “those on the road,” is a participle used as a noun, and the dative tells for whom the herald is a light.'},
+   {t:'segregans', q:'<em>segregans</em> agrees with…', a:'<em>praeco</em>, the herald of the day', ds:['<em>nocte</em>','<em>noctem</em>','<em>lux</em> alone'], why:'<em>Segregans</em> is nominative singular and describes the herald, the subject of <em>sonat</em>.'}]}
+};
+
+/* The two sets. A study (walk) reads each of its passages through: the context, the parts, and then its questions.
+   A drill asks the questions of each of its passages, and then reads the passage through. So every passage has both. */
+const PSG_SETS = {
+  prose:{deck:'latprose', ex:'latprosedrill', title:'Latin Prose',
+    sub:'Fifteen passages of the historians, the orators, and the Christian writers, read part by part',
+    walk:['liv-1','cic-cat1-1','cic-cat2-1','cic-ver-1','cic-phil-1','sal-cat-1','liv-tar-1','liv-hor-1','aug-1','boe-1'],
+    drill:['cic-cat1-2','cic-milo-1','sal-caes-1','liv-luc-1','tac-cal-1']},
+  poetry:{deck:'latpoetry', ex:'latpoetrydrill', title:'Latin Poetry',
+    sub:'Five passages in five meters, read part by part',
+    walk:['verg-1','ov-am-1','cat-5','hor-c-1-22','amb-1'],
+    drill:['verg-1','ov-am-1','cat-5','hor-c-1-22','amb-1']}
+};
+/* The place of each stretch t in the passage, found in reading order: each is looked for from the start of the one
+   before it, so that a stretch inside a longer one is still found. */
+function psgPlaces(lat, list){
+  let from = 0;
+  return list.map(x => { const i = lat.indexOf(x.t, from); if(i >= 0) from = i; return i; });
+}
+function psgLatHtml(p, at, len){
+  const esc = s => nfEsc(s).replace(/\n/g, '<br>');
+  if(at == null || at < 0) return esc(p.lat);
+  return esc(p.lat.slice(0, at)) + '<span class="target">' + esc(p.lat.slice(at, at + len)) + '</span>' + esc(p.lat.slice(at + len));
+}
+const psgRef = p => `${p.author}, <i>${p.work}</i> ${p.locus}${p.meter ? ' · ' + p.meter : ''}`;
+/* The deck of each set, for the home page, the source list, and the text export. On screen the deck opens the
+   passage view (openPassages); its panels hold the same content as text. */
+Object.keys(PSG_SETS).forEach(k => {
+  const S = PSG_SETS[k];
+  const ids = S.walk.concat(S.drill.filter(id => S.walk.indexOf(id) < 0));
+  const panels = [];
+  ids.forEach(id => {
+    const p = PASSAGES[id];
+    const drill = S.walk.indexOf(id) < 0;
+    panels.push({src:p.src, h:`<p><strong>${psgRef(p)}${drill ? ' (in the drill)' : ''}</strong></p><p>${nfEsc(p.lat).replace(/\n/g, '<br>')}</p><p>${nfEsc(p.eng).replace(/\n/g, '<br>')}</p><p><strong>Context.</strong> ${p.ctx}</p>`});
+    p.parts.forEach(x => panels.push({src:p.src, h:`<p><strong>${x.h}.</strong> <em>${nfEsc(x.t)}</em>: ${x.n}</p>`}));
+    p.qs.forEach(x => panels.push({src:p.src, h:`<p><em>${nfEsc(x.t)}</em></p>`,
+      q:{prompt:x.q, options:[x.a].concat(x.ds), correct:0, explain:x.why}}));
+  });
+  DECKS[S.deck] = {title:S.title, sub:S.sub, passages:k, panels};
+  const pool = [];
+  S.drill.forEach(id => { const p = PASSAGES[id]; const at = psgPlaces(p.lat, p.qs); p.qs.forEach((x, i) => pool.push({p, x, at:at[i], id:id + ':' + i})); });
+  EX[S.ex] = {
+    id:S.ex, src:['ag'], title:S.title + ': Questions',
+    desc: k === 'prose'
+      ? 'Five passages of prose, each with its construction asked part by part: the case of a word, the clause it begins, and the word it depends on. After the questions the passage is read through.'
+      : 'The five passages of poetry, each with its construction asked part by part, and then read through.',
+    instr:'Choose the answer about the marked words.', modes:['la'],
+    custom(){ openPassages(k, 'drill'); },
+    /* For the quiz maker and the text export: one question, with its passage and the marked words. */
+    gen(d){
+      const it = pickSeen(pool, x => x.id);
+      const q = makeMC({id:'psg:' + it.id, q:it.x.q, a:it.x.a, ds:it.x.ds, why:it.x.why, src:it.p.src, lang:'la'}, d <= 1 ? 3 : 4);
+      q.passage = psgLatHtml(it.p, it.at, it.x.t.length);
+      q.source = psgRef(it.p);
+      q.orig = nfEsc(it.p.eng).replace(/\n/g, '<br>');
+      q.olang = 'English';
+      return q;
+    }
+  };
+});
+
+
 const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.';
 (function attachIntros(){
   const I = {
@@ -14562,13 +15014,33 @@ function scanEnQ(d){
 }
 EX.meter = {
   id:'meter', src:['ag','engclass','hypo'], act:'I', title:'Meter and Scansion',
-  desc:'Mark the long and short syllables of lines of Virgil and Ovid, and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
+  desc:'Name the meter of a Latin line or pattern, mark the long and short syllables of lines of Virgil and Ovid, and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
   instr:'Mark the syllables, write the feet, or name the meter.',
   intro:[
     {h:'<strong>How the exercise is assessed.</strong> A Latin line is shown, and each syllable is marked long or short. At the higher levels the feet are written as letters, D for a dactyl and S for a spondee. An English line is shown, and each syllable is marked as a beat or an offbeat. At the higher levels the meter of an English line is named. Where a syllable can be marked either way, the exercise accepts either mark.'}
   ],
-  gen(d){ return Math.random() < 0.5 ? scanLaQ(d) : scanEnQ(d); }
+  gen(d){ const r = Math.random(); return r < 0.25 ? meterNameQ(d) : r < 0.6 ? scanLaQ(d) : scanEnQ(d); }
 };
+/* Naming the meter: a Latin line, or a pattern of long and short syllables, from the five meters of the study. */
+const METER_LA = ['Dactylic hexameter','Pentameter of the elegiac couplet','Hendecasyllable','Sapphic line','Adonic','Iambic dimeter'];
+const METER_NAME_ITEMS = [
+  {id:'mn1', q:'What is the meter of this line of Virgil?', form:'Arma virumque canō, Trōiae quī prīmus ab ōrīs', a:'Dactylic hexameter', why:'Six feet, dactyls and spondees, ending – ∪ ∪ | – ×: <em>ar-ma-vi | rum-que-ca | nō-Trō | iae-quī | prī-mus-ab | ō-rīs</em>.'},
+  {id:'mn2', q:'What is the meter of this line of Ovid?', form:'ēdere, māteriā conveniente modīs', a:'Pentameter of the elegiac couplet', why:'Two halves of two and a half feet: <em>ē-de-re | mā-te-ri | ā ‖ con-ve-ni | en-te-mo | dīs</em>.'},
+  {id:'mn3', q:'What is the meter of this line of Catullus?', form:'Vīvāmus mea Lesbia, atque amēmus', a:'Hendecasyllable', why:'Eleven syllables after the two elisions, in the pattern – – – ∪ ∪ – ∪ – ∪ – ×.'},
+  {id:'mn4', q:'What is the meter of this line of Horace?', form:'Integer vītae scelerisque pūrus', a:'Sapphic line', why:'Eleven syllables in the pattern – ∪ – – – ∪ ∪ – ∪ – ×, the first three lines of the sapphic stanza.'},
+  {id:'mn5', q:'What is the meter of this line, which closes a stanza of Horace?', form:'Fusce, pharetra', a:'Adonic', why:'A dactyl and two syllables, – ∪ ∪ – ×, the short line that closes the sapphic stanza.'},
+  {id:'mn6', q:'What is the meter of this line of Ambrose?', form:'Aeterne rērum conditor', a:'Iambic dimeter', why:'Eight syllables, four iambs in two pairs: – – ∪ – – – ∪ –, with long syllables in the first and fifth places, where they are allowed.'},
+  {id:'mn7', q:'Which meter has this pattern?', form:'– ∪ – – – ∪ ∪ – ∪ – ×', a:'Sapphic line', why:'This is the sapphic line of eleven syllables. The hendecasyllable of Catullus begins – – – ∪ ∪ instead.'},
+  {id:'mn8', q:'Which meter has this pattern?', form:'× – ∪ – × – ∪ –', a:'Iambic dimeter', why:'Four iambs, with a long syllable allowed in the first and third places of the line.'},
+  {id:'mn9', q:'Which meter has this pattern?', form:'– – – ∪ ∪ – ∪ – ∪ – ×', a:'Hendecasyllable', why:'Eleven syllables, beginning with two long ones, as Catullus usually writes it.'},
+  {id:'mn10', q:'Which meter has this pattern?', form:'– ∪ ∪ | – ∪ ∪ | – ‖ – ∪ ∪ | – ∪ ∪ | ×', a:'Pentameter of the elegiac couplet', why:'Two halves of two and a half feet each, with a break between them.'}
+];
+function meterNameQ(d){
+  const it = pickSeen(METER_NAME_ITEMS, x => x.id);
+  const q = makeMC({id:'mn:' + it.id, q:it.q, a:it.a, ds:METER_LA.filter(m => m !== it.a), why:it.why, src:['ag'], lang:'la'}, d <= 1 ? 3 : 4);
+  q.specimen = it.form;
+  return q;
+}
 
 /* ---------- marking dependences ---------- */
 /* A board of words with arrows drawn above them, from the word that depends to the word that
@@ -14884,14 +15356,15 @@ DECKS.meter = {
 
 { src:['appown'], h:`<p>We already know where the stress falls in “a THOU-sand SHIPS,” and “a thou-SAND ships” does not place it there. English meter is built from those stresses, and Latin meter is built from long and short syllables.</p>` },
 
-{ src:['ag'], h:`<p><strong>The dactylic hexameter.</strong> Virgil’s <em>Aeneid</em> and Ovid’s <em>Metamorphoses</em> are written in the <strong>dactylic hexameter</strong>, a line of six feet. A <strong>dactyl</strong> is a long syllable followed by two short ones (– ∪ ∪). A <strong>spondee</strong> is two long syllables (– –).</p>
-<p>Each of the first four feet may be a dactyl or a spondee. The fifth foot is nearly always a dactyl. The sixth foot has two syllables, and the last of them may be long or short.</p>
-<p><em>Arma virumque canō, Trōiae quī prīmus ab ōrīs</em> is scanned <em>Ar-ma-vi | rum-que-ca | nō-Trō | iae-quī | prī-mus-ab | ō-rīs</em>: dactyl, dactyl, spondee, spondee, dactyl, and a final foot of two syllables.</p>`,
-  q:{ prompt:'Which foot of the hexameter is nearly always a dactyl?',
-      options:['The fifth foot is nearly always a dactyl.','The first foot is always a dactyl.',
-               'The sixth foot is nearly always a dactyl.','The fourth foot is always a spondee.'],
+{ src:['ag'], h:`<p><strong>Long and short syllables.</strong> Before a line can be scanned, each syllable must be measured, and so the meters begin with quantity. A syllable is <strong>long by nature</strong> when its vowel is long or is a diphthong (<em>ae, au, oe</em>), as in the first syllables of <em>Rōma</em> and <em>causa</em>. A syllable is <strong>long by position</strong> when its vowel is followed by two consonants, or by <em>x</em> or <em>z</em>, even when the second consonant begins the next word. The letter <em>h</em> does not make position, and a mute followed by a liquid, such as <em>tr</em>, often does not either. Every other syllable is short.</p>
+<p>A long syllable is held about twice as long as a short one, and every Latin meter is a pattern of these two lengths.</p>`,
+  q:{ prompt:'Why is the first syllable of <em>terrīs</em> long?',
+      options:['It is long by position, because two consonants, <em>r</em> and <em>r</em>, follow its vowel.',
+               'It is long by nature, because every first syllable of a Latin word is long.',
+               'It is long because the stress of the word falls on it, and stress makes length.',
+               'It is long because it stands before a word that begins with a consonant.'],
       correct:0,
-      explain:'The fifth foot is nearly always – ∪ ∪, and the sixth has two syllables. That fixed ending, – ∪ ∪ | – –, is what makes the close of a hexameter recognizable.' } },
+      explain:'The <em>e</em> of <em>terrīs</em> is short by nature, but two consonants follow it, so the syllable <em>ter</em> is long by position. Stress does not make length in Latin.' } },
 
 { src:['ag'], h:`<p><strong>Elision.</strong> When a word ends in a vowel, or in a vowel followed by <em>m</em>, and the next word begins with a vowel or with <em>h</em>, the first vowel is <strong>elided</strong>: it is not counted in the meter. In <em>multum ille et terrīs</em>, the <em>-um</em> of <em>multum</em> and the <em>-e</em> of <em>ille</em> are elided, and the words are scanned as <em>mult’ ill’ et terrīs</em>.</p>
 <p>In the exercises the elided syllables are set aside already, and drawn with a tie (‿).</p>`,
@@ -14903,15 +15376,47 @@ DECKS.meter = {
       correct:0,
       explain:'A final vowel, or a final vowel with <em>m</em>, is elided before a word that begins with a vowel or <em>h</em>. Short syllables are counted like any other.' } },
 
-{ src:['ag','appown'], h:`<p><strong>How to scan a line.</strong> First we mark the syllables that are long by nature, which have a long vowel or a diphthong (<em>ae, au, oe</em>). Then we mark those that are long by position, whose vowel is followed by two consonants, or by <em>x</em> or <em>z</em>. The letter <em>h</em> does not make position, and a mute followed by a liquid, such as <em>tr</em>, often does not either.</p>
-<p>Then we fit the pattern of the hexameter. The first syllable is long, and the line ends – ∪ ∪ | – –. The syllables that remain must make dactyls or spondees. At the first levels of the exercise the long vowels carry macrons. At the higher levels they do not, and the pattern of the line must decide.</p>`,
-  q:{ prompt:'Why is the first syllable of <em>terrīs</em> long?',
-      options:['It is long by position, because two consonants, <em>r</em> and <em>r</em>, follow its vowel.',
-               'It is long by nature, because every first syllable of a Latin word is long.',
-               'It is long because the stress of the word falls on it, and stress makes length.',
-               'It is long because it stands before a word that begins with a consonant.'],
+{ src:['ag'], h:`<p><strong>The dactylic hexameter.</strong> Virgil’s <em>Aeneid</em> and Ovid’s <em>Metamorphoses</em> are written in the <strong>dactylic hexameter</strong>, a line of six feet. A <strong>dactyl</strong> is a long syllable followed by two short ones (– ∪ ∪). A <strong>spondee</strong> is two long syllables (– –).</p>
+<p>Each of the first four feet may be a dactyl or a spondee. The fifth foot is nearly always a dactyl. The sixth foot has two syllables, and the last of them may be long or short.</p>
+<p><em>Arma virumque canō, Trōiae quī prīmus ab ōrīs</em> is scanned <em>Ar-ma-vi | rum-que-ca | nō-Trō | iae-quī | prī-mus-ab | ō-rīs</em>: dactyl, dactyl, spondee, spondee, dactyl, and a final foot of two syllables.</p>`,
+  q:{ prompt:'Which foot of the hexameter is nearly always a dactyl?',
+      options:['The fifth foot is nearly always a dactyl.','The first foot is always a dactyl.',
+               'The sixth foot is nearly always a dactyl.','The fourth foot is always a spondee.'],
       correct:0,
-      explain:'The <em>e</em> of <em>terrīs</em> is short by nature, but two consonants follow it, so the syllable <em>ter</em> is long by position. Stress does not make length in Latin.' } },
+      explain:'The fifth foot is nearly always – ∪ ∪, and the sixth has two syllables. That fixed ending, – ∪ ∪ | – –, is what makes the close of a hexameter recognizable.' } },
+
+{ src:['ovid_am','ag'], h:`<p><strong>The elegiac couplet.</strong> The elegiac couplet is a hexameter followed by a pentameter. The pentameter has two halves of two and a half feet each, with a break between them: – ∪ ∪ | – ∪ ∪ | – ‖ – ∪ ∪ | – ∪ ∪ | ×. In the first half a spondee may stand for either dactyl, but the second half keeps its dactyls. Ovid uses the couplet for his love poems, and in the first poem of the <em>Amores</em> he says that Cupid made it by stealing a foot from the second line.</p>
+<p><em>Edere, māteriā conveniente modīs</em>, the second line of that poem, is a pentameter: <em>ē-de-re | mā-te-ri | ā ‖ con-ve-ni | en-te-mo | dīs</em>.</p>`,
+  q:{ prompt:'What follows the hexameter in an elegiac couplet?',
+      options:['A pentameter, made of two halves of two and a half feet each','A second hexameter','A short line of two feet, the adonic','An iambic line of four feet'],
+      correct:0,
+      explain:'The couplet is a hexameter and a pentameter. The pentameter divides into two equal halves, and its second half keeps its dactyls.' } },
+
+{ src:['catull','ag'], h:`<p><strong>The hendecasyllable.</strong> The hendecasyllable (from the Greek for “eleven syllables”) is a line of eleven syllables in a fixed pattern: – – – ∪ ∪ – ∪ – ∪ – ×. Catullus usually begins it with two long syllables, although some of his lines begin otherwise. The fifth poem begins <em>Vīvāmus mea Lesbia, atque amēmus</em>, with two elisions: <em>vī-vā-mus-me-a-Les-bi(a)-at-qu(e)-a-mē-mus</em>, which makes eleven syllables in that pattern.</p>`,
+  q:{ prompt:'How many syllables does a hendecasyllable have?',
+      options:['Eleven','Ten','Twelve','Fifteen'],
+      correct:0,
+      explain:'The name means “eleven syllables,” and the pattern is fixed: – – – ∪ ∪ – ∪ – ∪ – ×. Elided syllables are not counted.' } },
+
+{ src:['hor_carm','ag'], h:`<p><strong>The sapphic stanza.</strong> The sapphic stanza, named for the Greek poet Sappho, has three lines of eleven syllables, – ∪ – – – ∪ ∪ – ∪ – ×, and a short fourth line, the adonic, – ∪ ∪ – ×. Horace uses it often. <em>Integer vītae scelerisque pūrus</em> is a sapphic line: <em>in-te-ger-vī-tae-sce-le-ris-que-pū-rus</em>. The adonic that closes the stanza, <em>Fusce, pharetra</em>, is – ∪ ∪ – ×, and in it Horace makes <em>re</em> long before the mute and liquid <em>tr</em>.</p>`,
+  q:{ prompt:'What is the fourth line of a sapphic stanza?',
+      options:['A short line, the adonic: – ∪ ∪ – ×','A fourth sapphic line of eleven syllables','A pentameter','A hexameter'],
+      correct:0,
+      explain:'Three sapphic lines are followed by the adonic, a dactyl and two syllables, which closes the stanza.' } },
+
+{ src:['ambr_hymn','ag'], h:`<p><strong>The iambic dimeter of the hymns.</strong> An iamb is a short syllable followed by a long one (∪ –). The iambic dimeter is a line of four iambs, measured in two pairs, and in the first and third places a long syllable may stand for the short one: × – ∪ – × – ∪ –. Ambrose, bishop of Milan, wrote his hymns in this line, in stanzas of four lines, and the hymns of the Church kept it for centuries. <em>Aeterne rērum conditor</em> is scanned <em>ae-ter-ne-rē-rum-con-di-tor</em>: – – ∪ – – – ∪ –.</p>
+<p>These five meters are not a complete list, since the Latin poets used many others; but they are the ones met most often in a first reading.</p>`,
+  q:{ prompt:'In <em>Aeterne rērum conditor</em>, why may the first syllable be long?',
+      options:['The first place of the iambic dimeter may take a long syllable in place of the short','Every first syllable of a Latin line is long','The line is a hexameter, which begins with a long syllable','A diphthong is always short in the hymns'],
+      correct:0,
+      explain:'The first and third places of the line may hold a long syllable for the short one, so <em>ae</em>, a diphthong and long, stands there.' } },
+
+{ src:['ag','appown'], h:`<p><strong>How to scan a line.</strong> First we mark each syllable long or short by the rules of quantity.</p>
+<p>Then we fit the pattern of the hexameter. The first syllable is long, and the line ends – ∪ ∪ | – –. The syllables that remain must make dactyls or spondees. At the first levels of the exercise the long vowels carry macrons. At the higher levels they do not, and the pattern of the line must decide.</p>`,
+  q:{ prompt:'In scanning a hexameter, which part of the line is the most fixed?',
+      options:['The ending, a dactyl and then two syllables: – ∪ ∪ | – ×','The beginning, which is always two dactyls','The middle, where every foot is a spondee','No part, since each foot may be anything'],
+      correct:0,
+      explain:'The fifth foot is nearly always a dactyl and the sixth has two syllables, so the close of the line is the surest place to begin. The first four feet may each be a dactyl or a spondee.' } },
 
 { src:['engclass','appown'], h:`<p><strong>English meter.</strong> English verse counts beats. A <strong>foot</strong> is a group of one beat with one or two offbeats.</p>
 <ul><li>An <strong>iamb</strong> is an offbeat and a beat (× /), as in <em>be-HOLD</em>.</li>
@@ -14927,7 +15432,8 @@ DECKS.meter = {
       correct:0,
       explain:'An iamb is × /. A trochee is / ×, an anapest is × × /, and a long syllable with two short ones is the Latin dactyl, which is measured by length, not by stress.' } },
 
-{ src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>.</p>` },
+{ src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>.</p>` }
+
 ]};
 
 /* -------------------------------------------------------------- */
@@ -16379,9 +16885,13 @@ const ACTS = [
      {kind:'tool', tag:'WORKSHOP', title:'The Free Workshop',
       desc:'Type any English or Latin sentence, mark its dependences and its parts of speech, and read the markup back in words.'},
      {kind:'row', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
-      desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.', ex:['period', 'servius4', 'livyperiod']},
+      desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.', ex:['period', 'livyperiod']},
+     {kind:'row', deck:'latprose', tag:'STUDY', title:'Latin Prose',
+      desc:'Fifteen passages of Livy, Cicero, Sallust, Tacitus, Augustine, and Boethius, each fixed above while cards take its parts in order and say how each part is built. Ten are read through in the study and five are drilled.', ex:['latprosedrill']},
      {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
-      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']},
+      desc:'Long and short syllables first, and then five meters: the dactylic hexameter, the elegiac couplet, the hendecasyllable, the sapphic stanza, and the iambic dimeter of the hymns; and the feet and beats of English verse.', ex:['meter']},
+     {kind:'row', deck:'latpoetry', tag:'STUDY', title:'Latin Poetry',
+      desc:'Five passages in five meters: Virgil, <em>Aeneid</em> I.1–11; Ovid, <em>Amores</em> I.1; Catullus 5; Horace, <em>Odes</em> I.22; and Ambrose, <em>Aeterne rerum conditor</em>, read part by part, with questions on each.', ex:['latpoetrydrill', 'servius4']},
      {kind:'exset', lang:'grc', ex:['grcsent','grcvoice','grcclause','grcmood']},
      {kind:'exset', lang:'de', ex:['desent','devoice','declause','demood']},
      {kind:'exset', lang:'fr', ex:['frsent','frvoice','frclause','frmood']}
@@ -16509,7 +17019,7 @@ function goHome(){
 }
 const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', other:'Other languages'};
 /* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
-const LATIN_ROWS = ['syllable','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','meter'];
+const LATIN_ROWS = ['syllable','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
 function homeGroup(item){
   if(item.lang) return 'other';
   if(/ENGLISH/.test(item.tag || '')) return 'en';
@@ -16676,6 +17186,7 @@ function exGreekNote(q){
   return greekNote(notes && q && q.sid ? notes[q.sid] : null);
 }
 function openDeck(key){
+  if(DECKS[key].passages){ openPassages(DECKS[key].passages, 'walk'); return; }
   deck = DECKS[key]; deckKey = key; deckI = 0;
   $('deck-title').textContent = deck.title;
   $('deck-sub').textContent = deck.sub;
@@ -16735,6 +17246,101 @@ $('deck-back').onclick = () => {
 };
 $('deck-end').onclick = goHome;
 
+/* ---------- the passage view ---------- */
+let PV = null;
+function openPassages(set, mode){
+  const S = PSG_SETS[set];
+  PV = {set, mode, list: mode === 'walk' ? S.walk : S.drill, pi:-1, ci:0, cards:[], showEng:false, right:0, seen:0};
+  $('psg-title').textContent = mode === 'walk' ? S.title : EX[S.ex].title;
+  $('psg-sub').textContent = S.sub;
+  $('psg-src').innerHTML = deckSources(S.deck);
+  renderPassage();
+  show('scr-psg');
+}
+function psgCards(id){
+  const p = PASSAGES[id];
+  const pa = psgPlaces(p.lat, p.parts), qa = psgPlaces(p.lat, p.qs);
+  const parts = p.parts.map((x, i) => ({kind:'part', x, at:pa[i]}));
+  const qs = p.qs.map((x, i) => ({kind:'q', x, at:qa[i]}));
+  const ctx = [{kind:'ctx'}];
+  return PV.mode === 'walk' ? ctx.concat(parts, qs) : ctx.concat(qs, [{kind:'score'}], parts);
+}
+function renderPassage(){
+  if(window.__arsStopSpeak) window.__arsStopSpeak();
+  const body = $('psg-body');
+  const S = PSG_SETS[PV.set];
+  if(PV.pi < 0){
+    $('psg-nav').style.display = 'none';
+    body.innerHTML = `<div class="panel"><p>${PV.mode === 'walk'
+        ? 'Each passage stays at the top, and the cards below it give its context and then take its parts in order, with a few questions at the end.'
+        : 'Each passage stays at the top, and the questions below it ask about the marked words; after the questions the passage is read through part by part.'}
+      The English can be shown under the Latin.</p>
+      <div class="psg-list">${PV.list.map((id, i) => { const p = PASSAGES[id];
+        return `<button type="button" class="psg-pick" data-i="${i}"><span class="psg-pick-ref">${psgRef(p)}</span><span class="psg-pick-lat">${nfEsc(p.lat.split(/\s+/).slice(0, 7).join(' '))} …</span></button>`; }).join('')}</div>
+      <div class="btn-row"><button type="button" class="btn primary" id="psg-begin">Begin ⟶</button></div></div>`;
+    body.querySelectorAll('.psg-pick').forEach(b => b.onclick = () => { PV.pi = Number(b.dataset.i); PV.ci = 0; startPassage(); });
+    $('psg-begin').onclick = () => { PV.pi = 0; PV.ci = 0; startPassage(); };
+    window.scrollTo(0, 0);
+    return;
+  }
+  $('psg-nav').style.display = '';
+  const id = PV.list[PV.pi], p = PASSAGES[id], c = PV.cards[PV.ci];
+  const len = c.x ? c.x.t.length : 0;
+  let card = '';
+  if(c.kind === 'ctx') card = `<p><strong>Context.</strong> ${p.ctx}</p>`;
+  else if(c.kind === 'part') card = `<p><strong>${c.x.h}.</strong> ${c.x.n}</p>`;
+  else if(c.kind === 'score') card = `<p><strong>Correct answers in this passage:</strong> ${PV.pRight} of ${p.qs.length}. The passage is now read through part by part.</p>`;
+  else card = `<div class="q-prompt">${c.x.q}</div><div class="opts" id="psg-opts"></div><div id="psg-fb"></div>`;
+  body.innerHTML = `<div class="panel psg-fixed">
+      <div class="psg-ref">${psgRef(p)}</div>
+      <div class="psg-lat">${psgLatHtml(p, c.x ? c.at : null, len)}</div>
+      <button type="button" class="orig-toggle" id="psg-eng-tg">${PV.showEng ? 'Hide the English' : 'Show the English'}</button>
+      <div class="psg-eng"${PV.showEng ? '' : ' hidden'}>${nfEsc(p.eng).replace(/\n/g, '<br>')}</div>
+    </div>
+    <div class="panel psg-card">${card}</div>`;
+  $('psg-eng-tg').onclick = () => { PV.showEng = !PV.showEng; renderPassage(); };
+  let answered = c.kind !== 'q' || c.done != null;
+  if(c.kind === 'q'){
+    const opts = $('psg-opts');
+    if(!c.ord) c.ord = shuffle([c.x.a].concat(c.x.ds));
+    const fb = (good) => `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Correct' : 'Incorrect'}</span>${good ? '' : ` The answer is <strong>${c.x.a}</strong>.`} ${c.x.why}</div>`;
+    c.ord.forEach(o => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.innerHTML = o;
+      if(c.done != null){ b.disabled = true; if(o === c.x.a) b.classList.add(c.done === o ? 'right' : 'reveal'); else if(o === c.done) b.classList.add('wrong'); }
+      b.onclick = () => {
+        c.done = o;
+        const good = o === c.x.a;
+        if(PV.mode === 'drill'){ recordAnswer(PSG_SETS[PV.set].ex, good); if(good) PV.pRight++; }
+        renderPassage();
+      };
+      opts.appendChild(b);
+    });
+    if(c.done != null) $('psg-fb').innerHTML = fb(c.done === c.x.a);
+  }
+  $('psg-count').textContent = `Passage ${PV.pi + 1} of ${PV.list.length} · card ${PV.ci + 1} of ${PV.cards.length}`;
+  $('psg-next').disabled = !answered;
+  const lastCard = PV.ci === PV.cards.length - 1, lastPsg = PV.pi === PV.list.length - 1;
+  $('psg-next').textContent = lastCard ? (lastPsg ? 'Finish' : 'Next passage →') : 'Next →';
+  $('psg-back').textContent = PV.ci === 0 ? '← Passages' : '← Back';
+}
+function startPassage(){
+  PV.cards = psgCards(PV.list[PV.pi]);
+  PV.pRight = 0;
+  renderPassage();
+  window.scrollTo(0, 0);
+}
+$('psg-next').onclick = () => {
+  if(PV.ci < PV.cards.length - 1){ PV.ci++; renderPassage(); return; }
+  if(PV.pi < PV.list.length - 1){ PV.pi++; PV.ci = 0; startPassage(); return; }
+  PV.pi = -1; renderPassage();
+};
+$('psg-back').onclick = () => {
+  if(PV.ci > 0){ PV.ci--; renderPassage(); return; }
+  PV.pi = -1; renderPassage();
+};
+$('psg-end').onclick = goHome;
+
 /* ---------- the question loop ---------- */
 let chipSel = {};
 
@@ -16747,6 +17353,7 @@ function renderExIntro(e){
   }).join('');
 }
 function openEx(e){
+  if(e.custom){ state.ex = e; e.custom(); return; }
   if(e.intro && e.intro.length){
     state.ex = e;
     renderExIntro(e);
