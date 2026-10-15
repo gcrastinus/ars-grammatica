@@ -17177,7 +17177,7 @@ const PL = {
 const deStrict = v => partnerLc(v).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 /* The third language chosen on the home page, or null. */
 /* The other language chosen in the section of the home page from which the study or exercise was opened, or null. */
-function thirdLang(){ const a = state.curSec ? ACTS.find(x => x.key === state.curSec) : null; if(a && a.noLangChoice) return null; const k = state.curSec ? store.secLang[state.curSec] : null; return PL[k] && PL[k].data ? k : null; }
+function thirdLang(){ const a = state.curSec ? ACTS.find(x => x.key === state.curSec) : null; if(!a || a.noLangChoice) return null; const k = secLangOf(a); return PL[k] && PL[k].data ? k : null; }
 const plSpan = (L, s) => `<span lang="${L.key}">${s}</span>`;
 /* One blank in a frame, or a form named by its English line; tiles at the first two levels, typed above. */
 function partnerSentQ(L, it, d, sidPrefix){
@@ -17350,7 +17350,7 @@ function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && e
 function partnerOf(ex){
   const t = thirdLang();
   if(!t || partnerKeys(ex).indexOf(t) < 0) return 'la';
-  return ex && store.langs[ex.id] === 'la' ? 'la' : t;
+  return t;
 }
 function rowChoice(ex){
   const mode = modeOf(ex);
@@ -17414,7 +17414,7 @@ function renderModeRow(){
   const greek = partners.length > 0;
   /* An exercise that offers a partner language shows its row even when it has no English questions, and then leaves out "English only". */
   const noEn = greek && state.langAvail && state.langAvail.en === 0;
-  [['both','English and Latin']].concat(partners.map(k => [k, PARTNER_ROW[k]]), noEn || allowed.indexOf('en') < 0 ? [] : [['en','English only']]).forEach(pair => {
+  (greek ? [] : [['both','English and Latin']]).concat(partners.map(k => [k, PARTNER_ROW[k]]), noEn || allowed.indexOf('en') < 0 ? [] : [['en','English only']]).forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
@@ -17638,7 +17638,7 @@ const ACTS = [
 /* The items of an act with each row opened into its study and its exercises, in order. The rows and exercises of
    another language are included only when that language is chosen in the section. */
 function actItems(act){
-  const k = store.secLang[act.key];
+  const k = secLangOf(act);
   const out = [];
   act.items.forEach(it => {
     if(it.lang && it.lang !== k) return;
@@ -17726,6 +17726,15 @@ function sectionLangs(act){
   });
   return PARTNER_KEYS.filter(k => ks.has(k) && PL[k] && PL[k].data);
 }
+/* The other language of a section: the stored choice when the section offers it, and otherwise Greek (or the first
+   language offered). There is no "none": the other-language content is always shown. */
+function secLangOf(act){
+  if(!act || act.noLangChoice) return null;
+  const offers = sectionLangs(act);
+  if(!offers.length) return null;
+  const k = store.secLang[act.key];
+  return offers.indexOf(k) >= 0 ? k : offers.indexOf('grc') >= 0 ? 'grc' : offers[0];
+}
 function langChoice(act, offers, chosen){
   const box = document.createElement('div');
   box.className = 'grp-choice';
@@ -17734,18 +17743,18 @@ function langChoice(act, offers, chosen){
   t.className = 'grp-choice-label';
   t.textContent = 'A language to work through in this section, compared to Latin:';
   box.appendChild(t);
-  [null].concat(offers).forEach(k => {
+  offers.forEach(k => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'lang-btn' + (chosen === k ? ' sel' : '');
-    b.textContent = k ? PL[k].name : 'None';
+    b.textContent = PL[k].name;
     b.onclick = () => setSectionLang(act, k);
     box.appendChild(b);
   });
   return box;
 }
-/* Choosing a language in a section sets the shared exercises of that section to ask it beside English and Latin;
-   a student can still choose "English and Latin" or "English only" on an exercise. */
+/* Choosing a language in a section sets the shared exercises of that section to ask it with English and Latin;
+   a student can still choose "English only" on an exercise. */
 function setSectionLang(act, k){
   if(k) store.secLang[act.key] = k; else delete store.secLang[act.key];
   act.items.forEach(it => itemExIds(it).forEach(id => {
@@ -17822,7 +17831,7 @@ function buildHome(){
     act.items.forEach(item => groups[homeGroup(item)].push(item));
     const offers = act.noLangChoice ? [] : sectionLangs(act);
     const used = ['gen','en','la','cmp'].filter(g => groups[g].length).length + (offers.length ? 1 : 0);
-    const chosen = offers.indexOf(store.secLang[act.key]) >= 0 ? store.secLang[act.key] : null;
+    const chosen = secLangOf(act);
     ['gen','en','la','cmp','other'].forEach(g => {
       if(g === 'other' ? !offers.length : !groups[g].length) return;
       if(used > 1){
