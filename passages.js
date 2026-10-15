@@ -325,18 +325,19 @@ Object.assign(PASSAGES, {
 
 
 /* ===== en2 ===== */
-/* Five more English poems, for the poetry drill. Texts as commonly printed from the first editions: Shelley, 1818;
-   Blake, Songs of Experience, 1794; Pope, 1711; Donne, 1633; Tennyson, 1842. */
+/* Five more English poems, for the poetry drill. Texts: Shelley in Hutchinson's edition; Blake's engraved
+   Songs of Experience (1794); Pope's first edition (1711); Donne in Grierson's edition, spelling modernized; Tennyson in
+   Collins's edition. Each source is named in EN_ED at the end of this file. */
 Object.assign(PASSAGES, {
 'en-ozymandias': {lang:'en', author:'Shelley', work:'Ozymandias', locus:'lines 1–8', meter:'Iambic pentameter, a sonnet', src:['engclass'],
-  lat:'I met a traveller from an antique land\nWho said: Two vast and trunkless legs of stone\nStand in the desert. Near them, on the sand,\nHalf sunk, a shattered visage lies, whose frown,\nAnd wrinkled lip, and sneer of cold command,\nTell that its sculptor well those passions read\nWhich yet survive, stamped on these lifeless things,\nThe hand that mocked them and the heart that fed:',
+  lat:'I met a traveller from an antique land\nWho said: Two vast and trunkless legs of stone\nStand in the desert … Near them, on the sand,\nHalf sunk, a shattered visage lies, whose frown,\nAnd wrinkled lip, and sneer of cold command,\nTell that its sculptor well those passions read\nWhich yet survive, stamped on these lifeless things,\nThe hand that mocked them, and the heart that fed:',
   ctx:'Shelley’s sonnet of 1818. The traveler’s report runs on past the line ends, and its second sentence has a long subject and a verb, “Tell,” held to the sixth line.',
   parts:[
    {t:'I met a traveller from an antique land\nWho said', h:'The frame', n:'“Who said” is a relative clause on “a traveller.” All that follows is what he said. The line scans as five iambs: “i MET a TRAV-el-LER from AN an-TIQUE LAND,” with a light stress on “-ler.”'},
    {t:'Two vast and trunkless legs of stone\nStand in the desert', h:'The report begins', n:'The subject, “two vast and trunkless legs of stone,” runs over the line end to its verb, “stand.”'},
    {t:'Half sunk, a shattered visage lies, whose frown', h:'Inversion and a relative', n:'“Near them, on the sand, half sunk” come before the subject, “a shattered visage,” and its verb, “lies.” “Whose” begins a relative clause on “visage.”'},
    {t:'Tell that its sculptor well those passions read', h:'The verb of the relative clause', n:'“Tell” is plural because its subject is three things: “frown, and wrinkled lip, and sneer.” “That” begins a noun clause, and in it the object, “those passions,” comes before the verb “read,” past tense.'},
-   {t:'The hand that mocked them and the heart that fed', h:'Apposition', n:'These nouns stand outside the clause and name what survived: the sculptor’s hand that copied the passions and the king’s heart that fed them.'}],
+   {t:'The hand that mocked them, and the heart that fed', h:'Apposition', n:'These nouns stand outside the clause and name what survived: the sculptor’s hand that copied the passions and the king’s heart that fed them.'}],
   qs:[
    {t:'Who said', q:'“Who said” is…', a:'A relative clause describing “a traveller”', ds:['A question','The main clause','A noun clause, object of “met”'], why:'“Who” refers back to the traveler.'},
    {t:'Stand', q:'The subject of “Stand” is…', a:'“Two vast and trunkless legs of stone”', ds:['“a traveller”','“the desert”','“I”'], why:'The subject runs over the line end to its verb.'},
@@ -373,13 +374,13 @@ Object.assign(PASSAGES, {
    {t:'an echo to the sense', q:'“an echo to the sense” is…', a:'A complement after “must seem”', ds:['The subject','The object of “sound”','An adverb of place'], why:'“Seem” links the subject to what it is said to be.'}]},
 
 'en-donne': {lang:'en', author:'Donne', work:'Holy Sonnets', locus:'X, lines 1–4', meter:'Iambic pentameter, a sonnet', src:['engclass'],
-  lat:'Death, be not proud, though some have called thee\nMighty and dreadful, for thou art not so;\nFor those whom thou think’st thou dost overthrow\nDie not, poor Death, nor yet canst thou kill me.',
-  ctx:'Donne’s sonnet, printed in 1633, addresses Death and argues with it. Its meter is iambic pentameter, often roughened.',
+  lat:'Death be not proud, though some have called thee\nMighty and dreadful, for, thou art not so,\nFor, those, whom thou think’st, thou dost overthrow,\nDie not, poor death, nor yet canst thou kill me.',
+  ctx:'Donne’s sonnet, printed in 1633, addresses Death and argues with it. Its meter is iambic pentameter, often roughened. The text is Grierson’s, from the edition of 1633, with the spelling modernized; the heavy commas are the old printing’s.',
   parts:[
-   {t:'Death, be not proud', h:'Address and the older negative imperative', n:'“Death” is addressed. “Be not proud” is the older form of “do not be proud.”'},
+   {t:'Death be not proud', h:'Address and the older negative imperative', n:'“Death” is addressed. “Be not proud” is the older form of “do not be proud.”'},
    {t:'though some have called thee\nMighty and dreadful', h:'A clause of concession', n:'“Though” concedes. “Called thee mighty and dreadful”: “thee” is the object, and “mighty and dreadful” say what Death was called.'},
-   {t:'for thou art not so', h:'The reason', n:'“For” gives the reason: you are not so.'},
-   {t:'For those whom thou think’st thou dost overthrow\nDie not', h:'A long subject', n:'The subject is “those,” with the relative clause “whom thou think’st thou dost overthrow”; the verb “die not” comes only in the next line. “Whom” is the object of “overthrow,” inside the clause “thou dost overthrow,” which itself depends on “thou think’st.”'},
+   {t:'for, thou art not so', h:'The reason', n:'“For” gives the reason: you are not so.'},
+   {t:'For, those, whom thou think’st, thou dost overthrow,\nDie not', h:'A long subject', n:'The subject is “those,” with the relative clause “whom thou think’st thou dost overthrow”; the verb “die not” comes only in the next line. “Whom” is the object of “overthrow,” inside the clause “thou dost overthrow,” which itself depends on “thou think’st.”'},
    {t:'nor yet canst thou kill me', h:'Inversion after “nor”', n:'After “nor” the helping verb comes before the subject: “canst thou.”'}],
   qs:[
    {t:'be not proud', q:'“be not proud” is…', a:'An older form of the negative imperative', ds:['A subjunctive of wish','A question','A statement'], why:'Older English puts “not” after the imperative: “be not.”'},
@@ -389,11 +390,11 @@ Object.assign(PASSAGES, {
    {t:'canst thou', q:'Why “canst thou” and not “thou canst”?', a:'After “nor” the helping verb comes before the subject', ds:['It is a question','It is an imperative','For the rhyme'], why:'Negative words at the head of a clause bring inversion: “nor can you.”'}]},
 
 'en-ulysses': {lang:'en', author:'Tennyson', work:'Ulysses', locus:'lines 65–70', meter:'Blank verse', src:['engclass'],
-  lat:'Though much is taken, much abides; and though\nWe are not now that strength which in old days\nMoved earth and heaven, that which we are, we are;\nOne equal temper of heroic hearts,\nMade weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield.',
+  lat:'Tho’ much is taken, much abides; and tho’\nWe are not now that strength which in old days\nMoved earth and heaven; that which we are, we are;\nOne equal temper of heroic hearts,\nMade weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield.',
   ctx:'The close of Tennyson’s monologue, 1842. The old Ulysses speaks to his mariners in blank verse; the sentence runs over line ends to its last word.',
   parts:[
-   {t:'Though much is taken, much abides', h:'Concession and statement', n:'“Though much is taken” concedes; “much abides” is the main clause. The two “much”s stand against each other.'},
-   {t:'and though\nWe are not now that strength which in old days\nMoved earth and heaven', h:'A second concession, across the line', n:'The second “though” clause runs over the line end. “Which in old days moved earth and heaven” is a relative clause on “that strength.”'},
+   {t:'Tho’ much is taken, much abides', h:'Concession and statement', n:'“Tho’,” Tennyson’s spelling of “though,” concedes: “much is taken”; “much abides” is the main clause. The two “much”s stand against each other.'},
+   {t:'and tho’\nWe are not now that strength which in old days\nMoved earth and heaven', h:'A second concession, across the line', n:'The second “tho’” clause runs over the line end. “Which in old days moved earth and heaven” is a relative clause on “that strength.”'},
    {t:'that which we are, we are', h:'The object placed first', n:'“That which we are” stands first for emphasis; the main clause is “we are [that].”'},
    {t:'One equal temper of heroic hearts', h:'Apposition', n:'This phrase renames “that which we are.”'},
    {t:'Made weak by time and fate, but strong in will\nTo strive, to seek, to find, and not to yield', h:'Participle, adjective and infinitives', n:'“Made weak” is a past participle, and “strong in will” an adjective phrase; both describe “temper.” The four infinitives complete “will.”'}],
@@ -738,17 +739,17 @@ Object.assign(PASSAGES, {
 
 
 /* ===== grc2 ===== */
-/* Five more Greek poems, for the poetry drill. Greek of the standard editions (Sappho, Voigt fr. 1; Euripides and
-   Aeschylus, Perseus Digital Library; Callimachus, Pfeiffer ep. 2 = Anth. Pal. 7.80; Plato, Anth. Pal. 7.670).
+/* Five more Greek poems, for the poetry drill. Greek of Sappho from Smyth's Greek Melic Poets (1900, Wikisource); of
+   Euripides, Aeschylus, and the two epigrams (Anth. Pal. 7.80 and 7.670) from the Perseus Digital Library.
    English as printed by Project Gutenberg, named in each passage, lightly modernized. */
 Object.assign(PASSAGES, {
-'grc-sappho': {lang:'grc', author:'Sappho', work:'Hymn to Aphrodite', locus:'fr. 1.1–4', meter:'Sapphic stanza', ed:'Greek of Sappho fr. 1 in the edition of E.-M. Voigt (1971). English: Henry Thornton Wharton, <i>Sappho</i> (1885), Project Gutenberg eBook 57390.',
-  lat:'ποικιλόθρον᾽ ἀθανάτ᾽ Ἀφρόδιτα,\nπαῖ Δίος δολόπλοκε, λίσσομαί σε,\nμή μ᾽ ἄσαισι μηδ᾽ ὀνίαισι δάμνα,\nπότνια, θῦμον.',
+'grc-sappho': {lang:'grc', author:'Sappho', work:'Hymn to Aphrodite', locus:'fr. 1.1–4', meter:'Sapphic stanza', ed:'Greek of Sappho 1, lines 1–4, in H. W. Smyth, <i>Greek Melic Poets</i> (1900), as printed by Wikisource. English: Henry Thornton Wharton, <i>Sappho</i> (1885), Project Gutenberg eBook 57390.',
+  lat:'Ποικιλόθρον᾽ ἀθάνατ᾽ Ἀφρόδιτα,\nπαῖ Διός, δολόπλοκε, λίσσομαί σε\nμή μ᾽ ἄσαισι μηδ᾽ ὀνίαισι δάμνα,\nπότνια, θῦμον·',
   eng:'Immortal Aphrodite of the broidered throne, daughter of Zeus, weaver of wiles, I pray you, break not my spirit with anguish and distress, O Queen.\n— Henry Thornton Wharton',
-  ctx:'The first stanza of the only poem of Sappho that survives whole. The sapphic stanza has three long lines of the shape — ᴗ — x — ᴗ ᴗ — ᴗ — x and a short fourth, the adonean, — ᴗ ᴗ — x. Sappho writes in the Lesbian dialect: <em>θῦμον</em> for <em>θυμόν</em>, and the accent drawn back.',
+  ctx:'The first stanza of the only poem of Sappho that survives whole. The sapphic stanza has three long lines of the shape — ᴗ — x — ᴗ ᴗ — ᴗ — x and a short fourth, the adonean, — ᴗ ᴗ — x. Sappho writes in the Lesbian dialect: <em>θῦμον</em> for <em>θυμόν</em>.',
   parts:[
-   {t:'ποικιλόθρον᾽ ἀθανάτ᾽ Ἀφρόδιτα', h:'Vocative and elision', n:'Three vocatives: <em>ποικιλόθρονε</em>, “of the many-colored throne,” and <em>ἀθάνατε</em>, “immortal,” both elided before a vowel, and <em>Ἀφρόδιτα</em>, with Aeolic <em>ā</em> for Attic <em>η</em>.'},
-   {t:'παῖ Δίος δολόπλοκε', h:'More vocatives', n:'<em>Παῖ</em>, vocative of <em>παῖς</em>; <em>Δίος</em>, “of Zeus,” the genitive of <em>Ζεύς</em>, with the Lesbian accent; <em>δολόπλοκε</em>, “weaver of wiles.”'},
+   {t:'Ποικιλόθρον᾽ ἀθάνατ᾽ Ἀφρόδιτα', h:'Vocative and elision', n:'Three vocatives: <em>ποικιλόθρονε</em>, “of the many-colored throne,” and <em>ἀθάνατε</em>, “immortal,” both elided before a vowel, and <em>Ἀφρόδιτα</em>, with Aeolic <em>ā</em> for Attic <em>η</em>.'},
+   {t:'παῖ Διός, δολόπλοκε', h:'More vocatives', n:'<em>Παῖ</em>, vocative of <em>παῖς</em>; <em>Διός</em>, “of Zeus,” the genitive of <em>Ζεύς</em>; <em>δολόπλοκε</em>, “weaver of wiles.”'},
    {t:'λίσσομαί σε', h:'The main verb', n:'<em>Λίσσομαι</em>, “I beg,” a middle deponent, takes <em>σε</em> as its object.'},
    {t:'μή μ᾽ ἄσαισι μηδ᾽ ὀνίαισι δάμνα', h:'A prohibition', n:'<em>Μή</em> with the present imperative <em>δάμνα</em>: do not keep crushing. <em>Ἄσαισι</em> and <em>ὀνίαισι</em> are Aeolic dative plurals, “with distress and pains.” <em>Μ᾽</em> is <em>μοι</em> or <em>με</em>, elided.'},
    {t:'πότνια, θῦμον', h:'The adonean', n:'<em>Πότνια</em>, “lady,” another vocative, and <em>θῦμον</em>, the object of <em>δάμνα</em>: my heart. — ᴗ ᴗ — —.'}],
@@ -759,25 +760,25 @@ Object.assign(PASSAGES, {
    {t:'ἄσαισι', q:'<em>ἄσαισι</em> is…', a:'An Aeolic dative plural: with distresses', ds:['A nominative singular','A verb','An accusative plural'], why:'Aeolic <em>-αισι</em> for Attic <em>-αις</em>.'},
    {t:'θῦμον', q:'<em>θῦμον</em> is the object of…', a:'<em>δάμνα</em>', ds:['<em>λίσσομαι</em>','<em>πότνια</em>','Nothing; it is a vocative'], why:'Do not crush my heart: <em>θῦμον</em>, accusative.'}]},
 
-'grc-medea': {lang:'grc', author:'Euripides', work:'Medea', locus:'1–6', meter:'Iambic trimeter', ed:PSG_ED.grc + ' English: Gilbert Murray (1906), Project Gutenberg eBook 35451.',
-  lat:'Εἴθ᾽ ὤφελ᾽ Ἀργοῦς μὴ διαπτάσθαι σκάφος\nΚόλχων ἐς αἶαν κυανέας Συμπληγάδας,\nμηδ᾽ ἐν νάπαισι Πηλίου πεσεῖν ποτε\nτμηθεῖσα πεύκη, μηδ᾽ ἐρετμῶσαι χέρας\nἀνδρῶν ἀρίστων, οἳ τὸ πάγχρυσον δέρος\nΠελίᾳ μετῆλθον.',
-  eng:'Would God no Argo e’er had winged the seas\nTo Colchis through the blue Symplegades:\nNo shaft of riven pine in Pelion’s glen\nShaped that first oar-blade in the hands of men\nValiant, who won, to save King Pelias’ vow,\nThe fleece all-golden!\n— Gilbert Murray',
+'grc-medea': {lang:'grc', author:'Euripides', work:'Medea', locus:'1–6', meter:'Iambic trimeter', ed:PSG_ED.grc + ' English: Edward P. Coleridge (1891), as printed by the Perseus Digital Library.',
+  lat:'Εἴθ᾽ ὤφελ᾽ Ἀργοῦς μὴ διαπτάσθαι σκάφος\nΚόλχων ἐς αἶαν κυανέας Συμπληγάδας,\nμηδ᾽ ἐν νάπαισι Πηλίου πεσεῖν ποτε\nτμηθεῖσα πεύκη, μηδ᾽ ἐρετμῶσαι χέρας\nἀνδρῶν ἀρίστων, οἳ τὸ πάγχρυσον δέρας\nΠελίᾳ μετῆλθον.',
+  eng:'Ah! would to Heaven the good ship Argo never had sped its course to the Colchian land through the misty blue Symplegades, nor ever in the glens of Pelion the pine been felled to furnish with oars the chieftain’s hands, who went to fetch the golden fleece for Pelias;\n— Edward P. Coleridge',
   ctx:'The Nurse opens the play with a wish that the past had been otherwise. The verse is iambic trimeter: three pairs of iambs, x — ᴗ — | x — ᴗ — | x — ᴗ —.',
   parts:[
    {t:'Εἴθ᾽ ὤφελ᾽ Ἀργοῦς μὴ διαπτάσθαι σκάφος', h:'An unattainable wish', n:'<em>Εἴθ᾽ ὤφελε</em> with the infinitive: would that it had (not). <em>Ὤφελε</em> is the aorist of <em>ὀφείλω</em>, “ought.” The subject of <em>διαπτάσθαι</em> is <em>σκάφος</em>, “the hull of the Argo.”'},
    {t:'Κόλχων ἐς αἶαν κυανέας Συμπληγάδας', h:'Motion through and to', n:'<em>Ἐς αἶαν</em>, “to the land,” with <em>Κόλχων</em> genitive. <em>Κυανέας Συμπληγάδας</em>, accusative, the dark Clashing Rocks it flew through.'},
    {t:'μηδ᾽ ἐν νάπαισι Πηλίου πεσεῖν ποτε\nτμηθεῖσα πεύκη', h:'A second infinitive with its own subject', n:'<em>Μηδέ</em> adds a second wish: nor that the pine, cut (<em>τμηθεῖσα</em>, aorist passive participle), had ever fallen in Pelion’s glens.'},
    {t:'μηδ᾽ ἐρετμῶσαι χέρας', h:'A third infinitive', n:'<em>Ἐρετμῶσαι</em>, “to furnish with oars,” aorist infinitive; <em>χέρας</em>, “the hands,” its object.'},
-   {t:'οἳ τὸ πάγχρυσον δέρος\nΠελίᾳ μετῆλθον', h:'A relative clause', n:'<em>Οἵ</em>, masculine plural, takes up <em>ἀνδρῶν ἀρίστων</em>. <em>Μετῆλθον</em>, “went after,” with <em>Πελίᾳ</em> dative, for Pelias.'}],
+   {t:'οἳ τὸ πάγχρυσον δέρας\nΠελίᾳ μετῆλθον', h:'A relative clause', n:'<em>Οἵ</em>, masculine plural, takes up <em>ἀνδρῶν ἀρίστων</em>. <em>Μετῆλθον</em>, “went after,” with <em>Πελίᾳ</em> dative, for Pelias.'}],
   qs:[
    {t:'Εἴθ᾽ ὤφελ᾽', q:'<em>εἴθ᾽ ὤφελε</em> with an infinitive expresses…', a:'A wish that cannot now come true', ds:['A command','A purpose','A future condition'], why:'“Would that it had not”: the Argo has already sailed.'},
    {t:'σκάφος', q:'The subject of <em>διαπτάσθαι</em> is…', a:'<em>σκάφος</em>', ds:['<em>Ἀργοῦς</em>','<em>Συμπληγάδας</em>','The Nurse'], why:'<em>Ἀργοῦς</em> is genitive, the Argo’s hull; <em>σκάφος</em> flies through.'},
    {t:'τμηθεῖσα', q:'<em>τμηθεῖσα</em> is…', a:'An aorist passive participle: having been cut', ds:['An aorist active participle','A present infinitive','A future'], why:'The <em>-θ-</em> and the ending <em>-εῖσα</em> mark the aorist passive, feminine with <em>πεύκη</em>.'},
    {t:'οἳ', q:'<em>οἵ</em> refers to…', a:'<em>ἀνδρῶν ἀρίστων</em>, the best of men', ds:['<em>χέρας</em>','<em>Κόλχων</em>','<em>Συμπληγάδας</em>'], why:'Masculine plural: the heroes who went for the fleece.'}]},
 
-'grc-ag': {lang:'grc', author:'Aeschylus', work:'Agamemnon', locus:'1–3', meter:'Iambic trimeter', ed:PSG_ED.grc + ' English: E. D. A. Morshead (1881), Project Gutenberg eBook 8604.',
+'grc-ag': {lang:'grc', author:'Aeschylus', work:'Agamemnon', locus:'1–3', meter:'Iambic trimeter', ed:PSG_ED.grc + ' English: Herbert Weir Smyth (Loeb, 1926), in the lightly modernized form printed by the Perseus Digital Library.',
   lat:'θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων\nφρουρᾶς ἐτείας μῆκος, ἣν κοιμώμενος\nστέγαις Ἀτρειδῶν ἄγκαθεν, κυνὸς δίκην,',
-  eng:'I pray the gods to quit me of my toils,\nTo close the watch I keep, this livelong year;\nFor as a watchdog lying, not at rest,\nPropped on one arm, upon the palace roof\nOf Atreus’ race…\n— E. D. A. Morshead',
+  eng:'Release from this weary task of mine has been my plea to the gods throughout this long year’s watch, in which, lying upon the palace roof of the Atreidae, upon my bent arm, like a dog, …\n— Herbert Weir Smyth',
   ctx:'The watchman on the roof of the palace at Argos. <em>Αἰτῶ</em> takes two accusatives, and the relative clause runs on past the third line.',
   parts:[
    {t:'θεοὺς μὲν αἰτῶ τῶνδ᾽ ἀπαλλαγὴν πόνων', h:'Two accusatives', n:'<em>Αἰτῶ</em>, “I ask,” takes the person, <em>θεούς</em>, and the thing, <em>ἀπαλλαγήν</em>, “release,” in the accusative. <em>Τῶνδε … πόνων</em> is the genitive of separation: release from these toils.'},
@@ -790,12 +791,12 @@ Object.assign(PASSAGES, {
    {t:'κοιμώμενος', q:'<em>κοιμώμενος</em> is…', a:'A present middle participle: lying', ds:['An aorist passive','A future active','A perfect infinitive'], why:'<em>-όμενος</em>, contracted <em>-ώμενος</em>: present middle.'},
    {t:'δίκην', q:'<em>κυνὸς δίκην</em> means…', a:'Like a dog', ds:['The justice of a dog','A dog’s punishment','For a dog'], why:'The accusative <em>δίκην</em> with a genitive is used as an adverb: in the way of.'}]},
 
-'grc-heraclitus': {lang:'grc', author:'Callimachus', work:'Epigrams', locus:'2.1–3', meter:'Elegiac couplet', ed:'Greek of Callimachus, ep. 2 (Pfeiffer) = Anth. Pal. 7.80, lines 1–3. English: William Cory, <i>Ionica</i> (1858), Project Gutenberg eBook 21766.',
-  lat:'Εἶπέ τις, Ἡράκλειτε, τεὸν μόρον, ἐς δέ με δάκρυ\nἤγαγεν, ἐμνήσθην δ᾽ ὁσσάκις ἀμφότεροι\nἥλιον ἐν λέσχῃ κατεδύσαμεν.',
-  eng:'They told me, Heraclitus, they told me you were dead,\nThey brought me bitter news to hear and bitter tears to shed.\nI wept, as I remembered, how often you and I\nHad tired the sun with talking and sent him down the sky.\n— William Cory',
-  ctx:'Callimachus mourns his friend Heraclitus of Halicarnassus. The elegiac couplet joins a hexameter to a pentameter; Cory stretches three Greek lines into four long English ones.',
+'grc-heraclitus': {lang:'grc', author:'Callimachus', work:'Epigrams', locus:'2.1–3', meter:'Elegiac couplet', ed:'Greek of Anth. Pal. 7.80 (Callimachus, ep. 2), lines 1–3, as printed by the Perseus Digital Library (PerseusDL canonical-greekLit, the text of W. R. Paton), read 2026-10-15. English: J. W. Mackail, <i>Select Epigrams from the Greek Anthology</i> (1890), Project Gutenberg eBook 2378.',
+  lat:'εἶπέ τις, Ἡράκλειτε, τεὸν μόρον, ἐς δέ με δάκρυ\nἤγαγεν, ἐμνήσθην δ᾽ ὁσσάκις ἀμφότεροι\nἥλιον ἐν λέσχῃ κατεδύσαμεν …',
+  eng:'One told me of your fate, Heraclitus, and wrung me to tears, and I remembered how often both of us let the sun sink as we talked; …\n— J. W. Mackail',
+  ctx:'Callimachus mourns his friend Heraclitus of Halicarnassus. The elegiac couplet joins a hexameter to a pentameter; the sentence runs on past the third line.',
   parts:[
-   {t:'Εἶπέ τις, Ἡράκλειτε, τεὸν μόρον', h:'Aorist and vocative', n:'<em>Εἶπέ τις</em>, “someone told,” aorist. <em>Ἡράκλειτε</em>, vocative. <em>Τεόν</em> is the epic and Ionic form of <em>σόν</em>, “your.”'},
+   {t:'εἶπέ τις, Ἡράκλειτε, τεὸν μόρον', h:'Aorist and vocative', n:'<em>Εἶπέ τις</em>, “someone told,” aorist. <em>Ἡράκλειτε</em>, vocative. <em>Τεόν</em> is the epic and Ionic form of <em>σόν</em>, “your.”'},
    {t:'ἐς δέ με δάκρυ\nἤγαγεν', h:'A preposition with the goal', n:'<em>Ἐς … δάκρυ ἤγαγεν</em>: it brought me to tears. <em>Δάκρυ</em> is accusative after <em>ἐς</em>, and <em>με</em> the object.'},
    {t:'ἐμνήσθην δ᾽ ὁσσάκις ἀμφότεροι', h:'A passive form with active sense', n:'<em>Ἐμνήσθην</em>, aorist passive of <em>μιμνῄσκομαι</em>: I remembered. <em>Ὁσσάκις</em>, “how often,” epic double <em>σ</em>.'},
    {t:'ἥλιον ἐν λέσχῃ κατεδύσαμεν', h:'The image', n:'<em>Κατεδύσαμεν</em>, “we put to bed, we sank,” with <em>ἥλιον</em> as object: we talked the sun down.'}],
@@ -805,12 +806,12 @@ Object.assign(PASSAGES, {
    {t:'ἐμνήσθην', q:'<em>ἐμνήσθην</em> is…', a:'An aorist passive form with active meaning: I remembered', ds:['I was reminded by someone','A present','A future'], why:'<em>Μιμνῄσκομαι</em> uses the passive aorist for “I remembered.”'},
    {t:'κατεδύσαμεν', q:'The subject of <em>κατεδύσαμεν</em> is…', a:'“We two,” <em>ἀμφότεροι</em>', ds:['The sun','Someone','Heraclitus alone'], why:'First person plural: we sank the sun with talk.'}]},
 
-'grc-aster': {lang:'grc', author:'Plato (ascribed)', work:'Epigram on Aster', locus:'Anth. Pal. 7.670', meter:'Elegiac couplet', ed:'Greek of Anth. Pal. 7.670, ascribed to Plato. English: Percy Bysshe Shelley, “To Stella,” in his <i>Posthumous Poems</i> (1824).',
-  lat:'Ἀστὴρ πρὶν μὲν ἔλαμπες ἐνὶ ζωοῖσιν Ἑῷος·\nνῦν δὲ θανὼν λάμπεις Ἕσπερος ἐν φθιμένοις.',
-  eng:'You were the morning star among the living,\nEre your fair light had fled;—\nNow, having died, you are as Hesperus, giving\nNew splendor to the dead.\n— Percy Bysshe Shelley',
+'grc-aster': {lang:'grc', author:'Plato (ascribed)', work:'Epigram on Aster', locus:'Anth. Pal. 7.670', meter:'Elegiac couplet', ed:'Greek of Anth. Pal. 7.670, ascribed to Plato, as printed by the Perseus Digital Library (PerseusDL canonical-greekLit, the text of W. R. Paton), read 2026-10-15. English: J. W. Mackail, <i>Select Epigrams from the Greek Anthology</i> (1890), Project Gutenberg eBook 2378.',
+  lat:'ἀστὴρ πρὶν μὲν ἔλαμπες ἐνὶ ζωοῖσιν Ἑῷος·\nνῦν δὲ θανὼν λάμπεις Ἕσπερος ἐν φθιμένοις.',
+  eng:'Morning Star that once did shine among the living, now deceased you shine the Evening Star among the dead.\n— J. W. Mackail',
   ctx:'A single elegiac couplet: the hexameter tells of the living, the pentameter of the dead. <em>Μέν</em> and <em>δέ</em> set the two lines against each other, and the name Aster means “star.”',
   parts:[
-   {t:'Ἀστὴρ πρὶν μὲν ἔλαμπες ἐνὶ ζωοῖσιν Ἑῷος', h:'The hexameter', n:'<em>Ἔλαμπες</em>, imperfect: you used to shine. <em>Ἐνί</em> is epic for <em>ἐν</em>, and <em>ζωοῖσιν</em> an epic dative plural. <em>Ἑῷος</em>, “of the dawn,” the morning star.'},
+   {t:'ἀστὴρ πρὶν μὲν ἔλαμπες ἐνὶ ζωοῖσιν Ἑῷος', h:'The hexameter', n:'<em>Ἔλαμπες</em>, imperfect: you used to shine. <em>Ἐνί</em> is epic for <em>ἐν</em>, and <em>ζωοῖσιν</em> an epic dative plural. <em>Ἑῷος</em>, “of the dawn,” the morning star.'},
    {t:'νῦν δὲ θανὼν λάμπεις Ἕσπερος ἐν φθιμένοις', h:'The pentameter', n:'<em>Θανών</em>, aorist participle: having died. <em>Λάμπεις</em>, present. <em>Ἕσπερος</em>, the evening star. <em>Ἐν φθιμένοις</em>, among the dead.'}],
   qs:[
    {t:'μὲν', q:'The two lines are set against each other by…', a:'<em>μέν … δέ</em>', ds:['<em>πρίν … νῦν</em> only','<em>ἐνί … ἐν</em>','Nothing'], why:'<em>Μέν</em> in the first line and <em>δέ</em> in the second balance before and now.'},
@@ -1590,8 +1591,8 @@ const EN_ED = {
   'en-areopagitica':'Project Gutenberg eBook 608', 'en-swift':'Project Gutenberg eBook 1080', 'en-melville':'Project Gutenberg eBook 2701',
   'en-thoreau':'Project Gutenberg eBook 205', 'en-milton-pl':'Project Gutenberg eBook 26', 'en-sonnet18':'the Quarto of 1609, Project Gutenberg eBook 1041',
   'en-gray':'the text of 1776, as printed by Wikisource', 'en-mariner':'Project Gutenberg eBook 151', 'en-daffodils':'the text of 1807, as printed by Wikisource',
-  'en-ozymandias':'the standard text (1818)', 'en-tyger':'the standard text of <i>Songs of Experience</i> (1794)', 'en-pope':'the standard text (1711)',
-  'en-donne':'the standard text (1633)', 'en-ulysses':'the standard text (1842)'
+  'en-ozymandias':'<i>The Complete Poetical Works of Percy Bysshe Shelley</i>, ed. Thomas Hutchinson (1904), Project Gutenberg eBook 4800', 'en-tyger':'Blake’s engraved <i>Songs of Experience</i> (1794), with his spelling', 'en-pope':'the first edition (1711), with its spelling',
+  'en-donne':'<i>The Poems of John Donne</i>, ed. H. J. C. Grierson (1912), Project Gutenberg eBook 48688, spelling modernized', 'en-ulysses':'<i>The Early Poems of Alfred Lord Tennyson</i>, ed. John Churton Collins (1900), Project Gutenberg eBook 8601'
 };
 Object.keys(EN_ED).forEach(id => { if(PASSAGES[id]) PASSAGES[id].ed = PASSAGES[id].author + (PASSAGES[id].work ? ', <i>' + PASSAGES[id].work + '</i>' : '') + ', ' + PASSAGES[id].locus + ', as printed in ' + EN_ED[id] + '.'; });
 })(window.MORE_PASSAGES);
