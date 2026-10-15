@@ -14965,7 +14965,7 @@ function latVoiceQ(d){
   };
 }
 EX.latvoice = {
-  id:'latvoice', src:['ag','appown'], act:'III', title:'The Passive, the Infinitive, and the Participle',
+  id:'latvoice', src:['ag','appown'], act:'IV', title:'The Passive, the Infinitive, and the Participle',
   desc:'One word is missing from a Latin sentence: a passive verb or the noun that goes with it, a present infinitive that completes another verb, or a perfect passive participle used as an adjective.',
   instr:'Supply the missing Latin word.',
   introInstr:'',
@@ -17509,8 +17509,6 @@ const ACTS = [
       desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
      {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
       desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
-     {kind:'row', deck:'latvoice', tag:'STUDY', title:'The Passive, the Infinitive, and the Participle',
-      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice']},
      {kind:'row', deck:'casework', tag:'STUDY', title:'Inflection: Case and the Verb',
       desc:'The accidents of the noun and the verb, in brief. What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
      {kind:'row', deck:'enacc', full:true, tag:'STUDY · ENGLISH GRAMMAR', title:'The Accidents of English',
@@ -17519,17 +17517,14 @@ const ACTS = [
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
      {kind:'row', lang:'grc', deck:'grccards', tag:'STUDY · GREEK', title:GRK.cards.title, desc:GRK.cards.description, ex:['grcmore']},
-     {kind:'exset', lang:'grc', ex:['grcvoice']},
      {kind:'row', lang:'grc', deck:'grcpar', tag:'STUDY · GREEK', title:'Greek Paradigms',
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.', ex:[]}
    ] : [], DEU ? [
      {kind:'row', lang:'de', deck:'decards', tag:'STUDY · GERMAN', title:DEU.cards.title, desc:DEU.cards.description, ex:['demore']},
-     {kind:'exset', lang:'de', ex:['devoice']},
      {kind:'row', lang:'de', deck:'depar', tag:'STUDY · GERMAN', title:'German Paradigms',
       desc:'The tables of the article, eleven nouns, the adjective with its three sets of endings, the personal pronoun, eight verbs, and the prepositions with their cases.', ex:[]}
    ] : [], FRA ? [
      {kind:'row', lang:'fr', deck:'frcards', tag:'STUDY · FRENCH', title:FRA.cards.title, desc:FRA.cards.description, ex:['frmore']},
-     {kind:'exset', lang:'fr', ex:['frvoice']},
      {kind:'row', lang:'fr', deck:'frpar', tag:'STUDY · FRENCH', title:'French Paradigms',
       desc:'The tables of the article, fifteen nouns, six adjectives, the personal pronouns, and eight verbs.', ex:[]}
    ] : [])},
@@ -17558,6 +17553,8 @@ const ACTS = [
       desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild']},
      {kind:'ex', ex:'latmore', group:'la'},
      {kind:'ex', ex:'freewrite', group:'la'},
+     {kind:'row', deck:'latvoice', tag:'STUDY', title:'The Passive, the Infinitive, and the Participle',
+      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice']},
      {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
       desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
      {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
@@ -17610,9 +17607,9 @@ const ACTS = [
       desc:'The finite verb second in the main clause and last in the dependent clause, where Latin’s order is free.', ex:[]},
      {kind:'row', lang:'fr', deck:'frorder', tag:'STUDY · FRENCH', title:'French Word Order Compared to Latin',
       desc:'Subject, verb, and object in a fixed order, since the noun has no case; and the two words of negation, <em>ne … pas</em>.', ex:[]},
-     {kind:'exset', lang:'grc', ex:['grcsent','grcclause','grcmood']},
-     {kind:'exset', lang:'de', ex:['desent','declause','demood']},
-     {kind:'exset', lang:'fr', ex:['frsent','frclause','frmood']}
+     {kind:'exset', lang:'grc', ex:['grcsent','grcvoice','grcclause','grcmood']},
+     {kind:'exset', lang:'de', ex:['desent','devoice','declause','demood']},
+     {kind:'exset', lang:'fr', ex:['frsent','frvoice','frclause','frmood']}
    ]},
   {key:'V', roman:'V', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
    gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
