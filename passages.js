@@ -1400,8 +1400,8 @@ Object.assign(PASSAGES, {
    {t:'uns', q:'<em>uns</em> in <em>Wie trösten wir uns</em> is…', a:'Reflexive: ourselves', ds:['Dative: to us, by others','The subject','A possessive'], why:'The object is the same as the subject <em>wir</em>.'},
    {t:'aller Mörder', q:'<em>aller Mörder</em> is…', a:'Genitive plural: of all murderers', ds:['Nominative singular','Dative plural','Accusative plural'], why:'<em>Aller</em> is the genitive plural of <em>alle</em>.'}]},
 
-'de-clausewitz': {lang:'de', author:'Clausewitz', work:'Vom Kriege', locus:'I.1.24', ed:'Clausewitz, <i>Vom Kriege</i> (1832), book I, chapter 1, § 24. English: J. J. Graham (1873), Project Gutenberg eBook 1946.',
-  lat:'Der Krieg ist eine bloße Fortsetzung der Politik mit anderen Mitteln. Wir sehen also, dass der Krieg nicht bloß ein politischer Akt, sondern ein wahres politisches Instrument ist, eine Fortsetzung des politischen Verkehrs, ein Durchführen desselben mit anderen Mitteln.',
+'de-clausewitz': {lang:'de', author:'Clausewitz', work:'Vom Kriege', locus:'I.1.24', ed:'Clausewitz, <i>Vom Kriege</i> (1832), book I, chapter 1, § 24, spelling modernized (<i>dass</i>, <i>anderen</i> for <i>daß</i>, <i>andern</i>). English: J. J. Graham (1873), Project Gutenberg eBook 1946.',
+  lat:'Der Krieg ist eine bloße Fortsetzung der Politik mit anderen Mitteln. So sehen wir also, dass der Krieg nicht bloß ein politischer Akt, sondern ein wahres politisches Instrument ist, eine Fortsetzung des politischen Verkehrs, ein Durchführen desselben mit anderen Mitteln.',
   eng:'War is a mere continuation of policy by other means. We see, therefore, that war is not merely a political act, but also a real political instrument, a continuation of political commerce, a carrying out of the same by other means.\n— J. J. Graham',
   ctx:'The heading of § 24 and its first sentence. Clausewitz states the thesis, and then restates it in a <em>dass</em> clause with three appositions after the verb.',
   parts:[
@@ -1430,21 +1430,6 @@ Object.assign(PASSAGES, {
    {t:'sofern sie Dogmatiker waren', q:'<em>sofern sie Dogmatiker waren</em> is…', a:'A clause nested inside the <em>dass</em> clause', ds:['The main clause','A relative clause on <em>Weiber</em>','A question'], why:'The <em>dass</em> clause begins, pauses for <em>sofern …</em>, and closes with <em>verstanden</em>.'},
    {t:'verstanden', q:'<em>verstanden</em> here is…', a:'Simple past plural: they understood', ds:['A past participle','An infinitive','A present tense'], why:'<em>Verstehen</em>, <em>verstand</em>, <em>verstanden</em>: the plural past and the participle look alike; with no auxiliary, it is the past.'}]},
 
-'de-erl': {lang:'de', author:'Goethe', work:'Erlkönig', locus:'1–4', meter:'four-beat lines, iambs mixed with anapests, in rhymed couplets', ed:'Goethe, “Erlkönig” (1782), lines 1–4. English: Edgar Alfred Bowring (1853), Project Gutenberg eBook 1287.',
-  lat:'Wer reitet so spät durch Nacht und Wind?\nEs ist der Vater mit seinem Kind;\nEr hat den Knaben wohl in dem Arm,\nEr fasst ihn sicher, er hält ihn warm.',
-  eng:'Who rides there so late through the night dark and drear?\nThe father it is, with his infant so dear;\nHe holds the boy tightly clasped in his arm,\nHe holds him safely, he keeps him warm.\n— Edgar Alfred Bowring',
-  ctx:'The opening of Goethe’s ballad. Each line has four beats, and the unstressed syllables between them vary, one or two, which gives the gallop.',
-  parts:[
-   {t:'Wer reitet so spät durch Nacht und Wind?', h:'A question and the beat', n:'<em>Wer</em>, “who,” begins the question. Four beats: <em>wer REI-tet so SPÄT durch NACHT und WIND</em>. <em>Durch</em> takes the accusative.'},
-   {t:'Es ist der Vater mit seinem Kind', h:'Es ist', n:'<em>Es ist der Vater</em>: it is the father. <em>Mit seinem Kind</em>, dative.'},
-   {t:'Er hat den Knaben wohl in dem Arm', h:'A weak noun', n:'<em>Den Knaben</em>: <em>Knabe</em> is a weak noun and takes <em>-n</em> in the accusative. <em>In dem Arm</em>, dative of rest.'},
-   {t:'Er fasst ihn sicher, er hält ihn warm', h:'Adjectives as adverbs and as complements', n:'<em>Sicher</em>, “securely,” is an adjective used as an adverb with no ending. <em>Warm</em> says what state he keeps him in.'}],
-  qs:[
-   {t:'Wer reitet', q:'How many beats are in <em>Wer reitet so spät durch Nacht und Wind?</em>', a:'Four', ds:['Five','Three','Six'], why:'REI, SPÄT, NACHT, WIND.'},
-   {t:'seinem Kind', q:'<em>seinem Kind</em> is dative because…', a:'<em>mit</em> takes the dative', ds:['It is the indirect object','It is plural','It follows <em>Vater</em>'], why:'<em>Mit</em> always takes the dative.'},
-   {t:'den Knaben', q:'Why <em>Knaben</em> and not <em>Knabe</em>?', a:'<em>Knabe</em> is a weak noun: <em>-n</em> in the accusative', ds:['It is plural','It is genitive','It is a diminutive'], why:'Weak masculine nouns add <em>-n</em> outside the nominative singular.'},
-   {t:'in dem Arm', q:'<em>in dem Arm</em> is dative because…', a:'It tells where, at rest', ds:['<em>in</em> always takes the dative','<em>Arm</em> is feminine','It is a genitive'], why:'<em>In</em> takes the dative for rest and the accusative for motion.'}]},
-
 'de-gipfel': {lang:'de', author:'Goethe', work:'Wandrers Nachtlied II (Ein Gleiches)', locus:'1–8', meter:'free short lines with varied stresses', ed:'Goethe, “Ein Gleiches” (1780), complete. English: Henry Wadsworth Longfellow, Project Gutenberg eBook 1365.',
   lat:'Über allen Gipfeln\nIst Ruh’,\nIn allen Wipfeln\nSpürest du\nKaum einen Hauch;\nDie Vögelein schweigen im Walde.\nWarte nur, balde\nRuhest du auch.',
   eng:'O’er all the hilltops\nIs quiet now,\nIn all the treetops\nYou hear\nHardly a breath;\nThe birds are asleep in the trees:\nWait; soon like these\nYou too shall rest.\n— Henry Wadsworth Longfellow',
@@ -1460,37 +1445,6 @@ Object.assign(PASSAGES, {
    {t:'Spürest', q:'<em>Spürest</em> is…', a:'An older form of <em>spürst</em>, you feel', ds:['A subjunctive','A past tense','An imperative'], why:'The extra syllable fills the meter.'},
    {t:'Vögelein', q:'<em>Vögelein</em> is…', a:'A diminutive: little birds', ds:['A genitive','A feminine noun','A verb'], why:'<em>-lein</em>, like <em>-chen</em>, makes a neuter diminutive.'},
    {t:'balde', q:'Why <em>balde</em>?', a:'An old form of <em>bald</em>, kept to rhyme with <em>Walde</em>', ds:['It is a dative','It is a noun','It is a misprint'], why:'The old form gives the rhyme <em>Walde</em>/<em>balde</em>.'}]},
-
-'de-lorelei': {lang:'de', author:'Heine', work:'Die Lorelei', locus:'1–4', meter:'three-beat lines, iambs mixed with anapests, rhymed abab', ed:'Heine, “Ich weiß nicht, was soll es bedeuten” (1824), stanza 1. English: Mark Twain, <i>A Tramp Abroad</i> (1880), Project Gutenberg eBook 119.',
-  lat:'Ich weiß nicht, was soll es bedeuten,\nDass ich so traurig bin;\nEin Märchen aus alten Zeiten,\nDas kommt mir nicht aus dem Sinn.',
-  eng:'I cannot divine what it means,\nThis haunting nameless pain:\nA tale of the bygone ages\nKeeps brooding through my brain:\n— Mark Twain',
-  ctx:'The first stanza of the Lorelei. Mark Twain gives his own translation in <em>A Tramp Abroad</em>, after mocking a worse one.',
-  parts:[
-   {t:'Ich weiß nicht, was soll es bedeuten', h:'A question kept in main-clause order', n:'<em>Was soll es bedeuten</em> keeps the order of a direct question, though it depends on <em>ich weiß nicht</em>; plain prose would say <em>was es bedeuten soll</em>.'},
-   {t:'Dass ich so traurig bin', h:'Dass', n:'The verb <em>bin</em> goes to the end. The clause says what <em>es</em> stands for.'},
-   {t:'Ein Märchen aus alten Zeiten', h:'Aus with the dative', n:'<em>Aus alten Zeiten</em>, dative plural, strong ending with no article.'},
-   {t:'Das kommt mir nicht aus dem Sinn', h:'A demonstrative takes up the subject', n:'<em>Das</em> repeats <em>ein Märchen</em>, and the verb stays second. <em>Mir</em> is dative: out of my mind.'}],
-  qs:[
-   {t:'was soll es bedeuten', q:'What is unusual about <em>was soll es bedeuten</em>?', a:'It keeps question order, though it is a dependent clause', ds:['<em>Soll</em> is a noun','It has no verb','It is in the past'], why:'Prose would put the verb last: <em>was es bedeuten soll</em>.'},
-   {t:'bin', q:'Why does <em>bin</em> stand at the end of line 2?', a:'It follows <em>dass</em>, a dependent clause', ds:['For the rhyme only','It is an infinitive','It is a question'], why:'After <em>dass</em> the finite verb goes last; the rhyme with <em>Sinn</em> falls there too.'},
-   {t:'Das kommt', q:'<em>Das</em> in <em>Das kommt mir nicht aus dem Sinn</em> is…', a:'A demonstrative taking up <em>ein Märchen</em>', ds:['A relative, verb last','The article of <em>Sinn</em>','A conjunction'], why:'The verb <em>kommt</em> is second, so <em>das</em> begins a main clause.'},
-   {t:'mir', q:'<em>mir</em> is…', a:'Dative: out of my mind', ds:['Accusative: me','Nominative: I','A possessive'], why:'German often uses the dative of the person instead of a possessive.'}]},
-
-'de-heiden': {lang:'de', author:'Goethe', work:'Heidenröslein', locus:'1–7', meter:'trochaic, four and three beats, with a refrain', ed:'Goethe, “Heidenröslein” (1771/1789), stanza 1. English: Edgar Alfred Bowring (1853), “The Heathrose,” Project Gutenberg eBook 1287.',
-  lat:'Sah ein Knab’ ein Röslein stehn,\nRöslein auf der Heiden,\nWar so jung und morgenschön,\nLief er schnell, es nah zu sehn,\nSah’s mit vielen Freuden.\nRöslein, Röslein, Röslein rot,\nRöslein auf der Heiden.',
-  eng:'Once a boy a rosebud spied,\nHeathrose fair and tender,\nAll arrayed in youthful pride—\nQuickly to the spot he hied,\nRavished by her splendor.\nRosebud, rosebud, rosebud red,\nHeathrose fair and tender!\n— Edgar Alfred Bowring',
-  ctx:'A song in the manner of a folk song. The lines are trochaic and the subject <em>er</em> is often dropped, as in folk verse.',
-  parts:[
-   {t:'Sah ein Knab’ ein Röslein stehn', h:'Verb first, and sehen with an infinitive', n:'Folk verse begins with the verb: <em>sah ein Knab’</em>. <em>Sehen</em> with a bare infinitive: saw a rose stand. <em>Stehn</em> is <em>stehen</em> shortened. Trochees: <em>SAH ein KNAB ein RÖS-lein STEHN</em>.'},
-   {t:'Röslein auf der Heiden', h:'An old dative', n:'<em>Auf der Heiden</em>, an old dative of <em>Heide</em>, heath, kept for the rhyme with <em>Freuden</em>.'},
-   {t:'War so jung und morgenschön', h:'A dropped subject', n:'The subject, the rose, is left out: it was so young and fair as morning.'},
-   {t:'Lief er schnell, es nah zu sehn', h:'An infinitive of purpose', n:'<em>Es nah zu sehn</em>, “to see it close.” <em>Es</em> is the <em>Röslein</em>, neuter.'},
-   {t:'Sah’s mit vielen Freuden', h:'Contraction', n:'<em>Sah’s</em> is <em>sah es</em>. <em>Mit vielen Freuden</em>, dative plural.'}],
-  qs:[
-   {t:'Sah ein Knab’', q:'The first stress falls on…', a:'<em>Sah</em>: the line is trochaic', ds:['<em>ein</em>','<em>Knab’</em> only','No syllable: it is free verse'], why:'SAH ein KNAB ein RÖS-lein STEHN: stressed, unstressed.'},
-   {t:'stehn', q:'<em>stehn</em> after <em>sah</em> is…', a:'A bare infinitive: saw a rose standing', ds:['A past participle','A noun','A plural verb'], why:'<em>Sehen</em> takes an infinitive without <em>zu</em>.'},
-   {t:'Heiden', q:'<em>der Heiden</em> is…', a:'An old dative of <em>Heide</em>, heath', ds:['Genitive plural: of the heathens','Nominative plural','A verb'], why:'The old weak ending <em>-n</em> survives here for the rhyme.'},
-   {t:'es nah zu sehn', q:'<em>es</em> in <em>es nah zu sehn</em> is…', a:'The rose, <em>das Röslein</em>', ds:['The boy','The heath','“There”'], why:'<em>Röslein</em> is neuter, so the pronoun is <em>es</em>.'}]},
 
 'de-burg': {lang:'de', author:'Luther', work:'Ein feste Burg ist unser Gott', locus:'1–4', meter:'iambic, eight- and seven-syllable lines', ed:'Martin Luther, “Ein feste Burg ist unser Gott” (1529), stanza 1, lines 1–4. English: Thomas Carlyle (1831).',
   lat:'Ein feste Burg ist unser Gott,\nEin gute Wehr und Waffen.\nEr hilft uns frei aus aller Not,\nDie uns jetzt hat betroffen.',
@@ -1522,21 +1476,6 @@ Object.assign(PASSAGES, {
    {t:'seine Buhle', q:'The subject of <em>gab</em> is…', a:'<em>seine Buhle</em>', ds:['<em>ein König</em>','<em>einen goldnen Becher</em>','<em>dem</em>'], why:'His beloved gave him the goblet.'},
    {t:'gab', q:'Why does <em>gab</em> stand last?', a:'It closes the relative clause', ds:['For the rhyme only','It is an infinitive','It is a command'], why:'Verb last marks the dependent clause, and the rhyme with <em>Grab</em> falls there too.'}]},
 
-'de-zueignung': {lang:'de', author:'Goethe', work:'Faust I, Zueignung', locus:'1–4', meter:'iambic pentameter, ottava rima', ed:'Goethe, <i>Faust: Der Tragödie erster Teil</i> (1808), “Zueignung,” lines 1–4. English: Bayard Taylor (1870), Project Gutenberg eBook 14591.',
-  lat:'Ihr naht euch wieder, schwankende Gestalten,\nDie früh sich einst dem trüben Blick gezeigt.\nVersuch ich wohl, euch diesmal festzuhalten?\nFühl ich mein Herz noch jenem Wahn geneigt?',
-  eng:'Again you come, you hovering Forms! I find you,\nAs early to my clouded sight you shone!\nShall I attempt, this once, to seize and bind you?\nStill o’er my heart is that illusion thrown?\n— Bayard Taylor',
-  ctx:'The dedication of <em>Faust</em>, in eight-line stanzas of iambic pentameter. Taylor keeps Goethe’s meter and rhymes.',
-  parts:[
-   {t:'Ihr naht euch wieder, schwankende Gestalten', h:'Ihr and a reflexive', n:'<em>Ihr</em>, “you” plural, addresses the shapes. <em>Sich nahen</em>, to draw near: <em>euch</em> is the reflexive. <em>Schwankende</em>, present participle. Iambic: <em>ihr NAHT euch WIE-der, SCHWAN-ken-DE ge-STAL-ten</em>.'},
-   {t:'Die früh sich einst dem trüben Blick gezeigt', h:'A dropped auxiliary', n:'<em>Die</em> is the relative, plural. <em>Gezeigt</em> stands for <em>gezeigt haben</em>: verse may drop the auxiliary at the end of a relative clause. <em>Dem trüben Blick</em>, dative.'},
-   {t:'Versuch ich wohl, euch diesmal festzuhalten', h:'A question and zu inside a separable verb', n:'<em>Versuch ich</em>: verb first, a question. <em>Festzuhalten</em>: <em>zu</em> goes between prefix and verb.'},
-   {t:'Fühl ich mein Herz noch jenem Wahn geneigt', h:'Geneigt with the dative', n:'<em>Einer Sache geneigt</em>: inclined to a thing. <em>Jenem Wahn</em> is dative.'}],
-  qs:[
-   {t:'euch wieder', q:'<em>euch</em> in <em>Ihr naht euch</em> is…', a:'Reflexive, with <em>sich nahen</em>', ds:['Dative: to you, others','Accusative object of another verb','A possessive'], why:'Subject and object are the same: you draw yourselves near.'},
-   {t:'gezeigt', q:'What is left out after <em>gezeigt</em>?', a:'The auxiliary <em>haben</em>', ds:['Nothing; it is an adjective','The subject','<em>werden</em>, making it passive'], why:'Verse often drops the finite auxiliary at the end of a dependent clause: <em>gezeigt [haben]</em>.'},
-   {t:'festzuhalten', q:'In <em>festzuhalten</em>, <em>zu</em>…', a:'Stands between the prefix and the verb', ds:['Is a preposition governing <em>euch</em>','Makes it passive','Is a misprint'], why:'With separable verbs, <em>zu</em> goes inside: <em>fest-zu-halten</em>.'},
-   {t:'jenem Wahn', q:'<em>jenem Wahn</em> is dative because…', a:'<em>geneigt</em> takes the dative', ds:['It is the subject','<em>noch</em> takes the dative','It is plural'], why:'Inclined to that illusion: the dative goes with the adjective.'}]},
-
 'de-fichte': {lang:'de', author:'Heine', work:'Ein Fichtenbaum steht einsam', locus:'1–4', meter:'three-beat lines, iambs mixed with anapests', ed:'Heine, <i>Lyrisches Intermezzo</i> 33 (1823), stanza 1. English: Emma Lazarus (1881), Project Gutenberg eBook 31726.',
   lat:'Ein Fichtenbaum steht einsam\nIm Norden auf kahler Höh’.\nIhn schläfert; mit weißer Decke\nUmhüllen ihn Eis und Schnee.',
   eng:'There stands a lonely pine tree\nIn the north, on a barren height;\nHe sleeps while the ice and snowflakes\nSwathe him in folds of white.\n— Emma Lazarus',
@@ -1551,6 +1490,81 @@ Object.assign(PASSAGES, {
    {t:'Ihn schläfert', q:'<em>Ihn schläfert</em> means…', a:'He grows sleepy, with the person in the accusative', ds:['He puts him to sleep','Sleep him!','He slept'], why:'An impersonal verb: there is no subject, and the one affected is <em>ihn</em>.'},
    {t:'Umhüllen ihn Eis und Schnee', q:'The subject of <em>umhüllen</em> is…', a:'<em>Eis und Schnee</em>', ds:['<em>ihn</em>','<em>weißer Decke</em>','<em>der Fichtenbaum</em>'], why:'The plural verb agrees with ice and snow; <em>ihn</em> is the object.'}]},
 
+'de-wohin': {lang:'de', author:'Müller', work:'Die schöne Müllerin', locus:'“Wohin?” 1–4', meter:'Iambic trimeter, three beats', ed:'Wilhelm Müller, “Wohin?” in <i>Die schöne Müllerin</i> (1821), stanza 1, as printed by Wikisource, spelling modernized. English: Henry Wadsworth Longfellow, “Whither?”, Project Gutenberg eBook 1365.',
+  lat:'Ich hört’ ein Bächlein rauschen\nWohl aus dem Felsenquell,\nHinab zum Tale rauschen\nSo frisch und wunderhell.',
+  eng:'I heard a brooklet gushing\nFrom its rocky fountain near,\nDown into the valley rushing,\nSo fresh and wondrous clear.\n— Henry Wadsworth Longfellow',
+  ctx:'The second song of Schubert’s cycle. After a verb of perceiving, German puts a bare infinitive: <em>ich hörte ein Bächlein rauschen</em>, “I heard a brook rush.”',
+  parts:[
+   {t:'Ich hört’ ein Bächlein rauschen', h:'Hören with an infinitive', n:'<em>Hört’</em> is <em>hörte</em>, the past, with the final <em>e</em> dropped for the meter. <em>Ein Bächlein</em> is its object, and <em>rauschen</em>, an infinitive at the end, says what the brook was doing.'},
+   {t:'Wohl aus dem Felsenquell', h:'A dative after aus', n:'<em>Aus</em> always takes the dative: <em>dem Felsenquell</em>, “the rock spring.” <em>Wohl</em> is a filler, “indeed.”'},
+   {t:'Hinab zum Tale rauschen', h:'The infinitive repeated', n:'<em>Rauschen</em> again, now with its direction: <em>hinab zum Tale</em>, “down to the valley.” <em>Zum</em> is <em>zu dem</em>, and <em>Tale</em> keeps the old dative <em>-e</em>.'},
+   {t:'So frisch und wunderhell', h:'Adjectives as adverbs', n:'<em>Frisch</em> and <em>wunderhell</em> are uninflected: they tell how the brook rushed.'}],
+  qs:[
+   {t:'hört’', q:'<em>hört’</em> is…', a:'<em>Hörte</em>, the past, with the <em>e</em> cut off', ds:['The present','An imperative','A past participle'], why:'The apostrophe marks the dropped <em>e</em>.'},
+   {t:'rauschen', q:'<em>rauschen</em> after <em>hört’ ein Bächlein</em> is…', a:'A bare infinitive after a verb of perceiving', ds:['A plural verb agreeing with <em>Bächlein</em>','A noun','A past participle'], why:'German says “I heard a brook rush,” with no <em>zu</em>.'},
+   {t:'dem Felsenquell', q:'<em>dem Felsenquell</em> is dative because…', a:'<em>aus</em> takes the dative', ds:['It is the subject','It is the indirect object of <em>hört’</em>','<em>wohl</em> takes the dative'], why:'<em>Aus</em> always governs the dative.'},
+   {t:'zum Tale', q:'<em>zum</em> is…', a:'<em>zu dem</em>, contracted', ds:['<em>zu den</em>','<em>zu der</em>','A separable prefix'], why:'The preposition and the dative article run together.'}]},
+
+'de-schloss': {lang:'de', author:'Uhland', work:'Das Schloss am Meere', locus:'1–4', meter:'Three-beat lines, iambic and anapestic', ed:'Ludwig Uhland, “Das Schloß am Meere” (1805), stanza 1, as printed by Wikisource, spelling modernized. English: Henry Wadsworth Longfellow, “The Castle by the Sea,” Project Gutenberg eBook 1365.',
+  lat:'Hast du das Schloss gesehen,\nDas hohe Schloss am Meer?\nGolden und rosig wehen\nDie Wolken drüber her.',
+  eng:'Have you seen that lordly castle,\nThat Castle by the Sea?\nGolden and red above it\nThe clouds float gorgeously.\n— Henry Wadsworth Longfellow',
+  ctx:'A dialogue: one speaker asks, the other answers. The first sentence is a question in the perfect tense, with the participle at the end.',
+  parts:[
+   {t:'Hast du das Schloss gesehen', h:'The perfect in a question', n:'<em>Hast … gesehen</em> is the perfect of <em>sehen</em>. In a yes-or-no question the finite verb <em>hast</em> comes first, and the participle <em>gesehen</em> goes to the end.'},
+   {t:'Das hohe Schloss am Meer', h:'Apposition', n:'The object repeated and enlarged: <em>das hohe Schloss</em>, with the weak adjective ending <em>-e</em> after <em>das</em>. <em>Am</em> is <em>an dem</em>.'},
+   {t:'Golden und rosig wehen\nDie Wolken drüber her', h:'Verb second, subject after it', n:'<em>Golden und rosig</em> stands first, so the verb <em>wehen</em> comes second and the subject <em>die Wolken</em> after it. <em>Drüber her</em>, “over it,” completes the verb.'}],
+  qs:[
+   {t:'Hast', q:'Why does <em>Hast</em> come first?', a:'It is a yes-or-no question', ds:['It is an imperative','It is a dependent clause','The subject is left out'], why:'German questions without a question word put the finite verb first.'},
+   {t:'gesehen', q:'<em>gesehen</em> stands at the end because…', a:'The past participle of a compound tense goes to the end', ds:['It is an adjective','It begins a new clause','The meter requires it, against the rule'], why:'<em>Hast … gesehen</em>: the bracket of the perfect.'},
+   {t:'hohe', q:'<em>hohe</em> ends in <em>-e</em> because…', a:'It follows <em>das</em>, and takes the weak ending', ds:['It is plural','It is feminine','It is dative'], why:'After the definite article the adjective has the weak ending <em>-e</em> in the nominative and accusative singular neuter.'},
+   {t:'wehen', q:'Why does <em>wehen</em> come before its subject?', a:'Something else stands first, and the verb must be second', ds:['It is a question','It is a dependent clause','It is an imperative'], why:'German keeps the finite verb second in a main clause.'}]},
+
+'de-nachtlied': {lang:'de', author:'Goethe', work:'Wandrers Nachtlied', locus:'complete', meter:'Trochaic lines of four and two beats', ed:'Goethe, “Wandrers Nachtlied” (1776), complete, as printed by Wikisource, spelling modernized. English: Henry Wadsworth Longfellow, “Wanderer’s Night-Songs” I, Project Gutenberg eBook 1365.',
+  lat:'Der du von dem Himmel bist,\nAlles Leid und Schmerzen stillest,\nDen, der doppelt elend ist,\nDoppelt mit Erquickung füllest,\nAch ich bin des Treibens müde!\nWas soll all der Schmerz und Lust?\nSüßer Friede,\nKomm, ach komm in meine Brust!',
+  eng:'You that from the heavens are,\nEvery pain and sorrow still,\nAnd the doubly wretched heart\nDoubly with refreshment fill,\nI am weary with contending!\nWhy this rapture and unrest?\nPeace descending,\nCome, ah, come into my breast!\n— Henry Wadsworth Longfellow',
+  ctx:'A prayer to peace. The person addressed is held back to line 7, <em>Süßer Friede</em>; the first four lines are relative clauses about it, with the verbs at the end.',
+  parts:[
+   {t:'Der du von dem Himmel bist', h:'A relative clause in the second person', n:'<em>Der du … bist</em>, “you who are”: the relative <em>der</em> is followed by <em>du</em>, so that the verb is second person, <em>bist</em>, at the end of the clause.'},
+   {t:'Alles Leid und Schmerzen stillest', h:'A second verb on the same relative', n:'<em>Stillest</em>, “you still,” is also at the end. Its objects are <em>alles Leid und Schmerzen</em>.'},
+   {t:'Den, der doppelt elend ist,\nDoppelt mit Erquickung füllest', h:'Object and a relative inside', n:'<em>Den</em>, accusative, is the object of <em>füllest</em>: him who is doubly wretched, you fill doubly with refreshment.'},
+   {t:'Ach ich bin des Treibens müde', h:'A genitive after müde', n:'<em>Müde</em> takes the genitive in older German: <em>des Treibens</em>, “of the bustle.”'},
+   {t:'Süßer Friede,\nKomm, ach komm in meine Brust', h:'The address and the imperative', n:'<em>Süßer Friede</em> is the person addressed, with the strong adjective ending, no article before it. <em>Komm</em> is the imperative; <em>in</em> with the accusative <em>meine Brust</em> gives motion into.'}],
+  qs:[
+   {t:'Der du', q:'<em>Der du … bist</em> means…', a:'You who are', ds:['He who is','The one you are','Which you are'], why:'The relative is followed by the pronoun of the person addressed, and the verb agrees with it.'},
+   {t:'stillest', q:'<em>stillest</em> is at the end of its line because…', a:'It is the verb of a relative clause', ds:['It is an infinitive','It is a question','It is an imperative'], why:'Dependent clauses put the finite verb last.'},
+   {t:'Den,', q:'<em>Den</em> is accusative because…', a:'It is the object of <em>füllest</em>', ds:['It is the subject of <em>ist</em>','It follows <em>doppelt</em>','It is a dative plural'], why:'You fill him: the one filled is the object.'},
+   {t:'des Treibens', q:'<em>des Treibens</em> is…', a:'Genitive, after <em>müde</em>', ds:['Dative, after <em>bin</em>','Nominative, the subject','Accusative, the object'], why:'<em>Einer Sache müde sein</em>, “to be weary of a thing,” takes the genitive.'},
+   {t:'Komm', q:'<em>Komm</em> is…', a:'An imperative', ds:['A present indicative','A past participle','A subjunctive'], why:'It commands peace to come.'},
+   {t:'meine Brust', q:'<em>in meine Brust</em> has the accusative because…', a:'It gives motion into a place', ds:['<em>In</em> always takes the accusative','<em>Brust</em> is the subject','It gives rest in a place'], why:'With motion toward, <em>in</em> takes the accusative; with rest, the dative.'}]},
+
+'de-perlen': {lang:'de', author:'Heine', work:'Die Nordsee', locus:'“Nachts in der Kajüte” 1–4', meter:'Free lines of three beats', ed:'Heine, “Nachts in der Cajüte,” in <i>Die Nordsee</i>, part I (1826), lines 1–4, as printed by Wikisource, spelling modernized. English: Henry Wadsworth Longfellow, “The Sea Hath Its Pearls,” Project Gutenberg eBook 1365.',
+  lat:'Das Meer hat seine Perlen,\nDer Himmel hat seine Sterne,\nAber mein Herz, mein Herz,\nMein Herz hat seine Liebe.',
+  eng:'The sea has its pearls,\nThe heaven has its stars;\nBut my heart, my heart,\nMy heart has its love.\n— Henry Wadsworth Longfellow',
+  ctx:'Three sentences of the same shape, the third broken by repetition. <em>Seine</em> serves for “its” as well as “his.”',
+  parts:[
+   {t:'Das Meer hat seine Perlen', h:'Subject, verb, object', n:'<em>Das Meer</em> is the subject, <em>hat</em> the verb, <em>seine Perlen</em> the object. <em>Seine</em>, “its,” refers to a neuter noun as it would to a masculine one.'},
+   {t:'Der Himmel hat seine Sterne', h:'The same shape', n:'<em>Der Himmel</em>, masculine; <em>seine</em> again.'},
+   {t:'Aber mein Herz, mein Herz,\nMein Herz hat seine Liebe', h:'Aber, and the subject repeated', n:'<em>Aber</em>, “but,” does not count for word order, so the subject still comes first. The subject is said three times before the verb arrives.'}],
+  qs:[
+   {t:'seine Perlen', q:'<em>seine</em> in <em>Das Meer hat seine Perlen</em> means…', a:'Its', ds:['His only','Her','Their'], why:'<em>Sein</em> is the possessive for masculine and neuter owners; <em>das Meer</em> is neuter.'},
+   {t:'Der Himmel', q:'<em>Der Himmel</em> is…', a:'Nominative, the subject', ds:['Dative','Genitive','Accusative, the object'], why:'The heaven has its stars.'},
+   {t:'Aber', q:'After <em>Aber</em> the subject still comes before the verb because…', a:'<em>Aber</em> joins clauses and takes no place in the order', ds:['<em>Aber</em> sends the verb to the end','It is a question','The verb is left out'], why:'Coordinating conjunctions such as <em>aber, und, oder</em> stand outside the clause.'}]},
+
+'de-blume': {lang:'de', author:'Heine', work:'Buch der Lieder', locus:'“Du bist wie eine Blume” 1–4', meter:'Three-beat iambic lines', ed:'Heine, “Du bist wie eine Blume,” in <i>Buch der Lieder</i>, “Die Heimkehr” (1827), lines 1–4, as printed by Wikisource, spelling modernized. English: Emma Lazarus (1881), Project Gutenberg eBook 31726.',
+  lat:'Du bist wie eine Blume,\nSo hold und schön und rein;\nIch schau’ dich an, und Wehmut\nSchleicht mir ins Herz hinein.',
+  eng:'You seem like a flower,\nSo pure and fair and bright;\nA melancholy yearning\nSteals over me at your sight.\n— Emma Lazarus',
+  ctx:'One of the most often set of Heine’s songs. It has a separable verb in each half: <em>anschauen</em> and <em>hineinschleichen</em>.',
+  parts:[
+   {t:'Du bist wie eine Blume', h:'A comparison with wie', n:'<em>Wie eine Blume</em>, “like a flower.” After <em>wie</em> the noun takes the same case as what it is compared with, here the nominative.'},
+   {t:'So hold und schön und rein', h:'Predicate adjectives', n:'Three adjectives without endings, said of <em>du</em>.'},
+   {t:'Ich schau’ dich an', h:'A separable verb', n:'<em>Anschauen</em>, “to look at”: in a main clause the prefix <em>an</em> goes to the end. <em>Dich</em> is accusative, the object.'},
+   {t:'und Wehmut\nSchleicht mir ins Herz hinein', h:'A dative of the person, and another separable verb', n:'<em>Wehmut</em>, “melancholy,” is the subject. <em>Mir</em> is a dative of the person affected: into my heart. <em>Hinein</em> is the separated prefix of <em>hineinschleichen</em>.'}],
+  qs:[
+   {t:'eine Blume', q:'<em>eine Blume</em> is nominative because…', a:'After <em>wie</em> it matches <em>du</em>, the subject', ds:['<em>wie</em> takes the nominative always, as a preposition','It is the object of <em>bist</em>','It is plural'], why:'<em>Wie</em> compares like with like, and <em>du</em> is nominative.'},
+   {t:'an', q:'<em>an</em> in <em>Ich schau’ dich an</em> is…', a:'The separated prefix of <em>anschauen</em>', ds:['A preposition governing <em>dich</em>','An adverb of place','A conjunction'], why:'In a main clause the prefix goes to the end.'},
+   {t:'Wehmut', q:'The subject of <em>schleicht</em> is…', a:'<em>Wehmut</em>', ds:['<em>ich</em>','<em>mir</em>','<em>Herz</em>'], why:'Melancholy creeps into my heart.'},
+   {t:'mir', q:'<em>mir</em> is…', a:'Dative: the person affected, “into my heart”', ds:['Accusative, the object','Nominative','Genitive'], why:'German often uses a dative of the person where English uses a possessive.'}]},
+
 'de-danket': {lang:'de', author:'Rinkart', work:'Nun danket alle Gott', locus:'1–4', meter:'iambic trimeter, six and seven syllables', ed:'Martin Rinkart, “Nun danket alle Gott” (1636), stanza 1, lines 1–4. English: Catherine Winkworth, <i>Lyra Germanica</i> (1858).',
   lat:'Nun danket alle Gott\nMit Herzen, Mund und Händen,\nDer große Dinge tut\nAn uns und allen Enden,',
   eng:'Now thank we all our God,\nWith heart and hands and voices,\nWho wondrous things has done,\nIn whom his world rejoices;\n— Catherine Winkworth',
@@ -1564,20 +1578,6 @@ Object.assign(PASSAGES, {
    {t:'danket', q:'<em>danket</em> is…', a:'The plural imperative: give thanks', ds:['A past tense','Third person singular','An infinitive'], why:'The older plural imperative ends in <em>-et</em>; today, <em>dankt</em>.'},
    {t:'Gott', q:'<em>Gott</em> after <em>danket</em> is…', a:'Dative', ds:['Accusative','Nominative','Genitive'], why:'<em>Danken</em> takes the dative of the one thanked.'},
    {t:'Der große Dinge tut', q:'<em>Der</em> begins…', a:'A relative clause standing for <em>Gott</em>', ds:['A main clause','A question','A new subject, “the man”'], why:'The verb <em>tut</em> stands last.'}]},
-
-'de-stille': {lang:'de', author:'Mohr', work:'Stille Nacht', locus:'1–6', meter:'two- and three-beat lines, dactyls and trochees', ed:'Joseph Mohr, “Stille Nacht” (1818), stanza 1, in the form now usually sung. English: John Freeman Young (1859).',
-  lat:'Stille Nacht, heilige Nacht!\nAlles schläft, einsam wacht\nNur das traute hochheilige Paar.\nHolder Knabe im lockigen Haar,\nSchlaf in himmlischer Ruh!\nSchlaf in himmlischer Ruh!',
-  eng:'Silent night, holy night,\nAll is calm, all is bright\nRound yon virgin mother and child.\nHoly infant so tender and mild,\nSleep in heavenly peace,\nSleep in heavenly peace.\n— John Freeman Young',
-  ctx:'The carol. Young’s English is free: Mohr says that all sleep, and only the couple keeps watch.',
-  parts:[
-   {t:'Stille Nacht, heilige Nacht', h:'Adjectives with no article', n:'<em>Stille</em> and <em>heilige</em> take the strong feminine ending <em>-e</em>. Two beats in each half: <em>STIL-le NACHT, HEI-li-ge NACHT</em>.'},
-   {t:'Alles schläft, einsam wacht\nNur das traute hochheilige Paar', h:'Verb second, subject after', n:'<em>Alles</em>, “everyone,” neuter singular. <em>Einsam</em> holds the first place, so <em>wacht</em> precedes its subject, <em>das … Paar</em>.'},
-   {t:'Holder Knabe im lockigen Haar', h:'The address', n:'<em>Holder Knabe</em>, vocative, strong ending with no article.'},
-   {t:'Schlaf in himmlischer Ruh', h:'Imperative', n:'<em>Schlaf</em>, singular imperative. <em>In himmlischer Ruh</em>, dative of rest; <em>Ruh</em> for <em>Ruhe</em>.'}],
-  qs:[
-   {t:'Alles schläft', q:'<em>Alles</em> takes the singular verb because…', a:'It is a neuter singular pronoun: everything, everyone', ds:['It is plural but irregular','It is the object','It is an adverb'], why:'<em>Alles</em> is singular, like English “all is calm.”'},
-   {t:'wacht', q:'The subject of <em>wacht</em> is…', a:'<em>das traute hochheilige Paar</em>', ds:['<em>alles</em>','<em>einsam</em>','<em>Nacht</em>'], why:'<em>Einsam</em> holds the first place; the subject follows the verb.'},
-   {t:'Schlaf', q:'<em>Schlaf</em> in the last lines is…', a:'The singular imperative: sleep!', ds:['The noun: sleep','A past tense','A plural verb'], why:'Addressed to the child, <em>du</em>; the imperative drops the ending.'}]}
 });
 
 /* Where each English text was read. */
