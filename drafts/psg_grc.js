@@ -6,7 +6,7 @@ const PSG_ED = {grc:'Greek as printed by the Perseus Digital Library (PerseusDL 
 Object.assign(PASSAGES, {
 'grc-hdt': {lang:'grc', author:'Herodotus', work:'Histories', locus:'1.0', ed:PSG_ED.grc + ' English: G. C. Macaulay (1890), Project Gutenberg eBook 2707.',
   lat:'Ἡροδότου Ἁλικαρνησσέος ἱστορίης ἀπόδεξις ἥδε, ὡς μήτε τὰ γενόμενα ἐξ ἀνθρώπων τῷ χρόνῳ ἐξίτηλα γένηται, μήτε ἔργα μεγάλα τε καὶ θωμαστά, τὰ μὲν Ἕλλησι τὰ δὲ βαρβάροισι ἀποδεχθέντα, ἀκλεᾶ γένηται, τά τε ἄλλα καὶ διʼ ἣν αἰτίην ἐπολέμησαν ἀλλήλοισι.',
-  eng:'This is the Showing forth of the Inquiry of Herodotus of Halicarnassos, to the end that neither the deeds of men may be forgotten by lapse of time, nor the works great and marvellous, which have been produced some by Hellenes and some by Barbarians, may lose their renown; and especially that the causes may be remembered for which these waged war with one another.\n— G. C. Macaulay',
+  eng:'This is the Showing forth of the Inquiry of Herodotus of Halicarnassos, to the end that neither the deeds of men may be forgotten by lapse of time, nor the works great and marvelous, which have been produced some by Hellenes and some by Barbarians, may lose their renown; and especially that the causes may be remembered for which these waged war with one another.\n— G. C. Macaulay',
   ctx:'Herodotus wrote in the Ionic dialect in the fifth century BC. His history opens with one sentence that names the author, the work, and its purpose: that the deeds of Greeks and barbarians may not be forgotten, and above all the cause of their war.',
   parts:[
    {t:'Ἡροδότου Ἁλικαρνησσέος ἱστορίης ἀπόδεξις ἥδε', h:'A sentence without a verb', n:'<em>Ἀπόδεξις ἥδε</em>, “this is the setting forth,” has no verb: <em>ἐστί</em> is understood. <em>Ἡροδότου Ἁλικαρνησσέος</em> and <em>ἱστορίης</em> are genitives depending on <em>ἀπόδεξις</em>. The forms are Ionic: <em>ἱστορίης</em> for Attic <em>ἱστορίας</em>.'},
@@ -100,8 +100,8 @@ Object.assign(PASSAGES, {
    {t:'ἐπεὶ δὲ ἠσθένει Δαρεῖος καὶ ὑπώπτευε τελευτὴν τοῦ βίου', h:'A clause of time', n:'<em>Ἐπεί</em>, “when,” begins a clause with two imperfects: he was sick and suspected the end of his life.'},
    {t:'ἐβούλετο τὼ παῖδε ἀμφοτέρω παρεῖναι', h:'The dual', n:'<em>Τὼ παῖδε ἀμφοτέρω</em> is the dual, the number for two, as the subject of the infinitive <em>παρεῖναι</em>: he wished both sons to be present.'}],
   qs:[
-   {t:'γίγνονται', q:'Why is <em>γίγνονται</em> present?', a:'It is the historical present, used in narrative for a past event', ds:['The sons are still being born','It is a future','It is a mistake for the aorist'], why:'Greek narrative often uses the present to make a past event vivid.'},
    {t:'Δαρείου καὶ Παρυσάτιδος', q:'<em>Δαρείου καὶ Παρυσάτιδος</em> is…', a:'Genitive of origin: born of Darius and Parysatis', ds:['A genitive absolute','The subject','A dative'], why:'The genitive names the parents from whom the sons are born.'},
+   {t:'γίγνονται', q:'Why is <em>γίγνονται</em> present?', a:'It is the historical present, used in narrative for a past event', ds:['The sons are still being born','It is a future','It is a mistake for the aorist'], why:'Greek narrative often uses the present to make a past event vivid.'},
    {t:'ἠσθένει', q:'<em>ἠσθένει</em> is…', a:'Imperfect: “he was sick”', ds:['Aorist','Present','Future'], why:'The augment and the ending <em>-ει</em> of a contract verb in <em>-έω</em> mark the imperfect.'},
    {t:'τὼ παῖδε ἀμφοτέρω', q:'<em>τὼ παῖδε ἀμφοτέρω</em> is in which number?', a:'The dual', ds:['The singular','The plural','None, it is indeclinable'], why:'Greek has a dual for pairs, with the endings <em>-ω</em> and <em>-ε</em>.'}]},
 
@@ -115,8 +115,8 @@ Object.assign(PASSAGES, {
    {t:'διὸ καλῶς ἀπεφήναντο τἀγαθόν', h:'The conclusion', n:'<em>Διό</em>, “therefore,” draws the conclusion. <em>Τἀγαθόν</em> is <em>τὸ ἀγαθόν</em> joined into one word (crasis), the object of <em>ἀπεφήναντο</em>.'},
    {t:'οὗ πάντʼ ἐφίεται', h:'A relative clause', n:'<em>Οὗ</em>, a genitive relative, is governed by <em>ἐφίεται</em>: that at which all things aim. <em>Πάντʼ</em> is <em>πάντα</em> with its last vowel elided, and a neuter plural takes a singular verb.'}],
   qs:[
-   {t:'δοκεῖ', q:'Why is <em>δοκεῖ</em> singular with four subjects?', a:'It agrees with the nearest subject', ds:['The subjects are one thing','It is impersonal and has no subject','It is a mistake'], why:'Greek may make the verb agree with the nearest of several subjects.'},
    {t:'ἀγαθοῦ τινὸς', q:'Why is <em>ἀγαθοῦ τινος</em> genitive?', a:'<em>ἐφίεμαι</em>, “aim at,” takes the genitive', ds:['It shows possession','It is a genitive absolute','It follows <em>δοκεῖ</em>'], why:'Verbs of aiming and desiring take the genitive.'},
+   {t:'δοκεῖ', q:'Why is <em>δοκεῖ</em> singular with four subjects?', a:'It agrees with the nearest subject', ds:['The subjects are one thing','It is impersonal and has no subject','It is a mistake'], why:'Greek may make the verb agree with the nearest of several subjects.'},
    {t:'τἀγαθόν', q:'<em>τἀγαθόν</em> is…', a:'<em>τὸ ἀγαθόν</em> joined by crasis', ds:['A genitive plural','A verb','A participle'], why:'Crasis merges a final vowel with the vowel that begins the next word.'},
    {t:'ἐφίεται', q:'Why is <em>ἐφίεται</em> singular with <em>πάντα</em>?', a:'A neuter plural subject takes a singular verb', ds:['<em>πάντα</em> is singular','The verb is impersonal','It agrees with <em>οὗ</em>'], why:'In Attic, a neuter plural subject usually has its verb in the singular.'}]},
 
@@ -266,7 +266,7 @@ Object.assign(PASSAGES, {
 
 'grc-od': {lang:'grc', author:'Homer', work:'Odyssey', locus:'1.1–5', meter:'Dactylic hexameter', ed:PSG_ED.grc + ' English: Samuel Butler (1900), Project Gutenberg eBook 1727.',
   lat:'ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, ὃς μάλα πολλὰ\nπλάγχθη, ἐπεὶ Τροίης ἱερὸν πτολίεθρον ἔπερσεν·\nπολλῶν δʼ ἀνθρώπων ἴδεν ἄστεα καὶ νόον ἔγνω,\nπολλὰ δʼ ὅ γʼ ἐν πόντῳ πάθεν ἄλγεα ὃν κατὰ θυμόν,\nἀρνύμενος ἥν τε ψυχὴν καὶ νόστον ἑταίρων.',
-  eng:'Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home.\n— Samuel Butler',
+  eng:'Tell me, O Muse, of that ingenious hero who traveled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home.\n— Samuel Butler',
   ctx:'The Odyssey opens as the Iliad does, with its subject and a call to the Muse: the man of many turns, who wandered after the fall of Troy.',
   parts:[
    {t:'ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον', h:'The object first', n:'<em>Ἄνδρα</em>, “the man,” is the object of <em>ἔννεπε</em>, “tell,” and <em>πολύτροπον</em> agrees with it, held to the end of the phrase.'},
@@ -282,7 +282,7 @@ Object.assign(PASSAGES, {
 
 'grc-ot': {lang:'grc', author:'Sophocles', work:'Oedipus Tyrannus', locus:'1–5', meter:'Iambic trimeter', ed:PSG_ED.grc + ' English: F. Storr (1912), Project Gutenberg eBook 31.',
   lat:'ὦ τέκνα, Κάδμου τοῦ πάλαι νέα τροφή,\nτίνας ποθʼ ἕδρας τάσδε μοι θοάζετε\nἱκτηρίοις κλάδοισιν ἐξεστεμμένοι;\nπόλις δʼ ὁμοῦ μὲν θυμιαμάτων γέμει,\nὁμοῦ δὲ παιάνων τε καὶ στεναγμάτων·',
-  eng:'My children, latest born to Cadmus old,\nWhy sit ye here as suppliants, in your hands\nBranches of olive filleted with wool?\nWhat means this reek of incense everywhere,\nAnd everywhere laments and litanies?\n— F. Storr',
+  eng:'My children, latest born to Cadmus old,\nWhy sit you here as suppliants, in your hands\nBranches of olive filleted with wool?\nWhat means this reek of incense everywhere,\nAnd everywhere laments and litanies?\n— F. Storr',
   ctx:'The play opens at Thebes, struck by plague. The king, Oedipus, speaks to the suppliants before his palace. The spoken lines of Greek tragedy are iambic trimeters.',
   parts:[
    {t:'ὦ τέκνα, Κάδμου τοῦ πάλαι νέα τροφή', h:'The address', n:'<em>Ὦ τέκνα</em> is vocative, and <em>νέα τροφή</em>, “young brood,” stands in apposition to it; <em>Κάδμου τοῦ πάλαι</em>, “of Cadmus of old.”'},
