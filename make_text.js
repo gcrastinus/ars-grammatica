@@ -368,12 +368,23 @@ Partner language: coming soon. A later version will teach the grammar of a third
 `;
 }
 
+/** The items of an act with each home-page row opened into its study and its exercises, in order. */
+function actItems(act) {
+  const out = [];
+  for (const it of act.items || []) {
+    if (it.kind !== 'row') { out.push(it); continue; }
+    out.push({ kind: 'deck', deck: it.deck, tag: it.tag, title: it.title, desc: it.desc });
+    for (const ex of it.ex || []) out.push({ kind: 'ex', ex });
+  }
+  return out;
+}
+
 function buildToc(ACTS, EX) {
   const lines = ['The parts', '---------', ''];
   for (const act of ACTS) {
     const head = act.roman ? `${act.roman}. ${act.name}` : act.name;
     lines.push(head);
-    for (const it of act.items || []) {
+    for (const it of actItems(act)) {
       if (it.kind === 'deck') {
         const tag = it.tag || 'STUDY';
         lines.push(`    ${tag} — ${it.title}`);
@@ -597,9 +608,11 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state, PARTNERS }, htmlPa
   parts.push('='.repeat(58));
   parts.push('');
 
+  // An exercise listed in two acts (congtruth) is printed in full where it first appears.
+  const printedEx = new Set();
   for (const act of ACTS) {
     parts.push(actBanner(act));
-    for (const it of act.items || []) {
+    for (const it of actItems(act)) {
       if (it.kind === 'deck') {
         const deck = DECKS[it.deck];
         if (!deck) continue;
@@ -608,6 +621,12 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state, PARTNERS }, htmlPa
       } else if (it.kind === 'ex') {
         const ex = EX[it.ex];
         if (!ex) continue;
+        if (printedEx.has(it.ex)) {
+          parts.push(`EXERCISE — ${ex.title || it.ex} (also listed here; printed in full above)`);
+          parts.push('');
+          continue;
+        }
+        printedEx.add(it.ex);
         // study separator line like the original
         parts.push('-'.repeat(72));
         parts.push(`EXERCISE — ${ex.title || it.ex}`);

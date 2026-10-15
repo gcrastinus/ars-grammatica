@@ -218,7 +218,9 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   display:grid; grid-template-columns:1fr 1fr; gap:16px;
   align-items:stretch;
 }
-@media (max-width:700px){ .set-pair{grid-template-columns:1fr} }
+.set-pair-ex{display:flex; flex-direction:column; gap:16px}
+.set-pair-ex > .set-card{flex:1}
+@media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
   border:1px solid var(--line); background:var(--card); border-radius:14px; padding:20px 22px;
   cursor:pointer; box-shadow:var(--shadow); transition:transform .15s, border-color .15s;
@@ -16237,195 +16239,167 @@ const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
    gloss:'Begin here: what the art is, and what it is for.',
    items:[
-     {kind:'deck', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
-      desc:'The name of the art, its definition, its matter and parts, what it is for, and what the grammarian does. Well formed against true.'}
+     {kind:'row', deck:'prelim', tag:'STUDY · START HERE', title:'What Grammar Is',
+      desc:'The name of the art, its definition, its matter and parts, what it is for, and what the grammarian does. Well formed against true.', ex:[]}
    ]},
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'The matter of speech before meaning: voice, then letter, then syllable.',
    items:[
-     {kind:'deck', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
-      desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.'},
-     {kind:'ex', ex:'vox'},
-     {kind:'deck', deck:'letter', tag:'STUDY', title:'Letter and Sound',
-      desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.'},
-     {kind:'ex', ex:'letter'},
-     {kind:'deck', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
-      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.'},
-     {kind:'ex', ex:'syllable'},
-     {kind:'deck', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
-      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.'},
-     {kind:'ex', ex:'meter'}
+     {kind:'row', deck:'vox', tag:'STUDY', title:'Voice Articulate and Inarticulate',
+      desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.', ex:['vox']},
+     {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
+      desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
+     {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
+      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']},
+     {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
+      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
    gloss:'How a word is used (as a noun, a verb, and the rest), and the first division of the eight.',
    items:[
-     {kind:'deck', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
-      desc:'A part of speech is decided by how a word is used: Donatus’s eight, and the Greek eight with the article, beginning with the noun and the verb.'},
-     {kind:'ex', ex:'pos'},
-     {kind:'deck', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
-      desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.'},
-     {kind:'ex', ex:'decline'}
+     {kind:'row', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
+      desc:'A part of speech is decided by how a word is used: Donatus’s eight, and the Greek eight with the article, beginning with the noun and the verb.', ex:['pos']},
+     {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
+      desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
    items:[
-     {kind:'ex', ex:'latnoun'}, {kind:'ex', ex:'latverb'},
-     {kind:'deck', deck:'casework', tag:'STUDY', title:'Case',
-      desc:'What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.'},
-     {kind:'ex', ex:'cases'},
-     {kind:'deck', deck:'produce', tag:'STUDY', title:'Producing the Form',
-      desc:'The inverse of parsing: given the lemma and the accidents, write the form.'},
-     {kind:'ex', ex:'produce'}
+     {kind:'row', deck:'latnoun', tag:'STUDY', title:'The Latin Noun',
+      desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
+     {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
+      desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
+     {kind:'row', deck:'casework', tag:'STUDY', title:'Case',
+      desc:'What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
+     {kind:'row', deck:'produce', tag:'STUDY', title:'Producing the Form',
+      desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
-     {kind:'deck', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description}
+     {kind:'row', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description, ex:[]}
    ] : [], DEU ? [
-     {kind:'deck', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description}
+     {kind:'row', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description, ex:[]}
    ] : [], FRA ? [
-     {kind:'deck', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description}
+     {kind:'row', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description, ex:[]}
    ] : [], GRK ? [
-     {kind:'deck', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
-      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.'},
-     {kind:'ex', ex:'grcmore'}
-   ].concat(GRK && GRK.sentence ? [
-     {kind:'ex', ex:'grcsent'},
-     {kind:'ex', ex:'grcvoice'},
-     {kind:'ex', ex:'grcclause'},
-     {kind:'ex', ex:'grcmood'}
-   ] : []) : [])},
+     {kind:'row', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
+      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.',
+      ex:['grcmore'].concat(GRK && GRK.sentence ? ['grcsent', 'grcvoice', 'grcclause', 'grcmood'] : [])}
+   ] : [])},
   {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
    gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
    items:[
-     {kind:'deck', deck:'enpos', tag:'STUDY', title:'The Eight in English',
-      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.'},
-     {kind:'ex', ex:'enpos'},
-     {kind:'deck', deck:'ensent', tag:'STUDY', title:'Subject, Predicate, and the Patterns',
-      desc:'What the sentence is about and what is said of it, and the six patterns a modern class uses.'},
-     {kind:'ex', ex:'ensent'},
-     {kind:'deck', deck:'enphr', tag:'STUDY', title:'The Phrase',
-      desc:'Prepositional, participial, gerund, infinitive, and appositive phrases: a group that does one office and does not assert.'},
-     {kind:'ex', ex:'enphr'},
-     {kind:'deck', deck:'encl', tag:'STUDY', title:'The Clause and the Kind of Sentence',
-      desc:'Independent and dependent clauses; noun, adjective, and adverb clauses; simple, compound, complex, and compound-complex sentences.'},
-     {kind:'ex', ex:'encl'},
-     {kind:'deck', deck:'enform', tag:'STUDY', title:'Agreement, Case, and the Verb',
-      desc:'Congruity of subject and verb, the pronoun’s case, and tense, voice, and mood. An author’s sentence is named, not rewritten.'},
-     {kind:'ex', ex:'enform'},
-     {kind:'deck', deck:'enfault', tag:'STUDY', title:'The Common Faults',
-      desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.'},
-     {kind:'ex', ex:'enfault'},
-     {kind:'deck', deck:'endiag', tag:'STUDY', title:'The Diagram',
-      desc:'Reed and Kellogg’s picture of the offices: subject and verb, object and complement, modifiers, a phrase, and one dependent clause.'},
-     {kind:'ex', ex:'endiag'},
-     {kind:'deck', deck:'making', tag:'STUDY', title:'Making Sentences',
-      desc:'Combining short sentences, placing modifiers, making pronouns and series clear, and choosing between the active and the passive.'},
-     {kind:'ex', ex:'making'}
+     {kind:'row', deck:'enpos', tag:'STUDY', title:'The Eight in English',
+      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']},
+     {kind:'row', deck:'ensent', tag:'STUDY', title:'Subject, Predicate, and the Patterns',
+      desc:'What the sentence is about and what is said of it, and the six patterns a modern class uses.', ex:['ensent']},
+     {kind:'row', deck:'enphr', tag:'STUDY', title:'The Phrase',
+      desc:'Prepositional, participial, gerund, infinitive, and appositive phrases: a group that does one office and does not assert.', ex:['enphr']},
+     {kind:'row', deck:'encl', tag:'STUDY', title:'The Clause and the Kind of Sentence',
+      desc:'Independent and dependent clauses; noun, adjective, and adverb clauses; simple, compound, complex, and compound-complex sentences.', ex:['encl']},
+     {kind:'row', deck:'enform', tag:'STUDY', title:'Agreement, Case, and the Verb',
+      desc:'Congruity of subject and verb, the pronoun’s case, and tense, voice, and mood. An author’s sentence is named, not rewritten.', ex:['enform']},
+     {kind:'row', deck:'enfault', tag:'STUDY', title:'The Common Faults',
+      desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.', ex:['enfault']},
+     {kind:'row', deck:'endiag', tag:'STUDY', title:'The Diagram',
+      desc:'Reed and Kellogg’s picture of the offices: subject and verb, object and complement, modifiers, a phrase, and one dependent clause.', ex:['endiag']},
+     {kind:'row', deck:'making', tag:'STUDY', title:'Making Sentences',
+      desc:'Combining short sentences, placing modifiers, making pronouns and series clear, and choosing between the active and the passive.', ex:['making']}
    ]},
   {key:'IV', roman:'IV', name:'The Sentence', latin:'Oratio',
    gloss:'To judge an arrangement of words, then a period.',
    items:[
-     {kind:'deck', deck:'oratio', tag:'STUDY', title:'The Arrangement of Words',
-      desc:'Priscian’s definition of the sentence: a fitting arrangement of words showing a complete sense. What the sentence is about and what is said of it, and the four causes of a construction.'},
-     {kind:'deck', deck:'agree', tag:'STUDY', title:'Agreement',
-      desc:'The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent.'},
-     {kind:'ex', ex:'agree'},
-     {kind:'deck', deck:'govern', tag:'STUDY', title:'Government',
-      desc:'The verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.'},
-     {kind:'ex', ex:'govern'},
-     {kind:'deck', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
-      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.'},
-     {kind:'ex', ex:'latbuild'},
-     {kind:'ex', ex:'latmore'},
-     {kind:'ex', ex:'latvoice'},
-     {kind:'ex', ex:'latclause'},
-     {kind:'ex', ex:'latsubj'},
-     {kind:'ex', ex:'freewrite'},
-     {kind:'deck', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
-      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.'},
-     {kind:'ex', ex:'cong'},
-     {kind:'deck', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
-      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.'},
-     {kind:'ex', ex:'clauses'},
-     {kind:'deck', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
-      desc:'Thomas of Erfurt’s account of construction: which word depends, which terminates, and why the verb depends on its subject.'},
-     {kind:'ex', ex:'workshop'},
-     {kind:'deck', deck:'markup', tag:'STUDY', title:'Marking the Sentence',
-      desc:'Every dependence in a sentence at once, drawn as arrows, and a free workshop for any sentence.'},
-     {kind:'ex', ex:'markup'},
+     {kind:'row', deck:'oratio', tag:'STUDY', title:'The Arrangement of Words',
+      desc:'Priscian’s definition of the sentence: a fitting arrangement of words showing a complete sense. What the sentence is about and what is said of it, and the four causes of a construction.', ex:[]},
+     {kind:'row', deck:'agree', tag:'STUDY', title:'Agreement',
+      desc:'The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent.', ex:['agree']},
+     {kind:'row', deck:'govern', tag:'STUDY', title:'Government',
+      desc:'The verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.', ex:['govern']},
+     {kind:'row', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
+      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite']},
+     {kind:'row', deck:'latvoice', tag:'STUDY', title:'The Passive, the Infinitive, and the Participle',
+      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice']},
+     {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
+      desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
+     {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
+      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong', 'congtruth']},
+     {kind:'row', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
+      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause']},
+     {kind:'row', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
+      desc:'Thomas of Erfurt’s account of construction: which word depends, which terminates, and why the verb depends on its subject.', ex:['workshop']},
+     {kind:'row', deck:'markup', tag:'STUDY', title:'Marking the Sentence',
+      desc:'Every dependence in a sentence at once, drawn as arrows, and a free workshop for any sentence.', ex:['markup']},
      {kind:'tool', tag:'WORKSHOP', title:'The Free Workshop',
       desc:'Type any English or Latin sentence, mark its dependences and its parts of speech, and read the markup back in words.'},
-     {kind:'deck', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
-      desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.'},
-     {kind:'ex', ex:'period'},
-     {kind:'ex', ex:'servius4'},
-     {kind:'ex', ex:'livyperiod'},
+     {kind:'row', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
+      desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.', ex:['period', 'servius4', 'livyperiod']},
      {kind:'pick', pick:'auctores', tag:'AUCTORES', title:'Twenty passages',
       desc:'We choose one of the loci shared with Ars Rhetorica by its topic: partition, government, cola, parataxis or hypotaxis. A named commentary is the key, and the English is shown on request. The Greek shelf appears only if Ancient Greek is the partner language.'}
    ]},
   {key:'V', roman:'V', name:'The Reasons for the Parts', latin:'Modi Significandi',
    gloss:'Why the parts and accidents are these: Priscian’s facts, the modists’ reasons, and the objections.',
    items:[
-     {kind:'deck', deck:'modes', tag:'STUDY', title:'The Reasons for the Parts',
-      desc:'The thing, the mind, and the word; essential and accidental modes; why the verb has time; the pronoun and participle, the four that keep one form, and the article.'},
-     {kind:'ex', ex:'modes'},
-     {kind:'deck', deck:'objections', tag:'STUDY', title:'The Great Objections',
-      desc:'Nothing and the chimaera; grammatical gender; Ockham and Aurifaber; why languages differ. Each answer is kept only if it holds, and each objection is placed where it lands.'},
-     {kind:'ex', ex:'objections'}
+     {kind:'row', deck:'modes', tag:'STUDY', title:'The Reasons for the Parts',
+      desc:'The thing, the mind, and the word; essential and accidental modes; why the verb has time; the pronoun and participle, the four that keep one form, and the article.', ex:['modes']},
+     {kind:'row', deck:'objections', tag:'STUDY', title:'The Great Objections',
+      desc:'Nothing and the chimaera; grammatical gender; Ockham and Aurifaber; why languages differ. Each answer is kept only if it holds, and each objection is placed where it lands.', ex:['objections']}
    ]},
   {key:'VI', roman:'VI', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
    gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
    items:[
-     {kind:'deck', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
-      desc:'A fault in a single word, and a fault in the arrangement.'},
-     {kind:'ex', ex:'vices'},
-     {kind:'deck', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
-      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.'},
-     {kind:'ex', ex:'figures'}
+     {kind:'row', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
+      desc:'A fault in a single word, and a fault in the arrangement.', ex:['vices']},
+     {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
+      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
    ]},
   {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
    gloss:'To hand a well-formed sentence to logic, and to serve the higher sciences.',
    items:[
-     {kind:'deck', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
-      desc:'What a word means, against what it stands for in <em>this</em> proposition: <em>Man is a species</em> and <em>a man is running</em> show one word with two suppositions.'},
-     {kind:'ex', ex:'suppos'},
-     {kind:'deck', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
-      desc:'Aristotle’s fallacy: arguing from the shape of the word to the shape of the thing.'},
-     {kind:'ex', ex:'figura'},
+     {kind:'row', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
+      desc:'What a word means, against what it stands for in <em>this</em> proposition: <em>Man is a species</em> and <em>a man is running</em> show one word with two suppositions.', ex:['suppos']},
+     {kind:'row', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
+      desc:'Aristotle’s fallacy: arguing from the shape of the word to the shape of the thing.', ex:['figura']},
      {kind:'ex', ex:'congtruth'},
-     {kind:'deck', deck:'service', tag:'STUDY', title:'Grammar in the Service of the Sciences',
-      desc:'<em>In principio erat</em>; <em>Hoc est corpus meum</em>; the naming of God; seeing and having seen. Grammar gives the form, and the higher science judges the thing.'},
-     {kind:'ex', ex:'service'}
+     {kind:'row', deck:'service', tag:'STUDY', title:'Grammar in the Service of the Sciences',
+      desc:'<em>In principio erat</em>; <em>Hoc est corpus meum</em>; the naming of God; seeing and having seen. Grammar gives the form, and the higher science judges the thing.', ex:['service']}
    ]},
   {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
    gloss:'To test whether the variation of languages is only in the sounds and marks.',
    items:[
-     {kind:'deck', deck:'traditions', tag:'STUDY', title:'Three Ways of Studying Language',
-      desc:'The classical art, humanist philology, and linguistics since Saussure: what each can see, and a Thomist’s reply, with <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops.'},
-     {kind:'deck', deck:'typo', tag:'STUDY', title:'Typology',
-      desc:'Word order; case against configuration; agglutinating, fusional, and isolating languages. It tests the classical claim that, if grammar follows being, the variation must be in the marks.'},
-     {kind:'ex', ex:'typo'},
-     {kind:'deck', deck:'ug', tag:'STUDY', title:'Two Universal Grammars',
-      desc:'The classical account and Chomsky both hold a universal grammar, but ground it in different places: the things and the mind’s understanding of them, against an innate structure of the mind.'},
-     {kind:'ex', ex:'ug'}
+     {kind:'row', deck:'traditions', tag:'STUDY', title:'Three Ways of Studying Language',
+      desc:'The classical art, humanist philology, and linguistics since Saussure: what each can see, and a Thomist’s reply, with <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops.', ex:[]},
+     {kind:'row', deck:'typo', tag:'STUDY', title:'Typology',
+      desc:'Word order; case against configuration; agglutinating, fusional, and isolating languages. It tests the classical claim that, if grammar follows being, the variation must be in the marks.', ex:['typo']},
+     {kind:'row', deck:'ug', tag:'STUDY', title:'Two Universal Grammars',
+      desc:'The classical account and Chomsky both hold a universal grammar, but ground it in different places: the things and the mind’s understanding of them, against an innate structure of the mind.', ex:['ug']}
    ]},
   {key:'IX', roman:'IX', name:'Four Other Arts', latin:'Traditiones Alienae',
    gloss:'Four native arts of speech, as those schools taught them, read with the questions of this course.',
    items:[
-     {kind:'deck', deck:'scribal', tag:'STUDY', title:'The Scribal Lists',
-      desc:'Sumerian as the Babylonian school conserved it, in sign-lists, bilingual entries, and verbal paradigms; the tablet pairs a Sumerian form with Akkadian.'},
-     {kind:'ex', ex:'scribal'},
-     {kind:'deck', deck:'vyakarana', tag:'STUDY', title:'The Analysis of Speech',
-      desc:'Sanskrit as <em>vyākaraṇa</em> analyzes it: the letter-sound, stem and affix, Yāska’s four parts, and the factors of the action.'},
-     {kind:'ex', ex:'vyakarana'},
-     {kind:'deck', deck:'xiaoxue', tag:'STUDY', title:'The Lesser Learning',
-      desc:'Chinese as <em>xiaoxue</em> taught the written word: the six writings, the rhyme book, glossing, and full words and empty words.'},
-     {kind:'ex', ex:'xiaoxue'},
-     {kind:'deck', deck:'nahw', tag:'STUDY', title:'The Way of Speech',
-      desc:'Arabic as <em>al-naḥw</em> taught it: three parts, the desinence, and the governor. It is the nearest of the four to our art, and still not our eight parts.'},
-     {kind:'ex', ex:'nahw'},
-     {kind:'deck', deck:'quaestiones', tag:'STUDY', title:'Comparative Study: The Open Questions',
-      desc:'Gathered from the four arts: the letter that has a meaning; voice or writing first; where meaning begins; how many parts; case and time not marked on their parts; completeness without a verb; government from outside.'}
+     {kind:'row', deck:'scribal', tag:'STUDY', title:'The Scribal Lists',
+      desc:'Sumerian as the Babylonian school conserved it, in sign-lists, bilingual entries, and verbal paradigms; the tablet pairs a Sumerian form with Akkadian.', ex:['scribal']},
+     {kind:'row', deck:'vyakarana', tag:'STUDY', title:'The Analysis of Speech',
+      desc:'Sanskrit as <em>vyākaraṇa</em> analyzes it: the letter-sound, stem and affix, Yāska’s four parts, and the factors of the action.', ex:['vyakarana']},
+     {kind:'row', deck:'xiaoxue', tag:'STUDY', title:'The Lesser Learning',
+      desc:'Chinese as <em>xiaoxue</em> taught the written word: the six writings, the rhyme book, glossing, and full words and empty words.', ex:['xiaoxue']},
+     {kind:'row', deck:'nahw', tag:'STUDY', title:'The Way of Speech',
+      desc:'Arabic as <em>al-naḥw</em> taught it: three parts, the desinence, and the governor. It is the nearest of the four to our art, and still not our eight parts.', ex:['nahw']},
+     {kind:'row', deck:'quaestiones', tag:'STUDY', title:'Comparative Study: The Open Questions',
+      desc:'Gathered from the four arts: the letter that has a meaning; voice or writing first; where meaning begins; how many parts; case and time not marked on their parts; completeness without a verb; government from outside.', ex:[]}
    ]}
 ];
+/* The items of an act with each row opened into its study and its exercises, in order. */
+function actItems(act){
+  const out = [];
+  act.items.forEach(it => {
+    if(it.kind !== 'row'){ out.push(it); return; }
+    out.push({kind:'deck', deck:it.deck, tag:it.tag, title:it.title, desc:it.desc});
+    it.ex.forEach(ex => out.push({kind:'ex', ex}));
+  });
+  return out;
+}
+/* An exercise may be listed in two acts (congtruth); lists of exercises name it once, where it first appears. */
+function actExercises(act, seen){
+  return actItems(act).filter(i => i.kind === 'ex' && EX[i.ex] && !seen.has(i.ex) && seen.add(i.ex));
+}
 /* ====================================================================
    UI — home, decks, the question loop, progress
    ==================================================================== */
@@ -16566,24 +16540,18 @@ function buildHome(){
       return c;
     }
 
-    const items = act.items;
-    const used = new Set();
-    items.forEach((item, i) => {
-      if(used.has(i)) return;
-      if(item.kind === 'deck'){
-        const j = items.findIndex((x, xi) => !used.has(xi) && x.kind === 'ex' && x.ex === item.deck);
-        if(j >= 0){
-          used.add(i); used.add(j);
-          const row = document.createElement('div');
-          row.className = 'set-pair';
-          row.appendChild(makeCard(item, true));
-          row.appendChild(makeCard(items[j], true));
-          grid.appendChild(row);
-          return;
-        }
-      }
-      used.add(i);
-      grid.appendChild(makeCard(item, false));
+    /* A row puts the study on the left and its exercises, stacked, on the right; the right cell is
+       left empty when the study has no exercise. */
+    act.items.forEach(item => {
+      if(item.kind !== 'row'){ grid.appendChild(makeCard(item, false)); return; }
+      const row = document.createElement('div');
+      row.className = 'set-pair';
+      row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
+      const right = document.createElement('div');
+      right.className = 'set-pair-ex';
+      item.ex.filter(id => EX[id]).forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true)));
+      row.appendChild(right);
+      grid.appendChild(row);
     });
     host.appendChild(grid);
   });
@@ -17106,7 +17074,8 @@ function renderProgress(){
 
   html += `<div class="section-label">By exercise</div>`;
   const listed = [];
-  ACTS.forEach(a => a.items.forEach(i => { if(i.kind === 'ex') listed.push(EX[i.ex]); }));
+  const seenEx = new Set();
+  ACTS.forEach(a => actExercises(a, seenEx).forEach(i => listed.push(EX[i.ex])));
   if(!listed.some(e => store.totals[e.id])){
     html += `<div class="empty-note">Nothing yet. Many sets of exercises generate fresh questions each time, so there is no list to work through, only practice.</div>`;
   }else{
@@ -17487,9 +17456,9 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 
 /* ---------- quiz maker (instructors) ---------- */
 const QZ_DECK_FOR_EX = {
-  latnoun:['pos'], latverb:['pos'], cases:['casework','govern','pos'],
-  produce:['produce','pos'],
-  congtruth:['prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
+  latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
+  produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
+  congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
 };
 function qzToday(){
   return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
@@ -17693,8 +17662,9 @@ function buildMakerSets(){
   const box = $('qz-sets');
   if(!box) return;
   let html = '';
+  const seenEx = new Set();
   ACTS.forEach(act => {
-    const exs = act.items.filter(i => i.kind === 'ex' && EX[i.ex]);
+    const exs = actExercises(act, seenEx);
     if(!exs.length) return;
     const label = (act.roman ? act.roman + ' · ' : '') + act.name;
     html += `<div class="maker-act">${label}</div>`;
