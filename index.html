@@ -233,6 +233,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .grp-choice{grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:2px 0 6px; font-style:italic; color:var(--ink-soft); font-size:15px}
 .grp-choice .lang-btn{font-style:normal; margin:0}
 .grp-choice-label{margin-right:4px}
+.grp-note{grid-column:1 / -1; font-size:15px; color:var(--ink-soft); margin:0 0 8px}
 .also-in{grid-column:1 / -1; margin:-8px 0 4px; text-align:center; font-style:italic; font-size:14.5px; color:var(--ink-soft); opacity:.7}
 @media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
@@ -17597,6 +17598,15 @@ function goHome(){
 const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', other:'Other languages'};
 /* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
 const LATIN_ROWS = ['syllable','latpos','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
+/* Brief notes on a language in a section that has no sets of that language: the parts of speech are broadly the same
+   across these languages, and only the differences are named. */
+const SEC_LANG_NOTE = {
+  II:{
+    grc:'Greek counts eight parts, as Latin does, but it has the article (<em>ὁ, ἡ, τό</em>) and counts it as a part; it has no separate interjection, which it files with the adverb.',
+    de:'German has the eight, with the article (<em>der, die, das; ein</em>) beside them, and every noun is written with a capital letter, which marks the noun on the page.',
+    fr:'French has the eight, with the article (<em>le, la, les; un, une; du, des</em>), which it uses far more than English does, before almost every noun.'
+  }
+};
 function homeGroup(item){
   if(item.lang) return 'other';
   if(/ENGLISH/.test(item.tag || '')) return 'en';
@@ -17718,7 +17728,18 @@ function buildHome(){
         h.className = 'grp-label'; h.textContent = GROUP_LABEL[g];
         grid.appendChild(h);
       }
-      if(g === 'other') grid.appendChild(langChoice(act, offers, chosen));
+      if(g === 'other'){
+        grid.appendChild(langChoice(act, offers, chosen));
+        /* A language with no sets of its own in this section still changes the section's shared exercises; say so,
+           with the section's note for that language when there is one, so that the choice never looks dead. */
+        if(chosen && !groups.other.some(it => it.lang === chosen)){
+          const n = document.createElement('div');
+          n.className = 'grp-note';
+          const own = (SEC_LANG_NOTE[act.key] || {})[chosen];
+          n.innerHTML = (own ? own + ' ' : '') + `There are no separate ${PL[chosen].name} sets in this section; its exercises above now include ${PL[chosen].name} questions, and the studies show ${PL[chosen].name} notes where they have them.`;
+          grid.appendChild(n);
+        }
+      }
       groups[g].forEach(item => {
         if(g === 'other' && item.lang !== chosen) return;
         if(item.kind === 'exset'){
