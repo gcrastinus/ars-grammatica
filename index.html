@@ -219,6 +219,10 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
   align-items:stretch;
 }
 .set-pair-ex{display:flex; flex-direction:column; gap:16px}
+/* With several exercises on the right, the study card keeps its own height. */
+.set-pair.multi > .set-card{align-self:start}
+/* Studies with no exercise of their own, such as the three language decks, stand side by side. */
+.set-beside{grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
 .set-pair-ex > .set-card{flex:1}
 @media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
@@ -16275,11 +16279,11 @@ const ACTS = [
      {kind:'row', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
-     {kind:'row', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description, ex:[]}
+     {kind:'row', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description, ex:[], beside:true}
    ] : [], DEU ? [
-     {kind:'row', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description, ex:[]}
+     {kind:'row', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description, ex:[], beside:true}
    ] : [], FRA ? [
-     {kind:'row', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description, ex:[]}
+     {kind:'row', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description, ex:[], beside:true}
    ] : [], GRK ? [
      {kind:'row', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.',
@@ -16541,10 +16545,17 @@ function buildHome(){
 
     /* A row puts the study on the left and its exercises, stacked, on the right; the right cell is
        left empty when the study has no exercise. */
+    let beside = null;
     act.items.forEach(item => {
+      if(item.kind === 'row' && item.beside){
+        if(!beside){ beside = document.createElement('div'); beside.className = 'set-beside'; grid.appendChild(beside); }
+        beside.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
+        return;
+      }
+      beside = null;
       if(item.kind !== 'row'){ grid.appendChild(makeCard(item, false)); return; }
       const row = document.createElement('div');
-      row.className = 'set-pair';
+      row.className = 'set-pair' + (item.ex.filter(id => EX[id]).length > 1 ? ' multi' : '');
       row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
       const right = document.createElement('div');
       right.className = 'set-pair-ex';
