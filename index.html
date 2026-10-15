@@ -17866,12 +17866,26 @@ const SEC_LANG_NOTE = {};
 /* In The Art of Grammar alone, these existing studies (with their exercises) stand among the general rows, since they
    carry doctrine that the general rows assume: the syllable, the sentence, clause, and period, voice and mood in
    construction, meter, and the accidents of the eight parts. In the full course they stay where they are. */
-const ART_GENERAL = ['syllable','latpos','ensent','encl','clauses','period','latvoice','latsubj','meter'];
+const ART_GENERAL = ['syllable','ensent','encl','clauses','period','latvoice','latsubj','meter'];
 /* Studies that, in The Art of Grammar alone, open with a note on their examples. */
 const ART_NOTE = ART_GENERAL.concat(['vox','letter','pos','decline','casework','agree','govern','cong','congtruth','workshop','markup','vices','figures']);
 const ART_NOTE_TEXT = 'This set draws its examples from English, Latin, Greek, French, and German. The detailed studies and exercises in each language are found under The Art of Grammar + Three Languages.';
 /* The general cards of Meter and Scansion: verse and meter, quantity, elision, the hexameter, scansion, and English meter. */
 const ART_METER_PANELS = [0, 1, 2, 3, 4, 9, 10, 11];
+/* The Art of Grammar alone shows the syllable as a general study, made of the existing cards: the syllable, division,
+   and quantity from the Latin study, and the syllable and stress from the English one. */
+const ART_SYL = {title:'Syllable, Quantity, and Accent', desc:'What a syllable is, how words divide, long and short syllables, and accent: measured by quantity in Latin and by stress in English.',
+  parts:[['syllable', 0], ['syllable', 2], ['ensyl', 0], ['syllable', 3], ['syllable', 4], ['ensyl', 1], ['ensyl', 2], ['syllable', 5]]};
+function artDeck(key){
+  if(key === 'syllable'){
+    if(!DECKS.sylArt){
+      DECKS.sylArt = {title:ART_SYL.title, sub:'The general doctrine, with English and Latin examples', panels:ART_SYL.parts.map(([k, i]) => DECKS[k].panels[i])};
+      DECK_CITE.sylArt = ART_SYL.parts.map(([k, i]) => (DECK_CITE[k] || [])[i]);
+    }
+    return 'sylArt';
+  }
+  return key;
+}
 /* Exercises on the verse lines of Virgil, Ovid, and Homer, not shown in The Art of Grammar alone. */
 const ART_HIDE_EX = ['meter', 'period'];
 function homeGroup(item){
@@ -18033,9 +18047,11 @@ function buildHome(){
         if(!DECKS[item.deck]) return;
         /* The Art of Grammar alone keeps the general meter cards but not the exercises on lines of Virgil, Ovid, and Homer. */
         const exs = (item.ex || []).filter(id => EX[id] && !(store.art && ART_HIDE_EX.indexOf(id) >= 0));
+        if(store.art && item.deck === 'syllable' && EX.ensyl) exs.push('ensyl');
         const row = document.createElement('div');
         row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '') + (item.full || !exs.length ? ' full' : '');
-        row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true, act));
+        const artSyl = store.art && item.deck === 'syllable';
+        row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:artSyl ? ART_SYL.title : item.title, desc:artSyl ? ART_SYL.desc : item.desc}, true, act));
         const right = document.createElement('div');
         right.className = 'set-pair-ex';
         exs.forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true, act)));
@@ -18071,6 +18087,7 @@ function exGreekNote(q){
 }
 function openDeck(key){
   if(DECKS[key].passages){ openPassages(DECKS[key].passages, 'walk'); return; }
+  if(store.art) key = artDeck(key);
   if(store.art && key === 'meter'){
     if(!DECKS.meterArt){
       DECKS.meterArt = Object.assign({}, DECKS.meter, {panels: ART_METER_PANELS.map(i => DECKS.meter.panels[i])});
@@ -18090,7 +18107,7 @@ function renderDeck(){
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
-  const artNote = store.art && deckI === 0 && (ART_NOTE.indexOf(deckKey) >= 0 || deckKey === 'meterArt') ? `<p class="art-note">${ART_NOTE_TEXT}</p>` : '';
+  const artNote = store.art && deckI === 0 && (ART_NOTE.indexOf(deckKey) >= 0 || deckKey === 'meterArt' || deckKey === 'sylArt') ? `<p class="art-note">${ART_NOTE_TEXT}</p>` : '';
   body.innerHTML = `<div class="panel">${artNote}${p.h}${p.ladder ? ladderSvg() : ''}${deckCite(deckKey, deckI)}${deckGreekNote('text')}</div>`;
   if(p.q){
     const box = document.createElement('div');
