@@ -16634,7 +16634,7 @@ function renderDeck(){
         });
         const good = i === p.q.correct;
         box.querySelector('#deck-fb').innerHTML =
-          `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Right' : 'Not so'}</span>
+          `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Correct' : 'Incorrect'}</span>
            ${p.q.explain}${!good && p.q.wrong ? `<span class="also">${p.q.wrong}</span>` : ''}
            ${srcLine(p.src)}${deckGreekNote('explain')}</div>`;
         deckAnswered = true;
@@ -16999,7 +16999,7 @@ function submit(ansMC){
   const ptsLabel = (state.ex && state.ex.staged) ? pts : `${pts} points`;
   box.querySelector('#q-fb').innerHTML =
     `<div class="feedback ${res.right ? 'good' : 'bad'}">
-       <span class="verdict">${res.right ? 'Right' : 'Not so'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
+       <span class="verdict">${res.right ? 'Correct' : 'Incorrect'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
        ${res.also ? `<span class="also">${res.also}</span>` : ''}
        ${extra}
        ${srcLine(q.src || state.ex.src)}${exGreekNote(q)}</div>`;
