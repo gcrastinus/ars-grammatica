@@ -15294,11 +15294,11 @@ DECKS.latvoice = {
   sub:'The passive endings, the present infinitive, and the participle used as an adjective',
   panels:[
 
-{ src:['ag','appown'], h:`<p><strong>THE PASSIVE.</strong> In the active voice the subject does the action; in the passive voice the subject receives it. <em>Puella poētam laudat</em> means “the girl praises the poet,” and <em>poēta ā puellā laudātur</em> means “the poet is praised by the girl.” The one who receives the action becomes the subject, in the nominative. The doer, when it is a person and is named, is in the ablative with <em>ā</em>, or with <em>ab</em> before a vowel.</p>
+{ src:['ag','appown'], h:`<p><strong>THE PASSIVE.</strong> In the active voice the subject does the action; in the passive voice the subject receives it. <em>Puella poētam laudat</em> means “the girl praises the poet,” and <em>poēta ā puellā laudātur</em> means “the poet is praised by the girl.” The one who receives the action becomes the subject, in the nominative. The doer, when it is a person and is named, is in the ablative with <em>ā</em>, or with <em>ab</em> before a vowel or <em>h</em>.</p>
 <div class="para-wrap"><table class="para">
-<tr><th>Voice</th> <th>Subject</th> <th>Doer</th> <th>Verb</th></tr>
-<tr><td>Active</td> <td class="f">puella</td> <td>the subject itself</td> <td class="f">poētam laudat</td></tr>
-<tr><td>Passive</td> <td class="f">poēta</td> <td class="f">ā puellā</td> <td class="f">laudātur</td></tr>
+<tr><th>Voice</th> <th>Subject</th> <th>Object</th> <th>Doer</th> <th>Verb</th></tr>
+<tr><td>Active</td> <td class="f">puella</td> <td class="f">poētam</td> <td>the subject itself</td> <td class="f">laudat</td></tr>
+<tr><td>Passive</td> <td class="f">poēta</td> <td>none</td> <td class="f">ā puellā</td> <td class="f">laudātur</td></tr>
 </table></div>`,
   q:{ prompt:`In <em>poēta ā puellā laudātur</em>, which words name the one who does the praising?`,
       options:['<em>ā puellā</em>, the ablative with <em>ā</em>','<em>poēta</em>, the subject','<em>laudātur</em>, the verb','None, because a passive sentence cannot name the doer'],
@@ -15399,28 +15399,28 @@ DECKS.latsubj = {
 { src:['ag','appown'], h:`<p><strong>Four uses.</strong> The subjunctive is used in these four kinds of clause, among others:</p>
 <div class="para-wrap"><table class="para">
 <tr><th>Clause</th> <th>Introduced by</th> <th>Example</th></tr>
-<tr><td>Purpose, the end aimed at</td> <td><em>ut</em> (so that); <em>nē</em> (so that not) when the purpose is negative</td> <td><em>Pater fīlium mittit ut fīlius rēgem videat</em>, “the father sends the son so that the son may see the king.”</td></tr>
-<tr><td>Result, what followed</td> <td><em>ut</em> (that); <em>ut nōn</em> (that not) when the result is negative; usually after <em>ita</em> (so), <em>tot</em> (so many), or <em>tantus</em> (so great) in the main clause</td> <td><em>Rēgīna tot dōna mīsit ut cīvēs rēgīnam laudārent</em>, “the queen sent so many gifts that the citizens praised the queen.”</td></tr>
-<tr><td><em>Cum</em> clause</td> <td><em>cum</em> meaning “when,” in a narrative of past events, or <em>cum</em> meaning “although”</td> <td><em>Cum rēx mīlitēs vocāret, mīlitēs vēnērunt</em>, “when the king called the soldiers, the soldiers came.”</td></tr>
+<tr><td>Purpose, the end aimed at</td> <td><em>ut</em> (so that); <em>nē</em> (so that not) when the purpose is negative</td> <td><em>Pater fīlium mittit ut rēgem videat</em>, “the father sends the son so that he may see the king.”</td></tr>
+<tr><td>Result, what followed</td> <td><em>ut</em> (that); <em>ut nōn</em> (that not) when the result is negative; usually after <em>ita</em> (so), <em>tot</em> (so many), or <em>tantus</em> (so great) in the main clause</td> <td><em>Rēx tot dōna mīsit ut cīvēs rēgīnam laudārent</em>, “the king sent so many gifts that the citizens praised the queen.”</td></tr>
+<tr><td><em>Cum</em> clause</td> <td><em>cum</em> meaning “when,” in a narrative of past events, or <em>cum</em> meaning “although”</td> <td><em>Cum rēx mīlitēs vocāret, vēnērunt</em>, “when the king called the soldiers, they came.”</td></tr>
 <tr><td>Indirect question, a question reported after a verb of asking</td> <td>a question word, such as <em>quis</em> (who), <em>quid</em> (what), <em>ubi</em> (where), <em>cūr</em> (why)</td> <td><em>Dominus rogat quid servus portet</em>, “the master asks what the slave is carrying.”</td></tr>
 </table></div>
-<p>A negative purpose is introduced by <em>nē</em>, and a negative result by <em>ut nōn</em>; so the negative shows which of the two clauses is meant.</p>`,
-  q:{ prompt:`<em>Pater fīlium monet ______ fīlius bellum timeat</em> (the father warns the son so that the son may not fear the war). Which word begins the clause?`,
+<p>A negative purpose is introduced by <em>nē</em>, and a negative result by <em>ut nōn</em>; so the negative shows which of the two clauses is meant. When the subject of the clause is clear from the sentence, it is not repeated, because the ending of the verb shows its person and number: in <em>ut rēgem videat</em>, the one who sees is the son.</p>`,
+  q:{ prompt:`<em>Pater fīlium monet ______ bellum timeat</em> (the father warns the son so that he may not fear the war). Which word begins the clause?`,
       options:['<em>nē</em>','<em>ut nōn</em>','<em>ut</em>','<em>cum</em>'],
       correct:0,
-      explain:`The clause names the end that the warning aims at, so it is a purpose clause, and a negative purpose is introduced by <em>nē</em>. <em>Ut nōn</em> introduces a negative result, and <em>ut</em> alone would mean “so that the son may fear.”` } },
+      explain:`The clause names the end that the warning aims at, so it is a purpose clause, and a negative purpose is introduced by <em>nē</em>. <em>Ut nōn</em> introduces a negative result, and <em>ut</em> alone would mean “so that he may fear.”` } },
 
 { src:['ag','appown'], h:`<p><strong>The sequence of tenses.</strong> In these clauses the tense of the subjunctive depends, as a rule, on the tense of the main verb. After a present main verb the subordinate clause has the present subjunctive; after a past main verb, such as a perfect or an imperfect, it has the imperfect subjunctive, although a result clause sometimes departs from this rule.</p>
 <div class="para-wrap"><table class="para">
 <tr><th>Main verb</th> <th>Subordinate clause</th></tr>
-<tr><td><em>Pater fīlium mittit</em> (present)</td> <td><em>ut fīlius rēgem videat</em> (present subjunctive)</td></tr>
-<tr><td><em>Pater fīlium mīsit</em> (perfect)</td> <td><em>ut fīlius rēgem vidēret</em> (imperfect subjunctive)</td></tr>
+<tr><td><em>Pater fīlium mittit</em> (present)</td> <td><em>ut rēgem videat</em> (present subjunctive)</td></tr>
+<tr><td><em>Pater fīlium mīsit</em> (perfect)</td> <td><em>ut rēgem vidēret</em> (imperfect subjunctive)</td></tr>
 </table></div>
 <p>The study “The Kinds of Clause” gives the full account of these clauses and of the other kinds.</p>`,
-  q:{ prompt:`<em>Magister puerōs monuit ut puerī verba ______</em> (the teacher warned the boys so that the boys would hear the words). Which form of <em>audiō</em> fills the blank?`,
+  q:{ prompt:`<em>Magister puerōs monuit ut verba ______</em> (the teacher warned the boys so that they would hear the words). Which form of <em>audiō</em> fills the blank?`,
       options:['<em>audīrent</em>','<em>audiant</em>','<em>audiunt</em>','<em>audīret</em>'],
       correct:0,
-      explain:`<em>Monuit</em> is past, so the purpose clause has the imperfect subjunctive, and <em>puerī</em> is plural: <em>audīrent</em>. <em>Audiant</em> is present, <em>audiunt</em> is indicative, and <em>audīret</em> is singular.` } }
+      explain:`<em>Monuit</em> is past, so the purpose clause has the imperfect subjunctive, and its subject, the boys, is plural: <em>audīrent</em>. <em>Audiant</em> is present, <em>audiunt</em> is indicative, and <em>audīret</em> is singular.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15446,7 +15446,7 @@ DECKS.latbuild = {
       correct:0,
       explain:'The nominative marks the subject and the accusative the object, wherever they stand. English has lost those endings in its nouns, and so it relies on order.' } },
 
-{ src:['ag','appown'], h:`<p><strong>Persons and pronouns.</strong> The ending of a Latin verb shows the person and number of its subject, so a pronoun subject is usually left out: <em>poētam laudāmus</em> means “we praise the poet.” A personal pronoun is written when it is the object of the verb, or when it names the person to whom something is given, and then it takes the case of that use.</p>
+{ src:['ag','appown'], h:`<p><strong>Persons and pronouns.</strong> The ending of a Latin verb shows the person and number of its subject, so a pronoun subject is usually left out: <em>poētam laudāmus</em> means “we praise the poet.” The nominative <em>ego</em> or <em>tū</em> is written for emphasis or contrast, as in <em>ego scrībō, tū legis</em>, “I write, and you read.” A personal pronoun is written when it is the object of the verb, or when it names the person to whom something is given, and then it takes the case of that use.</p>
 <div class="para-wrap"><table class="para">
 <tr><th></th><th>Subject (nominative)</th> <th>Object (accusative)</th> <th>To or for (dative)</th></tr>
 <tr><td>I, me</td> <td class="f">ego</td> <td class="f">mē</td> <td class="f">mihi</td></tr>
