@@ -1797,8 +1797,7 @@ function deckSrcLabel(key, k){
 /* The top list of each study deck: the main sources of its doctrine, about four. A source the deck quotes, and that is
    not also a main source, is cited only on the card where the quotation stands (DECK_CITE, by card number from 0). */
 const DECK_TOP = {
-  latprose:['livy_r','yonge','sallust_w','tacitus_cb','aug_pd','boeth_loeb','ag'],
-  latpoetry:['verg_pd','ovid_am','catull','hor_carm','ambr_hymn','servius','ag'],
+  latprose:['ag'], latpoetry:['ag'],
   prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
   traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
   period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'],
@@ -1818,7 +1817,8 @@ const DECK_CITE = {
   prelim:{2:['isidore'], 11:['quint']},
   modes:{0:['aq_sent']},
   traditions:{5:['deely'], 6:['deely'], 7:['deely']},
-  service:{2:['aq_st13']}
+  service:{2:['aq_st13']},
+  meter:{}
 };
 function srcLinks(key, keys){
   const seen = new Set(), bits = [];
@@ -8587,7 +8587,7 @@ const PASSAGES = {
   parts:[
    {t:'Aeterne rerum conditor', h:'The address', n:'<em>Conditor</em>, “maker,” and <em>aeterne</em> are vocative: God is addressed. <em>Rerum</em>, “of things,” is a genitive depending on <em>conditor</em>.'},
    {t:'Noctem diemque qui regis', h:'A relative clause in the second person', n:'<em>Qui</em> takes up the one addressed, so its verb is in the second person: who rule. <em>Noctem diemque</em> is the object.'},
-   {t:'Et temporum das tempora', h:'A second verb', n:'<em>Et</em> joins <em>das</em> to <em>regis</em> in the same relative clause: and give the times of the seasons. <em>Temporum</em> is genitive plural.'},
+   {t:'Et temporum das tempora', h:'A second verb', n:'<em>Et</em> joins <em>das</em> to <em>regis</em> in the same relative clause: and give the times their times, that is, set the seasons in order. <em>Temporum</em> is genitive plural.'},
    {t:'Ut alleves fastidium', h:'A clause of purpose', n:'<em>Ut</em> with the present subjunctive <em>alleves</em> gives the purpose: that you may lighten weariness.'},
    {t:'Praeco diei jam sonat', h:'A new sentence', n:'<em>Praeco</em>, the herald, is the subject of <em>sonat</em>, and <em>diei</em> is genitive: the herald of the day now sounds.'},
    {t:'Noctis profundae pervigil', h:'An adjective with the genitive', n:'<em>Pervigil</em>, “watchful,” agrees with <em>praeco</em>, and <em>noctis profundae</em> tells through what: watchful through the deep night.'},
@@ -15029,9 +15029,9 @@ const METER_NAME_ITEMS = [
   {id:'mn3', q:'What is the meter of this line of Catullus?', form:'Vīvāmus mea Lesbia, atque amēmus', a:'Hendecasyllable', why:'Eleven syllables after the two elisions, in the pattern – – – ∪ ∪ – ∪ – ∪ – ×.'},
   {id:'mn4', q:'What is the meter of this line of Horace?', form:'Integer vītae scelerisque pūrus', a:'Sapphic line', why:'Eleven syllables in the pattern – ∪ – – – ∪ ∪ – ∪ – ×, the first three lines of the sapphic stanza.'},
   {id:'mn5', q:'What is the meter of this line, which closes a stanza of Horace?', form:'Fusce, pharetra', a:'Adonic', why:'A dactyl and two syllables, – ∪ ∪ – ×, the short line that closes the sapphic stanza.'},
-  {id:'mn6', q:'What is the meter of this line of Ambrose?', form:'Aeterne rērum conditor', a:'Iambic dimeter', why:'Eight syllables, four iambs in two pairs: – – ∪ – – – ∪ –, with long syllables in the first and fifth places, where they are allowed.'},
+  {id:'mn6', q:'What is the meter of this line of Ambrose?', form:'Aeterne rērum conditor', a:'Iambic dimeter', why:'Eight syllables, four iambs in two pairs: – – ∪ – – – ∪ –, with long syllables in the first and fifth syllables, the first syllables of the first and third feet, where they are allowed.'},
   {id:'mn7', q:'Which meter has this pattern?', form:'– ∪ – – – ∪ ∪ – ∪ – ×', a:'Sapphic line', why:'This is the sapphic line of eleven syllables. The hendecasyllable of Catullus begins – – – ∪ ∪ instead.'},
-  {id:'mn8', q:'Which meter has this pattern?', form:'× – ∪ – × – ∪ –', a:'Iambic dimeter', why:'Four iambs, with a long syllable allowed in the first and third places of the line.'},
+  {id:'mn8', q:'Which meter has this pattern?', form:'× – ∪ – × – ∪ –', a:'Iambic dimeter', why:'Four iambs, with a long syllable allowed at the start of the first and third feet.'},
   {id:'mn9', q:'Which meter has this pattern?', form:'– – – ∪ ∪ – ∪ – ∪ – ×', a:'Hendecasyllable', why:'Eleven syllables, beginning with two long ones, as Catullus usually writes it.'},
   {id:'mn10', q:'Which meter has this pattern?', form:'– ∪ ∪ | – ∪ ∪ | – ‖ – ∪ ∪ | – ∪ ∪ | ×', a:'Pentameter of the elegiac couplet', why:'Two halves of two and a half feet each, with a break between them.'}
 ];
@@ -15404,12 +15404,12 @@ DECKS.meter = {
       correct:0,
       explain:'Three sapphic lines are followed by the adonic, a dactyl and two syllables, which closes the stanza.' } },
 
-{ src:['ambr_hymn','ag'], h:`<p><strong>The iambic dimeter of the hymns.</strong> An iamb is a short syllable followed by a long one (∪ –). The iambic dimeter is a line of four iambs, measured in two pairs, and in the first and third places a long syllable may stand for the short one: × – ∪ – × – ∪ –. Ambrose, bishop of Milan, wrote his hymns in this line, in stanzas of four lines, and the hymns of the Church kept it for centuries. <em>Aeterne rērum conditor</em> is scanned <em>ae-ter-ne-rē-rum-con-di-tor</em>: – – ∪ – – – ∪ –.</p>
+{ src:['ambr_hymn','ag'], h:`<p><strong>The iambic dimeter of the hymns.</strong> An iamb is a short syllable followed by a long one (∪ –). The iambic dimeter is a line of four iambs, measured in two pairs, and in the first and third feet a long syllable may stand for the short one: × – ∪ – × – ∪ –. Ambrose, bishop of Milan, wrote his hymns in this line, in stanzas of four lines, and the hymns of the Church kept it for centuries. <em>Aeterne rērum conditor</em> is scanned <em>ae-ter-ne-rē-rum-con-di-tor</em>: – – ∪ – – – ∪ –.</p>
 <p>These five meters are not a complete list, since the Latin poets used many others; but they are the ones met most often in a first reading.</p>`,
   q:{ prompt:'In <em>Aeterne rērum conditor</em>, why may the first syllable be long?',
-      options:['The first place of the iambic dimeter may take a long syllable in place of the short','Every first syllable of a Latin line is long','The line is a hexameter, which begins with a long syllable','A diphthong is always short in the hymns'],
+      options:['The first foot of the iambic dimeter may take a long syllable in place of the short','Every first syllable of a Latin line is long','The line is a hexameter, which begins with a long syllable','A diphthong is always short in the hymns'],
       correct:0,
-      explain:'The first and third places of the line may hold a long syllable for the short one, so <em>ae</em>, a diphthong and long, stands there.' } },
+      explain:'The first and third feet of the line may hold a long syllable for the short one, so <em>ae</em>, a diphthong and long, stands there.' } },
 
 { src:['ag','appown'], h:`<p><strong>How to scan a line.</strong> First we mark each syllable long or short by the rules of quantity.</p>
 <p>Then we fit the pattern of the hexameter. The first syllable is long, and the line ends – ∪ ∪ | – –. The syllables that remain must make dactyls or spondees. At the first levels of the exercise the long vowels carry macrons. At the higher levels they do not, and the pattern of the line must decide.</p>`,
@@ -15435,6 +15435,9 @@ DECKS.meter = {
 { src:['appown'], h:`<p><strong>Beats and light words.</strong> The meter is a pattern, and the words fill it. A light word such as <em>as</em> or <em>is</em> can take a beat when the pattern calls for one, and a strong word can stand in an offbeat, most often at the start of a line. In Wordsworth’s <em>I wandered lonely as a Cloud</em>, the beat falls on <em>as</em>.</p>` }
 
 ]};
+/* The meter study quotes Ovid, Catullus, Horace, and Ambrose; each is cited on its own card. */
+DECKS.meter.panels.forEach((pn, i) => { const q = [].concat(pn.src || []).filter(k => ['ovid_am','catull','hor_carm','ambr_hymn'].indexOf(k) >= 0); if(q.length) DECK_CITE.meter[i] = q; });
+
 
 /* -------------------------------------------------------------- */
 DECKS.latnoun = {
