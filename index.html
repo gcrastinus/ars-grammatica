@@ -15286,6 +15286,77 @@ DECKS.latverb = {
 ]};
 
 /* -------------------------------------------------------------- */
+DECKS.latvoice = {
+  title:'The Passive, the Infinitive, and the Participle',
+  sub:'The passive endings, the present infinitive, and the participle used as an adjective',
+  panels:[
+
+{ src:['ag','appown'], h:`<p><strong>THE PASSIVE.</strong> In the active voice the subject does the action; in the passive voice the subject receives it. <em>Puella poētam laudat</em> means “the girl praises the poet,” and <em>poēta ā puellā laudātur</em> means “the poet is praised by the girl.” The one who receives the action becomes the subject, in the nominative. The doer, when it is a person and is named, is in the ablative with <em>ā</em>, or with <em>ab</em> before a vowel.</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Voice</th> <th>Subject</th> <th>Doer</th> <th>Verb</th></tr>
+<tr><td>Active</td> <td class="f">puella</td> <td>the subject itself</td> <td class="f">poētam laudat</td></tr>
+<tr><td>Passive</td> <td class="f">poēta</td> <td class="f">ā puellā</td> <td class="f">laudātur</td></tr>
+</table></div>`,
+  q:{ prompt:`In <em>poēta ā puellā laudātur</em>, which words name the one who does the praising?`,
+      options:['<em>ā puellā</em>, the ablative with <em>ā</em>','<em>poēta</em>, the subject','<em>laudātur</em>, the verb','None, because a passive sentence cannot name the doer'],
+      correct:0,
+      explain:`<em>Poēta</em> is the subject, but the poet receives the praising; the girl does it, and so she is named in the ablative with <em>ā</em>: <em>ā puellā</em>, “by the girl.”` } },
+
+{ src:['ag'], h:`<p><strong>The passive endings.</strong> The passive personal endings are <em>-r</em>, <em>-ris</em>, <em>-tur</em> in the singular, and <em>-mur</em>, <em>-minī</em>, <em>-ntur</em> in the plural. They take the place of the active endings <em>-ō</em> (or <em>-m</em>), <em>-s</em>, <em>-t</em>, <em>-mus</em>, <em>-tis</em>, <em>-nt</em>. The present indicative passive shows them in each conjugation:</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>amō</th> <th>moneō</th> <th>regō</th> <th>capiō</th> <th>audiō</th></tr>
+<tr><td>First singular</td> <td class="f">amor</td> <td class="f">moneor</td> <td class="f">regor</td> <td class="f">capior</td> <td class="f">audior</td></tr>
+<tr><td>Second singular</td> <td class="f">amāris</td> <td class="f">monēris</td> <td class="f">regeris</td> <td class="f">caperis</td> <td class="f">audīris</td></tr>
+<tr><td>Third singular</td> <td class="f">amātur</td> <td class="f">monētur</td> <td class="f">regitur</td> <td class="f">capitur</td> <td class="f">audītur</td></tr>
+<tr><td>First plural</td> <td class="f">amāmur</td> <td class="f">monēmur</td> <td class="f">regimur</td> <td class="f">capimur</td> <td class="f">audīmur</td></tr>
+<tr><td>Second plural</td> <td class="f">amāminī</td> <td class="f">monēminī</td> <td class="f">regiminī</td> <td class="f">capiminī</td> <td class="f">audīminī</td></tr>
+<tr><td>Third plural</td> <td class="f">amantur</td> <td class="f">monentur</td> <td class="f">reguntur</td> <td class="f">capiuntur</td> <td class="f">audiuntur</td></tr>
+</table></div>
+<p>The verb agrees in number with its subject in the passive as in the active: <em>urbs capitur</em>, “the city is captured,” but <em>urbēs capiuntur</em>, “the cities are captured.”</p>`,
+  q:{ prompt:`Which form means “they are heard”?`,
+      options:['<em>audiuntur</em>','<em>audiunt</em>','<em>audītur</em>','<em>audīrī</em>'],
+      correct:0,
+      explain:`The ending <em>-ntur</em> is the third person plural passive, so <em>audiuntur</em> means “they are heard.” <em>Audiunt</em> is active, “they hear”; <em>audītur</em> is singular, “he is heard” or “it is heard”; and <em>audīrī</em> is the passive infinitive, “to be heard.”` } },
+
+{ src:['ag','appown'], h:`<p><strong>The infinitive.</strong> The infinitive names the action without person or number, as English “to praise.” The present active infinitive is the second principal part; the present passive infinitive ends in <em>-rī</em> in the first, second, and fourth conjugations, and in <em>-ī</em> in the third.</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Conjugation</th> <th>Active</th> <th>Passive</th></tr>
+<tr><td>First</td> <td class="f">amāre, to love</td> <td class="f">amārī, to be loved</td></tr>
+<tr><td>Second</td> <td class="f">monēre, to warn</td> <td class="f">monērī, to be warned</td></tr>
+<tr><td>Third</td> <td class="f">regere, to rule</td> <td class="f">regī, to be ruled</td></tr>
+<tr><td>Third, <em>-iō</em></td> <td class="f">capere, to take</td> <td class="f">capī, to be taken</td></tr>
+<tr><td>Fourth</td> <td class="f">audīre, to hear</td> <td class="f">audīrī, to be heard</td></tr>
+</table></div>
+<p>Some verbs need an infinitive to complete their sense, such as <em>sciō</em> (to know how), <em>timeō</em> (to be afraid), and <em>parō</em> (to prepare), and an infinitive used in this way is called the complementary infinitive. For example, <em>puer verba scrībere scit</em> means “the boy knows how to write words.” The finite verb, <em>scit</em>, agrees with the subject, and the infinitive does not change for person or number.</p>`,
+  q:{ prompt:`In <em>puer verba scrībere scit</em>, why is <em>scrībere</em> an infinitive?`,
+      options:['Because it completes <em>scit</em>, which is the finite verb','Because it has a subject of its own','Because it is passive','Because it gives a command'],
+      correct:0,
+      explain:`<em>Scit</em> agrees with <em>puer</em> and is the one finite verb of the sentence. <em>Scrībere</em> completes its sense, “knows how to write,” and so it is the present active infinitive, whereas a command would be the imperative <em>scrībe</em>.` } },
+
+{ src:['ag','appown'], h:`<p><strong>The perfect passive participle.</strong> The perfect passive participle is the participial stem with the endings of <em>bonus, bona, bonum</em>; so from <em>capiō, capere, cēpī, captum</em> comes <em>captus, capta, captum</em>, “captured.” The participle is used as an adjective, and so it agrees with its noun in gender, number, and case.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>Masculine</th> <th>Feminine</th> <th>Neuter</th></tr>
+<tr><th colspan="4">Singular</th></tr>
+<tr><td>Nominative</td> <td class="f">captus</td> <td class="f">capta</td> <td class="f">captum</td></tr>
+<tr><td>Genitive</td> <td class="f">captī</td> <td class="f">captae</td> <td class="f">captī</td></tr>
+<tr><td>Dative</td> <td class="f">captō</td> <td class="f">captae</td> <td class="f">captō</td></tr>
+<tr><td>Accusative</td> <td class="f">captum</td> <td class="f">captam</td> <td class="f">captum</td></tr>
+<tr><td>Ablative</td> <td class="f">captō</td> <td class="f">captā</td> <td class="f">captō</td></tr>
+<tr><th colspan="4">Plural</th></tr>
+<tr><td>Nominative</td> <td class="f">captī</td> <td class="f">captae</td> <td class="f">capta</td></tr>
+<tr><td>Genitive</td> <td class="f">captōrum</td> <td class="f">captārum</td> <td class="f">captōrum</td></tr>
+<tr><td>Dative</td> <td class="f">captīs</td> <td class="f">captīs</td> <td class="f">captīs</td></tr>
+<tr><td>Accusative</td> <td class="f">captōs</td> <td class="f">captās</td> <td class="f">capta</td></tr>
+<tr><td>Ablative</td> <td class="f">captīs</td> <td class="f">captīs</td> <td class="f">captīs</td></tr>
+</table></div>
+<p><em>Mīlitēs urbem captam vident</em> means “the soldiers see the captured city.” <em>Urbem</em> is feminine, singular, and accusative, and so the participle is <em>captam</em>. The participle agrees with its noun in gender, number, and case, even when its ending differs from the noun’s: <em>urbem</em> is of the third declension, and <em>captam</em> has the ending of <em>bonam</em>.</p>`,
+  q:{ prompt:`<em>Rēx rēgīnam ______ videt</em> (the king sees the praised queen). Which form of the participle fills the blank?`,
+      options:['<em>laudātam</em>','<em>laudātae</em>','<em>laudātus</em>','<em>laudātum</em>'],
+      correct:0,
+      explain:`<em>Rēgīnam</em> is feminine, singular, and accusative, so the participle is <em>laudātam</em>. <em>Laudātae</em> is feminine but in another case or number, <em>laudātus</em> is masculine and nominative, and <em>laudātum</em> is masculine or neuter.` } }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.latbuild = {
   title:'Building the Latin Sentence',
   sub:'From the meaning to the forms',
