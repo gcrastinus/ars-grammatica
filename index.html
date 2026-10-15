@@ -1429,9 +1429,9 @@ function load(){
     if(!raw) return;
     const o = JSON.parse(raw);
     store.totals = o.totals || {};
-    /* The eleven exercises now joined in Basic Distinctions: their counts carry over to it once. */
+    /* The four exercises now joined in Basic Elements of Language: their counts carry over to it once. */
     if(!store.totals.basics){
-      const ks = ['vox','letter','decline','vices','suppos','figura','congtruth','service','typo','ug','objections'].filter(k => store.totals[k]);
+      const ks = ['vox','letter','decline','vices'].filter(k => store.totals[k]);
       if(ks.length){
         store.totals.basics = ks.reduce((a, k) => { const t = store.totals[k]; return {seen:a.seen + (t.seen || 0), right:a.right + (t.right || 0), best:Math.max(a.best, t.best || 0)}; }, {seen:0, right:0, best:0});
         ks.forEach(k => { delete store.totals[k]; });
@@ -3252,31 +3252,19 @@ signification stop at a concept with no further reach.</p>
 ]};
 
 /* -------------------------------------------------------------- */
-/* Basic Distinctions: the cards of ten short decks, in course order, with one card on congruity and truth.
-   The ten decks stay defined (the quiz maker and the exercises still name them), but only this one is listed. */
+/* Basic Elements of Language: the cards of four short decks, in course order.
+   The four decks stay defined (the quiz maker and the exercises still name them), but only this one is listed. */
 const BASICS_SECTIONS = [
   ['vox','Voice Articulate and Inarticulate'], ['letter','Letter and Sound'], ['decline','Declinable and Indeclinable'],
-  ['vices','Barbarism and Solecism'], ['suppos','Signification and Supposition'], ['figura','The Figure of Speech'],
-  ['congtruth','Congruity and Truth'], ['service','Grammar in the Service of the Sciences'], ['typo','Typology'],
-  ['ug','Two Universal Grammars'], ['objections','The Great Objections']
+  ['vices','Barbarism and Solecism']
 ];
-DECKS.congtruth_card = {
-  title:'Congruity and Truth', sub:'Two independent questions',
-  panels:[
-{ src:['te','arist_int'], h:`<p><strong>CONGRUITY AND TRUTH.</strong> We ask two independent questions of every sentence. The first is whether it is well formed, that is, whether its parts fit with one another and its sense is complete; grammar judges this. The second is whether what it says is so; logic judges this, because only a complete statement is true or false.</p>
-<p>For example, “The moon is made of green cheese” is well formed, but it is false. “Him go store yesterday” is badly formed; what the speaker means may be true, but the sentence is faulty.</p>`,
-  q:{ prompt:`“The moon is made of green cheese.” How does this sentence stand?`,
-      options:['It is well formed, and false','It is badly formed, because it is false','It is badly formed, and true','It is neither well formed nor badly formed, because it is a fiction'],
-      correct:0,
-      explain:`Grammar judges only whether the parts fit and the sense is complete, and here they do. Whether the moon is made of cheese is a question for logic and for the study of nature, and the answer is that the sentence is false.` } }
-]};
 DECKS.basics = {
-  title:'Basic Distinctions',
-  sub:'Voice and letter, the parts, the faults, grammar and logic, and the variety of languages',
+  title:'Basic Elements of Language',
+  sub:'Voice and letter, declinable and indeclinable, and the two faults',
   panels:[]
 };
 BASICS_SECTIONS.forEach(([k, t]) => {
-  const src = DECKS[k === 'congtruth' ? 'congtruth_card' : k];
+  const src = DECKS[k];
   src.panels.forEach((p, i) => {
     const c = Object.assign({}, p);
     if(i === 0) c.h = `<p class="deck-sec">${t}</p>` + p.h;
@@ -15600,24 +15588,29 @@ AUCTORES.forEach(a => {
   (a.items || []).forEach(it => { it.lang = 'la'; });
 });
 
-/* Basic Distinctions: one exercise drawn from the eleven former exercises. Each question comes from one of them,
-   taken in turn from a shuffled round of all eleven, so that every section is asked before any is asked twice.
-   Each generator keeps its own handling of the difficulty, and the partner language chosen here is passed on. */
-const BASICS_EX = ['vox','letter','decline','vices','suppos','figura','congtruth','service','typo','ug','objections'];
-let basicsBag = [];
+/* Basic Elements of Language: one mastery exercise drawn from the four former exercises (vox, letter, decline,
+   vices), whose generators keep their own handling of the difficulty and their hands-on drills. The set is
+   finished when each section has its quota of correct answers (two, three, or four, by difficulty) and every
+   missed question has come back and been answered correctly. */
+const BASICS_EX = ['vox','letter','decline','vices'];
+const BASICS_TITLES = {vox:'Voice', letter:'Letter and Sound', decline:'Declinable and Indeclinable', vices:'Barbarism and Solecism'};
+function basicsNeed(d){ return d <= 1 ? 2 : d <= 3 ? 3 : 4; }
 EX.basics = {
-  id:'basics', act:'I', title:'Basic Distinctions',
-  src:['donatus','priscian','arist_int','arist_anima','te'],
-  desc:'Questions from every section of the deck: voice and letter, declinable and indeclinable, barbarism and solecism, signification and supposition, the figure of speech, congruity and truth, grammar in the service of the sciences, typology, the two universal grammars, and the great objections.',
-  instr:'Each question comes from one section of the deck, and every section is asked in turn.',
+  id:'basics', act:'I', title:'Basic Elements of Language', mastery:true,
+  masteryParts: BASICS_EX, masteryTitles: BASICS_TITLES, masteryNeed: basicsNeed,
+  src:['donatus','priscian','arist_int','arist_anima'],
+  desc:'A review of the whole deck (voice, letter and sound, declinable and indeclinable, barbarism and solecism) that ends only when each part has been mastered.',
+  instr:'Each section needs its number of correct answers, and every missed question returns until it is answered correctly.',
   intro:[
-    {h:`<strong>One exercise for the whole deck.</strong> The questions come from each of the eleven sections in turn, and the drills on sounds and letters are kept, so that we classify sounds and letters as well as recall the doctrine.`},
-    {h:`<strong>The difficulty works as it did in each section.</strong> At the lower levels there are fewer options and the plainer cases; at the higher levels there are more options and the harder cases.`}
+    {h:`<strong>One exercise for the whole deck.</strong> The questions come from the four sections in turn, and the drills on sounds and letters are kept, so that we classify sounds and letters as well as recall the doctrine.`},
+    {h:`<strong>The set is finished by mastery, not by points.</strong> Each section needs two correct answers at the first difficulty, three at the second and third, and four at the fourth and fifth. A missed question comes back a few questions later, and the set is not finished until every missed question has been answered correctly.`}
   ],
-  introInstr:'The exercise begins with two notes. ' + SET_NOTE,
+  introInstr:'The exercise begins with two notes.',
   gen(d){
-    if(!basicsBag.length) basicsBag = shuffle(BASICS_EX.filter(k => EX[k]));
-    const k = basicsBag.pop();
+    const m = state.mastery;
+    let open = BASICS_EX.filter(k => EX[k] && (!m || (m.got[k] || 0) < m.need));
+    if(!open.length) open = BASICS_EX.filter(k => EX[k]);
+    const k = rand(open);
     const sub = EX[k];
     const had = Object.prototype.hasOwnProperty.call(store.langs, k), old = store.langs[k];
     const want = store.langs.basics;
@@ -15631,6 +15624,19 @@ EX.basics = {
     }
   }
 };
+/* The mastery rule, shared by every exercise marked mastery: each of its parts needs m.need correct
+   answers to fresh questions, and each missed question returns (three questions later) until it is
+   answered correctly. An exercise without parts counts all its answers together. */
+function masteryParts(){ return (state.ex && state.ex.masteryParts) || ['all']; }
+function masteryTotals(){
+  const m = state.mastery, parts = masteryParts();
+  const got = parts.reduce((a, k) => a + Math.min(m.need, m.got[k] || 0), 0);
+  return {got, need: m.need * parts.length, review: m.review.length};
+}
+function masteryDone(){
+  const t = masteryTotals();
+  return t.got >= t.need && t.review === 0;
+}
 
 const EX_MODES = {
   vox:['both','en'], letter:['both','en'], syllable:['both','en'], pos:['both','en'],
@@ -16235,7 +16241,13 @@ const DEU_HINT_KEEP = 'Ä, ö, ü, and ß may also be written ae, oe, ue, and ss
 addPartner('de', DEU, 'produce', it => partnerProduceQ(DEU, it, deuMatch, 'Type the German form', deuRefused(it).length ? DEU_HINT_KEEP : DEU_HINT), 0.4);
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
-/* Basic Distinctions offers every partner language that one of its sections offers. */
+/* Syllable, Quantity and Accent finishes by mastery as well: six, eight, or ten correct answers by difficulty,
+   and every missed question answered correctly on its return. */
+EX.syllable.mastery = true;
+EX.syllable.masteryNeed = d => d <= 1 ? 6 : d <= 3 ? 8 : 10;
+EX.syllable.instr = 'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required. A missed question returns until it is answered correctly.';
+EX.syllable.introInstr = 'The exercise begins with two notes. The set is finished by mastery: six correct answers at the first difficulty, eight at the second and third, and ten at the fourth and fifth, and every missed question must come back and be answered correctly.';
+/* Basic Elements of Language offers every partner language that one of its sections offers. */
 EX.basics.langs = BASICS_EX.reduce((a, k) => a.concat(((EX[k] && EX[k].langs) || []).filter(x => a.indexOf(x) < 0)), []);
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
 function partnerOf(ex){
@@ -16329,8 +16341,8 @@ const ACTS = [
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'The matter of speech before meaning: voice, then letter, then syllable.',
    items:[
-     {kind:'row', deck:'basics', tag:'STUDY', title:'Basic Distinctions',
-      desc:'Voice articulate and inarticulate; letter and sound; declinable and indeclinable; barbarism and solecism; signification and supposition; the figure of speech; congruity and truth; grammar in the service of the sciences; typology; the two universal grammars; and the great objections.', ex:['basics']},
+     {kind:'row', deck:'basics', tag:'STUDY', title:'Basic Elements of Language',
+      desc:'Voice articulate and inarticulate; letter and sound; declinable and indeclinable; barbarism and solecism. One exercise at the end reviews all of them until each item is mastered.', ex:['basics']},
      {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']},
      {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
@@ -16400,7 +16412,7 @@ const ACTS = [
      {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
       desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
      {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
-      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong']},
+      desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong', 'congtruth']},
      {kind:'row', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
       desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause']},
      {kind:'row', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
@@ -16419,6 +16431,8 @@ const ACTS = [
    items:[
      {kind:'row', deck:'modes', tag:'STUDY', title:'The Reasons for the Parts',
       desc:'The thing, the mind, and the word; essential and accidental modes; why the verb has time; the pronoun and participle, the four that keep one form, and the article.', ex:['modes']},
+     {kind:'row', deck:'objections', tag:'STUDY', title:'The Great Objections',
+      desc:'Nothing and the chimaera; grammatical gender; Ockham and Aurifaber; why languages differ. Each answer is kept only if it holds, and each objection is placed where it lands.', ex:['objections']}
    ]},
   {key:'VI', roman:'VI', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
    gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
@@ -16426,13 +16440,28 @@ const ACTS = [
      {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
       desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
    ]},
-  {key:'VIII', roman:'VII', name:'Universal Grammar', latin:'Grammatica Universalis',
+  {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
+   gloss:'To hand a well-formed sentence to logic, and to serve the higher sciences.',
+   items:[
+     {kind:'row', deck:'suppos', tag:'STUDY', title:'Signification and Supposition',
+      desc:'What a word means, against what it stands for in <em>this</em> proposition: <em>Man is a species</em> and <em>a man is running</em> show one word with two suppositions.', ex:['suppos']},
+     {kind:'row', deck:'figura', tag:'STUDY', title:'The Figure of Speech',
+      desc:'Aristotle’s fallacy: arguing from the shape of the word to the shape of the thing.', ex:['figura']},
+     {kind:'ex', ex:'congtruth'},
+     {kind:'row', deck:'service', tag:'STUDY', title:'Grammar in the Service of the Sciences',
+      desc:'<em>In principio erat</em>; <em>Hoc est corpus meum</em>; the naming of God; seeing and having seen. Grammar gives the form, and the higher science judges the thing.', ex:['service']}
+   ]},
+  {key:'VIII', roman:'VIII', name:'Universal Grammar', latin:'Grammatica Universalis',
    gloss:'To test whether the variation of languages is only in the sounds and marks.',
    items:[
      {kind:'row', deck:'traditions', tag:'STUDY', title:'Three Ways of Studying Language',
       desc:'The classical art, humanist philology, and linguistics since Saussure: what each can see, and a Thomist’s reply, with <em>langue</em> as a habit in minds, and John of St. Thomas on why a concept cannot be where signification stops.', ex:[]},
+     {kind:'row', deck:'typo', tag:'STUDY', title:'Typology',
+      desc:'Word order; case against configuration; agglutinating, fusional, and isolating languages. It tests the classical claim that, if grammar follows being, the variation must be in the marks.', ex:['typo']},
+     {kind:'row', deck:'ug', tag:'STUDY', title:'Two Universal Grammars',
+      desc:'The classical account and Chomsky both hold a universal grammar, but ground it in different places: the things and the mind’s understanding of them, against an innate structure of the mind.', ex:['ug']}
    ]},
-  {key:'IX', roman:'VIII', name:'Four Other Arts', latin:'Traditiones Alienae',
+  {key:'IX', roman:'IX', name:'Four Other Arts', latin:'Traditiones Alienae',
    gloss:'Four native arts of speech, as those schools taught them, read with the questions of this course.',
    items:[
      {kind:'row', deck:'scribal', tag:'STUDY', title:'The Scribal Lists',
@@ -16457,7 +16486,7 @@ function actItems(act){
   });
   return out;
 }
-/* An exercise could be listed in two acts; lists of exercises name it once, where it first appears. */
+/* An exercise may be listed in two acts (congtruth); lists of exercises name it once, where it first appears. */
 function actExercises(act, seen){
   return actItems(act).filter(i => i.kind === 'ex' && EX[i.ex] && !seen.has(i.ex) && seen.add(i.ex));
 }
@@ -16743,7 +16772,9 @@ function startEx(e){
   state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   state.stageI = 0; state.stageStreak = 0; state.stageJustAdvanced = false;
   state.nEn = 0; state.nLa = 0;
+  state.mastery = e.mastery ? {need: e.masteryNeed(state.diff), got:{}, review:[], n:0} : null;
   state.langAvail = probeLangs(e, state.diff);
+  if(state.mastery) state.mastery.got = {};
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = stagedInstr(e);
   $('ex-next').textContent = 'Next →';
@@ -16774,6 +16805,19 @@ function stagedInstr(e){
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
+  const mq = state.mastery;
+  if(mq && mq.review.length){
+    const t = masteryTotals();
+    const due = mq.review.findIndex(r => r.due <= mq.n);
+    const at = due >= 0 ? due : (t.got >= t.need ? 0 : -1);
+    if(at >= 0){
+      const r = mq.review.splice(at, 1)[0];
+      r.q._review = true;
+      state.q = r.q; state.locked = false; chipSel = {};
+      renderQ(); updateScore();
+      return;
+    }
+  }
   const want = nextLang(state.ex);
   const onlyWant = modeOf(state.ex) === 'en' || modeOf(state.ex) === 'la';
   let freshWant = null, freshOther = null, repWant = null, repOther = null;
@@ -16830,6 +16874,13 @@ function updateScore(){
   if(state.ex && state.ex.free){
     $('ex-score').textContent = '';
     if(bar) bar.style.width = '0%';
+    return;
+  }
+  if(state.mastery && state.ex && state.ex.mastery){
+    const m = state.mastery, t = masteryTotals();
+    const per = state.ex.masteryParts ? ' · ' + state.ex.masteryParts.map(k => `${state.ex.masteryTitles[k]} ${Math.min(m.need, m.got[k] || 0)}/${m.need}`).join(' · ') : '';
+    $('ex-score').textContent = `Mastery: ${t.got} of ${t.need} correct · ${t.review} to review${per}`;
+    if(bar) bar.style.width = Math.max(0, Math.min(100, (t.got / (t.need + t.review)) * 100)) + '%';
     return;
   }
   if(state.ex && state.ex.staged){
@@ -17047,7 +17098,26 @@ function submit(ansMC){
       extra = `<span class="also">A miss sends this topic’s count back to zero.</span>`;
     }
   }
-  const pts = (state.ex && state.ex.staged)
+  if(state.mastery){
+    const m = state.mastery;
+    m.n++;
+    const k = state.ex.masteryParts ? q.part : 'all';
+    if(res.right){
+      if(!q._review && k) m.got[k] = (m.got[k] || 0) + 1;
+      if(q._review) extra = `<span class="also">This question was missed before and is now answered correctly.</span>`;
+    }else if(['mc','chips','text','pick'].indexOf(q.kind) >= 0){
+      m.review.push({q, due: m.n + 3});
+      extra = `<span class="also">This question will come back for review a few questions from now.</span>`;
+    }
+    q._review = false;
+    if(masteryDone()){
+      state.pendingComplete = true;
+      extra += `<span class="also">${state.ex.masteryParts ? 'Every section has its number of correct answers' : 'The number of correct answers needed has been reached'}, and every missed question has been answered correctly. The set is finished.</span>`;
+    }
+  }
+  const pts = state.mastery
+    ? (() => { const t = masteryTotals(); return `${t.got} of ${t.need} correct`; })()
+    : (state.ex && state.ex.staged)
     ? `${res.right ? state.stageStreak : 0} of ${state.ex.stageNeed || 3} correct in a row`
     : (res.right ? `+${gain}` : `−${loss}`);
   if(stageAdvance){
@@ -17055,7 +17125,7 @@ function submit(ansMC){
     state.stageStreak = 0;
     state.sessionSeen = [];
   }
-  const ptsLabel = (state.ex && state.ex.staged) ? pts : `${pts} points`;
+  const ptsLabel = (state.mastery || (state.ex && state.ex.staged)) ? pts : `${pts} points`;
   box.querySelector('#q-fb').innerHTML =
     `<div class="feedback ${res.right ? 'good' : 'bad'}">
        <span class="verdict">${res.right ? 'Correct' : 'Incorrect'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
@@ -17063,7 +17133,7 @@ function submit(ansMC){
        ${extra}
        ${srcLine(q.src || state.ex.src)}${exGreekNote(q)}</div>`;
   $('ex-submit').style.display = 'none';
-  if(state.ex && state.ex.staged){
+  if(state.mastery || (state.ex && state.ex.staged)){
     $('ex-next').textContent = state.pendingComplete ? 'Finish Exercise Set ⟶' : 'Next →';
   }else if(state.score >= 100){
     state.pendingComplete = true;
@@ -17517,7 +17587,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 const QZ_DECK_FOR_EX = {
   latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
   produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
-  congtruth:['congtruth_card','cong','prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
+  congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
 };
 function qzToday(){
   return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
