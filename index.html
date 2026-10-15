@@ -969,6 +969,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
 <script src="greek.js"></script>
 <script src="french.js"></script>
 <script src="german.js"></script>
+<script src="passages.js"></script>
 <script>
 /* ====================================================================
    LATIN MORPHOLOGY ENGINE
@@ -1787,7 +1788,7 @@ const DECK_SRC = {
   livy_r: 'Livy, <i>Ab urbe condita</i>', yonge: 'Cicero', sallust_w: 'Sallust, <i>Bellum Catilinae</i>', tacitus_cb: 'Tacitus',
   aug_pd: 'Augustine, <i>Confessiones</i>', boeth_loeb: 'Boethius, <i>De consolatione philosophiae</i>', verg_pd: 'Virgil, <i>Aeneis</i>', servius: 'Servius, <i>In Vergilii Aeneidos commentarii</i>',
   appown: null,
-  engclass: k => k === 'endiag' ? 'Reed and Kellogg' : null,
+  engclass: k => k === 'endiag' ? 'Reed and Kellogg' : ['enprose','enpoetry','enmeter'].indexOf(k) >= 0 ? undefined : null,
   ag: 'Allen and Greenough, <i>New Latin Grammar</i>',
   nieto: 'Nieto',
   bh: 'Bursill-Hall',
@@ -1816,6 +1817,8 @@ function deckSrcLabel(key, k){
    not also a main source, is cited only on the card where the quotation stands (DECK_CITE, by card number from 0). */
 const DECK_TOP = {
   latprose:['ag'], latpoetry:['ag'],
+  enprose:['engclass'], enpoetry:['engclass'], enmeter:['engclass'], grcprose:['smyth'], grcpoetry:['smyth','hypo'], grcmeter:['smyth','hypo'],
+  frprose:['lawless'], frpoetry:['lawless'], frmeter:['larousse'], deprose:['duden'], depoetry:['duden'], demeter:['duden'],
   prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
   traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
   period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'], ensyl:['mw'],
@@ -8809,6 +8812,17 @@ const PASSAGES = {
    {t:'ut nos lavaret', q:'<em>ut nos lavaret</em> is…', a:'A clause of purpose with the imperfect subjunctive', ds:['A clause of result','An indirect question','A clause of time: when he washed us'], why:'<em>Ut</em> with the subjunctive gives the end for which the blood flowed, and the imperfect follows the past <em>manavit</em>.'},
    {t:'crimine', q:'<em>crimine</em> is…', a:'An ablative of separation: from guilt', ds:['An ablative of means: by guilt','A dative: for guilt','The object of <em>lavaret</em>'], why:'With a verb of washing or freeing, the ablative gives that from which: to wash us from guilt. <em>Nos</em> is the object.'}]}
 };
+/* The passages of the other languages, from passages.js. Each names its edition and translator in ed, which becomes
+   its entry in the source register. */
+Object.assign(PASSAGES, (typeof window !== 'undefined' && window.MORE_PASSAGES) || {});
+Object.keys(PASSAGES).forEach(id => {
+  const p = PASSAGES[id];
+  if(!p.lang || !p.ed) return;
+  const key = 'psg_' + id.replace(/-/g, '_');
+  SRC[key] = {kind:'primary', short:`${p.author}${p.work ? ', <i>' + p.work + '</i>' : ''}`, full:p.ed, note:''};
+  const gram = {en:'engclass', grc:'smyth', fr:'lawless', de:'duden'}[p.lang];
+  p.src = [key].concat((p.src || []).filter(k => k !== key && k !== gram), gram ? [gram] : []);
+});
 
 /* The two sets. A study (walk) reads each of its passages through: the context, the parts, and then its questions.
    A drill asks the questions of each of its passages, and then reads the passage through. So every passage has both. */
@@ -8820,8 +8834,52 @@ const PSG_SETS = {
   poetry:{deck:'latpoetry', ex:'latpoetrydrill', title:'Latin Poetry',
     sub:'Ten passages in five meters, read part by part',
     walk:['verg-1','ov-am-1','cat-5','hor-c-1-22','amb-1'],
-    drill:['lucr-1','prop-1','mart-1','juv-1','vex-1']}
+    drill:['lucr-1','prop-1','mart-1','juv-1','vex-1']},
+  enprose:{lang:'en', deck:'enprose', ex:'enprosedrill', title:'English Prose',
+    sub:'Fifteen passages of English prose, the long sentence taken apart clause by clause',
+    exdesc:'Five passages of English prose, each with its long sentence asked part by part: the main clause, the clauses that depend on it, and the word each phrase belongs to. After the questions the passage is read through.',
+    walk:['en-decl','en-gibbon','en-johnson','en-burke','en-newman','en-austen','en-hebrews','en-bacon','en-gettysburg','en-lincoln2'],
+    drill:['en-dickens','en-areopagitica','en-swift','en-melville','en-thoreau']},
+  enpoetry:{lang:'en', deck:'enpoetry', ex:'enpoetrydrill', title:'English Poetry',
+    sub:'Ten passages of English verse, read part by part',
+    exdesc:'Five more poems, of Shelley, Blake, Pope, Donne, and Tennyson, each with its construction asked part by part, and then read through.',
+    walk:['en-milton-pl','en-sonnet18','en-gray','en-mariner','en-daffodils'],
+    drill:['en-ozymandias','en-tyger','en-pope','en-donne','en-ulysses']},
+  grcprose:{lang:'grc', deck:'grcprose', ex:'grcprosedrill', title:'Greek Prose',
+    sub:'Fifteen passages of the historians, the philosophers, the orators, and the Gospels, read part by part',
+    exdesc:'Five passages of Greek prose, each with its construction asked part by part, and then read through.',
+    walk:['grc-hdt','grc-thuc1','grc-thuc22','grc-apol','grc-rep','grc-anab','grc-ne','grc-pol','grc-john','grc-phaedo'],
+    drill:['grc-thuc235','grc-mem','grc-meno','grc-dem','grc-luke']},
+  grcpoetry:{lang:'grc', deck:'grcpoetry', ex:'grcpoetrydrill', title:'Greek Poetry',
+    sub:'Ten passages in four meters, read part by part',
+    exdesc:'Five more poems, of Sappho, Euripides, Aeschylus, Callimachus, and Plato, each with its construction asked part by part, and then read through.',
+    walk:['grc-il','grc-od','grc-ot','grc-hes','grc-epit'],
+    drill:['grc-sappho','grc-medea','grc-ag','grc-heraclitus','grc-aster']},
+  frprose:{lang:'fr', deck:'frprose', ex:'frprosedrill', title:'French Prose',
+    sub:'Fifteen passages of French prose, from Montaigne to Proust, read part by part',
+    exdesc:'Five passages of French prose, each with its construction asked part by part, and then read through.',
+    walk:['fr-desc1','fr-desc4','fr-pascal347','fr-montaigne','fr-rousseau','fr-tocq','fr-flaubert','fr-hugo','fr-ddhc','fr-moliere'],
+    drill:['fr-pascal277','fr-pascal206','fr-roch218','fr-proust','fr-emile']},
+  frpoetry:{lang:'fr', deck:'frpoetry', ex:'frpoetrydrill', title:'French Poetry',
+    sub:'Ten passages of French verse, read part by part',
+    exdesc:'Five more poems, of Corneille, La Fontaine, Ronsard, Verlaine, and Baudelaire, each with its construction asked part by part, and then read through.',
+    walk:['fr-phedre','fr-cigale','fr-mignonne','fr-ilpleure','fr-recueil'],
+    drill:['fr-cid','fr-corbeau','fr-vieille','fr-automne','fr-ennemi']},
+  deprose:{lang:'de', deck:'deprose', ex:'deprosedrill', title:'German Prose',
+    sub:'Fifteen passages of German prose, from the Grimms to Nietzsche, read part by part',
+    exdesc:'Five passages of German prose, each with its construction asked part by part, and then read through.',
+    walk:['de-gms','de-krv','de-werther','de-frosch','de-rumpel','de-dichtung','de-marx','de-zara','de-schop','de-kohlhaas'],
+    drill:['de-haensel','de-stern','de-fw125','de-clausewitz','de-jgb']},
+  depoetry:{lang:'de', deck:'depoetry', ex:'depoetrydrill', title:'German Poetry',
+    sub:'Ten passages of German verse, read part by part',
+    exdesc:'Five more poems, of Goethe, Heine, Rinkart, and Mohr, each with its construction asked part by part, and then read through.',
+    walk:['de-erl','de-gipfel','de-lorelei','de-heiden','de-burg'],
+    drill:['de-thule','de-zueignung','de-fichte','de-danket','de-stille']}
 };
+/* The name of each language of the passages, and the grammar each set cites beside its texts. */
+const PSG_LANG = {la:{name:'Latin', gram:'ag'}, en:{name:'English', gram:'engclass'}, grc:{name:'Greek', gram:'smyth'}, fr:{name:'French', gram:'lawless'}, de:{name:'German', gram:'duden'}};
+/* A mentioned stretch of the passage: English in double quotes, the other languages in italics. */
+const psgMention = (p, t) => p.lang === 'en' ? `“${nfEsc(t)}”` : `<em>${nfEsc(t)}</em>`;
 /* The place of each stretch t in the passage, found in reading order: each is looked for from the start of the one
    before it, so that a stretch inside a longer one is still found. */
 function psgPlaces(lat, list){
@@ -8838,38 +8896,154 @@ const psgRef = p => `${p.author}, <i>${p.work}</i> ${p.locus}${p.meter ? ' · ' 
    passage view (openPassages); its panels hold the same content as text. */
 Object.keys(PSG_SETS).forEach(k => {
   const S = PSG_SETS[k];
+  const L = S.lang || 'la';
   const ids = S.walk.concat(S.drill.filter(id => S.walk.indexOf(id) < 0));
   const panels = [];
   ids.forEach(id => {
     const p = PASSAGES[id];
     const drill = S.walk.indexOf(id) < 0;
-    panels.push({src:p.src, h:`<p><strong>${psgRef(p)}${drill ? ' (in the drill)' : ''}</strong></p><p>${nfEsc(p.lat).replace(/\n/g, '<br>')}</p><p>${nfEsc(p.eng).replace(/\n/g, '<br>')}</p><p><strong>Context.</strong> ${p.ctx}</p>`});
-    p.parts.forEach(x => panels.push({src:p.src, h:`<p><strong>${x.h}.</strong> <em>${nfEsc(x.t)}</em>: ${x.n}</p>`}));
-    p.qs.forEach(x => panels.push({src:p.src, h:`<p><em>${nfEsc(x.t)}</em></p>`,
+    panels.push({src:p.src, h:`<p><strong>${psgRef(p)}${drill ? ' (in the drill)' : ''}</strong></p><p>${nfEsc(p.lat).replace(/\n/g, '<br>')}</p>${p.eng ? `<p>${nfEsc(p.eng).replace(/\n/g, '<br>')}</p>` : ''}<p><strong>Context.</strong> ${p.ctx}</p>`});
+    p.parts.forEach(x => panels.push({src:p.src, h:`<p><strong>${x.h}.</strong> ${psgMention(p, x.t)}: ${x.n}</p>`}));
+    p.qs.forEach(x => panels.push({src:p.src, h:`<p>${psgMention(p, x.t)}</p>`,
       q:{prompt:x.q, options:[x.a].concat(x.ds), correct:0, explain:x.why}}));
   });
   DECKS[S.deck] = {title:S.title, sub:S.sub, passages:k, panels};
   const pool = [];
   S.drill.forEach(id => { const p = PASSAGES[id]; const at = psgPlaces(p.lat, p.qs); p.qs.forEach((x, i) => pool.push({p, x, at:at[i], id:id + ':' + i})); });
   EX[S.ex] = {
-    id:S.ex, src:['ag'], title:S.title + ': Questions',
-    desc: k === 'prose'
+    id:S.ex, src:[PSG_LANG[L].gram], title:S.title + ': Questions',
+    desc: S.exdesc || (k === 'prose'
       ? 'Five passages of prose, each with its construction asked part by part: the case of a word, the clause it begins, and the word it depends on. After the questions the passage is read through.'
-      : 'Five more poems, of Lucretius, Propertius, Martial, Juvenal, and Venantius Fortunatus, each with its construction asked part by part, and then read through.',
-    instr:'Choose the answer about the marked words.', modes:['la'],
+      : 'Five more poems, of Lucretius, Propertius, Martial, Juvenal, and Venantius Fortunatus, each with its construction asked part by part, and then read through.'),
+    instr:'Choose the answer about the marked words.', ...(L === 'en' ? {} : {modes:[L]}), ...(PSG_LANG[L] && L !== 'la' && L !== 'en' ? {langs:[L]} : {}),
     custom(){ openPassages(k, 'drill'); },
     /* For the quiz maker and the text export: one question, with its passage and the marked words. */
     gen(d){
       const it = pickSeen(pool, x => x.id);
-      const q = makeMC({id:'psg:' + it.id, q:it.x.q, a:it.x.a, ds:it.x.ds, why:it.x.why, src:it.p.src, lang:'la'}, d <= 1 ? 3 : 4);
+      const q = makeMC({id:'psg:' + it.id, q:it.x.q, a:it.x.a, ds:it.x.ds, why:it.x.why, src:it.p.src, lang:L}, d <= 1 ? 3 : 4);
       q.passage = psgLatHtml(it.p, it.at, it.x.t.length);
       q.source = psgRef(it.p);
-      q.orig = nfEsc(it.p.eng).replace(/\n/g, '<br>');
-      q.olang = 'English';
+      if(it.p.eng){ q.orig = nfEsc(it.p.eng).replace(/\n/g, '<br>'); q.olang = 'English'; }
       return q;
     }
   };
 });
+
+
+/* The meters of the other languages: one short deck each, read beside the poetry of that language. */
+DECKS.enmeter = {
+  title:'English Meter',
+  sub:'Beat and offbeat: iambic pentameter, the trochaic line, and the ballad stanza',
+  panels:[
+{ src:['engclass'], h:`<p><strong>STRESS AND THE FOOT.</strong> English meter counts stressed syllables and arranges the unstressed ones between them. A <strong>foot</strong> is one stressed syllable with its unstressed ones: the <strong>iamb</strong> (unstressed, stressed: “a-WAY”), the <strong>trochee</strong> (“TI-ger”), the <strong>anapest</strong> (“in-ter-VENE”), and the <strong>dactyl</strong> (“MUR-mur-ing”).</p>
+<p>The stress of a word does not move for the meter: a line fits its meter when the beats fall on syllables the words already stress, or on syllables that can take a light stress.</p>`,
+  q:{ prompt:'What does English meter count?',
+      options:['Stressed syllables, with the unstressed ones arranged between them.','Long and short syllables, as Latin does.','The letters in each line.','Only the rhymes.'],
+      correct:0, explain:'English verse is accentual-syllabic: it counts beats and, in most meters, syllables too.' } },
+{ src:['engclass'], h:`<p><strong>IAMBIC PENTAMETER.</strong> Five iambs: ten syllables, with the stress on the even ones. “Shall I com-PARE thee TO a SUM-mer’s DAY” is heard as “shall I | com-PARE | thee TO | a SUM | mer’s DAY,” with a light beat on “to.”</p>
+<p>Unrhymed, it is <strong>blank verse</strong>, the line of Shakespeare’s plays, of <em>Paradise Lost</em>, and of Tennyson’s “Ulysses.” Rhymed in pairs, it is the <strong>heroic couplet</strong> of Pope. In fourteen lines with a set rhyme scheme it makes the <strong>sonnet</strong>.</p>`,
+  q:{ prompt:'How many syllables has a regular line of iambic pentameter?',
+      options:['Ten','Eight','Twelve','Five'],
+      correct:0, explain:'Five feet of two syllables each.' } },
+{ src:['engclass'], h:`<p><strong>VARIATION.</strong> Few lines are perfectly regular. The commonest change is a trochee in the first foot: “DEATH, be | not PROUD.” A line may also end with an extra unstressed syllable, a <strong>feminine ending</strong>. The meter is the pattern the ear expects, and the variations are heard against it.</p>`,
+  q:{ prompt:'“DEATH, be not PROUD” begins with…',
+      options:['A trochee in place of the first iamb','An anapest','A spondee in every foot','A feminine ending'],
+      correct:0, explain:'The first foot is reversed, stressed then unstressed; the line returns to iambs.' } },
+{ src:['engclass'], h:`<p><strong>THE TROCHAIC LINE.</strong> Trochaic lines begin on the beat. English trochaic tetrameter usually drops its last unstressed syllable, so that the line also ends on a beat: “TY-ger | TY-ger | BURN-ing | BRIGHT” has seven syllables and four beats.</p>`,
+  q:{ prompt:'Why has “Tyger Tyger, burning bright” only seven syllables?',
+      options:['The last trochee has lost its unstressed syllable','One word is not counted','It is iambic pentameter','The meter counts only nouns'],
+      correct:0, explain:'Four trochees would have eight syllables; the last is cut to a single beat.' } },
+{ src:['engclass'], h:`<p><strong>THE BALLAD STANZA.</strong> Four lines, of four beats and three beats in turn, usually rhyming the second and fourth: “It is an ancient Mariner, / And he stoppeth one of three.” When the lines are strictly iambic, eight syllables and six, hymn books call it <strong>common meter</strong>. The ballad lets an extra unstressed syllable in where it likes.</p>`,
+  q:{ prompt:'The lines of the ballad stanza have…',
+      options:['Four beats and three beats in turn','Five beats each','Six beats and five in turn','Two beats each'],
+      correct:0, explain:'4, 3, 4, 3, with the rhyme usually on the three-beat lines.' } },
+{ src:['engclass'], h:`<p><strong>HOW TO SCAN.</strong> Read the line naturally and mark the syllables that the words themselves stress. Then find the pattern that fits most of the line, count the beats, and name the meter by its foot and the number of feet: iambic pentameter, trochaic tetrameter. Last, note where the line varies, and whether it rhymes.</p>`,
+  q:{ prompt:'The first step in scanning an English line is…',
+      options:['To mark the syllables the words themselves stress','To count the letters','To find the rhyme','To decide the meter before reading'],
+      correct:0, explain:'The meter is found from the stresses of the words, not imposed on them.' } }
+  ]};
+
+DECKS.grcmeter = {
+  title:'Greek Meter',
+  sub:'Quantity, and five meters: the hexameter, the elegiac couplet, the iambic trimeter, the sapphic stanza, and the lyric of the choruses',
+  panels:[
+{ src:['smyth','hypo'], h:`<p><strong>QUANTITY, NOT ACCENT.</strong> Greek meter, like Latin, is a pattern of <strong>long and short syllables</strong>. A syllable is long by nature when its vowel is long (<em>η</em>, <em>ω</em>, long <em>α ι υ</em>) or a diphthong, and long by position when two consonants, or <em>ζ ξ ψ</em>, follow its vowel. The written accents mark a <strong>pitch</strong>, rising or falling, and have nothing to do with the meter.</p>
+<p>A stop followed by a liquid or nasal (<em>πρ</em>, <em>κλ</em>, <em>τν</em>) may leave the syllable short, especially in Attic drama.</p>`,
+  q:{ prompt:'In Greek verse, the acute accent on a syllable…',
+      options:['Marks pitch and does not make the syllable long','Makes the syllable long','Marks a stress, as in English','Marks the caesura'],
+      correct:0, explain:'Greek meter is built of quantity; the ancient accent was a matter of pitch.' } },
+{ src:['smyth','hypo'], h:`<p><strong>THE DACTYLIC HEXAMETER.</strong> Six feet, each a dactyl (— ᴗ ᴗ) or a spondee (— —), the fifth almost always a dactyl and the sixth two syllables. It is the meter of Homer and Hesiod: <em>μῆνιν ἄ|ειδε θε|ὰ Πη|ληϊά|δεω Ἀχι|λῆος</em>. A <strong>caesura</strong>, a word end, falls inside the third foot.</p>
+<p>A long vowel or diphthong at the end of a word before another vowel is often shortened (<strong>epic correption</strong>).</p>`,
+  q:{ prompt:'The fifth foot of a hexameter is usually…',
+      options:['A dactyl','A spondee','An iamb','A trochee'],
+      correct:0, explain:'The dactyl in the fifth foot gives the line its closing cadence.' } },
+{ src:['smyth','hypo'], h:`<p><strong>THE ELEGIAC COUPLET.</strong> A hexameter followed by a <strong>pentameter</strong>: two halves of — ᴗ ᴗ — ᴗ ᴗ —, with a fixed word end between them; only the first half admits spondees. It is the meter of epitaphs and epigrams, as in the lines on Thermopylae and Callimachus on Heraclitus.</p>`,
+  q:{ prompt:'An elegiac couplet is…',
+      options:['A hexameter and a pentameter','Two hexameters','Two iambic trimeters','A sapphic stanza'],
+      correct:0, explain:'The long line and the shorter answering line make the couplet.' } },
+{ src:['smyth','hypo'], h:`<p><strong>THE IAMBIC TRIMETER.</strong> The spoken meter of tragedy and comedy: three metra of x — ᴗ —, twelve positions: <em>ὦ τέκνα, Κάδμου τοῦ πάλαι νέα τροφή</em>. The first syllable of each metron may be long (x). Tragedy resolves a long syllable into two shorts sparingly, and comedy freely.</p>`,
+  q:{ prompt:'An iambic metron has the shape…',
+      options:['x — ᴗ —','— ᴗ ᴗ','— ᴗ — x','ᴗ ᴗ —'],
+      correct:0, explain:'Two iambs, of which the first may begin with a long.' } },
+{ src:['smyth','hypo'], h:`<p><strong>THE SAPPHIC STANZA.</strong> Three lines of — ᴗ — x — ᴗ ᴗ — ᴗ — x and a short fourth, the <strong>adonean</strong>, — ᴗ ᴗ — x. Sappho wrote in it, and Horace and Catullus took it over: <em>ποικιλόθρον᾽ ἀθανάτ᾽ Ἀφρόδιτα</em>.</p>
+<p>Choral lyric, in the odes of tragedy, uses many other patterns, laid out in a <strong>strophe</strong> and an <strong>antistrophe</strong> of the same shape.</p>`,
+  q:{ prompt:'The fourth line of a sapphic stanza is…',
+      options:['An adonean, — ᴗ ᴗ — x','A hexameter','An iambic trimeter','The same as the other three'],
+      correct:0, explain:'A short closing line, a dactyl and a final pair of syllables.' } }
+  ]};
+
+DECKS.frmeter = {
+  title:'French Meter',
+  sub:'Counting syllables: the mute e, the alexandrine, the octosyllable, and the short lines',
+  panels:[
+{ src:['larousse'], h:`<p><strong>COUNTING SYLLABLES.</strong> French verse counts syllables, not stresses and not quantities. The only fixed stress falls on the last sounded syllable of a group, and so on the end of the line, where the <strong>rhyme</strong> is.</p>
+<p>The <strong>mute e</strong> (<em>e muet</em>) counts as a syllable before a consonant (<em>u-ne | bel-le | nuit</em>), is elided before a vowel (<em>u|n(e) heu|re</em>), and is never counted at the end of the line, where it makes a <strong>feminine rhyme</strong>.</p>`,
+  q:{ prompt:'In <em>une belle nuit</em>, how many syllables does verse count?',
+      options:['Five: u-ne bel-le nuit','Three','Four','Six'],
+      correct:0, explain:'Before a consonant the mute <em>e</em> is counted: <em>u-ne</em>, <em>bel-le</em>, <em>nuit</em>.' } },
+{ src:['larousse'], h:`<p><strong>DIÉRÈSE AND SYNÉRÈSE.</strong> Two vowels side by side in a word may be counted as one syllable or as two, as custom fixes for each word and as the poet chooses: <em>pas-si-on</em>, three syllables in classical verse, but <em>nuit</em> one.</p>`,
+  q:{ prompt:'Counting <em>passion</em> as three syllables is…',
+      options:['Diérèse: the two vowels are sounded apart','Elision','A feminine rhyme','A caesura'],
+      correct:0, explain:'<em>Diérèse</em> separates the vowels; <em>synérèse</em> joins them.' } },
+{ src:['larousse'], h:`<p><strong>THE ALEXANDRINE.</strong> Twelve syllables, with a <strong>caesura</strong> after the sixth, dividing the line into two <strong>hemistiches</strong> of six: <em>Le dessein en est pris, | je pars, cher Théramène</em>. It is the line of Corneille and Racine, of Baudelaire and of most French verse drama. The sixth syllable must be a stressed one, and it may not be a mute <em>e</em>.</p>`,
+  q:{ prompt:'Where is the caesura of the classical alexandrine?',
+      options:['After the sixth syllable','After the fourth','After the eighth','Nowhere'],
+      correct:0, explain:'Six and six: two hemistiches.' } },
+{ src:['larousse'], h:`<p><strong>THE OCTOSYLLABLE AND THE SHORT LINES.</strong> The eight-syllable line, without a fixed caesura, is the old line of romance and song, used by Ronsard and later by many. La Fontaine mixes lines of different lengths in one fable. Verlaine likes odd-numbered lines and very short ones: the four-syllable lines of the <em>Chanson d’automne</em>.</p>`,
+  q:{ prompt:'How does La Fontaine measure the lines of a fable?',
+      options:['He mixes lines of different lengths','He writes only alexandrines','He writes prose','He counts stresses'],
+      correct:0, explain:'His <em>vers mêlés</em>: rhymed lines of varied length.' } },
+{ src:['larousse'], h:`<p><strong>RHYME.</strong> French verse rhymes, and it alternates <strong>masculine</strong> rhymes (ending on a sounded vowel or consonant: <em>nuit</em> / <em>fuit</em>) with <strong>feminine</strong> ones (ending in mute <em>e</em>: <em>belle</em> / <em>elle</em>). In couplets: <em>rimes plates</em>; crossed, abab: <em>rimes croisées</em>; enclosed, abba: <em>rimes embrassées</em>.</p>`,
+  q:{ prompt:'A feminine rhyme ends in…',
+      options:['A mute e','A feminine noun','A stressed vowel','A consonant'],
+      correct:0, explain:'The name refers to the mute <em>e</em>, not to grammatical gender.' } }
+  ]};
+
+DECKS.demeter = {
+  title:'German Meter',
+  sub:'Stress and syllable: the iambic and trochaic lines, the ballad line, and the hymn',
+  panels:[
+{ src:['duden'], h:`<p><strong>STRESS IN GERMAN VERSE.</strong> German meter, like English, is a pattern of <strong>stressed and unstressed</strong> syllables. Since Martin Opitz (1624), the beat must fall where the word is stressed: in <em>LIE-be</em> on the first syllable, in <em>Ge-STALT</em> on the second. Most German words stress the first syllable of the stem, and so German verse is rich in trochees.</p>`,
+  q:{ prompt:'What rule did Opitz set for German verse?',
+      options:['The beat must fall on the syllable the word stresses','Lines must have long and short syllables','Lines must not rhyme','Every line has twelve syllables'],
+      correct:0, explain:'Stress, not quantity, measures German verse.' } },
+{ src:['duden'], h:`<p><strong>IAMBIC LINES.</strong> The iambic pentameter, unrhymed, is the line of German classical drama, of Lessing, Schiller, and Goethe. Goethe writes the dedication of <em>Faust</em> in rhymed iambic pentameter, in eight-line stanzas: <em>ihr NAHT euch WIE-der, SCHWAN-ken-DE ge-STAL-ten</em>, the last syllable an unstressed extra one.</p>`,
+  q:{ prompt:'<em>Ihr naht euch wieder, schwankende Gestalten</em> has eleven syllables because…',
+      options:['It has a feminine ending, one unstressed syllable after the fifth beat','It is a hexameter','It is trochaic','It is irregular'],
+      correct:0, explain:'Five iambs and an extra unstressed syllable.' } },
+{ src:['duden'], h:`<p><strong>TROCHAIC LINES.</strong> Folk song and much of Goethe’s early verse is trochaic: <em>SAH ein KNAB ein RÖS-lein STEHN</em>. As in English, the last foot often keeps only its stressed syllable.</p>`,
+  q:{ prompt:'<em>Sah ein Knab ein Röslein stehn</em> begins with…',
+      options:['A stressed syllable: it is trochaic','An unstressed syllable: it is iambic','Two unstressed syllables','A pause'],
+      correct:0, explain:'SAH ein KNAB ein RÖS-lein STEHN.' } },
+{ src:['duden'], h:`<p><strong>THE BALLAD LINE AND THE FOLK-SONG STANZA.</strong> The German ballad counts its beats and lets one or two unstressed syllables fall between them: <em>wer REI-tet so SPÄT durch NACHT und WIND</em>, four beats. Heine’s songs use three beats in this free way, in four-line stanzas rhymed abab.</p>`,
+  q:{ prompt:'In <em>Wer reitet so spät durch Nacht und Wind</em>, between the beats there are…',
+      options:['One or two unstressed syllables','Always exactly one','None','Always two'],
+      correct:0, explain:'<em>-tet so</em> gives two; <em>durch</em> one: the free filling of the ballad.' } },
+{ src:['duden'], h:`<p><strong>THE HYMN.</strong> The Lutheran hymn is strictly counted, because the congregation sings each stanza to the same tune: <em>Ein feste Burg</em> alternates iambic lines of eight and seven syllables. Hymnals name a meter by these counts, as <em>87 87</em>, and an English translation must keep them to fit the tune, as Carlyle and Winkworth did.</p>`,
+  q:{ prompt:'Why must a hymn translation keep the syllable count?',
+      options:['To be sung to the same tune','Because German counts quantity','To keep the same rhymes','It need not'],
+      correct:0, explain:'The tune fixes the number of notes in each line.' } }
+  ]};
 
 
 const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.';
@@ -17108,6 +17282,30 @@ const ACTS = [
       desc:'Long and short syllables first, and then five meters: the dactylic hexameter, the elegiac couplet, the hendecasyllable, the sapphic stanza, and the iambic dimeter of the hymns; and the feet and beats of English verse.', ex:['meter']},
      {kind:'row', deck:'latpoetry', tag:'STUDY', title:'Latin Poetry',
       desc:'Five passages in five meters: Virgil, <em>Aeneid</em> I.1–11; Ovid, <em>Amores</em> I.1; Catullus 5; Horace, <em>Odes</em> I.22; and Ambrose, <em>Aeterne rerum conditor</em>, read part by part, with questions on each; and five more drilled: Lucretius, Propertius, Martial, Juvenal, and <em>Vexilla regis</em>.', ex:['latpoetrydrill', 'servius4']},
+     {kind:'row', deck:'enprose', tag:'STUDY · ENGLISH', title:'English Prose',
+      desc:'Fifteen passages, from the Declaration of Independence and Gibbon to Lincoln, each long sentence taken apart: the main clause found, and every clause and phrase hung on it. Ten are read through and five drilled: Dickens, Milton, Swift, Melville, and Thoreau.', ex:['enprosedrill']},
+     {kind:'row', deck:'enmeter', tag:'STUDY · ENGLISH', title:'English Meter',
+      desc:'Stress and the foot; iambic pentameter as blank verse, heroic couplet, and sonnet; the trochaic line; and the ballad stanza.', ex:[]},
+     {kind:'row', deck:'enpoetry', tag:'STUDY · ENGLISH', title:'English Poetry',
+      desc:'Milton, Shakespeare, Gray, Coleridge, and Wordsworth read part by part; and five more drilled: Shelley, Blake, Pope, Donne, and Tennyson.', ex:['enpoetrydrill']},
+     {kind:'row', lang:'grc', deck:'grcprose', tag:'STUDY · GREEK', title:'Greek Prose',
+      desc:'Herodotus, Thucydides, Plato, Xenophon, Aristotle, and the Gospel of John read part by part, with the English of a named translator; and five more passages drilled.', ex:['grcprosedrill']},
+     {kind:'row', lang:'grc', deck:'grcmeter', tag:'STUDY · GREEK', title:'Greek Meter',
+      desc:'Quantity against pitch accent; the dactylic hexameter, the elegiac couplet, the iambic trimeter, and the sapphic stanza.', ex:[]},
+     {kind:'row', lang:'grc', deck:'grcpoetry', tag:'STUDY · GREEK', title:'Greek Poetry',
+      desc:'Homer, Sophocles, Hesiod, and the Thermopylae epitaph read part by part; and Sappho, Euripides, Aeschylus, Callimachus, and Plato drilled.', ex:['grcpoetrydrill']},
+     {kind:'row', lang:'fr', deck:'frprose', tag:'STUDY · FRENCH', title:'French Prose',
+      desc:'Descartes, Pascal, Montaigne, Rousseau, Tocqueville, Flaubert, Hugo, the Declaration of the Rights of Man, and Molière read part by part; and five more passages drilled.', ex:['frprosedrill']},
+     {kind:'row', lang:'fr', deck:'frmeter', tag:'STUDY · FRENCH', title:'French Meter',
+      desc:'Counting syllables and the mute <em>e</em>; the alexandrine and its caesura; the octosyllable and the short lines; masculine and feminine rhyme.', ex:[]},
+     {kind:'row', lang:'fr', deck:'frpoetry', tag:'STUDY · FRENCH', title:'French Poetry',
+      desc:'Racine, La Fontaine, Ronsard, Verlaine, and Baudelaire read part by part; and five more poems of Corneille, La Fontaine, Ronsard, Verlaine, and Baudelaire drilled.', ex:['frpoetrydrill']},
+     {kind:'row', lang:'de', deck:'deprose', tag:'STUDY · GERMAN', title:'German Prose',
+      desc:'Kant, Goethe, the Grimms, Marx and Engels, Nietzsche, Schopenhauer, and Kleist read part by part; and five more passages drilled.', ex:['deprosedrill']},
+     {kind:'row', lang:'de', deck:'demeter', tag:'STUDY · GERMAN', title:'German Meter',
+      desc:'Stress and Opitz’s rule; iambic and trochaic lines; the free ballad line; and the counted hymn.', ex:[]},
+     {kind:'row', lang:'de', deck:'depoetry', tag:'STUDY · GERMAN', title:'German Poetry',
+      desc:'Goethe, Heine, and Luther read part by part; and Goethe, Heine, Rinkart, and Mohr drilled.', ex:['depoetrydrill']},
      {kind:'exset', lang:'grc', ex:['grcsent','grcvoice','grcclause','grcmood']},
      {kind:'exset', lang:'de', ex:['desent','devoice','declause','demood']},
      {kind:'exset', lang:'fr', ex:['frsent','frvoice','frclause','frmood']}
@@ -17490,7 +17688,7 @@ function renderPassage(){
     body.innerHTML = `<div class="panel"><p>${PV.mode === 'walk'
         ? 'Each passage stays at the top, and the cards below it give its context and then take its parts in order, with a few questions at the end.'
         : 'Each passage stays at the top, and the questions below it ask about the marked words; after the questions the passage is read through part by part.'}
-      The English can be shown under the Latin.</p>
+      ${S.lang === 'en' ? '' : `The English translation, by the translator named under it, can be shown under the ${PSG_LANG[S.lang || 'la'].name}.`}</p>
       <div class="psg-list">${PV.list.map((id, i) => { const p = PASSAGES[id];
         return `<button type="button" class="psg-pick" data-i="${i}"><span class="psg-pick-ref">${psgRef(p)}</span><span class="psg-pick-lat">${nfEsc(p.lat.split(/\s+/).slice(0, 7).join(' '))} …</span></button>`; }).join('')}</div>
       <div class="btn-row"><button type="button" class="btn primary" id="psg-begin">Begin ⟶</button></div></div>`;
@@ -17510,11 +17708,11 @@ function renderPassage(){
   body.innerHTML = `<div class="panel psg-fixed">
       <div class="psg-ref">${psgRef(p)}</div>
       <div class="psg-lat">${psgLatHtml(p, c.x ? c.at : null, len)}</div>
-      <button type="button" class="orig-toggle" id="psg-eng-tg">${PV.showEng ? 'Hide the English' : 'Show the English'}</button>
-      <div class="psg-eng"${PV.showEng ? '' : ' hidden'}>${nfEsc(p.eng).replace(/\n/g, '<br>')}</div>
+      ${p.eng ? `<button type="button" class="orig-toggle" id="psg-eng-tg">${PV.showEng ? 'Hide the English' : 'Show the English'}</button>
+      <div class="psg-eng"${PV.showEng ? '' : ' hidden'}>${nfEsc(p.eng).replace(/\n/g, '<br>')}</div>` : ''}
     </div>
     <div class="panel psg-card">${card}</div>`;
-  $('psg-eng-tg').onclick = () => { PV.showEng = !PV.showEng; renderPassage(); };
+  if(p.eng) $('psg-eng-tg').onclick = () => { PV.showEng = !PV.showEng; renderPassage(); };
   let answered = c.kind !== 'q' || c.done != null;
   if(c.kind === 'q'){
     const opts = $('psg-opts');

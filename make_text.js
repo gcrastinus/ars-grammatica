@@ -182,8 +182,9 @@ function loadApp(htmlPath) {
   // greek.js (beside index.html) defines window.GREEK; the app builds its Greek deck, paradigms and exercise from it.
   const greekPath = path.join(path.dirname(htmlPath), 'greek.js');
   const greekCode = fs.existsSync(greekPath) ? fs.readFileSync(greekPath, 'utf8') + '\n;\n' : '';
-  // french.js and german.js define window.FRENCH and window.GERMAN in the same way.
-  const partnerCode = ['french.js', 'german.js'].map(f => path.join(path.dirname(htmlPath), f))
+  // french.js and german.js define window.FRENCH and window.GERMAN in the same way; passages.js adds the passages of
+  // the other languages (window.MORE_PASSAGES).
+  const partnerCode = ['french.js', 'german.js', 'passages.js'].map(f => path.join(path.dirname(htmlPath), f))
     .map(p => fs.existsSync(p) ? fs.readFileSync(p, 'utf8') + '\n;\n' : '').join('');
   const dataCode = greekCode + partnerCode + all.slice(0, cut)
     + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, deckSources, deckCite, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
