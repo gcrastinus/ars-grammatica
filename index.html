@@ -15207,6 +15207,85 @@ DECKS.latnoun = {
 ]};
 
 /* -------------------------------------------------------------- */
+DECKS.latverb = {
+  title:'The Latin Verb',
+  sub:'Principal parts, stems, and the signs of tense and mood',
+  panels:[
+
+{ src:['ag','appown'], h:`<p><strong>PRINCIPAL PARTS.</strong> A Latin verb is learned by its principal parts, the four forms from which all its other forms are made. For <em>amō</em> (to love) they are the first person singular of the present indicative, <em>amō</em>; the present infinitive, <em>amāre</em>; the first person singular of the perfect indicative, <em>amāvī</em>; and the supine, <em>amātum</em>.</p>
+<p>From the principal parts we take three stems, each of which carries certain forms of the verb. The <strong>present stem</strong> is the infinitive without <em>-re</em>, and on it are built the present, the imperfect, and the future. The <strong>perfect stem</strong> is the third part without <em>-ī</em>, and on it are built the perfect, the pluperfect, and the future perfect active. The <strong>participial stem</strong> (also called the supine stem) is the fourth part without <em>-um</em>, and on it is built the perfect passive participle, such as <em>amātus</em> (loved).</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Principal parts</th> <th>Present stem</th> <th>Perfect stem</th> <th>Participial stem</th></tr>
+<tr><td class="f">amō, amāre, amāvī, amātum</td> <td class="f">amā-</td> <td class="f">amāv-</td> <td class="f">amāt-</td></tr>
+<tr><td class="f">moneō, monēre, monuī, monitum</td> <td class="f">monē-</td> <td class="f">monu-</td> <td class="f">monit-</td></tr>
+<tr><td class="f">regō, regere, rēxī, rēctum</td> <td class="f">rege-</td> <td class="f">rēx-</td> <td class="f">rēct-</td></tr>
+<tr><td class="f">capiō, capere, cēpī, captum</td> <td class="f">cape-</td> <td class="f">cēp-</td> <td class="f">capt-</td></tr>
+<tr><td class="f">audiō, audīre, audīvī, audītum</td> <td class="f">audī-</td> <td class="f">audīv-</td> <td class="f">audīt-</td></tr>
+</table></div>
+<p>Some verbs have no fourth part, such as <em>timeō, timēre, timuī</em> (to fear), and these have no participial stem.</p>`,
+  q:{ prompt:`From which principal part is the perfect stem taken?`,
+      options:['The third, as <em>amāv-</em> from <em>amāvī</em>','The second, as <em>amā-</em> from <em>amāre</em>','The first, as <em>am-</em> from <em>amō</em>','The fourth, as <em>amāt-</em> from <em>amātum</em>'],
+      correct:0,
+      explain:`The perfect stem is the third principal part without its <em>-ī</em>. The infinitive gives the present stem, and the fourth part gives the participial stem.` } },
+
+{ src:['ag'], h:`<p><strong>The four conjugations.</strong> A conjugation is a class of verbs that share one set of endings, and it is known from the present infinitive: <em>-āre</em> in the first, <em>-ēre</em> in the second, <em>-ere</em> (with a short <em>e</em>) in the third, and <em>-īre</em> in the fourth. Some verbs of the third conjugation end in <em>-iō</em> in the first principal part, such as <em>capiō, capere</em> (to take); these are called third <em>-iō</em> verbs, and in some forms they have an <em>i</em> like the fourth conjugation.</p>
+<p>The active personal endings are <em>-ō</em> (or <em>-m</em>), <em>-s</em>, <em>-t</em> in the singular, and <em>-mus</em>, <em>-tis</em>, <em>-nt</em> in the plural. They show the person and number of the subject, and so a pronoun subject is usually left out. The present indicative active shows them in each conjugation:</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>amō</th> <th>moneō</th> <th>regō</th> <th>capiō</th> <th>audiō</th></tr>
+<tr><td>First singular</td> <td class="f">amō</td> <td class="f">moneō</td> <td class="f">regō</td> <td class="f">capiō</td> <td class="f">audiō</td></tr>
+<tr><td>Second singular</td> <td class="f">amās</td> <td class="f">monēs</td> <td class="f">regis</td> <td class="f">capis</td> <td class="f">audīs</td></tr>
+<tr><td>Third singular</td> <td class="f">amat</td> <td class="f">monet</td> <td class="f">regit</td> <td class="f">capit</td> <td class="f">audit</td></tr>
+<tr><td>First plural</td> <td class="f">amāmus</td> <td class="f">monēmus</td> <td class="f">regimus</td> <td class="f">capimus</td> <td class="f">audīmus</td></tr>
+<tr><td>Second plural</td> <td class="f">amātis</td> <td class="f">monētis</td> <td class="f">regitis</td> <td class="f">capitis</td> <td class="f">audītis</td></tr>
+<tr><td>Third plural</td> <td class="f">amant</td> <td class="f">monent</td> <td class="f">regunt</td> <td class="f">capiunt</td> <td class="f">audiunt</td></tr>
+</table></div>`,
+  q:{ prompt:`To which conjugation does <em>dūcō, dūcere</em> belong?`,
+      options:['The third','The second','The fourth','The first'],
+      correct:0,
+      explain:`The infinitive ends in <em>-ere</em> with a short <em>e</em>, and the first principal part ends in <em>-ō</em>, not <em>-iō</em>. A verb of the second conjugation has a long <em>ē</em>, as <em>monēre</em>.` } },
+
+{ src:['ag'], h:`<p><strong>The signs of tense and mood.</strong> Between the stem and the personal ending, most tenses and moods have a sign of their own. In the forms built on the present stem the signs are these:</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Tense and mood</th> <th>Sign</th> <th>amō</th> <th>regō</th></tr>
+<tr><td>Present indicative</td> <td>none</td> <td class="f">amat</td> <td class="f">regit</td></tr>
+<tr><td>Imperfect indicative</td> <td><em>-bā-</em> (<em>-ēbā-</em> in the third and fourth conjugations)</td> <td class="f">amābat</td> <td class="f">regēbat</td></tr>
+<tr><td>Future indicative</td> <td><em>-bi-</em> in the first and second; <em>-ē-</em> in the third and fourth, with <em>-am</em> in the first person singular</td> <td class="f">amābit</td> <td class="f">reget</td></tr>
+<tr><td>Present subjunctive</td> <td><em>-ē-</em> in the first; <em>-ā-</em> in the others</td> <td class="f">amet</td> <td class="f">regat</td></tr>
+<tr><td>Imperfect subjunctive</td> <td><em>-rē-</em>, that is, the infinitive with the personal ending</td> <td class="f">amāret</td> <td class="f">regeret</td></tr>
+</table></div>
+<p>The passive has its own personal endings, <em>-r, -ris, -tur, -mur, -minī, -ntur</em>, and the signs stay the same: <em>amātur, amābātur, amētur</em>; <em>regitur, regētur, regātur</em>. In the first person singular, <em>-r</em> is added to <em>-ō</em> (<em>amor</em>) and takes the place of <em>-m</em> (<em>amābar</em>, <em>regar</em>).</p>
+<p>The present imperative active, used for a command, is the present stem when one person is addressed (<em>amā, monē, rege, cape, audī</em>), and ends in <em>-te</em> when more than one is addressed (<em>amāte, monēte, regite, capite, audīte</em>). Some common verbs have a short singular, such as <em>dūc, dīc, fac</em>, which the exercise does not ask.</p>`,
+  q:{ prompt:`What does the <em>-ā-</em> show in <em>regat</em>?`,
+      options:['The present subjunctive','The present indicative, as in <em>amat</em>','The imperfect indicative','The future indicative'],
+      correct:0,
+      explain:`In the first conjugation <em>ā</em> belongs to the stem, and <em>amat</em> is indicative. In the other conjugations <em>-ā-</em> is the sign of the present subjunctive, so <em>regat</em> is subjunctive; the present indicative is <em>regit</em>, and the future is <em>reget</em>.` } },
+
+{ src:['ag'], h:`<p><strong>The perfect system.</strong> The perfect, pluperfect, and future perfect indicative active, and the perfect and pluperfect subjunctive active, are built on the perfect stem. Their endings are the same in every conjugation, so once the third principal part is known, these forms follow from it.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>Perfect</th> <th>Pluperfect</th> <th>Future perfect</th> <th>Perfect subjunctive</th> <th>Pluperfect subjunctive</th></tr>
+<tr><td>First singular</td> <td class="f">amāvī</td> <td class="f">amāveram</td> <td class="f">amāverō</td> <td class="f">amāverim</td> <td class="f">amāvissem</td></tr>
+<tr><td>Second singular</td> <td class="f">amāvistī</td> <td class="f">amāverās</td> <td class="f">amāveris</td> <td class="f">amāverīs</td> <td class="f">amāvissēs</td></tr>
+<tr><td>Third singular</td> <td class="f">amāvit</td> <td class="f">amāverat</td> <td class="f">amāverit</td> <td class="f">amāverit</td> <td class="f">amāvisset</td></tr>
+<tr><td>First plural</td> <td class="f">amāvimus</td> <td class="f">amāverāmus</td> <td class="f">amāverimus</td> <td class="f">amāverīmus</td> <td class="f">amāvissēmus</td></tr>
+<tr><td>Second plural</td> <td class="f">amāvistis</td> <td class="f">amāverātis</td> <td class="f">amāveritis</td> <td class="f">amāverītis</td> <td class="f">amāvissētis</td></tr>
+<tr><td>Third plural</td> <td class="f">amāvērunt</td> <td class="f">amāverant</td> <td class="f">amāverint</td> <td class="f">amāverint</td> <td class="f">amāvissent</td></tr>
+</table></div>
+<p>The same endings on other perfect stems give <em>rēxī, rēxerat, rēxisset</em> and <em>audīvī, audīverat, audīvisset</em>.</p>
+<p>The perfect passive, however, is not a single word; it is made of the perfect passive participle and a form of <em>sum</em> (to be), as <em>amātus est</em>, “he has been loved” or “he was loved,” and so it belongs to the construction of the sentence rather than to the parsing of one word, and that is why the exercise asks only the single-word forms.</p>`,
+  q:{ prompt:`Which tenses are built on the perfect stem?`,
+      options:['The perfect, pluperfect, and future perfect active','The present, imperfect, and future','Every tense of the passive','The present and imperfect subjunctive'],
+      correct:0,
+      explain:`The perfect stem carries the perfect system of the active voice. The present, imperfect, and future, and the present and imperfect subjunctive, are built on the present stem, and the perfect passive is a participle with <em>sum</em>.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Reading a verb form.</strong> To parse a verb is to give its person, number, tense, mood, and voice. We look first at the stem, which shows whether the form is built on the present stem or the perfect stem; then at the sign, which shows the tense and mood; and last at the personal ending, which shows the person, the number, and the voice. In <em>laudābantur</em>, for example, <em>laudā-</em> is the present stem, <em>-bā-</em> is the sign of the imperfect indicative, and <em>-ntur</em> is the ending of the third person plural passive.</p>
+<p>Some forms, however, admit more than one analysis. For example, <em>regam</em> is the first person singular active both of the future indicative and of the present subjunctive, and <em>amāverit</em> is the third person singular active both of the future perfect indicative and of the perfect subjunctive. Only the sentence can decide between them, so the exercise accepts any correct analysis and names the others.</p>`,
+  q:{ prompt:`Given alone, what is <em>regam</em>?`,
+      options:['The future indicative or the present subjunctive, first person singular active','Only the present subjunctive, first person singular active','Only the future indicative, first person singular active','The present indicative, first person singular active'],
+      correct:0,
+      explain:`In the third conjugation the future indicative has <em>-am</em> in the first person singular, and so does the present subjunctive. Either analysis is therefore correct, and either is accepted; the present indicative, by contrast, is <em>regō</em>.` } }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.latbuild = {
   title:'Building the Latin Sentence',
   sub:'From the meaning to the forms',
