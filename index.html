@@ -2746,9 +2746,22 @@ Verbs: <em>wait, waits, waited, waiting</em>.</p>
 
 /* -------------------------------------------------------------- */
 DECKS.casework = {
-  title:'Case',
-  sub:'What a case is, and why one case can do several works',
+  title:'Inflection: Case and the Verb',
+  sub:'The accidents of the noun and of the verb; what a case is, and why one case can do several works',
   panels:[
+
+{ src:['donatus','ag'], h:`<p><strong>INFLECTION.</strong> An <strong>accident</strong> is something that befalls a word while it remains the same word. <em>Puella</em> and <em>puellam</em> are one noun, and <em>amō</em> and <em>amābat</em> one verb. A change of ending that shows an accident is called <strong>inflection</strong>.</p>
+<p>Donatus gives the noun six accidents: quality, comparison, gender, number, figure, and case. He gives the verb seven: quality (which includes mood), conjugation, voice (<span class="lat">genus</span>), number, figure, tense, and person. Number belongs to both. Case belongs to the noun alone, and tense, mood, and person to the verb.</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Noun</th> <th>Verb</th></tr>
+<tr><td>gender, number, case</td> <td>person, number, tense, mood, voice</td></tr>
+<tr><td class="f">puella, puellae, puellam</td> <td class="f">amō, amās, amābat, amētur</td></tr>
+</table></div>
+<p>We take case first, and then the verb’s accidents.</p>`,
+  q:{ prompt:'Which accident belongs to both the noun and the verb?',
+      options:['Number','Case','Tense','Mood'],
+      correct:0,
+      explain:'Both nouns and verbs are singular or plural. Case is the noun’s alone; tense and mood are the verb’s.' } },
 
 { src:['aq_ph','ag','appown'], h:`<p><strong>CASE.</strong> <em>Casus</em> is a falling. St Thomas, commenting on
 Aristotle, gives the old explanation: the oblique forms are called cases because they
@@ -2792,7 +2805,24 @@ receives.</p>`,
 <em>canem</em> is accusative, and so some kind of object, before he knows that it means
 “dog.” That is the grammarian’s own consideration: the case as a principle of
 construction, before and apart from what the word names.</p>
-<p>The set of exercises runs the other way round: it gives an English sentence, says how the marked word is used, and asks which case Latin would use for it.</p>` }
+<p>The set of exercises runs the other way round: it gives an English sentence, says how the marked word is used, and asks which case Latin would use for it.</p>` },
+
+{ src:['donatus','ag'], h:`<p><strong>THE VERB’S ACCIDENTS.</strong> The noun shows how it is used by its case; the verb shows by its endings who acts, when, in what manner, and whether the subject acts or is acted on.</p>
+<p><strong>Person and number</strong> say who acts: <em>amō</em>, “I love,” <em>amant</em>, “they love.” <strong>Tense</strong> says when, and whether the act is going on or complete: <em>amābat</em>, “he was loving,” <em>amāvit</em>, “he loved.” <strong>Mood</strong> says how the act is put: stated (indicative, <em>amat</em>), commanded (imperative, <em>amā</em>), or wished or supposed (subjunctive, <em>amet</em>). <strong>Voice</strong> says whether the subject acts or is acted on: <em>amat</em>, “he loves,” <em>amātur</em>, “he is loved.”</p>`,
+  q:{ prompt:'<em>Amātur</em>, “he is loved,” differs from <em>amat</em>, “he loves,” in…',
+      options:['Voice','Tense','Person','Case'],
+      correct:0,
+      explain:'Same person, number, tense, and mood; the subject is now acted on, and so the voice is passive.' } },
+
+{ src:['donatus','ag'], h:`<p><strong>Conjugation and the principal parts.</strong> As the nouns fall into declensions, the verbs fall into conjugations, classes that share a set of endings. A Latin verb is learned by its principal parts, which give its stems: <em>amō, amāre, amāvī, amātum</em>. English verbs have principal parts too: “sing, sang, sung.”</p>
+<p>The Latin noun and verb are taken up in their own groups below; the English accidents in the box after this one.</p>`,
+  q:{ prompt:'Why is a verb learned by its principal parts?',
+      options:['They give the stems from which the other forms are made',
+               'They are the only forms used in prose',
+               'They show the verb’s case',
+               'They are the forms of the imperative'],
+      correct:0,
+      explain:'From <em>amāv-</em> come the perfect forms, from <em>amāt-</em> the supine and the perfect passive participle.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -17297,8 +17327,8 @@ const ACTS = [
       desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
      {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
       desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
-     {kind:'row', deck:'casework', tag:'STUDY', title:'Case',
-      desc:'What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
+     {kind:'row', deck:'casework', tag:'STUDY', title:'Inflection: Case and the Verb',
+      desc:'The accidents of the noun and the verb, in brief. What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
      {kind:'row', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
