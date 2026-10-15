@@ -1505,6 +1505,12 @@ const SRC = {
   arist_int:{kind:'primary', short:'Aristotle, <i>De interpretatione</i> 1',
        full:'Aristotle, <i>De interpretatione</i> (<i>Peri hermeneias</i>) 1, 16a9–16: “As sometimes there is thought in the soul without its being true or false, but sometimes it must be one or the other, so it is in vocal sound; for in composition and division there is truth and falsity… Names and verbs, then, are like thought without composition or division, for example, ‘man’ and ‘white’ when nothing is added; for neither is yet true or false.” Checked against the text as printed with St Thomas’s commentary on the <i>Peri hermeneias</i>. Thomas of Erfurt cites this very chapter — <i>circa quam compositionem consistit veritas et falsitas, ut dicitur I Peri. Cap. 1</i>.',
        note:'The root of everything this course says about where truth begins — and St Thomas, commenting, adds that truth and falsity are in the intellect’s composing and dividing, not in the simple concept.'},
+  arist_int2:{kind:'primary', short:'Aristotle, <i>De interpretatione</i> 2',
+       full:'Aristotle, <i>De interpretatione</i> (<i>Peri hermeneias</i>) 2, 16a19–29: a name is a spoken sound significant by convention; “by convention, because no name is a name naturally but only when it has become a symbol. Even inarticulate noises (of beasts, for instance) do reveal something, yet none of them is a name” (Ackrill’s translation of 16a26–29).',
+       note:'The ground for saying that voice may signify by nature or by imposition, and that only articulate voice significant by imposition is a name.'},
+  boeth_int:{kind:'primary', short:'Boethius, <i>In Peri hermeneias</i>',
+       full:'Boethius, <i>Commentarii in librum Aristotelis Peri hermeneias</i>, on chapter 2: the division of voice into significant and not significant, and of significant voice into what signifies by nature and what signifies by imposition (<i>ad placitum</i>), which became the standard division in the schools.',
+       note:'The commentary through which the Latin schools received Aristotle’s division of voice.'},
   arist_anima:{kind:'primary', short:'Aristotle, <i>De anima</i> II.8',
        full:'Aristotle, <i>De anima</i> II.8, 420b27–33: voice is the striking of the inhaled air against the windpipe by the soul in those parts; “for not every sound of an animal is voice (for it is possible to make a sound with the tongue, and as those do who cough), but what strikes must be ensouled and with some imagination, since voice is a sound that signifies” (this course’s literal rendering of <i>οὐ γὰρ πᾶς ζῴου ψόφος φωνή … ἀλλὰ δεῖ ἔμψυχόν τε εἶναι τὸ τύπτον καὶ μετὰ φαντασίας τινός· σημαντικὸς γὰρ δή τις ψόφος ἐστὶν ἡ φωνή</i>).',
        note:'The natural philosopher’s account of voice, which St Thomas repeats in his commentary on the <i>Peri hermeneias</i>. It is the ground for saying that a cough is a sound made by an animal, but not voice.'},
@@ -1732,6 +1738,8 @@ const DECK_SRC = {
   arist_se: 'Aristotle, <i>De sophisticis elenchis</i> 4 and 22',
   arist_met9: 'Aristotle, <i>Metaphysica</i> IX.6',
   arist_anima: 'Aristotle, <i>De anima</i> II.8',
+  arist_int2: 'Aristotle, <i>De interpretatione</i> 2',
+  boeth_int: 'Boethius, <i>In Peri hermeneias</i>',
   quint: 'Quintilian, <i>Institutio oratoria</i> I.4',
   chomsky: 'Chomsky',
   blackgt: 'Black',
@@ -1748,7 +1756,7 @@ function deckSrcLabel(key, k){
    not also a main source, is cited only on the card where the quotation stands (DECK_CITE, by card number from 0). */
 const DECK_TOP = {
   prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
-  traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['donatus','priscian','arist_anima'],
+  traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
   period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'],
   pos:['donatus','priscian','te','arist_int'], decline:['donatus','priscian','te','ag'], casework:['ag','nieto'],
   produce:['ag'], govern:['te','ag'], cong:['te','priscian','arist_int'], workshop:['priscian','te','bh'],
@@ -2266,36 +2274,34 @@ DECKS.vox = {
   panels:[
 
 { src:['donatus','priscian','aq_ph'], h:`<p><strong>VOICE.</strong> Donatus defines voice as air struck, perceptible to hearing (<span class="lat">vox est aer ictus sensibilis auditu …</span>). Natural philosophy adds that voice is sound uttered by the mouth of an animal, with some imagination (Aristotle, <em>De anima</em> II, as St Thomas repeats it). It is living sound, not yet a letter and not yet a word. Spoken <em>horse</em> is voice, and spoken <em>equus</em> is voice.</p>
-<p>The letter will be the least part of this sound that can be written. First, however, the sound itself must be distinguished from marks, and from mere noise that is not speech.</p>`,
+<p>The letter will be the least part of articulate voice. First, however, the sound itself must be distinguished from marks, and from mere noise that is not speech.</p>`,
   q:{ prompt:`What is voice, according to Donatus?`,
       options:['A mark written on the page','Air struck, perceptible to hearing','A complete sentence spoken aloud','A thought in the soul before it is spoken'],
       correct:1,
       explain:`Voice is living sound; the mark comes after it, and a sentence and a thought come later still.` } },
 
-{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice (Donatus’s <em>vox confusa</em>), that is, voice that cannot be written in letters: a sound the voice makes that letters cannot capture.</p>` },
+{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. “Hello” is articulate voice, that is, voice formed into distinct letters and syllables, and it signifies by human choice. A groan is inarticulate voice, that is, voice not so formed, and it shows pain by nature.</p>` },
 
-{ src:['donatus','priscian','arist_anima'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice is voice that can be written in letters, as every spoken word can be. Confused voice (<em>vox confusa</em>) is voice that cannot be written in letters, that is, a sound the voice makes that letters cannot capture, such as a groan or the bark of a dog. Priscian adds that a groan signifies something of the mind of the one who utters it, although it cannot be written. A cough, however, is not voice at all, although an animal makes it, because Aristotle holds that voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8).</p>
-<p>Such sound may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
+{ src:['donatus','arist_anima'], h:`<p><strong>Articulate and inarticulate.</strong> Every voice is either <strong>articulate</strong> or <strong>inarticulate</strong>. Articulate voice is voice formed into distinct letters and syllables, as every spoken word is. Inarticulate voice is voice not so formed, such as a groan or the bark of a dog. Donatus calls inarticulate voice <strong>confused</strong> voice (<span class="lat">vox confusa</span>), so “articulate and confused” in Donatus means the same division. A cough, however, is not voice at all, although an animal makes it, because Aristotle holds that voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8).</p>
+<p>Inarticulate voice may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
   q:{ prompt:`Why can a groan never be a barbarism?`,
       options:['Because groans are always well formed, being natural','Because barbarism is a fault in a word, and a groan is not one',
                'Because the word barbarism is reserved for foreign words used in Latin','Because only what is written down can be barbarous'],
       correct:1,
-      explain:`Barbarism is proper to the word and does not exist below the level of the word, and confused voice is by definition not a word.` } },
+      explain:`Barbarism is proper to the word and does not exist below the level of the word, and inarticulate voice is not a word.` } },
 
-{ src:['donatus','priscian','arist_int'], h:`<p><strong>Articulate voice.</strong> Articulate voice can be divided into letters. It is still not a word, but it is the kind of sound of which words are made.</p>
-<p>Animal sounds signify by nature, whereas names signify by human choice, that is, by imposition (the assigning of a sound to signify something). A bark signifies something to which the dog wishes to draw attention; a name is a sound that has been imposed by human choice.</p>
-<p>Priscian divides voice more finely, by two questions. Is it joined to some meaning in the speaker’s mind? Then it is <strong>articulate</strong>. Can it be written? Then it is <strong>lettered</strong>. So there are four kinds. <em>The sailor waits</em> is articulate and lettered, and so is <em>Arma virumque cano</em>. A groan or a whistle is articulate but unlettered, since it shows something of the speaker’s mind but cannot be written. English <em>bzz</em>, written for a noise, means nothing, and so does <em>Coax</em>, the croak of a frog. Each can be written, and each is lettered but inarticulate. A crash is neither.</p>
-<p>What Donatus calls articulate, Priscian calls lettered; so when we meet the word <em>articulate</em>, we must ask whose sense is meant.</p>`,
-  q:{ prompt:`In Donatus’s division, is a groan a voice? Is it articulate?`,
-      options:['It is not a voice at all, but a noise of the body','It is a voice, and articulate, since it shows the speaker’s pain','It is a voice, and confused','It is a word, since it signifies pain'],
-      correct:2,
-      explain:`It is air struck, and so it is voice. It cannot be written in letters, and so for Donatus it is confused. Priscian would call it articulate, because it shows the speaker’s pain, but unlettered. Either way, it is not a word.` } },
+{ src:['arist_int2','boeth_int','donatus'], h:`<p><strong>Significant and not significant.</strong> Voice is also either <strong>significant</strong> or <strong>not significant</strong>. Significant voice signifies in one of two ways: by nature, as a groan shows pain and a dog’s bark shows what the dog wishes to draw attention to; or by imposition (<span class="lat">ad placitum</span>), that is, because human choice has assigned the sound to signify something. Aristotle says that even the inarticulate noises of beasts reveal something, yet none of them is a name (<em>De interpretatione</em> 2); and Boethius, commenting on that chapter, sets out the division that became standard in the schools.</p>
+<p>Articulate voice may still signify nothing, as the letter <em>B</em> sounded alone, or the schoolmen’s made-up <em>blityri</em>. So only articulate voice that signifies by imposition is a <strong>word</strong>, that is, a name or a verb. <em>Horse</em> and <em>equus</em> are words; a groan, which signifies by nature and is inarticulate, is not.</p>`,
+  q:{ prompt:`Is a groan a word?`,
+      options:['Yes, because it signifies pain','No: it signifies by nature, and it is inarticulate','No, because it signifies nothing at all','Yes, because every voice is a word'],
+      correct:1,
+      explain:`A groan is significant voice, but it signifies by nature, and it is not formed into distinct letters and syllables. A word is articulate voice that signifies by imposition.` } },
 
-{ src:['donatus','priscian','appown'], h:`<p>The consideration of voice is the beginning of grammar, since the art of grammar is the art of human speech. Marks without sound are not speech, nor is noise without articulation. A groan signifies by nature, whereas signification by imposition begins at the word. The word <em>horse</em> signifies by that choice, and so does the word <em>equus</em>. Voice is the matter of the word.</p>
+{ src:['donatus','priscian','appown'], h:`<p>The consideration of voice is the beginning of grammar, since the art of grammar is the art of human speech. Marks without sound are not speech, nor is voice without articulation. A groan signifies by nature, whereas signification by imposition begins at the word. The word <em>horse</em> signifies by that choice, and so does the word <em>equus</em>. Voice is the matter of the word.</p>
 <p>We consider next the letter, that is, the least written part of this sound.</p>`,
   q:{ prompt:`Where does signification by human choice begin?`,
       options:['At the groan, which already signifies something','At the word',
-               'At the letter, the least part that can be written','Nowhere, since voice never signifies by choice'],
+               'At the letter, the least part of articulate voice','Nowhere, since voice never signifies by choice'],
       correct:1,
       explain:`A groan signifies by nature, and signification by imposition (by human choice) begins at the word. The letter stands between them, still without meaning.` } }
 ]};
@@ -7815,22 +7821,22 @@ EX.nahw = tradEx('nahw', ['sibawayh','jumal','appown'], 'Name, Verb, and Particl
   ]);
 
 EX.vox = {
-  id:'vox', src:['donatus','priscian','arist_int'], act:'I', title:'Voice Articulate and Inarticulate',
+  id:'vox', src:['donatus','arist_int2','boeth_int'], act:'I', title:'Voice Articulate and Inarticulate',
   desc:'Given a sound (a groan, a bark, a name, a letter), say whether it is voice, whether it is articulate, and whether it is yet a word.',
   instr:'Voice, articulate or not, and why grammar begins here.',
   gen(d){
     if(Math.random() < 0.45){
       const sounds = [
-        {w:'a groan', a:'Voice, but confused and not a word', why:'It is air struck, and so it is voice. It cannot be written in letters, and so in Donatus’s division it is confused. (Priscian would call it articulate but unlettered, since it shows the sufferer’s pain.) It is not a word.'},
-        {w:'a dog’s bark', a:'Voice, but confused and not a word', why:'An animal utters it with something signified, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
-        {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
-        {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
-        {w:'thunder', a:'A sound, but not voice', why:'Following Aristotle (<em>De anima</em> II.8), it is a sound but not voice, because no animal utters it with something signified, and grammar starts from voice. In his widest sense of voice (struck air), Priscian counts even <em>crepitus</em> and <em>mugitus</em> as voice, inarticulate and unwritable.'},
+        {w:'a groan', a:'Voice, but inarticulate and not a word', why:'It is voice, since an animal utters it with something signified. It is not formed into distinct letters and syllables, so it is inarticulate (Donatus’s confused voice). It signifies pain by nature, not by imposition, so it is not a word.'},
+        {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'An animal utters it with something signified, so it is voice. It is not formed into distinct letters and syllables, so it is inarticulate, and since it signifies by nature, not by imposition, it is not a word.'},
+        {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is formed into distinct letters and syllables, so it is articulate, and it signifies by imposition, so it is a word.'},
+        {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is formed as a distinct letter, so it is articulate, but it signifies nothing on its own, so it is not yet a word.'},
+        {w:'thunder', a:'A sound, but not voice', why:'Following Aristotle (<em>De anima</em> II.8), it is a sound but not voice, because no animal utters it with something signified, and grammar starts from voice. (Priscian, taking voice in its widest sense as struck air, counts even <span class="lat">crepitus</span> and <span class="lat">mugitus</span> as voice, though inarticulate.)'},
         {w:'a cough', a:'A sound, but not voice', why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'}
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
       const options = shuffle([it.a, ...sample([
-        'Voice, but confused and not a word',
+        'Voice, but inarticulate and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
         'A sound, but not voice',
@@ -7849,74 +7855,100 @@ EX.vox = {
     const items = [
       {id:'vx1', lang:'la', src:['donatus'], q:'Donatus says that voice is air struck, perceptible to hearing (<span class="lat">vox est aer ictus, sensibilis auditu</span>). What is he defining?',
        a:'Voice: living sound, struck and heard', ds:['The written letter, the mark of a sound','A sentence, words arranged to say one thing','A name, a sound set by human choice'],
-       why:'Voice is air struck, and the letter is that sound as it can be written; a sentence comes much later.'},
-      {id:'vx2', lang:'en', src:['donatus'], q:'In Donatus’s division, a groan is a voice. Is it articulate?',
-       a:'It is a voice, and confused', ds:['It is not a voice, but a noise of the body','It is articulate, because it shows the speaker’s pain','It is a word, because it signifies pain'],
-       why:'For Donatus, articulate voice is voice that can be caught in letters. A groan cannot, and so it is confused. Indication by nature is not yet a word.'},
-      {id:'vx3', lang:'en', src:['donatus'], q:'Why can confused voice never be a barbarism?',
-       a:'Barbarism is a fault in a word, and there is no word',
-       ds:['Because groans are natural, and so always correct','Because only vowels, and not cries, can be barbarous','Because only what is written can be barbarous'],
-       why:'Barbarism is proper to the word and does not exist below the level of the word. Confused voice is by definition not a word.'},
-      {id:'vx4', lang:'en', src:['arist_int'], q:'Animal sounds signify by nature. Names signify by…',
-       a:'Human choice: imposition',
-       ds:['Nature, as a groan does','Writing, once they are set down','Likeness, as a picture signifies'],
-       why:'A bark signifies something the dog wishes to draw attention to. A name is a sound imposed by human choice. Grammar of the word starts after that imposition.'},
-      {id:'vx5', lang:'en', src:['donatus','appown'], q:'Where does signification by human choice begin?',
-       a:'At the word',
-       ds:['At the groan, which signifies pain','At the letter, the least written part','Nowhere, since voice never signifies by choice'],
-       why:'A groan signifies by nature. Signification by imposition begins at the word. The letter sits between them, still without meaning.'},
-      {id:'vx6', lang:'en', src:['priscian'], q:'For Priscian, a groan shows something of the speaker’s mind but cannot be written. In his division it is…',
-       a:'Articulate, but unlettered',
-       ds:['Lettered, but inarticulate','Neither articulate nor lettered','Both articulate and lettered'],
-       why:'Priscian asks two questions: whether the voice is joined to a meaning in the speaker’s mind (articulate), and whether it can be written (lettered). A groan is the first and not the second. <em>Coax</em>, a frog’s croak, is the reverse.'},
-      {id:'vx7', lang:'en', src:['arist_int','appown'], q:'What turns a sound into a name?',
-       a:'Imposition: speakers set it to signify',
-       ds:['Writing it down in letters','Saying it more than once','Using it in a sentence that is true'],
-       why:'A bark signifies by nature. A name is a sound set, by human choice, to signify a thing. That setting is imposition, and grammar of the word starts there.'},
-      {id:'vx8', lang:'en', src:['priscian'], q:'Priscian sorts every voice by two questions. What are they?',
-       a:'Is it joined to a meaning in the mind, and can it be written?',
-       ds:['Is it loud or soft, and is it long or short?','Is it a vowel or a consonant, and is it Latin or Greek?','Is it made by a man or by a beast, and is it true?'],
-       why:'Priscian’s four differences are articulate and inarticulate (joined to some sense of the speaker’s mind, or not) and lettered and unlettered (able to be written, or not). Taken two at a time they make four kinds of voice.'},
-      {id:'vx9', lang:'la', src:['priscian'], q:'A frog’s croak can be written <em>coax</em>, and a raven’s cry <em>cra</em>. For Priscian these voices are…',
-       a:'Lettered, but inarticulate',
-       ds:['Articulate, but unlettered','Both articulate and lettered','Neither articulate nor lettered'],
-       why:'Priscian’s own examples: <span class="lat">coax, cra</span> can be written, and yet they are called inarticulate, since they signify nothing.'},
-      {id:'vx10', lang:'la', src:['priscian'], q:'For Priscian, the lowing of a cow (<span class="lat">mugitus</span>) is…',
-       a:'Neither articulate nor lettered',
-       ds:['Lettered, but inarticulate','Articulate, but unlettered','Both articulate and lettered'],
-       why:'Priscian names <span class="lat">crepitus</span> and <span class="lat">mugitus</span> as voices that can neither be written nor understood.'},
-      {id:'vx11', lang:'la', src:['priscian'], q:'Priscian’s example of a voice both articulate and lettered is…',
-       a:'<em>Arma virumque cano</em>, spoken',
-       ds:['A man’s hiss, or a groan','A frog’s <em>coax</em>','The lowing of a cow'],
-       why:'<span class="lat">Arma virumque cano</span> can be written and understood. Hissing and groans can be understood but not written; <em>coax</em> can be written but signifies nothing; lowing is neither.'},
-      {id:'vx12', lang:'en', src:['donatus'], q:'Donatus divides voice into two kinds. What are they?',
-       a:'Articulate and confused',
-       ds:['Long and short','Vowel and consonant','Spoken and written'],
-       why:'For Donatus, articulate voice can be caught in letters, and confused voice cannot. Priscian makes the finer fourfold division.'},
+       why:'Voice is air struck and heard. The letter is the least part of articulate voice, and a sentence comes much later.'},
+      {id:'vx2', lang:'en', src:['donatus'], q:'A groan is voice. Is it articulate?',
+       a:'No: it is inarticulate, not formed into distinct letters and syllables', ds:['It is not voice, but a noise of the body','Yes: it is articulate, because it shows the speaker’s pain','It is a word, because it signifies pain'],
+       why:'Articulate voice is formed into distinct letters and syllables, and a groan is not, so it is inarticulate (Donatus calls it confused). It signifies pain by nature, and so it is not a word.'},
+      {id:'vx3', lang:'en', src:['donatus'], q:'Why can inarticulate voice never be a barbarism?',
+       a:'Barbarism is a fault in a word, and there is no word', ds:['Because groans are natural, and so always correct','Because only vowels, and not cries, can be barbarous','Because only what is written can be barbarous'],
+       why:'Barbarism is proper to the word and does not exist below the level of the word. Inarticulate voice is not a word.'},
+      {id:'vx4', lang:'en', src:['arist_int2'], q:'Animal sounds signify by nature. Names signify by…',
+       a:'Human choice: imposition', ds:['Nature, as a groan does','Writing, once they are set down','Likeness, as a picture signifies'],
+       why:'A bark signifies something the dog wishes to draw attention to. A name is a sound imposed by human choice. Aristotle says that the inarticulate noises of beasts reveal something, yet none of them is a name.'},
+      {id:'vx5', lang:'en', src:['arist_int2','appown'], q:'Where does signification by human choice begin?',
+       a:'At the word', ds:['At the groan, which signifies pain','At the letter, the least part of articulate voice','Nowhere, since voice never signifies by choice'],
+       why:'A groan signifies by nature. Signification by imposition begins at the word. The letter stands between them, articulate but without meaning.'},
+      {id:'vx6', lang:'en', src:['arist_int2','boeth_int'], q:'Voice is significant or not significant. In what two ways does significant voice signify?',
+       a:'By nature, or by imposition', ds:['By speech, or by writing','By the vowel, or by the consonant','By Latin, or by Greek'],
+       why:'Some voice signifies by nature, as a groan shows pain; some signifies by imposition (<span class="lat">ad placitum</span>), as a name does. Boethius sets out this division in commenting on Aristotle, <em>De interpretatione</em> 2.'},
+      {id:'vx7', lang:'en', src:['arist_int2','appown'], q:'What turns a sound into a name?',
+       a:'Imposition: speakers set it to signify', ds:['Writing it down in letters','Saying it more than once','Using it in a sentence that is true'],
+       why:'A bark signifies by nature. A name is articulate voice set, by human choice, to signify a thing. That setting is imposition, and the grammar of the word starts there.'},
+      {id:'vx8', lang:'en', src:['arist_int2','boeth_int'], q:'Which voice is a word?',
+       a:'Articulate voice that signifies by imposition', ds:['Any voice that signifies, by nature or by imposition','Inarticulate voice that signifies by nature','Articulate voice, whether or not it signifies'],
+       why:'Only articulate voice that signifies by imposition is a word, that is, a name or a verb. A groan signifies by nature, and the letter <em>B</em> sounded alone signifies nothing.'},
+      {id:'vx9', lang:'en', src:['arist_int2','boeth_int'], q:'The made-up sound <em>blityri</em> is…',
+       a:'Articulate, but not significant, and so not a word', ds:['Inarticulate, but significant by nature','Articulate, and a word by imposition','Not voice at all'],
+       why:'It is formed into distinct letters and syllables, so it is articulate; but nothing has been imposed on it to signify, so it is not a word. The schoolmen used it as their example of such a sound.'},
+      {id:'vx10', lang:'en', src:['arist_int2'], q:'A dog’s bark is…',
+       a:'Inarticulate voice, significant by nature', ds:['Articulate voice, significant by imposition','Inarticulate voice, not significant','Not voice, but only a sound'],
+       why:'The bark shows what the dog wishes to draw attention to, so it is significant, but by nature. It is not formed into distinct letters and syllables, so it is inarticulate.'},
+      {id:'vx11', lang:'la', src:['donatus','arist_int2'], q:'Spoken <em>Arma virumque cano</em> is…',
+       a:'Articulate voice, significant by imposition', ds:['Inarticulate voice, significant by nature','Articulate voice, not significant','Not voice, but only a sound'],
+       why:'It is formed into distinct letters and syllables, and its words signify by imposition. It is also more than a word, since it is a sentence.'},
+      {id:'vx12', lang:'en', src:['donatus'], q:'Donatus divides voice into two kinds. What does he call them?',
+       a:'Articulate and confused', ds:['Long and short','Vowel and consonant','Spoken and written'],
+       why:'Donatus calls the two kinds articulate and confused. Confused voice (<span class="lat">vox confusa</span>) is his name for inarticulate voice, that is, voice not formed into distinct letters and syllables.'},
       {id:'vx13', lang:'en', src:['priscian','appown'], q:'Why does the art begin with voice, before the word?',
        a:'Because the word is made of voice, as of its matter',
        ds:['Because voice already signifies by human choice','Because Donatus thought words less important than sounds','Because truth and falsity begin in the voice'],
        why:'Grammar goes from voice to letter, to syllable, to word, and to the sentence. Voice is the matter; the word is that matter given a meaning by imposition.'},
-{id:'vx14',lang:'la',src:['donatus'],q:'What is spoken Latin <em>homo</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate. It is not a cry, and it is not confused.'},
-{id:'vx15',lang:'la',src:['donatus'],q:'What is spoken <em>cano</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx16',lang:'la',src:['donatus'],q:'What is the letter <em>A</em>, pronounced, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so it is articulate. It is not yet a word, because it signifies nothing on its own.'},
-{id:'vx17',lang:'en',src:['donatus'],q:'What is a spoken name, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'A name is voice that can be written. For Donatus that is articulate voice.'},
-{id:'vx18',lang:'en',src:['donatus'],q:'What is a groan, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A groan is voice, and it cannot be written in letters, so for Donatus it is confused. Priscian, who asks whether a voice is joined to some sense of the speaker’s mind, counts the groan as articulate, because it signifies, though it cannot be written.'},
-{id:'vx19',lang:'en',src:['donatus'],q:'What is a dog’s bark, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A bark is living voice, and it cannot be written in letters. For Donatus it is confused.'},
-{id:'vx20',lang:'en',src:['arist_anima'],q:'Is a cough voice?',a:'No: it is a sound, but not voice',ds:['Yes, and confused: it cannot be written','Yes, and articulate: it can be written','Yes, and lettered: it can be written'],why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'},
-{id:'vx21',lang:'en',src:['donatus'],q:'What is a hiss, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A hiss is voice, and it cannot be written in letters. For Donatus it is confused. It is not yet a word. Priscian counts the hiss as articulate, because it signifies something of the speaker’s mind, though it cannot be written.'},
-{id:'vx22',lang:'en',src:['donatus'],q:'For Donatus, what is articulate voice?',a:'Voice that can be caught in letters',ds:['Noise that can be caught in letters','A cry that cannot be written down','Voice that cannot be caught in letters'],why:'Articulate voice is voice that can be caught in letters. A noise is not the definition, and voice that cannot be written is the other kind.'},
-{id:'vx23',lang:'en',src:['donatus','priscian'],q:'For Donatus, what is confused voice?',a:'A sound the voice makes that letters cannot capture, such as a groan',ds:['Voice that can be written in letters, such as a spoken name','A word, because it can be written','Any sound at all, such as thunder'],why:'Confused voice is a sound the voice makes that letters cannot capture, such as a groan. Priscian says that a groan signifies something of the mind of the one who utters it, and yet it cannot be written. Voice that can be written is articulate, and thunder is not voice at all.'},
-{id:'vx24',lang:'la',src:['donatus'],q:'Why is spoken <em>puer</em> articulate, for Donatus?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It can be written in letters. That is what Donatus means by articulate.'},
-{id:'vx25',lang:'en',src:['donatus'],q:'A groan is not articulate, for Donatus. What is it?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'It cannot be written in letters. Donatus calls that confused voice. Priscian, who asks whether a voice is joined to some sense of the speaker’s mind, counts the groan as articulate, because it signifies, though it cannot be written.'},
-{id:'vx26',lang:'la',src:['donatus'],q:'What is spoken <em>equus</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx27',lang:'la',src:['donatus'],q:'What is spoken <em>navis</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx28',lang:'la',src:['donatus'],q:'What is spoken <em>urbs</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx29',lang:'la',src:['donatus'],q:'What is spoken <em>rosa</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx30',lang:'la',src:['donatus'],q:'What is spoken <em>aqua</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
-{id:'vx31',lang:'la',src:['donatus'],q:'What is spoken <em>dominus</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'}
+      {id:'vx14', lang:'la', src:['donatus'], q:'Is spoken Latin <em>homo</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx15', lang:'la', src:['donatus'], q:'Is spoken <em>cano</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx16', lang:'en', src:['donatus'], q:'Is a spoken name articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx17', lang:'la', src:['donatus'], q:'Is spoken <em>puer</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx18', lang:'la', src:['donatus'], q:'Is spoken <em>equus</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx19', lang:'la', src:['donatus'], q:'Is spoken <em>navis</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx20', lang:'la', src:['donatus'], q:'Is spoken <em>urbs</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx21', lang:'la', src:['donatus'], q:'Is spoken <em>rosa</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx22', lang:'la', src:['donatus'], q:'Is spoken <em>aqua</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx23', lang:'la', src:['donatus'], q:'Is spoken <em>dominus</em> articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed into distinct letters and syllables, so it is articulate voice; and since it signifies by imposition, it is a word.'},
+      {id:'vx24', lang:'la', src:['donatus'], q:'Is the letter <em>A</em>, pronounced, articulate or inarticulate voice?',
+       a:'Voice, articulate: formed into letters and syllables', ds:['Voice, inarticulate: not formed into letters and syllables','A sound, but not voice','Voice, inarticulate, but a word by imposition'],
+       why:'It is formed as a distinct letter, so it is articulate. It is not yet a word, because it signifies nothing on its own.'},
+      {id:'vx25', lang:'en', src:['donatus'], q:'Is a groan articulate or inarticulate voice?',
+       a:'Voice, inarticulate: not formed into letters and syllables', ds:['Voice, articulate: formed into letters and syllables','A sound, but not voice','Voice, articulate, and a word by imposition'],
+       why:'It is not formed into distinct letters and syllables, so it is inarticulate voice (Donatus’s confused voice). It shows pain by nature, so it is significant, but it is not a word.'},
+      {id:'vx26', lang:'en', src:['donatus'], q:'Is a dog’s bark articulate or inarticulate voice?',
+       a:'Voice, inarticulate: not formed into letters and syllables', ds:['Voice, articulate: formed into letters and syllables','A sound, but not voice','Voice, articulate, and a word by imposition'],
+       why:'It is not formed into distinct letters and syllables, so it is inarticulate voice (Donatus’s confused voice). It signifies by nature, so it is not a word.'},
+      {id:'vx27', lang:'en', src:['donatus'], q:'Is a hiss articulate or inarticulate voice?',
+       a:'Voice, inarticulate: not formed into letters and syllables', ds:['Voice, articulate: formed into letters and syllables','A sound, but not voice','Voice, articulate, and a word by imposition'],
+       why:'It is not formed into distinct letters and syllables, so it is inarticulate voice (Donatus’s confused voice). It is not a word.'},
+      {id:'vx28', lang:'en', src:['donatus'], q:'Is a sigh articulate or inarticulate voice?',
+       a:'Voice, inarticulate: not formed into letters and syllables', ds:['Voice, articulate: formed into letters and syllables','A sound, but not voice','Voice, articulate, and a word by imposition'],
+       why:'It is not formed into distinct letters and syllables, so it is inarticulate voice (Donatus’s confused voice). It is not a word.'},
+      {id:'vx29', lang:'en', src:['arist_anima'], q:'Is a cough voice?',
+       a:'No: it is a sound, but not voice', ds:['Yes, and inarticulate','Yes, and articulate','Yes, and a word by imposition'],
+       why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'},
+      {id:'vx30', lang:'en', src:['donatus'], q:'For Donatus, what is confused voice?',
+       a:'Inarticulate voice, not formed into distinct letters and syllables, such as a groan', ds:['Articulate voice, such as a spoken name','A word, because it signifies','Any sound at all, such as thunder'],
+       why:'Confused voice is Donatus’s name for inarticulate voice, voice not formed into distinct letters and syllables, such as a groan. Articulate voice is formed into them, and thunder is not voice at all.'},
+      {id:'vx31', lang:'en', src:['donatus'], q:'What is articulate voice?',
+       a:'Voice formed into distinct letters and syllables', ds:['Any sound that signifies something','Voice that signifies by nature','Voice not formed into letters and syllables'],
+       why:'Articulate voice is formed into distinct letters and syllables. A sound may signify without being articulate, as a groan does.'}
     ];
-    const pool = d <= 1 ? items.filter(x => ['vx1','vx2','vx3','vx5','vx12','vx13','vx14','vx15','vx16','vx17','vx18','vx19','vx20','vx21','vx22','vx23','vx24','vx25','vx26','vx27','vx28','vx29','vx30','vx31'].indexOf(x.id)>=0) : d === 2 ? items.filter(x => ['vx8','vx9','vx10','vx11'].indexOf(x.id) < 0 || x.id === 'vx8') : items;
+    const pool = d <= 1 ? items.filter(x => ['vx9','vx11'].indexOf(x.id) < 0) : items;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
 };
@@ -8218,8 +8250,8 @@ const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wro
   const I = {
     vox:[
       {h:`<strong>Voice is living sound</strong>: air struck, and heard. A groan is a voice, but it is not yet a word.`,
-       eg:['A bark is voice, and for Donatus confused: it cannot be written in letters.','<em>Horse</em> is voice, articulate, and a word: a community has imposed that sound.']},
-      {h:`<strong>Three questions of every sound.</strong> Is it voice? Can it be written (Donatus’s articulate; Priscian’s lettered)? Has it been imposed as a word? The grammar of the word starts only at the third.`}
+       eg:['A bark is voice, but inarticulate: it is not formed into distinct letters and syllables, and it signifies by nature.','<em>Horse</em> is voice, articulate, and a word: a community has imposed that sound.']},
+      {h:`<strong>Three questions of every sound.</strong> Is it voice? Is it articulate, that is, formed into distinct letters and syllables? Does it signify by imposition, and so is it a word? The grammar of the word starts only at the third.`}
     ],
     letter:[
       {h:`<strong>The letter is the least part of a written sound.</strong> It signifies nothing, and meaning begins at the word.`},
@@ -12359,7 +12391,7 @@ function syllableEnglish(d){
 const VXE_L = {
   word:'Voice, articulate, and already a word',
   lett:'Voice, articulate, but not yet a word',
-  inar:'Voice, but confused and not a word',
+  inar:'Voice, but inarticulate and not a word',
   nat:'A sound, but not voice',
   sent:'A complete sentence, though of one word'
 };
@@ -12382,17 +12414,17 @@ const VXE_ITEMS = [
   ['cough', 'a cough']
 ];
 const VXE_WHY = {
-  word:'It is imposed to signify: it can be written in letters, so it is articulate, and it is a word.',
-  lett:'It can be written in letters, so it is articulate, but it signifies nothing by itself, so it is not yet a word. The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
-  inar:'A living thing utters it with something signified, such as pain or a warning, so it is voice; it cannot be written in letters, so for Donatus it is confused; and since it signifies by nature, not by imposition, it is not a word.',
-  nat:'Following Aristotle (<em>De anima</em> II.8), it is a sound but not voice, because no animal utters it with something signified, and grammar starts from voice. In his widest sense of voice (struck air), Priscian counts even <em>crepitus</em> and <em>mugitus</em> as voice, inarticulate and unwritable.',
+  word:'It is formed into distinct letters and syllables, so it is articulate, and it signifies by imposition, so it is a word.',
+  lett:'It is formed into distinct letters and syllables, so it is articulate, but it signifies nothing by itself, so it is not yet a word. The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
+  inar:'A living thing utters it with something signified, such as pain or a warning, so it is voice. It is not formed into distinct letters and syllables, so it is inarticulate (Donatus’s confused voice); and since it signifies by nature, not by imposition, it is not a word.',
+  nat:'Following Aristotle (<em>De anima</em> II.8), it is a sound but not voice, because no animal utters it with something signified, and grammar starts from voice. (Priscian, taking voice in its widest sense as struck air, counts even <span class="lat">crepitus</span> and <span class="lat">mugitus</span> as voice, though inarticulate.)',
   cough:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'
 };
 function voxEnglish(d){
   const pool = d <= 1 ? VXE_ITEMS.filter(x => x[0] !== 'lett' || !/blityri|glorp|babbling/.test(x[1])) : VXE_ITEMS;
   const it = rand(pool);
   const lab = it[0] === 'cough' ? 'nat' : it[0];
-  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[lab], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src: it[0] === 'cough' ? ['arist_anima'] : ['donatus','priscian']}, d);
+  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[lab], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src: it[0] === 'cough' ? ['arist_anima'] : ['donatus','arist_int2']}, d);
 }
 
 /* ----- letter: English letters, silent letters, and the powers of c, g, s, y ----- */
