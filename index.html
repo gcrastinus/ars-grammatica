@@ -234,10 +234,6 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .set-card.wide{grid-column:1 / -1}
 .set-card.soon{opacity:.5; cursor:default}
 .set-card.soon:hover{transform:none; border-color:var(--line)}
-.auctor-badge{
-  display:inline-block; margin-top:8px; font-family:'Cinzel',serif; font-size:11px;
-  letter-spacing:.12em; color:var(--gold); text-transform:uppercase;
-}
 .set-num{
   font-family:'Cinzel',serif; font-size:12px; letter-spacing:.2em; color:var(--gold);
   text-transform:uppercase; margin-bottom:6px;
@@ -279,6 +275,7 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 }
 .modern::before{content:"Modern books call this — "; font-style:normal; letter-spacing:.04em; color:var(--gold); font-size:14px; font-family:'Cinzel',serif}
 .deck-nav{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:20px}
+.deck-end{display:flex; justify-content:center; margin-top:28px}
 .deck-count{font-style:italic; color:var(--ink-soft); font-size:16px}
 
 /* ------- buttons ------- */
@@ -497,6 +494,8 @@ table.para tr:nth-child(even) td{background:var(--panel2)}
 .src-link:hover{color:var(--ink); border-bottom-color:var(--gold)}
 .src-missing{color:var(--bad-text); font-style:italic}
 .feedback .src{margin-top:12px; font-size:14px}
+.deck-src{margin-top:12px; padding-top:0; border-top:none; text-align:center}
+.deck-src.many::before{content:"Sources"}
 
 .src-modal{
   position:fixed; inset:0; background:rgba(8,15,28,.55); z-index:100;
@@ -756,6 +755,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
       <div class="ornament">❦</div>
       <h1 id="deck-title" style="font-size:32px"></h1>
       <div class="subtitle" id="deck-sub"></div>
+      <div id="deck-src"></div>
     </header>
     <div id="deck-body"></div>
     <div class="deck-nav">
@@ -763,18 +763,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
       <span class="deck-count" id="deck-count"></span>
       <button class="btn primary" id="deck-next">Next →</button>
     </div>
-  </div>
-
-  <!-- ============ AUCTOR CHOOSER ============ -->
-  <div class="screen" id="scr-pick">
-    <header>
-      <div class="ornament">❦</div>
-      <h1 id="pick-title" style="font-size:32px"></h1>
-      <div class="subtitle" id="pick-sub"></div>
-    </header>
-    <div class="intro-note" id="pick-note"></div>
-    <div class="set-grid" id="pick-grid"></div>
-    <div class="btn-row"><button class="btn" id="pick-back">← Home</button></div>
+    <div class="deck-end"><button class="btn" id="deck-end">End</button></div>
   </div>
 
   <!-- ============ EXERCISE INTRO ============ -->
@@ -1403,7 +1392,7 @@ const KEY = 'arsgram.v1';
 const state = {
   diff:1, dark:false, nEn:0, nLa:0,
   ex:null, q:null, locked:false, score:0, answered:0, correct:0,
-  streak:0, bestStreak:0, mistakes:[], sessionSeen:[], auctorId:null, speakRate:1,
+  streak:0, bestStreak:0, mistakes:[], sessionSeen:[], speakRate:1,
   pendingComplete:false, runBest:0
 };
 const store = {
@@ -1472,7 +1461,8 @@ function setDark(on){
    Nothing in this application asserts a doctrine without naming where
    it comes from. Every study panel and every curated exercise item
    carries a `src` key (or a list of them) resolving to this register,
-   and the source is shown to the student on the panel itself.
+   and the outside works among them are listed once under the title of
+   each study deck (see deckSources).
 
    The rule observed in building it: a claim is admitted only if it was
    read in one of these works. Where a formula is quoted in Latin, it
@@ -1515,6 +1505,9 @@ const SRC = {
   arist_int:{kind:'primary', short:'Aristotle, <i>De interpretatione</i> 1',
        full:'Aristotle, <i>De interpretatione</i> (<i>Peri hermeneias</i>) 1, 16a9–16: “As sometimes there is thought in the soul without its being true or false, but sometimes it must be one or the other, so it is in vocal sound; for in composition and division there is truth and falsity… Names and verbs, then, are like thought without composition or division, for example, ‘man’ and ‘white’ when nothing is added; for neither is yet true or false.” Checked against the text as printed with St Thomas’s commentary on the <i>Peri hermeneias</i>. Thomas of Erfurt cites this very chapter — <i>circa quam compositionem consistit veritas et falsitas, ut dicitur I Peri. Cap. 1</i>.',
        note:'The root of everything this course says about where truth begins — and St Thomas, commenting, adds that truth and falsity are in the intellect’s composing and dividing, not in the simple concept.'},
+  arist_anima:{kind:'primary', short:'Aristotle, <i>De anima</i> II.8',
+       full:'Aristotle, <i>De anima</i> II.8, 420b27–33: voice is the striking of the inhaled air against the windpipe by the soul in those parts; “for not every sound of an animal is voice (for it is possible to make a sound with the tongue, and as those do who cough), but what strikes must be ensouled and with some imagination, since voice is a sound that signifies” (this course’s literal rendering of <i>οὐ γὰρ πᾶς ζῴου ψόφος φωνή … ἀλλὰ δεῖ ἔμψυχόν τε εἶναι τὸ τύπτον καὶ μετὰ φαντασίας τινός· σημαντικὸς γὰρ δή τις ψόφος ἐστὶν ἡ φωνή</i>).',
+       note:'The natural philosopher’s account of voice, which St Thomas repeats in his commentary on the <i>Peri hermeneias</i>. It is the ground for saying that a cough is a sound made by an animal, but not voice.'},
   helias:{kind:'primary', short:'Peter Helias, <i>Summa super Priscianum</i>',
        full:'Peter Helias, <i>Summa super Priscianum</i> (12th c.): <i>partes huius artis sunt quatuor: … prima pars scientia de litteris, secunda de sillabis, tertia de dictionibus, quarta de oratione</i> — quoted in Bursill-Hall from Thurot. Bursill-Hall notes expressly that <b>Priscian and Donatus did not have this fourfold division</b>: Donatus gives only <i>vox, littera, syllaba</i>, and Priscian treats <i>vox, littera</i> in Book I and <i>syllaba, dictio, oratio</i> in Book II.',
        note:'The medieval division this course’s acts follow — a twelfth-century arrangement of Priscian, not a Roman one.'},
@@ -1668,7 +1661,7 @@ const SRC = {
        full:'Dickinson College Commentaries: notes on Virgil, <i>Aeneid</i> I, and on Cicero, <i>In Catilinam</i> I, used only where they treat case, government, agreement, order, or the arrangement of clauses. Named school notes, not this course’s invention.',
        note:''},
   smyth:{kind:'study', short:'Smyth, <i>Greek Grammar</i>',
-       full:'Herbert Weir Smyth, <i>A Greek Grammar for Colleges</i>. Used for the Greek accent in Act I, and for the Greek shelf of the auctor drill when Ancient Greek is the partner language.',
+       full:'Herbert Weir Smyth, <i>A Greek Grammar for Colleges</i>. Used for the Greek accent in Act I.',
        note:''},
   lawless:{kind:'study', short:'Lawless, <i>Lawless French</i>',
        full:'Laura K. Lawless, <i>Lawless French</i> (lawlessfrench.com), the pages on the article, on agreement, on the irregular adjectives, and on the subject, direct-object, indirect-object, and stressed pronouns, read on October 9, 2026. Used for the French in this course.',
@@ -1722,12 +1715,41 @@ const SRC = {
        note:'The art as a student first met it.'}
 };
 
-function srcLine(keys){
-  if(!keys) return '';
-  const list = Array.isArray(keys) ? keys : [keys];
-  const bits = list.map(k => SRC[k] ? `<a href="#" class="src-link" data-src="${k}">${SRC[k].short}</a>`
-                                    : `<span class="src-missing">unsourced — ${k}</span>`);
-  return `<div class="src">${bits.join(' &nbsp;·&nbsp; ')}</div>`;
+/* The sources of a study deck, listed once under its title: the outside works its panels draw on, each named by its
+   author, with the title where it is Latin (or the original language) or where the study quotes that book.
+   null leaves a key out of the list; a function gives the label for a particular deck, or undefined for the
+   register's own short form. */
+const DECK_SRC = {
+  appown: null,
+  engclass: k => k === 'endiag' ? 'Reed and Kellogg' : null,
+  ag: 'Allen and Greenough, <i>New Latin Grammar</i>',
+  nieto: 'Nieto',
+  bh: 'Bursill-Hall',
+  sep_sem: 'Meier-Oeser',
+  copeland: 'Copeland and Sluiter',
+  greenberg: 'Greenberg',
+  smyth: k => k === 'grccards' || k === 'grcpar' ? undefined : 'Smyth',
+  arist_se: 'Aristotle, <i>De sophisticis elenchis</i> 4 and 22',
+  arist_met9: 'Aristotle, <i>Metaphysica</i> IX.6',
+  arist_anima: 'Aristotle, <i>De anima</i> II.8',
+  lawless: 'Lawless',
+  duden: 'Duden'
+};
+function deckSrcLabel(key, k){
+  if(!SRC[k]) return null;
+  if(!(k in DECK_SRC)) return SRC[k].short;
+  const v = typeof DECK_SRC[k] === 'function' ? DECK_SRC[k](key) : DECK_SRC[k];
+  return v === undefined ? SRC[k].short : v;
+}
+function deckSources(key){
+  const d = DECKS[key], seen = new Set(), bits = [];
+  (d.panels || []).forEach(p => [].concat(p.src || []).forEach(k => {
+    const label = deckSrcLabel(key, k);
+    if(!label || seen.has(label)) return;
+    seen.add(label);
+    bits.push(`<a href="#" class="src-link" data-src="${k}">${label}</a>`);
+  }));
+  return bits.length ? `<div class="src deck-src${bits.length > 1 ? ' many' : ''}">${bits.join(' &nbsp;·&nbsp; ')}</div>` : '';
 }
 function il(o){
   const cls = o.dir ? `il-script ${o.dir}` : 'il-script';
@@ -2213,9 +2235,9 @@ DECKS.vox = {
       correct:1,
       explain:`Voice is living sound; the mark comes after it, and a sentence and a thought come later still.` } },
 
-{ src:['appown'], h:`<p>Which is a word: “hello” or the sound of a cough? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, which cannot.</p>` },
+{ src:['appown'], h:`<p>Which is a word: “hello” or a groan? We already hear the difference. The first is an articulate voice, which can be written in letters. The second is a confused voice, that is, a sound the voice makes that letters cannot capture.</p>` },
 
-{ src:['donatus','priscian'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice can be written in letters. A cough, a groan, or the bark of a dog cannot be written.</p>
+{ src:['donatus','priscian','arist_anima'], h:`<p><strong>Articulate and confused.</strong> Donatus says that every voice is either <strong>articulate</strong> or <strong>confused</strong>. Articulate voice is voice that can be written in letters, as every spoken word can be. Confused voice is a sound the voice makes that letters cannot capture, such as a groan or the bark of a dog. Priscian adds that a groan signifies something of the mind of the one who utters it, although it cannot be written. A cough, however, is not voice at all, although an animal makes it, because Aristotle holds that voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8).</p>
 <p>Such sound may indicate something by nature, such as pain or a warning, as animal cries do; but it is not speech. Nor can it be barbarous, because barbarism is a fault in a word, and there is not yet a word.</p>`,
   q:{ prompt:`Why can a groan never be a barbarism?`,
       options:['Because groans are always well formed, being natural','Because barbarism is a fault in a word, and a groan is not one',
@@ -2539,13 +2561,13 @@ the word and the result still be English.</p>`,
       explain:`In <em>That man</em>, <em>that</em> points at one man among men, and depends on the noun. In <em>I know that he came</em>, the same sound joins two statements and is a conjunction.` } },
 
 { src:['te','appown'], h:`<p><strong>The work, then the reasons.</strong> Anyone can be taught the list. The art is to say how a word is used here, and to arrange words so that they say something definite.</p>
-<p>There is a further question: why are the parts these parts, and not others? Why should every language have something like a noun and something like a verb? Asking that is not what makes the art liberal; it is the beginning of speculative grammar, the part of the art that asks for causes. Priscian gives the parts and their accidents, but seldom says why they are these, whereas the modists try to. This course takes the question up in Act V, after the accidents and the construction are known.</p>
+<p>There is a further question: why are the parts these parts, and not others? Why should every language have something like a noun and something like a verb? Asking that is not what makes the art liberal; it is the beginning of speculative grammar, the part of the art that asks for causes. Priscian gives the parts and their accidents, but seldom says why they are these, whereas the modists try to. This course takes the question up in Act VI, after the accidents and the construction are known.</p>
 <p>We can parse <em>the sailor waits</em> and <em>nauta exspectat</em> without that question, but we cannot yet say why parsing finds what it finds. The order is first how words are used, then the accidents and the construction, and then the reasons.</p>`,
   q:{ prompt:`What must we already be able to do before we ask why the parts are these?`,
       options:['Decline every Latin noun in all five declensions','Name the work a word is doing in a sentence',
                'Prove that languages do not differ in their grammar','Translate a sentence from Latin into Greek'],
       correct:1,
-      explain:`The list is a list of functions, and if the function in a sentence cannot be named, the reason for the function has nothing to stand on. The reasons come in Act V.` } }
+      explain:`The list is a list of functions, and if the function in a sentence cannot be named, the reason for the function has nothing to stand on. The reasons come in Act VI.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -6047,7 +6069,7 @@ const SYLL_OTHER = [
 
 EX.syllable = {
   id:'syllable', src:['ag','priscian','appown'], act:'I', title:'Syllable, Quantity and Accent',
-  desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill; English is always asked, and Greek when that language is chosen. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
+  desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill, and English is always asked. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
   instr:'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
     /* Greek words and the Greek rules are added when Greek is chosen for this exercise. */
@@ -7766,15 +7788,15 @@ EX.vox = {
         {w:'a dog’s bark', a:'Voice, but inarticulate and not a word', why:'It is living sound from the mouth of an animal, and so it is voice; it cannot be written in letters, and indication by nature is not yet a word.'},
         {w:'the name <em>horse</em>', a:'Voice, articulate, and already a word', why:'It is imposed to signify; it is articulate (it can be written) and a word.'},
         {w:'the letter <em>A</em>, sounded', a:'Voice, articulate, but not yet a word', why:'It is a lettered sound: it can be written, but it signifies nothing on its own.'},
-        {w:'thunder', a:'A sound, but made by no living voice', why:'It is not struck by the mouth of a living speaker, and grammar starts from voice.'},
-        {w:'a cough', a:'Voice, but inarticulate and not a word', why:'It is air struck, and so it is voice; but it cannot be caught in letters, and so for Donatus it is confused, or inarticulate. It signifies nothing by imposition.'}
+        {w:'thunder', a:'A sound, but not voice', why:'It is not uttered by the mouth of an animal, so it is a sound but not voice, and grammar starts from voice.'},
+        {w:'a cough', a:'A sound, but not voice', why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'}
       ];
       const it = rand(d <= 1 ? sounds.slice(0,4) : sounds);
       const options = shuffle([it.a, ...sample([
         'Voice, but inarticulate and not a word',
         'Voice, articulate, and already a word',
         'Voice, articulate, but not yet a word',
-        'A sound, but made by no living voice',
+        'A sound, but not voice',
         'A complete sentence, though of one word'
       ].filter(x => x !== it.a), d <= 1 ? 2 : 3)]);
       return {
@@ -7844,10 +7866,10 @@ EX.vox = {
 {id:'vx17',lang:'en',src:['donatus'],q:'What is a spoken name, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'A name is voice that can be written. For Donatus that is articulate voice.'},
 {id:'vx18',lang:'en',src:['donatus'],q:'What is a groan, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A groan is voice, and it cannot be written in letters. For Donatus it is confused, or inarticulate.'},
 {id:'vx19',lang:'en',src:['donatus'],q:'What is a dog’s bark, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A bark is living voice, and it cannot be written in letters. For Donatus it is confused.'},
-{id:'vx20',lang:'en',src:['donatus'],q:'What is a cough, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A cough is air struck, and so it is voice. It cannot be written in letters, so for Donatus it is confused.'},
+{id:'vx20',lang:'en',src:['arist_anima'],q:'Is a cough voice?',a:'No: it is a sound, but not voice',ds:['Yes, and confused: it cannot be written','Yes, and articulate: it can be written','Yes, and lettered: it can be written'],why:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'},
 {id:'vx21',lang:'en',src:['donatus'],q:'What is a hiss, in Donatus’s division?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'A hiss is voice, and it cannot be written in letters. For Donatus it is confused. It is not yet a word.'},
 {id:'vx22',lang:'en',src:['donatus'],q:'For Donatus, what is articulate voice?',a:'Voice that can be caught in letters',ds:['Noise that can be caught in letters','A cry that cannot be written down','Voice that cannot be caught in letters'],why:'Articulate voice is voice that can be caught in letters. A noise is not the definition, and voice that cannot be written is the other kind.'},
-{id:'vx23',lang:'en',src:['donatus'],q:'For Donatus, what is confused voice?',a:'Voice that cannot be caught in letters',ds:['Articulate voice, which can be written','A word, because it can be written','Voice, and articulate: it cannot be written'],why:'Confused voice cannot be caught in letters. It is still voice. It is not articulate.'},
+{id:'vx23',lang:'en',src:['donatus','priscian'],q:'For Donatus, what is confused voice?',a:'A sound the voice makes that letters cannot capture, such as a groan',ds:['Voice that can be written in letters, such as a spoken name','A word, because it can be written','Any sound at all, such as thunder'],why:'Confused voice is a sound the voice makes that letters cannot capture, such as a groan. Priscian says that a groan signifies something of the mind of the one who utters it, and yet it cannot be written. Voice that can be written is articulate, and thunder is not voice at all.'},
 {id:'vx24',lang:'la',src:['donatus'],q:'Why is spoken <em>puer</em> articulate, for Donatus?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It can be written in letters. That is what Donatus means by articulate.'},
 {id:'vx25',lang:'en',src:['donatus'],q:'A groan is not articulate, for Donatus. What is it?',a:'Voice, and confused: it cannot be written',ds:['Voice, and lettered: it cannot be written','Voice, and lettered: it can be written','Voice, and articulate: it cannot be written'],why:'It cannot be written in letters. Donatus calls that confused voice.'},
 {id:'vx26',lang:'la',src:['donatus'],q:'What is spoken <em>equus</em>, in Donatus’s division?',a:'Voice, and articulate: it can be written',ds:['A cry, and articulate: it can be written','Voice, and confused: it can be written','Voice, and articulate: it cannot be written'],why:'It is voice, and it can be written, so for Donatus it is articulate.'},
@@ -8154,278 +8176,6 @@ EX.livyperiod = {
   }
 };
 
-/* Twenty shared loci with Ars Rhetorica (and four Greek). Latin is the object; English is a toggle.
-   Texts: Virgil (Greenough), Cicero (Clark and Peterson, Oxford, as printed by Perseus, except In Catilinam II,
-   from The Latin Library), Sallust (Ahlberg), Livy (Foster), Tacitus (Fisher; Furneaux), Augustine (O'Donnell),
-   Boethius (Rand and Stewart, Loeb 1918). English is the named translator's, or this course's literal rendering, as marked. */
-const AUCTORES = [
-  {id:'verg-1', shelf:'latin', author:'Virgil', work:'Aeneid', locus:'I.1–7',
-   comm:'Dickinson College Commentaries, Aeneid I.1–7', src:['verg_pd','dcc'],
-   lat:`Arma virumque cano, Troiae qui primus ab oris\nItaliam, fato profugus, Laviniaque venit\nlitora, multum ille et terris iactatus et alto\nvi superum saevae memorem Iunonis ob iram;\nmulta quoque et bello passus, dum conderet urbem,\ninferretque deos Latio, genus unde Latinum,\nAlbanique patres, atque altae moenia Romae.`,
-   eng:`Arms, and the man I sing, who, forc’d by fate,\nAnd haughty Juno’s unrelenting hate,\nExpell’d and exil’d, left the Trojan shore.\nLong labours, both by sea and land, he bore,\nAnd in the doubtful war, before he won\nThe Latian realm, and built the destin’d town;\nHis banish’d gods restor’d to rites divine,\nAnd settled sure succession in his line,\nFrom whence the race of Alban fathers come,\nAnd the long glories of majestic Rome.\n— Dryden`,
-   items:[
-     {q:'<em>virumque</em> is joined to <em>arma</em> how?', a:'By <em>-que</em>: two objects of <em>cano</em>, side by side',
-      ds:['As a relative clause, since <em>virum</em> is taken up by <em>qui</em>','By hypotaxis, as if <em>ut</em> were understood before <em>virum</em>','As a nominative, since <em>-que</em> changes the case of <em>virum</em>'],
-      why:'Both accusatives are objects of <em>cano</em>. <em>-Que</em> joins them as companions, and neither depends on the other.'},
-     {q:'<em>qui … venit</em> depends on…', a:'<em>virum</em>, the man just named, as its antecedent',
-      ds:['<em>arma</em>, the first object','<em>litora</em>, the shores he reached, as the goal of <em>venit</em>','<em>cano</em>, as the thing sung'],
-      why:'The relative takes up the man. Its own verb is <em>venit</em>, so <em>qui</em> is nominative.'}
-   ]},
-  {id:'verg-2', shelf:'latin', author:'Virgil', work:'Aeneid', locus:'I.8–11',
-   comm:'Dickinson College Commentaries, Aeneid I.8–11', src:['verg_pd','dcc'],
-   lat:`Musa, mihi causas memora, quo numine laeso,\nquidve dolens, regina deum tot volvere casus\ninsignem pietate virum, tot adire labores\nimpulerit. Tantaene animis caelestibus irae?`,
-   eng:`O Muse! the causes and the crimes relate;\nWhat goddess was provok’d, and whence her hate;\nFor what offence the Queen of Heav’n began\nTo persecute so brave, so just a man;\nInvolv’d his anxious life in endless cares,\nExpos’d to wants, and hurried into wars!\nCan heav’nly minds such high resentment show,\nOr exercise their spite in human woe?\n— Dryden`,
-   items:[
-     {q:'<em>impulerit</em> is subjunctive because…', a:'It is an indirect question after <em>memora</em>',
-      ds:['It is a purpose clause, telling why the Muse is asked','It is a result clause following <em>tot</em>, “so many”','Poetic license lets the subjunctive stand for the indicative'],
-      why:'<em>Memora</em> governs <em>quo … quidve … impulerit</em>, and a reported question takes the subjunctive.'},
-     {q:'<em>Tantaene … irae?</em> is…', a:'An independent question beside the invocation',
-      ds:['A relative clause taking up <em>virum</em> from line 10','A purpose clause depending on <em>impulerit</em>','An incomplete clause, since no verb can be supplied'],
-      why:'<em>-Ne</em> marks a new question, and <em>sunt</em> is understood. It does not depend on <em>memora</em>.'}
-   ]},
-  {id:'cic-cat1-1', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'1',
-   comm:'Dickinson College Commentaries, In Catilinam I.1', src:['dcc','ag','yonge'],
-   lat:`quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia?`,
-   eng:`When, O Catiline, do you mean to cease abusing our patience? How long is that madness of yours still to mock us? When is there to be an end of that unbridled audacity of yours, swaggering about as it does now?\n— Yonge`,
-   items:[
-     {q:'<em>patientia nostra</em> after <em>abutere</em> is…', a:'Ablative: <em>abutor</em> governs the ablative',
-      ds:['Accusative, the direct object of <em>abutere</em>','Nominative, the subject of the verb <em>abutere</em>','Dative of disadvantage, “to the cost of our patience”'],
-      why:'<em>Abutor</em>, like <em>utor</em>, takes the ablative. The vocative <em>Catilina</em> is address, not the object.'},
-     {q:'The three questions stand how to one another?', a:'Parataxis: three independent questions of like build',
-      ds:['Hypotaxis: the second and third are purpose clauses after the first','One period, joined by an <em>ut</em> that is understood throughout','A chain of relative clauses, all of them taking up <em>Catilina</em>'],
-      why:'Each question has its own finite verb (<em>abutere, eludet, iactabit</em>), and none depends on another. They are companion constructions, not hypotaxis.'}
-   ]},
-  {id:'cic-cat1-2', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'2',
-   comm:'Dickinson College Commentaries, In Catilinam I.2', src:['dcc','ag','yonge'],
-   lat:`O tempora, o mores! senatus haec intellegit, consul videt; hic tamen vivit. vivit? immo vero etiam in senatum venit, …`,
-   eng:`Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives! aye, he comes even into the senate.\n— Yonge`,
-   items:[
-     {q:'<em>senatus haec intellegit, consul videt</em> is…', a:'Parataxis of two complete clauses, without a conjunction',
-      ds:['A relative clause taking up <em>tempora</em>','<em>videt</em> depending on <em>intellegit</em> as its purpose','One verb governing both nominatives as objects'],
-      why:'There are two short independent clauses and no connecting word. This arrangement without a conjunction is called asyndeton, and it is a fact of the construction before it is a figure of persuasion.'},
-     {q:'In <em>vivit?</em> after <em>vivit</em>, the second is…', a:'A new independent question repeating the verb',
-      ds:['A subordinate clause of result after <em>tamen</em>','A relative clause taking up the pronoun <em>hic</em>','An incomplete clause until <em>ut</em> is supplied'],
-      why:'The same verb stands again as a question of its own. Grammatically it is a new independent clause, side by side with the one before.'}
-   ]},
-  {id:'cic-cat1-7', shelf:'latin', author:'Cicero', work:'In Catilinam I', locus:'18',
-   comm:'Dickinson College Commentaries, In Catilinam I.17–18 (the fatherland’s speech)', src:['dcc','ag'],
-   lat:`quae tecum, Catilina, sic agit et quodam modo tacita loquitur: nullum iam aliquot annis facinus exstitit nisi per te, …`,
-   eng:`She deals with you thus, Catiline, and in a certain way, though silent, speaks: no crime has come to light these several years except through you, …\n${LIT}`,
-   items:[
-     {q:'In <em>quodam modo tacita loquitur</em>, <em>tacita</em> agrees with…', a:'<em>quae</em>, the fatherland, the subject of <em>loquitur</em>',
-      ds:['<em>Catilina</em>, the man addressed, in the vocative','<em>facinus</em>, the crime that has come to light','an understood <em>annos</em>, the years of crime'],
-      why:'<em>Quae</em> is a relative that joins this sentence to the one before, and it stands for the fatherland (<em>patria</em>). <em>Tacita</em> is an adjective agreeing with it: nominative, feminine, singular.'}
-   ]},
-  {id:'cic-cat2-1', shelf:'latin', author:'Cicero', work:'In Catilinam II', locus:'1',
-   comm:'Allen &amp; Greenough on participles in agreement', src:['ag'],
-   lat:`Tandem aliquando, Quirites, L. Catilinam furentem audacia, scelus anhelantem, pestem patriae nefarie molientem, vobis atque huic urbi ferro flammaque minitantem ex urbe vel eiecimus vel emisimus vel ipsum egredientem verbis prosecuti sumus.`,
-   eng:`At length at last, citizens, Lucius Catiline, raging with audacity, breathing out crime, wickedly plotting the ruin of his country, threatening you and this city with sword and flame, we have either driven out of the city, or let go, or followed with our words as he went out of his own accord.\n${LIT}`,
-   items:[
-     {q:'<em>furentem, anhelantem, molientem, minitantem</em> agree with…', a:'<em>Catilinam</em>, the object of the verbs of driving out',
-      ds:['<em>Quirites</em>, the citizens addressed','<em>urbe</em>, the city from which he is driven, in the ablative','the subject of <em>eiecimus</em>, “we”'],
-      why:'The four participles are accusative singular and agree with <em>Catilinam</em>, the object of <em>eiecimus</em>, <em>emisimus</em>, and <em>prosecuti sumus</em>. They stand side by side as modifiers under one government.'}
-   ]},
-  {id:'cic-milo-1', shelf:'latin', author:'Cicero', work:'Pro Milone', locus:'1',
-   comm:'Allen &amp; Greenough on <em>etsi</em> and on verbs of fearing', src:['ag'],
-   lat:`Etsi vereor, iudices, ne turpe sit pro fortissimo viro dicere incipientem timere, …`,
-   eng:`Although I fear, judges, that it may be shameful, when beginning to speak for a most brave man, to be afraid, …\n${LIT}`,
-   items:[
-     {q:'In <em>Etsi vereor … ne turpe sit</em>, what is the <em>ne</em>-clause?', a:'A clause of fearing after <em>vereor</em>',
-      ds:['A purpose clause after <em>dicere</em>, “so as not to speak”','A negative command addressed to the judges','A result clause following from <em>etsi</em>'],
-      why:'<em>Etsi</em> concedes, and <em>vereor ne</em> is the construction of fearing: <em>ne</em> with the subjunctive, where English says <em>that</em>. There are two relations of dependence in one period.'}
-   ]},
-  {id:'cic-marc-1', shelf:'latin', author:'Cicero', work:'Pro Marcello', locus:'1',
-   comm:'Allen &amp; Greenough on the genitive with <em>finis</em> and the ablative with <em>utor</em>', src:['ag'],
-   lat:`Diuturni silenti, patres conscripti, quo eram his temporibus usus … finem hodiernus dies attulit, …`,
-   eng:`To the long silence, conscript fathers, which I had kept in these times, this day has brought an end, …\n${LIT}`,
-   items:[
-     {q:'<em>Diuturni silenti</em> depends on…', a:'<em>finem</em>, as the genitive of the thing ended',
-      ds:['<em>patres</em>, as a genitive of the persons addressed','<em>usus</em>, as the object of the participle','<em>dies</em>, as a possessive, “the day’s silence”'],
-      why:'<em>Finis</em> takes a genitive of what is ended. <em>Quo … usus</em> is a relative clause: the ablative <em>quo</em> is governed by <em>usus</em> (from <em>utor</em>), and it takes up <em>silenti</em>.'}
-   ]},
-  {id:'cic-phil-1', shelf:'latin', author:'Cicero', work:'Philippics', locus:'I.1',
-   comm:'Allen &amp; Greenough on <em>antequam</em> with the subjunctive of an act anticipated', src:['ag'],
-   lat:`ante quam de re publica, patres conscripti, dicam ea quae dicenda hoc tempore arbitror, exponam vobis breviter consilium et profectionis et reversionis meae.`,
-   eng:`Before I speak about the republic, conscript fathers, the things which I think must be said at this time, I will set out to you briefly the plan of my departure and of my return.\n${LIT}`,
-   items:[
-     {q:'<em>ante quam … dicam</em> depends on…', a:'<em>exponam</em>, the main verb: “before I speak, I will set out”',
-      ds:['<em>patres</em>, the persons the clause refers to','<em>arbitror</em>, as the purpose of the thinking','Nothing: it is a separate command to the senate'],
-      why:'<em>Ante quam … dicam</em> is a clause of time depending on <em>exponam</em>. <em>Dicam</em> is the subjunctive of an act anticipated: before I speak, I will set out.'}
-   ]},
-  {id:'cic-ver-1', shelf:'latin', author:'Cicero', work:'In Verrem, Actio prima', locus:'1',
-   comm:'Allen &amp; Greenough on <em>quod</em>, relative or causal', src:['ag'],
-   lat:`quod erat optandum maxime, iudices, et quod unum ad invidiam vestri ordinis infamiamque iudiciorum sedandam maxime pertinebat, id non humano consilio sed prope divinitus datum atque oblatum vobis summo rei publicae tempore videtur.`,
-   eng:`What was most to be wished, judges, and what alone bore most on quieting the ill will against your order and the ill repute of the courts, this seems to have been given and offered to you, at a supreme moment for the republic, not by human design but almost by divine gift.\n${LIT}`,
-   items:[
-     {q:'The two <em>quod</em> clauses depend on…', a:'<em>id</em>: relative clauses naming what was given',
-      ds:['<em>iudices</em>, as causal clauses meaning “because”','<em>videtur</em>, as clauses of purpose','Nothing, since both are independent sentences'],
-      why:'<em>Quod</em> here is the relative, “that which,” and both clauses are taken up by <em>id</em>, the subject of <em>videtur</em>. The main clause is <em>id … datum atque oblatum … videtur</em>.'}
-   ]},
-  {id:'sal-cat-1', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'5',
-   comm:'Allen &amp; Greenough on the ablative of quality', src:['ag','sallust_w'],
-   lat:`L. Catilina, nobili genere natus, fuit magna vi et animi et corporis sed ingenio malo pravoque.`,
-   eng:`Lucius Catiline was a man of noble birth, and of eminent mental and personal endowments; but of a vicious and depraved disposition.\n— Watson`,
-   items:[
-     {q:'<em>magna vi … ingenio malo</em> are…', a:'Ablatives of quality, said of Catiline with <em>fuit</em>',
-      ds:['Accusatives of respect, limiting the participle <em>natus</em>','Datives after <em>natus</em>, “born to great force”','Nominatives agreeing with <em>genere</em> in the phrase before'],
-      why:'A noun with an adjective in the ablative can describe a person: he was of great force, of an evil nature (the ablative of quality). <em>Sed</em> joins the second such ablative to the first under <em>fuit</em>.'}
-   ]},
-  {id:'sal-cat-consp', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'20',
-   comm:'Allen &amp; Greenough on conditions contrary to fact', src:['ag','sallust_w'],
-   lat:`Ni virtus fidesque vostra spectata mihi forent, nequiquam opportuna res cecidisset; …`,
-   eng:`If your courage and fidelity had not been sufficiently proved by me, this favorable opportunity would have occurred to no purpose; …\n— Watson`,
-   items:[
-     {q:'<em>Ni … forent</em> is…', a:'A contrary-to-fact condition for <em>cecidisset</em>',
-      ds:['A purpose clause, “so that your courage might be proved”','A relative clause taking up the noun <em>virtus</em>','Two independent facts set side by side in the past'],
-      why:'A condition contrary to fact puts both members in the subjunctive: <em>forent</em> (imperfect) in the condition, <em>cecidisset</em> (pluperfect) in the conclusion. There is one dependence, not two equal facts.'}
-   ]},
-  {id:'sal-caes-1', shelf:'latin', author:'Sallust', work:'Bellum Catilinae', locus:'51',
-   comm:'Allen &amp; Greenough on the relative clause and on <em>decet</em> with the infinitive', src:['ag','sallust_w'],
-   lat:`Omnis homines, patres conscripti, qui de rebus dubiis consultant, ab odio, amicitia, ira atque misericordia vacuos esse decet.`,
-   eng:`It becomes all men, Conscript Fathers, who deliberate on dubious matters, to be influenced neither by hatred, affection, anger, nor pity.\n— Watson`,
-   items:[
-     {q:'<em>qui … consultant</em> depends on…', a:'<em>homines</em>: a relative clause telling which men',
-      ds:['<em>patres</em>, as a relative clause of address','<em>odio</em>, as the object of its verb','Nothing: it is an independent question'],
-      why:'The relative takes up <em>homines</em>, the subject of the infinitive. <em>Decet</em> then governs <em>vacuos esse</em>. There are two relations of dependence in one period.'}
-   ]},
-  {id:'liv-tar-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'I.54',
-   comm:'Allen &amp; Greenough on the historical infinitive', src:['ag','livy_r'],
-   lat:`inde in consilia publica adhiberi. ubi cum de aliis rebus adsentiri se veteribus Gabinis diceret, quibus eae notiores essent, ipse identidem belli auctor esse et in eo sibi praecipuam prudentiam adsumere, quod utriusque populi vires nosset …`,
-   eng:`He was admitted to the meetings of the national council. Whilst expressing his agreement with the elders of Gabii on other subjects, on which they were better informed, he was continually urging them to war, and claimed to speak with special authority, because he was acquainted with the strength of each nation, …\n— Roberts`,
-   items:[
-     {q:'<em>adhiberi, esse, adsumere</em> are…', a:'Historical infinitives, standing for past finite verbs',
-      ds:['Infinitives of purpose, with <em>ut</em> understood before them','Complementary infinitives depending on <em>diceret</em>','Infinitives of reported speech after <em>Gabinis</em>'],
-      why:'Livy tells the story here with historical infinitives: an infinitive standing in narrative for a past finite verb, with its subject in the nominative (<em>ipse</em>). <em>Cum … diceret</em> is a separate clause of time and circumstance.'}
-   ]},
-  {id:'liv-hor-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'II.10',
-   comm:'Allen &amp; Greenough on conditions contrary to fact', src:['ag','livy_r'],
-   lat:`pons sublicius iter paene hostibus dedit, ni unus vir fuisset, Horatius Cocles; id munimentum illo die fortuna urbis Romanae habuit.`,
-   eng:`The enemy would have forced their way over the Sublician bridge had it not been for one man, Horatius Cocles. The good fortune of Rome provided him as her bulwark on that memorable day.\n— Roberts`,
-   items:[
-     {q:'<em>ni unus vir fuisset</em> is…', a:'A condition contrary to fact: “almost gave” means “would have given”',
-      ds:['A relative clause taking up <em>pons</em>, the bridge','A purpose clause depending on <em>iter</em>, the passage','A second main fact, set beside the first in the perfect'],
-      why:'<em>Ni</em> with the pluperfect subjunctive states a condition that did not hold. <em>Paene dedit</em>, “almost gave,” stands where a conclusion contrary to fact would stand. Roberts turns it into “would have forced their way.”'}
-   ]},
-  {id:'liv-luc-1', shelf:'latin', author:'Livy', work:'Ab urbe condita', locus:'I.58',
-   comm:'Allen &amp; Greenough on the ablative absolute', src:['ag','livy_r'],
-   lat:`… postquam satis tuta circa sopitique omnes videbantur, stricto gladio ad dormientem Lucretiam venit sinistraque manu mulieris pectore oppresso …`,
-   eng:`When all around seemed safe and everybody fast asleep, he went in the frenzy of his passion with a naked sword to the sleeping Lucretia, and placing his left hand on her breast, said, …\n— Roberts`,
-   items:[
-     {q:'<em>stricto gladio</em> is…', a:'An ablative absolute: the sword having been drawn',
-      ds:['A dative after <em>venit</em>, “he came to the drawn sword”','A nominative agreeing with the understood subject, Tarquin','An accusative, the object of the verb <em>venit</em>'],
-      why:'A noun and a participle in the ablative stand apart as a circumstance of <em>venit</em>. Roberts renders it as a phrase, “with a naked sword.”'}
-   ]},
-  {id:'tac-cal-1', shelf:'latin', author:'Tacitus', work:'Agricola', locus:'30',
-   comm:'Allen &amp; Greenough on <em>ubi</em> with the indicative', src:['ag','tacitus_cb'],
-   lat:`auferre trucidare rapere falsis nominibus imperium, atque ubi solitudinem faciunt, pacem appellant.`,
-   eng:`To carry off, to slaughter, to plunder, they call by false names empire; and where they make a desert, they call it peace.\n${LIT}`,
-   items:[
-     {q:'<em>ubi … faciunt</em> depends on…', a:'<em>appellant</em>, the main verb: “they call it peace”',
-      ds:['<em>imperium</em>, as a relative clause naming the empire','Nothing: the two verbs are independent and equal','<em>auferre</em>, as a clause of purpose'],
-      why:'<em>Ubi … faciunt</em> depends on <em>appellant</em>: where, or whenever, they make a desert. <em>Ubi</em> with the indicative states a repeated fact. The period is complete in its two verbs.'}
-   ]},
-  {id:'tac-ann-1', shelf:'latin', author:'Tacitus', work:'Annals', locus:'I.1',
-   comm:'Allen &amp; Greenough on asyndeton', src:['ag','tacitus_cb'],
-   lat:`Urbem Romam a principio reges habuere; libertatem et consulatum L. Brutus instituit.`,
-   eng:`Rome at the beginning was ruled by kings. Freedom and the consulship were established by Lucius Brutus.\n— Church &amp; Brodribb`,
-   items:[
-     {q:'The two clauses joined by the semicolon are…', a:'Parataxis: two complete clauses, with no subordinating word',
-      ds:['Hypotaxis: the second is a purpose clause after the first','A relative clause taking up <em>reges</em>','An incomplete period until <em>ut</em> is supplied'],
-      why:'There are two finite verbs and two subjects, in companion clauses. Tacitus’s arrangement without a conjunction is a fact of the construction.'}
-   ]},
-  {id:'aug-1', shelf:'latin', author:'Augustine', work:'Confessions', locus:'I.1',
-   comm:'Allen &amp; Greenough on <em>donec</em> with the subjunctive', src:['aug_pd','ag'],
-   lat:`… quia fecisti nos ad te et inquietum est cor nostrum donec requiescat in te.`,
-   eng:`… for Thou madest us for Thyself, and our heart is restless, until it repose in Thee.\n— Pusey`,
-   items:[
-     {q:'<em>donec requiescat</em> depends on…', a:'<em>inquietum est</em>: it bounds the restlessness in time',
-      ds:['<em>fecisti</em>, as a purpose clause, “so that we may rest”','<em>ad te</em>, as a relative clause naming God','Nothing: it is a third main clause beside <em>fecisti</em>'],
-      why:'<em>Donec</em> with the subjunctive marks an end looked forward to. <em>Et</em> before <em>inquietum</em> joins the two main clauses; <em>donec</em> then depends on the second.'}
-   ]},
-  {id:'boe-1', shelf:'latin', author:'Boethius', work:'Consolation of Philosophy', locus:'I, prose 1',
-   comm:'Allen &amp; Greenough on <em>dum</em>', src:['boeth_loeb','ag'],
-   lat:`Haec dum mecum tacitus ipse reputarem querimoniamque lacrimabilem stili officio signarem, adstitisse mihi supra uerticem uisa est mulier …`,
-   eng:`While I ruminated these things with myself, and determined to set forth my woful complaint in writing, methought I saw a woman stand above my head, …\n— trans. “I. T.” (1609), revised by H. F. Stewart`,
-   items:[
-     {q:'<em>dum … reputarem</em> depends on…', a:'<em>uisa est</em>, the main verb of the period',
-      ds:['<em>mulier</em>, as a purpose clause','<em>uerticem</em>, as the noun it governs','Nothing: it is an independent wish, standing apart from the period'],
-      why:'<em>Dum … reputarem … signarem</em> is a clause of time, with the subjunctive as later Latin often has it with <em>dum</em>. The main clause is <em>uisa est mulier</em>.'}
-   ]},
-  /* Greek shelf — only listed when Ancient Greek is the partner language */
-  {id:'hom-il-1', shelf:'greek', author:'Homer', work:'Iliad', locus:'1.1–2',
-   comm:'Smyth on the accusative of the object, the vocative, and the relative', src:['smyth'],
-   lat:`μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος\nοὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε, …`,
-   eng:`Sing, goddess, the wrath of Achilles, son of Peleus, the ruinous wrath that laid countless pains upon the Achaeans, …\n${LIT}`,
-   olang:'Greek',
-   items:[
-     {q:'<em>μῆνιν</em> is…', a:'Accusative, the object of ἄειδε',
-      ds:['Nominative, the subject of ἔθηκε in the relative clause','Vocative, agreeing with θεά, the goddess addressed','Genitive, depending on Ἀχιλῆος'],
-      why:'μῆνιν is the object of the imperative ἄειδε. θεά is vocative; Ἀχιλῆος is genitive with μῆνιν; the relative ἥ takes up μῆνιν and is the subject of ἔθηκε.'}
-   ]},
-  {id:'thuc-per-1', shelf:'greek', author:'Thucydides', work:'History', locus:'2.35',
-   comm:'Smyth on μέν and δέ', src:['smyth','crawley'],
-   lat:`οἱ μὲν πολλοὶ τῶν ἐνθάδε ἤδη εἰρηκότων ἐπαινοῦσι τὸν προσθέντα τῷ νόμῳ τὸν λόγον τόνδε, …`,
-   eng:`Most of my predecessors in this place have commended him who made this speech part of the law, …\n— Crawley`,
-   olang:'Greek',
-   items:[
-     {q:'<em>οἱ μὲν πολλοί</em> as subject, with no δέ yet in this clause, is…', a:'A complete main clause, first of a μέν … δέ pair',
-      ds:['A purpose clause depending on ἐπαινοῦσι','A genitive absolute standing apart from the sentence','An incomplete clause until ἵνα is supplied'],
-      why:'μέν looks forward to a δέ that comes later, but this clause is already an independent clause with its own verb, ἐπαινοῦσι. Hypotaxis would need ἵνα, ὅτι, or a relative.'}
-   ]},
-  /* unverified: the text has not been checked against a named public-domain edition, so it is not listed. */
-  {id:'gor-hel-1', shelf:'greek', unverified:true, author:'Gorgias', work:'Encomium of Helen', locus:'1',
-   comm:'Smyth on μέν and δέ, and on the omission of ἐστί', src:['smyth'],
-   lat:`κόσμος πόλει μὲν εὐανδρία, σώματι δὲ κάλλος, ψυχῇ δὲ σοφία, …`,
-   eng:`The adornment of a city is good men; of a body, beauty; of a soul, wisdom; …\n${LIT}`,
-   olang:'Greek',
-   items:[
-     {q:'The three members shown (Gorgias goes on to five), joined by μέν / δέ / δέ, are…', a:'Parataxis: three predicate constructions of equal rank',
-      ds:['A chain of purpose clauses, each depending on the last','One relative clause taking up κόσμος as its object','Incomplete members, since none has a finite verb or can have one'],
-      why:'μέν … δέ coordinates, and ἐστί is understood in each member. No member depends; the three are equals.'}
-   ]},
-  {id:'ant-3.1.1', shelf:'greek', author:'Antiphon', work:'Second Tetralogy', locus:'3.1.2',
-   comm:'Smyth on μέν and δέ, and on the accusative subject of the infinitive', src:['smyth'],
-   lat:`ἑκόντα μὲν οὖν οὐκ ἐπικαλῶ ἀποκτεῖναι, ἄκοντα δέ.`,
-   eng:`I do not charge him with killing willingly, but unwillingly.\n${LIT}`,
-   olang:'Greek',
-   items:[
-     {q:'<em>ἑκόντα</em> and <em>ἄκοντα</em> agree with…', a:'The understood subject of ἀποκτεῖναι, the youth',
-      ds:['The speaker, who is the subject of ἐπικαλῶ','The dead boy, who is the object of ἀποκτεῖναι','The jury, addressed in the vocative'],
-      why:'After ἐπικαλῶ, “I charge,” the charge is put in the infinitive with its subject in the accusative. That subject, the youth, is understood, and ἑκόντα and ἄκοντα agree with it. μέν … δέ sets the two words against each other.'}
-   ]}
-];
-
-EX.auctores = {
-  id:'auctores', src:['ag','dcc','servius'], act:'IV', title:'Twenty passages',
-  desc:'Shared loci with Ars Rhetorica. Latin (or Greek) is the text; English is a toggle. Construction only: government, agreement, cola, parataxis and hypotaxis. A named commentary is the key. The badge marks the rhetoric id.',
-  instr:'Pick a passage, then judge the construction. Latin first.',
-  gen(d){
-    const id = state.auctorId;
-    let a = AUCTORES.filter(x => x.id === id)[0];
-    if(!a){
-      const shelf = auctorShelf();
-      a = rand(shelf);
-    }
-    const it = pickSeen(a.items, x => a.id + ':' + x.q);
-    it.src = a.src;
-    const q = makeMC(it, d <= 1 ? 3 : 4);
-    q.sid = a.id + ':' + it.q;
-    q.passage = a.lat.replace(/\n/g,'<br>');
-    q.orig = a.eng.replace(/\n/g,'<br>');
-    q.olang = 'English';
-    q.source = a.author + ', ' + a.work + ' ' + a.locus + '. Key: ' + a.comm;
-    q.prompt = it.q;
-    const badge = 'Also in Ars Rhetorica: ' + a.id;
-    const wrap = q.check;
-    q.check = function(i){
-      const r = wrap.call(q, i);
-      r.note = (r.note || '') + '<br><br><em>' + badge + '</em>';
-      return r;
-    };
-    return q;
-  }
-};
-
 const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.';
 (function attachIntros(){
   const I = {
@@ -8513,10 +8263,6 @@ const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wro
       {h:`<strong>Livy’s opening period, continuous Latin.</strong> The questions are how the clauses stand: who governs whom, what is subordinate, and where the period ends.`},
       {h:`<strong>English on request.</strong> The object of the exercise is the Latin arrangement.`}
     ],
-    auctores:[
-      {h:`<strong>Twenty shared loci with Ars Rhetorica.</strong> Choose one period. The questions are government, agreement, cola, parataxis or hypotaxis.`},
-      {h:`<strong>Latin is the text; English a toggle.</strong> A named commentary is the key. Greek shelf only if Ancient Greek is the partner language.`}
-    ],
     modes:[
       {h:`<strong>Priscian’s facts, the modists’ reasons.</strong> There is the way a thing is, the way the mind takes it, and the way a word signifies it, and grammar studies the third.`},
       {h:`<strong>Given a mode, name the part; given a part, name the mode.</strong> The objections are asked alongside.`}
@@ -8555,7 +8301,7 @@ const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wro
 
 /* ---------- the act structure of the home page ---------- */
 /* ====================================================================
-   EN · The English Sentence
+   English grammar: the decks and exercises marked "English grammar" on the home page
    Quotations are from editions published before 1931. Faulty sentences
    in the faults drill are made for the exercise; they are not offered
    as the words of those authors.
@@ -9267,7 +9013,7 @@ DECKS.enform = {
 
 /* -------------------------------------------------------------- */
 DECKS.enfault = {
-  title:'The Common Faults',
+  title:'Common Faults in English',
   sub:'What a modern class marks, set beside barbarism and solecism',
   panels:[
 { src:['appown'], h:`<p>Which is correct: “The rain stopped. We went out.” or “The rain stopped we went out.”? We hear where one sentence ends and the next begins. Many common faults come from a sentence boundary in the wrong place: two sentences run together, or part of a sentence written as a whole one.</p>` },
@@ -11581,7 +11327,7 @@ EX.enform = enEx('enform', 'Agreement, Case, and the Verb',
   ],
   EN_FORM);
 
-EX.enfault = enEx('enfault', 'The Common Faults',
+EX.enfault = enEx('enfault', 'Common Faults in English',
   'Name the fragment, the run-on, the comma splice, the dangling modifier, or the misplaced modifier, or say that the sentence is sound. These sit beside barbarism and solecism.',
   'Name the fault, or say that the sentence is sound.',
   [
@@ -12577,7 +12323,7 @@ const VXE_L = {
   word:'Voice, articulate, and already a word',
   lett:'Voice, articulate, but not yet a word',
   inar:'Voice, but inarticulate and not a word',
-  nat:'A sound, but made by no living voice',
+  nat:'A sound, but not voice',
   sent:'A complete sentence, though of one word'
 };
 const VXE_ITEMS = [
@@ -12591,22 +12337,25 @@ const VXE_ITEMS = [
       'the letter <em>T</em>, sounded','the letter <em>K</em>, sounded','the syllable <em>ba</em>, said alone','the syllable <em>ta</em>, said alone',
       'the syllable <em>mi</em>, said alone','the syllable <em>lo</em>, said alone','the made-up sound <em>blityri</em>','the made-up sound <em>glorp</em>',
       'the syllables <em>la-la-la</em>, sung','a baby’s babbling <em>ba-ba-ba</em>','the letter <em>E</em>, sounded','the syllable <em>pu</em>, said alone'].map(w => ['lett', w]),
-  ...['a groan','a cough','a sigh','a yawn','a laugh','a sob','a scream','a dog’s bark','a cow’s low','a horse’s neigh','a sheep’s bleat',
+  ...['a groan','a sigh','a laugh','a sob','a scream','a dog’s bark','a cow’s low','a horse’s neigh','a sheep’s bleat',
       'a lion’s roar','a cat’s mew','an owl’s hoot','a wolf’s howl','a pig’s grunt','a bird’s song','a baby’s cry'].map(w => ['inar', w]),
   ...['thunder','the wind in the trees','rain on a roof','waves on a beach','a door slamming','a bell ringing','a drum beaten',
       'hands clapping','footsteps on stone','a fire crackling','a stone falling into water','a tree falling','a clock ticking',
-      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking'].map(w => ['nat', w])
+      'a kettle whistling','a branch snapping','hail on a window','a ship’s timbers creaking'].map(w => ['nat', w]),
+  ['cough', 'a cough']
 ];
 const VXE_WHY = {
   word:'It is imposed to signify: it can be written in letters, so it is articulate, and it is a word.',
   lett:'It can be written in letters, so it is articulate, but it signifies nothing by itself, so it is not yet a word. The schoolmen’s made-up <em>blityri</em> was their example of such a sound.',
   inar:'It comes from the mouth of a living thing, so it is voice; it cannot be written in letters, so for Donatus it is confused, or inarticulate, and it is not a word.',
-  nat:'No living thing makes it with its mouth, so it is a sound but not a voice, and grammar begins from voice.'
+  nat:'No living thing makes it with its mouth, so it is a sound but not voice, and grammar begins from voice.',
+  cough:'An animal makes it, but Aristotle denies that a cough is voice, because voice is struck by the soul with some imagination, as a sound that signifies (<em>De anima</em> II.8). So a cough is a sound, but not voice, and it is not a word.'
 };
 function voxEnglish(d){
   const pool = d <= 1 ? VXE_ITEMS.filter(x => x[0] !== 'lett' || !/blityri|glorp|babbling/.test(x[1])) : VXE_ITEMS;
   const it = rand(pool);
-  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[it[0]], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src:['donatus','priscian']}, d);
+  const lab = it[0] === 'cough' ? 'nat' : it[0];
+  return p2MC({sid:'vxe:'+it[1], prompt:`What is ${it[1]}?`, a: VXE_L[lab], ds: Object.values(VXE_L), why: VXE_WHY[it[0]], src: it[0] === 'cough' ? ['arist_anima'] : ['donatus','priscian']}, d);
 }
 
 /* ----- letter: English letters, silent letters, and the powers of c, g, s, y ----- */
@@ -15033,7 +14782,7 @@ function openWorkshop(){
     $('ws-draw').onclick = wsDraw;
     $('ws-in').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); wsDraw(); } });
     $('ws-modern').onchange = () => { ws.modern = $('ws-modern').checked; if(ws.board) ws.board.redraw(); wsReadBack(); };
-    $('ws-back').onclick = () => { show('scr-home'); buildHome(); };
+    $('ws-back').onclick = goHome;
     $('ws-clear').onclick = () => { if(ws.board){ ws.board.setArcs([]); wsReadBack(); } };
   }
   if(!ws.words.length){ $('ws-in').value = WS_EXAMPLES[0][1]; $('ws-lang').value = 'en'; wsDraw(); }
@@ -15550,18 +15299,14 @@ stampLang(EN_CL, 'en');
 stampLang(EN_FORM, 'en');
 stampLang(EN_FAULT, 'en');
 stampLang(EN_DIAG, 'en');
-AUCTORES.forEach(a => {
-  if(a.shelf === 'greek') return;
-  (a.items || []).forEach(it => { it.lang = 'la'; });
-});
 
 const EX_MODES = {
-  vox:['both','en'], letter:['both','en'], syllable:['both','en'], pos:['both','en'],
+  vox:['both','en'], letter:['both','en'], syllable:['both'], pos:['both','en'],
   decline:['both','en'], cases:['both','en'], produce:['both','en'], agree:['both','en'],
   govern:['both','en'], cong:['both','en'], workshop:['both','en'], vices:['both','en'],
   figures:['both','en'], suppos:['both','en'], congtruth:['both','en'],
   clauses:['orig'],
-  latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'], auctores:['la'],
+  latnoun:['la'], latverb:['la'], period:['la'], servius4:['la'], livyperiod:['la'],
   enpos:['en'], ensent:['en'], enphr:['en'], encl:['en'], enform:['en'], enfault:['en'], endiag:['en'], making:['en'],
   meter:['both','en'], latbuild:['la'], latmore:['la'], latvoice:['la'], latclause:['la'], latsubj:['la'], freewrite:['both','en'], markup:['both','en']
 };
@@ -16064,9 +15809,8 @@ function grcScanQ(it, d){
   };
 }
 addPartner('grc', GRK && GRK.meter ? {shared:{meter:GRK.meter.lines}} : null, 'meter', grcScanQ, 0.5);
-/* syllable: Greek is offered for Syllable, Quantity and Accent, and adds the Greek words (gr1 to gr3) and the two
-   Greek rules (sy6, sy11) beside the Latin and English questions. */
-if(GRK) EX.syllable.langs = ['grc'];
+/* syllable: the exercise is offered in English and Latin only, so Greek is not listed in its langs, and its Greek
+   words (gr1 to gr3) and rules (sy6, sy11) are not asked. */
 /* French in the shared exercises, in the same way: an exercise with a French pool of at least eight items in
    FRENCH.shared offers "English and French", and the French items take the place of the Latin ones. The questions
    are built as the Greek ones are. Vices has seven French items, so it is not offered in French. */
@@ -16175,7 +15919,7 @@ function modeOf(ex){
     const a = state.ex === ex ? state.langAvail : null;
     if(a && a.en === 0) return 'la';
     if(a && a.la === 0) return 'en';
-    return store.modes[ex.id] === 'en' ? 'en' : 'both';
+    return store.modes[ex.id] === 'en' && m.indexOf('en') >= 0 ? 'en' : 'both';
   }
   if(m[0] === 'orig') return null;
   return m[0];
@@ -16218,7 +15962,7 @@ function renderModeRow(){
   const greek = partners.length > 0;
   /* An exercise that offers a partner language shows its row even when it has no English questions, and then leaves out "English only". */
   const noEn = greek && state.langAvail && state.langAvail.en === 0;
-  [['both','English and Latin']].concat(partners.map(k => [k, PARTNER_ROW[k]]), noEn ? [] : [['en','English only']]).forEach(pair => {
+  [['both','English and Latin']].concat(partners.map(k => [k, PARTNER_ROW[k]]), noEn || allowed.indexOf('en') < 0 ? [] : [['en','English only']]).forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'mode-btn' + (cur === pair[0] ? ' sel' : '');
@@ -16255,21 +15999,21 @@ const ACTS = [
      {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
      {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
-      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']},
-     {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
-      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']}
+      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
-   gloss:'How a word is used (as a noun, a verb, and the rest), and the first division of the eight.',
+   gloss:'How a word is used, as a noun, a verb, and the rest; the eight parts in Latin, and then in English.',
    items:[
      {kind:'row', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
       desc:'A part of speech is decided by how a word is used: Donatus’s eight, and the Greek eight with the article, beginning with the noun and the verb.', ex:['pos']},
-     {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
-      desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']}
+     {kind:'row', deck:'enpos', tag:'STUDY · ENGLISH GRAMMAR', title:'The Eight in English',
+      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
    items:[
+     {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
+      desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']},
      {kind:'row', deck:'latnoun', tag:'STUDY', title:'The Latin Noun',
       desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
      {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
@@ -16289,29 +16033,21 @@ const ACTS = [
       desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.',
       ex:['grcmore'].concat(GRK && GRK.sentence ? ['grcsent', 'grcvoice', 'grcclause', 'grcmood'] : [])}
    ] : [])},
-  {key:'EN', roman:'EN', name:'The English Sentence', latin:'Grammatica Anglica',
-   gloss:'English as a modern class would teach it, with the traditional names set beside the modern ones. It follows the accidents of the word, and it stands just before the classical account of the sentence.',
-   items:[
-     {kind:'row', deck:'enpos', tag:'STUDY', title:'The Eight in English',
-      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']},
-     {kind:'row', deck:'ensent', tag:'STUDY', title:'Subject, Predicate, and the Patterns',
-      desc:'What the sentence is about and what is said of it, and the six patterns a modern class uses.', ex:['ensent']},
-     {kind:'row', deck:'enphr', tag:'STUDY', title:'The Phrase',
-      desc:'Prepositional, participial, gerund, infinitive, and appositive phrases: a group that does one office and does not assert.', ex:['enphr']},
-     {kind:'row', deck:'encl', tag:'STUDY', title:'The Clause and the Kind of Sentence',
-      desc:'Independent and dependent clauses; noun, adjective, and adverb clauses; simple, compound, complex, and compound-complex sentences.', ex:['encl']},
-     {kind:'row', deck:'enform', tag:'STUDY', title:'Agreement, Case, and the Verb',
-      desc:'Congruity of subject and verb, the pronoun’s case, and tense, voice, and mood. An author’s sentence is named, not rewritten.', ex:['enform']},
-     {kind:'row', deck:'enfault', tag:'STUDY', title:'The Common Faults',
-      desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.', ex:['enfault']},
-     {kind:'row', deck:'endiag', tag:'STUDY', title:'The Diagram',
-      desc:'Reed and Kellogg’s picture of the offices: subject and verb, object and complement, modifiers, a phrase, and one dependent clause.', ex:['endiag']},
-     {kind:'row', deck:'making', tag:'STUDY', title:'Making Sentences',
-      desc:'Combining short sentences, placing modifiers, making pronouns and series clear, and choosing between the active and the passive.', ex:['making']}
-   ]},
   {key:'IV', roman:'IV', name:'The Sentence', latin:'Oratio',
-   gloss:'To judge an arrangement of words, then a period.',
+   gloss:'To judge an arrangement of words, then a period, and then the meter of a verse.',
    items:[
+     {kind:'row', deck:'ensent', tag:'STUDY · ENGLISH GRAMMAR', title:'Subject, Predicate, and the Patterns',
+      desc:'What the sentence is about and what is said of it, and the six patterns a modern class uses.', ex:['ensent']},
+     {kind:'row', deck:'enphr', tag:'STUDY · ENGLISH GRAMMAR', title:'The Phrase',
+      desc:'Prepositional, participial, gerund, infinitive, and appositive phrases: a group that does one office and does not assert.', ex:['enphr']},
+     {kind:'row', deck:'encl', tag:'STUDY · ENGLISH GRAMMAR', title:'The Clause and the Kind of Sentence',
+      desc:'Independent and dependent clauses; noun, adjective, and adverb clauses; simple, compound, complex, and compound-complex sentences.', ex:['encl']},
+     {kind:'row', deck:'enform', tag:'STUDY · ENGLISH GRAMMAR', title:'Agreement, Case, and the Verb',
+      desc:'Congruity of subject and verb, the pronoun’s case, and tense, voice, and mood. An author’s sentence is named, not rewritten.', ex:['enform']},
+     {kind:'row', deck:'endiag', tag:'STUDY · ENGLISH GRAMMAR', title:'The Diagram',
+      desc:'Reed and Kellogg’s picture of the offices: subject and verb, object and complement, modifiers, a phrase, and one dependent clause.', ex:['endiag']},
+     {kind:'row', deck:'making', tag:'STUDY · ENGLISH GRAMMAR', title:'Making Sentences',
+      desc:'Combining short sentences, placing modifiers, making pronouns and series clear, and choosing between the active and the passive.', ex:['making']},
      {kind:'row', deck:'oratio', tag:'STUDY', title:'The Arrangement of Words',
       desc:'Priscian’s definition of the sentence: a fitting arrangement of words showing a complete sense. What the sentence is about and what is said of it, and the four causes of a construction.', ex:[]},
      {kind:'row', deck:'agree', tag:'STUDY', title:'Agreement',
@@ -16336,24 +16072,26 @@ const ACTS = [
       desc:'Type any English or Latin sentence, mark its dependences and its parts of speech, and read the markup back in words.'},
      {kind:'row', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
       desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.', ex:['period', 'servius4', 'livyperiod']},
-     {kind:'pick', pick:'auctores', tag:'AUCTORES', title:'Twenty passages',
-      desc:'We choose one of the loci shared with Ars Rhetorica by its topic: partition, government, cola, parataxis or hypotaxis. A named commentary is the key, and the English is shown on request. The Greek shelf appears only if Ancient Greek is the partner language.'}
+     {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
+      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']}
    ]},
-  {key:'V', roman:'V', name:'The Reasons for the Parts', latin:'Modi Significandi',
+  {key:'V', roman:'V', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
+   gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
+   items:[
+     {kind:'row', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
+      desc:'A fault in a single word, and a fault in the arrangement.', ex:['vices']},
+     {kind:'row', deck:'enfault', tag:'STUDY · ENGLISH GRAMMAR', title:'Common Faults in English',
+      desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.', ex:['enfault']},
+     {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
+      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
+   ]},
+  {key:'VI', roman:'VI', name:'The Reasons for the Parts', latin:'Modi Significandi',
    gloss:'Why the parts and accidents are these: Priscian’s facts, the modists’ reasons, and the objections.',
    items:[
      {kind:'row', deck:'modes', tag:'STUDY', title:'The Reasons for the Parts',
       desc:'The thing, the mind, and the word; essential and accidental modes; why the verb has time; the pronoun and participle, the four that keep one form, and the article.', ex:['modes']},
      {kind:'row', deck:'objections', tag:'STUDY', title:'The Great Objections',
       desc:'Nothing and the chimaera; grammatical gender; Ockham and Aurifaber; why languages differ. Each answer is kept only if it holds, and each objection is placed where it lands.', ex:['objections']}
-   ]},
-  {key:'VI', roman:'VI', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
-   gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
-   items:[
-     {kind:'row', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
-      desc:'A fault in a single word, and a fault in the arrangement.', ex:['vices']},
-     {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
-      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
    ]},
   {key:'VII', roman:'VII', name:'Grammar and Logic', latin:'Grammatica et Logica',
    gloss:'To hand a well-formed sentence to logic, and to serve the higher sciences.',
@@ -16484,9 +16222,19 @@ function buildDiffRow(){
   $('diff-desc').textContent = `${df.label} · +${df.gain} / −${df.loss}`;
 }
 
+/* The home card last opened (its place among the home cards). Returning from that study, exercise, or workshop
+   scrolls its row to the top of the screen. */
+let homeAnchor = null;
+function goHome(){
+  show('scr-home');
+  buildHome();
+  const card = homeAnchor == null ? null : document.querySelectorAll('#home-acts .set-card')[homeAnchor];
+  if(card) (card.closest('.set-pair') || card).scrollIntoView({block:'start'});
+}
 function buildHome(){
   const host = $('home-acts');
   host.innerHTML = '';
+  let cardN = 0;
   ACTS.forEach(act => {
     if(act.roman){
       const h = document.createElement('div');
@@ -16530,16 +16278,13 @@ function buildHome(){
         c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
           <p>${item.desc}</p><span class="begin">OPEN ⟶</span>`;
         c.onclick = () => openWorkshop();
-      }else if(item.kind === 'pick'){
-        c.className = 'set-card wide';
-        c.innerHTML = `<div class="set-num">${item.tag}</div><h3>${item.title}</h3>
-          <p>${item.desc}</p><span class="begin">CHOOSE ⟶</span>`;
-        c.onclick = () => openPick(item.pick);
       }else{
         c.className = 'set-card soon' + (paired ? '' : ' wide');
         c.innerHTML = `<div class="set-num"><span class="ex-mark">Exercise</span></div><h3>${item.title}</h3>
           <p>${item.desc}</p><span class="soon-flag">IN PREPARATION</span>`;
       }
+      const n = cardN++, open = c.onclick;
+      if(open) c.onclick = () => { homeAnchor = n; open(); };
       return c;
     }
 
@@ -16570,30 +16315,6 @@ function buildHome(){
 /* ---------- study decks ---------- */
 let deck = null, deckI = 0, deckAnswered = false;
 
-/* The Greek shelf is listed when Greek is chosen on the home screen. A passage marked unverified is not listed. */
-function auctorShelf(){
-  return AUCTORES.filter(a => !a.unverified && (a.shelf !== 'greek' || store.langPick === 'grc'));
-}
-function openPick(which){
-  if(which !== 'auctores') return;
-  $('pick-title').textContent = 'Twenty passages';
-  $('pick-sub').textContent = 'Latin is the text. English is shown on request. Construction only.';
-  $('pick-note').innerHTML = 'Shared loci with Ars Rhetorica. Choose one period. The questions are government, agreement, cola, and whether a construction is paratactic or hypotactic. The key is a named commentary, not a lecture on the story.'
-    + (store.langPick === 'grc' ? ' A Greek shelf is included because Ancient Greek is the partner language.' : '');
-  const grid = $('pick-grid');
-  grid.innerHTML = '';
-  auctorShelf().forEach(a => {
-    const c = document.createElement('div');
-    c.className = 'set-card';
-    c.innerHTML = `<div class="set-num">${a.author}</div><h3>${a.work} ${a.locus}</h3>
-      <p>${a.comm}</p>
-      <span class="auctor-badge">Also in Ars Rhetorica: ${a.id}</span>
-      <span class="begin">BEGIN ⟶</span>`;
-    c.onclick = () => { state.auctorId = a.id; openEx(EX.auctores); };
-    grid.appendChild(c);
-  });
-  show('scr-pick');
-}
 
 /* The approved Greek notes (GREEK.notes). With Greek chosen in the partner-language shortcut on the home screen,
    a deck panel, a deck explanation or an item explanation that has a note shows it after the existing text,
@@ -16614,6 +16335,7 @@ function openDeck(key){
   deck = DECKS[key]; deckI = 0;
   $('deck-title').textContent = deck.title;
   $('deck-sub').textContent = deck.sub;
+  $('deck-src').innerHTML = deckSources(key);
   renderDeck();
   show('scr-deck');
 }
@@ -16622,7 +16344,7 @@ function renderDeck(){
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
-  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}${srcLine(p.src)}${deckGreekNote('text')}</div>`;
+  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}${deckGreekNote('text')}</div>`;
   if(p.q){
     const box = document.createElement('div');
     box.className = 'panel';
@@ -16646,7 +16368,7 @@ function renderDeck(){
         box.querySelector('#deck-fb').innerHTML =
           `<div class="feedback ${good ? 'good' : 'bad'}"><span class="verdict">${good ? 'Correct' : 'Incorrect'}</span>
            ${p.q.explain}${!good && p.q.wrong ? `<span class="also">${p.q.wrong}</span>` : ''}
-           ${srcLine(p.src)}${deckGreekNote('explain')}</div>`;
+           ${deckGreekNote('explain')}</div>`;
         deckAnswered = true;
         $('deck-next').disabled = false;
       };
@@ -16660,13 +16382,14 @@ function renderDeck(){
   window.scrollTo(0, 0);
 }
 $('deck-next').onclick = () => {
-  if(deckI === deck.panels.length - 1){ show('scr-home'); buildHome(); }
+  if(deckI === deck.panels.length - 1) goHome();
   else { deckI++; renderDeck(); }
 };
 $('deck-back').onclick = () => {
-  if(deckI === 0) show('scr-home');
+  if(deckI === 0) goHome();
   else { deckI--; renderDeck(); }
 };
+$('deck-end').onclick = goHome;
 
 /* ---------- the question loop ---------- */
 let chipSel = {};
@@ -16903,7 +16626,7 @@ function renderQ(){
     $('ex-submit').style.display = '';
     $('ex-submit').disabled = true;
     inp.addEventListener('input', () => { $('ex-submit').disabled = !inp.value.trim(); });
-    setTimeout(() => inp.focus(), 40);
+    setTimeout(() => inp.focus({preventScroll: state.answered === 0}), 40);
   }else if(q.kind === 'widget'){
     $('ex-submit').style.display = '';
     $('ex-submit').disabled = true;
@@ -16914,7 +16637,7 @@ function renderQ(){
     $('ex-submit').disabled = true;
     const poke = () => { $('ex-submit').disabled = !inp.value.trim(); };
     inp.addEventListener('input', poke);
-    setTimeout(() => inp.focus(), 40);
+    setTimeout(() => inp.focus({preventScroll: state.answered === 0}), 40);
   }
   $('ex-next').style.display = 'none';
 }
@@ -17012,7 +16735,7 @@ function submit(ansMC){
        <span class="verdict">${res.right ? 'Correct' : 'Incorrect'} <span class="fb-points">${ptsLabel}</span></span>${res.note}
        ${res.also ? `<span class="also">${res.also}</span>` : ''}
        ${extra}
-       ${srcLine(q.src || state.ex.src)}${exGreekNote(q)}</div>`;
+       ${exGreekNote(q)}</div>`;
   $('ex-submit').style.display = 'none';
   if(state.ex && state.ex.staged){
     $('ex-next').textContent = state.pendingComplete ? 'Finish Exercise Set ⟶' : 'Next →';
@@ -17040,11 +16763,11 @@ function showJudge(q, j){
 }
 $('ex-submit').onclick = () => { if(!state.locked) submit(null); };
 $('ex-next').onclick = () => nextQ();
-$('ex-quit').onclick = () => { show('scr-home'); buildHome(); };
-$('ex-intro-back').onclick = () => { show('scr-home'); buildHome(); };
+$('ex-quit').onclick = goHome;
+$('ex-intro-back').onclick = goHome;
 $('ex-intro-begin').onclick = () => startEx(state.ex);
 $('done-again').onclick = () => startEx(state.ex);
-$('done-home').onclick = () => { show('scr-home'); buildHome(); };
+$('done-home').onclick = goHome;
 
 /* keyboard: 1-4 to answer a multiple choice, Enter to go on */
 document.addEventListener('keydown', ev => {
@@ -17114,7 +16837,6 @@ $('btn-progress').onclick = () => { renderProgress(); show('scr-prog'); };
 $('btn-maker').onclick = (ev) => { ev.preventDefault(); openMaker(); };
 $('qz-home').onclick = () => { history.replaceState(null,'', location.pathname + location.search); show('scr-home'); buildHome(); };
 $('prog-back').onclick = () => { show('scr-home'); buildHome(); };
-$('pick-back').onclick = () => { show('scr-home'); buildHome(); };
 $('prog-reset').onclick = () => {
   store.totals = {}; store.score = 0; store.bestStreak = 0; store.mistakes = [];
   save(); renderProgress();
@@ -17468,7 +17190,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 const QZ_DECK_FOR_EX = {
   latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
   produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
-  congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period'], auctores:['period']
+  congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period']
 };
 function qzToday(){
   return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
@@ -17640,10 +17362,6 @@ function qzGenOne(ex, d){
     state.stageI = Math.floor(Math.random() * ex.stages.length);
     state.stageStreak = 0;
   }
-  if(ex.id === 'auctores'){
-    const shelf = auctorShelf();
-    if(shelf.length) state.auctorId = rand(shelf).id;
-  }
   return ex.gen(d);
 }
 function qzFingerprint(q){
@@ -17653,7 +17371,7 @@ function qzFingerprint(q){
 const QZ_KINDS = {};
 function qzKinds(ex){
   if(QZ_KINDS[ex.id]) return QZ_KINDS[ex.id];
-  const saved = {seen: state.sessionSeen.slice(), stageI: state.stageI, streak: state.stageStreak, auctor: state.auctorId};
+  const saved = {seen: state.sessionSeen.slice(), stageI: state.stageI, streak: state.stageStreak};
   const k = {typed:false, choice:false};
   for(let d = 1; d <= 5 && !(k.typed && k.choice); d++){
     for(let i = 0; i < 40; i++){
@@ -17664,7 +17382,7 @@ function qzKinds(ex){
       if(q.kind === 'text') k.typed = true; else if(q.kind === 'mc' || q.kind === 'pick') k.choice = true;
     }
   }
-  state.sessionSeen = saved.seen; state.stageI = saved.stageI; state.stageStreak = saved.streak; state.auctorId = saved.auctor;
+  state.sessionSeen = saved.seen; state.stageI = saved.stageI; state.stageStreak = saved.streak;
   QZ_KINDS[ex.id] = k;
   return k;
 }
@@ -17730,8 +17448,7 @@ $('qz-gen').onclick = () => {
     const saved = {
       seen: state.sessionSeen.slice(),
       stageI: state.stageI,
-      streak: state.stageStreak,
-      auctor: state.auctorId
+      streak: state.stageStreak
     };
     state.sessionSeen = [];
     const items = [];
@@ -17790,7 +17507,6 @@ $('qz-gen').onclick = () => {
     state.sessionSeen = saved.seen;
     state.stageI = saved.stageI;
     state.stageStreak = saved.streak;
-    state.auctorId = saved.auctor;
 
     if(items.length <= docN) throw new Error('No exercise questions could be generated. Try another set or difficulty.');
 

@@ -67,16 +67,11 @@ function stripMarkupToPlain(s) {
   return String(s).replace(/\*\*/g, '').replace(/\*/g, '').trim();
 }
 
-function sourcesLine(srcKeys, SRC) {
-  if (!srcKeys || !srcKeys.length || !SRC) return '';
-  const parts = [];
-  for (const k of srcKeys) {
-    const rec = SRC[k];
-    if (!rec) continue;
-    let short = htmlToMarkup(rec.short || k);
-    parts.push(short);
-  }
-  return parts.length ? 'Sources: ' + parts.join('; ') : '';
+// The sources listed under a study's title, as the course shows them (deckSources in index.html).
+function deckSourcesLine(key, deckSources) {
+  const html = deckSources ? deckSources(key) : '';
+  const labels = [...html.matchAll(/<a [^>]*>([\s\S]*?)<\/a>/g)].map(m => htmlToMarkup(m[1]));
+  return labels.length ? 'Sources: ' + labels.join('; ') : '';
 }
 
 function formatQuestion(q) {
@@ -149,8 +144,6 @@ function formatPanel(panel, index1, SRC, greek) {
       if (st.q) { chunks.push(formatQuestion(st.q)); chunks.push(''); }
     });
   }
-  const src = sourcesLine(panel.src, SRC);
-  if (src) { chunks.push(src); chunks.push(''); }
   return chunks.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
 }
 
@@ -193,7 +186,7 @@ function loadApp(htmlPath) {
   const partnerCode = ['french.js', 'german.js'].map(f => path.join(path.dirname(htmlPath), f))
     .map(p => fs.existsSync(p) ? fs.readFileSync(p, 'utf8') + '\n;\n' : '').join('');
   const dataCode = greekCode + partnerCode + all.slice(0, cut)
-    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
+    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, deckSources, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
       PARTNERS: { fr: typeof FRA === 'undefined' ? null : FRA, de: typeof DEU === 'undefined' ? null : DEU } };\n`;
   const sandbox = {
     console, Math, Date, Array, Object, String, Number, Boolean, JSON, RegExp, Error, Map, Set,
@@ -350,7 +343,7 @@ Also: is a further remark the app may show.
 Hint: is the help shown at the easier difficulties.
 Sentence: or Passage: is the text the question is about.
 From: names the work the passage comes from.
-Sources: names the works that panel rests on.
+Sources: under a study's title, names the outside works the study rests on, as listed under its title on the page.
 `;
 }
 
@@ -410,7 +403,7 @@ function actBanner(act) {
   return lines.join('\n');
 }
 
-function emitDeck(key, deck, SRC, GRK) {
+function emitDeck(key, deck, SRC, GRK, deckSources) {
   const greek = GRK && GRK.notes ? GRK.notes.decks[key] : null;
   const lines = [];
   lines.push('-'.repeat(72));
@@ -421,6 +414,8 @@ function emitDeck(key, deck, SRC, GRK) {
   lines.push(`@deck ${key}`);
   lines.push(`Title: ${deck.title}`);
   if (deck.sub) lines.push(`Small heading: ${deck.sub}`);
+  const sources = deckSourcesLine(key, deckSources);
+  if (sources) lines.push(sources);
   lines.push('');
   (deck.panels || []).forEach((p, i) => {
     lines.push(formatPanel(p, i + 1, SRC, greek && greek[i]));
@@ -591,7 +586,7 @@ function emitGreekSentence(key, ex, app) {
   return lines.join('\n');
 }
 
-function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state, PARTNERS }, htmlPath) {
+function buildText({ DECKS, EX, ACTS, SRC, deckSources, GRK, store, state, PARTNERS }, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Seed Math.random for reproducible exercise samples
   const rand = seededRandom(20261005);
@@ -616,7 +611,7 @@ function buildText({ DECKS, EX, ACTS, SRC, GRK, store, state, PARTNERS }, htmlPa
       if (it.kind === 'deck') {
         const deck = DECKS[it.deck];
         if (!deck) continue;
-        parts.push(emitDeck(it.deck, deck, SRC, GRK));
+        parts.push(emitDeck(it.deck, deck, SRC, GRK, deckSources));
         parts.push('');
       } else if (it.kind === 'ex') {
         const ex = EX[it.ex];
