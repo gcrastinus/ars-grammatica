@@ -5143,6 +5143,40 @@ EX.pos = {
   }
 };
 
+/* The Latin group of section II: Donatus's eight, asked only of Latin sentences. The items are POS_LAT, the same
+   Latin items that the shared exercise above draws on now and then; here they are asked alone. */
+const LATPOS_OPTS = ['noun','pronoun','verb','adverb','participle','conjunction','preposition','interjection','adjective'];
+EX.latpos = {
+  id:'latpos', src:['donatus','ag'], act:'II', title:'The Eight in Latin',
+  desc:'A word in a Latin sentence is marked, with the English beside it; name its part of speech among Donatus’s eight. A set is complete at 100 points.',
+  instr:'Which part of speech is the marked Latin word?',
+  introInstr:'Read this, then begin. A set is complete at 100 points. The difficulty chosen on the home screen decides how many choices are offered.',
+  intro:[
+    {h:'<strong>Donatus counts eight parts in Latin:</strong> <span class="lat">nomen, pronomen, verbum, adverbium, participium, coniunctio, praepositio, interiectio</span>. Latin has no article, and the participle is a part of its own.',
+     eg:['<em>Puella in hortō cantat</em>: <em>puella</em> is a noun, <em>cantat</em> a verb, <em>in</em> a preposition.']},
+    {h:'<strong>The adjective is filed under the noun.</strong> Donatus counts <em>bonus</em> as a noun that cannot stand alone; when the marked word is one, the answer is given as “adjective,” and the explanation says where Donatus puts it.'}
+  ],
+  gen(d){
+    const it = pickSeen(POS_LAT, x => x.id);
+    const nOpt = d <= 1 ? 3 : d === 2 ? 4 : 5;
+    const pool = LATPOS_OPTS.filter(p => p !== it.a);
+    const options = shuffle([it.a, ...sample(pool, nOpt - 1)]);
+    const note = it.note || POS_WHY[it.a];
+    return {
+      kind:'mc', src: it.src || ['ag'], prompt:'Which part of speech is the marked word?',
+      sentence: it.s.replace(/<b>/g,'<span class="target">').replace(/<\/b>/g,'</span>'),
+      options, correct: options.indexOf(it.a), sid: it.id, lang:'la',
+      orig: it.orig, olang: it.orig ? 'English' : undefined,
+      check(i){
+        if(i === options.indexOf(it.a)) return {right:true, note};
+        return {right:false, note:`It is the <strong>${it.a}</strong>. ${note}`,
+          also:`The answer chosen was <em>${options[i]}</em>. ${POS_WHY[options[i]] || ''}`};
+      }
+    };
+  }
+};
+
+
 /* ============================================================
    II · The Modes of Signifying
    ============================================================ */
@@ -15829,6 +15863,43 @@ DECKS.meter.panels.forEach((pn, i) => { const q = [].concat(pn.src || []).filter
 
 
 /* -------------------------------------------------------------- */
+DECKS.latpos = {
+  title:'The Eight in Latin',
+  sub:'Donatus’s eight parts, in Latin sentences',
+  panels:[
+
+{ src:['donatus','ag'], h:`<p><strong>THE EIGHT, IN LATIN.</strong> In <em>Puella in hortō cantat</em>, “The girl sings in the garden,” we already know that <em>puella</em> names and <em>cantat</em> says what is done. Donatus counts eight parts of speech: <span class="lat">nomen, pronomen, verbum, adverbium, participium, coniunctio, praepositio, interiectio</span>, that is, noun, pronoun, verb, adverb, participle, conjunction, preposition, and interjection.</p>
+<p>Two things differ from the English list. Latin has no article, so <em>puella</em> is “the girl” or “a girl” as the sense requires. And Donatus files the adjective under the noun: <em>bonus</em> in <em>bonus puer</em> is a noun that cannot stand alone, a name of a quality.</p>`,
+  q:{ prompt:'In <em>Bonus puer dormit</em>, where does Donatus file <em>bonus</em>?',
+      options:['Under the noun, as a name that cannot stand alone',
+               'Under the verb, because it says what the boy is',
+               'Under the adverb, because it qualifies the boy',
+               'Under the article, because it marks which boy'],
+      correct:0,
+      explain:'Donatus counts the adjective inside the noun. Latin has no article, and the adjective is declined like a noun and agrees with one.' } },
+
+{ src:['donatus','ag'], h:`<p><strong>Noun, pronoun, verb, participle.</strong> These four are declined or conjugated. The <strong>noun</strong> names, with case: <em>puella, puellae</em>. The <strong>pronoun</strong> stands for a noun: <em>ego, tū, is, hic, quī</em>. The <strong>verb</strong> says what is done, with tense and person: <em>cantat</em>, “sings.”</p>
+<p>The <strong>participle</strong> takes part in both noun and verb: it has case and gender like a noun, and tense and voice like a verb. In <em>Mīles vulnerātus cecidit</em>, “The wounded soldier fell,” <em>vulnerātus</em> agrees with <em>mīles</em> and is a passive past form of <em>vulnerō</em>. Donatus counts it as a part of its own.</p>`,
+  q:{ prompt:'Why does Donatus count the participle as a part of its own?',
+      options:['It has case like a noun and tense like a verb, and so belongs wholly to neither',
+               'It never changes its form',
+               'It always comes at the end of the sentence',
+               'Latin has no adjectives, and the participle takes their place'],
+      correct:0,
+      explain:'<span class="lat">Participium</span> is named from taking part (<em>partem capere</em>) in both the noun and the verb.' } },
+
+{ src:['donatus','ag'], h:`<p><strong>The four that do not change.</strong> The <strong>adverb</strong> depends on a verb and tells how, when, or where: <em>bene, nunc, hīc</em>. The <strong>preposition</strong> is set before a noun and governs its case: <em>in hortō</em>, <em>ad urbem</em>. The <strong>conjunction</strong> joins: <em>et, sed, quia</em>. The <strong>interjection</strong> shows a feeling of the mind: <em>heu, ō, ecce</em>.</p>
+<p>A Latin word is judged by its use in the sentence, as in English. <em>Post</em> is a preposition in <em>post bellum</em>, “after the war,” and an adverb in <em>paulō post</em>, “a little later.”</p>`,
+  q:{ prompt:'In <em>paulō post vēnit</em>, “he came a little later,” <em>post</em> is…',
+      options:['An adverb, since it governs no noun and tells when',
+               'A preposition, since it always is one',
+               'A conjunction, since it joins two clauses',
+               'A noun, since <em>paulō</em> depends on it'],
+      correct:0,
+      explain:'With no noun to govern, <em>post</em> tells when he came, and so it is used as an adverb.' } }
+  ]
+};
+
 DECKS.latnoun = {
   title:'The Latin Noun',
   sub:'The five declensions, and how to read an ending',
@@ -17213,7 +17284,9 @@ const ACTS = [
      {kind:'row', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
       desc:'A part of speech is decided by how a word is used: Donatus’s eight, and the Greek eight with the article, beginning with the noun and the verb.', ex:['pos']},
      {kind:'row', deck:'enpos', tag:'STUDY · ENGLISH GRAMMAR', title:'The Eight in English',
-      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']}
+      desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']},
+     {kind:'row', deck:'latpos', tag:'STUDY', title:'The Eight in Latin',
+      desc:'Donatus’s eight in Latin sentences: the noun and the adjective filed under it, the pronoun, the verb, the participle as a part of its own, and the four indeclinable parts; Latin has no article.', ex:['latpos']}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
@@ -17437,7 +17510,7 @@ function goHome(){
 }
 const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', other:'Other languages'};
 /* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
-const LATIN_ROWS = ['syllable','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
+const LATIN_ROWS = ['syllable','latpos','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
 function homeGroup(item){
   if(item.lang) return 'other';
   if(/ENGLISH/.test(item.tag || '')) return 'en';
@@ -18562,7 +18635,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 
 /* ---------- quiz maker (instructors) ---------- */
 const QZ_DECK_FOR_EX = {
-  latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
+  latpos:['latpos','pos'], latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
   produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
   congtruth:['cong','prelim'], servius4:['period'], livyperiod:['period']
 };
