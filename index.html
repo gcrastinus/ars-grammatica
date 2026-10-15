@@ -1569,6 +1569,9 @@ const SRC = {
   vexilla:{kind:'primary', short:'Venantius Fortunatus, <i>Vexilla regis</i>',
        full:'Venantius Fortunatus, <i>Vexilla regis prodeunt</i>, stanzas 1–2, in the original text (as in <i>Carmina</i> II.6). English: J. M. Neale, <i>Mediaeval Hymns and Sequences</i> (1851).',
        note:'A hymn in iambic dimeters, written for the reception of a relic of the cross at Poitiers in 569.'},
+  mw:{kind:'study', short:'<i>Merriam-Webster</i>',
+       full:'<i>Merriam-Webster.com Dictionary</i> (merriam-webster.com), the pronunciations of the words used, with its marks for primary (ˈ) and secondary (ˌ) stress and its schwa (ə), read 2026-10-15.',
+       note:'The standard American dictionary, followed for every syllable count, stress, and reduced vowel in the English syllable study and exercise.'},
   helias:{kind:'primary', short:'Peter Helias, <i>Summa super Priscianum</i>',
        full:'Peter Helias, <i>Summa super Priscianum</i> (12th c.): <i>partes huius artis sunt quatuor: … prima pars scientia de litteris, secunda de sillabis, tertia de dictionibus, quarta de oratione</i> — quoted in Bursill-Hall from Thurot. Bursill-Hall notes expressly that <b>Priscian and Donatus did not have this fourfold division</b>: Donatus gives only <i>vox, littera, syllaba</i>, and Priscian treats <i>vox, littera</i> in Book I and <i>syllaba, dictio, oratio</i> in Book II.',
        note:'The medieval division this course’s acts follow — a twelfth-century arrangement of Priscian, not a Roman one.'},
@@ -1815,7 +1818,7 @@ const DECK_TOP = {
   latprose:['ag'], latpoetry:['ag'],
   prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
   traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
-  period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'],
+  period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'], ensyl:['mw'],
   pos:['donatus','priscian','te','arist_int'], decline:['donatus','priscian','te','ag'], casework:['ag','nieto'],
   produce:['ag'], govern:['te','ag'], cong:['te','priscian','arist_int'], workshop:['priscian','te','bh'],
   oratio:['te','priscian','arist_int'], agree:['te','ag'], objections:['te','bh','aq_ph','sep_sem'],
@@ -2454,7 +2457,7 @@ DECKS.letter = {
 
 /* -------------------------------------------------------------- */
 DECKS.syllable = {
-  title:'Syllable, Quantity and Accent',
+  title:'Latin Syllable, Quantity and Accent',
   sub:'How to divide a word, measure a syllable, and place the stress',
   panels:[
 
@@ -2470,7 +2473,7 @@ DECKS.syllable = {
 { src:['ag','priscian'], h:`<p><strong>How to divide.</strong> These are the working rules:</p>
 <p><strong>One consonant</strong> between vowels goes with the following vowel:
 English <em>fa-ther</em>, Latin <em>pa-ter, a-mī-cus</em>.</p>
-<p><strong>Two consonants</strong> are usually split: English <em>har-bour</em>, Latin <em>por-ta, mag-nus,
+<p><strong>Two consonants</strong> are usually split: English <em>har-bor</em>, Latin <em>por-ta, mag-nus,
 mit-tō</em>.</p>
 <p><strong>Mute + liquid</strong> (<em>p b t d c g</em> plus <em>l</em> or <em>r</em>) may stay with the following vowel, as in English <em>a-pron</em> and Latin <em>pa-trem, a-grī</em>, or they may split; the exercises will say when it matters.</p>
 <p><em>x</em> and <em>z</em> count as two consonants, while <em>qu</em> counts as one: <em>a-qua</em>. <em>h</em> does not make position and does not make a syllable of its own.</p>`,
@@ -2514,6 +2517,60 @@ stood last before it was added: <em>virúmque</em>.</p>`,
                'That English words are not divided into syllables','That every English verb is stressed on the last syllable'],
       correct:1,
       explain:`The same letters carry two stresses and make two words. Latin would measure length and then apply one law, but English does not.` } }
+]};
+
+/* -------------------------------------------------------------- */
+/* English Syllable and Stress: the English study placed before the Latin one. Pronunciations follow Merriam-Webster. */
+DECKS.ensyl = {
+  title:'English Syllable and Stress',
+  sub:'How an English word is divided, where its stress falls, and how its weak syllables sound',
+  panels:[
+
+{ src:['mw'], h:`<p><strong>The English syllable.</strong> An English syllable has one vowel sound at its center. We count the syllables of a word by its vowel sounds, not by its vowel letters: “make” has one syllable, because its final <em>e</em> is silent, and “strength” has one, although it has eight letters.</p>
+<p>English allows clusters of consonants that Latin does not. Up to three consonants can begin a syllable, as in “street,” “spring,” and “splash,” and the three always begin with <em>s</em>. More can end one, as in “strength” and “twelfths.” Many clusters cannot begin an English word at all, such as <em>tl</em> or <em>pn</em> in speech.</p>`,
+  q:{ prompt:'How many syllables does “strengths” have?',
+      options:['One','Two','Three','Four'],
+      correct:0,
+      explain:'“Strengths” has one vowel sound, so it has one syllable. The consonants before and after the vowel do not add syllables.' } },
+
+{ src:['mw'], h:`<p><strong>Primary and secondary stress.</strong> In a word of more than one syllable, one syllable is stressed more than the others. It is louder, longer, and usually higher. That is the <strong>primary stress</strong>. A longer word often has a lighter <strong>secondary stress</strong> as well. Merriam-Webster marks the primary stress with ˈ and the secondary with ˌ before the syllable.</p>
+<p>“Photographic” is ˌfō-tə-ˈgra-fik: the primary stress is on the third syllable, “graph,” and the secondary on the first, “pho.” “Education” is ˌe-jə-ˈkā-shən, with the primary stress on the third syllable and the secondary on the first.</p>`,
+  q:{ prompt:'In “photographic,” which syllable has the primary stress?',
+      options:['The third, “graph”','The first, “pho”','The second, “to”','The last, “ic”'],
+      correct:0,
+      explain:'Merriam-Webster gives ˌfō-tə-ˈgra-fik: primary stress on “graph,” secondary on “pho.”' } },
+
+{ src:['mw'], h:`<p><strong>Stress that tells words apart.</strong> English stress is not found by measuring syllables, as Latin stress is. It belongs to each word, and it can tell two words apart. Many pairs of a noun and a verb are spelled alike and stressed differently: the noun on the first syllable, the verb on the second.</p>
+<p>“REcord” is the noun and “reCORD” the verb. So also “PERmit” and “perMIT,” “PREsent” and “preSENT,” “OBject” and “obJECT,” “CONtrast” and “conTRAST.”</p>
+<p>Words of one family can also differ: “PHOtograph,” “phoTOGraphy,” “photoGRAPHic.”</p>`,
+  q:{ prompt:'In “They will record the speech,” which syllable of “record” is stressed?',
+      options:['The second: “reCORD,” the verb','The first: “REcord,” the noun','Both equally','Neither, since it is a verb'],
+      correct:0,
+      explain:'Here “record” is a verb, and the verb is stressed on the second syllable. The noun, “a record,” is stressed on the first.' } },
+
+{ src:['mw'], h:`<p><strong>Suffixes that move the stress.</strong> Some suffixes fix the stress on the syllable just before them, wherever it stood in the shorter word.</p>
+<ul><li><strong>-tion</strong>: “EDucate,” but “eduCAtion”; “inFORM,” but “inforMAtion.”</li>
+<li><strong>-ic</strong>: “ATHlete,” but “athLETic”; “PHOtograph,” but “photoGRAPHic.”</li>
+<li><strong>-ity</strong>: “eLECtric,” but “elecTRICity”; “CUrious,” but “curiOSity.”</li></ul>
+<p>Other suffixes leave the stress where it was: <strong>-ness</strong>, <strong>-ment</strong>, and <strong>-ful</strong>, as in “HAPpy” and “HAPpiness,” “GOVern” and “GOVernment,” “CARE” and “CAREful.”</p>`,
+  q:{ prompt:'Where does “-ity” put the stress?',
+      options:['On the syllable just before it: “elecTRICity”','On the first syllable of the word: “Electricity”','On “-ity” itself: “electriCIty”','It leaves the stress where it was in “electric”'],
+      correct:0,
+      explain:'“-ity” fixes the stress on the syllable just before it. “Electric” is stressed on “lec,” and “electricity” on “tric.”' } },
+
+{ src:['mw'], h:`<p><strong>Weak syllables and the schwa.</strong> An unstressed English syllable is often weak: its vowel is shortened and becomes the neutral vowel called <strong>schwa</strong>, written ə. The first and last vowels of “banana” are schwa (bə-ˈna-nə), and so is the first vowel of “about” (ə-ˈbau̇t).</p>
+<p>So the same letter can sound differently in words of one family. The first <em>o</em> of “photograph” (ˈfō-tə-ˌgraf) is a full vowel, because it is stressed, but in “photography” (fə-ˈtä-grə-fē) it is a schwa, because the stress has moved.</p>`,
+  q:{ prompt:'In “photography,” why is the first vowel a schwa?',
+      options:['It is unstressed, and an unstressed vowel is often reduced','The letter <em>o</em> is always a schwa','The word is a noun','Every first syllable in English is weak'],
+      correct:0,
+      explain:'The stress of “photography” is on “tog,” so the first syllable is unstressed and its vowel weakens to schwa: fə-ˈtä-grə-fē.' } },
+
+{ src:['mw','engclass'], h:`<p><strong>The rhythm of English.</strong> English speech is <strong>stress-timed</strong>: the stressed syllables come at roughly even intervals, and the weak syllables between them are squeezed to fit. “The CAT is on the MAT” and “The CATerpillar's on the MATtress” take about the same time to say, because each has two strong beats. Small words such as “and,” “of,” “to,” and “a” are usually weak, and their vowels become schwa.</p>
+<p>This is the ground of English meter, which counts the beats of stressed syllables. Latin is the contrast: a Latin syllable is long or short by its vowel and its consonants, and Latin verse counts that length. The next study measures the Latin syllable.</p>`,
+  q:{ prompt:'English meter counts…',
+      options:['Stressed syllables, the beats of the line','Long and short syllables, as Latin verse does','Only the letters of each word','The number of words in a line'],
+      correct:0,
+      explain:'English rhythm is made by stressed syllables, so English meter counts beats. Latin meter counts long and short syllables.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -5991,7 +6048,7 @@ EX.letter = {
 };
 
 /* ============================================================
-   Syllable, Quantity and Accent
+   Latin Syllable, Quantity and Accent
    ============================================================ */
 const ACCENT_WORDS = [
   {w:'rosa', syll:['ro','sa'], div:'ro-sa', longPen:null, acc:0, dmin:1,
@@ -6116,6 +6173,56 @@ const SYLL_ITEMS = [
    ds:['Must always split, like any two consonants','Are never counted as part of a syllable','Always make the preceding vowel long by position'],
    why:'So <em>pa-trem</em> and <em>a-grī</em>. Allen and Greenough note that a mute plus a liquid often does <em>not</em> make position; in <em>pa-tris</em> the <em>a</em> may stay short.'}
 ];
+/* The English syllable exercise: counting, stress, secondary stress, the suffixes, weak syllables, and clusters. */
+const ENSYL_ITEMS = [
+  {id:'es1', d:1, q:'How many syllables does “strength” have?', a:'One', ds:['Two','Three','Eight'], why:'“Strength” has one vowel sound, so one syllable, however many consonants stand around it.'},
+  {id:'es2', d:1, q:'How many syllables does “banana” have?', a:'Three', ds:['Two','Four','One'], why:'“Banana” is bə-ˈna-nə: three vowel sounds, three syllables.'},
+  {id:'es3', d:1, q:'How many syllables does “street” have?', a:'One', ds:['Two','Three','Four'], why:'“Street” has one vowel sound. The cluster “str” begins the one syllable.'},
+  {id:'es4', d:2, q:'How many syllables does “elephant” have?', a:'Three', ds:['Two','Four','Five'], why:'“Elephant” is ˈe-lə-fənt: three vowel sounds.'},
+  {id:'es5', d:2, q:'How many syllables does “university” have?', a:'Five', ds:['Four','Six','Three'], why:'“University” is ˌyü-nə-ˈvər-sə-tē: five vowel sounds.'},
+  {id:'es6', d:3, q:'How many syllables does “twelfths” have?', a:'One', ds:['Two','Three','Four'], why:'“Twelfths” has one vowel sound, followed by four consonant sounds.'},
+  {id:'es7', d:1, q:'Which syllable of “photograph” is stressed?', a:'The first: “PHOtograph”', ds:['The second: “phoTOgraph”','The third: “photoGRAPH”'], why:'Merriam-Webster gives ˈfō-tə-ˌgraf, with the primary stress on the first syllable.'},
+  {id:'es8', d:1, q:'Which syllable of “photography” is stressed?', a:'The second: “phoTOGraphy”', ds:['The first: “PHOtography”','The third: “photoGRAphy”','The last: “photograPHY”'], why:'Merriam-Webster gives fə-ˈtä-grə-fē. The stress moves from where it stood in “photograph.”'},
+  {id:'es9', d:2, q:'Which syllable of “photographic” has the primary stress?', a:'The third: “photoGRAPHic”', ds:['The first: “PHOtographic”','The second: “phoTOgraphic”','The last: “photographIC”'], why:'“-ic” fixes the stress on the syllable before it: ˌfō-tə-ˈgra-fik.'},
+  {id:'es10', d:1, q:'In “a record of the game,” which syllable of “record” is stressed?', a:'The first: “REcord,” the noun', ds:['The second: “reCORD,” the verb','Both equally'], why:'The noun is stressed on the first syllable, the verb on the second.'},
+  {id:'es11', d:1, q:'In “Please record the game,” which syllable of “record” is stressed?', a:'The second: “reCORD,” the verb', ds:['The first: “REcord,” the noun','Both equally'], why:'Here “record” is a verb, stressed on the second syllable.'},
+  {id:'es12', d:2, q:'In “They will permit it,” which syllable of “permit” is stressed?', a:'The second: “perMIT”', ds:['The first: “PERmit”','Both equally'], why:'The verb “permit” is stressed on the second syllable, and the noun, “a permit,” on the first.'},
+  {id:'es13', d:2, q:'In “a present for you,” which syllable of “present” is stressed?', a:'The first: “PREsent”', ds:['The second: “preSENT”','Both equally'], why:'The noun is “PREsent,” and the verb, “to present,” is “preSENT.”'},
+  {id:'es14', d:2, q:'In “I object to that,” which syllable of “object” is stressed?', a:'The second: “obJECT”', ds:['The first: “OBject”','Both equally'], why:'The verb “object” is stressed on the second syllable; the noun, “an object,” on the first.'},
+  {id:'es15', d:3, q:'Which syllable of “education” has the primary stress?', a:'The third: “eduCAtion”', ds:['The first: “EDucation”','The second: “eDUcation”','The last: “educaTION”'], why:'“-tion” fixes the stress on the syllable before it: ˌe-jə-ˈkā-shən.'},
+  {id:'es16', d:3, q:'Which syllable of “information” has the primary stress?', a:'The third: “inforMAtion”', ds:['The first: “INformation”','The second: “inFORmation”','The last: “informaTION”'], why:'Merriam-Webster gives ˌin-fər-ˈmā-shən. The stress of “inform,” on “form,” moves to the syllable before “-tion.”'},
+  {id:'es17', d:3, q:'Which syllable of “athletic” is stressed?', a:'The second: “athLETic”', ds:['The first: “ATHletic”','The last: “athleTIC”'], why:'“Athlete” is stressed on the first syllable, but “-ic” puts the stress on the syllable before it: ath-ˈle-tik.'},
+  {id:'es18', d:3, q:'Which syllable of “economic” has the primary stress?', a:'The third: “ecoNOMic”', ds:['The first: “Economic”','The second: “eCOnomic”','The last: “economIC”'], why:'Merriam-Webster gives ˌe-kə-ˈnä-mik or ˌē-kə-ˈnä-mik: the stress is on the syllable before “-ic.”'},
+  {id:'es19', d:3, q:'Which syllable of “electricity” has the primary stress?', a:'The third: “elecTRICity”', ds:['The second: “eLECtricity”','The first: “Electricity”','The fourth: “electriCIty”'], why:'“-ity” fixes the stress on the syllable before it: i-ˌlek-ˈtri-sə-tē.'},
+  {id:'es20', d:4, q:'Which syllable of “curiosity” has the primary stress?', a:'The third: “curiOSity”', ds:['The first: “CUriosity”','The second: “cuRIosity”','The fourth: “curiosIty”'], why:'“Curious” is stressed on the first syllable, but “curiosity,” ˌkyu̇r-ē-ˈä-sə-tē, takes the stress before “-ity.”'},
+  {id:'es21', d:2, q:'Which syllable of “happiness” is stressed?', a:'The first: “HAPpiness”', ds:['The second: “hapPIness”','The last: “happiNESS”'], why:'“-ness” leaves the stress where it was in “happy.”'},
+  {id:'es22', d:3, q:'Which suffix leaves the stress where it stood in the shorter word?', a:'“-ment,” as in “government”', ds:['“-tion,” as in “education”','“-ic,” as in “athletic”','“-ity,” as in “curiosity”'], why:'“-ment,” “-ness,” and “-ful” leave the stress alone: “GOVern,” “GOVernment.” The others fix it on the syllable before them.'},
+  {id:'es23', d:4, q:'In “photographic,” which syllable carries the secondary stress?', a:'The first, “pho”', ds:['The second, “to”','The third, “graph”','The last, “ic”'], why:'Merriam-Webster gives ˌfō-tə-ˈgra-fik: secondary stress on the first syllable, primary on the third.'},
+  {id:'es24', d:4, q:'In “education,” which syllable carries the secondary stress?', a:'The first, “ed”', ds:['The second, “u”','The third, “ca”','The last, “tion”'], why:'Merriam-Webster gives ˌe-jə-ˈkā-shən: secondary on the first syllable, primary on the third.'},
+  {id:'es25', d:5, q:'In “examination,” which syllable has the primary stress?', a:'The fourth, “na”', ds:['The second, “am”','The first, “ex”','The last, “tion”'], why:'Merriam-Webster gives ig-ˌza-mə-ˈnā-shən: primary stress on “na,” before “-tion,” and secondary on “am.”'},
+  {id:'es26', d:5, q:'In “examination,” which syllable carries the secondary stress?', a:'The second, “am”', ds:['The first, “ex”','The fourth, “na”','The last, “tion”'], why:'Merriam-Webster gives ig-ˌza-mə-ˈnā-shən. The first syllable is weak, and the secondary stress falls on the second.'},
+  {id:'es27', d:2, q:'Which vowel of “about” is a schwa?', a:'The first, the “a”', ds:['The vowel of “bout”','Both vowels','Neither'], why:'“About” is ə-ˈbau̇t: the unstressed first syllable is a schwa.'},
+  {id:'es28', d:3, q:'Which syllables of “banana” have a schwa?', a:'The first and the last', ds:['Only the middle one','All three','None'], why:'“Banana” is bə-ˈna-nə: the two unstressed syllables are reduced, and the stressed middle one keeps its full vowel.'},
+  {id:'es29', d:3, q:'Which syllable of “photograph” has a schwa?', a:'The second, “to”', ds:['The first, “pho”','The third, “graph”','None'], why:'“Photograph” is ˈfō-tə-ˌgraf. The unstressed middle syllable is weak.'},
+  {id:'es30', d:4, q:'Why is the first <em>o</em> of “photography” a schwa, though it is a full vowel in “photograph”?', a:'In “photography” it is unstressed, and an unstressed vowel is often reduced', ds:['The suffix “-y” always makes a schwa','The letter <em>o</em> is a schwa in every long word','“Photography” is a verb'], why:'The stress of “photography” falls on “tog,” so the first syllable weakens: fə-ˈtä-grə-fē.'},
+  {id:'es31', d:2, q:'Which word begins with a cluster of three consonants?', a:'“Splash”', ds:['“Plash”','“Lash”','“Ash”'], why:'“Splash” begins with s, p, and l. An English syllable can begin with three consonants, and the first is then s.'},
+  {id:'es32', d:3, q:'Which of these cannot begin an English word?', a:'“tl”', ds:['“pl”','“bl”','“cl”'], why:'English allows “pl,” “bl,” and “cl” at the start of a word, as in “play,” “blue,” and “clay,” but not “tl.”'},
+  {id:'es33', d:4, q:'An English syllable can begin with three consonants. What is always the first of the three?', a:'<em>s</em>, as in “street,” “spring,” and “splash”', ds:['<em>t</em>, as in “tree”','<em>r</em>, as in “rest”','Any consonant'], why:'Three-consonant beginnings in English are s, then p, t, or k, then a liquid or glide: “spl,” “str,” “scr.”'},
+  {id:'es34', d:3, q:'English speech is called stress-timed because…', a:'The stressed syllables come at roughly even intervals, and the weak ones are squeezed between them', ds:['Every syllable takes the same time','Long and short syllables alternate, as in Latin verse','Each word is stressed on its first syllable'], why:'In English, the beats fall on stressed syllables at roughly even intervals. That is why English meter counts stresses.'},
+  {id:'es35', d:4, q:'In ordinary speech, “and” in “bread and butter” is usually…', a:'Weak, with a schwa: ən', ds:['Stressed, with the vowel of “hand”','Silent, with no sound at all','Two syllables'], why:'Small words such as “and,” “of,” and “to” are usually weak in a phrase. Merriam-Webster gives ən(d) for the weak form.'},
+  {id:'es36', d:5, q:'What does English meter count, and what does Latin meter count?', a:'English counts stressed beats; Latin counts long and short syllables', ds:['Both count long and short syllables','Both count stressed beats','English counts letters; Latin counts words'], why:'English rhythm is made by stress, and Latin rhythm by the length of syllables. The Latin study that follows measures that length.'}
+];
+EX.ensyl = {
+  id:'ensyl', src:['mw'], act:'I', title:'English Syllable and Stress',
+  desc:'Count the syllables of an English word, place its primary and secondary stress, tell how a suffix moves it, find the weak syllables and the schwa, and name the clusters and the rhythm of English. Pronunciations follow Merriam-Webster.',
+  instr:'Choose the answer.',
+  gen(d){
+    const pool = ENSYL_ITEMS.filter(x => x.d <= d);
+    const it = pickSeen(pool, x => x.id);
+    return makeMC({id:'ensyl:' + it.id, q:it.q, a:it.a, ds:it.ds, why:it.why, src:['mw'], lang:'en'}, d <= 1 ? 3 : 4);
+  }
+};
+
 const SYLL_OTHER = [
   {id:'en1', lang:'en', w:'teacher', syll:['tea','cher'], acc:0,
    why:'The stress is on the first syllable: TEA-cher. This is English stress, not Latin quantity.'},
@@ -6123,10 +6230,6 @@ const SYLL_OTHER = [
    why:'In to-GE-ther the middle syllable is stressed, and there is no penultimate law.'},
   {id:'en3', lang:'en', w:'beautiful', syll:['beau','ti','ful'], acc:0,
    why:'BEAU-ti-ful has three syllables, with the stress on the first.'},
-  {id:'en4', lang:'en', w:'photograph', syll:['pho','to','graph'], acc:0,
-   why:'PHO-to-graph is stressed on the first syllable. The related word <em>photography</em> moves the stress.'},
-  {id:'en5', lang:'en', w:'photography', syll:['pho','tog','ra','phy'], acc:1,
-   why:'pho-TOG-ra-phy is in the same family as <em>photograph</em> but has a different stress. English stress moves; Latin measures.'},
   {id:'en6', lang:'en', w:'important', syll:['im','por','tant'], acc:1,
    why:'im-POR-tant is not stressed on the first syllable, and not by a Latin measure of the penult.'},
   {id:'gr1', lang:'grc', w:'λόγος', syll:['λό','γος'], acc:0,
@@ -6138,7 +6241,7 @@ const SYLL_OTHER = [
 ];
 
 EX.syllable = {
-  id:'syllable', src:['ag','priscian','appown'], act:'I', title:'Syllable, Quantity and Accent',
+  id:'syllable', src:['ag','priscian','appown'], act:'I', title:'Latin Syllable, Quantity and Accent',
   desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill, and English is always asked. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
   instr:'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
@@ -16915,7 +17018,9 @@ const ACTS = [
       desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.', ex:['vox']},
      {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
-     {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
+     {kind:'row', deck:'ensyl', tag:'STUDY · ENGLISH GRAMMAR', title:'English Syllable and Stress',
+      desc:'How an English word is divided, its clusters of consonants, primary and secondary stress, the suffixes that move the stress, weak syllables and the schwa, and the rhythm of English speech.', ex:['ensyl']},
+     {kind:'row', deck:'syllable', tag:'STUDY', title:'Latin Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; English stress, which is not quantity.', ex:['syllable']},
      {kind:'row', lang:'grc', deck:'grcsyl', tag:'STUDY · GREEK', title:'Greek Syllable, Quantity, and Accent',
       desc:'The Greek syllable and its quantity, the three accents and the law of limitation, and the breathings.', ex:['grcsyl']},
