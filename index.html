@@ -2850,7 +2850,7 @@ DECKS.produce = {
 
 /* -------------------------------------------------------------- */
 DECKS.govern = {
-  title:'Government',
+  title:'What Requires a Case',
   sub:'How one word requires a case of another',
   panels:[
 
@@ -5190,7 +5190,8 @@ DECKS.poscompare = {
       correct:0,
       explain:'Each list adds one part the other lacks. Priscian remarks that Latin has no article.' } },
 
-{ src:['smyth','priscian'], h:`<p><strong>THE ARTICLE.</strong> Greek has a definite article, <em>ὁ, ἡ, τό</em>, and no indefinite one: <em>ὁ ἄνθρωπος</em> is “the man,” and <em>ἄνθρωπος</em> alone “a man” or “man.” The article grew from a demonstrative pronoun, as it did in the Romance languages and in German, and in Homer it is often still a pronoun.</p>
+{ src:['smyth','priscian','lawless','duden'], h:`<p><strong>THE ARTICLE.</strong> Latin has none; Greek, French, and German each have one, and in each it stands with its noun and agrees with it: in gender, number, and case in Greek and German, in gender and number in French. Greek has a definite article, <em>ὁ, ἡ, τό</em>, and no indefinite one: <em>ὁ ἄνθρωπος</em> is “the man,” and <em>ἄνθρωπος</em> alone “a man” or “man,” not the same phrase. French and German have both: <em>le roi, un roi</em>; <em>der König, ein König</em>. In French and German an ordinary noun has an article or some other determiner, and their grammars count the article as a part of speech, as the Greek grammarians did.</p>
+<p>The article grew from a demonstrative pronoun, as it did in the Romance languages and in German, and in Homer it is often still a pronoun.</p>
 <p>The Greek article can also turn almost anything into a noun: <em>τὸ καλόν</em>, “the beautiful”; <em>οἱ τότε</em>, “the men of that time”; <em>τὸ φιλοσοφεῖν</em>, “philosophizing.” Latin, without an article, must use a noun, a relative clause, or the bare adjective.</p>`,
   q:{ prompt:'In Greek, <em>τὸ φιλοσοφεῖν</em> is…',
       options:['An infinitive made a noun by the article: “philosophizing”','A finite verb: “he philosophizes”','An adjective: “philosophical”','A participle: “philosophizing” said of a man'],
@@ -6775,7 +6776,7 @@ const GOVERN_ITEMS = [
 ];
 
 EX.govern = {
-  id:'govern', src:['ag','appown'], act:'IV', title:'Government',
+  id:'govern', src:['ag','appown'], act:'IV', title:'What Requires a Case',
   desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> is the clearest teaching case, since the same small word takes two cases with two meanings. In English, government shows only in pronouns, and the questions ask why a pronoun takes the form it has.',
   instr:'Name the case the word requires, or write the form it requires.',
   gen(d){
@@ -9135,7 +9136,8 @@ DECKS.grcmeter = {
       options:['Marks pitch and does not make the syllable long','Makes the syllable long','Marks a stress, as in English','Marks the caesura'],
       correct:0, explain:'Greek meter is built of quantity; the ancient accent was a matter of pitch.' } },
 { src:['smyth','hypo'], h:`<p><strong>THE DACTYLIC HEXAMETER.</strong> Six feet, each a dactyl (— ᴗ ᴗ) or a spondee (— —), the fifth almost always a dactyl and the sixth two syllables. It is the meter of Homer and Hesiod: <em>μῆνιν ἄ|ειδε θε|ὰ Πη|ληϊά|δεω Ἀχι|λῆος</em>. A <strong>caesura</strong>, a word end, falls inside the third foot.</p>
-<p>A long vowel or diphthong at the end of a word before another vowel is often shortened (<strong>epic correption</strong>).</p>`,
+<p>A long vowel or diphthong at the end of a word before another vowel is often shortened (<strong>epic correption</strong>).</p>
+<p>Virgil and Ovid write the same line in Latin. Homer’s Greek is older than Attic, and a form that fits the meter in Homer is not, for that reason, the Attic form taught in the paradigms.</p>`,
   q:{ prompt:'The fifth foot of a hexameter is usually…',
       options:['A dactyl','A spondee','An iamb','A trochee'],
       correct:0, explain:'The dactyl in the fifth foot gives the line its closing cadence.' } },
@@ -16617,15 +16619,16 @@ const PARTNER_ROW = {grc:'English, Latin, and Greek', de:'English, Latin, and Ge
 /* The cards of the three languages that are not about the accidents, and where each goes: 'syl' to the language's
    syllable study (section I), 'pos' to The Parts of Speech Compared (section II), 'meter' to the language's meter
    (section IV), 'order' to the language's study of word order (section IV). 'dup' marks a card whose matter the
-   syllable study already gives in full, so it is not shown twice; the card stays in the data. The rest stay in
+   syllable study already gives in full, and 'merged' one whose matter has been written into the deck it belongs to
+   (the article into The Parts of Speech Compared, the hexameter into Greek Meter); so it is not shown twice; the card stays in the data. The rest stay in
    Accidentia. */
 const CARD_MOVE = {
   grc:{'Breathings':'dup', 'Accent':'dup', 'Movable nu':'syl', 'The macron':'syl', 'Enclitics and proclitics':'syl',
-       'The article':'pos', 'Particles':'pos', 'Word formation':'pos', 'The hexameter':'meter',
+       'The article':'merged', 'Particles':'pos', 'Word formation':'pos', 'The hexameter':'merged',
        'The object':'order', 'Word order':'order'},
-  de:{'The article':'pos', 'Preposition and article together':'pos', 'Separable prefixes and particles':'pos',
+  de:{'The article':'merged', 'Preposition and article together':'pos', 'Separable prefixes and particles':'pos',
       'Word formation':'pos', 'Word order':'order'},
-  fr:{'Elision':'dup', 'Accents and the cedilla':'syl', 'The article':'pos', 'Word formation':'pos',
+  fr:{'Elision':'dup', 'Accents and the cedilla':'syl', 'The article':'merged', 'Word formation':'pos',
       'Word order':'order', 'Negation':'order'}
 };
 /* The Accidents of Greek Compared to Latin: the study deck, one panel for each card of greek-cards.json, heading and text as written there. */
@@ -17547,7 +17550,7 @@ const ACTS = [
       desc:'Priscian’s definition of the sentence: a fitting arrangement of words showing a complete sense. What the sentence is about and what is said of it, and the four causes of a construction.', ex:[]},
      {kind:'row', deck:'agree', tag:'STUDY', title:'Agreement',
       desc:'The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent.', ex:['agree']},
-     {kind:'row', deck:'govern', tag:'STUDY', title:'Government',
+     {kind:'row', deck:'govern', tag:'STUDY', title:'What Requires a Case',
       desc:'The verb governing its object’s case, and the preposition its complement’s. Latin <em>in</em> takes two cases, for place where and for place to which.', ex:['govern']},
      {kind:'row', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
       desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild']},
