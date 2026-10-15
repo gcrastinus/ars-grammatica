@@ -27,7 +27,7 @@ window.FRENCH = {
     "gender": "m",
     "article": "l’",
     "gloss": "man",
-    "note": "The definite article elides: l’homme, not le homme.",
+    "note": "The definite article elides: <em>l’homme</em>, not <em>le homme</em>.",
     "ref": "Larousse, s.v. homme, nom masculin, larousse.fr/dictionnaires/francais/homme/40240, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
    },
    {
@@ -36,7 +36,7 @@ window.FRENCH = {
     "gender": "m",
     "article": "le",
     "gloss": "horse",
-    "note": "The plural is chevaux. A plural chevals is not a French form.",
+    "note": "The plural is <em>chevaux</em>. A plural <em>chevals</em> is not a French form.",
     "ref": "Larousse, s.v. cheval, chevaux, nom masculin, larousse.fr/dictionnaires/francais/cheval/15173, read 2026-10-09. Larousse, s.v. pluriel, gives chevaux as the plural of cheval. Larousse junior, s.v. cheval, prints Au pluriel: des chevaux."
    },
    {
@@ -53,7 +53,7 @@ window.FRENCH = {
     "gender": "f",
     "article": "la",
     "gloss": "sea",
-    "note": "This is the sea. Larousse lists maire and mère as homonyms, and those are other words.",
+    "note": "This is the sea. Larousse lists maire and <em>mère</em> as homonyms, and those are other words.",
     "ref": "Larousse, s.v. mer, nom féminin, larousse.fr/dictionnaires/francais/mer/50562, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
    },
    {
@@ -62,7 +62,7 @@ window.FRENCH = {
     "gender": "m",
     "article": "le",
     "gloss": "book",
-    "note": "This is the book, Larousse livre 1, nom masculin. The feminine livre is the pound, and it is another word. Livres is also a form of the verb livrer, which is not in this set.",
+    "note": "This is the book, Larousse <em>livre</em> 1, nom masculin. The feminine <em>livre</em> is the pound, and it is another word. <em>Livres</em> is also a form of the verb livrer, which is not in this set.",
     "ref": "Larousse, s.v. livre, nom masculin, assemblage de feuilles, larousse.fr/dictionnaires/francais/livre/47531, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
    },
    {
@@ -81,7 +81,7 @@ window.FRENCH = {
     "gloss": "friend",
     "feminine": "amie",
     "feminine_plural": "amies",
-    "note": "The headword is ami, amie. The article elides before the vowel.",
+    "note": "The headword is <em>ami</em>, <em>amie</em>. The article elides before the vowel.",
     "ref": "Larousse, Dictionnaire de français, s.v. ami, amie, read 2026-10-09. The headword prints both genders. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
    },
    {
@@ -90,7 +90,7 @@ window.FRENCH = {
     "gender": "m",
     "article": "le",
     "gloss": "gift",
-    "note": "A noun in -eau takes -x in the plural: cadeaux.",
+    "note": "A noun in <em>-eau</em> takes <em>-x</em> in the plural: <em>cadeaux</em>.",
     "ref": "Larousse junior, s.v. cadeau, nom masculin, Au pluriel: des cadeaux, larousse.fr/dictionnaires/junior/cadeau/2550, read 2026-10-09. Larousse, s.v. pluriel, names x as a written plural mark."
    },
    {
@@ -181,7 +181,7 @@ window.FRENCH = {
     "kind": "irregular, third group",
     "auxiliary": "être",
     "tabulated": true,
-    "note": "Aller ends in -er and is not in the first group. Le Conjugueur gives three stems: va- in the present, ir- in the future, all- elsewhere.",
+    "note": "<em>Aller</em> ends in <em>-er</em> and is not in the first group. <em>Le</em> Conjugueur gives three stems: va- in the present, ir- in the future, all- elsewhere.",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
    },
    {
@@ -190,7 +190,7 @@ window.FRENCH = {
     "kind": "irregular, third group",
     "auxiliary": "avoir",
     "tabulated": true,
-    "note": "The second person plural of the present is faites, and the first person plural is faisons.",
+    "note": "The second person plural of the present is <em>faites</em>, and the first person plural is <em>faisons</em>.",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
    },
    {
@@ -264,7 +264,7 @@ window.FRENCH = {
     "feminine": "bonne",
     "gloss": "good",
     "class": "regular, with nn in the feminine",
-    "note": "The feminine is bonne, bonnes. The masculine plural is bons. The n is doubled in the feminine. No compared form is asked.",
+    "note": "The feminine is <em>bonne</em>, <em>bonnes</em>. The masculine plural is <em>bons</em>. The n is doubled in the feminine. No compared form is asked.",
     "ref": "Laura K. Lawless, Lawless French, Agreement, lawlessfrench.com/grammar/agreement/, read 2026-10-09 The four forms are the ordinary ones. The own Larousse entry for this adjective was not opened in this pass."
    },
    {
@@ -287,7 +287,7 @@ window.FRENCH = {
     "gloss": "beautiful",
     "class": "masculine singular bel before a vowel or a mute h",
     "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
-    "note": "Lawless prints beau, bel, belle, beaux, belles, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for bel."
+    "note": "Lawless prints <em>beau</em>, <em>bel</em>, <em>belle</em>, <em>beaux</em>, <em>belles</em>, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for <em>bel</em>."
    },
    {
     "lemma": "vieux",
@@ -295,7 +295,7 @@ window.FRENCH = {
     "gloss": "old",
     "class": "masculine singular vieil before a vowel or a mute h",
     "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
-    "note": "Lawless prints vieux, vieil, vieille, vieux, vieilles, with the example un vieil homme, and says there is no special plural, as in trois vieux hommes. Larousse says vieil is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps vieux before a vowel. The form asked here is vieil."
+    "note": "Lawless prints <em>vieux</em>, <em>vieil</em>, <em>vieille</em>, <em>vieux</em>, <em>vieilles</em>, with the example <em>un vieil homme</em>, and says there is no special plural, as in trois <em>vieux hommes</em>. Larousse says <em>vieil</em> is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps <em>vieux</em> before a vowel. The form asked here is <em>vieil</em>."
    },
    {
     "lemma": "heureux",
@@ -382,7 +382,7 @@ window.FRENCH = {
     "lemma": "ce",
     "pos": "pronoun",
     "gloss": "this, that",
-    "note": "With est, the vowel drops: c’est. After c’est the pronoun is the stressed form.",
+    "note": "With <em>est</em>, the vowel drops: <em>c’est</em>. After <em>c’est</em> the pronoun is the stressed form.",
     "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
    }
   ]
@@ -395,7 +395,7 @@ window.FRENCH = {
    "lemma": "le, la, les",
    "gloss": "the; a; some",
    "ref": "Laura K. Lawless, Lawless French, Articles, Definite articles, and Partitive article, lawlessfrench.com, read 2026-10-09",
-   "note": "The definite article agrees in gender and number. Le and la become l’ before a vowel or a mute h. À contracts with le and les, and de contracts with le and les. À la, à l’, de la, and de l’ do not contract. Du is both the masculine partitive and the contraction of de + le. Des is the indefinite plural, the partitive plural, and the contraction of de + les. The school rule reduces des to de before a preceding adjective in the plural, and usage also keeps des. That choice is not asked. In a negative sentence the indefinite and the partitive usually become de. That choice is not asked either.",
+   "note": "The definite article agrees in gender and number. <em>Le</em> and <em>la</em> become <em>l’</em> before a vowel or a mute h. <em>À</em> contracts with <em>le</em> and <em>les</em>, and <em>de</em> contracts with <em>le</em> and <em>les</em>. <em>À la</em>, <em>à l’</em>, <em>de la</em>, and <em>de l’</em> do not contract. <em>Du</em> is both the masculine partitive and the contraction of <em>de</em> + <em>le</em>. <em>Des</em> is the indefinite plural, the partitive plural, and the contraction of <em>de</em> + <em>les</em>. The school rule reduces <em>des</em> to <em>de</em> before a preceding adjective in the plural, and usage also keeps <em>des</em>. That choice is not asked. In a negative sentence the indefinite and the partitive usually become <em>de</em>. That choice is not asked either.",
    "forms": {
     "definite": {
      "m_sg": "le",
@@ -561,7 +561,7 @@ window.FRENCH = {
      "m_pl": "bons",
      "f_pl": "bonnes"
     },
-    "note": "The feminine is bonne, bonnes. The masculine plural is bons. The n is doubled in the feminine. No compared form is asked."
+    "note": "The feminine is <em>bonne</em>, <em>bonnes</em>. The masculine plural is <em>bons</em>. The n is doubled in the feminine. No compared form is asked."
    },
    {
     "lemma": "petit",
@@ -595,7 +595,7 @@ window.FRENCH = {
      "m_pl": "beaux",
      "f_pl": "belles"
     },
-    "note": "Lawless prints beau, bel, belle, beaux, belles, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for bel."
+    "note": "Lawless prints <em>beau</em>, <em>bel</em>, <em>belle</em>, <em>beaux</em>, <em>belles</em>, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for <em>bel</em>."
    },
    {
     "lemma": "vieux",
@@ -607,7 +607,7 @@ window.FRENCH = {
      "m_pl": "vieux",
      "f_pl": "vieilles"
     },
-    "note": "Lawless prints vieux, vieil, vieille, vieux, vieilles, with the example un vieil homme, and says there is no special plural, as in trois vieux hommes. Larousse says vieil is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps vieux before a vowel. The form asked here is vieil."
+    "note": "Lawless prints <em>vieux</em>, <em>vieil</em>, <em>vieille</em>, <em>vieux</em>, <em>vieilles</em>, with the example <em>un vieil homme</em>, and says there is no special plural, as in trois <em>vieux hommes</em>. Larousse says <em>vieil</em> is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps <em>vieux</em> before a vowel. The form asked here is <em>vieil</em>."
    },
    {
     "lemma": "heureux",
@@ -623,7 +623,7 @@ window.FRENCH = {
   ],
   "pronouns": {
    "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09",
-   "note": "Me, te, le, and la elide before a vowel or a mute h: m’, t’, l’. Lui as an indirect object is masculine or feminine. Lui as a stressed pronoun is masculine, and the feminine stressed form is elle. Nous and vous have one spelling for the subject, the direct object, the indirect object, and the stressed form, so the place shows the use. The reflexive series is me, te, se, nous, vous, se. It is not asked. Y and en are not in this table.",
+   "note": "<em>Me</em>, <em>te</em>, <em>le</em>, and <em>la</em> elide before a vowel or a mute h: m’, t’, <em>l’</em>. <em>Lui</em> as an indirect object is masculine or feminine. <em>Lui</em> as a stressed pronoun is masculine, and the feminine stressed form is <em>elle</em>. <em>Nous</em> and <em>vous</em> have one spelling for the subject, the direct object, the indirect object, and the stressed form, so the place shows the use. The reflexive series is <em>me</em>, <em>te</em>, <em>se</em>, <em>nous</em>, <em>vous</em>, <em>se</em>. It is not asked. <em>Y</em> and <em>en</em> are not in this <em>table</em>.",
    "subject": {
     "1s": "je",
     "2s": "tu",
@@ -680,7 +680,7 @@ window.FRENCH = {
     "kind": "irregular",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "Être takes avoir in the passé composé. Le Conjugueur prints the participle été four times, with no feminine ending. The future stem is ser-. Je serai is future. Je serais is conditional and is not entered.",
+    "note": "<em>Être</em> takes <em>avoir</em> in the passé composé. <em>Le</em> Conjugueur prints the participle <em>été</em> four times, with no feminine ending. The future stem is ser-. <em>Je serai</em> is future. <em>Je serais</em> is conditional and is not entered.",
     "present": {
      "1s": "suis",
      "2s": "es",
@@ -735,7 +735,7 @@ window.FRENCH = {
     "kind": "irregular",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "The passé composé cells are the forms with no agreement, which is the agreement with the subject. The participle eu takes e and s when it agrees with a preceding direct object. Those agreeing forms are stored under participe_passe and are not asked. The future stem is aur-.",
+    "note": "The passé composé cells are the forms with no agreement, which is the agreement with the subject. The participle <em>eu</em> takes e and s when it agrees with a preceding direct object. Those agreeing forms are stored under participe_<em>passe</em> and are not asked. The future stem is aur-.",
     "present": {
      "1s": "ai",
      "2s": "as",
@@ -790,7 +790,7 @@ window.FRENCH = {
     "kind": "regular -er, first group",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "Le Conjugueur calls this the general pattern of verbs in -er. The auxiliary is avoir, so the passé composé does not agree with the subject. For an -er verb, the singular and the third person plural of the present subjunctive are spelled like the present indicative, and the nous and vous forms are spelled like the imparfait. The clause shows which is meant. Le Robert, Dico en ligne, « Subjonctif », dictionnaire.lerobert.com, read 2026-10-09",
+    "note": "<em>Le</em> Conjugueur calls this the general pattern of verbs in <em>-er</em>. The auxiliary is <em>avoir</em>, so the passé composé does not agree with the subject. For an <em>-er</em> verb, the singular and the third person plural of the present subjunctive are spelled like the present indicative, and the <em>nous</em> and <em>vous</em> forms are spelled like the imparfait. The clause shows which is meant. <em>Le</em> Robert, Dico <em>en</em> ligne, « Subjonctif », dictionnaire.lerobert.com, read 2026-10-09",
     "present": {
      "1s": "parle",
      "2s": "parles",
@@ -845,7 +845,7 @@ window.FRENCH = {
     "kind": "regular -ir, second group",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "Le Conjugueur: verbs in -ir that form the present participle in -issant. The nous and vous forms of the imparfait and of the present subjunctive are spelled alike. The present and the present subjunctive also share finissent. The imperfect subjunctive, which is not entered, spells que je finisse like the present subjunctive.",
+    "note": "<em>Le</em> Conjugueur: verbs in <em>-ir</em> that form the present participle in <em>-issant</em>. The <em>nous</em> and <em>vous</em> forms of the imparfait and of the present subjunctive are spelled alike. The present and the present subjunctive also share <em>finissent</em>. The imperfect subjunctive, which is not entered, spells <em>que je finisse</em> like the present subjunctive.",
     "present": {
      "1s": "finis",
      "2s": "finis",
@@ -900,7 +900,7 @@ window.FRENCH = {
     "kind": "regular -re, third group",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "Le Conjugueur: the general pattern of verbs in -dre, except prendre. The third person singular of the present is vend, with no added letter. The future stem drops the final e of the infinitive: vendr-.",
+    "note": "<em>Le</em> Conjugueur: the general pattern of verbs in <em>-dre</em>, except <em>prendre</em>. The third person singular of the present is <em>vend</em>, with no added letter. The future stem drops the final e of the infinitive: vendr-.",
     "present": {
      "1s": "vends",
      "2s": "vends",
@@ -955,7 +955,7 @@ window.FRENCH = {
     "kind": "irregular, third group",
     "auxiliary": "être",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "The main table prints the masculine participle. The feminine cells are the participle list on the same page, joined to the same auxiliary. Vous is êtes allé for one man, êtes allée for one woman, êtes allés for a masculine or mixed group, and êtes allées for a feminine group. The stored 2p cell is the plural masculine that the main table prints. It is not asked.",
+    "note": "The main <em>table</em> prints the masculine participle. The feminine cells are the participle list on the same page, joined to the same auxiliary. <em>Vous</em> is <em>êtes allé</em> for one man, <em>êtes allée</em> for one woman, <em>êtes allés</em> for a masculine or mixed group, and <em>êtes allées</em> for a feminine group. The stored 2p cell is the plural masculine that the main <em>table</em> prints. It is not asked.",
     "present": {
      "1s": "vais",
      "2s": "vas",
@@ -1015,7 +1015,7 @@ window.FRENCH = {
     "kind": "irregular, third group",
     "auxiliary": "avoir",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "Le Conjugueur notes the second person plural faites beside nous faisons. The future stem is fer-. The participle agrees when it is a preceding direct object: faite, faits, faites. Those cells are stored and are not asked.",
+    "note": "<em>Le</em> Conjugueur notes the second person plural <em>faites</em> beside <em>nous faisons</em>. The future stem is fer-. The participle agrees when it is a preceding direct object: <em>faite</em>, <em>faits</em>, <em>faites</em>. Those cells are stored and are not asked.",
     "present": {
      "1s": "fais",
      "2s": "fais",
@@ -1070,7 +1070,7 @@ window.FRENCH = {
     "kind": "irregular, third group",
     "auxiliary": "être",
     "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-    "note": "The auxiliary is être, as for aller. The main table prints the masculine participle. Feminine cells are on the same page’s participle list. The future stem is viendr-. Vous follows the same split as aller, and the stored 2p cell is the table’s masculine plural. It is not asked. Venir de plus an infinitive means to have just done, and that construction is not asked.",
+    "note": "The auxiliary is <em>être</em>, as for <em>aller</em>. The main <em>table</em> prints the masculine participle. Feminine cells are on the same page’s participle list. The future stem is viendr-. <em>Vous</em> follows the same split as <em>aller</em>, and the stored 2p cell is the table’s masculine plural. It is not asked. <em>Venir de</em> plus an infinitive means to have just done, and that construction is not asked.",
     "present": {
      "1s": "viens",
      "2s": "viens",
@@ -1138,25 +1138,25 @@ window.FRENCH = {
      ]
     },
     {
-     "h": "<strong>The pronoun.</strong> An object pronoun stands before the verb, and after a preposition French uses the stressed form: moi, toi, lui, elle, nous, vous, eux, elles.",
+     "h": "<strong>The pronoun.</strong> An object pronoun stands before the verb, and after a preposition French uses the stressed form: <em>moi</em>, <em>toi</em>, <em>lui</em>, <em>elle</em>, <em>nous</em>, <em>vous</em>, <em>eux</em>, <em>elles</em>.",
      "eg": [
       "<span lang=\"fr\">le roi me voit; le livre est pour moi</span>"
      ]
     },
     {
-     "h": "<strong>À and de.</strong> French has no dative or genitive case on the noun. The person who receives is introduced by à, and the possessor by de, and both contract with le and les: au, aux, du, des.",
+     "h": "<strong>À and de.</strong> French has no dative or genitive case on the noun. The person who receives is introduced by <em>à</em>, and the possessor by <em>de</em>, and both contract with <em>le</em> and <em>les</em>: <em>au</em>, <em>aux</em>, <em>du</em>, <em>des</em>.",
      "eg": [
       "<span lang=\"fr\">le roi donne le livre au juge; le livre du roi est bon</span>"
      ]
     },
     {
-     "h": "<strong>Et.</strong> Two subjects joined by et take a plural verb, and an adjective that describes a masculine and a feminine noun together is masculine plural.",
+     "h": "<strong>Et.</strong> Two subjects joined by <em>et</em> take a plural verb, and an adjective that describes a masculine and a feminine noun together is masculine plural.",
      "eg": [
       "<span lang=\"fr\">le roi et la reine sont contents</span>"
      ]
     },
     {
-     "h": "<strong>Place.</strong> À stands before a city, en before a feminine country, au before a masculine one, and aux before a plural one; de shows motion from.",
+     "h": "<strong>Place.</strong> <em>À</em> stands before a city, <em>en</em> before a feminine country, <em>au</em> before a masculine one, and <em>aux</em> before a plural one; <em>de</em> shows motion from.",
      "eg": [
       "<span lang=\"fr\">à Paris, en France, au Canada, aux États-Unis; il vient de Paris</span>"
      ]
@@ -1174,7 +1174,7 @@ window.FRENCH = {
       "portez",
       "portent"
      ],
-     "why": "The subject is nous, the first person plural, and the ending -ons marks that person. Porte is singular, portez is the second person plural, and portent is the third person plural."
+     "why": "The subject is <em>nous</em>, the first person plural, and the ending <em>-ons</em> marks that person. <em>Porte</em> is singular, <em>portez</em> is the second person plural, and <em>portent</em> is the third person plural."
     },
     {
      "id": "frmore2",
@@ -1187,7 +1187,7 @@ window.FRENCH = {
       "parlez",
       "parlons"
      ],
-     "why": "Tu is the second person singular, and a verb in -er ends in -es in that person. Parle is the first or third person singular, and parlez and parlons are plural."
+     "why": "<em>Tu</em> is the second person singular, and a verb in <em>-er</em> ends in <em>-es</em> in that person. <em>Parle</em> is the first or third person singular, and <em>parlez</em> and <em>parlons</em> are plural."
     },
     {
      "id": "frmore3",
@@ -1200,7 +1200,7 @@ window.FRENCH = {
       "finissons",
       "finis"
      ],
-     "why": "Ils is the third person plural, and finir, a verb of the second group, adds -iss- in the plural: finissent. Finit and finis are singular, and finissons is the first person plural."
+     "why": "<em>Ils</em> is the third person plural, and <em>finir</em>, a verb of the second group, adds <em>-iss-</em> in the plural: <em>finissent</em>. <em>Finit</em> and <em>finis</em> are singular, and <em>finissons</em> is the first person plural."
     },
     {
      "id": "frmore4",
@@ -1213,7 +1213,7 @@ window.FRENCH = {
       "vendons",
       "vendez"
      ],
-     "why": "Je is the first person singular, and vendre ends in -s in that person. Vend is the third person singular, and vendons and vendez are plural."
+     "why": "<em>Je</em> is the first person singular, and <em>vendre</em> ends in <em>-s</em> in that person. <em>Vend</em> is the third person singular, and <em>vendons</em> and <em>vendez</em> are plural."
     },
     {
      "id": "frmore5",
@@ -1226,7 +1226,7 @@ window.FRENCH = {
       "sont",
       "est"
      ],
-     "why": "Vous is the second person plural, and the form of être for that person is êtes. Sommes is the first person plural, sont the third person plural, and est the third person singular."
+     "why": "<em>Vous</em> is the second person plural, and the form of <em>être</em> for that person is <em>êtes</em>. <em>Sommes</em> is the first person plural, <em>sont</em> the third person plural, and <em>est</em> the third person singular."
     },
     {
      "id": "frmore6",
@@ -1239,7 +1239,7 @@ window.FRENCH = {
       "ai",
       "ont"
      ],
-     "why": "La reine is a third person singular subject, and the form of avoir for that person is a. As and ai are the second and first person singular, and ont is plural."
+     "why": "<em>La reine</em> is a third person singular subject, and the form of <em>avoir</em> for that person is a. As and <em>ai</em> are the second and first person singular, and <em>ont</em> is plural."
     },
     {
      "id": "frmore7",
@@ -1252,7 +1252,7 @@ window.FRENCH = {
       "vont",
       "va"
      ],
-     "why": "Nous is the first person plural, and the form of aller for that person is allons. Allez is the second person plural, vont the third person plural, and va the third person singular."
+     "why": "<em>Nous</em> is the first person plural, and the form of <em>aller</em> for that person is <em>allons</em>. <em>Allez</em> is the second person plural, <em>vont</em> the third person plural, and <em>va</em> the third person singular."
     },
     {
      "id": "frmore8",
@@ -1265,7 +1265,7 @@ window.FRENCH = {
       "venons",
       "venez"
      ],
-     "why": "Les amis is a third person plural subject, and the form of venir for that person is viennent. Vient is singular, and venons and venez are the first and second persons plural."
+     "why": "<em>Les amis</em> is a third person plural subject, and the form of <em>venir</em> for that person is <em>viennent</em>. <em>Vient</em> is singular, and <em>venons</em> and <em>venez</em> are the first and second persons plural."
     },
     {
      "id": "frmore9",
@@ -1278,7 +1278,7 @@ window.FRENCH = {
       "je",
       "mon"
      ],
-     "why": "Me is the object pronoun of the first person, and it stands before the verb. Moi is the stressed form, used after a preposition or alone, je is the subject, and mon is the possessive."
+     "why": "<em>Me</em> is the object pronoun of the first person, and it stands before the verb. <em>Moi</em> is the stressed form, used after a preposition or alone, <em>je</em> is the subject, and <em>mon</em> is the possessive."
     },
     {
      "id": "frmore10",
@@ -1291,7 +1291,7 @@ window.FRENCH = {
       "elle",
       "le"
      ],
-     "why": "The direct object pronoun for a feminine singular person or thing is la, and it stands before the verb. Le would mean him, elle is the subject or stressed form, and lui is the indirect object."
+     "why": "The direct object pronoun for a feminine singular person or thing is <em>la</em>, and it stands before the verb. <em>Le</em> would mean him, <em>elle</em> is the subject or stressed form, and <em>lui</em> is the indirect object."
     },
     {
      "id": "frmore11",
@@ -1304,7 +1304,7 @@ window.FRENCH = {
       "il",
       "leur"
      ],
-     "why": "The king receives the book, so he is the indirect object, and the indirect object pronoun of the third person singular is lui. Le is the direct object, il the subject, and leur is plural."
+     "why": "The king receives the book, so he is the indirect object, and the indirect object pronoun of the third person singular is <em>lui</em>. <em>Le</em> is the direct object, <em>il</em> the subject, and <em>leur</em> is plural."
     },
     {
      "id": "frmore12",
@@ -1317,7 +1317,7 @@ window.FRENCH = {
       "les",
       "leurs"
      ],
-     "why": "The indirect object pronoun of the third person plural is leur, and it never takes an s. Lui is singular, les is the direct object, and leurs is the possessive adjective before a plural noun."
+     "why": "The indirect object pronoun of the third person plural is <em>leur</em>, and it never takes an s. <em>Lui</em> is singular, <em>les</em> is the direct object, and <em>leurs</em> is the possessive adjective before a plural noun."
     },
     {
      "id": "frmore13",
@@ -1330,7 +1330,7 @@ window.FRENCH = {
       "je",
       "mon"
      ],
-     "why": "After a preposition French uses the stressed pronoun, so pour moi. Me is the object pronoun, which stands before a verb, and je is the subject."
+     "why": "After a preposition French uses the stressed pronoun, so <em>pour moi</em>. <em>Me</em> is the object pronoun, which stands before a verb, and <em>je</em> is the subject."
     },
     {
      "id": "frmore14",
@@ -1343,7 +1343,7 @@ window.FRENCH = {
       "eux",
       "lui"
      ],
-     "why": "The horses are the direct object, and the direct object pronoun of the third person plural is les. Leur is the indirect object, eux is the stressed form, and lui is singular."
+     "why": "The horses are the direct object, and the direct object pronoun of the third person plural is <em>les</em>. <em>Leur</em> is the indirect object, <em>eux</em> is the stressed form, and <em>lui</em> is singular."
     },
     {
      "id": "frmore15",
@@ -1356,7 +1356,7 @@ window.FRENCH = {
       "nos",
       "on"
      ],
-     "why": "The object pronoun of the first person plural is nous, the same form as the subject, and it stands before the verb. Notre and nos are possessives, and on is a subject pronoun."
+     "why": "The object pronoun of the first person plural is <em>nous</em>, the same form <em>as</em> the subject, and it stands before the verb. <em>Notre</em> and <em>nos</em> are possessives, and on is a subject pronoun."
     },
     {
      "id": "frmore16",
@@ -1369,7 +1369,7 @@ window.FRENCH = {
       "les",
       "ils"
      ],
-     "why": "After a preposition French uses the stressed pronoun, and the stressed form of the third person plural masculine is eux. Leur and les are object pronouns, and ils is the subject."
+     "why": "After a preposition French uses the stressed pronoun, and the stressed form of the third person plural masculine is <em>eux</em>. <em>Leur</em> and <em>les</em> are object pronouns, and <em>ils</em> is the subject."
     },
     {
      "id": "frmore17",
@@ -1382,7 +1382,7 @@ window.FRENCH = {
       "à le",
       "aux"
      ],
-     "why": "Ami begins with a vowel, so the article is l’, and à l’ does not contract. Au is à and le, which is used before a consonant, and aux is plural."
+     "why": "<em>Ami</em> begins with a vowel, so the article is <em>l’</em>, and <em>à l’</em> does not contract. <em>Au</em> is <em>à</em> and <em>le</em>, which is used before a consonant, and <em>aux</em> is plural."
     },
     {
      "id": "frmore18",
@@ -1395,7 +1395,7 @@ window.FRENCH = {
       "aux",
       "à le"
      ],
-     "why": "The person who receives is introduced by à, and reine is feminine, so the form is à la, which does not contract. Au is masculine, and aux is plural."
+     "why": "The person who receives is introduced by <em>à</em>, and <em>reine</em> is feminine, so the form is <em>à la</em>, which does not contract. <em>Au</em> is masculine, and <em>aux</em> is plural."
     },
     {
      "id": "frmore19",
@@ -1408,7 +1408,7 @@ window.FRENCH = {
       "à les",
       "des"
      ],
-     "why": "À and les contract to aux before a plural noun. Au is singular, à les is never written, and des is de and les."
+     "why": "<em>À</em> and <em>les</em> contract to <em>aux</em> before a plural noun. <em>Au</em> is singular, <em>à les</em> is never written, and <em>des</em> is <em>de</em> and <em>les</em>."
     },
     {
      "id": "frmore20",
@@ -1421,7 +1421,7 @@ window.FRENCH = {
       "à le",
       "le"
      ],
-     "why": "The king receives the letter, so he is introduced by à, and à and le contract to au. Du is de and le, and à le is never written."
+     "why": "The king receives the letter, so he is introduced by <em>à</em>, and <em>à</em> and <em>le</em> contract to <em>au</em>. <em>Du</em> is <em>de</em> and <em>le</em>, and <em>à le</em> is never written."
     },
     {
      "id": "frmore21",
@@ -1434,7 +1434,7 @@ window.FRENCH = {
       "des",
       "au"
      ],
-     "why": "Parler takes à before the person spoken to, and à and les contract to aux. Des is de and les, and au is singular."
+     "why": "<em>Parler</em> takes <em>à</em> before the person spoken to, and <em>à</em> and <em>les</em> contract to <em>aux</em>. <em>Des</em> is <em>de</em> and <em>les</em>, and <em>au</em> is singular."
     },
     {
      "id": "frmore22",
@@ -1447,7 +1447,7 @@ window.FRENCH = {
       "à le",
       "de l’"
      ],
-     "why": "Homme begins with a mute h, so the article is l’, and à l’ does not contract. Au is used before a consonant, and de l’ would mean of the man."
+     "why": "<em>Homme</em> begins with a mute h, so the article is <em>l’</em>, and <em>à l’</em> does not contract. <em>Au</em> is used before a consonant, and <em>de l’</em> would mean of the man."
     },
     {
      "id": "frmore23",
@@ -1460,7 +1460,7 @@ window.FRENCH = {
       "à les",
       "des"
      ],
-     "why": "À and les contract to aux. Au is singular, and des is de and les."
+     "why": "<em>À</em> and <em>les</em> contract to <em>aux</em>. <em>Au</em> is singular, and <em>des</em> is <em>de</em> and <em>les</em>."
     },
     {
      "id": "frmore24",
@@ -1473,7 +1473,7 @@ window.FRENCH = {
       "de la",
       "à le"
      ],
-     "why": "Femme is feminine, so the person who receives is introduced by à la, which does not contract. De la would mean of the woman."
+     "why": "<em>Femme</em> is feminine, so the person who receives is introduced by <em>à la</em>, which does not contract. <em>De la</em> would mean of the woman."
     },
     {
      "id": "frmore25",
@@ -1486,7 +1486,7 @@ window.FRENCH = {
       "au",
       "des"
      ],
-     "why": "French shows the possessor with de, and de and le contract to du. Des is plural, and au is à and le."
+     "why": "French shows the possessor with <em>de</em>, and <em>de</em> and <em>le</em> contract to <em>du</em>. <em>Des</em> is plural, and <em>au</em> is <em>à</em> and <em>le</em>."
     },
     {
      "id": "frmore26",
@@ -1499,7 +1499,7 @@ window.FRENCH = {
       "à la",
       "des"
      ],
-     "why": "The possessor is introduced by de, and reine is feminine, so the form is de la, which does not contract. Du is masculine, and à la would mean to the queen."
+     "why": "The possessor is introduced by <em>de</em>, and <em>reine</em> is feminine, so the form is <em>de la</em>, which does not contract. <em>Du</em> is masculine, and <em>à la</em> would mean to the queen."
     },
     {
      "id": "frmore27",
@@ -1512,7 +1512,7 @@ window.FRENCH = {
       "de les",
       "aux"
      ],
-     "why": "De and les contract to des before a plural noun. Du is singular, de les is never written, and aux is à and les."
+     "why": "<em>De</em> and <em>les</em> contract to <em>des</em> before a plural noun. <em>Du</em> is singular, <em>de les</em> is never written, and <em>aux</em> is <em>à</em> and <em>les</em>."
     },
     {
      "id": "frmore28",
@@ -1525,7 +1525,7 @@ window.FRENCH = {
       "de le",
       "à l’"
      ],
-     "why": "Homme begins with a mute h, so the article is l’, and de l’ does not contract. Du is used before a consonant, and à l’ would mean to the man."
+     "why": "<em>Homme</em> begins with a mute h, so the article is <em>l’</em>, and <em>de l’</em> does not contract. <em>Du</em> is used before a consonant, and <em>à l’</em> would mean to the man."
     },
     {
      "id": "frmore29",
@@ -1538,7 +1538,7 @@ window.FRENCH = {
       "du",
       "aux"
      ],
-     "why": "De and les contract to des. De les is never written, du is singular, and aux is à and les."
+     "why": "<em>De</em> and <em>les</em> contract to <em>des</em>. <em>De les</em> is never written, <em>du</em> is singular, and <em>aux</em> is <em>à</em> and <em>les</em>."
     },
     {
      "id": "frmore30",
@@ -1551,7 +1551,7 @@ window.FRENCH = {
       "au",
       "de le"
      ],
-     "why": "There is one king, so the form is du, de and le contracted. Des would mean of the kings, and au is à and le."
+     "why": "There is one king, so the form is <em>du</em>, <em>de</em> and <em>le</em> contracted. <em>Des</em> would mean of the kings, and <em>au</em> is <em>à</em> and <em>le</em>."
     },
     {
      "id": "frmore31",
@@ -1564,7 +1564,7 @@ window.FRENCH = {
       "des",
       "à la"
      ],
-     "why": "Ville is feminine and singular, so the possessor is introduced by de la. Du is masculine, des is plural, and à la would mean to the city."
+     "why": "<em>Ville</em> is feminine and singular, so the possessor is introduced by <em>de la</em>. <em>Du</em> is masculine, <em>des</em> is plural, and <em>à la</em> would mean to the city."
     },
     {
      "id": "frmore32",
@@ -1577,7 +1577,7 @@ window.FRENCH = {
       "de le",
       "des"
      ],
-     "why": "Ami begins with a vowel, so the article is l’, and de l’ does not contract. Du is used before a consonant."
+     "why": "<em>Ami</em> begins with a vowel, so the article is <em>l’</em>, and <em>de l’</em> does not contract. <em>Du</em> is used before a consonant."
     },
     {
      "id": "frmore33",
@@ -1590,7 +1590,7 @@ window.FRENCH = {
       "portons",
       "portez"
      ],
-     "why": "Two subjects joined by et make a plural subject of the third person, so the verb is portent. Porte is singular, and portons and portez are the first and second persons."
+     "why": "Two subjects joined by <em>et</em> make a plural subject of the third person, so the verb is <em>portent</em>. <em>Porte</em> is singular, and <em>portons</em> and <em>portez</em> are the first and second persons."
     },
     {
      "id": "frmore34",
@@ -1603,7 +1603,7 @@ window.FRENCH = {
       "contente",
       "contentes"
      ],
-     "why": "An adjective that describes a masculine noun and a feminine noun together is masculine plural: contents. Contentes would describe only feminine nouns."
+     "why": "An adjective that describes a masculine noun and a feminine noun together is masculine plural: <em>contents</em>. <em>Contentes</em> would describe only feminine nouns."
     },
     {
      "id": "frmore35",
@@ -1616,7 +1616,7 @@ window.FRENCH = {
       "petite",
       "petit"
      ],
-     "why": "Both nouns are feminine, so the adjective is feminine plural: petites. Petits is masculine plural, and petite is singular."
+     "why": "Both nouns are feminine, so the adjective is feminine plural: <em>petites</em>. <em>Petits</em> is masculine plural, and <em>petite</em> is singular."
     },
     {
      "id": "frmore36",
@@ -1629,7 +1629,7 @@ window.FRENCH = {
       "parlent",
       "parle"
      ],
-     "why": "A subject that includes the speaker is of the first person, and toi et moi is plural, so the verb is parlons. Parlez is the second person plural, and parlent the third."
+     "why": "A subject that includes the speaker is of the first person, and <em>toi et moi</em> is plural, so the verb is <em>parlons</em>. <em>Parlez</em> is the second person plural, and <em>parlent</em> the third."
     },
     {
      "id": "frmore37",
@@ -1642,7 +1642,7 @@ window.FRENCH = {
       "allez",
       "va"
      ],
-     "why": "Mon ami et moi includes the speaker, so the verb is in the first person plural: allons. Vont is the third person plural, and allez the second."
+     "why": "<em>Mon ami et moi</em> includes the speaker, so the verb is in the first person plural: <em>allons</em>. <em>Vont</em> is the third person plural, and <em>allez</em> the second."
     },
     {
      "id": "frmore38",
@@ -1655,7 +1655,7 @@ window.FRENCH = {
       "vieilles",
       "vieil"
      ],
-     "why": "Both nouns are masculine, and vieux is both the masculine singular and the masculine plural. Vieille and vieilles are feminine, and vieil stands only before a singular noun that begins with a vowel."
+     "why": "Both nouns are masculine, and <em>vieux</em> is both the masculine singular and the masculine plural. <em>Vieille</em> and <em>vieilles</em> are feminine, and <em>vieil</em> stands only before a singular noun that begins with a vowel."
     },
     {
      "id": "frmore39",
@@ -1668,7 +1668,7 @@ window.FRENCH = {
       "les",
       "l’"
      ],
-     "why": "In French each noun keeps its own article, and lettre is feminine and singular, so la. Le is masculine, and les is plural."
+     "why": "In French each noun keeps its own article, and <em>lettre</em> is feminine and singular, so <em>la</em>. <em>Le</em> is masculine, and <em>les</em> is plural."
     },
     {
      "id": "frmore40",
@@ -1681,7 +1681,7 @@ window.FRENCH = {
       "vendons",
       "vends"
      ],
-     "why": "Two subjects joined by et make a plural subject of the third person, so vendent. Vend and vends are singular, and vendons is the first person plural."
+     "why": "Two subjects joined by <em>et</em> make a plural subject of the third person, so <em>vendent</em>. <em>Vend</em> and <em>vends</em> are singular, and <em>vendons</em> is the first person plural."
     },
     {
      "id": "frmore41",
@@ -1694,7 +1694,7 @@ window.FRENCH = {
       "au",
       "dans"
      ],
-     "why": "Before the name of a city French uses à for place where and for place to which. En is used before a feminine country, and au before a masculine country."
+     "why": "Before the name of a city French uses <em>à</em> for place where and for place to which. <em>En</em> is used before a feminine country, and <em>au</em> before a masculine country."
     },
     {
      "id": "frmore42",
@@ -1707,7 +1707,7 @@ window.FRENCH = {
       "au",
       "aux"
      ],
-     "why": "Before a feminine country French uses en, without the article. À is used before a city, au before a masculine country, and aux before a plural one."
+     "why": "Before a feminine country French uses <em>en</em>, without the article. <em>À</em> is used before a city, <em>au</em> before a masculine country, and <em>aux</em> before a plural one."
     },
     {
      "id": "frmore43",
@@ -1720,7 +1720,7 @@ window.FRENCH = {
       "à",
       "aux"
      ],
-     "why": "Canada is a masculine country that begins with a consonant, so French uses au, à and le contracted. En is used before a feminine country."
+     "why": "<em>Canada</em> is a masculine country that begins with a consonant, so French uses <em>au</em>, <em>à</em> and <em>le</em> contracted. <em>En</em> is used before a feminine country."
     },
     {
      "id": "frmore44",
@@ -1733,7 +1733,7 @@ window.FRENCH = {
       "en",
       "à les"
      ],
-     "why": "États-Unis is plural, so French uses aux, à and les contracted. Au is singular, and à les is never written."
+     "why": "<em>États-Unis</em> is plural, so French uses <em>aux</em>, <em>à</em> and <em>les</em> contracted. <em>Au</em> is singular, and <em>à les</em> is never written."
     },
     {
      "id": "frmore45",
@@ -1746,7 +1746,7 @@ window.FRENCH = {
       "au",
       "à"
      ],
-     "why": "Dans with the article means inside something: dans le livre. En is used without an article, as in en France, and au livre would mean to the book."
+     "why": "<em>Dans</em> with the article means inside something: <em>dans le livre</em>. <em>En</em> is used without an article, as in <em>en France</em>, and <em>au livre</em> would mean to the book."
     },
     {
      "id": "frmore46",
@@ -1759,7 +1759,7 @@ window.FRENCH = {
       "en",
       "du"
      ],
-     "why": "Motion from a city is shown by de: il vient de Paris. À would mean to Paris, and du is de and le, which a city name does not take."
+     "why": "Motion from a city is shown by <em>de</em>: <em>il vient de Paris</em>. <em>À</em> would mean to <em>Paris</em>, and <em>du</em> is <em>de</em> and <em>le</em>, which a city name does not take."
     },
     {
      "id": "frmore47",
@@ -1772,7 +1772,7 @@ window.FRENCH = {
       "en",
       "à"
      ],
-     "why": "Motion from a feminine country is shown by de without the article: elle vient de France. Du is used before a masculine country, and en would mean in France."
+     "why": "Motion from a feminine country is shown by <em>de</em> without the article: <em>elle vient de France</em>. <em>Du</em> is used before a masculine country, and <em>en</em> would mean in <em>France</em>."
     },
     {
      "id": "frmore48",
@@ -1785,7 +1785,7 @@ window.FRENCH = {
       "au",
       "des"
      ],
-     "why": "Motion from a masculine country is shown by de with the article, and de and le contract to du. Au would mean to Canada, and des is plural."
+     "why": "Motion from a masculine country is shown by <em>de</em> with the article, and <em>de</em> and <em>le</em> contract to <em>du</em>. <em>Au</em> would mean to <em>Canada</em>, and <em>des</em> is plural."
     }
    ]
   },
@@ -1794,19 +1794,19 @@ window.FRENCH = {
    "desc": "One word is missing from a French sentence: a passive participle, the doer, on or a pronominal verb, an infinitive with its preposition, or a participle that agrees.",
    "intro": [
     {
-     "h": "<strong>The passive.</strong> The passive is être with the past participle, which agrees with the subject, and the doer is introduced by par. French also uses on, or a pronominal verb, where English uses a passive.",
+     "h": "<strong>The passive.</strong> The passive is <em>être</em> with the past participle, which agrees with the subject, and the doer is introduced by <em>par</em>. French also uses on, or a pronominal verb, where English uses a passive.",
      "eg": [
       "<span lang=\"fr\">la lettre est écrite par le roi; on parle français; ce livre se vend bien</span>"
      ]
     },
     {
-     "h": "<strong>The infinitive.</strong> Some verbs take the infinitive directly, such as vouloir, pouvoir, devoir, and aller; others take à or de before it.",
+     "h": "<strong>The infinitive.</strong> Some verbs take the infinitive directly, such as <em>vouloir</em>, <em>pouvoir</em>, devoir, and <em>aller</em>; others take <em>à</em> or <em>de</em> before it.",
      "eg": [
       "<span lang=\"fr\">je veux lire; il commence à écrire; elle essaie de comprendre</span>"
      ]
     },
     {
-     "h": "<strong>The participle.</strong> With être the past participle agrees with the subject; with avoir it agrees only with a direct object that stands before it. En with the present participle says that two actions go on together.",
+     "h": "<strong>The participle.</strong> With <em>être</em> the past participle agrees with the subject; with <em>avoir</em> it agrees only with a direct object that stands before it. <em>En</em> with the present participle says that two actions go on together.",
      "eg": [
       "<span lang=\"fr\">la reine est venue; la lettre que j’ai écrite; en lisant</span>"
      ]
@@ -1824,7 +1824,7 @@ window.FRENCH = {
       "écrits",
       "écrites"
      ],
-     "why": "In the passive the past participle agrees with the subject, and lettre is feminine and singular, so écrite. Écrit is masculine, and écrits and écrites are plural."
+     "why": "In the passive the past participle agrees with the subject, and <em>lettre</em> is feminine and singular, so <em>écrite</em>. <em>Écrit</em> is masculine, and <em>écrits</em> and <em>écrites</em> are plural."
     },
     {
      "id": "frvoice2",
@@ -1837,7 +1837,7 @@ window.FRENCH = {
       "vendue",
       "vendues"
      ],
-     "why": "The passive is être with the past participle, and the participle agrees with the subject, here masculine plural: vendus."
+     "why": "The passive is <em>être</em> with the past participle, and the participle agrees with the subject, here masculine plural: <em>vendus</em>."
     },
     {
      "id": "frvoice3",
@@ -1850,7 +1850,7 @@ window.FRENCH = {
       "vendus",
       "vendues"
      ],
-     "why": "Maison is feminine and singular, so the participle of the passive is vendue."
+     "why": "<em>Maison</em> is feminine and singular, so the participle of the passive is <em>vendue</em>."
     },
     {
      "id": "frvoice4",
@@ -1863,7 +1863,7 @@ window.FRENCH = {
       "à",
       "en"
      ],
-     "why": "The doer in a French passive is usually introduced by par. Pour means for, and à means to."
+     "why": "The doer in a French passive is usually introduced by <em>par</em>. <em>Pour</em> means for, and <em>à</em> means to."
     },
     {
      "id": "frvoice5",
@@ -1876,7 +1876,7 @@ window.FRENCH = {
       "aimés",
       "aimée"
      ],
-     "why": "The participle agrees with the subject, reines, which is feminine plural: aimées."
+     "why": "The participle agrees with the subject, <em>reines</em>, which is feminine plural: <em>aimées</em>."
     },
     {
      "id": "frvoice6",
@@ -1889,7 +1889,7 @@ window.FRENCH = {
       "parlent",
       "parlé"
      ],
-     "why": "French often uses on with an active verb where English uses a passive, and on takes the third person singular: on parle. Parlé is the participle."
+     "why": "French often uses on with an active verb where English uses a passive, and on takes the third person singular: <em>on parle</em>. <em>Parlé</em> is the participle."
     },
     {
      "id": "frvoice7",
@@ -1902,7 +1902,7 @@ window.FRENCH = {
       "s’",
       "lui"
      ],
-     "why": "A pronominal verb can have a sense close to the passive, as in se vendre, to be sold. Se is not elided here, because vend begins with a consonant."
+     "why": "A pronominal verb can have a sense close to the passive, as in <em>se vendre</em>, to be sold. <em>Se</em> is not elided here, because <em>vend</em> begins with a consonant."
     },
     {
      "id": "frvoice8",
@@ -1915,7 +1915,7 @@ window.FRENCH = {
       "lui",
       "elle"
      ],
-     "why": "A pronominal verb takes a reflexive pronoun of the same person as the subject, and for the third person that pronoun is se. La would mean that she washes someone else."
+     "why": "A pronominal verb takes a reflexive pronoun of the same person as the subject, and for the third person that pronoun is <em>se</em>. <em>La</em> would mean that she washes someone else."
     },
     {
      "id": "frvoice9",
@@ -1928,7 +1928,7 @@ window.FRENCH = {
       "lu",
       "lisant"
      ],
-     "why": "Vouloir is followed directly by the infinitive: je veux lire. Lis is the present, lu the past participle, and lisant the present participle."
+     "why": "<em>Vouloir</em> is followed directly by the infinitive: <em>je veux lire</em>. <em>Lis</em> is the present, <em>lu</em> the past participle, and <em>lisant</em> the present participle."
     },
     {
      "id": "frvoice10",
@@ -1941,7 +1941,7 @@ window.FRENCH = {
       "fini",
       "finissant"
      ],
-     "why": "Pouvoir is followed directly by the infinitive: il peut finir. Finit is the present, and fini the past participle."
+     "why": "<em>Pouvoir</em> is followed directly by the infinitive: <em>il peut finir</em>. <em>Finit</em> is the present, and <em>fini</em> the past participle."
     },
     {
      "id": "frvoice11",
@@ -1954,7 +1954,7 @@ window.FRENCH = {
       "vendu",
       "vendant"
      ],
-     "why": "Aller with an infinitive makes the near future: nous allons vendre. The infinitive does not change for person."
+     "why": "<em>Aller</em> with an infinitive makes the near future: <em>nous allons vendre</em>. The infinitive does not change for person."
     },
     {
      "id": "frvoice12",
@@ -1967,7 +1967,7 @@ window.FRENCH = {
       "pour",
       "par"
      ],
-     "why": "Commencer takes à before an infinitive: il commence à écrire. Each verb has its own preposition before the infinitive, and the dictionary gives it."
+     "why": "Commencer takes <em>à</em> before an infinitive: <em>il commence à écrire</em>. Each verb has its own preposition before the infinitive, and the dictionary gives it."
     },
     {
      "id": "frvoice13",
@@ -1980,7 +1980,7 @@ window.FRENCH = {
       "pour",
       "par"
      ],
-     "why": "Essayer takes de before an infinitive: elle essaie de comprendre."
+     "why": "Essayer takes <em>de</em> before an infinitive: <em>elle essaie de comprendre</em>."
     },
     {
      "id": "frvoice14",
@@ -1993,7 +1993,7 @@ window.FRENCH = {
       "parti",
       "partant"
      ],
-     "why": "Devoir is followed directly by the infinitive: il doit partir. Part is the present, and parti the past participle."
+     "why": "<em>Devoir</em> is followed directly by the infinitive: <em>il doit partir</em>. Part is the present, and <em>parti</em> the past participle."
     },
     {
      "id": "frvoice15",
@@ -2006,7 +2006,7 @@ window.FRENCH = {
       "de",
       "par"
      ],
-     "why": "Pour with the infinitive gives the purpose of the action, when the subject of the two verbs is the same: pour acheter."
+     "why": "<em>Pour</em> with the infinitive gives the purpose of the action, when the subject of the two verbs is the same: <em>pour acheter</em>."
     },
     {
      "id": "frvoice16",
@@ -2019,7 +2019,7 @@ window.FRENCH = {
       "pour",
       "par"
      ],
-     "why": "Oublier takes de before an infinitive: elle oublie de fermer la porte."
+     "why": "Oublier takes <em>de</em> before an infinitive: <em>elle oublie de fermer la porte</em>."
     },
     {
      "id": "frvoice17",
@@ -2032,7 +2032,7 @@ window.FRENCH = {
       "venus",
       "venues"
      ],
-     "why": "Venir forms the passé composé with être, and then the participle agrees with the subject, here feminine singular: venue."
+     "why": "<em>Venir</em> forms the passé composé with <em>être</em>, and then the participle agrees with the subject, here feminine singular: <em>venue</em>."
     },
     {
      "id": "frvoice18",
@@ -2045,7 +2045,7 @@ window.FRENCH = {
       "arrivée",
       "arrivées"
      ],
-     "why": "Arriver takes être, and the participle agrees with the subject, here masculine plural: arrivés."
+     "why": "Arriver takes <em>être</em>, and the participle agrees with the subject, here masculine plural: <em>arrivés</em>."
     },
     {
      "id": "frvoice19",
@@ -2058,7 +2058,7 @@ window.FRENCH = {
       "allés",
       "allée"
      ],
-     "why": "Aller takes être, so the participle agrees with les femmes, feminine plural: allées."
+     "why": "<em>Aller</em> takes <em>être</em>, so the participle agrees with <em>les femmes</em>, feminine plural: <em>allées</em>."
     },
     {
      "id": "frvoice20",
@@ -2071,7 +2071,7 @@ window.FRENCH = {
       "parler",
       "parlait"
      ],
-     "why": "Parler forms the passé composé with avoir, and then the participle does not agree with the subject: elle a parlé."
+     "why": "<em>Parler</em> forms the passé composé with <em>avoir</em>, and then the participle does not agree with the subject: <em>elle a parlé</em>."
     },
     {
      "id": "frvoice21",
@@ -2084,7 +2084,7 @@ window.FRENCH = {
       "écrits",
       "écrire"
      ],
-     "why": "With avoir the participle agrees with a direct object that stands before it. Here que stands for la lettre, which is feminine, so écrite."
+     "why": "With <em>avoir</em> the participle agrees with a direct object that stands before it. Here <em>que</em> stands for <em>la lettre</em>, which is feminine, so <em>écrite</em>."
     },
     {
      "id": "frvoice22",
@@ -2097,7 +2097,7 @@ window.FRENCH = {
       "lu",
       "lit"
      ],
-     "why": "En with the present participle, the gérondif, says that two actions go on at the same time: en lisant."
+     "why": "<em>En</em> with the present participle, the gérondif, says that two actions go on at the same time: <em>en lisant</em>."
     },
     {
      "id": "frvoice23",
@@ -2110,7 +2110,7 @@ window.FRENCH = {
       "écrivant",
       "écrire"
      ],
-     "why": "A past participle used as an adjective agrees with its noun, and lettre is feminine: une lettre écrite."
+     "why": "A past participle used as an adjective agrees with its noun, and <em>lettre</em> is feminine: <em>une lettre écrite</em>."
     },
     {
      "id": "frvoice24",
@@ -2123,7 +2123,7 @@ window.FRENCH = {
       "lavés",
       "laver"
      ],
-     "why": "A pronominal verb takes être, and here the participle agrees with the reflexive pronoun, which stands for the queen: lavée."
+     "why": "A pronominal verb takes <em>être</em>, and here the participle agrees with the reflexive pronoun, which stands for the queen: <em>lavée</em>."
     }
    ]
   },
@@ -2132,31 +2132,31 @@ window.FRENCH = {
    "desc": "One word is missing from a French sentence: a relative pronoun, a word in a clause of cause, a word in a condition with si, a word in a reported statement or question, or a participle.",
    "intro": [
     {
-     "h": "<strong>The relative.</strong> Qui is the subject of its clause, que the object, dont replaces de with a noun, and où stands for a place or a time.",
+     "h": "<strong>The relative.</strong> <em>Qui</em> is the subject of its clause, <em>que</em> the object, <em>dont</em> replaces <em>de</em> with a noun, and <em>où</em> stands for a place or a time.",
      "eg": [
       "<span lang=\"fr\">l’homme qui parle; le livre que je lis; le livre dont je parle; la ville où j’habite</span>"
      ]
     },
     {
-     "h": "<strong>Cause.</strong> Parce que and comme give a reason as a fact, and their verb is in the indicative.",
+     "h": "<strong>Cause.</strong> <em>Parce que</em> and <em>comme</em> give a reason as a fact, and their verb is in the indicative.",
      "eg": [
       "<span lang=\"fr\">il reste parce qu’il est malade</span>"
      ]
     },
     {
-     "h": "<strong>Condition.</strong> A real condition takes si with the present and a future in the result; a condition that is not real takes si with the imparfait and a conditional in the result. After si meaning if, French uses neither the future nor the conditional.",
+     "h": "<strong>Condition.</strong> A real condition takes <em>si</em> with the present and a future in the result; a condition that is not real takes <em>si</em> with the imparfait and a conditional in the result. After <em>si</em> meaning if, French uses neither the future nor the conditional.",
      "eg": [
       "<span lang=\"fr\">si tu viens, je serai content; si j’avais le livre, je le lirais</span>"
      ]
     },
     {
-     "h": "<strong>Reported speech.</strong> A reported statement begins with que, a reported yes-or-no question with si, and a reported question about a thing with ce que or ce qui.",
+     "h": "<strong>Reported speech.</strong> A reported statement begins with <em>que</em>, a reported yes-or-no question with <em>si</em>, and a reported question about a thing with <em>ce que</em> or <em>ce qui</em>.",
      "eg": [
       "<span lang=\"fr\">il dit que le roi est malade; je ne sais pas s’il vient; il demande ce que tu veux</span>"
      ]
     },
     {
-     "h": "<strong>The participle.</strong> En with the present participle gives the time, the manner, or the means of the main action.",
+     "h": "<strong>The participle.</strong> <em>En</em> with the present participle gives the time, the manner, or the means of the main action.",
      "eg": [
       "<span lang=\"fr\">en lisant, il apprend; il est entré en chantant</span>"
      ]
@@ -2174,7 +2174,7 @@ window.FRENCH = {
       "dont",
       "où"
      ],
-     "why": "The relative is the subject of parle, and the subject relative is qui. Que is the object, dont replaces de with a noun, and où is a place or a time."
+     "why": "The relative is the subject of <em>parle</em>, and the subject relative is <em>qui</em>. <em>Que</em> is the object, <em>dont</em> replaces <em>de</em> with a noun, and <em>où</em> is a place or a time."
     },
     {
      "id": "frcls2",
@@ -2187,7 +2187,7 @@ window.FRENCH = {
       "dont",
       "où"
      ],
-     "why": "The relative is the object of lis, and the object relative is que. Qui would be the subject."
+     "why": "The relative is the object of <em>lis</em>, and the object relative is <em>que</em>. <em>Qui</em> would be the subject."
     },
     {
      "id": "frcls3",
@@ -2200,7 +2200,7 @@ window.FRENCH = {
       "qui",
       "dont"
      ],
-     "why": "The relative stands for a place, so où."
+     "why": "The relative stands for a place, so <em>où</em>."
     },
     {
      "id": "frcls4",
@@ -2213,7 +2213,7 @@ window.FRENCH = {
       "qui",
       "où"
      ],
-     "why": "Parler takes de before the thing spoken of, and the relative that replaces de with its noun is dont."
+     "why": "<em>Parler</em> takes <em>de</em> before the thing spoken of, and the relative that replaces <em>de</em> with its noun is <em>dont</em>."
     },
     {
      "id": "frcls5",
@@ -2226,7 +2226,7 @@ window.FRENCH = {
       "dont",
       "où"
      ],
-     "why": "Le roi is the subject of voit, and the relative is its object, so que."
+     "why": "<em>Le roi</em> is the subject of <em>voit</em>, and the relative is its object, so <em>que</em>."
     },
     {
      "id": "frcls6",
@@ -2239,7 +2239,7 @@ window.FRENCH = {
       "dont",
       "où"
      ],
-     "why": "The relative is the subject of courent, so qui. The verb then agrees with the antecedent, les chevaux."
+     "why": "The relative is the subject of <em>courent</em>, so <em>qui</em>. The verb then agrees with the antecedent, <em>les chevaux</em>."
     },
     {
      "id": "frcls7",
@@ -2252,7 +2252,7 @@ window.FRENCH = {
       "qui",
       "dont"
      ],
-     "why": "After a noun of time French uses où as the relative: le jour où il est venu."
+     "why": "After a noun of time French uses <em>où</em> as the relative: <em>le jour où il est venu</em>."
     },
     {
      "id": "frcls8",
@@ -2265,7 +2265,7 @@ window.FRENCH = {
       "qui",
       "où"
      ],
-     "why": "The house belongs to the friend, so the relative replaces de with a noun: la maison de l’ami becomes dont la maison."
+     "why": "The house belongs to the friend, so the relative replaces <em>de</em> with a noun: <em>la maison de l’ami</em> becomes <em>dont la maison</em>."
     },
     {
      "id": "frcls9",
@@ -2278,7 +2278,7 @@ window.FRENCH = {
       "être",
       "étant"
      ],
-     "why": "Parce que gives a fact as the reason, and its verb is in the indicative: il est. Soit is the subjunctive."
+     "why": "<em>Parce que</em> gives a fact as the reason, and its verb is in the indicative: <em>il est</em>. <em>Soit</em> is the subjunctive."
     },
     {
      "id": "frcls10",
@@ -2291,7 +2291,7 @@ window.FRENCH = {
       "avoir",
       "ayant"
      ],
-     "why": "After parce que the verb is in the indicative, so elle a. Ait is the subjunctive."
+     "why": "After <em>parce que</em> the verb is in the indicative, so <em>elle</em> a. <em>Ait</em> is the subjunctive."
     },
     {
      "id": "frcls11",
@@ -2304,7 +2304,7 @@ window.FRENCH = {
       "pleuvoir",
       "pleuvant"
      ],
-     "why": "The reason is stated as a fact, so the indicative: il pleut. Pleuve is the subjunctive."
+     "why": "The reason is stated as a fact, so the indicative: <em>il pleut</em>. <em>Pleuve</em> is the subjunctive."
     },
     {
      "id": "frcls12",
@@ -2317,7 +2317,7 @@ window.FRENCH = {
       "venir",
       "venant"
      ],
-     "why": "After parce que the verb is in the indicative: le roi vient. Vienne is the subjunctive."
+     "why": "After <em>parce que</em> the verb is in the indicative: <em>le roi vient</em>. <em>Vienne</em> is the subjunctive."
     },
     {
      "id": "frcls13",
@@ -2330,7 +2330,7 @@ window.FRENCH = {
       "bien qu’",
       "afin qu’"
      ],
-     "why": "The clause gives the reason, so parce que. Pour que and afin que give a purpose, and bien que a concession, and all three take the subjunctive."
+     "why": "The clause gives the reason, so <em>parce que</em>. <em>Pour que</em> and <em>afin que</em> give a purpose, and <em>bien que</em> a concession, and all three take the subjunctive."
     },
     {
      "id": "frcls14",
@@ -2343,7 +2343,7 @@ window.FRENCH = {
       "Bien que",
       "Afin que"
      ],
-     "why": "Comme at the head of the sentence gives the cause, and its verb is in the indicative. Pour que and afin que give a purpose, and bien que a concession."
+     "why": "<em>Comme</em> at the head of the sentence gives the cause, and its verb is in the indicative. <em>Pour que</em> and <em>afin que</em> give a purpose, and <em>bien que</em> a concession."
     },
     {
      "id": "frcls15",
@@ -2356,7 +2356,7 @@ window.FRENCH = {
       "avoir",
       "ayant"
      ],
-     "why": "After parce que the verb is in the indicative, and the passé composé of gagner is made with avoir: elle a gagné."
+     "why": "After <em>parce que</em> the verb is in the indicative, and the passé composé of gagner is made with <em>avoir</em>: <em>elle a gagné</em>."
     },
     {
      "id": "frcls16",
@@ -2369,7 +2369,7 @@ window.FRENCH = {
       "ai",
       "aie"
      ],
-     "why": "A condition that is not real is given by si with the imparfait, and the result is in the conditional. After si meaning if, French does not use the conditional."
+     "why": "A condition that is not real is given by <em>si</em> with the imparfait, and the result is in the conditional. After <em>si</em> meaning if, French does not use the conditional."
     },
     {
      "id": "frcls17",
@@ -2382,7 +2382,7 @@ window.FRENCH = {
       "lis",
       "lise"
      ],
-     "why": "After si with the imparfait, the result is in the conditional: je lirais. Lirai is the future."
+     "why": "After <em>si</em> with the imparfait, the result is in the conditional: <em>je lirais</em>. <em>Lirai</em> is the future."
     },
     {
      "id": "frcls18",
@@ -2395,7 +2395,7 @@ window.FRENCH = {
       "soit",
       "est"
      ],
-     "why": "The condition is not real, so si takes the imparfait: s’il était roi. Serait is the conditional, which stands in the result."
+     "why": "The condition is not real, so <em>si</em> takes the imparfait: <em>s’il était roi</em>. <em>Serait</em> is the conditional, which stands in the result."
     },
     {
      "id": "frcls19",
@@ -2408,7 +2408,7 @@ window.FRENCH = {
       "viendrais",
       "viennes"
      ],
-     "why": "A real condition about the future takes si with the present, and the result is in the future. After si meaning if, French uses neither the future nor the conditional."
+     "why": "A real condition about the future takes <em>si</em> with the present, and the result is in the future. After <em>si</em> meaning if, French uses neither the future nor the conditional."
     },
     {
      "id": "frcls20",
@@ -2421,7 +2421,7 @@ window.FRENCH = {
       "sois",
       "étais"
      ],
-     "why": "After si with the present, the result about the future is in the future: je serai. Serais is the conditional, which follows si with the imparfait."
+     "why": "After <em>si</em> with the present, the result about the future is in the future: <em>je serai</em>. <em>Serais</em> is the conditional, which follows <em>si</em> with the imparfait."
     },
     {
      "id": "frcls21",
@@ -2434,7 +2434,7 @@ window.FRENCH = {
       "écoute",
       "écoutait"
      ],
-     "why": "After si with the imparfait, the result is in the conditional: le roi écouterait."
+     "why": "After <em>si</em> with the imparfait, the result is in the conditional: <em>le roi écouterait</em>."
     },
     {
      "id": "frcls22",
@@ -2447,7 +2447,7 @@ window.FRENCH = {
       "ayons",
       "avons"
      ],
-     "why": "The condition is not real, so si takes the imparfait: nous avions. Aurions is the conditional."
+     "why": "The condition is not real, so <em>si</em> takes the imparfait: <em>nous avions</em>. <em>Aurions</em> is the conditional."
     },
     {
      "id": "frcls23",
@@ -2460,7 +2460,7 @@ window.FRENCH = {
       "si",
       "ce que"
      ],
-     "why": "A reported statement after dire is introduced by que, and French never leaves que out."
+     "why": "A reported statement after <em>dire</em> is introduced by <em>que</em>, and French never leaves <em>que</em> out."
     },
     {
      "id": "frcls24",
@@ -2473,7 +2473,7 @@ window.FRENCH = {
       "ce qu’il",
       "si il"
      ],
-     "why": "A reported yes-or-no question is introduced by si, and si is elided before il: s’il. Si il is never written."
+     "why": "A reported yes-or-no question is introduced by <em>si</em>, and <em>si</em> is elided before <em>il</em>: <em>s’il</em>. <em>Si il</em> is never written."
     },
     {
      "id": "frcls25",
@@ -2486,7 +2486,7 @@ window.FRENCH = {
       "quoi",
       "ce qui"
      ],
-     "why": "A reported question about the object of the verb is introduced by ce que. Ce qui is used when the word asked about is the subject."
+     "why": "A reported question about the object of the verb is introduced by <em>ce que</em>. <em>Ce qui</em> is used when the word asked about is the subject."
     },
     {
      "id": "frcls26",
@@ -2499,7 +2499,7 @@ window.FRENCH = {
       "qui",
       "que"
      ],
-     "why": "The word asked about is the subject of se passe, so the reported question is introduced by ce qui."
+     "why": "The word asked about is the subject of <em>se passe</em>, so the reported question is introduced by <em>ce qui</em>."
     },
     {
      "id": "frcls27",
@@ -2512,7 +2512,7 @@ window.FRENCH = {
       "si",
       "ce qui"
      ],
-     "why": "A reported question keeps its question word: où est le roi becomes je demande où est le roi."
+     "why": "A reported question keeps its question word: <em>où est le roi</em> becomes <em>je demande où est le roi</em>."
     },
     {
      "id": "frcls28",
@@ -2525,7 +2525,7 @@ window.FRENCH = {
       "soit",
       "été"
      ],
-     "why": "After savoir que the verb is in the indicative, and venir forms the passé composé with être: la reine est venue."
+     "why": "After <em>savoir que</em> the verb is in the indicative, and <em>venir</em> forms the passé composé with <em>être</em>: <em>la reine est venue</em>."
     },
     {
      "id": "frcls29",
@@ -2538,7 +2538,7 @@ window.FRENCH = {
       "avoir",
       "ayant"
      ],
-     "why": "After an affirmative verb of thinking, such as penser, the reported statement is in the indicative: il a raison."
+     "why": "After an affirmative verb of thinking, such as <em>penser</em>, the reported statement is in the indicative: <em>il a raison</em>."
     },
     {
      "id": "frcls30",
@@ -2551,7 +2551,7 @@ window.FRENCH = {
       "avoir",
       "ayant"
      ],
-     "why": "After a verb of thinking in the negative, written French usually puts the reported statement in the subjunctive: qu’il ait raison."
+     "why": "After a verb of thinking in the negative, written French usually puts the reported statement in the subjunctive: <em>qu’il ait raison</em>."
     },
     {
      "id": "frcls31",
@@ -2564,7 +2564,7 @@ window.FRENCH = {
       "lu",
       "lit"
      ],
-     "why": "The gérondif is en with the present participle, and it says that two actions go on together: en lisant."
+     "why": "The gérondif is <em>en</em> with the present participle, and it says that two actions go on together: <em>en lisant</em>."
     },
     {
      "id": "frcls32",
@@ -2577,7 +2577,7 @@ window.FRENCH = {
       "chanté",
       "chante"
      ],
-     "why": "En with the present participle gives the manner of the action: il est entré en chantant."
+     "why": "<em>En</em> with the present participle gives the manner of the action: <em>il est entré en chantant</em>."
     },
     {
      "id": "frcls33",
@@ -2590,7 +2590,7 @@ window.FRENCH = {
       "finir",
       "finit"
      ],
-     "why": "Ayant with the past participle presents one action as complete before the next: ayant fini."
+     "why": "<em>Ayant</em> with the past participle presents one action as complete before the next: <em>ayant fini</em>."
     },
     {
      "id": "frcls34",
@@ -2603,7 +2603,7 @@ window.FRENCH = {
       "travaillé",
       "travaille"
      ],
-     "why": "The gérondif, en with the present participle, gives the means: en travaillant."
+     "why": "The gérondif, <em>en</em> with the present participle, gives the means: <em>en travaillant</em>."
     },
     {
      "id": "frcls35",
@@ -2616,7 +2616,7 @@ window.FRENCH = {
       "écrire",
       "écrivant"
      ],
-     "why": "The participle in this phrase agrees with its noun, lettre, which is feminine: une fois la lettre écrite."
+     "why": "The participle in this phrase agrees with its noun, <em>lettre</em>, which is feminine: <em>une fois la lettre écrite</em>."
     },
     {
      "id": "frcls36",
@@ -2629,7 +2629,7 @@ window.FRENCH = {
       "Vu",
       "Voit"
      ],
-     "why": "The present participle, without en, can open a sentence and give the circumstance of the main action: voyant le roi."
+     "why": "The present participle, without <em>en</em>, can open a sentence and give the circumstance of the main action: <em>voyant le roi</em>."
     }
    ]
   },
@@ -2638,13 +2638,13 @@ window.FRENCH = {
    "desc": "One word is missing from a French sentence, or one form of a verb is asked for: the present subjunctive, the subjunctive after il faut que, pour que, or bien que, the conditional, or the imperative.",
    "intro": [
     {
-     "h": "<strong>The subjunctive.</strong> The present subjunctive takes its stem from the third person plural of the present and adds -e, -es, -e, -ions, -iez, -ent. Être, avoir, aller, faire, and pouvoir are irregular.",
+     "h": "<strong>The subjunctive.</strong> The present subjunctive takes its stem from the third person plural of the present and adds <em>-e</em>, <em>-es</em>, <em>-e</em>, <em>-ions</em>, <em>-iez</em>, <em>-ent</em>. <em>Être</em>, <em>avoir</em>, <em>aller</em>, <em>faire</em>, and <em>pouvoir</em> are irregular.",
      "eg": [
       "<span lang=\"fr\">que je finisse, que je sois, qu’il ait, que j’aille</span>"
      ]
     },
     {
-     "h": "<strong>Its uses.</strong> The subjunctive follows a verb of wanting or of feeling with que, il faut que, pour que, bien que, and avant que. An affirmative verb of thinking takes the indicative.",
+     "h": "<strong>Its uses.</strong> The subjunctive follows a verb of wanting or of feeling with <em>que</em>, <em>il faut que</em>, <em>pour que</em>, <em>bien que</em>, and <em>avant que</em>. An affirmative verb of thinking takes the indicative.",
      "eg": [
       "<span lang=\"fr\">il faut que tu viennes; bien qu’il soit malade; je pense qu’il vient</span>"
      ]
@@ -2656,7 +2656,7 @@ window.FRENCH = {
      ]
     },
     {
-     "h": "<strong>The imperative.</strong> The imperative has three forms and no subject pronoun. A verb in -er has no s in the second person singular, and in the affirmative an object pronoun follows the verb.",
+     "h": "<strong>The imperative.</strong> The imperative has three forms and no subject pronoun. A verb in <em>-er</em> has no s in the second person singular, and in the affirmative an object pronoun follows the verb.",
      "eg": [
       "<span lang=\"fr\">lis, lisons, lisez; parle au roi; donne-moi le livre</span>"
      ]
@@ -2674,7 +2674,7 @@ window.FRENCH = {
       "finissais",
       "finirai"
      ],
-     "why": "The present subjunctive takes its stem from the third person plural of the present, finissent, and adds -e: que je finisse."
+     "why": "The present subjunctive takes its stem from the third person plural of the present, <em>finissent</em>, and adds <em>-e</em>: <em>que je finisse</em>."
     },
     {
      "id": "frmood2",
@@ -2687,7 +2687,7 @@ window.FRENCH = {
       "serai",
       "étais"
      ],
-     "why": "Être has an irregular subjunctive: que je sois. Suis is the present indicative, and serai the future."
+     "why": "<em>Être</em> has an irregular subjunctive: <em>que je sois</em>. <em>Suis</em> is the present indicative, and <em>serai</em> the future."
     },
     {
      "id": "frmood3",
@@ -2700,7 +2700,7 @@ window.FRENCH = {
       "aura",
       "avait"
      ],
-     "why": "Avoir has an irregular subjunctive: qu’il ait. A is the present indicative, and aura the future."
+     "why": "<em>Avoir</em> has an irregular subjunctive: <em>qu’il ait</em>. A is the present indicative, and <em>aura</em> the future."
     },
     {
      "id": "frmood4",
@@ -2713,7 +2713,7 @@ window.FRENCH = {
       "irai",
       "allais"
      ],
-     "why": "Aller has the subjunctive que j’aille. Vais is the present indicative, and irai the future."
+     "why": "<em>Aller</em> has the subjunctive <em>que j’aille</em>. <em>Vais</em> is the present indicative, and <em>irai</em> the future."
     },
     {
      "id": "frmood5",
@@ -2726,7 +2726,7 @@ window.FRENCH = {
       "feront",
       "faisaient"
      ],
-     "why": "Faire has the subjunctive stem fass-: qu’ils fassent. Font is the present indicative."
+     "why": "<em>Faire</em> has the subjunctive stem fass-: qu’ils <em>fassent</em>. <em>Font</em> is the present indicative."
     },
     {
      "id": "frmood6",
@@ -2739,7 +2739,7 @@ window.FRENCH = {
       "viendrons",
       "viennent"
      ],
-     "why": "In the first and second persons plural the subjunctive of venir takes the stem ven- and the endings -ions and -iez: que nous venions."
+     "why": "In the first and second persons plural the subjunctive of <em>venir</em> takes the stem ven- and the endings <em>-ions</em> and <em>-iez</em>: <em>que nous venions</em>."
     },
     {
      "id": "frmood7",
@@ -2752,7 +2752,7 @@ window.FRENCH = {
       "pourra",
       "pouvait"
      ],
-     "why": "Pouvoir has the subjunctive stem puiss-: qu’il puisse. Peut is the present indicative."
+     "why": "<em>Pouvoir</em> has the subjunctive stem puiss-: <em>qu’il puisse</em>. <em>Peut</em> is the present indicative."
     },
     {
      "id": "frmood8",
@@ -2765,7 +2765,7 @@ window.FRENCH = {
       "serez",
       "étiez"
      ],
-     "why": "The subjunctive of être in the second person plural is que vous soyez. Êtes is the present indicative."
+     "why": "The subjunctive of <em>être</em> in the second person plural is <em>que vous soyez</em>. <em>Êtes</em> is the present indicative."
     },
     {
      "id": "frmood9",
@@ -2778,7 +2778,7 @@ window.FRENCH = {
       "viendras",
       "venir"
      ],
-     "why": "Il faut que requires the subjunctive: que tu viennes. Viens is the indicative."
+     "why": "<em>Il faut que</em> requires the subjunctive: <em>que tu viennes</em>. <em>Viens</em> is the indicative."
     },
     {
      "id": "frmood10",
@@ -2791,7 +2791,7 @@ window.FRENCH = {
       "seras",
       "être"
      ],
-     "why": "After a verb of wanting with que and a different subject, French uses the subjunctive: que tu sois."
+     "why": "After a verb of wanting with <em>que</em> and a different subject, French uses the subjunctive: <em>que tu sois</em>."
     },
     {
      "id": "frmood11",
@@ -2804,7 +2804,7 @@ window.FRENCH = {
       "comprendra",
       "comprendre"
      ],
-     "why": "Pour que gives a purpose and requires the subjunctive: qu’elle comprenne."
+     "why": "<em>Pour que</em> gives a purpose and requires the subjunctive: <em>qu’elle comprenne</em>."
     },
     {
      "id": "frmood12",
@@ -2817,7 +2817,7 @@ window.FRENCH = {
       "sera",
       "être"
      ],
-     "why": "Bien que gives a concession and requires the subjunctive: bien qu’il soit."
+     "why": "<em>Bien que</em> gives a concession and requires the subjunctive: <em>bien qu’il soit</em>."
     },
     {
      "id": "frmood13",
@@ -2830,7 +2830,7 @@ window.FRENCH = {
       "viendra",
       "venir"
      ],
-     "why": "Avant que requires the subjunctive: avant que le roi vienne."
+     "why": "<em>Avant que</em> requires the subjunctive: <em>avant que le roi vienne</em>."
     },
     {
      "id": "frmood14",
@@ -2843,7 +2843,7 @@ window.FRENCH = {
       "serez",
       "être"
      ],
-     "why": "After an expression of feeling with que, French uses the subjunctive: que vous soyez là."
+     "why": "After an expression of feeling with <em>que</em>, French uses the subjunctive: <em>que vous soyez là</em>."
     },
     {
      "id": "frmood15",
@@ -2856,7 +2856,7 @@ window.FRENCH = {
       "venir",
       "venant"
      ],
-     "why": "An affirmative verb of thinking states what the speaker holds to be so, and it takes the indicative: il vient."
+     "why": "An affirmative verb of thinking states what the speaker holds to be so, and it takes the indicative: <em>il vient</em>."
     },
     {
      "id": "frmood16",
@@ -2869,7 +2869,7 @@ window.FRENCH = {
       "finirons",
       "finir"
      ],
-     "why": "Il faut que requires the subjunctive, and the first person plural of the subjunctive ends in -ions: que nous finissions."
+     "why": "<em>Il faut que</em> requires the subjunctive, and the first person plural of the subjunctive ends in <em>-ions</em>: <em>que nous finissions</em>."
     },
     {
      "id": "frmood17",
@@ -2882,7 +2882,7 @@ window.FRENCH = {
       "voulais",
       "voudrait"
      ],
-     "why": "The conditional softens a request: je voudrais. Voudrai is the future, and voudrait the third person."
+     "why": "The conditional softens a request: <em>je voudrais</em>. <em>Voudrai</em> is the future, and <em>voudrait</em> the third person."
     },
     {
      "id": "frmood18",
@@ -2895,7 +2895,7 @@ window.FRENCH = {
       "avais",
       "aie"
      ],
-     "why": "The conditional takes the stem of the future, aur-, and the endings of the imparfait: j’aurais. Aurai is the future."
+     "why": "The conditional takes the stem of the future, aur-, and the endings of the imparfait: j’aurais. <em>Aurai</em> is the future."
     },
     {
      "id": "frmood19",
@@ -2908,7 +2908,7 @@ window.FRENCH = {
       "était",
       "soit"
      ],
-     "why": "The conditional of être is made on the future stem ser- with the ending -ait: il serait."
+     "why": "The conditional of <em>être</em> is made on the future stem ser- with the ending <em>-ait</em>: <em>il serait</em>."
     },
     {
      "id": "frmood20",
@@ -2921,7 +2921,7 @@ window.FRENCH = {
       "faisions",
       "fassions"
      ],
-     "why": "The future stem of faire is fer-, and the conditional adds -ions: nous ferions. Ferons is the future, faisions the imparfait, and fassions the subjunctive."
+     "why": "The future stem of <em>faire</em> is fer-, and the conditional adds <em>-ions</em>: <em>nous ferions</em>. <em>Ferons</em> is the future, <em>faisions</em> the imparfait, and <em>fassions</em> the subjunctive."
     },
     {
      "id": "frmood21",
@@ -2934,7 +2934,7 @@ window.FRENCH = {
       "pouvais",
       "puisses"
      ],
-     "why": "The future stem of pouvoir is pourr-, and the conditional adds -ais: tu pourrais."
+     "why": "The future stem of <em>pouvoir</em> is pourr-, and the conditional adds <em>-ais</em>: <em>tu pourrais</em>."
     },
     {
      "id": "frmood22",
@@ -2947,7 +2947,7 @@ window.FRENCH = {
       "achetais",
       "achète"
      ],
-     "why": "After si with the imparfait, the result is in the conditional: j’achèterais. Achèterai is the future."
+     "why": "After <em>si</em> with the imparfait, the result is in the conditional: <em>j’achèterais</em>. <em>Achèterai</em> is the future."
     },
     {
      "id": "frmood23",
@@ -2960,7 +2960,7 @@ window.FRENCH = {
       "Pouviez",
       "Puissiez"
      ],
-     "why": "The conditional makes a polite request: pourriez-vous m’aider ? Pourrez is the future."
+     "why": "The conditional makes a polite request: pourriez-vous <em>m’aider</em> ? <em>Pourrez</em> is the future."
     },
     {
      "id": "frmood24",
@@ -2973,7 +2973,7 @@ window.FRENCH = {
       "parlaient",
       "parlent"
      ],
-     "why": "The conditional of a verb in -er is the infinitive with the endings of the imparfait: ils parleraient."
+     "why": "The conditional of a verb in <em>-er</em> is the infinitive with the endings of the imparfait: <em>ils parleraient</em>."
     },
     {
      "id": "frmood25",
@@ -2986,7 +2986,7 @@ window.FRENCH = {
       "Lire",
       "Lisons"
      ],
-     "why": "The imperative has no subject pronoun, and the form for one person addressed as tu is lis. Lisons means let us read."
+     "why": "The imperative has no subject pronoun, and the form for one person addressed as <em>tu</em> is <em>lis</em>. <em>Lisons</em> means let us read."
     },
     {
      "id": "frmood26",
@@ -2999,7 +2999,7 @@ window.FRENCH = {
       "Finissons",
       "Finir"
      ],
-     "why": "The imperative addressed to several people is the vous form without the pronoun: finissez."
+     "why": "The imperative addressed to several people is the <em>vous</em> form without the pronoun: <em>finissez</em>."
     },
     {
      "id": "frmood27",
@@ -3012,7 +3012,7 @@ window.FRENCH = {
       "Aller",
       "Allions"
      ],
-     "why": "The imperative of the first person plural includes the speaker: allons, let us go."
+     "why": "The imperative of the first person plural includes the speaker: <em>allons</em>, let us go."
     },
     {
      "id": "frmood28",
@@ -3025,7 +3025,7 @@ window.FRENCH = {
       "Parlé",
       "Parler"
      ],
-     "why": "A verb in -er has no s in the imperative of the second person singular: parle."
+     "why": "A verb in <em>-er</em> has no s in the imperative of the second person singular: <em>parle</em>."
     },
     {
      "id": "frmood29",
@@ -3038,7 +3038,7 @@ window.FRENCH = {
       "je",
       "m’"
      ],
-     "why": "In the affirmative imperative the object pronoun follows the verb, and me becomes moi: donne-moi."
+     "why": "In the affirmative imperative the object pronoun follows the verb, and <em>me</em> becomes <em>moi</em>: <em>donne-moi</em>."
     },
     {
      "id": "frmood30",
@@ -3051,7 +3051,7 @@ window.FRENCH = {
       "Soit",
       "Être"
      ],
-     "why": "Être has an irregular imperative, taken from the subjunctive: sois, soyons, soyez."
+     "why": "<em>Être</em> has an irregular imperative, taken from the subjunctive: <em>sois</em>, <em>soyons</em>, <em>soyez</em>."
     },
     {
      "id": "frmood31",
@@ -3064,7 +3064,7 @@ window.FRENCH = {
       "parler",
       "parlent"
      ],
-     "why": "A negative imperative puts ne before the verb and pas after it: ne parlez pas."
+     "why": "A negative imperative puts <em>ne</em> before the verb and <em>pas</em> after it: <em>ne parlez pas</em>."
     },
     {
      "id": "frmood32",
@@ -3077,7 +3077,7 @@ window.FRENCH = {
       "Venir",
       "Viennes"
      ],
-     "why": "The imperative of the second person singular of venir is viens, the same as the present without tu."
+     "why": "The imperative of the second person singular of <em>venir</em> is <em>viens</em>, the same as the present without <em>tu</em>."
     }
    ]
   }
@@ -3087,7 +3087,7 @@ window.FRENCH = {
   "desc": "One word is missing from a French sentence: an article, an adjective in agreement, a verb in its person, a past form, or an object pronoun. The word is chosen from tiles at the first levels and written at the higher ones.",
   "intro": [
    {
-    "h": "<strong>The article.</strong> The article agrees with its noun in gender and number, and le and la become l’ before a vowel or a mute h. An amount that is not counted takes the partitive: du, de la, de l’.",
+    "h": "<strong>The article.</strong> The article agrees with its noun in gender and number, and <em>le</em> and <em>la</em> become <em>l’</em> before a vowel or a mute h. An amount that is not counted takes the partitive: <em>du</em>, <em>de la</em>, <em>de l’</em>.",
     "eg": [
      "<span lang=\"fr\">le roi, la reine, l’homme, les chevaux; du pain, de l’eau</span>"
     ]
@@ -3105,13 +3105,13 @@ window.FRENCH = {
     ]
    },
    {
-    "h": "<strong>The past.</strong> The passé composé is avoir or être with the past participle, and it presents an action as complete; the imparfait presents it as going on or repeated.",
+    "h": "<strong>The past.</strong> The passé composé is <em>avoir</em> or <em>être</em> with the past participle, and it presents an action as complete; the imparfait presents it as going on or repeated.",
     "eg": [
      "<span lang=\"fr\">il a parlé, elle est venue; la reine parlait quand le roi est entré</span>"
     ]
    },
    {
-    "h": "<strong>The object pronoun.</strong> An object pronoun stands before the verb: le, la, les for the direct object, lui and leur for the indirect object, and y and en for a place and a quantity.",
+    "h": "<strong>The object pronoun.</strong> An object pronoun stands before the verb: <em>le</em>, <em>la</em>, <em>les</em> for the direct object, <em>lui</em> and <em>leur</em> for the indirect object, and <em>y</em> and <em>en</em> for a place and a quantity.",
     "eg": [
      "<span lang=\"fr\">le roi le voit; je lui donne le livre; il y va; j’en ai deux</span>"
     ]
@@ -3129,7 +3129,7 @@ window.FRENCH = {
      "Les",
      "L’"
     ],
-    "why": "Roi is masculine and singular and begins with a consonant, so the article is le."
+    "why": "<em>Roi</em> is masculine and singular and begins with a consonant, so the article is <em>le</em>."
    },
    {
     "id": "frfill2",
@@ -3142,7 +3142,7 @@ window.FRENCH = {
      "Les",
      "L’"
     ],
-    "why": "Femme is feminine and singular, so the article is la."
+    "why": "<em>Femme</em> is feminine and singular, so the article is <em>la</em>."
    },
    {
     "id": "frfill3",
@@ -3155,7 +3155,7 @@ window.FRENCH = {
      "La",
      "Les"
     ],
-    "why": "Homme begins with a mute h, so le loses its vowel: l’homme."
+    "why": "<em>Homme</em> begins with a mute h, so <em>le</em> loses its vowel: <em>l’homme</em>."
    },
    {
     "id": "frfill4",
@@ -3168,7 +3168,7 @@ window.FRENCH = {
      "La",
      "L’"
     ],
-    "why": "Chevaux is plural, and the plural definite article is les for both genders."
+    "why": "<em>Chevaux</em> is plural, and the plural definite article is <em>les</em> for both genders."
    },
    {
     "id": "frfill5",
@@ -3181,7 +3181,7 @@ window.FRENCH = {
      "Des",
      "Du"
     ],
-    "why": "The indefinite article before a masculine singular noun is un."
+    "why": "The indefinite article before a masculine singular noun is <em>un</em>."
    },
    {
     "id": "frfill6",
@@ -3194,7 +3194,7 @@ window.FRENCH = {
      "des",
      "de l’"
     ],
-    "why": "An amount of something that is not counted takes the partitive article, and pain is masculine: du pain."
+    "why": "An amount of something that is not counted takes the partitive article, and pain is masculine: <em>du</em> pain."
    },
    {
     "id": "frfill7",
@@ -3207,7 +3207,7 @@ window.FRENCH = {
      "de la",
      "des"
     ],
-    "why": "Eau begins with a vowel, so the partitive is de l’: de l’eau."
+    "why": "<em>Eau</em> begins with a vowel, so the partitive is <em>de l’</em>: <em>de l’eau</em>."
    },
    {
     "id": "frfill8",
@@ -3220,7 +3220,7 @@ window.FRENCH = {
      "du",
      "des"
     ],
-    "why": "After a negative, the indefinite and partitive articles become de: il n’a pas de livre."
+    "why": "After a negative, the indefinite and partitive articles become <em>de</em>: <em>il n’a pas de livre</em>."
    },
    {
     "id": "frfill9",
@@ -3233,7 +3233,7 @@ window.FRENCH = {
      "heureuses",
      "heureusement"
     ],
-    "why": "The adjective agrees with reine, feminine and singular: heureuse. Heureusement is an adverb."
+    "why": "The adjective agrees with <em>reine</em>, feminine and singular: <em>heureuse</em>. <em>Heureusement</em> is an adverb."
    },
    {
     "id": "frfill10",
@@ -3246,7 +3246,7 @@ window.FRENCH = {
      "grande",
      "grands"
     ],
-    "why": "Maisons is feminine and plural, so grandes."
+    "why": "<em>Maisons</em> is feminine and plural, so <em>grandes</em>."
    },
    {
     "id": "frfill11",
@@ -3259,7 +3259,7 @@ window.FRENCH = {
      "petits",
      "petites"
     ],
-    "why": "Jardin is masculine and singular, so petit. Petit stands before its noun."
+    "why": "<em>Jardin</em> is masculine and singular, so <em>petit</em>. <em>Petit</em> stands before its noun."
    },
    {
     "id": "frfill12",
@@ -3272,7 +3272,7 @@ window.FRENCH = {
      "belle",
      "beaux"
     ],
-    "why": "Before a masculine singular noun that begins with a vowel, beau becomes bel: un bel ami."
+    "why": "Before a masculine singular noun that begins with a vowel, <em>beau</em> becomes <em>bel</em>: <em>un bel ami</em>."
    },
    {
     "id": "frfill13",
@@ -3285,7 +3285,7 @@ window.FRENCH = {
      "vieille",
      "vieil"
     ],
-    "why": "Femmes is feminine and plural, so vieilles."
+    "why": "<em>Femmes</em> is feminine and plural, so <em>vieilles</em>."
    },
    {
     "id": "frfill14",
@@ -3298,7 +3298,7 @@ window.FRENCH = {
      "bonne",
      "bonnes"
     ],
-    "why": "Livres is masculine and plural, so bons."
+    "why": "<em>Livres</em> is masculine and plural, so <em>bons</em>."
    },
    {
     "id": "frfill15",
@@ -3311,7 +3311,7 @@ window.FRENCH = {
      "bel",
      "beaux"
     ],
-    "why": "Maison is feminine, so belle."
+    "why": "<em>Maison</em> is feminine, so <em>belle</em>."
    },
    {
     "id": "frfill16",
@@ -3324,7 +3324,7 @@ window.FRENCH = {
      "contents",
      "contente"
     ],
-    "why": "Amies is feminine and plural, so contentes."
+    "why": "<em>Amies</em> is feminine and plural, so <em>contentes</em>."
    },
    {
     "id": "frfill17",
@@ -3337,7 +3337,7 @@ window.FRENCH = {
      "parlons",
      "parlent"
     ],
-    "why": "Je takes the ending -e in a verb in -er: je parle."
+    "why": "<em>Je</em> takes the ending <em>-e</em> in a verb in <em>-er</em>: <em>je parle</em>."
    },
    {
     "id": "frfill18",
@@ -3350,7 +3350,7 @@ window.FRENCH = {
      "finissez",
      "finissons"
     ],
-    "why": "Tu takes the ending -s: tu finis."
+    "why": "<em>Tu</em> takes the ending <em>-s</em>: <em>tu finis</em>."
    },
    {
     "id": "frfill19",
@@ -3363,7 +3363,7 @@ window.FRENCH = {
      "vendons",
      "vendent"
     ],
-    "why": "Vendre has no ending in the third person singular: il vend."
+    "why": "<em>Vendre</em> has no ending in the third person singular: <em>il vend</em>."
    },
    {
     "id": "frfill20",
@@ -3376,7 +3376,7 @@ window.FRENCH = {
      "sont",
      "suis"
     ],
-    "why": "The first person plural of être is sommes."
+    "why": "The first person plural of <em>être</em> is <em>sommes</em>."
    },
    {
     "id": "frfill21",
@@ -3389,7 +3389,7 @@ window.FRENCH = {
      "ont",
      "as"
     ],
-    "why": "The second person plural of avoir is avez."
+    "why": "The second person plural of <em>avoir</em> is <em>avez</em>."
    },
    {
     "id": "frfill22",
@@ -3402,7 +3402,7 @@ window.FRENCH = {
      "allons",
      "allez"
     ],
-    "why": "The third person plural of aller is vont."
+    "why": "The third person plural of <em>aller</em> is <em>vont</em>."
    },
    {
     "id": "frfill23",
@@ -3415,7 +3415,7 @@ window.FRENCH = {
      "faisons",
      "font"
     ],
-    "why": "The first person singular of faire is fais."
+    "why": "The first person singular of <em>faire</em> is <em>fais</em>."
    },
    {
     "id": "frfill24",
@@ -3428,7 +3428,7 @@ window.FRENCH = {
      "venons",
      "venez"
     ],
-    "why": "The third person plural of venir is viennent."
+    "why": "The third person plural of <em>venir</em> is <em>viennent</em>."
    },
    {
     "id": "frfill25",
@@ -3441,7 +3441,7 @@ window.FRENCH = {
      "as",
      "ont"
     ],
-    "why": "Parler forms the passé composé with avoir, and il takes a."
+    "why": "<em>Parler</em> forms the passé composé with <em>avoir</em>, and <em>il</em> takes a."
    },
    {
     "id": "frfill26",
@@ -3454,7 +3454,7 @@ window.FRENCH = {
      "es",
      "sont"
     ],
-    "why": "Venir forms the passé composé with être, and elle takes est."
+    "why": "<em>Venir</em> forms the passé composé with <em>être</em>, and <em>elle</em> takes <em>est</em>."
    },
    {
     "id": "frfill27",
@@ -3467,7 +3467,7 @@ window.FRENCH = {
      "finir",
      "finis"
     ],
-    "why": "The passé composé is avoir with the past participle, and the participle of finir is fini."
+    "why": "The passé composé is <em>avoir</em> with the past participle, and the participle of <em>finir</em> is <em>fini</em>."
    },
    {
     "id": "frfill28",
@@ -3480,7 +3480,7 @@ window.FRENCH = {
      "allée",
      "allées"
     ],
-    "why": "Aller takes être, and the participle agrees with ils, masculine plural: allés."
+    "why": "<em>Aller</em> takes <em>être</em>, and the participle agrees with <em>ils</em>, masculine plural: <em>allés</em>."
    },
    {
     "id": "frfill29",
@@ -3493,7 +3493,7 @@ window.FRENCH = {
      "vends",
      "vendue"
     ],
-    "why": "With avoir the participle does not agree with the subject, and the object comes after it, so vendu."
+    "why": "With <em>avoir</em> the participle does not agree with the subject, and the object comes after it, so <em>vendu</em>."
    },
    {
     "id": "frfill30",
@@ -3506,7 +3506,7 @@ window.FRENCH = {
      "parle",
      "parlera"
     ],
-    "why": "The imparfait presents the speaking as going on when the other action happened: elle parlait. A parlé would present it as a complete act."
+    "why": "The imparfait presents the speaking as going on when the other action happened: <em>elle parlait</em>. A <em>parlé</em> would present it as a complete act."
    },
    {
     "id": "frfill31",
@@ -3519,7 +3519,7 @@ window.FRENCH = {
      "fait",
      "fera"
     ],
-    "why": "A habit in the past is given by the imparfait: il faisait."
+    "why": "A habit in the past is given by the imparfait: <em>il faisait</em>."
    },
    {
     "id": "frfill32",
@@ -3532,7 +3532,7 @@ window.FRENCH = {
      "arrivés",
      "arrivée"
     ],
-    "why": "Arriver takes être, and the participle agrees with les femmes, feminine plural: arrivées."
+    "why": "Arriver takes <em>être</em>, and the participle agrees with <em>les femmes</em>, feminine plural: <em>arrivées</em>."
    },
    {
     "id": "frfill33",
@@ -3545,7 +3545,7 @@ window.FRENCH = {
      "il",
      "la"
     ],
-    "why": "The direct object pronoun for a masculine singular person is le, before the verb."
+    "why": "The direct object pronoun for a masculine singular person is <em>le</em>, before the verb."
    },
    {
     "id": "frfill34",
@@ -3558,7 +3558,7 @@ window.FRENCH = {
      "elle",
      "leur"
     ],
-    "why": "She receives the book, so she is the indirect object, and the pronoun is lui."
+    "why": "She receives the book, so she is the indirect object, and the pronoun is <em>lui</em>."
    },
    {
     "id": "frfill35",
@@ -3571,7 +3571,7 @@ window.FRENCH = {
      "lui",
      "eux"
     ],
-    "why": "Parler à takes an indirect object, and the plural indirect pronoun is leur."
+    "why": "<em>Parler à</em> takes an indirect object, and the plural indirect pronoun is <em>leur</em>."
    },
    {
     "id": "frfill36",
@@ -3584,7 +3584,7 @@ window.FRENCH = {
      "le",
      "lui"
     ],
-    "why": "Y stands for a place to which or in which: il y va."
+    "why": "<em>Y</em> stands for a place to which or in which: <em>il y va</em>."
    },
    {
     "id": "frfill37",
@@ -3597,7 +3597,7 @@ window.FRENCH = {
      "les",
      "l’"
     ],
-    "why": "En stands for a quantity of something already named: j’en ai deux."
+    "why": "<em>En</em> stands for a quantity of something already named: <em>j’en ai deux</em>."
    },
    {
     "id": "frfill38",
@@ -3610,7 +3610,7 @@ window.FRENCH = {
      "leur",
      "y"
     ],
-    "why": "The book is the direct object, masculine, so le, and me comes before le."
+    "why": "The book is the direct object, masculine, so <em>le</em>, and <em>me</em> comes before <em>le</em>."
    },
    {
     "id": "frfill39",
@@ -3623,7 +3623,7 @@ window.FRENCH = {
      "tu",
      "ton"
     ],
-    "why": "After a preposition French uses the stressed pronoun: pour toi."
+    "why": "After a preposition French uses the stressed pronoun: <em>pour toi</em>."
    },
    {
     "id": "frfill40",
@@ -3636,7 +3636,7 @@ window.FRENCH = {
      "vos",
      "leur"
     ],
-    "why": "The object pronoun of the second person plural is vous, before the verb."
+    "why": "The object pronoun of the second person plural is <em>vous</em>, before the verb."
    }
   ]
  },
@@ -3647,7 +3647,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 1,
-       "note": "A French noun has no case, so French shows government with prepositions and with the place of the word: the object follows the verb, the person who receives is introduced by à, and the possessor by de."
+       "note": "A French noun has no case, so French shows government with prepositions and with the place of the word: the object follows the verb, the person who receives is introduced by <em>à</em>, and the possessor by <em>de</em>."
       }
      ]
     },
@@ -3655,7 +3655,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 2,
-       "note": "French dans with the article means inside a place, and à means at or to a place, so French does not need a change of case to tell place where from motion toward: il est dans la maison, il va à la maison."
+       "note": "French <em>dans</em> with the article means inside a place, and <em>à</em> means at or to a place, so French does not need a change of case to tell place where from motion toward: <em>il est dans la maison</em>, <em>il va à la maison</em>."
       }
      ]
     }
@@ -3665,7 +3665,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 3,
-       "note": "A French adjective agrees with its noun in gender and number, but not in case, because the French noun has no case: un petit jardin, une petite maison, des petites maisons."
+       "note": "A French adjective agrees with its noun in gender and number, but not in case, because the French noun has no case: <em>un petit jardin</em>, <em>une petite maison</em>, <em>des petites maisons</em>."
       }
      ]
     },
@@ -3673,7 +3673,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 4,
-       "note": "A French verb agrees with its subject in person and number, and French writes the subject pronoun because several endings sound alike: il parle, ils parlent. The French relative qui takes the person of its antecedent: c’est moi qui parle."
+       "note": "A French verb agrees with its subject in person and number, and French writes the subject pronoun because several endings sound alike: <em>il parle</em>, <em>ils parlent</em>. The French relative <em>qui</em> takes the person of its antecedent: <em>c’est moi qui parle</em>."
       }
      ]
     }
@@ -3683,7 +3683,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 5,
-       "note": "French nouns have lost their cases, but the personal pronouns keep a difference of case: il and le, elle and la, ils and les, with lui and leur for the indirect object."
+       "note": "French nouns have lost their cases, but the personal pronouns keep a difference of case: <em>il</em> and <em>le</em>, <em>elle</em> and <em>la</em>, <em>ils</em> and <em>les</em>, with <em>lui</em> and <em>leur</em> for the indirect object."
       }
      ]
     },
@@ -3691,7 +3691,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 6,
-       "note": "Where Latin uses the genitive for both the possessor and the object of a feeling, French uses de for both: l’amour du père can mean the father’s love or love for the father."
+       "note": "Where Latin uses the genitive for both the possessor and the object of a feeling, French uses <em>de</em> for both: l’amour <em>du</em> père can mean the father’s love or love for the father."
       }
      ]
     }
@@ -3711,7 +3711,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 8,
-       "note": "The French passive is être with the past participle, and the doer is introduced by par: le poète est loué par la jeune fille."
+       "note": "The French passive is <em>être</em> with the past participle, and the doer is introduced by <em>par</em>: <em>le</em> poète <em>est</em> loué <em>par la</em> jeune <em>fille</em>."
       }
      ]
     },
@@ -3719,7 +3719,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 9,
-       "note": "Some French verbs take the infinitive directly, as Latin possum does: je peux venir. Others take à or de before it: il commence à écrire, elle essaie de comprendre."
+       "note": "Some French verbs take the infinitive directly, as Latin possum does: <em>je</em> peux <em>venir</em>. Others take <em>à</em> or <em>de</em> before it: <em>il commence à écrire</em>, <em>elle essaie de comprendre</em>."
       }
      ]
     },
@@ -3727,7 +3727,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 10,
-       "note": "French makes its passé composé with an auxiliary and the participle, as Latin makes its perfect passive: il a parlé, elle est venue. With être the participle agrees with the subject, as the Latin participle does: la reine est venue."
+       "note": "French makes its passé composé with an auxiliary and the participle, as Latin makes its perfect passive: <em>il a parlé</em>, <em>elle est venue</em>. With <em>être</em> the participle agrees with the subject, as the Latin participle does: <em>la reine est venue</em>."
       }
      ]
     },
@@ -3735,7 +3735,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 11,
-       "note": "French has no deponent verbs, but its pronominal verbs often stand where Latin has a deponent: se souvenir, to remember, for Latin reminīscor."
+       "note": "French has no deponent verbs, but its pronominal verbs often stand where Latin has a deponent: <em>se</em> souvenir, to remember, for Latin reminīscor."
       }
      ]
     }
@@ -3745,7 +3745,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 12,
-       "note": "The French subjunctive is used chiefly after que: after il faut que, after verbs of wanting and of feeling, and after pour que, bien que, and avant que. French has kept the present subjunctive in ordinary use, but the imperfect subjunctive is now found only in formal writing."
+       "note": "The French subjunctive is used chiefly after <em>que</em>: after <em>il faut que</em>, after verbs of wanting and of feeling, and after <em>pour que</em>, <em>bien que</em>, and <em>avant que</em>. French has kept the present subjunctive in ordinary use, but the imperfect subjunctive is now found only in formal writing."
       }
      ]
     },
@@ -3753,7 +3753,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 13,
-       "note": "A French purpose clause takes pour que with the subjunctive. A result clause, after si or tellement, takes que with the indicative: il parle si bien que tout le monde l’écoute."
+       "note": "A French purpose clause takes <em>pour que</em> with the subjunctive. A result clause, after <em>si</em> or tellement, takes <em>que</em> with the indicative: <em>il parle si bien que</em> tout <em>le</em> monde l’écoute."
       }
      ]
     },
@@ -3761,7 +3761,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 14,
-       "note": "The French imperative has no subject pronoun and three forms: parle, parlons, parlez. A prohibition is the negative imperative, ne parle pas, where Latin uses nōlī with the infinitive."
+       "note": "The French imperative has no subject pronoun and three forms: <em>parle</em>, <em>parlons</em>, <em>parlez</em>. A prohibition is the negative imperative, <em>ne parle pas</em>, where Latin uses nō<em>l</em>ī with the infinitive."
       }
      ]
     }
@@ -3771,7 +3771,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 15,
-       "note": "French, like English, shows the subject and the object by their place, because the French noun has no case: le roi voit la reine does not mean la reine voit le roi."
+       "note": "French, like English, shows the subject and the object by their place, because the French noun has no case: <em>le roi voit la reine</em> does not mean <em>la reine voit le roi</em>."
       }
      ]
     },
@@ -3779,7 +3779,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 16,
-       "note": "French, unlike Latin, writes the subject pronoun: nous louons le poète. The object pronouns stand before the verb: le roi la voit."
+       "note": "French, unlike Latin, writes the subject pronoun: <em>nous</em> louons <em>le</em> poète. The object pronouns stand before the verb: <em>le roi la voit</em>."
       }
      ]
     },
@@ -3787,7 +3787,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 17,
-       "note": "Where Latin uses the dative, French uses à: le garçon donne un cadeau à la fille. Where Latin uses the genitive of the possessor, French uses de: le livre du roi."
+       "note": "Where Latin uses the dative, French uses <em>à</em>: <em>le</em> garçon <em>donne un cadeau à la fille</em>. Where Latin uses the genitive of the possessor, French uses <em>de</em>: <em>le livre du roi</em>."
       }
      ]
     },
@@ -3795,7 +3795,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 18,
-       "note": "French dans means in, and à is used before the name of a city: à Rome. French en is used before a feminine country: en Italie."
+       "note": "French <em>dans</em> means in, and <em>à</em> is used before the name of a city: <em>à</em> Rome. French <em>en</em> is used before a feminine country: <em>en</em> Italie."
       }
      ]
     },
@@ -3803,7 +3803,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 19,
-       "note": "French has both a definite and an indefinite article, and an object pronoun, y, or en is a clitic that stands next to the verb, as Latin -que stands next to its word. French ne ... pas, like Latin nōn, negates the verb."
+       "note": "French has both a definite and an indefinite article, and an object pronoun, <em>y</em>, or <em>en</em> is a clitic that stands next to the verb, as Latin <em>-que</em> stands next to its word. French <em>ne</em> ... <em>pas</em>, like Latin nōn, negates the verb."
       }
      ]
     }
@@ -3813,7 +3813,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 20,
-       "note": "French purpose takes pour que or afin que with the subjunctive; French result takes si ... que or tellement ... que with the indicative."
+       "note": "French purpose takes <em>pour que</em> or <em>afin que</em> with the subjunctive; French result takes <em>si</em> ... <em>que</em> or tellement ... <em>que</em> with the indicative."
       }
      ]
     },
@@ -3821,7 +3821,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 21,
-       "note": "French reports a statement with que and the indicative after a verb of saying: il dit que le roi est malade. A reported question keeps its question word, or begins with si: je ne sais pas s’il vient."
+       "note": "French reports a statement with <em>que</em> and the indicative after a verb of saying: <em>il dit que le roi est malade</em>. A reported question keeps its question word, or begins with <em>si</em>: <em>je ne sais pas s’il vient</em>."
       }
      ]
     },
@@ -3829,7 +3829,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 22,
-       "note": "French quand (when) and parce que (because) take the indicative, bien que (although) takes the subjunctive, and si (if) takes the indicative, the present for a real condition and the imparfait for one that is not real."
+       "note": "French <em>quand</em> (when) and <em>parce que</em> (because) take the indicative, <em>bien que</em> (although) takes the subjunctive, and <em>si</em> (if) takes the indicative, the present for a real condition and the imparfait for one that is not real."
       }
      ]
     },
@@ -3837,7 +3837,7 @@ window.FRENCH = {
      "text": [
       {
        "entry": 23,
-       "note": "The French relative qui is the subject and que the object of its clause, so the case of the Latin relative is shown in French by the choice of word."
+       "note": "The French relative <em>qui</em> is the subject and <em>que</em> the object of its clause, so the case of the Latin relative is shown in French by the choice of word."
       }
      ]
     }
@@ -3923,7 +3923,7 @@ window.FRENCH = {
       "Three",
       "Four"
      ],
-     "why": "Ai is one vowel sound and on another: mai-son."
+     "why": "<em>Ai</em> is one vowel sound and on another: <em>mai-son</em>."
     },
     {
      "id": "fsy2",
@@ -3935,7 +3935,7 @@ window.FRENCH = {
       "Three",
       "Four"
      ],
-     "why": "Eau is one vowel sound, so beau is one syllable."
+     "why": "<em>Eau</em> is one vowel sound, so <em>beau</em> is one syllable."
     },
     {
      "id": "fsy3",
@@ -3947,7 +3947,7 @@ window.FRENCH = {
       "Three",
       "None"
      ],
-     "why": "The final mute e is not sounded in ordinary speech, so table is one syllable."
+     "why": "The final mute e is not sounded in ordinary speech, so <em>table</em> is one syllable."
     },
     {
      "id": "fsy4",
@@ -4006,7 +4006,7 @@ window.FRENCH = {
       "The stress at the end of a group",
       "A vowel lengthened before r"
      ],
-     "why": "In l’homme and j’ai the final vowel of le and je is dropped, and the apostrophe marks its place."
+     "why": "In <em>l’homme</em> and <em>j’ai</em> the final vowel of <em>le</em> and <em>je</em> is dropped, and the apostrophe marks its place."
     },
     {
      "id": "fsy9",
@@ -4030,7 +4030,7 @@ window.FRENCH = {
       "The h of héros is mute",
       "Le never elides"
      ],
-     "why": "An aspirated h, though it is not pronounced, blocks both elision and liaison: le héros, les héros."
+     "why": "An aspirated h, though it is not pronounced, blocks both elision and liaison: <em>le héros</em>, <em>les héros</em>."
     },
     {
      "id": "fsy11",
@@ -4066,7 +4066,7 @@ window.FRENCH = {
       "That it is long",
       "That it is plural"
      ],
-     "why": "The grave on à and où tells these words apart from a and ou. It does not mark stress."
+     "why": "The grave on <em>à</em> and <em>où</em> tells these words apart from a and <em>ou</em>. It does not mark stress."
     },
     {
      "id": "fsy14",
@@ -4092,103 +4092,103 @@ window.FRENCH = {
    },
    {
     "heading": "Accents and the cedilla",
-    "text": "French writes an accent on a vowel, and it writes a cedilla under c. The acute, as in été, the grave, as in où and à, and the circumflex, as in être, belong to the spelling. The cedilla, as in français, marks that c is pronounced s before a, o, or u. An accent can distinguish two words, so a and à are not the same word, and ou and où are not the same word. Latin, as we print it, uses the macron for quantity. French uses these marks as letters of the word."
+    "text": "French writes an accent on a vowel, and it writes a cedilla under c. The acute, as in <em>été</em>, the grave, as in <em>où</em> and <em>à</em>, and the circumflex, as in <em>être</em>, belong to the spelling. The cedilla, as in <em>français</em>, marks that c is pronounced s before a, o, or u. An accent can distinguish two words, so a and <em>à</em> are not the same word, and <em>ou</em> and <em>où</em> are not the same word. Latin, as we print it, uses the macron for quantity. French uses these marks as letters of the word."
    },
    {
     "heading": "The article",
-    "text": "French has an article, and Latin has none. The article stands with its noun and agrees with the noun in gender and number. Le roi means the king, and un roi means a king. A French noun in an ordinary sentence has an article or some other determiner. We count the article as a part of speech in French, as the Greek grammarians counted it in Greek."
+    "text": "French has an article, and Latin has none. The article stands with its noun and agrees with the noun in gender and number. <em>Le roi</em> means the king, and <em>un roi</em> means a king. A French noun in an ordinary sentence has an article or some other determiner. We count the article <em>as</em> a part of speech in French, as the Greek grammarians counted it in Greek."
    },
    {
     "heading": "The forms of the article",
-    "text": "The definite article is le before a masculine singular noun, la before a feminine singular noun, and les before a plural noun. Before a vowel or a mute h, an h that is not pronounced, le and la become l’. The indefinite article is un, une, and des. The partitive, for an unspecified amount, is du, de la, de l’, and des. À contracts with le and les, and the results are au and aux. De contracts with le and les, and the results are du and des. À la, à l’, de la, and de l’ stay in two words."
+    "text": "The definite article is <em>le</em> before a masculine singular noun, <em>la</em> before a feminine singular noun, and <em>les</em> before a plural noun. Before a vowel or a mute h, an h that is not pronounced, <em>le</em> and <em>la</em> become <em>l’</em>. The indefinite article is <em>un</em>, <em>une</em>, and <em>des</em>. The partitive, for an unspecified amount, is <em>du</em>, <em>de la</em>, <em>de l’</em>, and <em>des</em>. <em>À</em> contracts with <em>le</em> and <em>les</em>, and the results are <em>au</em> and <em>aux</em>. <em>De</em> contracts with <em>le</em> and <em>les</em>, and the results are <em>du</em> and <em>des</em>. <em>À la</em>, <em>à l’</em>, <em>de la</em>, and <em>de l’</em> stay in two words."
    },
    {
     "heading": "Gender",
-    "text": "Every French noun is masculine or feminine. Latin has a third gender, the neuter, and French has none. The article shows the gender. Le livre is masculine, and la table is feminine. The ending does not always show the gender, since livre ends in e and is masculine, and victoire is feminine for a reason the ending alone does not settle."
+    "text": "Every French noun is masculine or feminine. Latin has a third gender, the neuter, and French has none. The article shows the gender. <em>Le livre</em> is masculine, and <em>la table</em> is feminine. The ending does not always show the gender, since <em>livre</em> ends in e and is masculine, and <em>victoire</em> is feminine for a reason the ending alone does not settle."
    },
    {
     "heading": "Number",
-    "text": "A French noun has two numbers, the singular and the plural, as a Latin noun has. A regular plural adds s, and that s is usually silent. Some plurals change the stem. The plural of cheval is chevaux, and the plural of cadeau is cadeaux. The article marks number as well. Les is plural, and le and la are singular."
+    "text": "A French noun has two numbers, the singular and the plural, as a Latin noun has. A regular plural adds s, and that s is usually silent. Some plurals change the stem. The plural of <em>cheval</em> is <em>chevaux</em>, and the plural of <em>cadeau</em> is <em>cadeaux</em>. The article marks number as well. <em>Les</em> is plural, and <em>le</em> and <em>la</em> are singular."
    },
    {
     "heading": "No case on the noun",
-    "text": "A French noun does not change for case. Latin marks the nominative, the genitive, the dative, the accusative, the ablative, and the vocative on the noun. French keeps one form of the noun for the subject, for the object, and for the object of a preposition. In le roi vend le cheval, each noun has the form it would have in another place in the sentence. What Latin marks by case, French marks by the order of the words and by the preposition, and, for a pronoun, by a change of form."
+    "text": "A French noun does not change for case. Latin marks the nominative, the genitive, the dative, the accusative, the ablative, and the vocative on the noun. French keeps one form of the noun for the subject, for the object, and for the object of a preposition. In <em>le roi vend le cheval</em>, each noun has the form it would have in another place in the sentence. What Latin marks by case, French marks by the order of the words and by the preposition, and, for a pronoun, by a change of form."
    },
    {
     "heading": "Adjective agreement",
-    "text": "An adjective agrees with its noun in gender and number. It does not agree in case, because the noun has no case. Un bon roi is masculine and singular, une bonne femme is feminine and singular, les bons rois is masculine and plural, and les bonnes femmes is feminine and plural. Bon adds e for the feminine and s for the plural, and the feminine singular doubles the n, so the form is bonne. A short adjective such as bon, petit, or grand usually stands before the noun."
+    "text": "An adjective agrees with its noun in gender and number. It does not agree in case, because the noun has no case. <em>Un bon roi</em> is masculine and singular, <em>une bonne femme</em> is feminine and singular, <em>les bons rois</em> is masculine and plural, and <em>les bonnes femmes</em> is feminine and plural. <em>Bon</em> adds e for the feminine and s for the plural, and the feminine singular doubles the n, so the form is <em>bonne</em>. A short adjective such as <em>bon</em>, <em>petit</em>, or <em>grand</em> usually stands before the noun."
    },
    {
     "heading": "Subject, object, and stressed pronouns",
-    "text": "The pronoun keeps a difference that the noun has lost. The subject forms are je, tu, il, elle, on, nous, vous, ils, and elles. The direct-object forms are me, te, le, la, nous, vous, and les. The indirect-object forms are me, te, lui, nous, vous, and leur. The stressed forms, also called disjunctive, are moi, toi, lui, elle, soi, nous, vous, eux, and elles. Je is the subject of the verb, me is the object, and moi stands where the form is stressed, above all after a preposition. Nous and vous have one spelling in all four uses, so the place in the sentence shows the use."
+    "text": "The pronoun keeps a difference that the noun has lost. The subject forms are <em>je</em>, <em>tu</em>, <em>il</em>, <em>elle</em>, on, <em>nous</em>, <em>vous</em>, <em>ils</em>, and <em>elles</em>. The direct-object forms are <em>me</em>, <em>te</em>, <em>le</em>, <em>la</em>, <em>nous</em>, <em>vous</em>, and <em>les</em>. The indirect-object forms are <em>me</em>, <em>te</em>, <em>lui</em>, <em>nous</em>, <em>vous</em>, and <em>leur</em>. The stressed forms, also called disjunctive, are <em>moi</em>, <em>toi</em>, <em>lui</em>, <em>elle</em>, <em>soi</em>, <em>nous</em>, <em>vous</em>, <em>eux</em>, and <em>elles</em>. <em>Je</em> is the subject of the verb, <em>me</em> is the object, and <em>moi</em> stands where the form is stressed, above all after a preposition. <em>Nous</em> and <em>vous</em> have one spelling in all four uses, so the place in the sentence shows the use."
    },
    {
     "heading": "Person and number",
-    "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. French writes the pronoun in an ordinary statement. The subject of je parle is the speaker. The subject of il parle is he, or a masculine it. The subject of ils parlent is they. Elles is used for a group that is feminine throughout, and ils is used for a masculine group and for a mixed group. On takes the third person singular, whether it means one, or people, or we."
+    "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. French writes the pronoun in an ordinary statement. The subject of <em>je parle</em> is the speaker. The subject of <em>il parle</em> is he, or a masculine it. The subject of <em>ils parlent</em> is they. <em>Elles</em> is used for a group that is feminine throughout, and <em>ils</em> is used for a masculine group and for a mixed group. On takes the third person singular, whether it means one, or people, or we."
    },
    {
     "heading": "The present",
-    "text": "The present indicative says that the action goes on now, or that it is habitual, or that it is so in general. Il parle means he speaks, or he is speaking. A regular verb in -er, such as parler, has the endings e, es, e, ons, ez, and ent. A regular verb in -ir of the finir type inserts -iss- in the plural: finis, finis, finit, finissons, finissez, finissent. A regular verb in -re of the vendre type has vends, vends, vend, vendons, vendez, vendent. The third person singular of vendre adds no letter."
+    "text": "The present indicative says that the action goes on now, or that it is habitual, or that it is so in general. <em>Il parle</em> means he speaks, or he is speaking. A regular verb in <em>-er</em>, such as <em>parler</em>, has the endings e, <em>es</em>, e, ons, ez, and ent. A regular verb in <em>-ir</em> of the <em>finir</em> type inserts <em>-iss-</em> in the plural: <em>finis</em>, <em>finis</em>, <em>finit</em>, <em>finissons</em>, <em>finissez</em>, <em>finissent</em>. A regular verb in <em>-re</em> of the <em>vendre</em> type has <em>vends</em>, <em>vends</em>, <em>vend</em>, <em>vendons</em>, <em>vendez</em>, <em>vendent</em>. The third person singular of <em>vendre</em> adds no letter."
    },
    {
     "heading": "The passé composé",
-    "text": "The passé composé is the ordinary past of a completed action. Latin uses the perfect for that past. Il a parlé means he spoke, or he has spoken. The form is the present of avoir or of être, with the past participle. Parler, finir, vendre, faire, être, and avoir take avoir. Aller and venir take être, and the participle then agrees with the subject, so elle est allée and ils sont venus. With avoir, the participle does not agree with the subject. It agrees with a direct object that stands before the verb. That further agreement is real, and a single cell of the table does not show the sentence in which it is made."
+    "text": "The passé composé is the ordinary past of a completed action. Latin uses the perfect for that past. <em>Il a parlé</em> means he spoke, or he has spoken. The form is the present of <em>avoir</em> or of <em>être</em>, with the past participle. <em>Parler</em>, <em>finir</em>, <em>vendre</em>, <em>faire</em>, <em>être</em>, and <em>avoir</em> take <em>avoir</em>. <em>Aller</em> and <em>venir</em> take <em>être</em>, and the participle then agrees with the subject, so <em>elle est allée</em> and <em>ils sont venus</em>. With <em>avoir</em>, the participle does not agree with the subject. It agrees with a direct object that stands before the verb. That further agreement is real, and a single cell of the <em>table</em> does not show the sentence in which it is made."
    },
    {
     "heading": "The imparfait",
-    "text": "The imparfait says that the action went on in the past, or that it was habitual then. Il parlait means he was speaking, or he used to speak. The passé composé does not by itself say either of those things. The endings are ais, ais, ait, ions, iez, aient, on the stem of the first person plural of the present, without -ons. Nous parlions is the spelling of the imparfait of parler, and it is also the spelling of the present subjunctive. The rest of the sentence shows which is meant."
+    "text": "The imparfait says that the action went on in the past, or that it was habitual then. <em>Il parlait</em> means he was speaking, or he used to speak. The passé composé does not by itself say either of those things. The endings are ais, ais, <em>ait</em>, ions, iez, <em>aient</em>, on the stem of the first person plural of the present, without <em>-ons</em>. <em>Nous parlions</em> is the spelling of the imparfait of <em>parler</em>, and it is also the spelling of the present subjunctive. The rest of the sentence shows which is meant."
    },
    {
     "heading": "The future",
-    "text": "The future says that the action will happen. Il parlera means he will speak. A regular verb takes the infinitive as its stem, or the infinitive of an -re verb without the final e, and then the endings ai, as, a, ons, ez, ont. Être, avoir, aller, faire, and venir do not use that stem. Their future stems are ser-, aur-, ir-, fer-, and viendr-. Je serai is the future of être. Je serais is the conditional, which is another mood, and it is not the future."
+    "text": "The future says that the action will happen. <em>Il parlera</em> means he will speak. A regular verb takes the infinitive as its stem, or the infinitive of an <em>-re</em> verb without the final e, and then the endings <em>ai</em>, as, a, ons, ez, <em>ont</em>. <em>Être</em>, <em>avoir</em>, <em>aller</em>, <em>faire</em>, and <em>venir</em> do not use that stem. Their future stems are ser-, aur-, ir-, fer-, and viendr-. <em>Je serai</em> is the future of <em>être</em>. <em>Je serais</em> is the conditional, which is another mood, and it is not the future."
    },
    {
     "heading": "Être and avoir",
-    "text": "Être means be, as Latin sum does, and avoir means have. Both are irregular, and both are auxiliaries of the passé composé. Avoir forms that tense for most verbs, as in j’ai parlé. Être forms it for aller and for venir, and for the other verbs of motion and of change of state that go with them, as in je suis allé and je suis venu. Être itself takes avoir, so the passé composé is j’ai été. The participle été does not take a feminine ending."
+    "text": "<em>Être</em> means be, as Latin sum does, and <em>avoir</em> means have. Both are irregular, and both are auxiliaries of the passé composé. <em>Avoir</em> forms that tense for most verbs, as in <em>j’ai parlé</em>. <em>Être</em> forms it for <em>aller</em> and for <em>venir</em>, and for the other verbs of motion and of change of state that go with them, as in <em>je suis allé</em> and <em>je suis venu</em>. <em>Être</em> itself takes <em>avoir</em>, so the passé composé is <em>j’ai été</em>. The participle <em>été</em> does not take a feminine ending."
    },
    {
     "heading": "The three groups",
-    "text": "The school grammar sorts the verbs into three groups. The first group is the verbs in -er, except aller, and parler is the model. The second group is the verbs in -ir that take -iss-, and finir is the model. The third group holds the rest, including the verbs in -re, such as vendre, and the irregulars, such as aller, faire, and venir. Aller ends in -er and still belongs to the third group. From the model we build the other regular verbs of that group. A third-group verb has to be learned from its own table."
+    "text": "The school grammar sorts the verbs into three groups. The first group is the verbs in <em>-er</em>, except <em>aller</em>, and <em>parler</em> is the model. The second group is the verbs in <em>-ir</em> that take <em>-iss-</em>, and <em>finir</em> is the model. The third group holds the rest, including the verbs in <em>-re</em>, such as <em>vendre</em>, and the irregulars, such as <em>aller</em>, <em>faire</em>, and <em>venir</em>. <em>Aller</em> ends in <em>-er</em> and still belongs to the third group. From the model we build the other regular verbs of that group. A third-group verb has to be learned from its own <em>table</em>."
    },
    {
     "heading": "Stem and ending",
-    "text": "The form in the sentence is a stem and an ending. In parlons the ending -ons marks the first person plural, and in finissons the same ending follows -iss-. In parlé the ending marks the past participle of an -er verb. The subject pronoun marks the person a second time, because several written endings of an -er verb are pronounced alike. The ending and the pronoun together mark the person and the number."
+    "text": "The form in the sentence is a stem and an ending. In <em>parlons</em> the ending <em>-ons</em> marks the first person plural, and in <em>finissons</em> the same ending follows <em>-iss-</em>. In <em>parlé</em> the ending marks the past participle of an <em>-er</em> verb. The subject pronoun marks the person a second time, because several written endings of an <em>-er</em> verb are pronounced alike. The ending and the pronoun together mark the person and the number."
    },
    {
     "heading": "Elision",
-    "text": "A small set of words drops a final vowel before another vowel or a mute h, and the spelling marks the loss with an apostrophe. Je, me, te, le, la, ne, de, and que do this, so the written forms are j’ai, l’ami, and d’un roi. Si drops its vowel only before il and ils. The elided spelling is the same word, not a new one. L’ami is le or la with the vowel dropped, and the gender is still the gender of the noun."
+    "text": "A small set of words drops a final vowel before another vowel or a mute h, and the spelling marks the loss with an apostrophe. <em>Je</em>, <em>me</em>, <em>te</em>, <em>le</em>, <em>la</em>, <em>ne</em>, <em>de</em>, and <em>que</em> do this, so the written forms are <em>j’ai</em>, <em>l’ami</em>, and d’un <em>roi</em>. <em>Si</em> drops its vowel only before <em>il</em> and <em>ils</em>. The elided spelling is the same word, not a new one. <em>L’ami</em> is <em>le</em> or <em>la</em> with the vowel dropped, and the gender is still the gender of the noun."
    },
    {
     "heading": "Aspect",
-    "text": "French marks a difference of aspect in the past, that is, a difference in how the action is presented. The passé composé, and the passé simple of written narrative, present an action as complete, and the imparfait presents it as going on or repeated. Il a lu le livre means he read the book, and the reading is complete. Il lisait le livre means he was reading the book. A sentence often sets the two side by side: il lisait quand le roi est entré, he was reading when the king came in. Latin makes the same distinction with the imperfect and the perfect."
+    "text": "French marks a difference of aspect in the past, that is, a difference in how the action is presented. The passé composé, and the passé simple of written narrative, present an action as complete, and the imparfait presents it as going on or repeated. <em>Il a lu le livre</em> means he read the book, and the reading is complete. <em>Il</em> lisait <em>le livre</em> means he was reading the book. A sentence often sets the two side by side: <em>il</em> lisait <em>quand le roi est entré</em>, he was reading when the king came in. Latin makes the same distinction with the imperfect and the perfect."
    },
    {
     "heading": "Word order",
-    "text": "A French noun has no case, so French shows the subject and the object mainly by their place. The ordinary order is subject, verb, object: le roi voit la reine, the king sees the queen, and la reine voit le roi says the reverse. An object pronoun stands before the verb: le roi la voit. A question can put the subject pronoun after the verb: voit-il la reine? Latin can change its order freely because its endings show the case."
+    "text": "A French noun has no case, so French shows the subject and the object mainly by their place. The ordinary order is subject, verb, object: <em>le roi voit la reine</em>, the king sees the queen, and <em>la reine voit le roi</em> says the reverse. An object pronoun stands before the verb: <em>le roi la voit</em>. A question can put the subject pronoun after the verb: voit-il <em>la reine</em>? Latin can change its order freely because its endings show the case."
    },
    {
     "heading": "Compound tenses and the passive",
-    "text": "Many French tenses are made with an auxiliary and the past participle. The passé composé, the plus-que-parfait, and the futur antérieur use avoir or être: il a parlé, il avait parlé, il aura parlé. Most verbs take avoir. A small set of verbs of motion or change of state, such as aller, venir, arriver, partir, and naître, take être, and then the participle agrees with the subject: elle est venue. The passive is être with the past participle: la lettre est écrite par le roi. The near future is aller with the infinitive: il va parler."
+    "text": "Many French tenses are made with an auxiliary and the past participle. The passé composé, the plus-que-parfait, and the futur antérieur use <em>avoir</em> or <em>être</em>: <em>il a parlé</em>, <em>il avait parlé</em>, <em>il aura parlé</em>. Most verbs take <em>avoir</em>. A small set of verbs of motion or change of state, such as <em>aller</em>, <em>venir</em>, arriver, <em>partir</em>, and naître, take <em>être</em>, and then the participle agrees with the subject: <em>elle est venue</em>. The passive is <em>être</em> with the past participle: <em>la lettre est écrite par le roi</em>. The near future is <em>aller</em> with the infinitive: <em>il va parler</em>."
    },
    {
     "heading": "Pronominal verbs",
-    "text": "A pronominal verb is used with a reflexive pronoun of the same person as the subject: je me lave, I wash myself. Some pronominal verbs have a reflexive sense, some a reciprocal sense, as in ils se parlent, they speak to each other, and some a sense close to the Greek middle or to a passive, as in le livre se vend bien, the book sells well. Pronominal verbs take être in the compound tenses: elle s’est lavée. Latin has no middle voice in form, and Greek has one."
+    "text": "A pronominal verb is used with a reflexive pronoun of the same person as the subject: <em>je me lave</em>, I wash myself. Some pronominal verbs have a reflexive sense, some a reciprocal sense, as in <em>ils se parlent</em>, they speak to each other, and some a sense close to the Greek middle or to a passive, as in <em>le livre se vend bien</em>, the book sells well. Pronominal verbs take <em>être</em> in the compound tenses: <em>elle s’est lavée</em>. Latin has no middle voice in form, and Greek has one."
    },
    {
     "heading": "Object pronouns, y, and en",
-    "text": "The object pronouns me, te, le, la, lui, nous, vous, leur, and the pronouns y and en have no stress of their own and stand next to the verb, before it except in the affirmative imperative. Words of this kind are called clitics. Y stands for a place, or for à with a thing: j’y vais, I am going there. En stands for de with a noun, or for a quantity: j’en ai deux, I have two of them. When two stand together, their order is fixed: il me le donne, il le lui donne."
+    "text": "The object pronouns <em>me</em>, <em>te</em>, <em>le</em>, <em>la</em>, <em>lui</em>, <em>nous</em>, <em>vous</em>, <em>leur</em>, and the pronouns <em>y</em> and <em>en</em> have no stress of their own and stand next to the verb, before it except in the affirmative imperative. Words of this kind are called clitics. <em>Y</em> stands for a place, or for <em>à</em> with a thing: j’y <em>vais</em>, I am going there. <em>En</em> stands for <em>de</em> with a noun, or for a quantity: <em>j’en ai deux</em>, I have two of them. When two stand together, their order is fixed: <em>il me le donne</em>, <em>il le lui donne</em>."
    },
    {
     "heading": "The conditional and the imperative",
-    "text": "Beside the indicative and the subjunctive, French has the conditional and the imperative. The conditional is made from the stem of the future and the endings of the imparfait: je parlerais, I would speak. It gives the result of a condition that is not real, after si with the imparfait, as in si j’avais le temps, je parlerais au roi, and it softens a request, as in je voudrais un livre. The imperative has three forms and no subject pronoun: parle, parlons, parlez. A verb in -er has no s in the second person singular of the imperative."
+    "text": "Beside the indicative and the subjunctive, French has the conditional and the imperative. The conditional is made from the stem of the future and the endings of the imparfait: <em>je parlerais</em>, I would speak. It gives the result of a condition that is not real, after <em>si</em> with the imparfait, as in <em>si j’avais le temps</em>, <em>je parlerais au roi</em>, and it softens a request, as in <em>je voudrais un livre</em>. The imperative has three forms and no subject pronoun: <em>parle</em>, <em>parlons</em>, <em>parlez</em>. A verb in <em>-er</em> has no s in the second person singular of the imperative."
    },
    {
     "heading": "Negation",
-    "text": "French negates a verb with two words, ne before the verb and pas after it: il ne parle pas. Other words can take the place of pas: ne ... jamais, never; ne ... plus, no longer; ne ... rien, nothing; ne ... personne, no one. In a compound tense pas stands before the participle: il n’a pas parlé. In speech ne is often left out, but the written language keeps it. Latin negates the verb with one word, nōn."
+    "text": "French negates a verb with two words, <em>ne</em> before the verb and <em>pas</em> after it: <em>il ne parle pas</em>. Other words can take the place of <em>pas</em>: <em>ne</em> ... jamais, never; <em>ne</em> ... plus, no longer; <em>ne</em> ... rien, nothing; <em>ne</em> ... personne, no one. In a compound tense <em>pas</em> stands before the participle: <em>il n’a pas parlé</em>. In speech <em>ne</em> is often left out, but the written language keeps it. Latin negates the verb with one word, nōn."
    },
    {
     "heading": "Word formation",
-    "text": "French forms words with suffixes and prefixes, most of them inherited from Latin. The suffix -ment makes an adverb from the feminine of an adjective: heureuse, heureusement. The suffix -eur names the one who acts: vendre, vendeur. The prefix re- marks repetition: faire, refaire. Many French words came from Latin by regular change of sound, and others were later borrowed again from Latin in their learned form, so French has pairs such as frêle and fragile, both from Latin fragilis."
+    "text": "French forms words with suffixes and prefixes, most of them inherited from Latin. The suffix <em>-ment</em> makes an adverb from the feminine of an adjective: <em>heureuse</em>, <em>heureusement</em>. The suffix <em>-eur</em> names the one who acts: <em>vendre</em>, vendeur. The prefix re- marks repetition: <em>faire</em>, refaire. Many French words came from Latin by regular change of sound, and others were later borrowed again from Latin in their learned form, so French has pairs such as frêle and fragile, both from Latin fragilis."
    }
   ]
  },
@@ -4199,7 +4199,7 @@ window.FRENCH = {
     "s": "<b>Le</b> roi parle.",
     "orig": "The king speaks.",
     "a": "article",
-    "note": "Le points out the king. French has a definite article, and Latin has none.",
+    "note": "<em>Le</em> points out the king. French has a definite article, and Latin has none.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4210,7 +4210,7 @@ window.FRENCH = {
     "s": "La femme finit <b>le</b> livre.",
     "orig": "The woman finishes the book.",
     "a": "article",
-    "note": "Le points out the book. The article agrees with livre, which is masculine and singular.",
+    "note": "<em>Le</em> points out the book. The article agrees with <em>livre</em>, which is masculine and singular.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4221,7 +4221,7 @@ window.FRENCH = {
     "s": "Le <b>roi</b> parle.",
     "orig": "The king speaks.",
     "a": "noun",
-    "note": "Roi names the king, and it is the subject of parle.",
+    "note": "<em>Roi</em> names the king, and it is the subject of <em>parle</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4232,7 +4232,7 @@ window.FRENCH = {
     "s": "Le roi vend le <b>cheval</b>.",
     "orig": "The king sells the horse.",
     "a": "noun",
-    "note": "Cheval names the horse, and it is the object of vend.",
+    "note": "<em>Cheval</em> names the horse, and it is the object of <em>vend</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4243,7 +4243,7 @@ window.FRENCH = {
     "s": "Le roi <b>parle</b>.",
     "orig": "The king speaks.",
     "a": "verb",
-    "note": "Parle says what the king does. It is the present, third person singular, of parler.",
+    "note": "<em>Parle</em> says what the king does. It is the present, third person singular, of <em>parler</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -4254,7 +4254,7 @@ window.FRENCH = {
     "s": "La femme <b>finit</b> le livre.",
     "orig": "The woman finishes the book.",
     "a": "verb",
-    "note": "Finit says what the woman does. It is the present, third person singular, of finir.",
+    "note": "<em>Finit</em> says what the woman does. It is the present, third person singular, of <em>finir</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -4265,7 +4265,7 @@ window.FRENCH = {
     "s": "Le <b>bon</b> roi parle.",
     "orig": "The good king speaks.",
     "a": "adjective",
-    "note": "Bon tells what sort of king, and it agrees with roi.",
+    "note": "<em>Bon</em> tells what sort of king, and it agrees with <em>roi</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4276,7 +4276,7 @@ window.FRENCH = {
     "s": "La <b>belle</b> femme parle.",
     "orig": "The beautiful woman speaks.",
     "a": "adjective",
-    "note": "Belle tells what sort of woman, and it agrees with femme.",
+    "note": "<em>Belle</em> tells what sort of woman, and it agrees with <em>femme</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4287,7 +4287,7 @@ window.FRENCH = {
     "s": "Le roi parle <b>bien</b>.",
     "orig": "The king speaks well.",
     "a": "adverb",
-    "note": "Bien tells how he speaks. The adverb keeps one form.",
+    "note": "<em>Bien</em> tells how he speaks. The adverb keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4298,7 +4298,7 @@ window.FRENCH = {
     "s": "Il vient <b>souvent</b>.",
     "orig": "He comes often.",
     "a": "adverb",
-    "note": "Souvent tells how often he comes. The adverb keeps one form.",
+    "note": "<em>Souvent</em> tells how often he comes. The adverb keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4309,7 +4309,7 @@ window.FRENCH = {
     "s": "Il va <b>dans</b> la ville.",
     "orig": "He goes into the city.",
     "a": "preposition",
-    "note": "Dans stands before the noun and marks the place. The noun itself does not change.",
+    "note": "<em>Dans</em> stands before the noun and marks the place. The noun itself does not change.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4320,7 +4320,7 @@ window.FRENCH = {
     "s": "Elle parle <b>avec</b> le roi.",
     "orig": "She speaks with the king.",
     "a": "preposition",
-    "note": "Avec stands before the noun and marks the company. The noun itself does not change.",
+    "note": "<em>Avec</em> stands before the noun and marks the company. The noun itself does not change.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4331,7 +4331,7 @@ window.FRENCH = {
     "s": "Le roi <b>et</b> la femme parlent.",
     "orig": "The king and the woman speak.",
     "a": "conjunction",
-    "note": "Et joins the two nouns. The verb is plural because the subject is the two of them.",
+    "note": "<em>Et</em> joins the two nouns. The verb is plural because the subject is the two of them.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4342,7 +4342,7 @@ window.FRENCH = {
     "s": "Le roi parle, <b>mais</b> la femme finit.",
     "orig": "The king speaks, but the woman finishes.",
     "a": "conjunction",
-    "note": "Mais joins the two statements and marks the contrast.",
+    "note": "<em>Mais</em> joins the two statements and marks the contrast.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4353,7 +4353,7 @@ window.FRENCH = {
     "s": "<b>Il</b> parle.",
     "orig": "He speaks.",
     "a": "pronoun",
-    "note": "Il stands for a masculine subject. Latin would often leave the pronoun out.",
+    "note": "<em>Il</em> stands for a masculine subject. Latin would often leave the pronoun out.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4364,7 +4364,7 @@ window.FRENCH = {
     "s": "Le roi <b>le</b> vend.",
     "orig": "The king sells it.",
     "a": "pronoun",
-    "note": "Le stands for the thing sold, and no noun follows it, so it is a pronoun and not the article.",
+    "note": "<em>Le</em> stands for the thing sold, and no noun follows it, so it is a pronoun and not the article.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4375,7 +4375,7 @@ window.FRENCH = {
     "s": "Le roi a <b>parlé</b>.",
     "orig": "The king has spoken.",
     "a": "participle",
-    "note": "Parlé is the past participle of parler. With a it makes the passé composé.",
+    "note": "<em>Parlé</em> is the past participle of <em>parler</em>. With a it makes the passé composé.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -4386,7 +4386,7 @@ window.FRENCH = {
     "s": "La femme, <b>parlant</b> au roi, finit le livre.",
     "orig": "The woman, speaking to the king, finishes the book.",
     "a": "participle",
-    "note": "Parlant is the present participle of parler. It stands beside the finite verb finit.",
+    "note": "<em>Parlant</em> is the present participle of <em>parler</em>. It stands beside the finite verb <em>finit</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -4397,7 +4397,7 @@ window.FRENCH = {
     "s": "<b>Hélas</b>, le roi vient.",
     "orig": "Alas, the king is coming.",
     "a": "interjection",
-    "note": "Hélas is a cry, and it keeps one form.",
+    "note": "<em>Hélas</em> is a cry, and it keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4408,7 +4408,7 @@ window.FRENCH = {
     "s": "<b>Ah</b>, la femme vient.",
     "orig": "Ah, the woman is coming.",
     "a": "interjection",
-    "note": "Ah is a cry, and it keeps one form.",
+    "note": "<em>Ah</em> is a cry, and it keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4430,7 +4430,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Roi is a noun. It takes an ending for number, and the plural is rois. It takes no ending for case.",
+    "why": "<em>Roi</em> is a noun. It takes an ending for number, and the plural is <em>rois</em>. It takes no ending for case.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4450,7 +4450,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Cheval is a noun. The plural is chevaux, so the word takes an ending for number.",
+    "why": "<em>Cheval</em> is a noun. The plural is <em>chevaux</em>, so the word takes an ending for number.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4470,7 +4470,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Parle is a verb. It takes endings for person, number, and tense.",
+    "why": "<em>Parle</em> is a verb. It takes endings for person, number, and tense.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4490,7 +4490,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Finit is a verb. It takes endings for person, number, and tense.",
+    "why": "<em>Finit</em> is a verb. It takes endings for person, number, and tense.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4510,7 +4510,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Je is a pronoun. The object form is me, and the stressed form is moi, so the pronoun still changes its form.",
+    "why": "<em>Je</em> is a pronoun. The object form is <em>me</em>, and the stressed form is <em>moi</em>, so the pronoun still changes its form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4530,7 +4530,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Le here is a pronoun, the direct object. The subject form for a masculine thing is il, so the pronoun still changes its form.",
+    "why": "<em>Le</em> here is a pronoun, the direct object. The subject form for a masculine thing is <em>il</em>, so the pronoun still changes its form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4550,7 +4550,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Bien is an adverb. It keeps one form.",
+    "why": "<em>Bien</em> is an adverb. It keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4570,7 +4570,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Souvent is an adverb. It keeps one form.",
+    "why": "<em>Souvent</em> is an adverb. It keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4590,7 +4590,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Dans is a preposition. It keeps one form, and the noun after it does not give it an ending.",
+    "why": "<em>Dans</em> is a preposition. It keeps one form, and the noun after it does not give it an ending.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4610,7 +4610,7 @@ window.FRENCH = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Avec is a preposition. It keeps one form.",
+    "why": "<em>Avec</em> is a preposition. It keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4630,7 +4630,7 @@ window.FRENCH = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Et is a conjunction. It keeps one form.",
+    "why": "<em>Et</em> is a conjunction. It keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4650,7 +4650,7 @@ window.FRENCH = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Mais is a conjunction. It keeps one form.",
+    "why": "<em>Mais</em> is a conjunction. It keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4670,7 +4670,7 @@ window.FRENCH = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: a conjunction, one form"
     ],
-    "why": "Hélas is an interjection, a cry, and it keeps one form.",
+    "why": "<em>Hélas</em> is an interjection, a cry, and it keeps one form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4688,7 +4688,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "Je is the subject of parle, so the pronoun is in the subject form. The object form is me, and the stressed form is moi.",
+    "why": "<em>Je</em> is the subject of <em>parle</em>, so the pronoun is in the subject form. The object form is <em>me</em>, and the stressed form is <em>moi</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4704,7 +4704,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "Elle is the subject of finit, so the pronoun is in the subject form. After a preposition the same letters are the stressed form, and there is no preposition here.",
+    "why": "<em>Elle</em> is the subject of <em>finit</em>, so the pronoun is in the subject form. After a preposition the same letters are the stressed form, and there is no preposition here.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4720,7 +4720,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "Le is the thing sold, and it is the direct object of vend. The pronoun stands before the verb.",
+    "why": "<em>Le</em> is the thing sold, and it is the direct object of <em>vend</em>. The pronoun stands before the verb.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4736,7 +4736,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "Les is the thing finished, and it is plural. It is the direct object of finit, and it stands before the verb.",
+    "why": "<em>Les</em> is the thing finished, and it is plural. It is the direct object of <em>finit</em>, and it stands before the verb.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4752,7 +4752,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "L’ is le or la before the vowel of a. It is the direct object of a, from avoir, and it stands before the verb.",
+    "why": "<em>L’</em> is <em>le</em> or <em>la</em> before the vowel of a. It is the direct object of a, from <em>avoir</em>, and it stands before the verb.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4768,7 +4768,7 @@ window.FRENCH = {
      "Direct-object form",
      "Stressed form"
     ],
-    "why": "Parler takes à for the person spoken to. When that person is a pronoun before the verb, the form is lui, the indirect object. Lui here is not the stressed pronoun, because no preposition is written.",
+    "why": "<em>Parler</em> takes <em>à</em> for the person spoken to. When that person is a pronoun before the verb, the form is <em>lui</em>, the indirect object. <em>Lui</em> here is not the stressed pronoun, because no preposition is written.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4784,7 +4784,7 @@ window.FRENCH = {
      "Direct-object form",
      "Stressed form"
     ],
-    "why": "Leur is the indirect object, plural, of parle. The person spoken to would be marked by à if the noun were written out.",
+    "why": "<em>Leur</em> is the indirect object, plural, of <em>parle</em>. The person spoken to would be marked by <em>à</em> if the noun were written out.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4800,7 +4800,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "Avec is a preposition, and the pronoun after it is the stressed form. Moi is that form. Je cannot stand there.",
+    "why": "<em>Avec</em> is a preposition, and the pronoun after it is the stressed form. <em>Moi</em> is that form. <em>Je</em> cannot stand there.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4816,7 +4816,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "Eux is the stressed form, masculine plural, after the preposition avec. The subject form would be ils.",
+    "why": "<em>Eux</em> is the stressed form, masculine plural, after the preposition <em>avec</em>. The subject form would be <em>ils</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4832,7 +4832,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "After c’est the pronoun is the stressed form. Toi is that form, and tu is the subject form.",
+    "why": "After <em>c’est</em> the pronoun is the stressed form. <em>Toi</em> is that form, and <em>tu</em> is the subject form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4850,7 +4850,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "Avec is a preposition, so the pronoun is the stressed form. Moi is that form. Je is the subject form, and it does not stand after avec.",
+    "why": "<em>Avec</em> is a preposition, so the pronoun is the stressed form. <em>Moi</em> is that form. <em>Je</em> is the subject form, and it does not stand after <em>avec</em>.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4866,7 +4866,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "Pour is a preposition, so the pronoun is the stressed form. Toi is that form, and tu is the subject form.",
+    "why": "<em>Pour</em> is a preposition, so the pronoun is the stressed form. <em>Toi</em> is that form, and <em>tu</em> is the subject form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4882,7 +4882,7 @@ window.FRENCH = {
      "Direct-object form",
      "Indirect-object form"
     ],
-    "why": "Sans is a preposition, so the pronoun is the stressed form. Elle is spelled like the subject form, and the use after the preposition is still the stressed one. Il would not stand there.",
+    "why": "<em>Sans</em> is a preposition, so the pronoun is the stressed form. <em>Elle</em> is spelled like the subject form, and the use after the preposition is still the stressed one. <em>Il</em> would not stand there.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4898,7 +4898,7 @@ window.FRENCH = {
      "Direct-object form",
      "Stressed form after a preposition"
     ],
-    "why": "Parler à marks the person spoken to. Before the verb that person is lui, the indirect object. The stressed form would follow a written preposition, and this sentence has none.",
+    "why": "<em>Parler à</em> marks the person spoken to. Before the verb that person is <em>lui</em>, the indirect object. The stressed form would follow a written preposition, and this sentence has none.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4914,7 +4914,7 @@ window.FRENCH = {
      "Direct-object form",
      "Stressed form after a preposition"
     ],
-    "why": "Vendre à marks the buyer. Before the verb the buyer is leur, the indirect object. Le livre is the thing sold, and it stays a noun here.",
+    "why": "<em>Vendre à</em> marks the buyer. Before the verb the buyer is <em>leur</em>, the indirect object. <em>Le livre</em> is the thing sold, and it stays a noun here.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4930,7 +4930,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "The thing finished is the direct object. Le stands for it and stands before finit. Lui would be a person spoken to, which finir does not take in this sentence.",
+    "why": "The thing finished is the direct object. <em>Le</em> stands for it and stands before <em>finit</em>. <em>Lui</em> would be a person spoken to, which <em>finir</em> does not take in this sentence.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4946,7 +4946,7 @@ window.FRENCH = {
      "Indirect-object form",
      "Stressed form"
     ],
-    "why": "The thing had is the direct object of a. L’ is that pronoun before a vowel. Avoir does not put the thing had in a stressed form.",
+    "why": "The thing had is the direct object of a. <em>L’</em> is that pronoun before a vowel. <em>Avoir</em> does not put the thing had in a stressed form.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4962,7 +4962,7 @@ window.FRENCH = {
      "The accusative, as Latin uses for motion",
      "The ablative, as Latin uses for place where"
     ],
-    "why": "Dans marks the place, and ville does not change its form. French does not put the noun in the accusative for motion or in the ablative for place. Latin in does make that difference.",
+    "why": "<em>Dans</em> marks the place, and <em>ville</em> does not change its form. French does not put the noun in the accusative for motion or in the ablative for place. Latin in does make that difference.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4981,7 +4981,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Roi is masculine and singular. Bon is the masculine singular, so the adjective agrees. French marks no case on either word.",
+    "why": "<em>Roi</em> is masculine and singular. <em>Bon</em> is the masculine singular, so the adjective agrees. French marks no case on either word.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -4998,7 +4998,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Femme is feminine and singular. Belle is the feminine singular of beau, so the adjective agrees.",
+    "why": "<em>Femme</em> is feminine and singular. <em>Belle</em> is the feminine singular of <em>beau</em>, so the adjective agrees.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5015,7 +5015,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Chevaux is masculine and plural. Beaux is the masculine plural of beau, so the adjective agrees.",
+    "why": "<em>Chevaux</em> is masculine and plural. <em>Beaux</em> is the masculine plural of <em>beau</em>, so the adjective agrees.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5032,7 +5032,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Ami is masculine and singular, and it begins with a vowel. Vieil is the masculine singular of vieux used before a vowel, so the adjective agrees. Lawless requires that form.",
+    "why": "<em>Ami</em> is masculine and singular, and it begins with a vowel. <em>Vieil</em> is the masculine singular of <em>vieux</em> used before a vowel, so the adjective agrees. Lawless requires that form.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5050,7 +5050,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Femme is feminine. Bon is masculine, so the adjective disagrees in gender. Both words are singular, and French marks no case here.",
+    "why": "<em>Femme</em> is feminine. <em>Bon</em> is masculine, so the adjective disagrees in gender. Both words are singular, and French marks no case here.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5067,7 +5067,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Roi is masculine. Belle is feminine, so the adjective disagrees in gender. Number is singular on both words.",
+    "why": "<em>Roi</em> is masculine. <em>Belle</em> is feminine, so the adjective disagrees in gender. Number is singular on both words.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5084,7 +5084,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Femme is feminine. Heureux is the masculine form, and the feminine is heureuse, so the adjective disagrees in gender.",
+    "why": "<em>Femme</em> is feminine. <em>Heureux</em> is the masculine form, and the feminine is <em>heureuse</em>, so the adjective disagrees in gender.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5101,7 +5101,7 @@ window.FRENCH = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Table is feminine. Petit is masculine, and the feminine is petite, so the adjective disagrees in gender.",
+    "why": "<em>Table</em> is feminine. <em>Petit</em> is masculine, and the feminine is <em>petite</em>, so the adjective disagrees in gender.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5118,7 +5118,7 @@ window.FRENCH = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Rois is plural. Bon is singular, and the masculine plural is bons, so the number does not agree. Both words are masculine.",
+    "why": "<em>Rois</em> is plural. <em>Bon</em> is singular, and the masculine plural is <em>bons</em>, so the number does not agree. Both words are masculine.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5135,7 +5135,7 @@ window.FRENCH = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Cheval is singular. Beaux is plural, so the number does not agree. Both words are masculine.",
+    "why": "<em>Cheval</em> is singular. <em>Beaux</em> is plural, so the number does not agree. Both words are masculine.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5149,7 +5149,7 @@ window.FRENCH = {
     "lemmaLine": "roi, masculine, king",
     "want": "plural",
     "a": "rois",
-    "why": "The plural of roi adds s. The singular is roi.",
+    "why": "The plural of <em>roi</em> adds s. The singular is <em>roi</em>.",
     "lang": "fr",
     "src": [
      "larousse"
@@ -5161,7 +5161,7 @@ window.FRENCH = {
     "lemmaLine": "cheval, masculine, horse",
     "want": "plural",
     "a": "chevaux",
-    "why": "The plural of cheval is chevaux. The stem changes, and the ending is x.",
+    "why": "The plural of <em>cheval</em> is <em>chevaux</em>. The stem changes, and the ending is x.",
     "lang": "fr",
     "src": [
      "larousse"
@@ -5173,7 +5173,7 @@ window.FRENCH = {
     "lemmaLine": "cadeau, masculine, gift",
     "want": "plural",
     "a": "cadeaux",
-    "why": "The plural of cadeau is cadeaux. A noun in -eau takes -x.",
+    "why": "The plural of <em>cadeau</em> is <em>cadeaux</em>. A noun in <em>-eau</em> takes <em>-x</em>.",
     "lang": "fr",
     "src": [
      "larousse"
@@ -5185,7 +5185,7 @@ window.FRENCH = {
     "lemmaLine": "ami, masculine, friend",
     "want": "feminine singular",
     "a": "amie",
-    "why": "The feminine of ami is amie. The article before it is l’, because the word begins with a vowel.",
+    "why": "The feminine of <em>ami</em> is <em>amie</em>. The article before it is <em>l’</em>, because the word begins with a vowel.",
     "lang": "fr",
     "src": [
      "larousse"
@@ -5197,7 +5197,7 @@ window.FRENCH = {
     "lemmaLine": "bon, good",
     "want": "feminine singular",
     "a": "bonne",
-    "why": "The feminine singular of bon is bonne. The n is doubled.",
+    "why": "The feminine singular of <em>bon</em> is <em>bonne</em>. The n is doubled.",
     "lang": "fr",
     "src": [
      "lawless"
@@ -5209,7 +5209,7 @@ window.FRENCH = {
     "lemmaLine": "beau, beautiful",
     "want": "masculine singular used before a vowel",
     "a": "bel",
-    "why": "Before a masculine noun that begins with a vowel, beau becomes bel. Larousse gives bel as that form.",
+    "why": "Before a masculine noun that begins with a vowel, <em>beau</em> becomes <em>bel</em>. Larousse gives <em>bel</em> as that form.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5222,7 +5222,7 @@ window.FRENCH = {
     "lemmaLine": "vieux, old",
     "want": "feminine plural",
     "a": "vieilles",
-    "why": "The feminine plural of vieux is vieilles.",
+    "why": "The feminine plural of <em>vieux</em> is <em>vieilles</em>.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5235,7 +5235,7 @@ window.FRENCH = {
     "lemmaLine": "heureux, happy",
     "want": "feminine singular",
     "a": "heureuse",
-    "why": "The feminine singular of heureux is heureuse. The masculine plural stays heureux.",
+    "why": "The feminine singular of <em>heureux</em> is <em>heureuse</em>. The masculine plural stays <em>heureux</em>.",
     "lang": "fr",
     "src": [
      "larousse"
@@ -5247,7 +5247,7 @@ window.FRENCH = {
     "lemmaLine": "parler, first group, speak",
     "want": "present indicative, first person plural",
     "a": "parlons",
-    "why": "Parlons is the present, first person plural, of parler. The subject pronoun is nous.",
+    "why": "<em>Parlons</em> is the present, first person plural, of <em>parler</em>. The subject pronoun is <em>nous</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5259,7 +5259,7 @@ window.FRENCH = {
     "lemmaLine": "parler, first group, speak",
     "want": "imparfait, third person singular",
     "a": "parlait",
-    "why": "Parlait is the imparfait, third person singular. The present subjunctive is parle, so the two are not the same spelling.",
+    "why": "<em>Parlait</em> is the imparfait, third person singular. The present subjunctive is <em>parle</em>, so the two are not the same spelling.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5271,7 +5271,7 @@ window.FRENCH = {
     "lemmaLine": "parler, first group, speak",
     "want": "future, third person plural",
     "a": "parleront",
-    "why": "Parleront is the future, third person plural. The stem is the infinitive, and the ending is -ont.",
+    "why": "<em>Parleront</em> is the future, third person plural. The stem is the infinitive, and the ending is <em>-ont</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5283,7 +5283,7 @@ window.FRENCH = {
     "lemmaLine": "parler, first group, speak",
     "want": "passé composé, third person singular",
     "a": "a parlé",
-    "why": "Parler takes avoir. The third person singular is a parlé. The participle does not agree with the subject. The written subject is il or elle, and je would be written j’.",
+    "why": "<em>Parler</em> takes <em>avoir</em>. The third person singular is a <em>parlé</em>. The participle does not agree with the subject. The written subject is <em>il</em> or <em>elle</em>, and <em>je</em> would be written <em>j’</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5295,7 +5295,7 @@ window.FRENCH = {
     "lemmaLine": "finir, second group, finish",
     "want": "imparfait, third person singular",
     "a": "finissait",
-    "why": "Finissait is the imparfait, third person singular. The present is finit, and the present subjunctive is finisse, so this spelling belongs to the imparfait.",
+    "why": "<em>Finissait</em> is the imparfait, third person singular. The present is <em>finit</em>, and the present subjunctive is <em>finisse</em>, so this spelling belongs to the imparfait.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5307,7 +5307,7 @@ window.FRENCH = {
     "lemmaLine": "finir, second group, finish",
     "want": "present subjunctive, third person singular",
     "a": "finisse",
-    "why": "Finisse is the present subjunctive, third person singular. The present indicative is finit, so the mood is visible in the spelling.",
+    "why": "<em>Finisse</em> is the present subjunctive, third person singular. The present indicative is <em>finit</em>, so the mood is visible in the spelling.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5319,7 +5319,7 @@ window.FRENCH = {
     "lemmaLine": "vendre, third group, sell",
     "want": "present indicative, third person singular",
     "a": "vend",
-    "why": "Vend is the present, third person singular. No letter is added to the stem.",
+    "why": "<em>Vend</em> is the present, third person singular. No letter is added to the stem.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5331,7 +5331,7 @@ window.FRENCH = {
     "lemmaLine": "être, be",
     "want": "present indicative, first person plural",
     "a": "sommes",
-    "why": "Sommes is the present, first person plural, of être. The subject pronoun is nous.",
+    "why": "<em>Sommes</em> is the present, first person plural, of <em>être</em>. The subject pronoun is <em>nous</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5343,7 +5343,7 @@ window.FRENCH = {
     "lemmaLine": "être, be",
     "want": "present subjunctive, third person plural",
     "a": "soient",
-    "why": "Soient is the present subjunctive, third person plural. The indicative is sont.",
+    "why": "<em>Soient</em> is the present subjunctive, third person plural. The indicative is <em>sont</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5355,7 +5355,7 @@ window.FRENCH = {
     "lemmaLine": "aller, third group, go",
     "want": "present indicative, first person singular",
     "a": "vais",
-    "why": "Vais is the present, first person singular, of aller. The stem is va-, and the infinitive stem all- is not used here.",
+    "why": "<em>Vais</em> is the present, first person singular, of <em>aller</em>. The stem is va-, and the infinitive stem all- is not used here.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5367,7 +5367,7 @@ window.FRENCH = {
     "lemmaLine": "aller, third group, go",
     "want": "passé composé, third person singular feminine",
     "a": "est allée",
-    "why": "Aller takes être, so the participle agrees with a feminine singular subject. The form is est allée. The masculine in the same person is est allé.",
+    "why": "<em>Aller</em> takes <em>être</em>, so the participle agrees with a feminine singular subject. The form is <em>est allée</em>. The masculine in the same person is <em>est allé</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5379,7 +5379,7 @@ window.FRENCH = {
     "lemmaLine": "faire, third group, do, make",
     "want": "present indicative, second person plural",
     "a": "faites",
-    "why": "Faites is the present, second person plural, of faire. The form is not faisez. The subject pronoun vous takes this ending whether vous means one person or more than one. The feminine plural of the participle is spelled the same way, and this item asks the present.",
+    "why": "<em>Faites</em> is the present, second person plural, of <em>faire</em>. The form is not faisez. The subject pronoun <em>vous</em> takes this ending whether <em>vous</em> means one person or more than one. The feminine plural of the participle is spelled the same way, and this item asks the present.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5391,7 +5391,7 @@ window.FRENCH = {
     "lemmaLine": "venir, third group, come",
     "want": "passé composé, third person plural feminine",
     "a": "sont venues",
-    "why": "Venir takes être, so the participle agrees. The feminine plural is sont venues. The masculine or mixed plural is sont venus.",
+    "why": "<em>Venir</em> takes <em>être</em>, so the participle agrees. The feminine plural is <em>sont venues</em>. The masculine or mixed plural is <em>sont venus</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5440,7 +5440,7 @@ window.FRENCH = {
      "Congruous: the parts fit, but the sense is unfinished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Les agrees with chevaux, and sont venus agrees with that plural masculine subject. The sentence is complete.",
+    "why": "<em>Les</em> agrees with <em>chevaux</em>, and <em>sont venus</em> agrees with that plural masculine subject. The sentence is complete.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5472,7 +5472,7 @@ window.FRENCH = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Bon fits roi, and le fits roi. There is no verb, so the sense is not yet complete.",
+    "why": "<em>Bon</em> fits <em>roi</em>, and <em>le</em> fits <em>roi</em>. There is no verb, so the sense is not yet complete.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5488,7 +5488,7 @@ window.FRENCH = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Belle fits ville. There is no verb, so the sense is not yet complete.",
+    "why": "<em>Belle</em> fits <em>ville</em>. There is no verb, so the sense is not yet complete.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5504,7 +5504,7 @@ window.FRENCH = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Heureuse fits femme. There is no verb, so the sense is not yet complete.",
+    "why": "<em>Heureuse</em> fits <em>femme</em>. There is no verb, so the sense is not yet complete.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5520,7 +5520,7 @@ window.FRENCH = {
      "Complete: the parts fit, and the sentence is finished",
      "Congruous: the parts fit, but the sense is unfinished"
     ],
-    "why": "Roi is singular and parlent is plural. The parts do not fit. Parlent is a real form, and the fault is the join.",
+    "why": "<em>Roi</em> is singular and <em>parlent</em> is plural. The parts do not fit. <em>Parlent</em> is a real form, and the fault is the join.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5536,7 +5536,7 @@ window.FRENCH = {
      "Complete: the parts fit, and the sentence is finished",
      "Congruous: the parts fit, but the sense is unfinished"
     ],
-    "why": "Femme is feminine and le is masculine. The parts do not fit. Each word is a French form, and the fault is the join.",
+    "why": "<em>Femme</em> is feminine and <em>le</em> is masculine. The parts do not fit. Each word is a French form, and the fault is the join.",
     "lang": "fr",
     "src": [
      "lawless",
@@ -5554,7 +5554,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Parlont is not a form of parler. The third person plural of the present is parlent. The fault is in the one word.",
+    "why": "<em>Parlont</em> is not a form of <em>parler</em>. The third person plural of the present is <em>parlent</em>. The fault is in the one word.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5569,7 +5569,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Chevals is not the plural of cheval. The plural is chevaux. Viennent is a real form, and the fault is in the one noun.",
+    "why": "<em>Chevals</em> is not the plural of <em>cheval</em>. The plural is <em>chevaux</em>. <em>Viennent</em> is a real form, and the fault is in the one noun.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5584,7 +5584,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Finisons is not a form of finir. The first person plural of the present is finissons. The fault is in the one word.",
+    "why": "<em>Finisons</em> is not a form of <em>finir</em>. The first person plural of the present is <em>finissons</em>. The fault is in the one word.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5599,7 +5599,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Les is a real plural article, and femme is a real singular noun. The two do not agree in number. Parlent fits les, and the fault is the join of les and femme.",
+    "why": "<em>Les</em> is a real plural article, and <em>femme</em> is a real singular noun. The two do not agree in number. <em>Parlent</em> fits <em>les</em>, and the fault is the join of <em>les</em> and <em>femme</em>.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5614,7 +5614,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Je is a real subject form, and avec is a real preposition. A preposition takes the stressed form, which is moi. The fault is the join.",
+    "why": "<em>Je</em> is a real subject form, and <em>avec</em> is a real preposition. A preposition takes the stressed form, which is <em>moi</em>. The fault is the join.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5629,7 +5629,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Parlons is a real first person plural. The subject roi is third person singular, so the verb does not fit it.",
+    "why": "<em>Parlons</em> is a real first person plural. The subject <em>roi</em> is third person singular, so the verb does not fit it.",
     "lang": "fr",
     "src": [
      "leconjugueur"
@@ -5644,7 +5644,7 @@ window.FRENCH = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Beau and ami are both real forms. Before a masculine singular noun that begins with a vowel, the form is bel. Lawless says that special form is required. The fault is the join.",
+    "why": "<em>Beau</em> and <em>ami</em> are both real forms. Before a masculine singular noun that begins with a vowel, the form is <em>bel</em>. Lawless says that special form is required. The fault is the join.",
     "lang": "fr",
     "src": [
      "lawless",

@@ -9,7 +9,7 @@
    ]
   },
   {
-   "h": "<strong>The adjective.</strong> After der, die, or das the adjective takes a weak ending; after ein, or with no article, it shows the gender and the case itself. After sein it takes no ending.",
+   "h": "<strong>The adjective.</strong> After <em>der</em>, <em>die</em>, or <em>das</em> the adjective takes a weak ending; after <em>ein</em>, or with no article, it shows the gender and the case itself. After <em>sein</em> it takes no ending.",
    "eg": [
     "<span lang=\"de\">der gute Mann, ein guter Mann, guter Wein; der König ist gut</span>"
    ]
@@ -21,13 +21,13 @@
    ]
   },
   {
-   "h": "<strong>The past.</strong> The Perfekt is haben or sein with the past participle; verbs of motion or change of state take sein.",
+   "h": "<strong>The past.</strong> The Perfekt is <em>haben</em> or <em>sein</em> with the past participle; verbs of motion or change of state take <em>sein</em>.",
    "eg": [
     "<span lang=\"de\">er hat das Bett gemacht; sie ist gekommen</span>"
    ]
   },
   {
-   "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after dass or weil the finite verb goes to the end.",
+   "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after <em>dass</em> or <em>weil</em> the finite verb goes to the end.",
    "eg": [
     "<span lang=\"de\">heute gibt der König der Frau ein Buch; der Zug kommt um acht an; dass er heute kommt</span>"
    ]
@@ -45,7 +45,7 @@
     "dem",
     "des"
    ],
-   "why": "Mann is the object of sieht, so it is in the accusative, and the masculine accusative is den."
+   "why": "<em>Mann</em> is the object of <em>sieht</em>, so it is in the accusative, and the masculine accusative is <em>den</em>."
   },
   {
    "id": "defill2",
@@ -58,7 +58,7 @@
     "der",
     "des"
    ],
-   "why": "The one who receives is in the dative, and the masculine dative is dem."
+   "why": "The one who receives is in the dative, and the masculine dative is <em>dem</em>."
   },
   {
    "id": "defill3",
@@ -71,7 +71,7 @@
     "Die",
     "Den"
    ],
-   "why": "Pferd is neuter, and the neuter nominative of the article is das."
+   "why": "<em>Pferd</em> is neuter, and the neuter nominative of the article is <em>das</em>."
   },
   {
    "id": "defill4",
@@ -84,7 +84,7 @@
     "einem",
     "eine"
    ],
-   "why": "Pferd is neuter and the object, and the neuter accusative of the indefinite article is ein."
+   "why": "<em>Pferd</em> is neuter and the object, and the neuter accusative of the indefinite article is <em>ein</em>."
   },
   {
    "id": "defill5",
@@ -97,7 +97,7 @@
     "einem",
     "eines"
    ],
-   "why": "Mann is masculine and the object, so the indefinite article is einen."
+   "why": "<em>Mann</em> is masculine and the object, so the indefinite article is <em>einen</em>."
   },
   {
    "id": "defill6",
@@ -110,7 +110,7 @@
     "ein",
     "eines"
    ],
-   "why": "Mit takes the dative, and the masculine dative of the indefinite article is einem."
+   "why": "<em>Mit</em> takes the dative, and the masculine dative of the indefinite article is <em>einem</em>."
   },
   {
    "id": "defill7",
@@ -123,7 +123,7 @@
     "des",
     "den"
    ],
-   "why": "The possessor is in the genitive, and the feminine genitive of the article is der."
+   "why": "The possessor is in the genitive, and the feminine genitive of the article is <em>der</em>."
   },
   {
    "id": "defill8",
@@ -136,7 +136,7 @@
     "den",
     "dem"
    ],
-   "why": "Stadt is feminine and the object, and the feminine accusative is die."
+   "why": "<em>Stadt</em> is feminine and the object, and the feminine accusative is <em>die</em>."
   },
   {
    "id": "defill9",
@@ -149,7 +149,7 @@
     "guten",
     "gutes"
    ],
-   "why": "After der the adjective in the nominative singular takes the weak ending -e."
+   "why": "After <em>der</em> the adjective in the nominative singular takes the weak ending <em>-e</em>."
   },
   {
    "id": "defill10",
@@ -162,7 +162,7 @@
     "guten",
     "gutes"
    ],
-   "why": "After ein the adjective shows the gender itself, so the masculine nominative is guter."
+   "why": "After <em>ein</em> the adjective shows the gender itself, so the masculine nominative is <em>guter</em>."
   },
   {
    "id": "defill11",
@@ -175,7 +175,7 @@
     "guter",
     "gutem"
    ],
-   "why": "After den the adjective takes -en."
+   "why": "After <em>den</em> the adjective takes <em>-en</em>."
   },
   {
    "id": "defill12",
@@ -188,7 +188,7 @@
     "guter",
     "gutem"
    ],
-   "why": "Without an article the adjective takes the strong ending, and the dative plural is -en: mit guten Freunden."
+   "why": "Without an article the adjective takes the strong ending, and the dative plural is <em>-en</em>: <em>mit guten Freunden</em>."
   },
   {
    "id": "defill13",
@@ -201,7 +201,7 @@
     "kleiner",
     "kleinen"
    ],
-   "why": "After ein the neuter adjective shows the gender itself: ein kleines Haus."
+   "why": "After <em>ein</em> the neuter adjective shows the gender itself: <em>ein kleines Haus</em>."
   },
   {
    "id": "defill14",
@@ -214,7 +214,7 @@
     "gutes",
     "guten"
    ],
-   "why": "Without an article the adjective takes the strong ending, and the masculine nominative is -er."
+   "why": "Without an article the adjective takes the strong ending, and the masculine nominative is <em>-er</em>."
   },
   {
    "id": "defill15",
@@ -227,7 +227,7 @@
     "großer",
     "großes"
    ],
-   "why": "After die in the plural the adjective takes -en."
+   "why": "After <em>die</em> in the plural the adjective takes <em>-en</em>."
   },
   {
    "id": "defill16",
@@ -240,7 +240,7 @@
     "gute",
     "guten"
    ],
-   "why": "An adjective that is the predicate, after sein, takes no ending."
+   "why": "An adjective that is the predicate, after <em>sein</em>, takes no ending."
   },
   {
    "id": "defill17",
@@ -253,7 +253,7 @@
     "spricht",
     "sprechen"
    ],
-   "why": "Ich takes the ending -e, without the change of vowel: ich spreche."
+   "why": "<em>Ich</em> takes the ending <em>-e</em>, without the change of vowel: <em>ich spreche</em>."
   },
   {
    "id": "defill18",
@@ -266,7 +266,7 @@
     "sprecht",
     "sprechen"
    ],
-   "why": "Du takes -st, and sprechen changes e to i: du sprichst."
+   "why": "<em>Du</em> takes <em>-st</em>, and <em>sprechen</em> changes e to i: <em>du sprichst</em>."
   },
   {
    "id": "defill19",
@@ -279,7 +279,7 @@
     "gibst",
     "geben"
    ],
-   "why": "Er takes -t, and geben changes e to i: er gibt."
+   "why": "<em>Er</em> takes <em>-t</em>, and <em>geben</em> changes e to i: <em>er gibt</em>."
   },
   {
    "id": "defill20",
@@ -292,7 +292,7 @@
     "ist",
     "bin"
    ],
-   "why": "The first person plural of sein is sind."
+   "why": "The first person plural of <em>sein</em> is <em>sind</em>."
   },
   {
    "id": "defill21",
@@ -305,7 +305,7 @@
     "haben",
     "hast"
    ],
-   "why": "The second person plural of haben is habt."
+   "why": "The second person plural of <em>haben</em> is <em>habt</em>."
   },
   {
    "id": "defill22",
@@ -318,7 +318,7 @@
     "wirst",
     "werden"
    ],
-   "why": "The third person singular of werden is wird."
+   "why": "The third person singular of <em>werden</em> is <em>wird</em>."
   },
   {
    "id": "defill23",
@@ -331,7 +331,7 @@
     "seht",
     "siehst"
    ],
-   "why": "Sie, they, is the third person plural, and its verb ends in -en."
+   "why": "<em>Sie</em>, they, is the third person plural, and its verb ends in <em>-en</em>."
   },
   {
    "id": "defill24",
@@ -344,7 +344,7 @@
     "ist",
     "seid"
    ],
-   "why": "The second person singular of sein is bist."
+   "why": "The second person singular of <em>sein</em> is <em>bist</em>."
   },
   {
    "id": "defill25",
@@ -357,7 +357,7 @@
     "habe",
     "hast"
    ],
-   "why": "Machen forms the Perfekt with haben, and er takes hat."
+   "why": "<em>Machen</em> forms the Perfekt with <em>haben</em>, and <em>er</em> takes <em>hat</em>."
   },
   {
    "id": "defill26",
@@ -370,7 +370,7 @@
     "bin",
     "seid"
    ],
-   "why": "Kommen is a verb of motion and forms the Perfekt with sein: sie ist gekommen."
+   "why": "<em>Kommen</em> is a verb of motion and forms the Perfekt with <em>sein</em>: <em>sie ist gekommen</em>."
   },
   {
    "id": "defill27",
@@ -383,7 +383,7 @@
     "sprechen",
     "gesprochene"
    ],
-   "why": "The past participle of sprechen is gesprochen, and it stands at the end."
+   "why": "The past participle of <em>sprechen</em> is <em>gesprochen</em>, and it stands at the end."
   },
   {
    "id": "defill28",
@@ -396,7 +396,7 @@
     "sehen",
     "gesehene"
    ],
-   "why": "The past participle of sehen is gesehen."
+   "why": "The past participle of <em>sehen</em> is <em>gesehen</em>."
   },
   {
    "id": "defill29",
@@ -409,7 +409,7 @@
     "werden",
     "wurde"
    ],
-   "why": "The full verb werden has the participle geworden. Worden is used only in the passive."
+   "why": "The full verb <em>werden</em> has the participle <em>geworden</em>. <em>Worden</em> is used only in the passive."
   },
   {
    "id": "defill30",
@@ -422,7 +422,7 @@
     "geben",
     "gibt"
    ],
-   "why": "The past participle of geben is gegeben."
+   "why": "The past participle of <em>geben</em> is <em>gegeben</em>."
   },
   {
    "id": "defill31",
@@ -435,7 +435,7 @@
     "bin",
     "wurde"
    ],
-   "why": "The Präteritum of sein in the first person singular is war. Wäre is the Konjunktiv II."
+   "why": "The Präteritum of <em>sein</em> in the first person singular is <em>war</em>. <em>Wäre</em> is the Konjunktiv II."
   },
   {
    "id": "defill32",
@@ -448,7 +448,7 @@
     "hat",
     "habe"
    ],
-   "why": "The Präteritum of haben is hatte. Hätte is the Konjunktiv II."
+   "why": "The Präteritum of <em>haben</em> is <em>hatte</em>. <em>Hätte</em> is the Konjunktiv II."
   },
   {
    "id": "defill33",
@@ -461,7 +461,7 @@
     "geben der",
     "der geben"
    ],
-   "why": "In a main clause the finite verb stands second. Heute fills the first place, so the verb comes next and the subject follows it: heute gibt der König."
+   "why": "In a main clause the finite verb stands second. <em>Heute</em> fills the first place, so the verb comes next and the subject follows it: <em>heute gibt der König</em>."
   },
   {
    "id": "defill34",
@@ -474,7 +474,7 @@
     "der Frau gibt ein Buch",
     "gibt ein Buch der Frau"
    ],
-   "why": "After dass the finite verb goes to the end of the clause."
+   "why": "After <em>dass</em> the finite verb goes to the end of the clause."
   },
   {
    "id": "defill35",
@@ -487,7 +487,7 @@
     "gab",
     "geben"
    ],
-   "why": "The past participle goes to the end of the clause, and hat stands second."
+   "why": "The past participle goes to the end of the clause, and <em>hat</em> stands second."
   },
   {
    "id": "defill36",
@@ -500,7 +500,7 @@
     "Geben",
     "Gibst"
    ],
-   "why": "A question without a question word puts the finite verb first, and der König takes gibt."
+   "why": "A question without a question word puts the finite verb first, and <em>der König</em> takes <em>gibt</em>."
   },
   {
    "id": "defill37",
@@ -513,7 +513,7 @@
     "ab",
     "mit"
    ],
-   "why": "Ankommen has a separable prefix, and in a main clause the prefix goes to the end: der Zug kommt um acht an."
+   "why": "<em>Ankommen</em> has a separable prefix, and in a main clause the prefix goes to the end: <em>der Zug kommt um acht</em> an."
   },
   {
    "id": "defill38",
@@ -526,7 +526,7 @@
     "gelesen",
     "zu lesen"
    ],
-   "why": "After a modal verb the infinitive goes to the end without zu."
+   "why": "After a modal verb the infinitive goes to the end without <em>zu</em>."
   },
   {
    "id": "defill39",
@@ -539,7 +539,7 @@
     "bleibst",
     "bleibe"
    ],
-   "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: bleibt er."
+   "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: <em>bleibt er</em>."
   },
   {
    "id": "defill40",
@@ -552,7 +552,7 @@
     "komme",
     "kommst"
    ],
-   "why": "After dass the verb goes to the end, and er takes kommt."
+   "why": "After <em>dass</em> the verb goes to the end, and <em>er</em> takes <em>kommt</em>."
   }
  ]
 }

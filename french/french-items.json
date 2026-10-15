@@ -8,7 +8,7 @@
       "s": "<b>Le</b> roi parle.",
       "orig": "The king speaks.",
       "a": "article",
-      "note": "Le points out the king. French has a definite article, and Latin has none.",
+      "note": "<em>Le</em> points out the king. French has a definite article, and Latin has none.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -19,7 +19,7 @@
       "s": "La femme finit <b>le</b> livre.",
       "orig": "The woman finishes the book.",
       "a": "article",
-      "note": "Le points out the book. The article agrees with livre, which is masculine and singular.",
+      "note": "<em>Le</em> points out the book. The article agrees with <em>livre</em>, which is masculine and singular.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -30,7 +30,7 @@
       "s": "Le <b>roi</b> parle.",
       "orig": "The king speaks.",
       "a": "noun",
-      "note": "Roi names the king, and it is the subject of parle.",
+      "note": "<em>Roi</em> names the king, and it is the subject of <em>parle</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -41,7 +41,7 @@
       "s": "Le roi vend le <b>cheval</b>.",
       "orig": "The king sells the horse.",
       "a": "noun",
-      "note": "Cheval names the horse, and it is the object of vend.",
+      "note": "<em>Cheval</em> names the horse, and it is the object of <em>vend</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -52,7 +52,7 @@
       "s": "Le roi <b>parle</b>.",
       "orig": "The king speaks.",
       "a": "verb",
-      "note": "Parle says what the king does. It is the present, third person singular, of parler.",
+      "note": "<em>Parle</em> says what the king does. It is the present, third person singular, of <em>parler</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -63,7 +63,7 @@
       "s": "La femme <b>finit</b> le livre.",
       "orig": "The woman finishes the book.",
       "a": "verb",
-      "note": "Finit says what the woman does. It is the present, third person singular, of finir.",
+      "note": "<em>Finit</em> says what the woman does. It is the present, third person singular, of <em>finir</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -74,7 +74,7 @@
       "s": "Le <b>bon</b> roi parle.",
       "orig": "The good king speaks.",
       "a": "adjective",
-      "note": "Bon tells what sort of king, and it agrees with roi.",
+      "note": "<em>Bon</em> tells what sort of king, and it agrees with <em>roi</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -85,7 +85,7 @@
       "s": "La <b>belle</b> femme parle.",
       "orig": "The beautiful woman speaks.",
       "a": "adjective",
-      "note": "Belle tells what sort of woman, and it agrees with femme.",
+      "note": "<em>Belle</em> tells what sort of woman, and it agrees with <em>femme</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -96,7 +96,7 @@
       "s": "Le roi parle <b>bien</b>.",
       "orig": "The king speaks well.",
       "a": "adverb",
-      "note": "Bien tells how he speaks. The adverb keeps one form.",
+      "note": "<em>Bien</em> tells how he speaks. The adverb keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -107,7 +107,7 @@
       "s": "Il vient <b>souvent</b>.",
       "orig": "He comes often.",
       "a": "adverb",
-      "note": "Souvent tells how often he comes. The adverb keeps one form.",
+      "note": "<em>Souvent</em> tells how often he comes. The adverb keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -118,7 +118,7 @@
       "s": "Il va <b>dans</b> la ville.",
       "orig": "He goes into the city.",
       "a": "preposition",
-      "note": "Dans stands before the noun and marks the place. The noun itself does not change.",
+      "note": "<em>Dans</em> stands before the noun and marks the place. The noun itself does not change.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -129,7 +129,7 @@
       "s": "Elle parle <b>avec</b> le roi.",
       "orig": "She speaks with the king.",
       "a": "preposition",
-      "note": "Avec stands before the noun and marks the company. The noun itself does not change.",
+      "note": "<em>Avec</em> stands before the noun and marks the company. The noun itself does not change.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -140,7 +140,7 @@
       "s": "Le roi <b>et</b> la femme parlent.",
       "orig": "The king and the woman speak.",
       "a": "conjunction",
-      "note": "Et joins the two nouns. The verb is plural because the subject is the two of them.",
+      "note": "<em>Et</em> joins the two nouns. The verb is plural because the subject is the two of them.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -151,7 +151,7 @@
       "s": "Le roi parle, <b>mais</b> la femme finit.",
       "orig": "The king speaks, but the woman finishes.",
       "a": "conjunction",
-      "note": "Mais joins the two statements and marks the contrast.",
+      "note": "<em>Mais</em> joins the two statements and marks the contrast.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -162,7 +162,7 @@
       "s": "<b>Il</b> parle.",
       "orig": "He speaks.",
       "a": "pronoun",
-      "note": "Il stands for a masculine subject. Latin would often leave the pronoun out.",
+      "note": "<em>Il</em> stands for a masculine subject. Latin would often leave the pronoun out.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -173,7 +173,7 @@
       "s": "Le roi <b>le</b> vend.",
       "orig": "The king sells it.",
       "a": "pronoun",
-      "note": "Le stands for the thing sold, and no noun follows it, so it is a pronoun and not the article.",
+      "note": "<em>Le</em> stands for the thing sold, and no noun follows it, so it is a pronoun and not the article.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -184,7 +184,7 @@
       "s": "Le roi a <b>parlé</b>.",
       "orig": "The king has spoken.",
       "a": "participle",
-      "note": "Parlé is the past participle of parler. With a it makes the passé composé.",
+      "note": "<em>Parlé</em> is the past participle of <em>parler</em>. With a it makes the passé composé.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -195,7 +195,7 @@
       "s": "La femme, <b>parlant</b> au roi, finit le livre.",
       "orig": "The woman, speaking to the king, finishes the book.",
       "a": "participle",
-      "note": "Parlant is the present participle of parler. It stands beside the finite verb finit.",
+      "note": "<em>Parlant</em> is the present participle of <em>parler</em>. It stands beside the finite verb <em>finit</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -206,7 +206,7 @@
       "s": "<b>Hélas</b>, le roi vient.",
       "orig": "Alas, the king is coming.",
       "a": "interjection",
-      "note": "Hélas is a cry, and it keeps one form.",
+      "note": "<em>Hélas</em> is a cry, and it keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -217,7 +217,7 @@
       "s": "<b>Ah</b>, la femme vient.",
       "orig": "Ah, the woman is coming.",
       "a": "interjection",
-      "note": "Ah is a cry, and it keeps one form.",
+      "note": "<em>Ah</em> is a cry, and it keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -239,7 +239,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Roi is a noun. It takes an ending for number, and the plural is rois. It takes no ending for case.",
+      "why": "<em>Roi</em> is a noun. It takes an ending for number, and the plural is <em>rois</em>. It takes no ending for case.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -259,7 +259,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Cheval is a noun. The plural is chevaux, so the word takes an ending for number.",
+      "why": "<em>Cheval</em> is a noun. The plural is <em>chevaux</em>, so the word takes an ending for number.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -279,7 +279,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Parle is a verb. It takes endings for person, number, and tense.",
+      "why": "<em>Parle</em> is a verb. It takes endings for person, number, and tense.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -299,7 +299,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Finit is a verb. It takes endings for person, number, and tense.",
+      "why": "<em>Finit</em> is a verb. It takes endings for person, number, and tense.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -319,7 +319,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Bon is an adjective. It takes the gender and the number of its noun. Comparison is made with plus or moins, and those phrases are not asked. It does not take case.",
+      "why": "<em>Bon</em> is an adjective. It takes the gender and the number of its noun. Comparison is made with plus or moins, and those phrases are not asked. It does not take case.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -339,7 +339,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Belle is an adjective, the feminine of beau. It takes gender and number. Comparison is made with plus or moins, and those phrases are not asked. It does not take case.",
+      "why": "<em>Belle</em> is an adjective, the feminine of <em>beau</em>. It takes gender and number. Comparison is made with plus or moins, and those phrases are not asked. It does not take case.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -359,7 +359,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Je is a pronoun. The object form is me, and the stressed form is moi, so the pronoun still changes its form.",
+      "why": "<em>Je</em> is a pronoun. The object form is <em>me</em>, and the stressed form is <em>moi</em>, so the pronoun still changes its form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -379,7 +379,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Le here is a pronoun, the direct object. The subject form for a masculine thing is il, so the pronoun still changes its form.",
+      "why": "<em>Le</em> here is a pronoun, the direct object. The subject form for a masculine thing is <em>il</em>, so the pronoun still changes its form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -399,7 +399,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Bien is an adverb. It keeps one form.",
+      "why": "<em>Bien</em> is an adverb. It keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -419,7 +419,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Souvent is an adverb. It keeps one form.",
+      "why": "<em>Souvent</em> is an adverb. It keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -439,7 +439,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Dans is a preposition. It keeps one form, and the noun after it does not give it an ending.",
+      "why": "<em>Dans</em> is a preposition. It keeps one form, and the noun after it does not give it an ending.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -459,7 +459,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Avec is a preposition. It keeps one form.",
+      "why": "<em>Avec</em> is a preposition. It keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -479,7 +479,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Et is a conjunction. It keeps one form.",
+      "why": "<em>Et</em> is a conjunction. It keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -499,7 +499,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Mais is a conjunction. It keeps one form.",
+      "why": "<em>Mais</em> is a conjunction. It keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -519,7 +519,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: a conjunction, one form"
       ],
-      "why": "Hélas is an interjection, a cry, and it keeps one form.",
+      "why": "<em>Hélas</em> is an interjection, a cry, and it keeps one form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -537,7 +537,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "Je is the subject of parle, so the pronoun is in the subject form. The object form is me, and the stressed form is moi.",
+      "why": "<em>Je</em> is the subject of <em>parle</em>, so the pronoun is in the subject form. The object form is <em>me</em>, and the stressed form is <em>moi</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -553,7 +553,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "Elle is the subject of finit, so the pronoun is in the subject form. After a preposition the same letters are the stressed form, and there is no preposition here.",
+      "why": "<em>Elle</em> is the subject of <em>finit</em>, so the pronoun is in the subject form. After a preposition the same letters are the stressed form, and there is no preposition here.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -569,7 +569,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "Le is the thing sold, and it is the direct object of vend. The pronoun stands before the verb.",
+      "why": "<em>Le</em> is the thing sold, and it is the direct object of <em>vend</em>. The pronoun stands before the verb.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -585,7 +585,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "Les is the thing finished, and it is plural. It is the direct object of finit, and it stands before the verb.",
+      "why": "<em>Les</em> is the thing finished, and it is plural. It is the direct object of <em>finit</em>, and it stands before the verb.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -601,7 +601,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "L’ is le or la before the vowel of a. It is the direct object of a, from avoir, and it stands before the verb.",
+      "why": "<em>L’</em> is <em>le</em> or <em>la</em> before the vowel of a. It is the direct object of a, from <em>avoir</em>, and it stands before the verb.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -617,7 +617,7 @@
         "Direct-object form",
         "Stressed form"
       ],
-      "why": "Parler takes à for the person spoken to. When that person is a pronoun before the verb, the form is lui, the indirect object. Lui here is not the stressed pronoun, because no preposition is written.",
+      "why": "<em>Parler</em> takes <em>à</em> for the person spoken to. When that person is a pronoun before the verb, the form is <em>lui</em>, the indirect object. <em>Lui</em> here is not the stressed pronoun, because no preposition is written.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -633,7 +633,7 @@
         "Direct-object form",
         "Stressed form"
       ],
-      "why": "Leur is the indirect object, plural, of parle. The person spoken to would be marked by à if the noun were written out.",
+      "why": "<em>Leur</em> is the indirect object, plural, of <em>parle</em>. The person spoken to would be marked by <em>à</em> if the noun were written out.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -649,7 +649,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "Avec is a preposition, and the pronoun after it is the stressed form. Moi is that form. Je cannot stand there.",
+      "why": "<em>Avec</em> is a preposition, and the pronoun after it is the stressed form. <em>Moi</em> is that form. <em>Je</em> cannot stand there.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -665,7 +665,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "Eux is the stressed form, masculine plural, after the preposition avec. The subject form would be ils.",
+      "why": "<em>Eux</em> is the stressed form, masculine plural, after the preposition <em>avec</em>. The subject form would be <em>ils</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -681,7 +681,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "After c’est the pronoun is the stressed form. Toi is that form, and tu is the subject form.",
+      "why": "After <em>c’est</em> the pronoun is the stressed form. <em>Toi</em> is that form, and <em>tu</em> is the subject form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -699,7 +699,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "Avec is a preposition, so the pronoun is the stressed form. Moi is that form. Je is the subject form, and it does not stand after avec.",
+      "why": "<em>Avec</em> is a preposition, so the pronoun is the stressed form. <em>Moi</em> is that form. <em>Je</em> is the subject form, and it does not stand after <em>avec</em>.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -715,7 +715,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "Pour is a preposition, so the pronoun is the stressed form. Toi is that form, and tu is the subject form.",
+      "why": "<em>Pour</em> is a preposition, so the pronoun is the stressed form. <em>Toi</em> is that form, and <em>tu</em> is the subject form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -731,7 +731,7 @@
         "Direct-object form",
         "Indirect-object form"
       ],
-      "why": "Sans is a preposition, so the pronoun is the stressed form. Elle is spelled like the subject form, and the use after the preposition is still the stressed one. Il would not stand there.",
+      "why": "<em>Sans</em> is a preposition, so the pronoun is the stressed form. <em>Elle</em> is spelled like the subject form, and the use after the preposition is still the stressed one. <em>Il</em> would not stand there.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -747,7 +747,7 @@
         "Direct-object form",
         "Stressed form after a preposition"
       ],
-      "why": "Parler à marks the person spoken to. Before the verb that person is lui, the indirect object. The stressed form would follow a written preposition, and this sentence has none.",
+      "why": "<em>Parler à</em> marks the person spoken to. Before the verb that person is <em>lui</em>, the indirect object. The stressed form would follow a written preposition, and this sentence has none.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -763,7 +763,7 @@
         "Direct-object form",
         "Stressed form after a preposition"
       ],
-      "why": "Vendre à marks the buyer. Before the verb the buyer is leur, the indirect object. Le livre is the thing sold, and it stays a noun here.",
+      "why": "<em>Vendre à</em> marks the buyer. Before the verb the buyer is <em>leur</em>, the indirect object. <em>Le livre</em> is the thing sold, and it stays a noun here.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -779,7 +779,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "The thing finished is the direct object. Le stands for it and stands before finit. Lui would be a person spoken to, which finir does not take in this sentence.",
+      "why": "The thing finished is the direct object. <em>Le</em> stands for it and stands before <em>finit</em>. <em>Lui</em> would be a person spoken to, which <em>finir</em> does not take in this sentence.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -795,7 +795,7 @@
         "Indirect-object form",
         "Stressed form"
       ],
-      "why": "The thing had is the direct object of a. L’ is that pronoun before a vowel. Avoir does not put the thing had in a stressed form.",
+      "why": "The thing had is the direct object of a. <em>L’</em> is that pronoun before a vowel. <em>Avoir</em> does not put the thing had in a stressed form.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -811,7 +811,7 @@
         "The accusative, as Latin uses for motion",
         "The ablative, as Latin uses for place where"
       ],
-      "why": "Dans marks the place, and ville does not change its form. French does not put the noun in the accusative for motion or in the ablative for place. Latin in does make that difference.",
+      "why": "<em>Dans</em> marks the place, and <em>ville</em> does not change its form. French does not put the noun in the accusative for motion or in the ablative for place. Latin in does make that difference.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -830,7 +830,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Roi is masculine and singular. Bon is the masculine singular, so the adjective agrees. French marks no case on either word.",
+      "why": "<em>Roi</em> is masculine and singular. <em>Bon</em> is the masculine singular, so the adjective agrees. French marks no case on either word.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -847,7 +847,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Femme is feminine and singular. Belle is the feminine singular of beau, so the adjective agrees.",
+      "why": "<em>Femme</em> is feminine and singular. <em>Belle</em> is the feminine singular of <em>beau</em>, so the adjective agrees.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -864,7 +864,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Chevaux is masculine and plural. Beaux is the masculine plural of beau, so the adjective agrees.",
+      "why": "<em>Chevaux</em> is masculine and plural. <em>Beaux</em> is the masculine plural of <em>beau</em>, so the adjective agrees.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -881,7 +881,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Ami is masculine and singular, and it begins with a vowel. Vieil is the masculine singular of vieux used before a vowel, so the adjective agrees. Lawless requires that form.",
+      "why": "<em>Ami</em> is masculine and singular, and it begins with a vowel. <em>Vieil</em> is the masculine singular of <em>vieux</em> used before a vowel, so the adjective agrees. Lawless requires that form.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -899,7 +899,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Femme is feminine. Bon is masculine, so the adjective disagrees in gender. Both words are singular, and French marks no case here.",
+      "why": "<em>Femme</em> is feminine. <em>Bon</em> is masculine, so the adjective disagrees in gender. Both words are singular, and French marks no case here.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -916,7 +916,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Roi is masculine. Belle is feminine, so the adjective disagrees in gender. Number is singular on both words.",
+      "why": "<em>Roi</em> is masculine. <em>Belle</em> is feminine, so the adjective disagrees in gender. Number is singular on both words.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -933,7 +933,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Femme is feminine. Heureux is the masculine form, and the feminine is heureuse, so the adjective disagrees in gender.",
+      "why": "<em>Femme</em> is feminine. <em>Heureux</em> is the masculine form, and the feminine is <em>heureuse</em>, so the adjective disagrees in gender.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -950,7 +950,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Table is feminine. Petit is masculine, and the feminine is petite, so the adjective disagrees in gender.",
+      "why": "<em>Table</em> is feminine. <em>Petit</em> is masculine, and the feminine is <em>petite</em>, so the adjective disagrees in gender.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -967,7 +967,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Rois is plural. Bon is singular, and the masculine plural is bons, so the number does not agree. Both words are masculine.",
+      "why": "<em>Rois</em> is plural. <em>Bon</em> is singular, and the masculine plural is <em>bons</em>, so the number does not agree. Both words are masculine.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -984,7 +984,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Cheval is singular. Beaux is plural, so the number does not agree. Both words are masculine.",
+      "why": "<em>Cheval</em> is singular. <em>Beaux</em> is plural, so the number does not agree. Both words are masculine.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -998,7 +998,7 @@
       "lemmaLine": "roi, masculine, king",
       "want": "plural",
       "a": "rois",
-      "why": "The plural of roi adds s. The singular is roi.",
+      "why": "The plural of <em>roi</em> adds s. The singular is <em>roi</em>.",
       "lang": "fr",
       "src": [
         "larousse"
@@ -1010,7 +1010,7 @@
       "lemmaLine": "cheval, masculine, horse",
       "want": "plural",
       "a": "chevaux",
-      "why": "The plural of cheval is chevaux. The stem changes, and the ending is x.",
+      "why": "The plural of <em>cheval</em> is <em>chevaux</em>. The stem changes, and the ending is x.",
       "lang": "fr",
       "src": [
         "larousse"
@@ -1022,7 +1022,7 @@
       "lemmaLine": "cadeau, masculine, gift",
       "want": "plural",
       "a": "cadeaux",
-      "why": "The plural of cadeau is cadeaux. A noun in -eau takes -x.",
+      "why": "The plural of <em>cadeau</em> is <em>cadeaux</em>. A noun in <em>-eau</em> takes <em>-x</em>.",
       "lang": "fr",
       "src": [
         "larousse"
@@ -1034,7 +1034,7 @@
       "lemmaLine": "ami, masculine, friend",
       "want": "feminine singular",
       "a": "amie",
-      "why": "The feminine of ami is amie. The article before it is l’, because the word begins with a vowel.",
+      "why": "The feminine of <em>ami</em> is <em>amie</em>. The article before it is <em>l’</em>, because the word begins with a vowel.",
       "lang": "fr",
       "src": [
         "larousse"
@@ -1046,7 +1046,7 @@
       "lemmaLine": "bon, good",
       "want": "feminine singular",
       "a": "bonne",
-      "why": "The feminine singular of bon is bonne. The n is doubled.",
+      "why": "The feminine singular of <em>bon</em> is <em>bonne</em>. The n is doubled.",
       "lang": "fr",
       "src": [
         "lawless"
@@ -1058,7 +1058,7 @@
       "lemmaLine": "beau, beautiful",
       "want": "masculine singular used before a vowel",
       "a": "bel",
-      "why": "Before a masculine noun that begins with a vowel, beau becomes bel. Larousse gives bel as that form.",
+      "why": "Before a masculine noun that begins with a vowel, <em>beau</em> becomes <em>bel</em>. Larousse gives <em>bel</em> as that form.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1071,7 +1071,7 @@
       "lemmaLine": "vieux, old",
       "want": "feminine plural",
       "a": "vieilles",
-      "why": "The feminine plural of vieux is vieilles.",
+      "why": "The feminine plural of <em>vieux</em> is <em>vieilles</em>.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1084,7 +1084,7 @@
       "lemmaLine": "heureux, happy",
       "want": "feminine singular",
       "a": "heureuse",
-      "why": "The feminine singular of heureux is heureuse. The masculine plural stays heureux.",
+      "why": "The feminine singular of <em>heureux</em> is <em>heureuse</em>. The masculine plural stays <em>heureux</em>.",
       "lang": "fr",
       "src": [
         "larousse"
@@ -1096,7 +1096,7 @@
       "lemmaLine": "parler, first group, speak",
       "want": "present indicative, first person plural",
       "a": "parlons",
-      "why": "Parlons is the present, first person plural, of parler. The subject pronoun is nous.",
+      "why": "<em>Parlons</em> is the present, first person plural, of <em>parler</em>. The subject pronoun is <em>nous</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1108,7 +1108,7 @@
       "lemmaLine": "parler, first group, speak",
       "want": "imparfait, third person singular",
       "a": "parlait",
-      "why": "Parlait is the imparfait, third person singular. The present subjunctive is parle, so the two are not the same spelling.",
+      "why": "<em>Parlait</em> is the imparfait, third person singular. The present subjunctive is <em>parle</em>, so the two are not the same spelling.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1120,7 +1120,7 @@
       "lemmaLine": "parler, first group, speak",
       "want": "future, third person plural",
       "a": "parleront",
-      "why": "Parleront is the future, third person plural. The stem is the infinitive, and the ending is -ont.",
+      "why": "<em>Parleront</em> is the future, third person plural. The stem is the infinitive, and the ending is <em>-ont</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1132,7 +1132,7 @@
       "lemmaLine": "parler, first group, speak",
       "want": "passé composé, third person singular",
       "a": "a parlé",
-      "why": "Parler takes avoir. The third person singular is a parlé. The participle does not agree with the subject. The written subject is il or elle, and je would be written j’.",
+      "why": "<em>Parler</em> takes <em>avoir</em>. The third person singular is a <em>parlé</em>. The participle does not agree with the subject. The written subject is <em>il</em> or <em>elle</em>, and <em>je</em> would be written <em>j’</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1144,7 +1144,7 @@
       "lemmaLine": "finir, second group, finish",
       "want": "imparfait, third person singular",
       "a": "finissait",
-      "why": "Finissait is the imparfait, third person singular. The present is finit, and the present subjunctive is finisse, so this spelling belongs to the imparfait.",
+      "why": "<em>Finissait</em> is the imparfait, third person singular. The present is <em>finit</em>, and the present subjunctive is <em>finisse</em>, so this spelling belongs to the imparfait.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1156,7 +1156,7 @@
       "lemmaLine": "finir, second group, finish",
       "want": "present subjunctive, third person singular",
       "a": "finisse",
-      "why": "Finisse is the present subjunctive, third person singular. The present indicative is finit, so the mood is visible in the spelling.",
+      "why": "<em>Finisse</em> is the present subjunctive, third person singular. The present indicative is <em>finit</em>, so the mood is visible in the spelling.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1168,7 +1168,7 @@
       "lemmaLine": "vendre, third group, sell",
       "want": "present indicative, third person singular",
       "a": "vend",
-      "why": "Vend is the present, third person singular. No letter is added to the stem.",
+      "why": "<em>Vend</em> is the present, third person singular. No letter is added to the stem.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1180,7 +1180,7 @@
       "lemmaLine": "être, be",
       "want": "present indicative, first person plural",
       "a": "sommes",
-      "why": "Sommes is the present, first person plural, of être. The subject pronoun is nous.",
+      "why": "<em>Sommes</em> is the present, first person plural, of <em>être</em>. The subject pronoun is <em>nous</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1192,7 +1192,7 @@
       "lemmaLine": "être, be",
       "want": "present subjunctive, third person plural",
       "a": "soient",
-      "why": "Soient is the present subjunctive, third person plural. The indicative is sont.",
+      "why": "<em>Soient</em> is the present subjunctive, third person plural. The indicative is <em>sont</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1204,7 +1204,7 @@
       "lemmaLine": "avoir, have",
       "want": "present subjunctive, first person singular",
       "a": "aie",
-      "why": "Aie is the present subjunctive, first person singular, of avoir. The indicative is ai. Que is written with it: que j’aie. The imperative uses the same spelling, and it is not asked.",
+      "why": "<em>Aie</em> is the present subjunctive, first person singular, of <em>avoir</em>. The indicative is <em>ai</em>. <em>Que</em> is written with it: <em>que</em> j’aie. The imperative uses the same spelling, and it is not asked.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1216,7 +1216,7 @@
       "lemmaLine": "aller, third group, go",
       "want": "present indicative, first person singular",
       "a": "vais",
-      "why": "Vais is the present, first person singular, of aller. The stem is va-, and the infinitive stem all- is not used here.",
+      "why": "<em>Vais</em> is the present, first person singular, of <em>aller</em>. The stem is va-, and the infinitive stem all- is not used here.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1228,7 +1228,7 @@
       "lemmaLine": "aller, third group, go",
       "want": "passé composé, third person singular feminine",
       "a": "est allée",
-      "why": "Aller takes être, so the participle agrees with a feminine singular subject. The form is est allée. The masculine in the same person is est allé.",
+      "why": "<em>Aller</em> takes <em>être</em>, so the participle agrees with a feminine singular subject. The form is <em>est allée</em>. The masculine in the same person is <em>est allé</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1240,7 +1240,7 @@
       "lemmaLine": "faire, third group, do, make",
       "want": "present indicative, second person plural",
       "a": "faites",
-      "why": "Faites is the present, second person plural, of faire. The form is not faisez. The subject pronoun vous takes this ending whether vous means one person or more than one. The feminine plural of the participle is spelled the same way, and this item asks the present.",
+      "why": "<em>Faites</em> is the present, second person plural, of <em>faire</em>. The form is not faisez. The subject pronoun <em>vous</em> takes this ending whether <em>vous</em> means one person or more than one. The feminine plural of the participle is spelled the same way, and this item asks the present.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1252,7 +1252,7 @@
       "lemmaLine": "venir, third group, come",
       "want": "passé composé, third person plural feminine",
       "a": "sont venues",
-      "why": "Venir takes être, so the participle agrees. The feminine plural is sont venues. The masculine or mixed plural is sont venus.",
+      "why": "<em>Venir</em> takes <em>être</em>, so the participle agrees. The feminine plural is <em>sont venues</em>. The masculine or mixed plural is <em>sont venus</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1301,7 +1301,7 @@
         "Congruous: the parts fit, but the sense is unfinished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Les agrees with chevaux, and sont venus agrees with that plural masculine subject. The sentence is complete.",
+      "why": "<em>Les</em> agrees with <em>chevaux</em>, and <em>sont venus</em> agrees with that plural masculine subject. The sentence is complete.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1333,7 +1333,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Bon fits roi, and le fits roi. There is no verb, so the sense is not yet complete.",
+      "why": "<em>Bon</em> fits <em>roi</em>, and <em>le</em> fits <em>roi</em>. There is no verb, so the sense is not yet complete.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1349,7 +1349,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Belle fits ville. There is no verb, so the sense is not yet complete.",
+      "why": "<em>Belle</em> fits <em>ville</em>. There is no verb, so the sense is not yet complete.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1365,7 +1365,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Heureuse fits femme. There is no verb, so the sense is not yet complete.",
+      "why": "<em>Heureuse</em> fits <em>femme</em>. There is no verb, so the sense is not yet complete.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1381,7 +1381,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Congruous: the parts fit, but the sense is unfinished"
       ],
-      "why": "Roi is singular and parlent is plural. The parts do not fit. Parlent is a real form, and the fault is the join.",
+      "why": "<em>Roi</em> is singular and <em>parlent</em> is plural. The parts do not fit. <em>Parlent</em> is a real form, and the fault is the join.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1397,7 +1397,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Congruous: the parts fit, but the sense is unfinished"
       ],
-      "why": "Femme is feminine and le is masculine. The parts do not fit. Each word is a French form, and the fault is the join.",
+      "why": "<em>Femme</em> is feminine and <em>le</em> is masculine. The parts do not fit. Each word is a French form, and the fault is the join.",
       "lang": "fr",
       "src": [
         "lawless",
@@ -1415,7 +1415,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Parlont is not a form of parler. The third person plural of the present is parlent. The fault is in the one word.",
+      "why": "<em>Parlont</em> is not a form of <em>parler</em>. The third person plural of the present is <em>parlent</em>. The fault is in the one word.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1430,7 +1430,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Chevals is not the plural of cheval. The plural is chevaux. Viennent is a real form, and the fault is in the one noun.",
+      "why": "<em>Chevals</em> is not the plural of <em>cheval</em>. The plural is <em>chevaux</em>. <em>Viennent</em> is a real form, and the fault is in the one noun.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1445,7 +1445,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Finisons is not a form of finir. The first person plural of the present is finissons. The fault is in the one word.",
+      "why": "<em>Finisons</em> is not a form of <em>finir</em>. The first person plural of the present is <em>finissons</em>. The fault is in the one word.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1460,7 +1460,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Les is a real plural article, and femme is a real singular noun. The two do not agree in number. Parlent fits les, and the fault is the join of les and femme.",
+      "why": "<em>Les</em> is a real plural article, and <em>femme</em> is a real singular noun. The two do not agree in number. <em>Parlent</em> fits <em>les</em>, and the fault is the join of <em>les</em> and <em>femme</em>.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1475,7 +1475,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Je is a real subject form, and avec is a real preposition. A preposition takes the stressed form, which is moi. The fault is the join.",
+      "why": "<em>Je</em> is a real subject form, and <em>avec</em> is a real preposition. A preposition takes the stressed form, which is <em>moi</em>. The fault is the join.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1490,7 +1490,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Parlons is a real first person plural. The subject roi is third person singular, so the verb does not fit it.",
+      "why": "<em>Parlons</em> is a real first person plural. The subject <em>roi</em> is third person singular, so the verb does not fit it.",
       "lang": "fr",
       "src": [
         "leconjugueur"
@@ -1505,7 +1505,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Beau and ami are both real forms. Before a masculine singular noun that begins with a vowel, the form is bel. Lawless says that special form is required. The fault is the join.",
+      "why": "<em>Beau</em> and <em>ami</em> are both real forms. Before a masculine singular noun that begins with a vowel, the form is <em>bel</em>. Lawless says that special form is required. The fault is the join.",
       "lang": "fr",
       "src": [
         "lawless",

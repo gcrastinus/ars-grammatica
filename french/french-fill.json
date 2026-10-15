@@ -3,7 +3,7 @@
  "desc": "One word is missing from a French sentence: an article, an adjective in agreement, a verb in its person, a past form, or an object pronoun. The word is chosen from tiles at the first levels and written at the higher ones.",
  "intro": [
   {
-   "h": "<strong>The article.</strong> The article agrees with its noun in gender and number, and le and la become l’ before a vowel or a mute h. An amount that is not counted takes the partitive: du, de la, de l’.",
+   "h": "<strong>The article.</strong> The article agrees with its noun in gender and number, and <em>le</em> and <em>la</em> become <em>l’</em> before a vowel or a mute h. An amount that is not counted takes the partitive: <em>du</em>, <em>de la</em>, <em>de l’</em>.",
    "eg": [
     "<span lang=\"fr\">le roi, la reine, l’homme, les chevaux; du pain, de l’eau</span>"
    ]
@@ -21,13 +21,13 @@
    ]
   },
   {
-   "h": "<strong>The past.</strong> The passé composé is avoir or être with the past participle, and it presents an action as complete; the imparfait presents it as going on or repeated.",
+   "h": "<strong>The past.</strong> The passé composé is <em>avoir</em> or <em>être</em> with the past participle, and it presents an action as complete; the imparfait presents it as going on or repeated.",
    "eg": [
     "<span lang=\"fr\">il a parlé, elle est venue; la reine parlait quand le roi est entré</span>"
    ]
   },
   {
-   "h": "<strong>The object pronoun.</strong> An object pronoun stands before the verb: le, la, les for the direct object, lui and leur for the indirect object, and y and en for a place and a quantity.",
+   "h": "<strong>The object pronoun.</strong> An object pronoun stands before the verb: <em>le</em>, <em>la</em>, <em>les</em> for the direct object, <em>lui</em> and <em>leur</em> for the indirect object, and <em>y</em> and <em>en</em> for a place and a quantity.",
    "eg": [
     "<span lang=\"fr\">le roi le voit; je lui donne le livre; il y va; j’en ai deux</span>"
    ]
@@ -45,7 +45,7 @@
     "Les",
     "L’"
    ],
-   "why": "Roi is masculine and singular and begins with a consonant, so the article is le."
+   "why": "<em>Roi</em> is masculine and singular and begins with a consonant, so the article is <em>le</em>."
   },
   {
    "id": "frfill2",
@@ -58,7 +58,7 @@
     "Les",
     "L’"
    ],
-   "why": "Femme is feminine and singular, so the article is la."
+   "why": "<em>Femme</em> is feminine and singular, so the article is <em>la</em>."
   },
   {
    "id": "frfill3",
@@ -71,7 +71,7 @@
     "La",
     "Les"
    ],
-   "why": "Homme begins with a mute h, so le loses its vowel: l’homme."
+   "why": "<em>Homme</em> begins with a mute h, so <em>le</em> loses its vowel: <em>l’homme</em>."
   },
   {
    "id": "frfill4",
@@ -84,7 +84,7 @@
     "La",
     "L’"
    ],
-   "why": "Chevaux is plural, and the plural definite article is les for both genders."
+   "why": "<em>Chevaux</em> is plural, and the plural definite article is <em>les</em> for both genders."
   },
   {
    "id": "frfill5",
@@ -97,7 +97,7 @@
     "Des",
     "Du"
    ],
-   "why": "The indefinite article before a masculine singular noun is un."
+   "why": "The indefinite article before a masculine singular noun is <em>un</em>."
   },
   {
    "id": "frfill6",
@@ -110,7 +110,7 @@
     "des",
     "de l’"
    ],
-   "why": "An amount of something that is not counted takes the partitive article, and pain is masculine: du pain."
+   "why": "An amount of something that is not counted takes the partitive article, and pain is masculine: <em>du</em> pain."
   },
   {
    "id": "frfill7",
@@ -123,7 +123,7 @@
     "de la",
     "des"
    ],
-   "why": "Eau begins with a vowel, so the partitive is de l’: de l’eau."
+   "why": "<em>Eau</em> begins with a vowel, so the partitive is <em>de l’</em>: <em>de l’eau</em>."
   },
   {
    "id": "frfill8",
@@ -136,7 +136,7 @@
     "du",
     "des"
    ],
-   "why": "After a negative, the indefinite and partitive articles become de: il n’a pas de livre."
+   "why": "After a negative, the indefinite and partitive articles become <em>de</em>: <em>il n’a pas de livre</em>."
   },
   {
    "id": "frfill9",
@@ -149,7 +149,7 @@
     "heureuses",
     "heureusement"
    ],
-   "why": "The adjective agrees with reine, feminine and singular: heureuse. Heureusement is an adverb."
+   "why": "The adjective agrees with <em>reine</em>, feminine and singular: <em>heureuse</em>. <em>Heureusement</em> is an adverb."
   },
   {
    "id": "frfill10",
@@ -162,7 +162,7 @@
     "grande",
     "grands"
    ],
-   "why": "Maisons is feminine and plural, so grandes."
+   "why": "<em>Maisons</em> is feminine and plural, so <em>grandes</em>."
   },
   {
    "id": "frfill11",
@@ -175,7 +175,7 @@
     "petits",
     "petites"
    ],
-   "why": "Jardin is masculine and singular, so petit. Petit stands before its noun."
+   "why": "<em>Jardin</em> is masculine and singular, so <em>petit</em>. <em>Petit</em> stands before its noun."
   },
   {
    "id": "frfill12",
@@ -188,7 +188,7 @@
     "belle",
     "beaux"
    ],
-   "why": "Before a masculine singular noun that begins with a vowel, beau becomes bel: un bel ami."
+   "why": "Before a masculine singular noun that begins with a vowel, <em>beau</em> becomes <em>bel</em>: <em>un bel ami</em>."
   },
   {
    "id": "frfill13",
@@ -201,7 +201,7 @@
     "vieille",
     "vieil"
    ],
-   "why": "Femmes is feminine and plural, so vieilles."
+   "why": "<em>Femmes</em> is feminine and plural, so <em>vieilles</em>."
   },
   {
    "id": "frfill14",
@@ -214,7 +214,7 @@
     "bonne",
     "bonnes"
    ],
-   "why": "Livres is masculine and plural, so bons."
+   "why": "<em>Livres</em> is masculine and plural, so <em>bons</em>."
   },
   {
    "id": "frfill15",
@@ -227,7 +227,7 @@
     "bel",
     "beaux"
    ],
-   "why": "Maison is feminine, so belle."
+   "why": "<em>Maison</em> is feminine, so <em>belle</em>."
   },
   {
    "id": "frfill16",
@@ -240,7 +240,7 @@
     "contents",
     "contente"
    ],
-   "why": "Amies is feminine and plural, so contentes."
+   "why": "<em>Amies</em> is feminine and plural, so <em>contentes</em>."
   },
   {
    "id": "frfill17",
@@ -253,7 +253,7 @@
     "parlons",
     "parlent"
    ],
-   "why": "Je takes the ending -e in a verb in -er: je parle."
+   "why": "<em>Je</em> takes the ending <em>-e</em> in a verb in <em>-er</em>: <em>je parle</em>."
   },
   {
    "id": "frfill18",
@@ -266,7 +266,7 @@
     "finissez",
     "finissons"
    ],
-   "why": "Tu takes the ending -s: tu finis."
+   "why": "<em>Tu</em> takes the ending <em>-s</em>: <em>tu finis</em>."
   },
   {
    "id": "frfill19",
@@ -279,7 +279,7 @@
     "vendons",
     "vendent"
    ],
-   "why": "Vendre has no ending in the third person singular: il vend."
+   "why": "<em>Vendre</em> has no ending in the third person singular: <em>il vend</em>."
   },
   {
    "id": "frfill20",
@@ -292,7 +292,7 @@
     "sont",
     "suis"
    ],
-   "why": "The first person plural of être is sommes."
+   "why": "The first person plural of <em>être</em> is <em>sommes</em>."
   },
   {
    "id": "frfill21",
@@ -305,7 +305,7 @@
     "ont",
     "as"
    ],
-   "why": "The second person plural of avoir is avez."
+   "why": "The second person plural of <em>avoir</em> is <em>avez</em>."
   },
   {
    "id": "frfill22",
@@ -318,7 +318,7 @@
     "allons",
     "allez"
    ],
-   "why": "The third person plural of aller is vont."
+   "why": "The third person plural of <em>aller</em> is <em>vont</em>."
   },
   {
    "id": "frfill23",
@@ -331,7 +331,7 @@
     "faisons",
     "font"
    ],
-   "why": "The first person singular of faire is fais."
+   "why": "The first person singular of <em>faire</em> is <em>fais</em>."
   },
   {
    "id": "frfill24",
@@ -344,7 +344,7 @@
     "venons",
     "venez"
    ],
-   "why": "The third person plural of venir is viennent."
+   "why": "The third person plural of <em>venir</em> is <em>viennent</em>."
   },
   {
    "id": "frfill25",
@@ -357,7 +357,7 @@
     "as",
     "ont"
    ],
-   "why": "Parler forms the passé composé with avoir, and il takes a."
+   "why": "<em>Parler</em> forms the passé composé with <em>avoir</em>, and <em>il</em> takes a."
   },
   {
    "id": "frfill26",
@@ -370,7 +370,7 @@
     "es",
     "sont"
    ],
-   "why": "Venir forms the passé composé with être, and elle takes est."
+   "why": "<em>Venir</em> forms the passé composé with <em>être</em>, and <em>elle</em> takes <em>est</em>."
   },
   {
    "id": "frfill27",
@@ -383,7 +383,7 @@
     "finir",
     "finis"
    ],
-   "why": "The passé composé is avoir with the past participle, and the participle of finir is fini."
+   "why": "The passé composé is <em>avoir</em> with the past participle, and the participle of <em>finir</em> is <em>fini</em>."
   },
   {
    "id": "frfill28",
@@ -396,7 +396,7 @@
     "allée",
     "allées"
    ],
-   "why": "Aller takes être, and the participle agrees with ils, masculine plural: allés."
+   "why": "<em>Aller</em> takes <em>être</em>, and the participle agrees with <em>ils</em>, masculine plural: <em>allés</em>."
   },
   {
    "id": "frfill29",
@@ -409,7 +409,7 @@
     "vends",
     "vendue"
    ],
-   "why": "With avoir the participle does not agree with the subject, and the object comes after it, so vendu."
+   "why": "With <em>avoir</em> the participle does not agree with the subject, and the object comes after it, so <em>vendu</em>."
   },
   {
    "id": "frfill30",
@@ -422,7 +422,7 @@
     "parle",
     "parlera"
    ],
-   "why": "The imparfait presents the speaking as going on when the other action happened: elle parlait. A parlé would present it as a complete act."
+   "why": "The imparfait presents the speaking as going on when the other action happened: <em>elle parlait</em>. A <em>parlé</em> would present it as a complete act."
   },
   {
    "id": "frfill31",
@@ -435,7 +435,7 @@
     "fait",
     "fera"
    ],
-   "why": "A habit in the past is given by the imparfait: il faisait."
+   "why": "A habit in the past is given by the imparfait: <em>il faisait</em>."
   },
   {
    "id": "frfill32",
@@ -448,7 +448,7 @@
     "arrivés",
     "arrivée"
    ],
-   "why": "Arriver takes être, and the participle agrees with les femmes, feminine plural: arrivées."
+   "why": "Arriver takes <em>être</em>, and the participle agrees with <em>les femmes</em>, feminine plural: <em>arrivées</em>."
   },
   {
    "id": "frfill33",
@@ -461,7 +461,7 @@
     "il",
     "la"
    ],
-   "why": "The direct object pronoun for a masculine singular person is le, before the verb."
+   "why": "The direct object pronoun for a masculine singular person is <em>le</em>, before the verb."
   },
   {
    "id": "frfill34",
@@ -474,7 +474,7 @@
     "elle",
     "leur"
    ],
-   "why": "She receives the book, so she is the indirect object, and the pronoun is lui."
+   "why": "She receives the book, so she is the indirect object, and the pronoun is <em>lui</em>."
   },
   {
    "id": "frfill35",
@@ -487,7 +487,7 @@
     "lui",
     "eux"
    ],
-   "why": "Parler à takes an indirect object, and the plural indirect pronoun is leur."
+   "why": "<em>Parler à</em> takes an indirect object, and the plural indirect pronoun is <em>leur</em>."
   },
   {
    "id": "frfill36",
@@ -500,7 +500,7 @@
     "le",
     "lui"
    ],
-   "why": "Y stands for a place to which or in which: il y va."
+   "why": "<em>Y</em> stands for a place to which or in which: <em>il y va</em>."
   },
   {
    "id": "frfill37",
@@ -513,7 +513,7 @@
     "les",
     "l’"
    ],
-   "why": "En stands for a quantity of something already named: j’en ai deux."
+   "why": "<em>En</em> stands for a quantity of something already named: <em>j’en ai deux</em>."
   },
   {
    "id": "frfill38",
@@ -526,7 +526,7 @@
     "leur",
     "y"
    ],
-   "why": "The book is the direct object, masculine, so le, and me comes before le."
+   "why": "The book is the direct object, masculine, so <em>le</em>, and <em>me</em> comes before <em>le</em>."
   },
   {
    "id": "frfill39",
@@ -539,7 +539,7 @@
     "tu",
     "ton"
    ],
-   "why": "After a preposition French uses the stressed pronoun: pour toi."
+   "why": "After a preposition French uses the stressed pronoun: <em>pour toi</em>."
   },
   {
    "id": "frfill40",
@@ -552,7 +552,7 @@
     "vos",
     "leur"
    ],
-   "why": "The object pronoun of the second person plural is vous, before the verb."
+   "why": "The object pronoun of the second person plural is <em>vous</em>, before the verb."
   }
  ]
 }

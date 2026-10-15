@@ -6,7 +6,7 @@
     "lemma": "le, la, les",
     "gloss": "the; a; some",
     "ref": "Laura K. Lawless, Lawless French, Articles, Definite articles, and Partitive article, lawlessfrench.com, read 2026-10-09",
-    "note": "The definite article agrees in gender and number. Le and la become l’ before a vowel or a mute h. À contracts with le and les, and de contracts with le and les. À la, à l’, de la, and de l’ do not contract. Du is both the masculine partitive and the contraction of de + le. Des is the indefinite plural, the partitive plural, and the contraction of de + les. The school rule reduces des to de before a preceding adjective in the plural, and usage also keeps des. That choice is not asked. In a negative sentence the indefinite and the partitive usually become de. That choice is not asked either.",
+    "note": "The definite article agrees in gender and number. <em>Le</em> and <em>la</em> become <em>l’</em> before a vowel or a mute h. <em>À</em> contracts with <em>le</em> and <em>les</em>, and <em>de</em> contracts with <em>le</em> and <em>les</em>. <em>À la</em>, <em>à l’</em>, <em>de la</em>, and <em>de l’</em> do not contract. <em>Du</em> is both the masculine partitive and the contraction of <em>de</em> + <em>le</em>. <em>Des</em> is the indefinite plural, the partitive plural, and the contraction of <em>de</em> + <em>les</em>. The school rule reduces <em>des</em> to <em>de</em> before a preceding adjective in the plural, and usage also keeps <em>des</em>. That choice is not asked. In a negative sentence the indefinite and the partitive usually become <em>de</em>. That choice is not asked either.",
     "forms": {
       "definite": {
         "m_sg": "le",
@@ -172,7 +172,7 @@
         "m_pl": "bons",
         "f_pl": "bonnes"
       },
-      "note": "The feminine is bonne, bonnes. The masculine plural is bons. The n is doubled in the feminine. No compared form is asked."
+      "note": "The feminine is <em>bonne</em>, <em>bonnes</em>. The masculine plural is <em>bons</em>. The n is doubled in the feminine. No compared form is asked."
     },
     {
       "lemma": "petit",
@@ -206,7 +206,7 @@
         "m_pl": "beaux",
         "f_pl": "belles"
       },
-      "note": "Lawless prints beau, bel, belle, beaux, belles, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for bel."
+      "note": "Lawless prints <em>beau</em>, <em>bel</em>, <em>belle</em>, <em>beaux</em>, <em>belles</em>, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for <em>bel</em>."
     },
     {
       "lemma": "vieux",
@@ -218,7 +218,7 @@
         "m_pl": "vieux",
         "f_pl": "vieilles"
       },
-      "note": "Lawless prints vieux, vieil, vieille, vieux, vieilles, with the example un vieil homme, and says there is no special plural, as in trois vieux hommes. Larousse says vieil is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps vieux before a vowel. The form asked here is vieil."
+      "note": "Lawless prints <em>vieux</em>, <em>vieil</em>, <em>vieille</em>, <em>vieux</em>, <em>vieilles</em>, with the example <em>un vieil homme</em>, and says there is no special plural, as in trois <em>vieux hommes</em>. Larousse says <em>vieil</em> is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps <em>vieux</em> before a vowel. The form asked here is <em>vieil</em>."
     },
     {
       "lemma": "heureux",
@@ -234,7 +234,7 @@
   ],
   "pronouns": {
     "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09",
-    "note": "Me, te, le, and la elide before a vowel or a mute h: m’, t’, l’. Lui as an indirect object is masculine or feminine. Lui as a stressed pronoun is masculine, and the feminine stressed form is elle. Nous and vous have one spelling for the subject, the direct object, the indirect object, and the stressed form, so the place shows the use. The reflexive series is me, te, se, nous, vous, se. It is not asked. Y and en are not in this table.",
+    "note": "<em>Me</em>, <em>te</em>, <em>le</em>, and <em>la</em> elide before a vowel or a mute h: m’, t’, <em>l’</em>. <em>Lui</em> as an indirect object is masculine or feminine. <em>Lui</em> as a stressed pronoun is masculine, and the feminine stressed form is <em>elle</em>. <em>Nous</em> and <em>vous</em> have one spelling for the subject, the direct object, the indirect object, and the stressed form, so the place shows the use. The reflexive series is <em>me</em>, <em>te</em>, <em>se</em>, <em>nous</em>, <em>vous</em>, <em>se</em>. It is not asked. <em>Y</em> and <em>en</em> are not in this <em>table</em>.",
     "subject": {
       "1s": "je",
       "2s": "tu",
@@ -291,7 +291,7 @@
       "kind": "irregular",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "Être takes avoir in the passé composé. Le Conjugueur prints the participle été four times, with no feminine ending. The future stem is ser-. Je serai is future. Je serais is conditional and is not entered.",
+      "note": "<em>Être</em> takes <em>avoir</em> in the passé composé. <em>Le</em> Conjugueur prints the participle <em>été</em> four times, with no feminine ending. The future stem is ser-. <em>Je serai</em> is future. <em>Je serais</em> is conditional and is not entered.",
       "present": {
         "1s": "suis",
         "2s": "es",
@@ -346,7 +346,7 @@
       "kind": "irregular",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "The passé composé cells are the forms with no agreement, which is the agreement with the subject. The participle eu takes e and s when it agrees with a preceding direct object. Those agreeing forms are stored under participe_passe and are not asked. The future stem is aur-.",
+      "note": "The passé composé cells are the forms with no agreement, which is the agreement with the subject. The participle <em>eu</em> takes e and s when it agrees with a preceding direct object. Those agreeing forms are stored under participe_<em>passe</em> and are not asked. The future stem is aur-.",
       "present": {
         "1s": "ai",
         "2s": "as",
@@ -401,7 +401,7 @@
       "kind": "regular -er, first group",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "Le Conjugueur calls this the general pattern of verbs in -er. The auxiliary is avoir, so the passé composé does not agree with the subject. For an -er verb, the singular and the third person plural of the present subjunctive are spelled like the present indicative, and the nous and vous forms are spelled like the imparfait. The clause shows which is meant. Le Robert, Dico en ligne, « Subjonctif », dictionnaire.lerobert.com, read 2026-10-09",
+      "note": "<em>Le</em> Conjugueur calls this the general pattern of verbs in <em>-er</em>. The auxiliary is <em>avoir</em>, so the passé composé does not agree with the subject. For an <em>-er</em> verb, the singular and the third person plural of the present subjunctive are spelled like the present indicative, and the <em>nous</em> and <em>vous</em> forms are spelled like the imparfait. The clause shows which is meant. <em>Le</em> Robert, Dico <em>en</em> ligne, « Subjonctif », dictionnaire.lerobert.com, read 2026-10-09",
       "present": {
         "1s": "parle",
         "2s": "parles",
@@ -456,7 +456,7 @@
       "kind": "regular -ir, second group",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "Le Conjugueur: verbs in -ir that form the present participle in -issant. The nous and vous forms of the imparfait and of the present subjunctive are spelled alike. The present and the present subjunctive also share finissent. The imperfect subjunctive, which is not entered, spells que je finisse like the present subjunctive.",
+      "note": "<em>Le</em> Conjugueur: verbs in <em>-ir</em> that form the present participle in <em>-issant</em>. The <em>nous</em> and <em>vous</em> forms of the imparfait and of the present subjunctive are spelled alike. The present and the present subjunctive also share <em>finissent</em>. The imperfect subjunctive, which is not entered, spells <em>que je finisse</em> like the present subjunctive.",
       "present": {
         "1s": "finis",
         "2s": "finis",
@@ -511,7 +511,7 @@
       "kind": "regular -re, third group",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "Le Conjugueur: the general pattern of verbs in -dre, except prendre. The third person singular of the present is vend, with no added letter. The future stem drops the final e of the infinitive: vendr-.",
+      "note": "<em>Le</em> Conjugueur: the general pattern of verbs in <em>-dre</em>, except <em>prendre</em>. The third person singular of the present is <em>vend</em>, with no added letter. The future stem drops the final e of the infinitive: vendr-.",
       "present": {
         "1s": "vends",
         "2s": "vends",
@@ -566,7 +566,7 @@
       "kind": "irregular, third group",
       "auxiliary": "être",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "The main table prints the masculine participle. The feminine cells are the participle list on the same page, joined to the same auxiliary. Vous is êtes allé for one man, êtes allée for one woman, êtes allés for a masculine or mixed group, and êtes allées for a feminine group. The stored 2p cell is the plural masculine that the main table prints. It is not asked.",
+      "note": "The main <em>table</em> prints the masculine participle. The feminine cells are the participle list on the same page, joined to the same auxiliary. <em>Vous</em> is <em>êtes allé</em> for one man, <em>êtes allée</em> for one woman, <em>êtes allés</em> for a masculine or mixed group, and <em>êtes allées</em> for a feminine group. The stored 2p cell is the plural masculine that the main <em>table</em> prints. It is not asked.",
       "present": {
         "1s": "vais",
         "2s": "vas",
@@ -626,7 +626,7 @@
       "kind": "irregular, third group",
       "auxiliary": "avoir",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "Le Conjugueur notes the second person plural faites beside nous faisons. The future stem is fer-. The participle agrees when it is a preceding direct object: faite, faits, faites. Those cells are stored and are not asked.",
+      "note": "<em>Le</em> Conjugueur notes the second person plural <em>faites</em> beside <em>nous faisons</em>. The future stem is fer-. The participle agrees when it is a preceding direct object: <em>faite</em>, <em>faits</em>, <em>faites</em>. Those cells are stored and are not asked.",
       "present": {
         "1s": "fais",
         "2s": "fais",
@@ -681,7 +681,7 @@
       "kind": "irregular, third group",
       "auxiliary": "être",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09",
-      "note": "The auxiliary is être, as for aller. The main table prints the masculine participle. Feminine cells are on the same page’s participle list. The future stem is viendr-. Vous follows the same split as aller, and the stored 2p cell is the table’s masculine plural. It is not asked. Venir de plus an infinitive means to have just done, and that construction is not asked.",
+      "note": "The auxiliary is <em>être</em>, as for <em>aller</em>. The main <em>table</em> prints the masculine participle. Feminine cells are on the same page’s participle list. The future stem is viendr-. <em>Vous</em> follows the same split as <em>aller</em>, and the stored 2p cell is the table’s masculine plural. It is not asked. <em>Venir de</em> plus an infinitive means to have just done, and that construction is not asked.",
       "present": {
         "1s": "viens",
         "2s": "viens",

@@ -24,7 +24,7 @@ window.GERMAN = {
     "gloss": "woman",
     "kind": "strong",
     "ref": "Duden, Deklination zu Frau, duden.de/deklination/substantive/Frau, read 2026-10-09. Singular die Frau, die Frau, der Frau, der Frau. Plural die Frauen, die Frauen, den Frauen, der Frauen. Duden, Was sind Artikel?, prints the same singular article forms.",
-    "note": "The noun itself does not change in the singular. The article shows the case. The plural already ends in -n, so the dative plural adds nothing."
+    "note": "The noun itself does not change in the singular. The article shows the case. The plural already ends in <em>-n</em>, so the dative plural adds nothing."
    },
    {
     "lemma": "Mann",
@@ -35,7 +35,7 @@ window.GERMAN = {
     "gloss": "man",
     "kind": "strong",
     "ref": "Duden, Was sind Artikel?, duden.de/sprachwissen/fuer-lernende/wortarten-artikel, read 2026-10-09, prints der Mann, des Mann[e]s, dem Mann, den Mann. Duden, s.v. Mann, duden.de/rechtschreibung/Mann_Person, read 2026-10-09, prints Genitiv des Mann[e]s, Plural die Männer.",
-    "note": "Duden prints both Mannes and Manns. Mannes is the form stored. Manns is not asked. The dative plural Männern was not on the Mann page. It adds n, the ending Duden prints on den Königen, den Freunden, and den Pferden. The older dative dem Manne is not stored."
+    "note": "Duden prints both <em>Mannes</em> and Manns. <em>Mannes</em> is the form stored. <em>Manns</em> is not asked. The dative plural <em>Männern</em> was not on the <em>Mann</em> page. It adds n, the ending Duden prints on <em>den Königen</em>, <em>den Freunden</em>, and <em>den Pferden</em>. The older dative <em>dem</em> Manne is not stored."
    },
    {
     "lemma": "Pferd",
@@ -46,7 +46,7 @@ window.GERMAN = {
     "gloss": "horse",
     "kind": "strong",
     "ref": "Duden, Deklination zu Pferd, duden.de/deklination/substantive/Pferd, read 2026-10-09. Singular das Pferd, das Pferd, dem Pferd, des Pferdes, Pferds. Plural die Pferde, die Pferde, den Pferden, der Pferde.",
-    "note": "Duden prints both Pferdes and Pferds. Pferdes is the form stored. Pferds is not asked."
+    "note": "Duden prints both <em>Pferdes</em> and <em>Pferds</em>. <em>Pferdes</em> is the form stored. <em>Pferds</em> is not asked."
    },
    {
     "lemma": "Stadt",
@@ -57,7 +57,7 @@ window.GERMAN = {
     "gloss": "city",
     "kind": "strong",
     "ref": "Duden, Deklination zu Stadt, duden.de/deklination/substantive/Stadt, read 2026-10-09. Singular die Stadt, die Stadt, der Stadt, der Stadt. Plural die Städte, die Städte, den Städten, der Städte.",
-    "note": "The plural umlaut is Städte. The dative plural is Städten."
+    "note": "The plural umlaut is <em>Städte</em>. The dative plural is <em>Städten</em>."
    },
    {
     "lemma": "Buch",
@@ -68,7 +68,7 @@ window.GERMAN = {
     "gloss": "book",
     "kind": "strong",
     "ref": "Duden, Deklination zu Buch, duden.de/deklination/substantive/Buch, read 2026-10-09. Singular das Buch, das Buch, dem Buch, des Buches, Buchs. Plural die Bücher, die Bücher, den Büchern, der Bücher.",
-    "note": "Duden prints both Buches and Buchs. Buches is the form stored. Buchs is not asked."
+    "note": "Duden prints both <em>Buches</em> and Buchs. <em>Buches</em> is the form stored. <em>Buchs</em> is not asked."
    },
    {
     "lemma": "Garten",
@@ -79,7 +79,7 @@ window.GERMAN = {
     "gloss": "garden",
     "kind": "strong",
     "ref": "Duden, Deklination zu Garten, duden.de/deklination/substantive/Garten, read 2026-10-09. Singular der Garten, den Garten, dem Garten, des Gartens. Plural die Gärten, die Gärten, den Gärten, der Gärten.",
-    "note": "The plural already ends in -n, so the dative plural is Gärten, the same spelling as the other plural cases."
+    "note": "The plural already ends in <em>-n</em>, so the dative plural is <em>Gärten</em>, the same spelling as the other plural cases."
    },
    {
     "lemma": "Meer",
@@ -90,7 +90,7 @@ window.GERMAN = {
     "gloss": "sea",
     "kind": "strong",
     "ref": "Duden, Deklination zu Meer, duden.de/deklination/substantive/Meer, read 2026-10-09. Singular das Meer, das Meer, dem Meer, des Meeres, Meers. Plural die Meere, die Meere, den Meeren, der Meere.",
-    "note": "Duden prints both Meeres and Meers. Meeres is the form stored. Meers is not asked."
+    "note": "Duden prints both <em>Meeres</em> and Meers. <em>Meeres</em> is the form stored. <em>Meers</em> is not asked."
    },
    {
     "lemma": "Freund",
@@ -101,7 +101,7 @@ window.GERMAN = {
     "gloss": "friend",
     "kind": "strong",
     "ref": "Duden, Deklination zu Freund, duden.de/deklination/substantive/Freund, read 2026-10-09. Singular der Freund, den Freund, dem Freund, des Freundes, Freunds. Plural die Freunde, die Freunde, den Freunden, der Freunde.",
-    "note": "Duden prints both Freundes and Freunds. Freundes is the form stored. Freunds is not asked."
+    "note": "Duden prints both <em>Freundes</em> and Freunds. <em>Freundes</em> is the form stored. <em>Freunds</em> is not asked."
    },
    {
     "lemma": "Mensch",
@@ -112,7 +112,7 @@ window.GERMAN = {
     "gloss": "human being, man",
     "kind": "weak",
     "ref": "Duden, Deklination zu Mensch, duden.de/deklination/substantive/Mensch_Individuum, read 2026-10-09. Singular der Mensch, den Menschen, dem Menschen, des Menschen. Plural die Menschen, die Menschen, den Menschen, der Menschen.",
-    "note": "Weak masculine. The nominative singular is the only form without -n. Every other case, singular and plural, is Menschen."
+    "note": "Weak masculine. The nominative singular is the only form without <em>-n</em>. Every other case, singular and plural, is <em>Menschen</em>."
    },
    {
     "lemma": "Haus",
@@ -123,7 +123,7 @@ window.GERMAN = {
     "gloss": "house",
     "kind": "strong",
     "ref": "Duden, s.v. Haus, duden.de/rechtschreibung/Haus, read 2026-10-09, prints das Haus, Genitiv des Hauses, and the plural Häuser. The declension page for Haus was not found. The dative singular Haus and the dative plural Häusern follow the neuter pattern Duden prints in full for Buch, Pferd, and Meer.",
-    "note": "The full four-case table was not on the page opened for Haus. No item asks a cell of Haus. The older dative Hause, in the set phrase im Hause, is not stored."
+    "note": "The full four-case table was not on the page opened for <em>Haus</em>. No item asks a cell of <em>Haus</em>. The older dative <em>Hause</em>, in the set phrase <em>im Hause</em>, is not stored."
    }
   ],
   "verbs": [
@@ -133,7 +133,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "sein",
     "tabulated": true,
-    "note": "The Perfekt uses sein: bin gewesen. The Konjunktiv II second person singular is printed as wärest, wärst, and the second person plural as wäret, wärt. The form stored is the one Duden prints first. The short form is not asked. The Konjunktiv I is printed on the page and is not entered.",
+    "note": "The Perfekt uses <em>sein</em>: <em>bin gewesen</em>. The Konjunktiv II second person singular is printed as <em>wärest</em>, wärst, and the second person plural as <em>wäret</em>, wärt. The form stored is the one Duden prints first. The short form is not asked. The Konjunktiv I is printed on the page and is not entered.",
     "ref": "Duden, Konjugation zu sein, duden.de/konjugation/sein_Hilfsverb, read 2026-10-09"
    },
    {
@@ -142,7 +142,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "haben",
     "tabulated": true,
-    "note": "The present second and third persons drop the b of the stem: hast, hat. The Perfekt uses haben: hat gehabt. The Konjunktiv II is hätte, hättest, hätte, hätten, hättet, hätten. The reflexive parentheses on the Duden line are not part of the form.",
+    "note": "The present second and third persons drop the b of the stem: <em>hast</em>, <em>hat</em>. The Perfekt uses <em>haben</em>: <em>hat gehabt</em>. The Konjunktiv II is <em>hätte</em>, <em>hättest</em>, <em>hätte</em>, <em>hätten</em>, <em>hättet</em>, <em>hätten</em>. The reflexive parentheses on the Duden line are not part of the form.",
     "ref": "Duden, Konjugation zu haben, duden.de/konjugation/haben_Vollverb, read 2026-10-09"
    },
    {
@@ -151,7 +151,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "sein",
     "tabulated": true,
-    "note": "The Präteritum line prints ward, wurde and wardst, wurdest. The form stored is wurde, wurdest, wurde, wurden, wurdet, wurden. Ward is the older form and is not asked. The Perfekt of the full verb uses sein: ist geworden. When werden is the passive auxiliary, the participle is worden. That passive is not entered. The Konjunktiv II is würde, würdest, würde, würden, würdet, würden.",
+    "note": "The Präteritum line prints <em>ward</em>, <em>wurde</em> and <em>wardst</em>, <em>wurdest</em>. The form stored is <em>wurde</em>, <em>wurdest</em>, <em>wurde</em>, <em>wurden</em>, <em>wurdet</em>, <em>wurden</em>. <em>Ward</em> is the older form and is not asked. The Perfekt of the full verb uses <em>sein</em>: <em>ist geworden</em>. When <em>werden</em> is the passive auxiliary, the participle is <em>worden</em>. That passive is not entered. The Konjunktiv II is <em>würde</em>, <em>würdest</em>, <em>würde</em>, <em>würden</em>, <em>würdet</em>, <em>würden</em>.",
     "ref": "Duden, Konjugation zu werden, duden.de/konjugation/werden_Vollverb, read 2026-10-09"
    },
    {
@@ -160,7 +160,7 @@ window.GERMAN = {
     "kind": "weak",
     "auxiliary": "haben",
     "tabulated": true,
-    "note": "Present: mache, machst, macht, machen, macht, machen. The third person singular and the second person plural are both macht. Präteritum: machte, machtest, machte, machten, machtet, machten. The Konjunktiv II is that same set of spellings. No item asks it. Duden says the würde construction is the clearer one when the two spellings match, and the page illustrates it with wohnen. The Perfekt is hat gemacht.",
+    "note": "Present: <em>mache</em>, <em>machst</em>, <em>macht</em>, <em>machen</em>, <em>macht</em>, <em>machen</em>. The third person singular and the second person plural are both <em>macht</em>. Präteritum: <em>machte</em>, <em>machtest</em>, <em>machte</em>, <em>machten</em>, <em>machtet</em>, <em>machten</em>. The Konjunktiv II is that same set of spellings. No item asks it. Duden says the <em>würde</em> construction is the clearer one when the two spellings match, and the page illustrates it with wohnen. The Perfekt is <em>hat gemacht</em>.",
     "ref": "Duden, Konjugation zu machen, duden.de/konjugation/machen, read 2026-10-09. Duden, Konjunktiv II oder würde-Form, duden.de/sprachwissen/sprachratgeber/Konjunktiv-2-oder-würde-Form, read 2026-10-09, says the Konjunktiv II of a weak verb has the same spelling as the Präteritum, and gives ich liebte, er liebte."
    },
    {
@@ -169,7 +169,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "tabulated": true,
-    "note": "The present changes e to i in the second and third persons singular: sprichst, spricht. The Konjunktiv II second person is printed as sprächest, sprächst and sprächet, sprächt. The form stored is the one Duden prints first. The short form is not asked. The participle is gesprochen.",
+    "note": "The present changes e to i in the second and third persons singular: <em>sprichst</em>, <em>spricht</em>. The Konjunktiv II second person is printed as <em>sprächest</em>, sprächst and <em>sprächet</em>, sprächt. The form stored is the one Duden prints first. The short form is not asked. The participle is <em>gesprochen</em>.",
     "ref": "Duden, Konjugation zu sprechen, duden.de/konjugation/sprechen, read 2026-10-09"
    },
    {
@@ -178,7 +178,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "tabulated": true,
-    "note": "The present changes e to i: gibst, gibt. The participle is gegeben. The Konjunktiv II second person is printed as gäbest, gäbst and gäbet, gäbt. The form stored is the one Duden prints first. The short form is not asked. Duden, Der Gebrauch von Präpositionalobjekten, duden.de/sprachwissen/sprachratgeber/Der-Gebrauch-von-Präpositionalobjekten, read 2026-10-09, says geben takes a subject, a dative for the receiver, and an accusative for the thing given, and prints Sie gab ihm eine Ohrfeige.",
+    "note": "The present changes e to i: <em>gibst</em>, <em>gibt</em>. The participle is <em>gegeben</em>. The Konjunktiv II second person is printed as <em>gäbest</em>, gäbst and <em>gäbet</em>, gäbt. The form stored is the one Duden prints first. The short form is not asked. Duden, <em>Der</em> Gebrauch <em>von</em> Präpositionalobjekten, duden.de/sprachwissen/sprachratgeber/Der-Gebrauch-von-Präpositionalobjekten, read 2026-10-09, says <em>geben</em> takes a subject, a dative for the receiver, and an accusative for the thing given, and prints <em>Sie gab ihm eine</em> Ohrfeige.",
     "ref": "Duden, Konjugation zu geben, duden.de/konjugation/geben, read 2026-10-09"
    },
    {
@@ -187,7 +187,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "sein",
     "tabulated": true,
-    "note": "The present does not change the vowel: kommst, kommt. The third person singular and the second person plural are both kommt. The Perfekt uses sein: ist gekommen. The Konjunktiv II second person is printed as kämest, kämst and kämet, kämt. The form stored is the one Duden prints first. The short form is not asked.",
+    "note": "The present does not change the vowel: <em>kommst</em>, <em>kommt</em>. The third person singular and the second person plural are both <em>kommt</em>. The Perfekt uses <em>sein</em>: <em>ist gekommen</em>. The Konjunktiv II second person is printed as <em>kämest</em>, kämst and <em>kämet</em>, kämt. The form stored is the one Duden prints first. The short form is not asked.",
     "ref": "Duden, Konjugation zu kommen, duden.de/konjugation/kommen, read 2026-10-09"
    },
    {
@@ -196,7 +196,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "tabulated": true,
-    "note": "The present has siehst and sieht. The Perfekt line prints gesehen/sehen. The form stored is hat gesehen. The sehen beside it on that line is the Ersatzinfinitiv used with a modal, and it is not asked. The Konjunktiv II is sähe, with sähest, sähst and sähet, säht in the second person. The form stored is the one Duden prints first. The short form is not asked.",
+    "note": "The present has <em>siehst</em> and <em>sieht</em>. The Perfekt line prints <em>gesehen</em>/<em>sehen</em>. The form stored is <em>hat gesehen</em>. The <em>sehen</em> beside it on that line is the Ersatzinfinitiv used with a modal, and it is not asked. The Konjunktiv II is <em>sähe</em>, with <em>sähest</em>, sähst and <em>sähet</em>, säht in the second person. The form stored is the one Duden prints first. The short form is not asked.",
     "ref": "Duden, Konjugation zu sehen, duden.de/konjugation/sehen, read 2026-10-09"
    },
    {
@@ -230,21 +230,21 @@ window.GERMAN = {
     "gloss": "good",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, s.v. gut, duden.de/rechtschreibung/gut, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, duden.de/sprachwissen/sprachratgeber/steigerung-komparation-deutsche-adjektive, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The positive takes the regular endings. Duden, Die Steigerung, prints the compared forms besser and am besten. Those forms are not asked. The gut entry prints guten Morgen, guten Mutes, and aus gutem Grund. The full grid below is the ending table applied to the stem gut."
+    "note": "The positive takes the regular endings. Duden, <em>Die</em> Steigerung, prints the compared forms besser and am besten. Those forms are not asked. The <em>gut</em> entry prints <em>guten Morgen</em>, <em>guten</em> Mutes, and <em>aus gutem</em> Grund. The full grid below is the ending table applied to the stem <em>gut</em>."
    },
    {
     "lemma": "klein",
     "gloss": "small",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The positive takes the regular endings. No compared form is asked. The own declension page for klein was not opened. The endings are the ones Duden prints for a regular adjective."
+    "note": "The positive takes the regular endings. No compared form is asked. The own declension page for <em>klein</em> was not opened. The endings are the ones Duden prints for a regular adjective."
    },
    {
     "lemma": "groß",
     "gloss": "great, large",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, s.v. groß, duden.de/rechtschreibung/grosz, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The stem keeps ß before an ending. Duden prints größer and größte, so ß stays. The token große was not on that page. No compared form is asked. Duden, Die Steigerung, prints groß, größer, am größten, and says am größesten is not the form."
+    "note": "The stem keeps ß before an ending. Duden prints größer and größte, so ß stays. The token <em>große</em> was not on that page. No compared form is asked. Duden, <em>Die</em> Steigerung, prints <em>groß</em>, größer, am größten, and says am größesten is not the form."
    }
   ],
   "other": [
@@ -354,7 +354,7 @@ window.GERMAN = {
    "lemma": "der, die, das; ein, eine",
    "gloss": "the; a",
    "ref": "Duden, Was sind Artikel?, duden.de/sprachwissen/fuer-lernende/wortarten-artikel, read 2026-10-09. Duden, s.v. Nullartikel, duden.de/rechtschreibung/Nullartikel, read 2026-10-09, says the indefinite plural stands with the Nullartikel. The ein-word endings are the ones Duden prints with kein on Deklination zu gemischt, Gemischte Beugung, read 2026-10-09. The neuter and plural definite forms are the ones printed on Deklination zu Buch, Frau, and König.",
-   "note": "The definite article has four cases, three genders, and a plural. The indefinite article has no plural. The Duden learner page prints die Frau, der Frau, der Frau, die Frau and der Mann, des Mann[e]s, dem Mann, den Mann. Ein follows kein without the initial k, and only in the singular. No item asks a contracted article.",
+   "note": "The definite article has four cases, three genders, and a plural. The indefinite article has no plural. The Duden learner page prints <em>die Frau</em>, <em>der Frau</em>, <em>der Frau</em>, <em>die Frau</em> and <em>der Mann</em>, <em>des Mann</em>[e]s, <em>dem Mann</em>, <em>den Mann</em>. <em>Ein</em> follows kein without the initial k, and only in the singular. No item asks a contracted article.",
    "definite": {
     "sg": {
      "m": {
@@ -443,7 +443,7 @@ window.GERMAN = {
       "acc": "Frauen"
      }
     },
-    "note": "The noun itself does not change in the singular. The article shows the case. The plural already ends in -n, so the dative plural adds nothing."
+    "note": "The noun itself does not change in the singular. The article shows the case. The plural already ends in <em>-n</em>, so the dative plural adds nothing."
    },
    {
     "lemma": "Mann",
@@ -462,7 +462,7 @@ window.GERMAN = {
       "acc": "Männer"
      }
     },
-    "note": "Duden prints both Mannes and Manns. Mannes is the form stored. Manns is not asked. The dative plural Männern was not on the Mann page. It adds n, the ending Duden prints on den Königen, den Freunden, and den Pferden. The older dative dem Manne is not stored."
+    "note": "Duden prints both <em>Mannes</em> and Manns. <em>Mannes</em> is the form stored. <em>Manns</em> is not asked. The dative plural <em>Männern</em> was not on the <em>Mann</em> page. It adds n, the ending Duden prints on <em>den Königen</em>, <em>den Freunden</em>, and <em>den Pferden</em>. The older dative <em>dem</em> Manne is not stored."
    },
    {
     "lemma": "Pferd",
@@ -481,7 +481,7 @@ window.GERMAN = {
       "acc": "Pferde"
      }
     },
-    "note": "Duden prints both Pferdes and Pferds. Pferdes is the form stored. Pferds is not asked."
+    "note": "Duden prints both <em>Pferdes</em> and <em>Pferds</em>. <em>Pferdes</em> is the form stored. <em>Pferds</em> is not asked."
    },
    {
     "lemma": "Stadt",
@@ -500,7 +500,7 @@ window.GERMAN = {
       "acc": "Städte"
      }
     },
-    "note": "The plural umlaut is Städte. The dative plural is Städten."
+    "note": "The plural umlaut is <em>Städte</em>. The dative plural is <em>Städten</em>."
    },
    {
     "lemma": "Buch",
@@ -519,7 +519,7 @@ window.GERMAN = {
       "acc": "Bücher"
      }
     },
-    "note": "Duden prints both Buches and Buchs. Buches is the form stored. Buchs is not asked."
+    "note": "Duden prints both <em>Buches</em> and Buchs. <em>Buches</em> is the form stored. <em>Buchs</em> is not asked."
    },
    {
     "lemma": "Garten",
@@ -538,7 +538,7 @@ window.GERMAN = {
       "acc": "Gärten"
      }
     },
-    "note": "The plural already ends in -n, so the dative plural is Gärten, the same spelling as the other plural cases."
+    "note": "The plural already ends in <em>-n</em>, so the dative plural is <em>Gärten</em>, the same spelling as the other plural cases."
    },
    {
     "lemma": "Meer",
@@ -557,7 +557,7 @@ window.GERMAN = {
       "acc": "Meere"
      }
     },
-    "note": "Duden prints both Meeres and Meers. Meeres is the form stored. Meers is not asked."
+    "note": "Duden prints both <em>Meeres</em> and Meers. <em>Meeres</em> is the form stored. <em>Meers</em> is not asked."
    },
    {
     "lemma": "Freund",
@@ -576,7 +576,7 @@ window.GERMAN = {
       "acc": "Freunde"
      }
     },
-    "note": "Duden prints both Freundes and Freunds. Freundes is the form stored. Freunds is not asked."
+    "note": "Duden prints both <em>Freundes</em> and Freunds. <em>Freundes</em> is the form stored. <em>Freunds</em> is not asked."
    },
    {
     "lemma": "Mensch",
@@ -595,7 +595,7 @@ window.GERMAN = {
       "acc": "Menschen"
      }
     },
-    "note": "Weak masculine. The nominative singular is the only form without -n. Every other case, singular and plural, is Menschen."
+    "note": "Weak masculine. The nominative singular is the only form without <em>-n</em>. Every other case, singular and plural, is <em>Menschen</em>."
    },
    {
     "lemma": "Haus",
@@ -614,7 +614,7 @@ window.GERMAN = {
       "acc": "Häuser"
      }
     },
-    "note": "The full four-case table was not on the page opened for Haus. No item asks a cell of Haus. The older dative Hause, in the set phrase im Hause, is not stored."
+    "note": "The full four-case table was not on the page opened for <em>Haus</em>. No item asks a cell of <em>Haus</em>. The older dative <em>Hause</em>, in the set phrase <em>im Hause</em>, is not stored."
    }
   ],
   "adjectives": [
@@ -623,7 +623,7 @@ window.GERMAN = {
     "gloss": "good",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, s.v. gut, duden.de/rechtschreibung/gut, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, duden.de/sprachwissen/sprachratgeber/steigerung-komparation-deutsche-adjektive, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The positive takes the regular endings. Duden, Die Steigerung, prints the compared forms besser and am besten. Those forms are not asked. The gut entry prints guten Morgen, guten Mutes, and aus gutem Grund. The full grid below is the ending table applied to the stem gut.",
+    "note": "The positive takes the regular endings. Duden, <em>Die</em> Steigerung, prints the compared forms besser and am besten. Those forms are not asked. The <em>gut</em> entry prints <em>guten Morgen</em>, <em>guten</em> Mutes, and <em>aus gutem</em> Grund. The full grid below is the ending table applied to the stem <em>gut</em>.",
     "strong": {
      "sg": {
       "m": {
@@ -714,7 +714,7 @@ window.GERMAN = {
     "gloss": "small",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The positive takes the regular endings. No compared form is asked. The own declension page for klein was not opened. The endings are the ones Duden prints for a regular adjective.",
+    "note": "The positive takes the regular endings. No compared form is asked. The own declension page for <em>klein</em> was not opened. The endings are the ones Duden prints for a regular adjective.",
     "strong": {
      "sg": {
       "m": {
@@ -805,7 +805,7 @@ window.GERMAN = {
     "gloss": "great, large",
     "class": "regular endings; strong, weak, and mixed",
     "ref": "Duden, s.v. groß, duden.de/rechtschreibung/grosz, read 2026-10-09. Duden, Die Steigerung (Komparation) von deutschen Adjektiven, read 2026-10-09. Duden, Deklination zu gemischt, Starke Beugung, Schwache Beugung, and Gemischte Beugung, duden.de/deklination/adjektive/gemischt, read 2026-10-09. The same three ending sets are printed for unbestimmt and for männlich.",
-    "note": "The stem keeps ß before an ending. Duden prints größer and größte, so ß stays. The token große was not on that page. No compared form is asked. Duden, Die Steigerung, prints groß, größer, am größten, and says am größesten is not the form.",
+    "note": "The stem keeps ß before an ending. Duden prints größer and größte, so ß stays. The token <em>große</em> was not on that page. No compared form is asked. Duden, <em>Die</em> Steigerung, prints <em>groß</em>, größer, am größten, and says am größesten is not the form.",
     "strong": {
      "sg": {
       "m": {
@@ -894,7 +894,7 @@ window.GERMAN = {
   ],
   "pronouns": {
    "ref": "Duden, s.v. ich, du, ihn, ihm, sie, euer, unser, read 2026-10-09. ich, duden.de/rechtschreibung/ich; du, duden.de/rechtschreibung/du; ihn, duden.de/rechtschreibung/ihn; ihm, duden.de/rechtschreibung/ihm; sie, duden.de/rechtschreibung/sie; euer, duden.de/rechtschreibung/euer_dieser_dieses_euch_ihr; unser, duden.de/rechtschreibung/unser_wir.",
-   "note": "Four cases. Duden prints meiner, and marks mein as veraltet. Duden prints deiner, and marks dein as veraltet. Duden prints ihrer for the feminine and for the plural, and marks the older ihr as veraltet. ihn is Akkusativ von er. ihm is Dativ von er and of es. euer is Genitiv von ihr, and Duden says not eurer. unser is Genitiv von wir, marked gehoben, and Duden says not unserer. The entries for uns, euch, and seiner were not opened. Sie with a capital is the formal address, and Duden prints Sie, Ihrer, Ihnen, Sie on the sie page. The verb with Sie is the third-person plural form. No item turns on the capital alone.",
+   "note": "Four cases. Duden prints <em>meiner</em>, and marks <em>mein</em> as veraltet. Duden prints <em>deiner</em>, and marks <em>dein</em> as veraltet. Duden prints <em>ihrer</em> for the feminine and for the plural, and marks the older <em>ihr</em> as veraltet. <em>ihn</em> is Akkusativ <em>von er</em>. <em>ihm</em> is Dativ <em>von er</em> and of <em>es</em>. <em>euer</em> is Genitiv <em>von ihr</em>, and Duden says not eurer. <em>unser</em> is Genitiv <em>von wir</em>, marked gehoben, and Duden says not unserer. The entries for <em>uns</em>, <em>euch</em>, and <em>seiner</em> were not opened. <em>Sie</em> with a capital is the formal address, and Duden prints <em>Sie</em>, <em>Ihrer</em>, <em>Ihnen</em>, <em>Sie</em> on the <em>sie</em> page. The verb with <em>Sie</em> is the third-person plural form. No item turns on the capital alone.",
    "forms": {
     "1s": {
      "nom": "ich",
@@ -959,7 +959,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "sein",
     "ref": "Duden, Konjugation zu sein, duden.de/konjugation/sein_Hilfsverb, read 2026-10-09",
-    "note": "The Perfekt uses sein: bin gewesen. The Konjunktiv II second person singular is printed as wärest, wärst, and the second person plural as wäret, wärt. The form stored is the one Duden prints first. The short form is not asked. The Konjunktiv I is printed on the page and is not entered.",
+    "note": "The Perfekt uses <em>sein</em>: <em>bin gewesen</em>. The Konjunktiv II second person singular is printed as <em>wärest</em>, wärst, and the second person plural as <em>wäret</em>, wärt. The form stored is the one Duden prints first. The short form is not asked. The Konjunktiv I is printed on the page and is not entered.",
     "present": {
      "1s": "bin",
      "2s": "bist",
@@ -1000,7 +1000,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "haben",
     "ref": "Duden, Konjugation zu haben, duden.de/konjugation/haben_Vollverb, read 2026-10-09",
-    "note": "The present second and third persons drop the b of the stem: hast, hat. The Perfekt uses haben: hat gehabt. The Konjunktiv II is hätte, hättest, hätte, hätten, hättet, hätten. The reflexive parentheses on the Duden line are not part of the form.",
+    "note": "The present second and third persons drop the b of the stem: <em>hast</em>, <em>hat</em>. The Perfekt uses <em>haben</em>: <em>hat gehabt</em>. The Konjunktiv II is <em>hätte</em>, <em>hättest</em>, <em>hätte</em>, <em>hätten</em>, <em>hättet</em>, <em>hätten</em>. The reflexive parentheses on the Duden line are not part of the form.",
     "present": {
      "1s": "habe",
      "2s": "hast",
@@ -1041,7 +1041,7 @@ window.GERMAN = {
     "kind": "irregular",
     "auxiliary": "sein",
     "ref": "Duden, Konjugation zu werden, duden.de/konjugation/werden_Vollverb, read 2026-10-09",
-    "note": "The Präteritum line prints ward, wurde and wardst, wurdest. The form stored is wurde, wurdest, wurde, wurden, wurdet, wurden. Ward is the older form and is not asked. The Perfekt of the full verb uses sein: ist geworden. When werden is the passive auxiliary, the participle is worden. That passive is not entered. The Konjunktiv II is würde, würdest, würde, würden, würdet, würden.",
+    "note": "The Präteritum line prints <em>ward</em>, <em>wurde</em> and <em>wardst</em>, <em>wurdest</em>. The form stored is <em>wurde</em>, <em>wurdest</em>, <em>wurde</em>, <em>wurden</em>, <em>wurdet</em>, <em>wurden</em>. <em>Ward</em> is the older form and is not asked. The Perfekt of the full verb uses <em>sein</em>: <em>ist geworden</em>. When <em>werden</em> is the passive auxiliary, the participle is <em>worden</em>. That passive is not entered. The Konjunktiv II is <em>würde</em>, <em>würdest</em>, <em>würde</em>, <em>würden</em>, <em>würdet</em>, <em>würden</em>.",
     "present": {
      "1s": "werde",
      "2s": "wirst",
@@ -1082,7 +1082,7 @@ window.GERMAN = {
     "kind": "weak",
     "auxiliary": "haben",
     "ref": "Duden, Konjugation zu machen, duden.de/konjugation/machen, read 2026-10-09. Duden, Konjunktiv II oder würde-Form, duden.de/sprachwissen/sprachratgeber/Konjunktiv-2-oder-würde-Form, read 2026-10-09, says the Konjunktiv II of a weak verb has the same spelling as the Präteritum, and gives ich liebte, er liebte.",
-    "note": "Present: mache, machst, macht, machen, macht, machen. The third person singular and the second person plural are both macht. Präteritum: machte, machtest, machte, machten, machtet, machten. The Konjunktiv II is that same set of spellings. No item asks it. Duden says the würde construction is the clearer one when the two spellings match, and the page illustrates it with wohnen. The Perfekt is hat gemacht.",
+    "note": "Present: <em>mache</em>, <em>machst</em>, <em>macht</em>, <em>machen</em>, <em>macht</em>, <em>machen</em>. The third person singular and the second person plural are both <em>macht</em>. Präteritum: <em>machte</em>, <em>machtest</em>, <em>machte</em>, <em>machten</em>, <em>machtet</em>, <em>machten</em>. The Konjunktiv II is that same set of spellings. No item asks it. Duden says the <em>würde</em> construction is the clearer one when the two spellings match, and the page illustrates it with wohnen. The Perfekt is <em>hat gemacht</em>.",
     "present": {
      "1s": "mache",
      "2s": "machst",
@@ -1123,7 +1123,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "ref": "Duden, Konjugation zu sprechen, duden.de/konjugation/sprechen, read 2026-10-09",
-    "note": "The present changes e to i in the second and third persons singular: sprichst, spricht. The Konjunktiv II second person is printed as sprächest, sprächst and sprächet, sprächt. The form stored is the one Duden prints first. The short form is not asked. The participle is gesprochen.",
+    "note": "The present changes e to i in the second and third persons singular: <em>sprichst</em>, <em>spricht</em>. The Konjunktiv II second person is printed as <em>sprächest</em>, sprächst and <em>sprächet</em>, sprächt. The form stored is the one Duden prints first. The short form is not asked. The participle is <em>gesprochen</em>.",
     "present": {
      "1s": "spreche",
      "2s": "sprichst",
@@ -1164,7 +1164,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "ref": "Duden, Konjugation zu geben, duden.de/konjugation/geben, read 2026-10-09",
-    "note": "The present changes e to i: gibst, gibt. The participle is gegeben. The Konjunktiv II second person is printed as gäbest, gäbst and gäbet, gäbt. The form stored is the one Duden prints first. The short form is not asked. Duden, Der Gebrauch von Präpositionalobjekten, duden.de/sprachwissen/sprachratgeber/Der-Gebrauch-von-Präpositionalobjekten, read 2026-10-09, says geben takes a subject, a dative for the receiver, and an accusative for the thing given, and prints Sie gab ihm eine Ohrfeige.",
+    "note": "The present changes e to i: <em>gibst</em>, <em>gibt</em>. The participle is <em>gegeben</em>. The Konjunktiv II second person is printed as <em>gäbest</em>, gäbst and <em>gäbet</em>, gäbt. The form stored is the one Duden prints first. The short form is not asked. Duden, <em>Der</em> Gebrauch <em>von</em> Präpositionalobjekten, duden.de/sprachwissen/sprachratgeber/Der-Gebrauch-von-Präpositionalobjekten, read 2026-10-09, says <em>geben</em> takes a subject, a dative for the receiver, and an accusative for the thing given, and prints <em>Sie gab ihm eine</em> Ohrfeige.",
     "present": {
      "1s": "gebe",
      "2s": "gibst",
@@ -1205,7 +1205,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "sein",
     "ref": "Duden, Konjugation zu kommen, duden.de/konjugation/kommen, read 2026-10-09",
-    "note": "The present does not change the vowel: kommst, kommt. The third person singular and the second person plural are both kommt. The Perfekt uses sein: ist gekommen. The Konjunktiv II second person is printed as kämest, kämst and kämet, kämt. The form stored is the one Duden prints first. The short form is not asked.",
+    "note": "The present does not change the vowel: <em>kommst</em>, <em>kommt</em>. The third person singular and the second person plural are both <em>kommt</em>. The Perfekt uses <em>sein</em>: <em>ist gekommen</em>. The Konjunktiv II second person is printed as <em>kämest</em>, kämst and <em>kämet</em>, kämt. The form stored is the one Duden prints first. The short form is not asked.",
     "present": {
      "1s": "komme",
      "2s": "kommst",
@@ -1246,7 +1246,7 @@ window.GERMAN = {
     "kind": "strong",
     "auxiliary": "haben",
     "ref": "Duden, Konjugation zu sehen, duden.de/konjugation/sehen, read 2026-10-09",
-    "note": "The present has siehst and sieht. The Perfekt line prints gesehen/sehen. The form stored is hat gesehen. The sehen beside it on that line is the Ersatzinfinitiv used with a modal, and it is not asked. The Konjunktiv II is sähe, with sähest, sähst and sähet, säht in the second person. The form stored is the one Duden prints first. The short form is not asked.",
+    "note": "The present has <em>siehst</em> and <em>sieht</em>. The Perfekt line prints <em>gesehen</em>/<em>sehen</em>. The form stored is <em>hat gesehen</em>. The <em>sehen</em> beside it on that line is the Ersatzinfinitiv used with a modal, and it is not asked. The Konjunktiv II is <em>sähe</em>, with <em>sähest</em>, sähst and <em>sähet</em>, säht in the second person. The form stored is the one Duden prints first. The short form is not asked.",
     "present": {
      "1s": "sehe",
      "2s": "siehst",
@@ -1284,7 +1284,7 @@ window.GERMAN = {
   ],
   "prepositions": {
    "ref": "Duden, Was sind Präpositionen?, duden.de/sprachwissen/fuer-lernende/wortarten-präpositionen, read 2026-10-09. Duden, Präpositionen mit Genitiv, duden.de/sprachwissen/sprachratgeber/Präpositionen-mit-Genitiv, read 2026-10-09. Duden, s.v. für, Präposition mit Akkusativ, duden.de/rechtschreibung/fuer_statt, read 2026-10-09. Duden, s.v. Akkusativ, prints that gegen governs the accusative. Duden, s.v. Dativ, prints that bei governs the dative exclusively today.",
-   "note": "A preposition keeps one form and requires a case. dank and laut take the genitive or the dative, and they are not asked. wegen with a bare singular whose genitive would end in -(e)s often leaves the noun uninflected, as in wegen Umbau. That pattern is not asked. The learner page prints the two-way pattern with in: Ich bin im Haus, and Ich gehe in die Stadt. The dative answers wo, and the accusative answers wohin. The same pair of questions is the school rule for an, auf, hinter, neben, über, unter, vor, and zwischen. Those eight words were not on the page opened here, and no item asks one of them. Duden prints the contractions zum, from zu plus dem, and fürs, from für plus das. No item asks a contraction.",
+   "note": "A preposition keeps one form and requires a case. dank and <em>laut</em> take the genitive or the dative, and they are not asked. <em>wegen</em> with a bare singular whose genitive would end in -(e)s often leaves the noun uninflected, as in <em>wegen</em> Umbau. That pattern is not asked. The learner page prints the two-way pattern with in: <em>Ich bin im Haus</em>, and <em>Ich gehe in die Stadt</em>. The dative answers <em>wo</em>, and the accusative answers wohin. The same pair of questions is the school rule for an, <em>auf</em>, hinter, neben, über, unter, vor, and zwischen. Those eight words were not on the page opened here, and no item asks one of them. Duden prints the contractions <em>zum</em>, from <em>zu</em> plus <em>dem</em>, and fürs, from <em>für</em> plus <em>das</em>. No item asks a contraction.",
    "accusative": [
     {
      "lemma": "für",
@@ -1385,19 +1385,19 @@ window.GERMAN = {
      ]
     },
     {
-     "h": "<strong>The dative and the genitive.</strong> The one who receives is in the dative, and the possessor in the genitive. The dative plural of a noun adds -n.",
+     "h": "<strong>The dative and the genitive.</strong> The one who receives is in the dative, and the possessor in the genitive. The dative plural of a noun adds <em>-n</em>.",
      "eg": [
       "<span lang=\"de\">der Mann gibt dem König das Buch; den Freunden; das Pferd des Königs</span>"
      ]
     },
     {
-     "h": "<strong>Und.</strong> Two subjects joined by und take a plural verb, and two nouns joined by und share the case of their use.",
+     "h": "<strong>Und.</strong> Two subjects joined by <em>und</em> take a plural verb, and two nouns joined by <em>und</em> share the case of their use.",
      "eg": [
       "<span lang=\"de\">der König und die Frau lesen das Buch; ich helfe dem Mann und der Frau</span>"
      ]
     },
     {
-     "h": "<strong>Place.</strong> In takes the dative for the place where and the accusative for the place to which; aus takes the dative; nach stands before a city or a country.",
+     "h": "<strong>Place.</strong> In takes the dative for the place where and the accusative for the place to which; <em>aus</em> takes the dative; <em>nach</em> stands before a city or a country.",
      "eg": [
       "<span lang=\"de\">in der Stadt, in die Stadt; im Haus, ins Haus; aus dem Haus; nach Berlin</span>"
      ]
@@ -1415,7 +1415,7 @@ window.GERMAN = {
       "lest",
       "lese"
      ],
-     "why": "Wir is the first person plural, and its verb ends in -en: wir lesen. Liest is the second or third person singular, lest the second person plural, and lese the first person singular."
+     "why": "<em>Wir</em> is the first person plural, and its verb ends in <em>-en</em>: <em>wir lesen</em>. <em>Liest</em> is the second or third person singular, lest the second person plural, and <em>lese</em> the first person singular."
     },
     {
      "id": "demore2",
@@ -1428,7 +1428,7 @@ window.GERMAN = {
       "lesen",
       "lese"
      ],
-     "why": "Du is the second person singular, and lesen changes e to ie in that person and the next: du liest, er liest. Lest is the second person plural."
+     "why": "<em>Du</em> is the second person singular, and <em>lesen</em> changes e to ie in that person and the next: <em>du liest</em>, <em>er liest</em>. Lest is the second person plural."
     },
     {
      "id": "demore3",
@@ -1441,7 +1441,7 @@ window.GERMAN = {
       "sprechen",
       "spreche"
      ],
-     "why": "Er is the third person singular, and sprechen changes e to i in the second and third persons singular: er spricht. Sprecht is the second person plural."
+     "why": "<em>Er</em> is the third person singular, and <em>sprechen</em> changes e to i in the second and third persons singular: <em>er spricht</em>. <em>Sprecht</em> is the second person plural."
     },
     {
      "id": "demore4",
@@ -1454,7 +1454,7 @@ window.GERMAN = {
       "gibst",
       "geben"
      ],
-     "why": "Ich is the first person singular, and its verb ends in -e without a change of vowel: ich gebe. Gibst and gibt are the second and third persons singular."
+     "why": "<em>Ich</em> is the first person singular, and its verb ends in <em>-e</em> without a change of vowel: <em>ich gebe</em>. <em>Gibst</em> and <em>gibt</em> are the second and third persons singular."
     },
     {
      "id": "demore5",
@@ -1467,7 +1467,7 @@ window.GERMAN = {
       "bist",
       "ist"
      ],
-     "why": "Ihr is the second person plural, and the form of sein for that person is seid. Sind is the first or third person plural."
+     "why": "<em>Ihr</em> is the second person plural, and the form of <em>sein</em> for that person is <em>seid</em>. <em>Sind</em> is the first or third person plural."
     },
     {
      "id": "demore6",
@@ -1480,7 +1480,7 @@ window.GERMAN = {
       "hast",
       "haben"
      ],
-     "why": "Der König is a third person singular subject, and the form of haben for that person is hat. Hast is the second person singular, and habt the second person plural."
+     "why": "<em>Der König</em> is a third person singular subject, and the form of <em>haben</em> for that person is <em>hat</em>. <em>Hast</em> is the second person singular, and <em>habt</em> the second person plural."
     },
     {
      "id": "demore7",
@@ -1493,7 +1493,7 @@ window.GERMAN = {
       "kommst",
       "komme"
      ],
-     "why": "Sie here is the third person plural, they, and its verb ends in -en: sie kommen. Kommt is the third person singular or the second person plural."
+     "why": "<em>Sie</em> here is the third person plural, they, and its verb ends in <em>-en</em>: <em>sie kommen</em>. <em>Kommt</em> is the third person singular or the second person plural."
     },
     {
      "id": "demore8",
@@ -1506,7 +1506,7 @@ window.GERMAN = {
       "sehen",
       "siehst"
      ],
-     "why": "Der Freund is a third person singular subject, and sehen changes e to ie in that person: er sieht. Siehst is the second person singular."
+     "why": "<em>Der Freund</em> is a third person singular subject, and <em>sehen</em> changes e to ie in that person: <em>er sieht</em>. <em>Siehst</em> is the second person singular."
     },
     {
      "id": "demore9",
@@ -1519,7 +1519,7 @@ window.GERMAN = {
       "ich",
       "mein"
      ],
-     "why": "Sehen takes a direct object in the accusative, and the accusative of ich is mich. Mir is the dative, and mein the possessive."
+     "why": "<em>Sehen</em> takes a direct object in the accusative, and the accusative of <em>ich</em> is <em>mich</em>. <em>Mir</em> is the dative, and <em>mein</em> the possessive."
     },
     {
      "id": "demore10",
@@ -1532,7 +1532,7 @@ window.GERMAN = {
       "ich",
       "mein"
      ],
-     "why": "The one who receives is in the dative, and the dative of ich is mir. Mich is the accusative."
+     "why": "The one who receives is in the dative, and the dative of <em>ich</em> is <em>mir</em>. <em>Mich</em> is the accusative."
     },
     {
      "id": "demore11",
@@ -1545,7 +1545,7 @@ window.GERMAN = {
       "er",
       "sein"
      ],
-     "why": "The direct object is in the accusative, and the accusative of er is ihn. Ihm is the dative."
+     "why": "The direct object is in the accusative, and the accusative of <em>er</em> is <em>ihn</em>. <em>Ihm</em> is the dative."
     },
     {
      "id": "demore12",
@@ -1558,7 +1558,7 @@ window.GERMAN = {
       "er",
       "sein"
      ],
-     "why": "The one who receives is in the dative, and the dative of er is ihm. Ihn is the accusative."
+     "why": "The one who receives is in the dative, and the dative of <em>er</em> is <em>ihm</em>. <em>Ihn</em> is the accusative."
     },
     {
      "id": "demore13",
@@ -1571,7 +1571,7 @@ window.GERMAN = {
       "ihn",
       "ihnen"
      ],
-     "why": "Helfen takes the dative, and the dative of sie, she, is ihr. Sie would be the accusative, and ihnen is plural."
+     "why": "Helfen takes the dative, and the dative of <em>sie</em>, she, is <em>ihr</em>. <em>Sie</em> would be the accusative, and <em>ihnen</em> is plural."
     },
     {
      "id": "demore14",
@@ -1584,7 +1584,7 @@ window.GERMAN = {
       "du",
       "dein"
      ],
-     "why": "Danken takes the dative, and the dative of du is dir. Dich is the accusative."
+     "why": "Danken takes the dative, and the dative of <em>du</em> is <em>dir</em>. <em>Dich</em> is the accusative."
     },
     {
      "id": "demore15",
@@ -1597,7 +1597,7 @@ window.GERMAN = {
       "unser",
       "euch"
      ],
-     "why": "Für takes the accusative, and the accusative of wir is uns. Unser is the genitive, and euch belongs to ihr."
+     "why": "<em>Für</em> takes the accusative, and the accusative of <em>wir</em> is <em>uns</em>. <em>Unser</em> is the genitive, and <em>euch</em> belongs to <em>ihr</em>."
     },
     {
      "id": "demore16",
@@ -1610,7 +1610,7 @@ window.GERMAN = {
       "ihr",
       "ihrer"
      ],
-     "why": "Mit takes the dative, and the dative of sie, they, is ihnen. Sie is the accusative."
+     "why": "<em>Mit</em> takes the dative, and the dative of <em>sie</em>, they, is <em>ihnen</em>. <em>Sie</em> is the accusative."
     },
     {
      "id": "demore17",
@@ -1623,7 +1623,7 @@ window.GERMAN = {
       "der",
       "des"
      ],
-     "why": "The king receives the book, so he is in the dative, and the dative of der is dem. Den is the accusative, and des the genitive."
+     "why": "The king receives the book, so he is in the dative, and the dative of <em>der</em> is <em>dem</em>. <em>Den</em> is the accusative, and <em>des</em> the genitive."
     },
     {
      "id": "demore18",
@@ -1636,7 +1636,7 @@ window.GERMAN = {
       "dem",
       "den"
      ],
-     "why": "Frau is feminine, and the feminine dative of the article is der. Die is the nominative or accusative."
+     "why": "<em>Frau</em> is feminine, and the feminine dative of the article is <em>der</em>. <em>Die</em> is the nominative or accusative."
     },
     {
      "id": "demore19",
@@ -1649,7 +1649,7 @@ window.GERMAN = {
       "Freund",
       "Freundes"
      ],
-     "why": "The dative plural of a noun adds -n unless the plural already ends in -n or -s: den Freunden."
+     "why": "The dative plural of a noun adds <em>-n</em> unless the plural already ends in <em>-n</em> or <em>-s</em>: <em>den Freunden</em>."
     },
     {
      "id": "demore20",
@@ -1662,7 +1662,7 @@ window.GERMAN = {
       "den",
       "dem"
      ],
-     "why": "Antworten takes the dative of the person answered, and the feminine dative is der."
+     "why": "Antworten takes the dative of the person answered, and the feminine dative is <em>der</em>."
     },
     {
      "id": "demore21",
@@ -1675,7 +1675,7 @@ window.GERMAN = {
       "Männer",
       "Männern"
      ],
-     "why": "The dative singular of Mann has no ending today: dem Mann. Mannes is the genitive, and Männern the dative plural."
+     "why": "The dative singular of <em>Mann</em> has no ending today: <em>dem Mann</em>. <em>Mannes</em> is the genitive, and <em>Männern</em> the dative plural."
     },
     {
      "id": "demore22",
@@ -1688,7 +1688,7 @@ window.GERMAN = {
       "der",
       "des"
      ],
-     "why": "The friend is the one shown, in the dative, so dem Freund. Den Garten, the thing shown, is the accusative."
+     "why": "The friend is the one shown, in the dative, so <em>dem Freund</em>. <em>Den Garten</em>, the thing shown, is the accusative."
     },
     {
      "id": "demore23",
@@ -1701,7 +1701,7 @@ window.GERMAN = {
       "der",
       "dem"
      ],
-     "why": "The dative plural of the article is den for every gender, and the noun adds -n: den Männern."
+     "why": "The dative plural of the article is <em>den</em> for every gender, and the noun adds <em>-n</em>: <em>den Männern</em>."
     },
     {
      "id": "demore24",
@@ -1714,7 +1714,7 @@ window.GERMAN = {
       "der",
       "des"
      ],
-     "why": "Helfen takes the dative, so dem Freund. Den would be the accusative."
+     "why": "Helfen takes the dative, so <em>dem Freund</em>. <em>Den</em> would be the accusative."
     },
     {
      "id": "demore25",
@@ -1727,7 +1727,7 @@ window.GERMAN = {
       "den",
       "der"
      ],
-     "why": "The possessor is in the genitive, and the masculine genitive of the article is des, with -s on the noun: des Königs."
+     "why": "The possessor is in the genitive, and the masculine genitive of the article is <em>des</em>, with <em>-s</em> on the noun: <em>des Königs</em>."
     },
     {
      "id": "demore26",
@@ -1740,7 +1740,7 @@ window.GERMAN = {
       "des",
       "dem"
      ],
-     "why": "The feminine genitive of the article is der, and a feminine noun adds no ending: der Frau."
+     "why": "The feminine genitive of the article is <em>der</em>, and a feminine noun adds no ending: <em>der Frau</em>."
     },
     {
      "id": "demore27",
@@ -1753,7 +1753,7 @@ window.GERMAN = {
       "Männer",
       "Männern"
      ],
-     "why": "A strong masculine noun adds -es or -s in the genitive singular: des Mannes."
+     "why": "A strong masculine noun adds <em>-es</em> or <em>-s</em> in the genitive singular: <em>des Mannes</em>."
     },
     {
      "id": "demore28",
@@ -1766,7 +1766,7 @@ window.GERMAN = {
       "Häuser",
       "Häusern"
      ],
-     "why": "Haus is neuter, and a strong neuter noun adds -es in the genitive singular: des Hauses."
+     "why": "<em>Haus</em> is neuter, and a strong neuter noun adds <em>-es</em> in the genitive singular: <em>des Hauses</em>."
     },
     {
      "id": "demore29",
@@ -1779,7 +1779,7 @@ window.GERMAN = {
       "die",
       "des"
      ],
-     "why": "The genitive plural of the article is der for every gender: der Freunde."
+     "why": "The genitive plural of the article is <em>der</em> for every gender: <em>der Freunde</em>."
     },
     {
      "id": "demore30",
@@ -1792,7 +1792,7 @@ window.GERMAN = {
       "den",
       "der"
      ],
-     "why": "Wegen takes the genitive in written German, so des Königs."
+     "why": "<em>Wegen</em> takes the genitive in written German, so <em>des Königs</em>."
     },
     {
      "id": "demore31",
@@ -1805,7 +1805,7 @@ window.GERMAN = {
       "den",
       "der"
      ],
-     "why": "Während takes the genitive, and Tag is masculine: des Tages."
+     "why": "<em>Während</em> takes the genitive, and <em>Tag</em> is masculine: <em>des Tages</em>."
     },
     {
      "id": "demore32",
@@ -1818,7 +1818,7 @@ window.GERMAN = {
       "der",
       "den"
      ],
-     "why": "The possessor is in the genitive, and the masculine genitive of the article is des."
+     "why": "The possessor is in the genitive, and the masculine genitive of the article is <em>des</em>."
     },
     {
      "id": "demore33",
@@ -1831,7 +1831,7 @@ window.GERMAN = {
       "lest",
       "lese"
      ],
-     "why": "Two subjects joined by und make a plural subject of the third person, so lesen."
+     "why": "Two subjects joined by <em>und</em> make a plural subject of the third person, so <em>lesen</em>."
     },
     {
      "id": "demore34",
@@ -1844,7 +1844,7 @@ window.GERMAN = {
       "guter",
       "gutes"
      ],
-     "why": "An adjective that is the predicate, after sein, takes no ending: sie sind gut."
+     "why": "An adjective that is the predicate, after <em>sein</em>, takes no ending: <em>sie sind gut</em>."
     },
     {
      "id": "demore35",
@@ -1857,7 +1857,7 @@ window.GERMAN = {
       "den",
       "dem"
      ],
-     "why": "Both nouns are the object of sehe, so both are in the accusative, and the feminine accusative is die."
+     "why": "Both nouns are the object of <em>sehe</em>, so both are in the accusative, and the feminine accusative is <em>die</em>."
     },
     {
      "id": "demore36",
@@ -1870,7 +1870,7 @@ window.GERMAN = {
       "den",
       "dem"
      ],
-     "why": "Helfen takes the dative, and both nouns joined by und are in that case, so der Frau."
+     "why": "Helfen takes the dative, and both nouns joined by <em>und</em> are in that case, so <em>der Frau</em>."
     },
     {
      "id": "demore37",
@@ -1883,7 +1883,7 @@ window.GERMAN = {
       "ist",
       "bin"
      ],
-     "why": "A subject that includes the speaker is of the first person plural, so wir sind."
+     "why": "A subject that includes the speaker is of the first person plural, so <em>wir sind</em>."
     },
     {
      "id": "demore38",
@@ -1896,7 +1896,7 @@ window.GERMAN = {
       "gehe",
       "gehst"
      ],
-     "why": "Mein Freund und ich includes the speaker, so the verb is in the first person plural: gehen."
+     "why": "<em>Mein Freund und ich</em> includes the speaker, so the verb is in the first person plural: <em>gehen</em>."
     },
     {
      "id": "demore39",
@@ -1909,7 +1909,7 @@ window.GERMAN = {
       "gehörst",
       "gehöre"
      ],
-     "why": "Two subjects joined by und take a plural verb: sie gehören."
+     "why": "Two subjects joined by <em>und</em> take a plural verb: <em>sie gehören</em>."
     },
     {
      "id": "demore40",
@@ -1922,7 +1922,7 @@ window.GERMAN = {
       "der",
       "des"
      ],
-     "why": "Both receive the horse, so both are in the dative: dem Mann und dem Freund."
+     "why": "Both receive the horse, so both are in the dative: <em>dem Mann und dem Freund</em>."
     },
     {
      "id": "demore41",
@@ -1935,7 +1935,7 @@ window.GERMAN = {
       "den",
       "dem"
      ],
-     "why": "In takes the dative for the place where, and the feminine dative is der."
+     "why": "In takes the dative for the place where, and the feminine dative is <em>der</em>."
     },
     {
      "id": "demore42",
@@ -1948,7 +1948,7 @@ window.GERMAN = {
       "den",
       "dem"
      ],
-     "why": "In takes the accusative for the place to which, and the feminine accusative is die."
+     "why": "In takes the accusative for the place to which, and the feminine accusative is <em>die</em>."
     },
     {
      "id": "demore43",
@@ -1961,7 +1961,7 @@ window.GERMAN = {
       "in den",
       "am"
      ],
-     "why": "The place where takes in with the dative, and in dem contracts to im."
+     "why": "The place where takes in with the dative, and in <em>dem</em> contracts to <em>im</em>."
     },
     {
      "id": "demore44",
@@ -1974,7 +1974,7 @@ window.GERMAN = {
       "in dem",
       "am"
      ],
-     "why": "The place to which takes in with the accusative, and in das contracts to ins."
+     "why": "The place to which takes in with the accusative, and in <em>das</em> contracts to <em>ins</em>."
     },
     {
      "id": "demore45",
@@ -1987,7 +1987,7 @@ window.GERMAN = {
       "den",
       "des"
      ],
-     "why": "Aus always takes the dative, so aus dem Haus."
+     "why": "<em>Aus</em> always takes the dative, so <em>aus dem Haus</em>."
     },
     {
      "id": "demore46",
@@ -2000,7 +2000,7 @@ window.GERMAN = {
       "bei",
       "an"
      ],
-     "why": "Before the name of a city or a country without an article, motion toward is shown by nach."
+     "why": "Before the name of a city or a country without an article, motion toward is shown by <em>nach</em>."
     },
     {
      "id": "demore47",
@@ -2013,7 +2013,7 @@ window.GERMAN = {
       "im",
       "ins"
      ],
-     "why": "Motion toward a person is shown by zu with the dative, and zu dem contracts to zum. Zur is zu der, for a feminine noun."
+     "why": "Motion toward a person is shown by <em>zu</em> with the dative, and <em>zu dem</em> contracts to <em>zum</em>. <em>Zur</em> is <em>zu der</em>, for a feminine noun."
     },
     {
      "id": "demore48",
@@ -2025,7 +2025,7 @@ window.GERMAN = {
       "Gärten",
       "Gartens"
      ],
-     "why": "Im is in with the dative, and the dative singular of Garten has no ending. Gärten is the plural, and Gartens the genitive."
+     "why": "<em>Im</em> is in with the dative, and the dative singular of <em>Garten</em> has no ending. <em>Gärten</em> is the plural, and <em>Gartens</em> the genitive."
     }
    ]
   },
@@ -2034,13 +2034,13 @@ window.GERMAN = {
    "desc": "One word is missing from a German sentence: the passive auxiliary or participle, the doer with von, a reflexive pronoun, an infinitive with or without zu, or a participle with its ending.",
    "intro": [
     {
-     "h": "<strong>The passive.</strong> The passive is werden with the past participle, and the doer is introduced by von. In the Perfekt of the passive the participle of werden is worden.",
+     "h": "<strong>The passive.</strong> The passive is <em>werden</em> with the past participle, and the doer is introduced by <em>von</em>. In the Perfekt of the passive the participle of <em>werden</em> is <em>worden</em>.",
      "eg": [
       "<span lang=\"de\">das Buch wird von dem König gelesen; das Haus ist verkauft worden</span>"
      ]
     },
     {
-     "h": "<strong>The infinitive.</strong> A modal verb takes the infinitive without zu; most other verbs take zu; and um ... zu gives a purpose.",
+     "h": "<strong>The infinitive.</strong> A modal verb takes the infinitive without <em>zu</em>; most other verbs take <em>zu</em>; and <em>um</em> ... <em>zu</em> gives a purpose.",
      "eg": [
       "<span lang=\"de\">ich will lesen; sie versucht, das Buch zu verstehen; um ein Haus zu kaufen</span>"
      ]
@@ -2064,7 +2064,7 @@ window.GERMAN = {
       "las",
       "liest"
      ],
-     "why": "The passive is werden with the past participle, and the participle stands at the end of the clause: wird gelesen."
+     "why": "The passive is <em>werden</em> with the past participle, and the participle stands at the end of the clause: <em>wird gelesen</em>."
     },
     {
      "id": "devoice2",
@@ -2077,7 +2077,7 @@ window.GERMAN = {
       "wirst",
       "werdet"
      ],
-     "why": "The passive auxiliary agrees with the subject, die Bücher, which is plural: werden."
+     "why": "The passive auxiliary agrees with the subject, <em>die Bücher</em>, which is plural: <em>werden</em>."
     },
     {
      "id": "devoice3",
@@ -2090,7 +2090,7 @@ window.GERMAN = {
       "bei",
       "aus"
      ],
-     "why": "The doer in a German passive is introduced by von with the dative."
+     "why": "The doer in a German passive is introduced by <em>von</em> with the dative."
     },
     {
      "id": "devoice4",
@@ -2103,7 +2103,7 @@ window.GERMAN = {
       "würde",
       "werden"
      ],
-     "why": "The past passive uses the Präteritum of werden, wurde. Wird is the present, and würde the Konjunktiv II."
+     "why": "The past passive uses the Präteritum of <em>werden</em>, <em>wurde</em>. <em>Wird</em> is the present, and <em>würde</em> the Konjunktiv II."
     },
     {
      "id": "devoice5",
@@ -2116,7 +2116,7 @@ window.GERMAN = {
       "werden",
       "wurde"
      ],
-     "why": "In the Perfekt of the passive the participle of werden is worden, not geworden."
+     "why": "In the Perfekt of the passive the participle of <em>werden</em> is <em>worden</em>, not <em>geworden</em>."
     },
     {
      "id": "devoice6",
@@ -2129,7 +2129,7 @@ window.GERMAN = {
       "wirst",
       "wurden"
      ],
-     "why": "Helfen takes the dative, so the passive has no subject in the nominative, and the verb stands in the third person singular: ihm wird geholfen."
+     "why": "Helfen takes the dative, so the passive has no subject in the nominative, and the verb stands in the third person singular: <em>ihm wird geholfen</em>."
     },
     {
      "id": "devoice7",
@@ -2142,7 +2142,7 @@ window.GERMAN = {
       "ihm",
       "er"
      ],
-     "why": "The reflexive pronoun of the third person is sich. Ihn would be another man."
+     "why": "The reflexive pronoun of the third person is <em>sich</em>. <em>Ihn</em> would be another man."
     },
     {
      "id": "devoice8",
@@ -2155,7 +2155,7 @@ window.GERMAN = {
       "ihm",
       "ihn"
      ],
-     "why": "A reflexive verb can have a sense close to the passive: das Buch liest sich leicht."
+     "why": "A reflexive verb can have a sense close to the passive: <em>das Buch liest sich leicht</em>."
     },
     {
      "id": "devoice9",
@@ -2168,7 +2168,7 @@ window.GERMAN = {
       "liest",
       "gelesen"
      ],
-     "why": "A modal verb such as wollen takes the infinitive without zu, at the end of the clause."
+     "why": "A modal verb such as wollen takes the infinitive without <em>zu</em>, at the end of the clause."
     },
     {
      "id": "devoice10",
@@ -2181,7 +2181,7 @@ window.GERMAN = {
       "kommt",
       "gekommen"
      ],
-     "why": "Können takes the infinitive without zu: er kann kommen."
+     "why": "<em>Können</em> takes the infinitive without <em>zu</em>: <em>er kann kommen</em>."
     },
     {
      "id": "devoice11",
@@ -2194,7 +2194,7 @@ window.GERMAN = {
       "verstanden",
       "verstehe"
      ],
-     "why": "After versuchen the infinitive takes zu, and it stands at the end of its clause: zu verstehen."
+     "why": "After versuchen the infinitive takes <em>zu</em>, and it stands at the end of its clause: <em>zu verstehen</em>."
     },
     {
      "id": "devoice12",
@@ -2207,7 +2207,7 @@ window.GERMAN = {
       "damit",
       "weil"
      ],
-     "why": "Purpose with the same subject is given by um with zu and the infinitive: um ein Haus zu kaufen."
+     "why": "Purpose with the same subject is given by <em>um</em> with <em>zu</em> and the infinitive: <em>um ein Haus zu kaufen</em>."
     },
     {
      "id": "devoice13",
@@ -2220,7 +2220,7 @@ window.GERMAN = {
       "für",
       "an"
      ],
-     "why": "After an adjective such as leicht the infinitive takes zu: das Buch zu lesen."
+     "why": "After an adjective such as <em>leicht</em> the infinitive takes <em>zu</em>: <em>das Buch zu lesen</em>."
     },
     {
      "id": "devoice14",
@@ -2233,7 +2233,7 @@ window.GERMAN = {
       "singt",
       "gesungen"
      ],
-     "why": "Hören and sehen take the infinitive without zu: ich höre den König singen."
+     "why": "Hören and <em>sehen</em> take the infinitive without <em>zu</em>: <em>ich höre den König singen</em>."
     },
     {
      "id": "devoice15",
@@ -2246,7 +2246,7 @@ window.GERMAN = {
       "geht",
       "gegangen"
      ],
-     "why": "Müssen is a modal verb and takes the infinitive without zu."
+     "why": "<em>Müssen</em> is a modal verb and takes the infinitive without <em>zu</em>."
     },
     {
      "id": "devoice16",
@@ -2259,7 +2259,7 @@ window.GERMAN = {
       "an",
       "für"
      ],
-     "why": "Beginnen takes the infinitive with zu: er beginnt zu schreiben."
+     "why": "Beginnen takes the infinitive with <em>zu</em>: <em>er beginnt zu schreiben</em>."
     },
     {
      "id": "devoice17",
@@ -2272,7 +2272,7 @@ window.GERMAN = {
       "spricht",
       "sprach"
      ],
-     "why": "The Perfekt is haben with the past participle, and the participle of the strong verb sprechen is gesprochen."
+     "why": "The Perfekt is <em>haben</em> with the past participle, and the participle of the strong verb <em>sprechen</em> is <em>gesprochen</em>."
     },
     {
      "id": "devoice18",
@@ -2285,7 +2285,7 @@ window.GERMAN = {
       "kam",
       "kommt"
      ],
-     "why": "Kommen forms the Perfekt with sein, and its participle is gekommen."
+     "why": "<em>Kommen</em> forms the Perfekt with <em>sein</em>, and its participle is <em>gekommen</em>."
     },
     {
      "id": "devoice19",
@@ -2298,7 +2298,7 @@ window.GERMAN = {
       "machen",
       "gemachte"
      ],
-     "why": "Machen is a weak verb, and its participle is ge- with the stem and -t: gemacht."
+     "why": "<em>Machen</em> is a weak verb, and its participle is <em>ge-</em> with the stem and <em>-t</em>: <em>gemacht</em>."
     },
     {
      "id": "devoice20",
@@ -2311,7 +2311,7 @@ window.GERMAN = {
       "gelesenes",
       "gelesenen"
      ],
-     "why": "A participle used as an adjective before its noun takes the adjective endings, and after das the ending is -e: das gelesene Buch."
+     "why": "A participle used as an adjective before its noun takes the adjective endings, and after <em>das</em> the ending is <em>-e</em>: <em>das gelesene Buch</em>."
     },
     {
      "id": "devoice21",
@@ -2324,7 +2324,7 @@ window.GERMAN = {
       "gekauftes",
       "gekauft"
      ],
-     "why": "Mit takes the dative, and after dem the adjective ending is -en: mit dem gekauften Pferd."
+     "why": "<em>Mit</em> takes the dative, and after <em>dem</em> the adjective ending is <em>-en</em>: <em>mit dem gekauften Pferd</em>."
     },
     {
      "id": "devoice22",
@@ -2337,7 +2337,7 @@ window.GERMAN = {
       "singenden",
       "singender"
      ],
-     "why": "The present participle used as an adjective takes the adjective endings, and after die in the nominative singular the ending is -e."
+     "why": "The present participle used as an adjective takes the adjective endings, and after <em>die</em> in the nominative singular the ending is <em>-e</em>."
     },
     {
      "id": "devoice23",
@@ -2350,7 +2350,7 @@ window.GERMAN = {
       "ging",
       "geht"
      ],
-     "why": "Gehen forms the Perfekt with sein, and its participle is gegangen."
+     "why": "<em>Gehen</em> forms the Perfekt with <em>sein</em>, and its participle is <em>gegangen</em>."
     },
     {
      "id": "devoice24",
@@ -2363,7 +2363,7 @@ window.GERMAN = {
       "ankommen",
       "ankam"
      ],
-     "why": "In the participle of a verb with a separable prefix, ge- stands between the prefix and the stem: angekommen."
+     "why": "In the participle of a verb with a separable prefix, <em>ge-</em> stands between the prefix and the stem: <em>angekommen</em>."
     }
    ]
   },
@@ -2378,25 +2378,25 @@ window.GERMAN = {
      ]
     },
     {
-     "h": "<strong>Cause.</strong> After weil and da the finite verb goes to the end; after denn it stays in the second place.",
+     "h": "<strong>Cause.</strong> After <em>weil</em> and <em>da</em> the finite verb goes to the end; after <em>denn</em> it stays in the second place.",
      "eg": [
       "<span lang=\"de\">weil er krank ist; denn er ist müde</span>"
      ]
     },
     {
-     "h": "<strong>Condition.</strong> A real condition takes the indicative; a condition that is not real takes the Konjunktiv II, and its result is usually würde with the infinitive.",
+     "h": "<strong>Condition.</strong> A real condition takes the indicative; a condition that is not real takes the Konjunktiv II, and its result is usually <em>würde</em> with the infinitive.",
      "eg": [
       "<span lang=\"de\">wenn es regnet, bleiben wir zu Hause; wenn ich Zeit hätte, würde ich kommen</span>"
      ]
     },
     {
-     "h": "<strong>Reported speech.</strong> A reported statement can begin with dass, a reported yes-or-no question with ob; written German often reports speech in the Konjunktiv I.",
+     "h": "<strong>Reported speech.</strong> A reported statement can begin with <em>dass</em>, a reported yes-or-no question with <em>ob</em>; written German often reports speech in the Konjunktiv I.",
      "eg": [
       "<span lang=\"de\">er sagt, dass der König krank ist; ich weiß nicht, ob er kommt; er sagt, er sei krank</span>"
      ]
     },
     {
-     "h": "<strong>Phrases.</strong> Um, ohne, and statt take zu with the infinitive, and a participle with its own phrase can stand before a noun.",
+     "h": "<strong>Phrases.</strong> <em>Um</em>, <em>ohne</em>, and <em>statt</em> take <em>zu</em> with the infinitive, and a participle with its own phrase can stand before a noun.",
      "eg": [
       "<span lang=\"de\">ohne ein Wort zu sagen; das auf dem Tisch liegende Buch</span>"
      ]
@@ -2414,7 +2414,7 @@ window.GERMAN = {
       "dem",
       "die"
      ],
-     "why": "The relative pronoun takes its gender and number from der Mann and its case from its own clause, where it is the subject: der."
+     "why": "The relative pronoun takes its gender and number from <em>der Mann</em> and its case from its own clause, where it is the subject: <em>der</em>."
     },
     {
      "id": "decls2",
@@ -2427,7 +2427,7 @@ window.GERMAN = {
       "dem",
       "dessen"
      ],
-     "why": "The relative is the object of sehe, so it is in the accusative: den."
+     "why": "The relative is the object of <em>sehe</em>, so it is in the accusative: <em>den</em>."
     },
     {
      "id": "decls3",
@@ -2440,7 +2440,7 @@ window.GERMAN = {
       "der",
       "dessen"
      ],
-     "why": "Helfen takes the dative, so the relative is dem."
+     "why": "Helfen takes the dative, so the relative is <em>dem</em>."
     },
     {
      "id": "decls4",
@@ -2453,7 +2453,7 @@ window.GERMAN = {
       "der",
       "die"
      ],
-     "why": "The relative that shows the possessor is in the genitive, and for a feminine antecedent it is deren."
+     "why": "The relative that shows the possessor is in the genitive, and for a feminine antecedent it is <em>deren</em>."
     },
     {
      "id": "decls5",
@@ -2466,7 +2466,7 @@ window.GERMAN = {
       "dem",
       "der"
      ],
-     "why": "For a masculine antecedent, the genitive relative is dessen."
+     "why": "For a masculine antecedent, the genitive relative is <em>dessen</em>."
     },
     {
      "id": "decls6",
@@ -2479,7 +2479,7 @@ window.GERMAN = {
       "den",
       "der"
      ],
-     "why": "The relative of a neuter noun in the accusative is das, with one s. Dass is the conjunction that."
+     "why": "The relative of a neuter noun <em>in</em> the accusative is <em>das</em>, with one s. <em>Dass</em> is the conjunction that."
     },
     {
      "id": "decls7",
@@ -2492,7 +2492,7 @@ window.GERMAN = {
       "denen",
       "deren"
      ],
-     "why": "The relative of a plural noun in the nominative is die."
+     "why": "The relative of a plural noun <em>in</em> the nominative is <em>die</em>."
     },
     {
      "id": "decls8",
@@ -2505,7 +2505,7 @@ window.GERMAN = {
       "die",
       "deren"
      ],
-     "why": "Mit takes the dative, and the dative plural of the relative is denen."
+     "why": "<em>Mit</em> takes the dative, and the dative plural of the relative is <em>denen</em>."
     },
     {
      "id": "decls9",
@@ -2518,7 +2518,7 @@ window.GERMAN = {
       "sei",
       "seid"
      ],
-     "why": "After weil the finite verb goes to the end of the clause, and the clause states a fact, so the indicative: weil er krank ist."
+     "why": "After <em>weil</em> the finite verb goes to the end of the clause, and the clause states a fact, so the indicative: <em>weil er krank ist</em>."
     },
     {
      "id": "decls10",
@@ -2531,7 +2531,7 @@ window.GERMAN = {
       "haben",
       "hätte"
      ],
-     "why": "After weil the verb stands last, in the indicative: weil sie Zeit hat."
+     "why": "After <em>weil</em> the verb stands last, in the indicative: <em>weil sie Zeit hat</em>."
     },
     {
      "id": "decls11",
@@ -2544,7 +2544,7 @@ window.GERMAN = {
       "geregnet",
       "regne"
      ],
-     "why": "After weil the verb stands last: weil es regnet."
+     "why": "After <em>weil</em> the verb stands last: <em>weil es regnet</em>."
     },
     {
      "id": "decls12",
@@ -2557,7 +2557,7 @@ window.GERMAN = {
       "dass",
       "ob"
      ],
-     "why": "The verb stands at the end, so the clause is subordinate, and weil gives the reason. Denn would keep the order of a main clause: denn er ist müde."
+     "why": "The verb stands at the end, so the clause is subordinate, and <em>weil</em> gives the reason. <em>Denn</em> would keep the order of a main clause: <em>denn er ist müde</em>."
     },
     {
      "id": "decls13",
@@ -2570,7 +2570,7 @@ window.GERMAN = {
       "dass",
       "ob"
      ],
-     "why": "The verb stands second, as in a main clause, so the joining word is the coordinating denn. After weil the verb would go to the end."
+     "why": "The verb stands second, as in a main clause, so the joining word is the coordinating <em>denn</em>. After <em>weil</em> the verb would go to the end."
     },
     {
      "id": "decls14",
@@ -2583,7 +2583,7 @@ window.GERMAN = {
       "komme",
       "käme"
      ],
-     "why": "After dass the finite verb goes to the end: dass er morgen kommt."
+     "why": "After <em>dass</em> the finite verb goes to the end: <em>dass er morgen kommt</em>."
     },
     {
      "id": "decls15",
@@ -2596,7 +2596,7 @@ window.GERMAN = {
       "sprechen",
       "spreche"
      ],
-     "why": "When a subordinate clause stands first, it fills the first place, and the verb of the main clause follows it at once: spricht die Königin."
+     "why": "When a subordinate clause stands first, it fills the first place, and the verb of the main clause follows it at once: <em>spricht die Königin</em>."
     },
     {
      "id": "decls16",
@@ -2609,7 +2609,7 @@ window.GERMAN = {
       "hatte",
       "haben"
      ],
-     "why": "A condition that is not real takes the Konjunktiv II: wenn ich Zeit hätte. Hatte is the Präteritum."
+     "why": "A condition that is not real takes the Konjunktiv II: <em>wenn ich Zeit hätte</em>. <em>Hatte</em> is the Präteritum."
     },
     {
      "id": "decls17",
@@ -2622,7 +2622,7 @@ window.GERMAN = {
       "wurde",
       "wird"
      ],
-     "why": "The result of a condition that is not real is given by würde with the infinitive. Wurde is the Präteritum."
+     "why": "The result of a condition that is not real is given by <em>würde</em> with the infinitive. <em>Wurde</em> is the Präteritum."
     },
     {
      "id": "decls18",
@@ -2635,7 +2635,7 @@ window.GERMAN = {
       "ist",
       "sei"
      ],
-     "why": "A condition that is not real takes the Konjunktiv II: wenn er König wäre. War is the Präteritum."
+     "why": "A condition that is not real takes the Konjunktiv II: <em>wenn er König wäre</em>. <em>War</em> is the Präteritum."
     },
     {
      "id": "decls19",
@@ -2648,7 +2648,7 @@ window.GERMAN = {
       "regnen",
       "geregnet"
      ],
-     "why": "A real condition takes the indicative, and after wenn the verb goes to the end: wenn es regnet."
+     "why": "A real condition takes the indicative, and after <em>wenn</em> the verb goes to the end: <em>wenn es regnet</em>."
     },
     {
      "id": "decls20",
@@ -2661,7 +2661,7 @@ window.GERMAN = {
       "komme",
       "kommen"
      ],
-     "why": "Du takes the ending -st, and after wenn the verb goes to the end: wenn du kommst."
+     "why": "<em>Du</em> takes the ending <em>-st</em>, and after <em>wenn</em> the verb goes to the end: <em>wenn du kommst</em>."
     },
     {
      "id": "decls21",
@@ -2674,7 +2674,7 @@ window.GERMAN = {
       "freust",
       "freuen"
      ],
-     "why": "The main clause follows the subordinate clause, so its verb stands first, and ich takes -e: freue ich mich."
+     "why": "The main clause follows the subordinate clause, so its verb stands first, and <em>ich</em> takes <em>-e</em>: <em>freue ich mich</em>."
     },
     {
      "id": "decls22",
@@ -2687,7 +2687,7 @@ window.GERMAN = {
       "wurden",
       "würdet"
      ],
-     "why": "The result is würde with the infinitive, in the first person plural: würden wir es lesen."
+     "why": "The result is <em>würde</em> with the infinitive, in the first person plural: <em>würden wir es lesen</em>."
     },
     {
      "id": "decls23",
@@ -2700,7 +2700,7 @@ window.GERMAN = {
       "ob",
       "weil"
      ],
-     "why": "A reported statement can be introduced by dass, with two s, and its verb goes to the end. Das is the article or the relative."
+     "why": "A reported statement can be introduced by <em>dass</em>, with two s, and its verb goes to the end. <em>Das</em> is the article or the relative."
     },
     {
      "id": "decls24",
@@ -2713,7 +2713,7 @@ window.GERMAN = {
       "dass",
       "weil"
      ],
-     "why": "A reported yes-or-no question is introduced by ob."
+     "why": "A reported yes-or-no question is introduced by <em>ob</em>."
     },
     {
      "id": "decls25",
@@ -2726,7 +2726,7 @@ window.GERMAN = {
       "bist",
       "seid"
      ],
-     "why": "A reported question keeps its question word, and its verb goes to the end: wo der König ist."
+     "why": "A reported question keeps its question word, and its verb goes to the end: <em>wo der König ist</em>."
     },
     {
      "id": "decls26",
@@ -2739,7 +2739,7 @@ window.GERMAN = {
       "wo",
       "ob"
      ],
-     "why": "The question is about the thing wanted, so was. Wer asks about a person."
+     "why": "The question is about the thing wanted, so was. <em>Wer</em> asks about a person."
     },
     {
      "id": "decls27",
@@ -2752,7 +2752,7 @@ window.GERMAN = {
       "hast",
       "habt"
      ],
-     "why": "After dass the verb goes to the end, and sie, she, takes hat."
+     "why": "After <em>dass</em> the verb goes to the end, and <em>sie</em>, she, takes <em>hat</em>."
     },
     {
      "id": "decls28",
@@ -2765,7 +2765,7 @@ window.GERMAN = {
       "seid",
       "sein"
      ],
-     "why": "Written German reports speech in the Konjunktiv I, and the third person singular of sein is sei. Without dass the reported clause keeps the order of a main clause."
+     "why": "Written German reports speech in the Konjunktiv I, and the third person singular of <em>sein</em> is <em>sei</em>. Without <em>dass</em> the reported clause keeps the order of a main clause."
     },
     {
      "id": "decls29",
@@ -2778,7 +2778,7 @@ window.GERMAN = {
       "habest",
       "habt"
      ],
-     "why": "The Konjunktiv I of haben in the third person singular is habe, the form of reported speech."
+     "why": "The Konjunktiv I of <em>haben</em> in the third person singular is <em>habe</em>, the form of reported speech."
     },
     {
      "id": "decls30",
@@ -2791,7 +2791,7 @@ window.GERMAN = {
       "kommest",
       "kommet"
      ],
-     "why": "The Konjunktiv I of kommen in the third person singular is komme."
+     "why": "The Konjunktiv I of <em>kommen</em> in the third person singular is <em>komme</em>."
     },
     {
      "id": "decls31",
@@ -2804,7 +2804,7 @@ window.GERMAN = {
       "damit",
       "für"
      ],
-     "why": "Ohne with zu and the infinitive says that something did not happen: ohne ein Wort zu sagen."
+     "why": "<em>Ohne</em> with <em>zu</em> and the infinitive says that something did not happen: <em>ohne ein Wort zu sagen</em>."
     },
     {
      "id": "decls32",
@@ -2817,7 +2817,7 @@ window.GERMAN = {
       "Um",
       "Damit"
      ],
-     "why": "Statt with zu and the infinitive gives what is done in place of something else."
+     "why": "<em>Statt</em> with <em>zu</em> and the infinitive gives what is done in place of something else."
     },
     {
      "id": "decls33",
@@ -2830,7 +2830,7 @@ window.GERMAN = {
       "gesehen",
       "sah"
      ],
-     "why": "Um ... zu takes the infinitive at the end: um den König zu sehen."
+     "why": "<em>Um</em> ... <em>zu</em> takes the infinitive at the end: <em>um den König zu sehen</em>."
     },
     {
      "id": "decls34",
@@ -2843,7 +2843,7 @@ window.GERMAN = {
       "ohne",
       "ob"
      ],
-     "why": "When the subject of the purpose clause is not the subject of the main clause, German uses damit with a finite verb. Um ... zu needs the same subject."
+     "why": "When the subject of the purpose clause is not the subject of the main clause, German uses <em>damit</em> with a finite verb. <em>Um</em> ... <em>zu</em> needs the same subject."
     },
     {
      "id": "decls35",
@@ -2856,7 +2856,7 @@ window.GERMAN = {
       "liegenden",
       "liegender"
      ],
-     "why": "A participle with its own phrase can stand before the noun, and it takes the adjective ending: das auf dem Tisch liegende Buch."
+     "why": "A participle with its own phrase can stand before the noun, and it takes the adjective ending: <em>das auf dem Tisch liegende Buch</em>."
     },
     {
      "id": "decls36",
@@ -2869,7 +2869,7 @@ window.GERMAN = {
       "angekommenen",
       "angekommener"
      ],
-     "why": "The participle stands before the noun with its phrase and takes the ending -e after der: der in der Stadt angekommene Mann."
+     "why": "The participle stands before the noun with its phrase and takes the ending <em>-e</em> after <em>der</em>: <em>der in der Stadt angekommene Mann</em>."
     }
    ]
   },
@@ -2878,7 +2878,7 @@ window.GERMAN = {
    "desc": "One word is missing from a German sentence, or one form of a verb is asked for: the Konjunktiv II and its uses, the Konjunktiv I of reported speech, or the imperative.",
    "intro": [
     {
-     "h": "<strong>The Konjunktiv II.</strong> The Konjunktiv II of a strong verb is made from the Präteritum, with the umlaut and -e; with other verbs German usually uses würde with the infinitive.",
+     "h": "<strong>The Konjunktiv II.</strong> The Konjunktiv II of a strong verb is made from the Präteritum, with the umlaut and <em>-e</em>; with other verbs German usually uses <em>würde</em> with the infinitive.",
      "eg": [
       "<span lang=\"de\">wäre, hätte, würde, käme; ich würde bleiben</span>"
      ]
@@ -2890,13 +2890,13 @@ window.GERMAN = {
      ]
     },
     {
-     "h": "<strong>The Konjunktiv I.</strong> The Konjunktiv I is made from the stem of the infinitive with -e, and its chief use is reported speech in written German.",
+     "h": "<strong>The Konjunktiv I.</strong> The Konjunktiv I is made from the stem of the infinitive with <em>-e</em>, and its chief use is reported speech in written German.",
      "eg": [
       "<span lang=\"de\">er sei, er habe, er komme; er sagt, er sei krank</span>"
      ]
     },
     {
-     "h": "<strong>The imperative.</strong> The imperative singular has no ending or -e, and verbs that change e to i or ie in the present change it here too. The plural is the ihr form, and the formal imperative keeps Sie.",
+     "h": "<strong>The imperative.</strong> The imperative singular has no ending or <em>-e</em>, and verbs that change e to i or ie in the present change it here too. The plural is the <em>ihr</em> form, and the formal imperative keeps <em>Sie</em>.",
      "eg": [
       "<span lang=\"de\">komm!, lies!, gib!; kommt!; sprechen Sie!</span>"
      ]
@@ -2914,7 +2914,7 @@ window.GERMAN = {
       "sei",
       "bin"
      ],
-     "why": "The Konjunktiv II of sein is made from the Präteritum war with the umlaut and -e: ich wäre."
+     "why": "The Konjunktiv II of <em>sein</em> is made from the Präteritum <em>war</em> with the umlaut and <em>-e</em>: <em>ich wäre</em>."
     },
     {
      "id": "demood2",
@@ -2927,7 +2927,7 @@ window.GERMAN = {
       "habe",
       "hat"
      ],
-     "why": "The Konjunktiv II of haben is hätte, from hatte with the umlaut."
+     "why": "The Konjunktiv II of <em>haben</em> is <em>hätte</em>, from <em>hatte</em> with the umlaut."
     },
     {
      "id": "demood3",
@@ -2940,7 +2940,7 @@ window.GERMAN = {
       "werde",
       "wird"
      ],
-     "why": "The Konjunktiv II of werden is würde, from wurde with the umlaut."
+     "why": "The Konjunktiv II of <em>werden</em> is <em>würde</em>, from <em>wurde</em> with the umlaut."
     },
     {
      "id": "demood4",
@@ -2953,7 +2953,7 @@ window.GERMAN = {
       "kann",
       "könne"
      ],
-     "why": "The Konjunktiv II of können is könnte. Konnte is the Präteritum, and könne the Konjunktiv I."
+     "why": "The Konjunktiv II of <em>können</em> is <em>könnte</em>. <em>Konnte</em> is the Präteritum, and <em>könne</em> the Konjunktiv I."
     },
     {
      "id": "demood5",
@@ -2966,7 +2966,7 @@ window.GERMAN = {
       "komme",
       "kommt"
      ],
-     "why": "A strong verb makes its Konjunktiv II from the Präteritum, with the umlaut and -e: kam, käme."
+     "why": "A strong verb makes its Konjunktiv II from the Präteritum, with the umlaut and <em>-e</em>: <em>kam</em>, <em>käme</em>."
     },
     {
      "id": "demood6",
@@ -2979,7 +2979,7 @@ window.GERMAN = {
       "seien",
       "sind"
      ],
-     "why": "The first person plural of the Konjunktiv II of sein is wären. Waren is the Präteritum."
+     "why": "The first person plural of the Konjunktiv II of <em>sein</em> is <em>wären</em>. <em>Waren</em> is the Präteritum."
     },
     {
      "id": "demood7",
@@ -2992,7 +2992,7 @@ window.GERMAN = {
       "muss",
       "müsse"
      ],
-     "why": "The Konjunktiv II of müssen is müsste. Musste is the Präteritum."
+     "why": "The Konjunktiv II of <em>müssen</em> is <em>müsste</em>. <em>Musste</em> is the Präteritum."
     },
     {
      "id": "demood8",
@@ -3005,7 +3005,7 @@ window.GERMAN = {
       "weiß",
       "wisse"
      ],
-     "why": "The Konjunktiv II of wissen is wüsste. Wusste is the Präteritum."
+     "why": "The Konjunktiv II of <em>wissen</em> is <em>wüsste</em>. <em>Wusste</em> is the Präteritum."
     },
     {
      "id": "demood9",
@@ -3018,7 +3018,7 @@ window.GERMAN = {
       "hatte",
       "hat"
      ],
-     "why": "A wish that is not fulfilled takes the Konjunktiv II: wenn ich nur Zeit hätte!"
+     "why": "A wish that is not fulfilled takes the Konjunktiv II: <em>wenn ich nur Zeit hätte</em>!"
     },
     {
      "id": "demood10",
@@ -3031,7 +3031,7 @@ window.GERMAN = {
       "Wären",
       "Hätten"
      ],
-     "why": "Würde with the infinitive makes a polite request: würden Sie das Fenster öffnen?"
+     "why": "<em>Würde</em> with the infinitive makes a polite request: <em>würden Sie das Fenster öffnen</em>?"
     },
     {
      "id": "demood11",
@@ -3044,7 +3044,7 @@ window.GERMAN = {
       "wurde",
       "hätte"
      ],
-     "why": "Würde with the infinitive says what would happen: ich würde bleiben."
+     "why": "<em>Würde</em> with the infinitive says what would happen: <em>ich würde bleiben</em>."
     },
     {
      "id": "demood12",
@@ -3057,7 +3057,7 @@ window.GERMAN = {
       "war",
       "sein"
      ],
-     "why": "After als in the sense of as if, the verb follows at once and stands in the Konjunktiv II: als wäre er der König."
+     "why": "After <em>als</em> in the sense of as if, the verb follows at once and stands in the Konjunktiv II: <em>als wäre er der König</em>."
     },
     {
      "id": "demood13",
@@ -3070,7 +3070,7 @@ window.GERMAN = {
       "wurde",
       "wäre"
      ],
-     "why": "The result of a condition that is not real is würde with the infinitive."
+     "why": "The result of a condition that is not real is <em>würde</em> with the infinitive."
     },
     {
      "id": "demood14",
@@ -3083,7 +3083,7 @@ window.GERMAN = {
       "kam",
       "komme"
      ],
-     "why": "A wish takes the Konjunktiv II, and the Konjunktiv II of kommen is käme."
+     "why": "A wish takes the Konjunktiv II, and the Konjunktiv II of <em>kommen</em> is <em>käme</em>."
     },
     {
      "id": "demood15",
@@ -3096,7 +3096,7 @@ window.GERMAN = {
       "sei",
       "sind"
      ],
-     "why": "What would be so is said with the Konjunktiv II: das wäre gut."
+     "why": "What would be so is said with the Konjunktiv II: <em>das wäre gut</em>."
     },
     {
      "id": "demood16",
@@ -3109,7 +3109,7 @@ window.GERMAN = {
       "hatte",
       "wäre"
      ],
-     "why": "A past condition that was not fulfilled takes the Konjunktiv II of the auxiliary with the participle: ich hätte gelesen. Lesen forms its Perfekt with haben."
+     "why": "A past condition that was not fulfilled takes the Konjunktiv II of the auxiliary with the participle: <em>ich hätte gelesen</em>. <em>Lesen</em> forms its Perfekt with <em>haben</em>."
     },
     {
      "id": "demood17",
@@ -3122,7 +3122,7 @@ window.GERMAN = {
       "wäre",
       "seist"
      ],
-     "why": "The Konjunktiv I of sein in the third person singular is sei, the form of reported speech."
+     "why": "The Konjunktiv I of <em>sein</em> in the third person singular is <em>sei</em>, the form of reported speech."
     },
     {
      "id": "demood18",
@@ -3135,7 +3135,7 @@ window.GERMAN = {
       "hätte",
       "habest"
      ],
-     "why": "The Konjunktiv I is made from the stem of the infinitive with -e: er habe."
+     "why": "The Konjunktiv I is made from the stem of the infinitive with <em>-e</em>: <em>er habe</em>."
     },
     {
      "id": "demood19",
@@ -3148,7 +3148,7 @@ window.GERMAN = {
       "käme",
       "kommest"
      ],
-     "why": "The Konjunktiv I takes the stem of the infinitive and -e: er komme."
+     "why": "The Konjunktiv I takes the stem of the infinitive and <em>-e</em>: <em>er komme</em>."
     },
     {
      "id": "demood20",
@@ -3161,7 +3161,7 @@ window.GERMAN = {
       "würde",
       "werdest"
      ],
-     "why": "The Konjunktiv I of werden is er werde. Wird is the indicative, and würde the Konjunktiv II."
+     "why": "The Konjunktiv I of <em>werden</em> is <em>er werde</em>. <em>Wird</em> is the indicative, and <em>würde</em> the Konjunktiv II."
     },
     {
      "id": "demood21",
@@ -3174,7 +3174,7 @@ window.GERMAN = {
       "könnte",
       "können"
      ],
-     "why": "The Konjunktiv I is made from the stem of the infinitive, so it keeps the umlaut of können: er könne."
+     "why": "The Konjunktiv I is made from the stem of the infinitive, so it keeps the umlaut of <em>können</em>: <em>er könne</em>."
     },
     {
      "id": "demood22",
@@ -3187,7 +3187,7 @@ window.GERMAN = {
       "wären",
       "seiest"
      ],
-     "why": "The Konjunktiv I of sein in the third person plural is seien."
+     "why": "The Konjunktiv I of <em>sein</em> in the third person plural is <em>seien</em>."
     },
     {
      "id": "demood23",
@@ -3200,7 +3200,7 @@ window.GERMAN = {
       "spräche",
       "sprechest"
      ],
-     "why": "The Konjunktiv I keeps the vowel of the infinitive, without the change to i: er spreche."
+     "why": "The Konjunktiv I keeps the vowel of the infinitive, without the change to i: <em>er spreche</em>."
     },
     {
      "id": "demood24",
@@ -3213,7 +3213,7 @@ window.GERMAN = {
       "gäbe",
       "gebest"
      ],
-     "why": "The Konjunktiv I keeps the vowel of the infinitive: er gebe. Gibt is the indicative, and gäbe the Konjunktiv II."
+     "why": "The Konjunktiv I keeps the vowel of the infinitive: <em>er gebe</em>. <em>Gibt</em> is the indicative, and <em>gäbe</em> the Konjunktiv II."
     },
     {
      "id": "demood25",
@@ -3226,7 +3226,7 @@ window.GERMAN = {
       "Lesen",
       "Liest"
      ],
-     "why": "A strong verb that changes e to ie in the present also changes it in the imperative singular, and the imperative has no -st: lies!"
+     "why": "A strong verb that changes e to ie in the present also changes it in the imperative singular, and the imperative has no <em>-st</em>: lies!"
     },
     {
      "id": "demood26",
@@ -3239,7 +3239,7 @@ window.GERMAN = {
       "Gibst",
       "Geben"
      ],
-     "why": "The imperative singular of geben is gib, with the change of e to i."
+     "why": "The imperative singular of <em>geben</em> is <em>gib</em>, with the change of e to i."
     },
     {
      "id": "demood27",
@@ -3252,7 +3252,7 @@ window.GERMAN = {
       "Kommen",
       "Kommst"
      ],
-     "why": "The imperative addressed to several friends is the ihr form without the pronoun: kommt!"
+     "why": "The imperative addressed to several friends is the <em>ihr</em> form without the pronoun: <em>kommt</em>!"
     },
     {
      "id": "demood28",
@@ -3265,7 +3265,7 @@ window.GERMAN = {
       "ihr",
       "wir"
      ],
-     "why": "The formal imperative keeps the pronoun Sie after the verb: sprechen Sie!"
+     "why": "The formal imperative keeps the pronoun <em>Sie</em> after the verb: <em>sprechen Sie</em>!"
     },
     {
      "id": "demood29",
@@ -3278,7 +3278,7 @@ window.GERMAN = {
       "Spricht",
       "Sprechen"
      ],
-     "why": "The imperative singular of sprechen is sprich, with the change of e to i."
+     "why": "The imperative singular of <em>sprechen</em> is <em>sprich</em>, with the change of e to i."
     },
     {
      "id": "demood30",
@@ -3291,7 +3291,7 @@ window.GERMAN = {
       "Seid",
       "Ist"
      ],
-     "why": "The imperative singular of sein is sei. Seid is the plural."
+     "why": "The imperative singular of <em>sein</em> is <em>sei</em>. <em>Seid</em> is the plural."
     },
     {
      "id": "demood31",
@@ -3304,7 +3304,7 @@ window.GERMAN = {
       "Kommst",
       "Kommen"
      ],
-     "why": "The imperative singular of kommen is komm, and the ending -e is usually left off."
+     "why": "The imperative singular of <em>kommen</em> is <em>komm</em>, and the ending <em>-e</em> is usually left off."
     },
     {
      "id": "demood32",
@@ -3317,7 +3317,7 @@ window.GERMAN = {
       "Gehe",
       "Gehst"
      ],
-     "why": "An imperative that includes the speaker puts the verb first with wir: gehen wir!"
+     "why": "An imperative that includes the speaker puts the verb first with <em>wir</em>: <em>gehen wir</em>!"
     }
    ]
   }
@@ -3333,7 +3333,7 @@ window.GERMAN = {
     ]
    },
    {
-    "h": "<strong>The adjective.</strong> After der, die, or das the adjective takes a weak ending; after ein, or with no article, it shows the gender and the case itself. After sein it takes no ending.",
+    "h": "<strong>The adjective.</strong> After <em>der</em>, <em>die</em>, or <em>das</em> the adjective takes a weak ending; after <em>ein</em>, or with no article, it shows the gender and the case itself. After <em>sein</em> it takes no ending.",
     "eg": [
      "<span lang=\"de\">der gute Mann, ein guter Mann, guter Wein; der König ist gut</span>"
     ]
@@ -3345,13 +3345,13 @@ window.GERMAN = {
     ]
    },
    {
-    "h": "<strong>The past.</strong> The Perfekt is haben or sein with the past participle; verbs of motion or change of state take sein.",
+    "h": "<strong>The past.</strong> The Perfekt is <em>haben</em> or <em>sein</em> with the past participle; verbs of motion or change of state take <em>sein</em>.",
     "eg": [
      "<span lang=\"de\">er hat das Bett gemacht; sie ist gekommen</span>"
     ]
    },
    {
-    "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after dass or weil the finite verb goes to the end.",
+    "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after <em>dass</em> or <em>weil</em> the finite verb goes to the end.",
     "eg": [
      "<span lang=\"de\">heute gibt der König der Frau ein Buch; der Zug kommt um acht an; dass er heute kommt</span>"
     ]
@@ -3369,7 +3369,7 @@ window.GERMAN = {
      "dem",
      "des"
     ],
-    "why": "Mann is the object of sieht, so it is in the accusative, and the masculine accusative is den."
+    "why": "<em>Mann</em> is the object of <em>sieht</em>, so it is in the accusative, and the masculine accusative is <em>den</em>."
    },
    {
     "id": "defill2",
@@ -3382,7 +3382,7 @@ window.GERMAN = {
      "der",
      "des"
     ],
-    "why": "The one who receives is in the dative, and the masculine dative is dem."
+    "why": "The one who receives is in the dative, and the masculine dative is <em>dem</em>."
    },
    {
     "id": "defill3",
@@ -3395,7 +3395,7 @@ window.GERMAN = {
      "Die",
      "Den"
     ],
-    "why": "Pferd is neuter, and the neuter nominative of the article is das."
+    "why": "<em>Pferd</em> is neuter, and the neuter nominative of the article is <em>das</em>."
    },
    {
     "id": "defill4",
@@ -3408,7 +3408,7 @@ window.GERMAN = {
      "einem",
      "eine"
     ],
-    "why": "Pferd is neuter and the object, and the neuter accusative of the indefinite article is ein."
+    "why": "<em>Pferd</em> is neuter and the object, and the neuter accusative of the indefinite article is <em>ein</em>."
    },
    {
     "id": "defill5",
@@ -3421,7 +3421,7 @@ window.GERMAN = {
      "einem",
      "eines"
     ],
-    "why": "Mann is masculine and the object, so the indefinite article is einen."
+    "why": "<em>Mann</em> is masculine and the object, so the indefinite article is <em>einen</em>."
    },
    {
     "id": "defill6",
@@ -3434,7 +3434,7 @@ window.GERMAN = {
      "ein",
      "eines"
     ],
-    "why": "Mit takes the dative, and the masculine dative of the indefinite article is einem."
+    "why": "<em>Mit</em> takes the dative, and the masculine dative of the indefinite article is <em>einem</em>."
    },
    {
     "id": "defill7",
@@ -3447,7 +3447,7 @@ window.GERMAN = {
      "des",
      "den"
     ],
-    "why": "The possessor is in the genitive, and the feminine genitive of the article is der."
+    "why": "The possessor is in the genitive, and the feminine genitive of the article is <em>der</em>."
    },
    {
     "id": "defill8",
@@ -3460,7 +3460,7 @@ window.GERMAN = {
      "den",
      "dem"
     ],
-    "why": "Stadt is feminine and the object, and the feminine accusative is die."
+    "why": "<em>Stadt</em> is feminine and the object, and the feminine accusative is <em>die</em>."
    },
    {
     "id": "defill9",
@@ -3473,7 +3473,7 @@ window.GERMAN = {
      "guten",
      "gutes"
     ],
-    "why": "After der the adjective in the nominative singular takes the weak ending -e."
+    "why": "After <em>der</em> the adjective in the nominative singular takes the weak ending <em>-e</em>."
    },
    {
     "id": "defill10",
@@ -3486,7 +3486,7 @@ window.GERMAN = {
      "guten",
      "gutes"
     ],
-    "why": "After ein the adjective shows the gender itself, so the masculine nominative is guter."
+    "why": "After <em>ein</em> the adjective shows the gender itself, so the masculine nominative is <em>guter</em>."
    },
    {
     "id": "defill11",
@@ -3499,7 +3499,7 @@ window.GERMAN = {
      "guter",
      "gutem"
     ],
-    "why": "After den the adjective takes -en."
+    "why": "After <em>den</em> the adjective takes <em>-en</em>."
    },
    {
     "id": "defill12",
@@ -3512,7 +3512,7 @@ window.GERMAN = {
      "guter",
      "gutem"
     ],
-    "why": "Without an article the adjective takes the strong ending, and the dative plural is -en: mit guten Freunden."
+    "why": "Without an article the adjective takes the strong ending, and the dative plural is <em>-en</em>: <em>mit guten Freunden</em>."
    },
    {
     "id": "defill13",
@@ -3525,7 +3525,7 @@ window.GERMAN = {
      "kleiner",
      "kleinen"
     ],
-    "why": "After ein the neuter adjective shows the gender itself: ein kleines Haus."
+    "why": "After <em>ein</em> the neuter adjective shows the gender itself: <em>ein kleines Haus</em>."
    },
    {
     "id": "defill14",
@@ -3538,7 +3538,7 @@ window.GERMAN = {
      "gutes",
      "guten"
     ],
-    "why": "Without an article the adjective takes the strong ending, and the masculine nominative is -er."
+    "why": "Without an article the adjective takes the strong ending, and the masculine nominative is <em>-er</em>."
    },
    {
     "id": "defill15",
@@ -3551,7 +3551,7 @@ window.GERMAN = {
      "großer",
      "großes"
     ],
-    "why": "After die in the plural the adjective takes -en."
+    "why": "After <em>die</em> in the plural the adjective takes <em>-en</em>."
    },
    {
     "id": "defill16",
@@ -3564,7 +3564,7 @@ window.GERMAN = {
      "gute",
      "guten"
     ],
-    "why": "An adjective that is the predicate, after sein, takes no ending."
+    "why": "An adjective that is the predicate, after <em>sein</em>, takes no ending."
    },
    {
     "id": "defill17",
@@ -3577,7 +3577,7 @@ window.GERMAN = {
      "spricht",
      "sprechen"
     ],
-    "why": "Ich takes the ending -e, without the change of vowel: ich spreche."
+    "why": "<em>Ich</em> takes the ending <em>-e</em>, without the change of vowel: <em>ich spreche</em>."
    },
    {
     "id": "defill18",
@@ -3590,7 +3590,7 @@ window.GERMAN = {
      "sprecht",
      "sprechen"
     ],
-    "why": "Du takes -st, and sprechen changes e to i: du sprichst."
+    "why": "<em>Du</em> takes <em>-st</em>, and <em>sprechen</em> changes e to i: <em>du sprichst</em>."
    },
    {
     "id": "defill19",
@@ -3603,7 +3603,7 @@ window.GERMAN = {
      "gibst",
      "geben"
     ],
-    "why": "Er takes -t, and geben changes e to i: er gibt."
+    "why": "<em>Er</em> takes <em>-t</em>, and <em>geben</em> changes e to i: <em>er gibt</em>."
    },
    {
     "id": "defill20",
@@ -3616,7 +3616,7 @@ window.GERMAN = {
      "ist",
      "bin"
     ],
-    "why": "The first person plural of sein is sind."
+    "why": "The first person plural of <em>sein</em> is <em>sind</em>."
    },
    {
     "id": "defill21",
@@ -3629,7 +3629,7 @@ window.GERMAN = {
      "haben",
      "hast"
     ],
-    "why": "The second person plural of haben is habt."
+    "why": "The second person plural of <em>haben</em> is <em>habt</em>."
    },
    {
     "id": "defill22",
@@ -3642,7 +3642,7 @@ window.GERMAN = {
      "wirst",
      "werden"
     ],
-    "why": "The third person singular of werden is wird."
+    "why": "The third person singular of <em>werden</em> is <em>wird</em>."
    },
    {
     "id": "defill23",
@@ -3655,7 +3655,7 @@ window.GERMAN = {
      "seht",
      "siehst"
     ],
-    "why": "Sie, they, is the third person plural, and its verb ends in -en."
+    "why": "<em>Sie</em>, they, is the third person plural, and its verb ends in <em>-en</em>."
    },
    {
     "id": "defill24",
@@ -3668,7 +3668,7 @@ window.GERMAN = {
      "ist",
      "seid"
     ],
-    "why": "The second person singular of sein is bist."
+    "why": "The second person singular of <em>sein</em> is <em>bist</em>."
    },
    {
     "id": "defill25",
@@ -3681,7 +3681,7 @@ window.GERMAN = {
      "habe",
      "hast"
     ],
-    "why": "Machen forms the Perfekt with haben, and er takes hat."
+    "why": "<em>Machen</em> forms the Perfekt with <em>haben</em>, and <em>er</em> takes <em>hat</em>."
    },
    {
     "id": "defill26",
@@ -3694,7 +3694,7 @@ window.GERMAN = {
      "bin",
      "seid"
     ],
-    "why": "Kommen is a verb of motion and forms the Perfekt with sein: sie ist gekommen."
+    "why": "<em>Kommen</em> is a verb of motion and forms the Perfekt with <em>sein</em>: <em>sie ist gekommen</em>."
    },
    {
     "id": "defill27",
@@ -3707,7 +3707,7 @@ window.GERMAN = {
      "sprechen",
      "gesprochene"
     ],
-    "why": "The past participle of sprechen is gesprochen, and it stands at the end."
+    "why": "The past participle of <em>sprechen</em> is <em>gesprochen</em>, and it stands at the end."
    },
    {
     "id": "defill28",
@@ -3720,7 +3720,7 @@ window.GERMAN = {
      "sehen",
      "gesehene"
     ],
-    "why": "The past participle of sehen is gesehen."
+    "why": "The past participle of <em>sehen</em> is <em>gesehen</em>."
    },
    {
     "id": "defill29",
@@ -3733,7 +3733,7 @@ window.GERMAN = {
      "werden",
      "wurde"
     ],
-    "why": "The full verb werden has the participle geworden. Worden is used only in the passive."
+    "why": "The full verb <em>werden</em> has the participle <em>geworden</em>. <em>Worden</em> is used only in the passive."
    },
    {
     "id": "defill30",
@@ -3746,7 +3746,7 @@ window.GERMAN = {
      "geben",
      "gibt"
     ],
-    "why": "The past participle of geben is gegeben."
+    "why": "The past participle of <em>geben</em> is <em>gegeben</em>."
    },
    {
     "id": "defill31",
@@ -3759,7 +3759,7 @@ window.GERMAN = {
      "bin",
      "wurde"
     ],
-    "why": "The Präteritum of sein in the first person singular is war. Wäre is the Konjunktiv II."
+    "why": "The Präteritum of <em>sein</em> in the first person singular is <em>war</em>. <em>Wäre</em> is the Konjunktiv II."
    },
    {
     "id": "defill32",
@@ -3772,7 +3772,7 @@ window.GERMAN = {
      "hat",
      "habe"
     ],
-    "why": "The Präteritum of haben is hatte. Hätte is the Konjunktiv II."
+    "why": "The Präteritum of <em>haben</em> is <em>hatte</em>. <em>Hätte</em> is the Konjunktiv II."
    },
    {
     "id": "defill33",
@@ -3785,7 +3785,7 @@ window.GERMAN = {
      "geben der",
      "der geben"
     ],
-    "why": "In a main clause the finite verb stands second. Heute fills the first place, so the verb comes next and the subject follows it: heute gibt der König."
+    "why": "In a main clause the finite verb stands second. <em>Heute</em> fills the first place, so the verb comes next and the subject follows it: <em>heute gibt der König</em>."
    },
    {
     "id": "defill34",
@@ -3798,7 +3798,7 @@ window.GERMAN = {
      "der Frau gibt ein Buch",
      "gibt ein Buch der Frau"
     ],
-    "why": "After dass the finite verb goes to the end of the clause."
+    "why": "After <em>dass</em> the finite verb goes to the end of the clause."
    },
    {
     "id": "defill35",
@@ -3811,7 +3811,7 @@ window.GERMAN = {
      "gab",
      "geben"
     ],
-    "why": "The past participle goes to the end of the clause, and hat stands second."
+    "why": "The past participle goes to the end of the clause, and <em>hat</em> stands second."
    },
    {
     "id": "defill36",
@@ -3824,7 +3824,7 @@ window.GERMAN = {
      "Geben",
      "Gibst"
     ],
-    "why": "A question without a question word puts the finite verb first, and der König takes gibt."
+    "why": "A question without a question word puts the finite verb first, and <em>der König</em> takes <em>gibt</em>."
    },
    {
     "id": "defill37",
@@ -3837,7 +3837,7 @@ window.GERMAN = {
      "ab",
      "mit"
     ],
-    "why": "Ankommen has a separable prefix, and in a main clause the prefix goes to the end: der Zug kommt um acht an."
+    "why": "<em>Ankommen</em> has a separable prefix, and in a main clause the prefix goes to the end: <em>der Zug kommt um acht</em> an."
    },
    {
     "id": "defill38",
@@ -3850,7 +3850,7 @@ window.GERMAN = {
      "gelesen",
      "zu lesen"
     ],
-    "why": "After a modal verb the infinitive goes to the end without zu."
+    "why": "After a modal verb the infinitive goes to the end without <em>zu</em>."
    },
    {
     "id": "defill39",
@@ -3863,7 +3863,7 @@ window.GERMAN = {
      "bleibst",
      "bleibe"
     ],
-    "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: bleibt er."
+    "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: <em>bleibt er</em>."
    },
    {
     "id": "defill40",
@@ -3876,7 +3876,7 @@ window.GERMAN = {
      "komme",
      "kommst"
     ],
-    "why": "After dass the verb goes to the end, and er takes kommt."
+    "why": "After <em>dass</em> the verb goes to the end, and <em>er</em> takes <em>kommt</em>."
    }
   ]
  },
@@ -3887,7 +3887,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 1,
-       "note": "German keeps four cases, and German verbs and prepositions govern them as Latin ones do: helfen and danken take the dative, sehen the accusative, and wegen the genitive."
+       "note": "German keeps four cases, and German verbs and prepositions govern them as Latin ones do: helfen and danken take the dative, <em>sehen</em> the accusative, and <em>wegen</em> the genitive."
       }
      ]
     },
@@ -3895,7 +3895,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 2,
-       "note": "German in, like Latin in, takes two cases: the dative for the place where, as in in der Stadt, and the accusative for the place to which, as in in die Stadt. The question wo? (where?) asks for the dative, and wohin? (where to?) for the accusative."
+       "note": "German <em>in</em>, like Latin <em>in</em>, takes two cases: the dative for the place where, as in <em>in der Stadt</em>, and the accusative for the place to which, as in <em>in die Stadt</em>. The question <em>wo</em>? (where?) asks for the dative, and <em>wohin</em>? (where to?) for the accusative."
       }
      ]
     }
@@ -3905,7 +3905,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 3,
-       "note": "A German adjective before its noun agrees in gender, number, and case, and its ending also depends on the word before it: der gute Mann, ein guter Mann. After sein the adjective takes no ending: der Mann ist gut."
+       "note": "A German adjective before its noun agrees in gender, number, and case, and its ending also depends on the word before it: <em>der gute Mann</em>, <em>ein guter Mann</em>. After <em>sein</em> the adjective takes no ending: <em>der Mann ist gut</em>."
       }
      ]
     },
@@ -3931,7 +3931,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 6,
-       "note": "The German genitive, like the Latin, can name the possessor or the object of a feeling: die Liebe des Vaters can mean the father’s love or love for the father."
+       "note": "The German genitive, like the Latin, can name the possessor or the object of a feeling: <em>die Liebe des</em> Vaters can mean the father’s love or love for the father."
       }
      ]
     },
@@ -3939,7 +3939,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 7,
-       "note": "German also has a double accusative after a few verbs, such as lehren: er lehrt den Jungen die Sprache, he teaches the boy the language."
+       "note": "German also has a double accusative after a few verbs, such as lehren: <em>er</em> lehrt <em>den</em> Jungen <em>die</em> Sprache, he teaches the boy the language."
       }
      ]
     }
@@ -3959,7 +3959,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 9,
-       "note": "The German passive is werden with the past participle, and the doer is introduced by von with the dative: das Buch wird von dem König gelesen."
+       "note": "The German passive is <em>werden</em> with the past participle, and the doer is introduced by <em>von</em> with the dative: <em>das Buch wird von dem König gelesen</em>."
       }
      ]
     },
@@ -3967,7 +3967,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 10,
-       "note": "A German modal verb takes the infinitive without zu, as Latin possum takes the infinitive: ich kann kommen. Most other German verbs take zu: er beginnt zu schreiben."
+       "note": "A German modal verb takes the infinitive without <em>zu</em>, as Latin possum takes the infinitive: <em>ich kann kommen</em>. Most other German verbs take <em>zu</em>: <em>er beginnt zu schreiben</em>."
       }
      ]
     },
@@ -3975,7 +3975,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 11,
-       "note": "The German Perfekt and passive are made with an auxiliary and the participle, as the Latin perfect passive is: er hat gesprochen, das Buch wird gelesen. In German the participle does not agree with the subject."
+       "note": "The German Perfekt and passive are made with an auxiliary and the participle, as the Latin perfect passive is: <em>er hat gesprochen</em>, <em>das Buch wird gelesen</em>. In German the participle does not agree with the subject."
       }
      ]
     },
@@ -3983,7 +3983,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 12,
-       "note": "German has no deponent verbs, but some German verbs are always reflexive, such as sich freuen, be glad, and a reflexive verb can have a sense close to the Greek middle."
+       "note": "German has no deponent verbs, but some German verbs are always reflexive, such as <em>sich freuen</em>, be glad, and a reflexive verb can have a sense close to the Greek middle."
       }
      ]
     }
@@ -3993,7 +3993,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 13,
-       "note": "German has two subjunctive moods. The Konjunktiv II gives what is imagined or not real, and the Konjunktiv I is used chiefly in written reported speech: er sagt, er sei krank."
+       "note": "German has two subjunctive moods. The Konjunktiv II gives what is imagined or not real, and the Konjunktiv I is used chiefly in written reported speech: <em>er sagt</em>, <em>er sei krank</em>."
       }
      ]
     },
@@ -4001,7 +4001,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 14,
-       "note": "German purpose with the same subject is um ... zu with the infinitive, and with another subject damit with the indicative. German result is so ... dass with the indicative."
+       "note": "German purpose with the same subject is <em>um</em> ... <em>zu</em> with the infinitive, and with another subject <em>damit</em> with the indicative. German result is so ... <em>dass</em> with the indicative."
       }
      ]
     },
@@ -4009,7 +4009,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 15,
-       "note": "The German imperative has a singular, a plural, and a formal form: komm!, kommt!, kommen Sie! A prohibition is the negative imperative: komm nicht!"
+       "note": "The German imperative has a singular, a plural, and a formal form: <em>komm</em>!, <em>kommt</em>!, <em>kommen Sie</em>! A prohibition is the negative imperative: <em>komm nicht</em>!"
       }
      ]
     }
@@ -4019,7 +4019,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 16,
-       "note": "German word order is freer than English but not free as Latin is: the finite verb of a main clause stands second, and the article shows the case, so the object can stand first, as in den König sieht die Frau."
+       "note": "German word order is freer than English but not free as Latin is: the finite verb of a main clause stands second, and the article shows the case, so the object can stand first, as in <em>den König sieht die Frau</em>."
       }
      ]
     },
@@ -4027,7 +4027,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 17,
-       "note": "German, unlike Latin, writes the subject pronoun: wir loben den Dichter. The personal pronoun has four cases: ich, mich, mir, meiner."
+       "note": "German, unlike Latin, writes the subject pronoun: <em>wir</em> loben <em>den</em> Dichter. The personal pronoun has four cases: <em>ich</em>, <em>mich</em>, <em>mir</em>, <em>meiner</em>."
       }
      ]
     },
@@ -4035,7 +4035,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 18,
-       "note": "Where Latin uses the dative, German uses the dative: der Junge gibt dem Mädchen ein Geschenk. Where Latin uses the genitive of the possessor, German uses the genitive or von with the dative: das Buch des Königs."
+       "note": "Where Latin uses the dative, German uses the dative: <em>der</em> Junge <em>gibt dem</em> Mädchen <em>ein</em> Geschenk. Where Latin uses the genitive of the possessor, German uses the genitive or <em>von</em> with the dative: <em>das Buch des Königs</em>."
       }
      ]
     },
@@ -4043,7 +4043,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 19,
-       "note": "German und joins words in the same case, as Latin et does. Place where is in with the dative, and motion into a place is in with the accusative."
+       "note": "German <em>und</em> joins words in the same case, as Latin et does. Place where is in with the dative, and motion into a place is in with the accusative."
       }
      ]
     },
@@ -4051,7 +4051,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 20,
-       "note": "German has a definite and an indefinite article. Some prepositions and the article run together into one word, such as im and zum, and German modal particles such as doch and ja stand where Latin might use a particle such as enim."
+       "note": "German has a definite and an indefinite article. Some prepositions and the article run together into one word, such as <em>im</em> and <em>zum</em>, and German modal particles such as doch and ja stand where Latin might use a particle such as enim."
       }
      ]
     }
@@ -4061,7 +4061,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 21,
-       "note": "German purpose is um ... zu with the infinitive, or damit with a finite verb; German result is so ... dass. In both kinds of clause after a conjunction the finite verb goes to the end."
+       "note": "German purpose is <em>um</em> ... <em>zu</em> with the infinitive, or <em>damit</em> with a finite verb; German result is so ... <em>dass</em>. In both kinds of clause after a conjunction the finite verb goes to the end."
       }
      ]
     },
@@ -4069,7 +4069,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 22,
-       "note": "German reports a statement with dass and the indicative, or, in written German, without dass and with the Konjunktiv I: er sagt, er sei krank. A reported question begins with ob or a question word."
+       "note": "German reports a statement with <em>dass</em> and the indicative, or, in written German, without <em>dass</em> and with the Konjunktiv I: <em>er sagt</em>, <em>er sei krank</em>. A reported question begins with <em>ob</em> or a question word."
       }
      ]
     },
@@ -4077,7 +4077,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 23,
-       "note": "German als and wenn (when), weil (because), obwohl (although), and wenn (if) put the finite verb at the end of their clause. A condition that is not real takes the Konjunktiv II."
+       "note": "German <em>als</em> and <em>wenn</em> (when), <em>weil</em> (because), obwohl (although), and <em>wenn</em> (if) put the finite verb at the end of their clause. A condition that is not real takes the Konjunktiv II."
       }
      ]
     },
@@ -4085,7 +4085,7 @@ window.GERMAN = {
      "text": [
       {
        "entry": 24,
-       "note": "The German relative pronoun has the forms of the article, except in the genitive and the dative plural: dessen, deren, denen. Its verb goes to the end of the relative clause."
+       "note": "The German relative pronoun has the forms of the article, except in the genitive and the dative plural: <em>dessen</em>, <em>deren</em>, <em>denen</em>. Its verb goes to the end of the relative clause."
       }
      ]
     }
@@ -4113,7 +4113,7 @@ window.GERMAN = {
      }
     },
     {
-     "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where ge- is not part of the stem. The inseparable prefixes be-, ge-, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
+     "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where <em>ge-</em> is not part of the stem. The inseparable prefixes be-, <em>ge-</em>, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
      "q": {
       "prompt": "Where is the stress in <span lang=\"de\">gesprochen</span>?",
       "options": [
@@ -4127,7 +4127,7 @@ window.GERMAN = {
      }
     },
     {
-     "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in -ieren are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in -ität and -ei on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
+     "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in <em>-ieren</em> are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in <em>-ität</em> and <em>-ei</em> on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
      "q": {
       "prompt": "Where is the stress in <span lang=\"de\">studieren</span>?",
       "options": [
@@ -4171,7 +4171,7 @@ window.GERMAN = {
       "Three",
       "Four"
      ],
-     "why": "Au is a diphthong, one sound, so the word is Bau-er."
+     "why": "<em>Au</em> is a diphthong, one sound, so the word is <em>Bau-er</em>."
     },
     {
      "id": "dsy2",
@@ -4183,7 +4183,7 @@ window.GERMAN = {
       "Six",
       "Three"
      ],
-     "why": "The word is U-ni-ver-si-tät."
+     "why": "The word is <em>U-ni-ver-si-tät</em>."
     },
     {
      "id": "dsy3",
@@ -4243,7 +4243,7 @@ window.GERMAN = {
       "-hen",
       "All three equally"
      ],
-     "why": "Ver- is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
+     "why": "<em>Ver-</em> is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
     },
     {
      "id": "dsy8",
@@ -4279,7 +4279,7 @@ window.GERMAN = {
       "-ren",
       "All three equally"
      ],
-     "why": "Verbs in -ieren are stressed on -ie-."
+     "why": "Verbs in <em>-ieren</em> are stressed on <em>-ie-</em>."
     },
     {
      "id": "dsy11",
@@ -4291,7 +4291,7 @@ window.GERMAN = {
       "The second, -cke-",
       "None"
      ],
-     "why": "Nouns in -ei are stressed on the last syllable."
+     "why": "Nouns in <em>-ei</em> are stressed on the last syllable."
     },
     {
      "id": "dsy12",
@@ -4315,7 +4315,7 @@ window.GERMAN = {
       "-chen",
       "All three equally"
      ],
-     "why": "Ge- is an unstressed prefix, and the stress falls on the stem."
+     "why": "<em>Ge-</em> is an unstressed prefix, and the stress falls on the stem."
     },
     {
      "id": "dsy14",
@@ -4341,111 +4341,111 @@ window.GERMAN = {
    },
    {
     "heading": "The article",
-    "text": "German has an article, and Latin has none. The article stands with its noun and agrees with the noun in gender, number, and case. Der König means the king, and ein König means a king. A German noun in an ordinary sentence has an article or some other determiner. We count the article as a part of speech in German, as the Greek grammarians counted it in Greek."
+    "text": "German has an article, and Latin has none. The article stands with its noun and agrees with the noun <em>in</em> gender, number, and case. <em>Der König</em> means the king, and <em>ein König</em> means a king. A German noun <em>in</em> an ordinary sentence has an article or some other determiner. We count the article as a part of speech in German, as the Greek grammarians counted it in Greek."
    },
    {
     "heading": "The forms of the article",
-    "text": "The definite article in the singular is der, die, das in the nominative. The masculine accusative is den, the masculine and neuter dative is dem, and the masculine and neuter genitive is des. The feminine genitive and the feminine dative are both der, and the feminine accusative is die. In the plural, die is nominative and accusative, den is dative, and der is genitive, for all three genders. The indefinite article is ein, eine in the nominative, einen in the masculine accusative, einem and einer in the dative, and eines and einer in the genitive. It has no plural. The plural of an indefinite noun stands with no article, which Duden calls the Nullartikel."
+    "text": "The definite article <em>in</em> the singular is <em>der</em>, <em>die</em>, <em>das</em> in the nominative. The masculine accusative is <em>den</em>, the masculine and neuter dative is <em>dem</em>, and the masculine and neuter genitive is <em>des</em>. The feminine genitive and the feminine dative are both <em>der</em>, and the feminine accusative is <em>die</em>. In the plural, <em>die</em> is nominative and accusative, <em>den</em> is dative, and <em>der</em> is genitive, for all three genders. The indefinite article is <em>ein</em>, <em>eine</em> in the nominative, <em>einen</em> in the masculine accusative, <em>einem</em> and <em>einer</em> in the dative, and <em>eines</em> and <em>einer</em> in the genitive. It has no plural. The plural of an indefinite noun stands with no article, which Duden calls the Nullartikel."
    },
    {
     "heading": "The four cases",
-    "text": "German has four cases: the nominative, the accusative, the dative, and the genitive. The German names are Nominativ, Akkusativ, Dativ, and Genitiv. Duden gives Wenfall as another name of the accusative, and Wemfall as another name of the dative. The nominative is the case of the subject. The accusative is the case of the direct object. The dative is the case of the indirect object, the person to whom something is given. The genitive marks the possessor, as in des Königs, of the king."
+    "text": "German has four cases: the nominative, the accusative, the dative, and the genitive. The German names are Nominativ, Akkusativ, Dativ, and Genitiv. Duden gives Wenfall as another name of the accusative, and Wemfall as another name of the dative. The nominative is the case of the subject. The accusative is the case of the direct object. The dative is the case of the indirect object, the person to whom something is given. The genitive marks the possessor, as in <em>des Königs</em>, of the king."
    },
    {
     "heading": "No ablative",
-    "text": "German has no ablative. Where Latin uses the ablative, German uses a preposition with the dative or the accusative, or, for the possessor, the genitive. Mit dem König means with the king, and the noun is dative. In der Stadt means in the city, and that too is dative when the phrase names the place where. Latin in takes the ablative for place and the accusative for motion. German in makes that same difference, and both cases are cases German still has."
+    "text": "German has no ablative. Where Latin uses the ablative, German uses a preposition with the dative or the accusative, or, for the possessor, the genitive. <em>Mit dem König</em> means with the king, and the noun is dative. In <em>der Stadt</em> means in the city, and that too is dative when the phrase names the place where. Latin in takes the ablative for place and the accusative for motion. German <em>in</em> makes that same difference, and both cases are cases German still has."
    },
    {
     "heading": "Address",
-    "text": "German has no separate vocative. Latin marks address with the vocative, and the form can differ from the nominative. German uses the nominative form, and the tone of the sentence shows that someone is being addressed. König is the nominative, and it is also the form of address. The article has no vocative either."
+    "text": "German has no separate vocative. Latin marks address with the vocative, and the form can differ from the nominative. German uses the nominative form, and the tone of the sentence shows that someone is being addressed. <em>König</em> is the nominative, and it is also the form of address. The article has no vocative either."
    },
    {
     "heading": "Gender",
-    "text": "Every German noun is masculine, feminine, or neuter. Latin has the same three genders. The article shows the gender when the ending of the noun does not. Der König is masculine, die Frau is feminine, and das Buch is neuter. The ending does not always show the gender. Buch ends in a consonant and is neuter, and Stadt ends in a consonant and is feminine."
+    "text": "Every German noun is masculine, feminine, or neuter. Latin has the same three genders. The article shows the gender when the ending of the noun does not. <em>Der König</em> is masculine, <em>die Frau</em> is feminine, and <em>das Buch</em> is neuter. The ending does not always show the gender. <em>Buch</em> ends in a consonant and is neuter, and <em>Stadt</em> ends in a consonant and is feminine."
    },
    {
     "heading": "Number",
-    "text": "A German noun has two numbers, the singular and the plural, as a Latin noun has. German has no dual. Some plurals add -e, as in Pferd, Pferde. Some add -n or -en, as in Frau, Frauen. Some change the stem vowel and add an ending, as in Buch, Bücher and Stadt, Städte. Garten becomes Gärten, and the plural already ends in -n. The article marks number as well. Die is the nominative plural, and der, die, and das in the singular are singular."
+    "text": "A German noun has two numbers, the singular and the plural, as a Latin noun has. German has no dual. Some plurals add <em>-e</em>, as in <em>Pferd</em>, <em>Pferde</em>. Some add <em>-n</em> or <em>-en</em>, as in <em>Frau</em>, <em>Frauen</em>. Some change the stem vowel and add an ending, as in <em>Buch</em>, <em>Bücher</em> and <em>Stadt</em>, <em>Städte</em>. <em>Garten</em> becomes <em>Gärten</em>, and the plural already ends in <em>-n</em>. The article marks number as well. <em>Die</em> is the nominative plural, and <em>der</em>, <em>die</em>, and <em>das</em> in the singular are singular."
    },
    {
     "heading": "Case on the noun",
-    "text": "A German noun does change for case, and it changes less often than a Latin noun. A strong masculine or neuter adds -(e)s in the genitive singular, so des Königs and des Buches. Duden also prints a shorter genitive for several of these nouns, such as des Buchs beside des Buches. We store the longer form and we do not ask the shorter one. The dative plural adds -n if the plural does not already end in -n or -s, so den Königen and den Büchern. In the other singular cases a strong noun often keeps one spelling, and the article shows the case. Der König, den König, and dem König are three cases, and the noun is spelled König in all three."
+    "text": "A German noun does change for case, and it changes less often than a Latin noun. A strong masculine or neuter adds -(e)s in the genitive singular, so <em>des Königs</em> and <em>des Buches</em>. Duden also prints a shorter genitive for several of these nouns, such as <em>des</em> Buchs beside <em>des Buches</em>. We store the longer form and we do not ask the shorter one. The dative plural adds <em>-n</em> if the plural does not already end in <em>-n</em> or <em>-s</em>, so <em>den Königen</em> and <em>den Büchern</em>. In the other singular cases a strong noun often keeps one spelling, and the article shows the case. <em>Der König</em>, <em>den König</em>, and <em>dem König</em> are three cases, and the noun is spelled <em>König</em> in all three."
    },
    {
     "heading": "The weak noun",
-    "text": "A weak masculine adds -n in every case except the nominative singular. Mensch is the model. The nominative is der Mensch. The accusative is den Menschen, the dative is dem Menschen, and the genitive is des Menschen. The plural is Menschen in every case. Latin has no class quite like this. A strong noun such as König adds the genitive -s and leaves the other singular forms unchanged. The weak noun adds -n and does not add -s."
+    "text": "A weak masculine adds <em>-n</em> in every case except the nominative singular. <em>Mensch</em> is the model. The nominative is <em>der Mensch</em>. The accusative is <em>den Menschen</em>, the dative is <em>dem Menschen</em>, and the genitive is <em>des Menschen</em>. The plural is <em>Menschen</em> in every case. Latin has no class quite like this. A strong noun such as <em>König</em> adds the genitive <em>-s</em> and leaves the other singular forms unchanged. The weak noun adds <em>-n</em> and does not add <em>-s</em>."
    },
    {
     "heading": "Adjective endings",
-    "text": "An adjective agrees with its noun in gender, number, and case. The ending depends on what stands before the adjective. After der, die, or das the ending is weak, so der gute König, die gute Frau, and das gute Buch. After ein the ending is mixed, so ein guter König, eine gute Frau, and ein gutes Buch. With no article the ending is strong, so guter König, gute Frau, and gutes Buch. The strong ending carries the mark that the definite article would have carried. Duden prints the three sets. Gut is compared with besser and am besten, and those forms are not asked."
+    "text": "An adjective agrees with its noun <em>in</em> gender, number, and case. The ending depends on what stands before the adjective. After <em>der</em>, <em>die</em>, or <em>das</em> the ending is weak, so <em>der gute König</em>, <em>die gute Frau</em>, and <em>das gute Buch</em>. After <em>ein</em> the ending is mixed, so <em>ein guter König</em>, <em>eine gute Frau</em>, and <em>ein gutes Buch</em>. With no article the ending is strong, so <em>guter König</em>, <em>gute Frau</em>, and <em>gutes Buch</em>. The strong ending carries the mark that the definite article would have carried. Duden prints the three sets. <em>Gut</em> is compared with besser and am besten, and those forms are not asked."
    },
    {
     "heading": "Person and number",
-    "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. German writes the pronoun in an ordinary statement. Ich sehe has the speaker as its subject. Er sieht has he, or a masculine it, as its subject. Sie sieht has she, or a feminine it, as its subject. Sie sehen, with the plural ending, has they as its subject, or it is the formal address. The capital and the ending together show which is meant."
+    "text": "The ending of the verb, together with the subject pronoun, shows the person and the number. Latin often leaves the subject pronoun out, because the ending is enough. German writes the pronoun <em>in</em> an ordinary statement. <em>Ich sehe</em> has the speaker as its subject. <em>Er sieht</em> has he, or a masculine it, as its subject. <em>Sie sieht</em> has she, or a feminine it, as its subject. <em>Sie sehen</em>, with the plural ending, has they as its subject, or it is the formal address. The capital and the ending together show which is meant."
    },
    {
     "heading": "The present",
-    "text": "The present says that the action goes on now, or that it is habitual, or that it is so in general. Er spricht means he speaks, or he is speaking. A weak verb such as machen adds the endings -e, -st, -t, -en, -t, and -en to the stem. A strong verb may change the vowel in the second and third persons singular. Sprechen has sprichst and spricht. Geben has gibst and gibt. Sehen has siehst and sieht. Kommen does not change the vowel, so the forms are kommst and kommt."
+    "text": "The present says that the action goes on now, or that it is habitual, or that it is so in general. <em>Er spricht</em> means he speaks, or he is speaking. A weak verb such as <em>machen</em> adds the endings <em>-e</em>, <em>-st</em>, <em>-t</em>, <em>-en</em>, <em>-t</em>, and <em>-en</em> to the stem. A strong verb may change the vowel in the second and third persons singular. <em>Sprechen</em> has <em>sprichst</em> and <em>spricht</em>. <em>Geben</em> has <em>gibst</em> and <em>gibt</em>. <em>Sehen</em> has <em>siehst</em> and <em>sieht</em>. <em>Kommen</em> does not change the vowel, so the forms are <em>kommst</em> and <em>kommt</em>."
    },
    {
     "heading": "The Präteritum",
-    "text": "The Präteritum is the simple past. Er sprach means he spoke, or he was speaking. Written narrative often uses this tense. Spoken German often uses the Perfekt for the same past. We store both, and the name of the tense shows which cell is meant. War is the Präteritum of sein, hatte of haben, and wurde of werden. Duden also prints the older ward beside wurde. We store wurde, and we do not ask ward. A weak verb adds -te, so machte. A strong verb changes the stem, so sprach, gab, kam, and sah."
+    "text": "The Präteritum is the simple past. <em>Er sprach</em> means he spoke, or he was speaking. Written narrative often uses this tense. Spoken German often uses the Perfekt for the same past. We store both, and the name of the tense shows which cell is meant. <em>War</em> is the Präteritum of <em>sein</em>, <em>hatte</em> of <em>haben</em>, and <em>wurde</em> of <em>werden</em>. Duden also prints the older <em>ward</em> beside <em>wurde</em>. We store <em>wurde</em>, and we do not ask <em>ward</em>. A weak verb adds <em>-te</em>, so <em>machte</em>. A strong verb changes the stem, so <em>sprach</em>, <em>gab</em>, <em>kam</em>, and <em>sah</em>."
    },
    {
     "heading": "The Perfekt",
-    "text": "The Perfekt is haben or sein with the past participle. It is the ordinary past of a completed action, and in speech it is the ordinary past more broadly. Latin uses one perfect form, without an auxiliary. Sehen, sprechen, geben, machen, and haben take haben, so the third person is hat gesehen, hat gesprochen, hat gegeben, hat gemacht, and hat gehabt. Sein, werden, and kommen take sein, so the third person is ist gewesen, ist geworden, and ist gekommen. The participle does not add an adjective ending in this tense. When werden helps to form the passive, the participle is worden, not geworden. That passive is not in this table."
+    "text": "The Perfekt is <em>haben</em> or <em>sein</em> with the past participle. It is the ordinary past of a completed action, and in speech it is the ordinary past more broadly. Latin uses one perfect form, without an auxiliary. <em>Sehen</em>, <em>sprechen</em>, <em>geben</em>, <em>machen</em>, and <em>haben</em> take <em>haben</em>, so the third person is <em>hat gesehen</em>, <em>hat gesprochen</em>, <em>hat gegeben</em>, <em>hat gemacht</em>, and <em>hat gehabt</em>. <em>Sein</em>, <em>werden</em>, and <em>kommen</em> take <em>sein</em>, so the third person is <em>ist gewesen</em>, <em>ist geworden</em>, and <em>ist gekommen</em>. The participle does not add an adjective ending <em>in</em> this tense. When <em>werden</em> helps to form the passive, the participle is <em>worden</em>, not <em>geworden</em>. That passive is not in this table."
    },
    {
     "heading": "The Konjunktiv II",
-    "text": "The Konjunktiv II is the mood for what is imagined or contrary to fact. Wäre is the form for sein, hätte for haben, and würde for werden. A strong verb often takes an umlaut on the Präteritum stem: sprach becomes spräche, gab becomes gäbe, kam becomes käme, and sah becomes sähe. A weak verb has the same spelling in the Konjunktiv II and in the Präteritum, so machte is both. Duden says the construction with würde is the clearer one when the two spellings match, and the page illustrates it with wohnen. We store the simple form of machen, and we do not ask it, because the spelling is also the Präteritum. Where Duden prints a longer and a shorter second person, as wärest and wärst, we store the form printed first, and we do not ask the short form."
+    "text": "The Konjunktiv II is the mood for what is imagined or contrary to fact. <em>Wäre</em> is the form for <em>sein</em>, <em>hätte</em> for <em>haben</em>, and <em>würde</em> for <em>werden</em>. A strong verb often takes an umlaut on the Präteritum stem: <em>sprach</em> becomes <em>spräche</em>, <em>gab</em> becomes <em>gäbe</em>, <em>kam</em> becomes <em>käme</em>, and <em>sah</em> becomes <em>sähe</em>. A weak verb has the same spelling in the Konjunktiv II and in the Präteritum, so <em>machte</em> is both. Duden says the construction with <em>würde</em> is the clearer one when the two spellings match, and the page illustrates it with wohnen. We store the simple form of <em>machen</em>, and we do not ask it, because the spelling is also the Präteritum. Where Duden prints a longer and a shorter second person, as <em>wärest</em> and wärst, we store the form printed first, and we do not ask the short form."
    },
    {
     "heading": "Sein, haben, and werden",
-    "text": "Sein means be, as Latin sum does, and haben means have. Werden means become, and it is also the auxiliary of the future and of the passive. Those two further uses are real, and this table enters werden as the full verb, to become. Sein and kommen take sein in the Perfekt. Haben and the weak verb machen take haben. Werden as a full verb takes sein, so the Perfekt is ist geworden. The present of sein is bin, bist, ist, sind, seid, sind. The present of haben is habe, hast, hat, haben, habt, haben. The present of werden is werde, wirst, wird, werden, werdet, werden."
+    "text": "<em>Sein</em> means be, as Latin sum does, and <em>haben</em> means have. <em>Werden</em> means become, and it is also the auxiliary of the future and of the passive. Those two further uses are real, and this table enters <em>werden</em> as the full verb, to become. <em>Sein</em> and <em>kommen</em> take <em>sein</em> in the Perfekt. <em>Haben</em> and the weak verb <em>machen</em> take <em>haben</em>. <em>Werden</em> as a full verb takes <em>sein</em>, so the Perfekt is <em>ist geworden</em>. The present of <em>sein</em> is <em>bin</em>, <em>bist</em>, <em>ist</em>, <em>sind</em>, <em>seid</em>, <em>sind</em>. The present of <em>haben</em> is <em>habe</em>, <em>hast</em>, <em>hat</em>, <em>haben</em>, <em>habt</em>, <em>haben</em>. The present of <em>werden</em> is <em>werde</em>, <em>wirst</em>, <em>wird</em>, <em>werden</em>, <em>werdet</em>, <em>werden</em>."
    },
    {
     "heading": "Strong and weak verbs",
-    "text": "A weak verb keeps its stem and forms the Präteritum with -te and the participle with ge- and -t. Machen is the model: machte, gemacht. A strong verb changes the stem vowel, and the participle ends in -en. Sprechen, geben, kommen, and sehen are the strong verbs in this set. From machen we build the other regular weak verbs. A strong verb has to be learned from its own table. The participle of a simple verb takes ge- at the front, so gesprochen and gesehen. The infinitive itself does not."
+    "text": "A weak verb keeps its stem and forms the Präteritum with <em>-te</em> and the participle with <em>ge-</em> and <em>-t</em>. <em>Machen</em> is the model: <em>machte</em>, <em>gemacht</em>. A strong verb changes the stem vowel, and the participle ends in <em>-en</em>. <em>Sprechen</em>, <em>geben</em>, <em>kommen</em>, and <em>sehen</em> are the strong verbs in this set. From <em>machen</em> we build the other regular weak verbs. A strong verb has to be learned from its own table. The participle of a simple verb takes <em>ge-</em> at the front, so <em>gesprochen</em> and <em>gesehen</em>. The infinitive itself does not."
    },
    {
     "heading": "Prepositions and case",
-    "text": "A German preposition keeps one form, and it requires a case of the noun. Für, ohne, and gegen take the accusative. Mit, zu, and bei take the dative. Während, wegen, and statt take the genitive in standard written German. Dank and laut take either the genitive or the dative, and we do not ask them. Latin prepositions take the accusative or the ablative. German prepositions take the accusative, the dative, or the genitive, and one small set takes either the dative or the accusative."
+    "text": "A German preposition keeps one form, and it requires a case of the noun. <em>Für</em>, <em>ohne</em>, and <em>gegen</em> take the accusative. <em>Mit</em>, <em>zu</em>, and <em>bei</em> take the dative. <em>Während</em>, <em>wegen</em>, and <em>statt</em> take the genitive in standard written German. Dank and <em>laut</em> take either the genitive or the dative, and we do not ask them. Latin prepositions take the accusative or the ablative. German prepositions take the accusative, the dative, or the genitive, and one small set takes either the dative or the accusative."
    },
    {
     "heading": "Stem and ending",
-    "text": "The form in the sentence is a stem and an ending. In spricht the vowel of the stem has changed, and -t marks the third person singular. In Königen the ending -en marks the dative plural, on the plural stem König-. In guten the ending -en is the weak ending of the adjective, and the article beside it has already marked gender and case. The ending and the article together mark the gender, the number, and the case of a noun phrase, and the ending of the verb marks the person and the number a second time, beside the subject pronoun."
+    "text": "The form <em>in</em> the sentence is a stem and an ending. In <em>spricht</em> the vowel of the stem has changed, and <em>-t</em> marks the third person singular. In <em>Königen</em> the ending <em>-en</em> marks the dative plural, on the plural stem König-. In <em>guten</em> the ending <em>-en</em> is the weak ending of the adjective, and the article beside it has already marked gender and case. The ending and the article together mark the gender, the number, and the case of a noun phrase, and the ending of the verb marks the person and the number a second time, beside the subject pronoun."
    },
    {
     "heading": "Aspect",
-    "text": "German has no grammatical aspect of the kind that Greek has, and its tenses do not by themselves present an action as going on or as complete. Er las means he read or he was reading, and the sentence or a word such as gerade, just then, shows which is meant. The Präteritum and the Perfekt differ chiefly in use: the Präteritum is the tense of written narrative, and the Perfekt the ordinary past of speech. Latin and Greek mark aspect in the verb itself."
+    "text": "German has no grammatical aspect of the kind that Greek has, and its tenses do not by themselves present an action as going on or as complete. <em>Er las</em> means he read or he was reading, and the sentence or a word such as gerade, just then, shows which is meant. The Präteritum and the Perfekt differ chiefly in use: the Präteritum is the tense of written narrative, and the Perfekt the ordinary past of speech. Latin and Greek mark aspect in the verb itself."
    },
    {
     "heading": "Word order",
-    "text": "The finite verb of a German main clause stands in the second place: der König gibt der Frau das Buch, and heute gibt der König der Frau das Buch. In a question without a question word, and in a command, it stands first: gibt der König das Buch? In a clause after dass, weil, or wenn it stands last: weil der König der Frau das Buch gibt. An infinitive, a past participle, or a separable prefix goes to the end of the clause. Because the article shows the case, the object can stand first: den König sieht die Frau, the woman sees the king."
+    "text": "The finite verb of a German main clause stands in the second place: <em>der König gibt der Frau das Buch</em>, and <em>heute gibt der König der Frau das Buch</em>. In a question without a question word, and in a command, it stands first: <em>gibt der König das Buch</em>? In a clause after <em>dass</em>, <em>weil</em>, or <em>wenn</em> it stands last: <em>weil der König der Frau das Buch gibt</em>. An infinitive, a past participle, or a separable prefix goes to the end of the clause. Because the article shows the case, the object can stand first: <em>den König sieht die Frau</em>, the woman sees the king."
    },
    {
     "heading": "Compound tenses and the passive",
-    "text": "The Perfekt and the Plusquamperfekt are made with haben or sein and the past participle: er hat gesprochen, er hatte gesprochen, er ist gekommen. Verbs of motion or change of state take sein. The future is werden with the infinitive: er wird sprechen. The passive is werden with the past participle: das Buch wird gelesen, the book is read. The doer is named with von and the dative, and in the Perfekt of the passive the participle of werden is worden: das Buch ist gelesen worden."
+    "text": "The Perfekt and the Plusquamperfekt are made with <em>haben</em> or <em>sein</em> and the past participle: <em>er hat gesprochen</em>, <em>er hatte gesprochen</em>, <em>er ist gekommen</em>. Verbs of motion or change of state take <em>sein</em>. The future is <em>werden</em> with the infinitive: <em>er wird sprechen</em>. The passive is <em>werden</em> with the past participle: <em>das Buch wird gelesen</em>, the book is read. The doer is named with <em>von</em> and the dative, and in the Perfekt of the passive the participle of <em>werden</em> is <em>worden</em>: <em>das Buch ist gelesen worden</em>."
    },
    {
     "heading": "Reflexive verbs",
-    "text": "A reflexive verb is used with a reflexive pronoun: ich wasche mich, er wäscht sich. Some verbs are always reflexive, such as sich freuen, be glad. A reflexive verb can also have a sense close to the passive or to the Greek middle: das Buch liest sich leicht, the book reads easily. German forms the Perfekt of reflexive verbs with haben: er hat sich gewaschen."
+    "text": "A reflexive verb is used with a reflexive pronoun: <em>ich</em> wasche <em>mich</em>, <em>er wäscht sich</em>. Some verbs are always reflexive, such as <em>sich freuen</em>, be glad. A reflexive verb can also have a sense close to the passive or to the Greek middle: <em>das Buch liest sich leicht</em>, the book reads easily. German forms the Perfekt of reflexive verbs with <em>haben</em>: <em>er hat sich</em> gewaschen."
    },
    {
     "heading": "Preposition and article together",
-    "text": "Some prepositions and the definite article run together into one word: in dem becomes im, an dem becomes am, zu dem becomes zum, zu der becomes zur, von dem becomes vom, bei dem becomes beim, and in das becomes ins. The contracted form is the usual one when the article is not stressed. Words that lean on their neighbor in this way are called clitics, and the unstressed pronoun es is often shortened in speech in the same way, as in wie geht’s."
+    "text": "Some prepositions and the definite article run together into one word: <em>in dem</em> becomes <em>im</em>, an <em>dem</em> becomes am, <em>zu dem</em> becomes <em>zum</em>, <em>zu der</em> becomes <em>zur</em>, <em>von dem</em> becomes vom, <em>bei dem</em> becomes beim, and in <em>das</em> becomes <em>ins</em>. The contracted form is the usual one when the article is not stressed. Words that lean on their neighbor in this way are called clitics, and the unstressed pronoun <em>es</em> is often shortened in speech in the same way, as in wie geht’s."
    },
    {
     "heading": "The Konjunktiv I and the imperative",
-    "text": "Beside the Konjunktiv II, German has the Konjunktiv I, made from the stem of the infinitive: er sei, er habe, er komme. Its chief use is reported speech in written German: er sagt, er sei krank, he says that he is ill. The imperative gives a command: komm!, kommt!, kommen Sie! A strong verb that changes e to i or ie in the present also changes it in the imperative singular: gib!, sprich!, lies!"
+    "text": "Beside the Konjunktiv II, German has the Konjunktiv I, made from the stem of the infinitive: <em>er sei</em>, <em>er habe</em>, <em>er komme</em>. Its chief use is reported speech in written German: <em>er sagt</em>, <em>er sei krank</em>, he says that he is ill. The imperative gives a command: <em>komm</em>!, <em>kommt</em>!, <em>kommen Sie</em>! A strong verb that changes e to i or ie in the present also changes it in the imperative singular: <em>gib</em>!, <em>sprich</em>!, lies!"
    },
    {
     "heading": "Separable prefixes and particles",
-    "text": "Many German verbs have a separable prefix that is also a word of its own, such as an, auf, ab, or mit. In a main clause the prefix goes to the end: ankommen, der Zug kommt um acht an. In the participle ge- stands between the prefix and the stem: angekommen. German also has modal particles, such as doch, ja, mal, and eben, small words that do not change what the sentence states but show how the speaker takes it: komm doch!, do come!; das weißt du ja, you know that, after all."
+    "text": "Many German verbs have a separable prefix that is also a word of its own, such as an, <em>auf</em>, ab, or <em>mit</em>. In a main clause the prefix goes to the end: <em>ankommen</em>, <em>der Zug kommt um acht</em> an. In the participle <em>ge-</em> stands between the prefix and the stem: <em>angekommen</em>. German also has modal particles, such as doch, ja, mal, and eben, small words that do not change what the sentence states but show how the speaker takes it: <em>komm</em> doch!, do come!; <em>das</em> weißt <em>du</em> ja, you know that, after all."
    },
    {
     "heading": "Word formation",
-    "text": "German forms new nouns freely by compounding. The last part of a compound decides its gender, and the first part narrows its sense: das Haus and die Tür make die Haustür, the front door. A linking -s- or -n- often joins the parts: die Arbeit and der Tag make der Arbeitstag. Suffixes make nouns from other words: -ung from verbs, as in die Lesung, a reading, and -heit and -keit from adjectives, as in die Freiheit and die Möglichkeit. Nouns in -ung, -heit, and -keit are feminine."
+    "text": "German forms new nouns freely by compounding. The last part of a compound decides its gender, and the first part narrows its sense: <em>das Haus</em> and <em>die</em> Tür make <em>die</em> Haustür, the front door. A linking <em>-s-</em> or <em>-n-</em> often joins the parts: <em>die</em> Arbeit and <em>der Tag</em> make <em>der</em> Arbeitstag. Suffixes make nouns from other words: <em>-ung</em> from verbs, as in <em>die</em> Lesung, a reading, and <em>-heit</em> and <em>-keit</em> from adjectives, as in <em>die</em> Freiheit and <em>die</em> Möglichkeit. Nouns in <em>-ung</em>, <em>-heit</em>, and <em>-keit</em> are feminine."
    }
   ]
  },
@@ -4456,7 +4456,7 @@ window.GERMAN = {
     "s": "<b>Der</b> König spricht.",
     "orig": "The king speaks.",
     "a": "article",
-    "note": "Der points out the king. German has a definite article, and Latin has none.",
+    "note": "<em>Der</em> points out the king. German has a definite article, and Latin has none.",
     "lang": "de",
     "src": [
      "duden"
@@ -4467,7 +4467,7 @@ window.GERMAN = {
     "s": "Die Frau sieht <b>das</b> Buch.",
     "orig": "The woman sees the book.",
     "a": "article",
-    "note": "Das points out the book. The article agrees with Buch, which is neuter and singular.",
+    "note": "<em>Das</em> points out the book. The article agrees with <em>Buch</em>, which is neuter and singular.",
     "lang": "de",
     "src": [
      "duden"
@@ -4478,7 +4478,7 @@ window.GERMAN = {
     "s": "Der <b>König</b> spricht.",
     "orig": "The king speaks.",
     "a": "noun",
-    "note": "König names the king, and it is the subject of spricht.",
+    "note": "<em>König</em> names the king, and it is the subject of <em>spricht</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4489,7 +4489,7 @@ window.GERMAN = {
     "s": "Die Frau sieht das <b>Buch</b>.",
     "orig": "The woman sees the book.",
     "a": "noun",
-    "note": "Buch names the book, and it is the object of sieht.",
+    "note": "<em>Buch</em> names the book, and it is the object of <em>sieht</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4500,7 +4500,7 @@ window.GERMAN = {
     "s": "Der König <b>spricht</b>.",
     "orig": "The king speaks.",
     "a": "verb",
-    "note": "Spricht says what the king does. It is the present, third person singular, of sprechen.",
+    "note": "<em>Spricht</em> says what the king does. It is the present, third person singular, of <em>sprechen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4511,7 +4511,7 @@ window.GERMAN = {
     "s": "Die Frau <b>sieht</b> das Buch.",
     "orig": "The woman sees the book.",
     "a": "verb",
-    "note": "Sieht says what the woman does. It is the present, third person singular, of sehen.",
+    "note": "<em>Sieht</em> says what the woman does. It is the present, third person singular, of <em>sehen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4522,7 +4522,7 @@ window.GERMAN = {
     "s": "Der <b>gute</b> König spricht.",
     "orig": "The good king speaks.",
     "a": "adjective",
-    "note": "Gute tells what sort of king, and it takes the weak ending after der.",
+    "note": "<em>Gute</em> tells what sort of king, and it takes the weak ending after <em>der</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4533,7 +4533,7 @@ window.GERMAN = {
     "s": "Die Frau sieht ein <b>gutes</b> Buch.",
     "orig": "The woman sees a good book.",
     "a": "adjective",
-    "note": "Gutes tells what sort of book. After ein, a neuter singular adjective takes the mixed ending.",
+    "note": "<em>Gutes</em> tells what sort of book. After <em>ein</em>, a neuter singular adjective takes the mixed ending.",
     "lang": "de",
     "src": [
      "duden"
@@ -4555,7 +4555,7 @@ window.GERMAN = {
     "s": "Die Frau kommt <b>gern</b>.",
     "orig": "The woman comes gladly.",
     "a": "adverb",
-    "note": "Gern modifies kommt. An adverb keeps one form.",
+    "note": "<em>Gern</em> modifies <em>kommt</em>. An adverb keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4566,7 +4566,7 @@ window.GERMAN = {
     "s": "Der König kommt <b>in</b> die Stadt.",
     "orig": "The king comes into the city.",
     "a": "preposition",
-    "note": "In joins kommt to the place. For the place to which, in takes the accusative.",
+    "note": "In joins <em>kommt</em> to the place. For the place to which, in takes the accusative.",
     "lang": "de",
     "src": [
      "duden"
@@ -4577,7 +4577,7 @@ window.GERMAN = {
     "s": "Die Frau kommt <b>mit</b> dem König.",
     "orig": "The woman comes with the king.",
     "a": "preposition",
-    "note": "Mit joins kommt to the person who comes along. Mit takes the dative.",
+    "note": "<em>Mit</em> joins <em>kommt</em> to the person who comes along. <em>Mit</em> takes the dative.",
     "lang": "de",
     "src": [
      "duden"
@@ -4588,7 +4588,7 @@ window.GERMAN = {
     "s": "Der König <b>und</b> die Frau sprechen.",
     "orig": "The king and the woman speak.",
     "a": "conjunction",
-    "note": "Und joins the two subjects. A conjunction keeps one form.",
+    "note": "<em>Und</em> joins the two subjects. A conjunction keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4599,7 +4599,7 @@ window.GERMAN = {
     "s": "Der König spricht, <b>aber</b> die Frau kommt.",
     "orig": "The king speaks, but the woman comes.",
     "a": "conjunction",
-    "note": "Aber joins the two clauses. A conjunction keeps one form.",
+    "note": "<em>Aber</em> joins the two clauses. A conjunction keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4610,7 +4610,7 @@ window.GERMAN = {
     "s": "<b>Ich</b> sehe das Buch.",
     "orig": "I see the book.",
     "a": "pronoun",
-    "note": "Ich stands for the speaker, and it is the subject of sehe.",
+    "note": "<em>Ich</em> stands for the speaker, and it is the subject of <em>sehe</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4621,7 +4621,7 @@ window.GERMAN = {
     "s": "Der König sieht <b>mich</b>.",
     "orig": "The king sees me.",
     "a": "pronoun",
-    "note": "Mich stands for the person seen. It is the accusative of ich, and no noun follows it.",
+    "note": "<em>Mich</em> stands for the person seen. It is the accusative of <em>ich</em>, and no noun follows it.",
     "lang": "de",
     "src": [
      "duden"
@@ -4632,7 +4632,7 @@ window.GERMAN = {
     "s": "Der König hat <b>gesprochen</b>.",
     "orig": "The king has spoken.",
     "a": "participle",
-    "note": "Gesprochen is the past participle of sprechen. With hat it makes the Perfekt.",
+    "note": "<em>Gesprochen</em> is the past participle of <em>sprechen</em>. With <em>hat</em> it makes the Perfekt.",
     "lang": "de",
     "src": [
      "duden"
@@ -4643,7 +4643,7 @@ window.GERMAN = {
     "s": "Die Frau hat das Buch <b>gesehen</b>.",
     "orig": "The woman has seen the book.",
     "a": "participle",
-    "note": "Gesehen is the past participle of sehen. With hat it makes the Perfekt.",
+    "note": "<em>Gesehen</em> is the past participle of <em>sehen</em>. With <em>hat</em> it makes the Perfekt.",
     "lang": "de",
     "src": [
      "duden"
@@ -4654,7 +4654,7 @@ window.GERMAN = {
     "s": "<b>Ach</b>, der König kommt.",
     "orig": "Ah, the king is coming.",
     "a": "interjection",
-    "note": "Ach is a cry, and it stands outside the clause. Duden prints Ach as an interjection.",
+    "note": "<em>Ach</em> is a cry, and it stands outside the clause. Duden prints <em>Ach</em> as an interjection.",
     "lang": "de",
     "src": [
      "duden"
@@ -4687,7 +4687,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "König is a noun. It takes an ending for the genitive singular, Königs, and another for the plural, Könige.",
+    "why": "<em>König</em> is a noun. It takes an ending for the genitive singular, <em>Königs</em>, and another for the plural, <em>Könige</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -4707,7 +4707,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Buch is a noun. The plural is Bücher, and the dative plural is Büchern, so the word takes endings.",
+    "why": "<em>Buch</em> is a noun. The plural is <em>Bücher</em>, and the dative plural is <em>Büchern</em>, so the word takes endings.",
     "lang": "de",
     "src": [
      "duden"
@@ -4727,7 +4727,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Spricht is a verb. It takes endings for person, number, and tense.",
+    "why": "<em>Spricht</em> is a verb. It takes endings for person, number, and tense.",
     "lang": "de",
     "src": [
      "duden"
@@ -4747,7 +4747,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Kommt is a verb. It takes endings for person, number, and tense.",
+    "why": "<em>Kommt</em> is a verb. It takes endings for person, number, and tense.",
     "lang": "de",
     "src": [
      "duden"
@@ -4767,7 +4767,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Gut is an adjective. It takes the gender, the number, and the case of its noun. Comparison is made with besser and am besten, and those forms are not asked.",
+    "why": "<em>Gut</em> is an adjective. It takes the gender, the number, and the case of its noun. Comparison is made with besser and am besten, and those forms are not asked.",
     "lang": "de",
     "src": [
      "duden"
@@ -4787,7 +4787,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Gut is an adjective. Gutes is the mixed ending for a neuter singular after ein. Comparison is not asked.",
+    "why": "<em>Gut</em> is an adjective. <em>Gutes</em> is the mixed ending for a neuter singular after <em>ein</em>. Comparison is not asked.",
     "lang": "de",
     "src": [
      "duden"
@@ -4807,7 +4807,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Ich is a pronoun. The accusative is mich, and the dative is mir, so the pronoun still changes its form.",
+    "why": "<em>Ich</em> is a pronoun. The accusative is <em>mich</em>, and the dative is <em>mir</em>, so the pronoun still changes its form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4827,7 +4827,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Mich is a pronoun, the accusative of ich. The subject form is ich, so the pronoun still changes its form.",
+    "why": "<em>Mich</em> is a pronoun, the accusative of <em>ich</em>. The subject form is <em>ich</em>, so the pronoun still changes its form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4867,7 +4867,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Gern is an adverb. It keeps one form.",
+    "why": "<em>Gern</em> is an adverb. It keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4907,7 +4907,7 @@ window.GERMAN = {
      "Indeclinable: a conjunction, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Mit is a preposition. It keeps one form.",
+    "why": "<em>Mit</em> is a preposition. It keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4927,7 +4927,7 @@ window.GERMAN = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Und is a conjunction. It keeps one form.",
+    "why": "<em>Und</em> is a conjunction. It keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4947,7 +4947,7 @@ window.GERMAN = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: an interjection, one form"
     ],
-    "why": "Aber is a conjunction. It keeps one form.",
+    "why": "<em>Aber</em> is a conjunction. It keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4967,7 +4967,7 @@ window.GERMAN = {
      "Indeclinable: a preposition, one form",
      "Indeclinable: a conjunction, one form"
     ],
-    "why": "Ach is an interjection, a cry, and it keeps one form.",
+    "why": "<em>Ach</em> is an interjection, a cry, and it keeps one form.",
     "lang": "de",
     "src": [
      "duden"
@@ -4985,7 +4985,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "König is the subject of spricht. The subject stands in the nominative, and the article is der.",
+    "why": "<em>König</em> is the subject of <em>spricht</em>. The subject stands in the nominative, and the article is <em>der</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5001,7 +5001,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Frau is the subject of kommt. The subject stands in the nominative, and the article is die.",
+    "why": "<em>Frau</em> is the subject of <em>kommt</em>. The subject stands in the nominative, and the article is <em>die</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5017,7 +5017,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Ich is the subject of sehe. The subject pronoun stands in the nominative. The accusative is mich.",
+    "why": "<em>Ich</em> is the subject of <em>sehe</em>. The subject pronoun stands in the nominative. The accusative is <em>mich</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5033,7 +5033,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Menschen is the object of sieht. The article is den, and the weak noun adds -n in the accusative singular.",
+    "why": "<em>Menschen</em> is the object of <em>sieht</em>. The article is <em>den</em>, and the weak noun adds <em>-n</em> in the accusative singular.",
     "lang": "de",
     "src": [
      "duden"
@@ -5049,7 +5049,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Mann is the object of sieht. The noun keeps the spelling of the nominative. The article den marks the accusative. Latin would change the noun.",
+    "why": "<em>Mann</em> is the object of <em>sieht</em>. The noun keeps the spelling of the nominative. The article <em>den</em> marks the accusative. Latin would change the noun.",
     "lang": "de",
     "src": [
      "duden"
@@ -5065,7 +5065,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Buch is the object of sieht. A neuter noun has one spelling for the nominative and the accusative, as in Latin. The verb shows that this Buch is the object.",
+    "why": "<em>Buch</em> is the object of <em>sieht</em>. A neuter noun has one spelling for the nominative and the accusative, as in Latin. The verb shows that this <em>Buch</em> is the object.",
     "lang": "de",
     "src": [
      "duden"
@@ -5081,7 +5081,7 @@ window.GERMAN = {
      "Accusative",
      "Dative"
     ],
-    "why": "Mannes marks the owner of the book. That is the genitive. Duden prints des Mann[e]s, and the sentence uses Mannes.",
+    "why": "<em>Mannes</em> marks the owner of the book. That is the genitive. Duden prints <em>des Mann</em>[e]s, and the sentence uses <em>Mannes</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5097,7 +5097,7 @@ window.GERMAN = {
      "Accusative",
      "Dative"
     ],
-    "why": "Frau marks the owner of the book. That is the genitive. The same spelling der Frau is also the dative, and here there is no verb that would make Frau an indirect object.",
+    "why": "<em>Frau</em> marks the owner of the book. That is the genitive. The same spelling <em>der Frau</em> is also the dative, and here there is no verb that would make <em>Frau</em> an indirect object.",
     "lang": "de",
     "src": [
      "duden"
@@ -5113,7 +5113,7 @@ window.GERMAN = {
      "Accusative",
      "Dative"
     ],
-    "why": "Freundes marks the owner of the book. Duden prints des Freundes as a genitive singular of Freund.",
+    "why": "<em>Freundes</em> marks the owner of the book. Duden prints <em>des Freundes</em> as a genitive singular of <em>Freund</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5129,7 +5129,7 @@ window.GERMAN = {
      "Accusative",
      "Genitive"
     ],
-    "why": "Mann is the person who receives the book. Geben takes a dative for the receiver and an accusative for the thing given. The article dem marks the dative, and the noun keeps its singular spelling.",
+    "why": "<em>Mann</em> is the person who receives the book. <em>Geben</em> takes a dative for the receiver and an accusative for the thing given. The article <em>dem</em> marks the dative, and the noun keeps its singular spelling.",
     "lang": "de",
     "src": [
      "duden"
@@ -5145,7 +5145,7 @@ window.GERMAN = {
      "Accusative",
      "Genitive"
     ],
-    "why": "Königen is the dative plural. Mit takes the dative, and the ending -n is the one Duden prints in den Königen.",
+    "why": "<em>Königen</em> is the dative plural. <em>Mit</em> takes the dative, and the ending <em>-n</em> is the one Duden prints in <em>den Königen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5161,7 +5161,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Für takes the accusative. The article den marks that case, and König itself does not change.",
+    "why": "<em>Für</em> takes the accusative. The article <em>den</em> marks that case, and <em>König</em> itself does not change.",
     "lang": "de",
     "src": [
      "duden"
@@ -5179,7 +5179,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Für takes the accusative. Duden calls für a preposition with the accusative. The article is den.",
+    "why": "<em>Für</em> takes the accusative. Duden calls <em>für</em> a preposition with the accusative. The article is <em>den</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5195,7 +5195,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Ohne takes the accusative. The Duden example is ohne jeden Zweifel. The article here is den.",
+    "why": "<em>Ohne</em> takes the accusative. The Duden example is <em>ohne</em> jeden Zweifel. The article here is <em>den</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5211,7 +5211,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "Gegen takes the accusative. Duden says the preposition gegen governs the accusative.",
+    "why": "<em>Gegen</em> takes the accusative. Duden says the preposition <em>gegen</em> governs the accusative.",
     "lang": "de",
     "src": [
      "duden"
@@ -5227,7 +5227,7 @@ window.GERMAN = {
      "Accusative",
      "Genitive"
     ],
-    "why": "Mit takes the dative. Duden names mit among the prepositions that require the dative. The article is dem.",
+    "why": "<em>Mit</em> takes the dative. Duden names <em>mit</em> among the prepositions that require the dative. The article is <em>dem</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5243,7 +5243,7 @@ window.GERMAN = {
      "Accusative",
      "Dative"
     ],
-    "why": "Statt takes the genitive in standard written German. Duden names statt among the genitive prepositions. The form is des Freundes.",
+    "why": "<em>Statt</em> takes the genitive in standard written German. Duden names <em>statt</em> among the genitive prepositions. The form is <em>des Freundes</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5259,7 +5259,7 @@ window.GERMAN = {
      "Accusative",
      "Dative"
     ],
-    "why": "Wegen takes the genitive in standard written German. The noun here shows the genitive ending. The bare singular that stays uninflected, as in wegen Umbau, is a different pattern, and it is not this sentence.",
+    "why": "<em>Wegen</em> takes the genitive in standard written German. The noun here shows the genitive ending. The bare singular that stays uninflected, as in <em>wegen</em> Umbau, is a different pattern, and it is not this sentence.",
     "lang": "de",
     "src": [
      "duden"
@@ -5275,7 +5275,7 @@ window.GERMAN = {
      "Genitive",
      "Dative"
     ],
-    "why": "In takes the accusative for the place to which. The Duden question is wohin, and the printed example is in die Stadt. The article die is that accusative.",
+    "why": "In takes the accusative for the place to which. The Duden question is wohin, and the printed example is in <em>die Stadt</em>. The article <em>die</em> is that accusative.",
     "lang": "de",
     "src": [
      "duden"
@@ -5291,7 +5291,7 @@ window.GERMAN = {
      "Accusative",
      "Genitive"
     ],
-    "why": "In takes the dative for the place where. The Duden question is wo, and the printed example is im Haus. Der Stadt is the same dative, written without the contraction.",
+    "why": "In takes the dative for the place where. The Duden question is <em>wo</em>, and the printed example is <em>im Haus</em>. <em>Der Stadt</em> is the same dative, written without the contraction.",
     "lang": "de",
     "src": [
      "duden"
@@ -5310,7 +5310,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "König is masculine and singular, and the case is nominative. After der the weak ending is -e, so gute agrees.",
+    "why": "<em>König</em> is masculine and singular, and the case is nominative. After <em>der</em> the weak ending is <em>-e</em>, so <em>gute</em> agrees.",
     "lang": "de",
     "src": [
      "duden"
@@ -5327,7 +5327,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Frau is feminine and singular. After eine the mixed ending is -e, so kleine agrees. The phrase is nominative or accusative, and both of those cells are kleine.",
+    "why": "<em>Frau</em> is feminine and singular. After <em>eine</em> the mixed ending is <em>-e</em>, so <em>kleine</em> agrees. The phrase is nominative or accusative, and both of those cells are <em>kleine</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5344,7 +5344,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Buch is neuter and singular. With no article the strong ending for the nominative or the accusative is -es, so gutes agrees.",
+    "why": "<em>Buch</em> is neuter and singular. With no article the strong ending for the nominative or the accusative is <em>-es</em>, so <em>gutes</em> agrees.",
     "lang": "de",
     "src": [
      "duden"
@@ -5361,7 +5361,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Frau is feminine. Gutes is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
+    "why": "<em>Frau</em> is feminine. <em>Gutes</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
     "lang": "de",
     "src": [
      "duden"
@@ -5378,7 +5378,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "König is masculine. Kleines is the strong neuter singular, so the adjective disagrees in gender. Both words are singular. The strong masculine nominative is kleiner.",
+    "why": "<em>König</em> is masculine. <em>Kleines</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular. The strong masculine nominative is <em>kleiner</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5395,7 +5395,7 @@ window.GERMAN = {
      "Faulty: the <b>number</b> does not agree",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Stadt is feminine. Kleines is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
+    "why": "<em>Stadt</em> is feminine. <em>Kleines</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
     "lang": "de",
     "src": [
      "duden"
@@ -5412,7 +5412,7 @@ window.GERMAN = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Bücher is plural. Gutes is singular, and the strong nominative plural is gute, so the number does not agree. Both words are neuter.",
+    "why": "<em>Bücher</em> is plural. <em>Gutes</em> is singular, and the strong nominative plural is <em>gute</em>, so the number does not agree. Both words are neuter.",
     "lang": "de",
     "src": [
      "duden"
@@ -5429,7 +5429,7 @@ window.GERMAN = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the adjective does not agree in <b>case</b>"
     ],
-    "why": "Meere is plural. Gutes is singular, so the number does not agree. Both words are neuter.",
+    "why": "<em>Meere</em> is plural. <em>Gutes</em> is singular, so the number does not agree. Both words are neuter.",
     "lang": "de",
     "src": [
      "duden"
@@ -5446,7 +5446,7 @@ window.GERMAN = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the <b>number</b> does not agree"
     ],
-    "why": "Königs is genitive. Gutem is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is guten Königs.",
+    "why": "<em>Königs</em> is genitive. <em>Gutem</em> is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is <em>guten Königs</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5463,7 +5463,7 @@ window.GERMAN = {
      "Faulty: the adjective disagrees in <b>gender</b>",
      "Faulty: the <b>number</b> does not agree"
     ],
-    "why": "Mannes is genitive. Kleinem is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is kleinen Mannes.",
+    "why": "<em>Mannes</em> is genitive. <em>Kleinem</em> is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is <em>kleinen Mannes</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5477,7 +5477,7 @@ window.GERMAN = {
     "lemmaLine": "König, masculine, king",
     "want": "genitive singular",
     "a": "Königs",
-    "why": "The genitive singular of König is Königs. Duden prints des Königs, and no second spelling.",
+    "why": "The genitive singular of <em>König</em> is <em>Königs</em>. Duden prints <em>des Königs</em>, and no second spelling.",
     "lang": "de",
     "src": [
      "duden"
@@ -5489,7 +5489,7 @@ window.GERMAN = {
     "lemmaLine": "Buch, Bücher, neuter, book",
     "want": "dative plural",
     "a": "Büchern",
-    "why": "The dative plural of Buch is Büchern. Duden prints den Büchern. The nominative plural is Bücher.",
+    "why": "The dative plural of <em>Buch</em> is <em>Büchern</em>. Duden prints <em>den Büchern</em>. The nominative plural is <em>Bücher</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5501,7 +5501,7 @@ window.GERMAN = {
     "lemmaLine": "Stadt, feminine, city",
     "want": "nominative plural",
     "a": "Städte",
-    "why": "The nominative plural of Stadt is Städte. The accusative plural and the genitive plural have the same spelling. The dative plural is Städten.",
+    "why": "The nominative plural of <em>Stadt</em> is <em>Städte</em>. The accusative plural and the genitive plural have the same spelling. The dative plural is <em>Städten</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5513,7 +5513,7 @@ window.GERMAN = {
     "lemmaLine": "Mensch, masculine, human being",
     "want": "accusative singular",
     "a": "Menschen",
-    "why": "The accusative singular of the weak noun Mensch is Menschen. The same spelling is the dative singular, the genitive singular, and every plural case. The cell asked is the accusative singular. The nominative singular is Mensch.",
+    "why": "The accusative singular of the weak noun <em>Mensch</em> is <em>Menschen</em>. The same spelling is the dative singular, the genitive singular, and every plural case. The cell asked is the accusative singular. The nominative singular is <em>Mensch</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5525,7 +5525,7 @@ window.GERMAN = {
     "lemmaLine": "Garten, masculine, garden",
     "want": "nominative plural",
     "a": "Gärten",
-    "why": "The nominative plural of Garten is Gärten. The plural already ends in -n, so the dative plural has the same spelling.",
+    "why": "The nominative plural of <em>Garten</em> is <em>Gärten</em>. The plural already ends in <em>-n</em>, so the dative plural has the same spelling.",
     "lang": "de",
     "src": [
      "duden"
@@ -5537,7 +5537,7 @@ window.GERMAN = {
     "lemmaLine": "Pferd, Pferde, neuter, horse",
     "want": "dative plural",
     "a": "Pferden",
-    "why": "The dative plural of Pferd is Pferden. Duden prints den Pferden.",
+    "why": "The dative plural of <em>Pferd</em> is <em>Pferden</em>. Duden prints <em>den Pferden</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5549,7 +5549,7 @@ window.GERMAN = {
     "lemmaLine": "König, Könige, masculine, king",
     "want": "dative plural",
     "a": "Königen",
-    "why": "The dative plural of König is Königen. Duden prints den Königen.",
+    "why": "The dative plural of <em>König</em> is <em>Königen</em>. Duden prints <em>den Königen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5561,7 +5561,7 @@ window.GERMAN = {
     "lemmaLine": "Garten, masculine, garden",
     "want": "genitive singular",
     "a": "Gartens",
-    "why": "The genitive singular of Garten is Gartens. Duden prints des Gartens, and no second spelling.",
+    "why": "The genitive singular of <em>Garten</em> is <em>Gartens</em>. Duden prints <em>des Gartens</em>, and no second spelling.",
     "lang": "de",
     "src": [
      "duden"
@@ -5573,7 +5573,7 @@ window.GERMAN = {
     "lemmaLine": "gut, good",
     "want": "strong neuter nominative singular",
     "a": "gutes",
-    "why": "With no article, the strong neuter nominative of gut is gutes. The same spelling is the strong neuter accusative. The cell asked is the nominative.",
+    "why": "With no article, the strong neuter nominative of <em>gut</em> is <em>gutes</em>. The same spelling is the strong neuter accusative. The cell asked is the nominative.",
     "lang": "de",
     "src": [
      "duden"
@@ -5585,7 +5585,7 @@ window.GERMAN = {
     "lemmaLine": "sein, irregular, be",
     "want": "present, second person plural",
     "a": "seid",
-    "why": "Seid is the present, second person plural, of sein. The third person plural is sind.",
+    "why": "<em>Seid</em> is the present, second person plural, of <em>sein</em>. The third person plural is <em>sind</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5597,7 +5597,7 @@ window.GERMAN = {
     "lemmaLine": "sein, irregular, be",
     "want": "Perfekt, third person singular",
     "a": "ist gewesen",
-    "why": "Sein takes sein in the Perfekt. The third person singular is ist gewesen.",
+    "why": "<em>Sein</em> takes <em>sein</em> in the Perfekt. The third person singular is <em>ist gewesen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5609,7 +5609,7 @@ window.GERMAN = {
     "lemmaLine": "haben, irregular, have",
     "want": "present, third person singular",
     "a": "hat",
-    "why": "Hat is the present, third person singular, of haben. The stem drops b. The second person singular is hast.",
+    "why": "<em>Hat</em> is the present, third person singular, of <em>haben</em>. The stem drops b. The second person singular is <em>hast</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5621,7 +5621,7 @@ window.GERMAN = {
     "lemmaLine": "haben, irregular, have",
     "want": "Konjunktiv II, second person singular",
     "a": "hättest",
-    "why": "Hättest is the Konjunktiv II, second person singular, of haben. Duden prints that one spelling. The Präteritum of the same person is hattest.",
+    "why": "<em>Hättest</em> is the Konjunktiv II, second person singular, of <em>haben</em>. Duden prints that one spelling. The Präteritum of the same person is <em>hattest</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5633,7 +5633,7 @@ window.GERMAN = {
     "lemmaLine": "werden, irregular, become",
     "want": "present, third person singular",
     "a": "wird",
-    "why": "Wird is the present, third person singular, of werden. The second person singular is wirst.",
+    "why": "<em>Wird</em> is the present, third person singular, of <em>werden</em>. The second person singular is <em>wirst</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5645,7 +5645,7 @@ window.GERMAN = {
     "lemmaLine": "werden, irregular, become",
     "want": "Konjunktiv II, second person singular",
     "a": "würdest",
-    "why": "Würdest is the Konjunktiv II, second person singular, of werden. The Präteritum of the same person is wurdest. The older wardst is not this cell.",
+    "why": "<em>Würdest</em> is the Konjunktiv II, second person singular, of <em>werden</em>. The Präteritum of the same person is <em>wurdest</em>. The older <em>wardst</em> is not this cell.",
     "lang": "de",
     "src": [
      "duden"
@@ -5657,7 +5657,7 @@ window.GERMAN = {
     "lemmaLine": "machen, weak, make",
     "want": "Perfekt, third person singular",
     "a": "hat gemacht",
-    "why": "Machen takes haben. The third person singular of the Perfekt is hat gemacht. The participle is gemacht.",
+    "why": "<em>Machen</em> takes <em>haben</em>. The third person singular of the Perfekt is <em>hat gemacht</em>. The participle is <em>gemacht</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5669,7 +5669,7 @@ window.GERMAN = {
     "lemmaLine": "sprechen, strong, speak",
     "want": "present, third person singular",
     "a": "spricht",
-    "why": "Spricht is the present, third person singular, of sprechen. The vowel is i. The second person singular is sprichst.",
+    "why": "<em>Spricht</em> is the present, third person singular, of <em>sprechen</em>. The vowel is i. The second person singular is <em>sprichst</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5681,7 +5681,7 @@ window.GERMAN = {
     "lemmaLine": "sprechen, strong, speak",
     "want": "Konjunktiv II, third person singular",
     "a": "spräche",
-    "why": "Spräche is the Konjunktiv II, third person singular, of sprechen. The first person singular has the same spelling. The Präteritum is sprach.",
+    "why": "<em>Spräche</em> is the Konjunktiv II, third person singular, of <em>sprechen</em>. The first person singular has the same spelling. The Präteritum is <em>sprach</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5693,7 +5693,7 @@ window.GERMAN = {
     "lemmaLine": "geben, strong, give",
     "want": "Präteritum, third person singular",
     "a": "gab",
-    "why": "Gab is the Präteritum, third person singular, of geben. The first person singular has the same spelling. The present is gibt.",
+    "why": "<em>Gab</em> is the Präteritum, third person singular, of <em>geben</em>. The first person singular has the same spelling. The present is <em>gibt</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5705,7 +5705,7 @@ window.GERMAN = {
     "lemmaLine": "kommen, strong, come",
     "want": "Perfekt, third person singular",
     "a": "ist gekommen",
-    "why": "Kommen takes sein. The third person singular of the Perfekt is ist gekommen. The participle is gekommen.",
+    "why": "<em>Kommen</em> takes <em>sein</em>. The third person singular of the Perfekt is <em>ist gekommen</em>. The participle is <em>gekommen</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5717,7 +5717,7 @@ window.GERMAN = {
     "lemmaLine": "sehen, strong, see",
     "want": "present, second person singular",
     "a": "siehst",
-    "why": "Siehst is the present, second person singular, of sehen. The third person singular is sieht.",
+    "why": "<em>Siehst</em> is the present, second person singular, of <em>sehen</em>. The third person singular is <em>sieht</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5729,7 +5729,7 @@ window.GERMAN = {
     "lemmaLine": "sehen, strong, see",
     "want": "Konjunktiv II, third person singular",
     "a": "sähe",
-    "why": "Sähe is the Konjunktiv II, third person singular, of sehen. The first person singular has the same spelling. The Präteritum is sah. Duden also prints sähest and sähst for the second person, and those are not this cell.",
+    "why": "<em>Sähe</em> is the Konjunktiv II, third person singular, of <em>sehen</em>. The first person singular has the same spelling. The Präteritum is <em>sah</em>. Duden also prints <em>sähest</em> and sähst for the second person, and those are not this cell.",
     "lang": "de",
     "src": [
      "duden"
@@ -5776,7 +5776,7 @@ window.GERMAN = {
      "Congruous: the parts fit, but the sense is unfinished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Die agrees with Pferde, and sind gekommen agrees with that plural subject. Kommen takes sein. The sentence is complete.",
+    "why": "<em>Die</em> agrees with <em>Pferde</em>, and <em>sind gekommen</em> agrees with that plural subject. <em>Kommen</em> takes <em>sein</em>. The sentence is complete.",
     "lang": "de",
     "src": [
      "duden"
@@ -5791,7 +5791,7 @@ window.GERMAN = {
      "Congruous: the parts fit, but the sense is unfinished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "The subject, the dative, the accusative, and the Perfekt of geben fit. A finite verb finishes the sentence.",
+    "why": "The subject, the dative, the accusative, and the Perfekt of <em>geben</em> fit. A finite verb finishes the sentence.",
     "lang": "de",
     "src": [
      "duden"
@@ -5806,7 +5806,7 @@ window.GERMAN = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Gute fits König, and der fits König. There is no verb, so the sense is not yet complete.",
+    "why": "<em>Gute</em> fits <em>König</em>, and <em>der</em> fits <em>König</em>. There is no verb, so the sense is not yet complete.",
     "lang": "de",
     "src": [
      "duden"
@@ -5821,7 +5821,7 @@ window.GERMAN = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Kleine fits Frau, and eine fits Frau. There is no verb, so the sense is not yet complete.",
+    "why": "<em>Kleine</em> fits <em>Frau</em>, and <em>eine</em> fits <em>Frau</em>. There is no verb, so the sense is not yet complete.",
     "lang": "de",
     "src": [
      "duden"
@@ -5836,7 +5836,7 @@ window.GERMAN = {
      "Complete: the parts fit, and the sentence is finished",
      "Incongruous: the parts do not fit with one another, so the construction fails"
     ],
-    "why": "Das fits Buch, and des Mannes is a genitive. There is no finite verb, so the sense is not yet complete.",
+    "why": "<em>Das</em> fits <em>Buch</em>, and <em>des Mannes</em> is a genitive. There is no finite verb, so the sense is not yet complete.",
     "lang": "de",
     "src": [
      "duden"
@@ -5851,7 +5851,7 @@ window.GERMAN = {
      "Complete: the parts fit, and the sentence is finished",
      "Congruous: the parts fit, but the sense is unfinished"
     ],
-    "why": "König is singular. Sprechen is the plural form, and the same spelling is the infinitive. Neither fits this subject. Sprechen is a real form, and the fault is the join.",
+    "why": "<em>König</em> is singular. <em>Sprechen</em> is the plural form, and the same spelling is the infinitive. Neither fits this subject. <em>Sprechen</em> is a real form, and the fault is the join.",
     "lang": "de",
     "src": [
      "duden"
@@ -5866,7 +5866,7 @@ window.GERMAN = {
      "Complete: the parts fit, and the sentence is finished",
      "Congruous: the parts fit, but the sense is unfinished"
     ],
-    "why": "Frau is feminine and das is neuter. The parts do not fit. Each word is a German form, and the fault is the join.",
+    "why": "<em>Frau</em> is feminine and <em>das</em> is neuter. The parts do not fit. Each word is a German form, and the fault is the join.",
     "lang": "de",
     "src": [
      "duden"
@@ -5883,7 +5883,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Sprichte is not a form of sprechen. The present, third person singular, is spricht. The fault is in the one word.",
+    "why": "<em>Sprichte</em> is not a form of <em>sprechen</em>. The present, third person singular, is <em>spricht</em>. The fault is in the one word.",
     "lang": "de",
     "src": [
      "duden"
@@ -5898,7 +5898,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Büchers is not the plural of Buch. The plural is Bücher. Sind is a real form, and the fault is in the one noun.",
+    "why": "<em>Büchers</em> is not the plural of <em>Buch</em>. The plural is <em>Bücher</em>. <em>Sind</em> is a real form, and the fault is in the one noun.",
     "lang": "de",
     "src": [
      "duden"
@@ -5913,7 +5913,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Geseht is not the participle of sehen. The participle is gesehen. Hat is a real form, and the fault is in the one word.",
+    "why": "<em>Geseht</em> is not the participle of <em>sehen</em>. The participle is <em>gesehen</em>. <em>Hat</em> is a real form, and the fault is in the one word.",
     "lang": "de",
     "src": [
      "duden"
@@ -5928,7 +5928,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Der and guter are both real forms. After der the adjective takes the weak ending, which is gute. The fault is the join.",
+    "why": "<em>Der</em> and <em>guter</em> are both real forms. After <em>der</em> the adjective takes the weak ending, which is <em>gute</em>. The fault is the join.",
     "lang": "de",
     "src": [
      "duden"
@@ -5943,7 +5943,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Bist is a real present of sein, the second person singular. The subject Frau is third person singular, so the verb does not fit it. The third person is ist.",
+    "why": "<em>Bist</em> is a real present of <em>sein</em>, the second person singular. The subject <em>Frau</em> is third person singular, so the verb does not fit it. The third person is <em>ist</em>.",
     "lang": "de",
     "src": [
      "duden"
@@ -5958,7 +5958,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Den is a real masculine accusative, and Frau is a real feminine noun. The accusative feminine is die. The fault is the join.",
+    "why": "<em>Den</em> is a real masculine accusative, and <em>Frau</em> is a real feminine noun. The accusative feminine is <em>die</em>. The fault is the join.",
     "lang": "de",
     "src": [
      "duden"
@@ -5973,7 +5973,7 @@ window.GERMAN = {
      "No fault: the sentence is sound",
      "A figure: the poets are allowed this departure"
     ],
-    "why": "Mit and den are both real forms. Mit takes the dative, which is dem. Den is accusative. The fault is the join.",
+    "why": "<em>Mit</em> and <em>den</em> are both real forms. <em>Mit</em> takes the dative, which is <em>dem</em>. <em>Den</em> is accusative. The fault is the join.",
     "lang": "de",
     "src": [
      "duden"

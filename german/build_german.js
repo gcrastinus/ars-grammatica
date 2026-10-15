@@ -142,7 +142,7 @@ const typedForm = s => String(s || '').normalize('NFC').toLowerCase().replace(/[
   ['more', 'voice', 'clause', 'mood'].forEach(k => pool('sentence.' + k, GERMAN.sentence[k]));
   pool('fill', GERMAN.fill);
   Object.keys(GERMAN.notes.decks).forEach(d => Object.keys(GERMAN.notes.decks[d]).forEach(i => (GERMAN.notes.decks[d][i].text || []).forEach(n => {
-    if(typeof n.entry !== 'number' || !n.note || /[<>&]/.test(n.note)) problems.push('notes.' + d + '.' + i + ': a note lacks its entry or contains markup');
+    if(typeof n.entry !== 'number' || !n.note || /[<>&]/.test(n.note.replace(/<\/?em>/g, ''))) problems.push('notes.' + d + '.' + i + ': a note lacks its entry or contains markup other than italics (em)');
   })));
   (GERMAN.syllable.deck.panels || []).forEach((p, i) => { if(p.q && !(p.q.correct >= 0 && p.q.correct < p.q.options.length)) problems.push('syllable.deck.' + i + ': the key is not among the options'); });
   (GERMAN.syllable.exercise.items || []).forEach(it => item('syllable.' + it.id, it));

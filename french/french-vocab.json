@@ -25,7 +25,7 @@
       "gender": "m",
       "article": "l’",
       "gloss": "man",
-      "note": "The definite article elides: l’homme, not le homme.",
+      "note": "The definite article elides: <em>l’homme</em>, not <em>le homme</em>.",
       "ref": "Larousse, s.v. homme, nom masculin, larousse.fr/dictionnaires/francais/homme/40240, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
     },
     {
@@ -34,7 +34,7 @@
       "gender": "m",
       "article": "le",
       "gloss": "horse",
-      "note": "The plural is chevaux. A plural chevals is not a French form.",
+      "note": "The plural is <em>chevaux</em>. A plural <em>chevals</em> is not a French form.",
       "ref": "Larousse, s.v. cheval, chevaux, nom masculin, larousse.fr/dictionnaires/francais/cheval/15173, read 2026-10-09. Larousse, s.v. pluriel, gives chevaux as the plural of cheval. Larousse junior, s.v. cheval, prints Au pluriel: des chevaux."
     },
     {
@@ -51,7 +51,7 @@
       "gender": "f",
       "article": "la",
       "gloss": "sea",
-      "note": "This is the sea. Larousse lists maire and mère as homonyms, and those are other words.",
+      "note": "This is the sea. Larousse lists maire and <em>mère</em> as homonyms, and those are other words.",
       "ref": "Larousse, s.v. mer, nom féminin, larousse.fr/dictionnaires/francais/mer/50562, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
     },
     {
@@ -60,7 +60,7 @@
       "gender": "m",
       "article": "le",
       "gloss": "book",
-      "note": "This is the book, Larousse livre 1, nom masculin. The feminine livre is the pound, and it is another word. Livres is also a form of the verb livrer, which is not in this set.",
+      "note": "This is the book, Larousse <em>livre</em> 1, nom masculin. The feminine <em>livre</em> is the pound, and it is another word. <em>Livres</em> is also a form of the verb livrer, which is not in this set.",
       "ref": "Larousse, s.v. livre, nom masculin, assemblage de feuilles, larousse.fr/dictionnaires/francais/livre/47531, read 2026-10-09. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
     },
     {
@@ -79,7 +79,7 @@
       "gloss": "friend",
       "feminine": "amie",
       "feminine_plural": "amies",
-      "note": "The headword is ami, amie. The article elides before the vowel.",
+      "note": "The headword is <em>ami</em>, <em>amie</em>. The article elides before the vowel.",
       "ref": "Larousse, Dictionnaire de français, s.v. ami, amie, read 2026-10-09. The headword prints both genders. The plural mark s is the ordinary written plural (Larousse, s.v. pluriel)."
     },
     {
@@ -88,7 +88,7 @@
       "gender": "m",
       "article": "le",
       "gloss": "gift",
-      "note": "A noun in -eau takes -x in the plural: cadeaux.",
+      "note": "A noun in <em>-eau</em> takes <em>-x</em> in the plural: <em>cadeaux</em>.",
       "ref": "Larousse junior, s.v. cadeau, nom masculin, Au pluriel: des cadeaux, larousse.fr/dictionnaires/junior/cadeau/2550, read 2026-10-09. Larousse, s.v. pluriel, names x as a written plural mark."
     },
     {
@@ -179,7 +179,7 @@
       "kind": "irregular, third group",
       "auxiliary": "être",
       "tabulated": true,
-      "note": "Aller ends in -er and is not in the first group. Le Conjugueur gives three stems: va- in the present, ir- in the future, all- elsewhere.",
+      "note": "<em>Aller</em> ends in <em>-er</em> and is not in the first group. <em>Le</em> Conjugueur gives three stems: va- in the present, ir- in the future, all- elsewhere.",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
     },
     {
@@ -188,7 +188,7 @@
       "kind": "irregular, third group",
       "auxiliary": "avoir",
       "tabulated": true,
-      "note": "The second person plural of the present is faites, and the first person plural is faisons.",
+      "note": "The second person plural of the present is <em>faites</em>, and the first person plural is <em>faisons</em>.",
       "ref": "Le Conjugueur, lefigaro.fr, read 2026-10-09"
     },
     {
@@ -262,7 +262,7 @@
       "feminine": "bonne",
       "gloss": "good",
       "class": "regular, with nn in the feminine",
-      "note": "The feminine is bonne, bonnes. The masculine plural is bons. The n is doubled in the feminine. No compared form is asked.",
+      "note": "The feminine is <em>bonne</em>, <em>bonnes</em>. The masculine plural is <em>bons</em>. The n is doubled in the feminine. No compared form is asked.",
       "ref": "Laura K. Lawless, Lawless French, Agreement, lawlessfrench.com/grammar/agreement/, read 2026-10-09 The four forms are the ordinary ones. The own Larousse entry for this adjective was not opened in this pass."
     },
     {
@@ -285,7 +285,7 @@
       "gloss": "beautiful",
       "class": "masculine singular bel before a vowel or a mute h",
       "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
-      "note": "Lawless prints beau, bel, belle, beaux, belles, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for bel."
+      "note": "Lawless prints <em>beau</em>, <em>bel</em>, <em>belle</em>, <em>beaux</em>, <em>belles</em>, and says the special masculine form is required before a masculine singular noun that begins with a vowel or a mute h. There is no special plural. Larousse says the same for <em>bel</em>."
     },
     {
       "lemma": "vieux",
@@ -293,7 +293,7 @@
       "gloss": "old",
       "class": "masculine singular vieil before a vowel or a mute h",
       "ref": "Larousse, Dictionnaire de français, s.v. beau and s.v. vieux, larousse.fr, read 2026-10-09 Laura K. Lawless, Lawless French, Irregular adjectives, lawlessfrench.com/grammar/irregular-adjectives/, read 2026-10-09",
-      "note": "Lawless prints vieux, vieil, vieille, vieux, vieilles, with the example un vieil homme, and says there is no special plural, as in trois vieux hommes. Larousse says vieil is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps vieux before a vowel. The form asked here is vieil."
+      "note": "Lawless prints <em>vieux</em>, <em>vieil</em>, <em>vieille</em>, <em>vieux</em>, <em>vieilles</em>, with the example <em>un vieil homme</em>, and says there is no special plural, as in trois <em>vieux hommes</em>. Larousse says <em>vieil</em> is used before a masculine singular noun that begins with a vowel or a mute h. A literary sentence sometimes keeps <em>vieux</em> before a vowel. The form asked here is <em>vieil</em>."
     },
     {
       "lemma": "heureux",
@@ -380,7 +380,7 @@
       "lemma": "ce",
       "pos": "pronoun",
       "gloss": "this, that",
-      "note": "With est, the vowel drops: c’est. After c’est the pronoun is the stressed form.",
+      "note": "With <em>est</em>, the vowel drops: <em>c’est</em>. After <em>c’est</em> the pronoun is the stressed form.",
       "ref": "Laura K. Lawless, Lawless French, Subject pronouns, Direct objects, Indirect objects, and Stressed pronouns, lawlessfrench.com, read 2026-10-09"
     }
   ]

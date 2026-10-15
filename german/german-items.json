@@ -8,7 +8,7 @@
       "s": "<b>Der</b> König spricht.",
       "orig": "The king speaks.",
       "a": "article",
-      "note": "Der points out the king. German has a definite article, and Latin has none.",
+      "note": "<em>Der</em> points out the king. German has a definite article, and Latin has none.",
       "lang": "de",
       "src": [
         "duden"
@@ -19,7 +19,7 @@
       "s": "Die Frau sieht <b>das</b> Buch.",
       "orig": "The woman sees the book.",
       "a": "article",
-      "note": "Das points out the book. The article agrees with Buch, which is neuter and singular.",
+      "note": "<em>Das</em> points out the book. The article agrees with <em>Buch</em>, which is neuter and singular.",
       "lang": "de",
       "src": [
         "duden"
@@ -30,7 +30,7 @@
       "s": "Der <b>König</b> spricht.",
       "orig": "The king speaks.",
       "a": "noun",
-      "note": "König names the king, and it is the subject of spricht.",
+      "note": "<em>König</em> names the king, and it is the subject of <em>spricht</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -41,7 +41,7 @@
       "s": "Die Frau sieht das <b>Buch</b>.",
       "orig": "The woman sees the book.",
       "a": "noun",
-      "note": "Buch names the book, and it is the object of sieht.",
+      "note": "<em>Buch</em> names the book, and it is the object of <em>sieht</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -52,7 +52,7 @@
       "s": "Der König <b>spricht</b>.",
       "orig": "The king speaks.",
       "a": "verb",
-      "note": "Spricht says what the king does. It is the present, third person singular, of sprechen.",
+      "note": "<em>Spricht</em> says what the king does. It is the present, third person singular, of <em>sprechen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -63,7 +63,7 @@
       "s": "Die Frau <b>sieht</b> das Buch.",
       "orig": "The woman sees the book.",
       "a": "verb",
-      "note": "Sieht says what the woman does. It is the present, third person singular, of sehen.",
+      "note": "<em>Sieht</em> says what the woman does. It is the present, third person singular, of <em>sehen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -74,7 +74,7 @@
       "s": "Der <b>gute</b> König spricht.",
       "orig": "The good king speaks.",
       "a": "adjective",
-      "note": "Gute tells what sort of king, and it takes the weak ending after der.",
+      "note": "<em>Gute</em> tells what sort of king, and it takes the weak ending after <em>der</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -85,7 +85,7 @@
       "s": "Die Frau sieht ein <b>gutes</b> Buch.",
       "orig": "The woman sees a good book.",
       "a": "adjective",
-      "note": "Gutes tells what sort of book. After ein, a neuter singular adjective takes the mixed ending.",
+      "note": "<em>Gutes</em> tells what sort of book. After <em>ein</em>, a neuter singular adjective takes the mixed ending.",
       "lang": "de",
       "src": [
         "duden"
@@ -107,7 +107,7 @@
       "s": "Die Frau kommt <b>gern</b>.",
       "orig": "The woman comes gladly.",
       "a": "adverb",
-      "note": "Gern modifies kommt. An adverb keeps one form.",
+      "note": "<em>Gern</em> modifies <em>kommt</em>. An adverb keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -118,7 +118,7 @@
       "s": "Der König kommt <b>in</b> die Stadt.",
       "orig": "The king comes into the city.",
       "a": "preposition",
-      "note": "In joins kommt to the place. For the place to which, in takes the accusative.",
+      "note": "In joins <em>kommt</em> to the place. For the place to which, in takes the accusative.",
       "lang": "de",
       "src": [
         "duden"
@@ -129,7 +129,7 @@
       "s": "Die Frau kommt <b>mit</b> dem König.",
       "orig": "The woman comes with the king.",
       "a": "preposition",
-      "note": "Mit joins kommt to the person who comes along. Mit takes the dative.",
+      "note": "<em>Mit</em> joins <em>kommt</em> to the person who comes along. <em>Mit</em> takes the dative.",
       "lang": "de",
       "src": [
         "duden"
@@ -140,7 +140,7 @@
       "s": "Der König <b>und</b> die Frau sprechen.",
       "orig": "The king and the woman speak.",
       "a": "conjunction",
-      "note": "Und joins the two subjects. A conjunction keeps one form.",
+      "note": "<em>Und</em> joins the two subjects. A conjunction keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -151,7 +151,7 @@
       "s": "Der König spricht, <b>aber</b> die Frau kommt.",
       "orig": "The king speaks, but the woman comes.",
       "a": "conjunction",
-      "note": "Aber joins the two clauses. A conjunction keeps one form.",
+      "note": "<em>Aber</em> joins the two clauses. A conjunction keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -162,7 +162,7 @@
       "s": "<b>Ich</b> sehe das Buch.",
       "orig": "I see the book.",
       "a": "pronoun",
-      "note": "Ich stands for the speaker, and it is the subject of sehe.",
+      "note": "<em>Ich</em> stands for the speaker, and it is the subject of <em>sehe</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -173,7 +173,7 @@
       "s": "Der König sieht <b>mich</b>.",
       "orig": "The king sees me.",
       "a": "pronoun",
-      "note": "Mich stands for the person seen. It is the accusative of ich, and no noun follows it.",
+      "note": "<em>Mich</em> stands for the person seen. It is the accusative of <em>ich</em>, and no noun follows it.",
       "lang": "de",
       "src": [
         "duden"
@@ -184,7 +184,7 @@
       "s": "Der König hat <b>gesprochen</b>.",
       "orig": "The king has spoken.",
       "a": "participle",
-      "note": "Gesprochen is the past participle of sprechen. With hat it makes the Perfekt.",
+      "note": "<em>Gesprochen</em> is the past participle of <em>sprechen</em>. With <em>hat</em> it makes the Perfekt.",
       "lang": "de",
       "src": [
         "duden"
@@ -195,7 +195,7 @@
       "s": "Die Frau hat das Buch <b>gesehen</b>.",
       "orig": "The woman has seen the book.",
       "a": "participle",
-      "note": "Gesehen is the past participle of sehen. With hat it makes the Perfekt.",
+      "note": "<em>Gesehen</em> is the past participle of <em>sehen</em>. With <em>hat</em> it makes the Perfekt.",
       "lang": "de",
       "src": [
         "duden"
@@ -206,7 +206,7 @@
       "s": "<b>Ach</b>, der König kommt.",
       "orig": "Ah, the king is coming.",
       "a": "interjection",
-      "note": "Ach is a cry, and it stands outside the clause. Duden prints Ach as an interjection.",
+      "note": "<em>Ach</em> is a cry, and it stands outside the clause. Duden prints <em>Ach</em> as an interjection.",
       "lang": "de",
       "src": [
         "duden"
@@ -239,7 +239,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "König is a noun. It takes an ending for the genitive singular, Königs, and another for the plural, Könige.",
+      "why": "<em>König</em> is a noun. It takes an ending for the genitive singular, <em>Königs</em>, and another for the plural, <em>Könige</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -259,7 +259,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Buch is a noun. The plural is Bücher, and the dative plural is Büchern, so the word takes endings.",
+      "why": "<em>Buch</em> is a noun. The plural is <em>Bücher</em>, and the dative plural is <em>Büchern</em>, so the word takes endings.",
       "lang": "de",
       "src": [
         "duden"
@@ -279,7 +279,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Spricht is a verb. It takes endings for person, number, and tense.",
+      "why": "<em>Spricht</em> is a verb. It takes endings for person, number, and tense.",
       "lang": "de",
       "src": [
         "duden"
@@ -299,7 +299,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Kommt is a verb. It takes endings for person, number, and tense.",
+      "why": "<em>Kommt</em> is a verb. It takes endings for person, number, and tense.",
       "lang": "de",
       "src": [
         "duden"
@@ -319,7 +319,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Gut is an adjective. It takes the gender, the number, and the case of its noun. Comparison is made with besser and am besten, and those forms are not asked.",
+      "why": "<em>Gut</em> is an adjective. It takes the gender, the number, and the case of its noun. Comparison is made with besser and am besten, and those forms are not asked.",
       "lang": "de",
       "src": [
         "duden"
@@ -339,7 +339,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Gut is an adjective. Gutes is the mixed ending for a neuter singular after ein. Comparison is not asked.",
+      "why": "<em>Gut</em> is an adjective. <em>Gutes</em> is the mixed ending for a neuter singular after <em>ein</em>. Comparison is not asked.",
       "lang": "de",
       "src": [
         "duden"
@@ -359,7 +359,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Ich is a pronoun. The accusative is mich, and the dative is mir, so the pronoun still changes its form.",
+      "why": "<em>Ich</em> is a pronoun. The accusative is <em>mich</em>, and the dative is <em>mir</em>, so the pronoun still changes its form.",
       "lang": "de",
       "src": [
         "duden"
@@ -379,7 +379,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Mich is a pronoun, the accusative of ich. The subject form is ich, so the pronoun still changes its form.",
+      "why": "<em>Mich</em> is a pronoun, the accusative of <em>ich</em>. The subject form is <em>ich</em>, so the pronoun still changes its form.",
       "lang": "de",
       "src": [
         "duden"
@@ -419,7 +419,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Gern is an adverb. It keeps one form.",
+      "why": "<em>Gern</em> is an adverb. It keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -459,7 +459,7 @@
         "Indeclinable: a conjunction, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Mit is a preposition. It keeps one form.",
+      "why": "<em>Mit</em> is a preposition. It keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -479,7 +479,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Und is a conjunction. It keeps one form.",
+      "why": "<em>Und</em> is a conjunction. It keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -499,7 +499,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: an interjection, one form"
       ],
-      "why": "Aber is a conjunction. It keeps one form.",
+      "why": "<em>Aber</em> is a conjunction. It keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -519,7 +519,7 @@
         "Indeclinable: a preposition, one form",
         "Indeclinable: a conjunction, one form"
       ],
-      "why": "Ach is an interjection, a cry, and it keeps one form.",
+      "why": "<em>Ach</em> is an interjection, a cry, and it keeps one form.",
       "lang": "de",
       "src": [
         "duden"
@@ -537,7 +537,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "König is the subject of spricht. The subject stands in the nominative, and the article is der.",
+      "why": "<em>König</em> is the subject of <em>spricht</em>. The subject stands in the nominative, and the article is <em>der</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -553,7 +553,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Frau is the subject of kommt. The subject stands in the nominative, and the article is die.",
+      "why": "<em>Frau</em> is the subject of <em>kommt</em>. The subject stands in the nominative, and the article is <em>die</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -569,7 +569,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Ich is the subject of sehe. The subject pronoun stands in the nominative. The accusative is mich.",
+      "why": "<em>Ich</em> is the subject of <em>sehe</em>. The subject pronoun stands in the nominative. The accusative is <em>mich</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -585,7 +585,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Menschen is the object of sieht. The article is den, and the weak noun adds -n in the accusative singular.",
+      "why": "<em>Menschen</em> is the object of <em>sieht</em>. The article is <em>den</em>, and the weak noun adds <em>-n</em> in the accusative singular.",
       "lang": "de",
       "src": [
         "duden"
@@ -601,7 +601,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Mann is the object of sieht. The noun keeps the spelling of the nominative. The article den marks the accusative. Latin would change the noun.",
+      "why": "<em>Mann</em> is the object of <em>sieht</em>. The noun keeps the spelling of the nominative. The article <em>den</em> marks the accusative. Latin would change the noun.",
       "lang": "de",
       "src": [
         "duden"
@@ -617,7 +617,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Buch is the object of sieht. A neuter noun has one spelling for the nominative and the accusative, as in Latin. The verb shows that this Buch is the object.",
+      "why": "<em>Buch</em> is the object of <em>sieht</em>. A neuter noun has one spelling for the nominative and the accusative, as in Latin. The verb shows that this <em>Buch</em> is the object.",
       "lang": "de",
       "src": [
         "duden"
@@ -633,7 +633,7 @@
         "Accusative",
         "Dative"
       ],
-      "why": "Mannes marks the owner of the book. That is the genitive. Duden prints des Mann[e]s, and the sentence uses Mannes.",
+      "why": "<em>Mannes</em> marks the owner of the book. That is the genitive. Duden prints <em>des Mann</em>[e]s, and the sentence uses <em>Mannes</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -649,7 +649,7 @@
         "Accusative",
         "Dative"
       ],
-      "why": "Frau marks the owner of the book. That is the genitive. The same spelling der Frau is also the dative, and here there is no verb that would make Frau an indirect object.",
+      "why": "<em>Frau</em> marks the owner of the book. That is the genitive. The same spelling <em>der Frau</em> is also the dative, and here there is no verb that would make <em>Frau</em> an indirect object.",
       "lang": "de",
       "src": [
         "duden"
@@ -665,7 +665,7 @@
         "Accusative",
         "Dative"
       ],
-      "why": "Freundes marks the owner of the book. Duden prints des Freundes as a genitive singular of Freund.",
+      "why": "<em>Freundes</em> marks the owner of the book. Duden prints <em>des Freundes</em> as a genitive singular of <em>Freund</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -681,7 +681,7 @@
         "Accusative",
         "Genitive"
       ],
-      "why": "Mann is the person who receives the book. Geben takes a dative for the receiver and an accusative for the thing given. The article dem marks the dative, and the noun keeps its singular spelling.",
+      "why": "<em>Mann</em> is the person who receives the book. <em>Geben</em> takes a dative for the receiver and an accusative for the thing given. The article <em>dem</em> marks the dative, and the noun keeps its singular spelling.",
       "lang": "de",
       "src": [
         "duden"
@@ -697,7 +697,7 @@
         "Accusative",
         "Genitive"
       ],
-      "why": "Königen is the dative plural. Mit takes the dative, and the ending -n is the one Duden prints in den Königen.",
+      "why": "<em>Königen</em> is the dative plural. <em>Mit</em> takes the dative, and the ending <em>-n</em> is the one Duden prints in <em>den Königen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -713,7 +713,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Für takes the accusative. The article den marks that case, and König itself does not change.",
+      "why": "<em>Für</em> takes the accusative. The article <em>den</em> marks that case, and <em>König</em> itself does not change.",
       "lang": "de",
       "src": [
         "duden"
@@ -731,7 +731,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Für takes the accusative. Duden calls für a preposition with the accusative. The article is den.",
+      "why": "<em>Für</em> takes the accusative. Duden calls <em>für</em> a preposition with the accusative. The article is <em>den</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -747,7 +747,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Ohne takes the accusative. The Duden example is ohne jeden Zweifel. The article here is den.",
+      "why": "<em>Ohne</em> takes the accusative. The Duden example is <em>ohne</em> jeden Zweifel. The article here is <em>den</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -763,7 +763,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "Gegen takes the accusative. Duden says the preposition gegen governs the accusative.",
+      "why": "<em>Gegen</em> takes the accusative. Duden says the preposition <em>gegen</em> governs the accusative.",
       "lang": "de",
       "src": [
         "duden"
@@ -779,7 +779,7 @@
         "Accusative",
         "Genitive"
       ],
-      "why": "Mit takes the dative. Duden names mit among the prepositions that require the dative. The article is dem.",
+      "why": "<em>Mit</em> takes the dative. Duden names <em>mit</em> among the prepositions that require the dative. The article is <em>dem</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -795,7 +795,7 @@
         "Accusative",
         "Dative"
       ],
-      "why": "Statt takes the genitive in standard written German. Duden names statt among the genitive prepositions. The form is des Freundes.",
+      "why": "<em>Statt</em> takes the genitive in standard written German. Duden names <em>statt</em> among the genitive prepositions. The form is <em>des Freundes</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -811,7 +811,7 @@
         "Accusative",
         "Dative"
       ],
-      "why": "Wegen takes the genitive in standard written German. The noun here shows the genitive ending. The bare singular that stays uninflected, as in wegen Umbau, is a different pattern, and it is not this sentence.",
+      "why": "<em>Wegen</em> takes the genitive in standard written German. The noun here shows the genitive ending. The bare singular that stays uninflected, as in <em>wegen</em> Umbau, is a different pattern, and it is not this sentence.",
       "lang": "de",
       "src": [
         "duden"
@@ -827,7 +827,7 @@
         "Genitive",
         "Dative"
       ],
-      "why": "In takes the accusative for the place to which. The Duden question is wohin, and the printed example is in die Stadt. The article die is that accusative.",
+      "why": "In takes the accusative for the place to which. The Duden question is wohin, and the printed example is in <em>die Stadt</em>. The article <em>die</em> is that accusative.",
       "lang": "de",
       "src": [
         "duden"
@@ -843,7 +843,7 @@
         "Accusative",
         "Genitive"
       ],
-      "why": "In takes the dative for the place where. The Duden question is wo, and the printed example is im Haus. Der Stadt is the same dative, written without the contraction.",
+      "why": "In takes the dative for the place where. The Duden question is <em>wo</em>, and the printed example is <em>im Haus</em>. <em>Der Stadt</em> is the same dative, written without the contraction.",
       "lang": "de",
       "src": [
         "duden"
@@ -862,7 +862,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "König is masculine and singular, and the case is nominative. After der the weak ending is -e, so gute agrees.",
+      "why": "<em>König</em> is masculine and singular, and the case is nominative. After <em>der</em> the weak ending is <em>-e</em>, so <em>gute</em> agrees.",
       "lang": "de",
       "src": [
         "duden"
@@ -879,7 +879,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Frau is feminine and singular. After eine the mixed ending is -e, so kleine agrees. The phrase is nominative or accusative, and both of those cells are kleine.",
+      "why": "<em>Frau</em> is feminine and singular. After <em>eine</em> the mixed ending is <em>-e</em>, so <em>kleine</em> agrees. The phrase is nominative or accusative, and both of those cells are <em>kleine</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -896,7 +896,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Buch is neuter and singular. With no article the strong ending for the nominative or the accusative is -es, so gutes agrees.",
+      "why": "<em>Buch</em> is neuter and singular. With no article the strong ending for the nominative or the accusative is <em>-es</em>, so <em>gutes</em> agrees.",
       "lang": "de",
       "src": [
         "duden"
@@ -913,7 +913,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Frau is feminine. Gutes is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
+      "why": "<em>Frau</em> is feminine. <em>Gutes</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
       "lang": "de",
       "src": [
         "duden"
@@ -930,7 +930,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "König is masculine. Kleines is the strong neuter singular, so the adjective disagrees in gender. Both words are singular. The strong masculine nominative is kleiner.",
+      "why": "<em>König</em> is masculine. <em>Kleines</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular. The strong masculine nominative is <em>kleiner</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -947,7 +947,7 @@
         "Faulty: the <b>number</b> does not agree",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Stadt is feminine. Kleines is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
+      "why": "<em>Stadt</em> is feminine. <em>Kleines</em> is the strong neuter singular, so the adjective disagrees in gender. Both words are singular.",
       "lang": "de",
       "src": [
         "duden"
@@ -964,7 +964,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Bücher is plural. Gutes is singular, and the strong nominative plural is gute, so the number does not agree. Both words are neuter.",
+      "why": "<em>Bücher</em> is plural. <em>Gutes</em> is singular, and the strong nominative plural is <em>gute</em>, so the number does not agree. Both words are neuter.",
       "lang": "de",
       "src": [
         "duden"
@@ -981,7 +981,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the adjective does not agree in <b>case</b>"
       ],
-      "why": "Meere is plural. Gutes is singular, so the number does not agree. Both words are neuter.",
+      "why": "<em>Meere</em> is plural. <em>Gutes</em> is singular, so the number does not agree. Both words are neuter.",
       "lang": "de",
       "src": [
         "duden"
@@ -998,7 +998,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the <b>number</b> does not agree"
       ],
-      "why": "Königs is genitive. Gutem is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is guten Königs.",
+      "why": "<em>Königs</em> is genitive. <em>Gutem</em> is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is <em>guten Königs</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1015,7 +1015,7 @@
         "Faulty: the adjective disagrees in <b>gender</b>",
         "Faulty: the <b>number</b> does not agree"
       ],
-      "why": "Mannes is genitive. Kleinem is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is kleinen Mannes.",
+      "why": "<em>Mannes</em> is genitive. <em>Kleinem</em> is the strong dative, so the case does not agree. Both words are masculine and singular. The strong genitive is <em>kleinen Mannes</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1029,7 +1029,7 @@
       "lemmaLine": "König, masculine, king",
       "want": "genitive singular",
       "a": "Königs",
-      "why": "The genitive singular of König is Königs. Duden prints des Königs, and no second spelling.",
+      "why": "The genitive singular of <em>König</em> is <em>Königs</em>. Duden prints <em>des Königs</em>, and no second spelling.",
       "lang": "de",
       "src": [
         "duden"
@@ -1041,7 +1041,7 @@
       "lemmaLine": "Buch, Bücher, neuter, book",
       "want": "dative plural",
       "a": "Büchern",
-      "why": "The dative plural of Buch is Büchern. Duden prints den Büchern. The nominative plural is Bücher.",
+      "why": "The dative plural of <em>Buch</em> is <em>Büchern</em>. Duden prints <em>den Büchern</em>. The nominative plural is <em>Bücher</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1053,7 +1053,7 @@
       "lemmaLine": "Stadt, feminine, city",
       "want": "nominative plural",
       "a": "Städte",
-      "why": "The nominative plural of Stadt is Städte. The accusative plural and the genitive plural have the same spelling. The dative plural is Städten.",
+      "why": "The nominative plural of <em>Stadt</em> is <em>Städte</em>. The accusative plural and the genitive plural have the same spelling. The dative plural is <em>Städten</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1065,7 +1065,7 @@
       "lemmaLine": "Mensch, masculine, human being",
       "want": "accusative singular",
       "a": "Menschen",
-      "why": "The accusative singular of the weak noun Mensch is Menschen. The same spelling is the dative singular, the genitive singular, and every plural case. The cell asked is the accusative singular. The nominative singular is Mensch.",
+      "why": "The accusative singular of the weak noun <em>Mensch</em> is <em>Menschen</em>. The same spelling is the dative singular, the genitive singular, and every plural case. The cell asked is the accusative singular. The nominative singular is <em>Mensch</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1077,7 +1077,7 @@
       "lemmaLine": "Garten, masculine, garden",
       "want": "nominative plural",
       "a": "Gärten",
-      "why": "The nominative plural of Garten is Gärten. The plural already ends in -n, so the dative plural has the same spelling.",
+      "why": "The nominative plural of <em>Garten</em> is <em>Gärten</em>. The plural already ends in <em>-n</em>, so the dative plural has the same spelling.",
       "lang": "de",
       "src": [
         "duden"
@@ -1089,7 +1089,7 @@
       "lemmaLine": "Pferd, Pferde, neuter, horse",
       "want": "dative plural",
       "a": "Pferden",
-      "why": "The dative plural of Pferd is Pferden. Duden prints den Pferden.",
+      "why": "The dative plural of <em>Pferd</em> is <em>Pferden</em>. Duden prints <em>den Pferden</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1101,7 +1101,7 @@
       "lemmaLine": "König, Könige, masculine, king",
       "want": "dative plural",
       "a": "Königen",
-      "why": "The dative plural of König is Königen. Duden prints den Königen.",
+      "why": "The dative plural of <em>König</em> is <em>Königen</em>. Duden prints <em>den Königen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1113,7 +1113,7 @@
       "lemmaLine": "Garten, masculine, garden",
       "want": "genitive singular",
       "a": "Gartens",
-      "why": "The genitive singular of Garten is Gartens. Duden prints des Gartens, and no second spelling.",
+      "why": "The genitive singular of <em>Garten</em> is <em>Gartens</em>. Duden prints <em>des Gartens</em>, and no second spelling.",
       "lang": "de",
       "src": [
         "duden"
@@ -1125,7 +1125,7 @@
       "lemmaLine": "gut, good",
       "want": "strong neuter nominative singular",
       "a": "gutes",
-      "why": "With no article, the strong neuter nominative of gut is gutes. The same spelling is the strong neuter accusative. The cell asked is the nominative.",
+      "why": "With no article, the strong neuter nominative of <em>gut</em> is <em>gutes</em>. The same spelling is the strong neuter accusative. The cell asked is the nominative.",
       "lang": "de",
       "src": [
         "duden"
@@ -1137,7 +1137,7 @@
       "lemmaLine": "sein, irregular, be",
       "want": "present, second person plural",
       "a": "seid",
-      "why": "Seid is the present, second person plural, of sein. The third person plural is sind.",
+      "why": "<em>Seid</em> is the present, second person plural, of <em>sein</em>. The third person plural is <em>sind</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1149,7 +1149,7 @@
       "lemmaLine": "sein, irregular, be",
       "want": "Perfekt, third person singular",
       "a": "ist gewesen",
-      "why": "Sein takes sein in the Perfekt. The third person singular is ist gewesen.",
+      "why": "<em>Sein</em> takes <em>sein</em> in the Perfekt. The third person singular is <em>ist gewesen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1161,7 +1161,7 @@
       "lemmaLine": "haben, irregular, have",
       "want": "present, third person singular",
       "a": "hat",
-      "why": "Hat is the present, third person singular, of haben. The stem drops b. The second person singular is hast.",
+      "why": "<em>Hat</em> is the present, third person singular, of <em>haben</em>. The stem drops b. The second person singular is <em>hast</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1173,7 +1173,7 @@
       "lemmaLine": "haben, irregular, have",
       "want": "Konjunktiv II, second person singular",
       "a": "hättest",
-      "why": "Hättest is the Konjunktiv II, second person singular, of haben. Duden prints that one spelling. The Präteritum of the same person is hattest.",
+      "why": "<em>Hättest</em> is the Konjunktiv II, second person singular, of <em>haben</em>. Duden prints that one spelling. The Präteritum of the same person is <em>hattest</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1185,7 +1185,7 @@
       "lemmaLine": "werden, irregular, become",
       "want": "present, third person singular",
       "a": "wird",
-      "why": "Wird is the present, third person singular, of werden. The second person singular is wirst.",
+      "why": "<em>Wird</em> is the present, third person singular, of <em>werden</em>. The second person singular is <em>wirst</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1197,7 +1197,7 @@
       "lemmaLine": "werden, irregular, become",
       "want": "Konjunktiv II, second person singular",
       "a": "würdest",
-      "why": "Würdest is the Konjunktiv II, second person singular, of werden. The Präteritum of the same person is wurdest. The older wardst is not this cell.",
+      "why": "<em>Würdest</em> is the Konjunktiv II, second person singular, of <em>werden</em>. The Präteritum of the same person is <em>wurdest</em>. The older <em>wardst</em> is not this cell.",
       "lang": "de",
       "src": [
         "duden"
@@ -1209,7 +1209,7 @@
       "lemmaLine": "machen, weak, make",
       "want": "Perfekt, third person singular",
       "a": "hat gemacht",
-      "why": "Machen takes haben. The third person singular of the Perfekt is hat gemacht. The participle is gemacht.",
+      "why": "<em>Machen</em> takes <em>haben</em>. The third person singular of the Perfekt is <em>hat gemacht</em>. The participle is <em>gemacht</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1221,7 +1221,7 @@
       "lemmaLine": "sprechen, strong, speak",
       "want": "present, third person singular",
       "a": "spricht",
-      "why": "Spricht is the present, third person singular, of sprechen. The vowel is i. The second person singular is sprichst.",
+      "why": "<em>Spricht</em> is the present, third person singular, of <em>sprechen</em>. The vowel is i. The second person singular is <em>sprichst</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1233,7 +1233,7 @@
       "lemmaLine": "sprechen, strong, speak",
       "want": "Konjunktiv II, third person singular",
       "a": "spräche",
-      "why": "Spräche is the Konjunktiv II, third person singular, of sprechen. The first person singular has the same spelling. The Präteritum is sprach.",
+      "why": "<em>Spräche</em> is the Konjunktiv II, third person singular, of <em>sprechen</em>. The first person singular has the same spelling. The Präteritum is <em>sprach</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1245,7 +1245,7 @@
       "lemmaLine": "geben, strong, give",
       "want": "Präteritum, third person singular",
       "a": "gab",
-      "why": "Gab is the Präteritum, third person singular, of geben. The first person singular has the same spelling. The present is gibt.",
+      "why": "<em>Gab</em> is the Präteritum, third person singular, of <em>geben</em>. The first person singular has the same spelling. The present is <em>gibt</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1257,7 +1257,7 @@
       "lemmaLine": "kommen, strong, come",
       "want": "Perfekt, third person singular",
       "a": "ist gekommen",
-      "why": "Kommen takes sein. The third person singular of the Perfekt is ist gekommen. The participle is gekommen.",
+      "why": "<em>Kommen</em> takes <em>sein</em>. The third person singular of the Perfekt is <em>ist gekommen</em>. The participle is <em>gekommen</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1269,7 +1269,7 @@
       "lemmaLine": "sehen, strong, see",
       "want": "present, second person singular",
       "a": "siehst",
-      "why": "Siehst is the present, second person singular, of sehen. The third person singular is sieht.",
+      "why": "<em>Siehst</em> is the present, second person singular, of <em>sehen</em>. The third person singular is <em>sieht</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1281,7 +1281,7 @@
       "lemmaLine": "sehen, strong, see",
       "want": "Konjunktiv II, third person singular",
       "a": "sähe",
-      "why": "Sähe is the Konjunktiv II, third person singular, of sehen. The first person singular has the same spelling. The Präteritum is sah. Duden also prints sähest and sähst for the second person, and those are not this cell.",
+      "why": "<em>Sähe</em> is the Konjunktiv II, third person singular, of <em>sehen</em>. The first person singular has the same spelling. The Präteritum is <em>sah</em>. Duden also prints <em>sähest</em> and sähst for the second person, and those are not this cell.",
       "lang": "de",
       "src": [
         "duden"
@@ -1328,7 +1328,7 @@
         "Congruous: the parts fit, but the sense is unfinished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Die agrees with Pferde, and sind gekommen agrees with that plural subject. Kommen takes sein. The sentence is complete.",
+      "why": "<em>Die</em> agrees with <em>Pferde</em>, and <em>sind gekommen</em> agrees with that plural subject. <em>Kommen</em> takes <em>sein</em>. The sentence is complete.",
       "lang": "de",
       "src": [
         "duden"
@@ -1343,7 +1343,7 @@
         "Congruous: the parts fit, but the sense is unfinished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "The subject, the dative, the accusative, and the Perfekt of geben fit. A finite verb finishes the sentence.",
+      "why": "The subject, the dative, the accusative, and the Perfekt of <em>geben</em> fit. A finite verb finishes the sentence.",
       "lang": "de",
       "src": [
         "duden"
@@ -1358,7 +1358,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Gute fits König, and der fits König. There is no verb, so the sense is not yet complete.",
+      "why": "<em>Gute</em> fits <em>König</em>, and <em>der</em> fits <em>König</em>. There is no verb, so the sense is not yet complete.",
       "lang": "de",
       "src": [
         "duden"
@@ -1373,7 +1373,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Kleine fits Frau, and eine fits Frau. There is no verb, so the sense is not yet complete.",
+      "why": "<em>Kleine</em> fits <em>Frau</em>, and <em>eine</em> fits <em>Frau</em>. There is no verb, so the sense is not yet complete.",
       "lang": "de",
       "src": [
         "duden"
@@ -1388,7 +1388,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Incongruous: the parts do not fit with one another, so the construction fails"
       ],
-      "why": "Das fits Buch, and des Mannes is a genitive. There is no finite verb, so the sense is not yet complete.",
+      "why": "<em>Das</em> fits <em>Buch</em>, and <em>des Mannes</em> is a genitive. There is no finite verb, so the sense is not yet complete.",
       "lang": "de",
       "src": [
         "duden"
@@ -1403,7 +1403,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Congruous: the parts fit, but the sense is unfinished"
       ],
-      "why": "König is singular. Sprechen is the plural form, and the same spelling is the infinitive. Neither fits this subject. Sprechen is a real form, and the fault is the join.",
+      "why": "<em>König</em> is singular. <em>Sprechen</em> is the plural form, and the same spelling is the infinitive. Neither fits this subject. <em>Sprechen</em> is a real form, and the fault is the join.",
       "lang": "de",
       "src": [
         "duden"
@@ -1418,7 +1418,7 @@
         "Complete: the parts fit, and the sentence is finished",
         "Congruous: the parts fit, but the sense is unfinished"
       ],
-      "why": "Frau is feminine and das is neuter. The parts do not fit. Each word is a German form, and the fault is the join.",
+      "why": "<em>Frau</em> is feminine and <em>das</em> is neuter. The parts do not fit. Each word is a German form, and the fault is the join.",
       "lang": "de",
       "src": [
         "duden"
@@ -1435,7 +1435,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Sprichte is not a form of sprechen. The present, third person singular, is spricht. The fault is in the one word.",
+      "why": "<em>Sprichte</em> is not a form of <em>sprechen</em>. The present, third person singular, is <em>spricht</em>. The fault is in the one word.",
       "lang": "de",
       "src": [
         "duden"
@@ -1450,7 +1450,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Büchers is not the plural of Buch. The plural is Bücher. Sind is a real form, and the fault is in the one noun.",
+      "why": "<em>Büchers</em> is not the plural of <em>Buch</em>. The plural is <em>Bücher</em>. <em>Sind</em> is a real form, and the fault is in the one noun.",
       "lang": "de",
       "src": [
         "duden"
@@ -1465,7 +1465,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Geseht is not the participle of sehen. The participle is gesehen. Hat is a real form, and the fault is in the one word.",
+      "why": "<em>Geseht</em> is not the participle of <em>sehen</em>. The participle is <em>gesehen</em>. <em>Hat</em> is a real form, and the fault is in the one word.",
       "lang": "de",
       "src": [
         "duden"
@@ -1480,7 +1480,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Der and guter are both real forms. After der the adjective takes the weak ending, which is gute. The fault is the join.",
+      "why": "<em>Der</em> and <em>guter</em> are both real forms. After <em>der</em> the adjective takes the weak ending, which is <em>gute</em>. The fault is the join.",
       "lang": "de",
       "src": [
         "duden"
@@ -1495,7 +1495,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Bist is a real present of sein, the second person singular. The subject Frau is third person singular, so the verb does not fit it. The third person is ist.",
+      "why": "<em>Bist</em> is a real present of <em>sein</em>, the second person singular. The subject <em>Frau</em> is third person singular, so the verb does not fit it. The third person is <em>ist</em>.",
       "lang": "de",
       "src": [
         "duden"
@@ -1510,7 +1510,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Den is a real masculine accusative, and Frau is a real feminine noun. The accusative feminine is die. The fault is the join.",
+      "why": "<em>Den</em> is a real masculine accusative, and <em>Frau</em> is a real feminine noun. The accusative feminine is <em>die</em>. The fault is the join.",
       "lang": "de",
       "src": [
         "duden"
@@ -1525,7 +1525,7 @@
         "No fault: the sentence is sound",
         "A figure: the poets are allowed this departure"
       ],
-      "why": "Mit and den are both real forms. Mit takes the dative, which is dem. Den is accusative. The fault is the join.",
+      "why": "<em>Mit</em> and <em>den</em> are both real forms. <em>Mit</em> takes the dative, which is <em>dem</em>. <em>Den</em> is accusative. The fault is the join.",
       "lang": "de",
       "src": [
         "duden"

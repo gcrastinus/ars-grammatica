@@ -18,7 +18,7 @@
     }
    },
    {
-    "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where ge- is not part of the stem. The inseparable prefixes be-, ge-, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
+    "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where <em>ge-</em> is not part of the stem. The inseparable prefixes be-, <em>ge-</em>, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
     "q": {
      "prompt": "Where is the stress in <span lang=\"de\">gesprochen</span>?",
      "options": [
@@ -32,7 +32,7 @@
     }
    },
    {
-    "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in -ieren are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in -ität and -ei on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
+    "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in <em>-ieren</em> are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in <em>-ität</em> and <em>-ei</em> on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
     "q": {
      "prompt": "Where is the stress in <span lang=\"de\">studieren</span>?",
      "options": [
@@ -76,7 +76,7 @@
      "Three",
      "Four"
     ],
-    "why": "Au is a diphthong, one sound, so the word is Bau-er."
+    "why": "<em>Au</em> is a diphthong, one sound, so the word is <em>Bau-er</em>."
    },
    {
     "id": "dsy2",
@@ -88,7 +88,7 @@
      "Six",
      "Three"
     ],
-    "why": "The word is U-ni-ver-si-tät."
+    "why": "The word is <em>U-ni-ver-si-tät</em>."
    },
    {
     "id": "dsy3",
@@ -148,7 +148,7 @@
      "-hen",
      "All three equally"
     ],
-    "why": "Ver- is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
+    "why": "<em>Ver-</em> is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
    },
    {
     "id": "dsy8",
@@ -184,7 +184,7 @@
      "-ren",
      "All three equally"
     ],
-    "why": "Verbs in -ieren are stressed on -ie-."
+    "why": "Verbs in <em>-ieren</em> are stressed on <em>-ie-</em>."
    },
    {
     "id": "dsy11",
@@ -196,7 +196,7 @@
      "The second, -cke-",
      "None"
     ],
-    "why": "Nouns in -ei are stressed on the last syllable."
+    "why": "Nouns in <em>-ei</em> are stressed on the last syllable."
    },
    {
     "id": "dsy12",
@@ -220,7 +220,7 @@
      "-chen",
      "All three equally"
     ],
-    "why": "Ge- is an unstressed prefix, and the stress falls on the stem."
+    "why": "<em>Ge-</em> is an unstressed prefix, and the stress falls on the stem."
    },
    {
     "id": "dsy14",

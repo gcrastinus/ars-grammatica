@@ -76,7 +76,7 @@
      "Three",
      "Four"
     ],
-    "why": "Ai is one vowel sound and on another: mai-son."
+    "why": "<em>Ai</em> is one vowel sound and on another: <em>mai-son</em>."
    },
    {
     "id": "fsy2",
@@ -88,7 +88,7 @@
      "Three",
      "Four"
     ],
-    "why": "Eau is one vowel sound, so beau is one syllable."
+    "why": "<em>Eau</em> is one vowel sound, so <em>beau</em> is one syllable."
    },
    {
     "id": "fsy3",
@@ -100,7 +100,7 @@
      "Three",
      "None"
     ],
-    "why": "The final mute e is not sounded in ordinary speech, so table is one syllable."
+    "why": "The final mute e is not sounded in ordinary speech, so <em>table</em> is one syllable."
    },
    {
     "id": "fsy4",
@@ -159,7 +159,7 @@
      "The stress at the end of a group",
      "A vowel lengthened before r"
     ],
-    "why": "In l’homme and j’ai the final vowel of le and je is dropped, and the apostrophe marks its place."
+    "why": "In <em>l’homme</em> and <em>j’ai</em> the final vowel of <em>le</em> and <em>je</em> is dropped, and the apostrophe marks its place."
    },
    {
     "id": "fsy9",
@@ -183,7 +183,7 @@
      "The h of héros is mute",
      "Le never elides"
     ],
-    "why": "An aspirated h, though it is not pronounced, blocks both elision and liaison: le héros, les héros."
+    "why": "An aspirated h, though it is not pronounced, blocks both elision and liaison: <em>le héros</em>, <em>les héros</em>."
    },
    {
     "id": "fsy11",
@@ -219,7 +219,7 @@
      "That it is long",
      "That it is plural"
     ],
-    "why": "The grave on à and où tells these words apart from a and ou. It does not mark stress."
+    "why": "The grave on <em>à</em> and <em>où</em> tells these words apart from a and <em>ou</em>. It does not mark stress."
    },
    {
     "id": "fsy14",
