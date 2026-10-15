@@ -1752,7 +1752,7 @@ DECKS.prelim = {
 <p>They come in that order because logic works on statements, and a statement is made of words; so, if we do not know what a word is doing in a sentence, we cannot say what the sentence asserts. This course therefore builds from the beginning: the English term comes first, and the Latin name is given beside it where it helps.</p>` },
 
 { src:['isidore','appown'], h:`<p><strong>Why it is named grammar.</strong> The name comes from the word for <strong>letter</strong>, that is, a mark of a sound that can be written. The art nevertheless begins in the voice, because a letter is a sound written down; if there were no voice, there would be nothing for the letter to mark.</p>
-<p>It is named from writing for a reason, and not only because of its history. Congruous speech (speech whose words fit together rightly) reaches its highest and most lasting forms in writings, especially in the works of the poets and the philosophers. Without writing, the study and imitation of great works could not reach as far, since the authors of the past would not be there for us to consider; advanced study of connected speech therefore depends on texts.</p>
+<p>It is named from writing for a reason, and not only because of its history. Congruous speech (speech whose words fit together correctly) reaches its highest and most lasting forms in writings, especially in the works of the poets and the philosophers. Without writing, the study and imitation of great works could not reach as far, since the authors of the past would not be there for us to consider; advanced study of connected speech therefore depends on texts.</p>
 <p>So the name looks to the mark, but the material of the art is first the sound; for that reason this course treats voice before the letter.</p>`,
   q:{ prompt:`Why do we treat voice before the letter, if the art is named from the letter?`,
       options:['Because letters were invented later than speech, and the course follows history','Because a letter is the mark of a sound, and voice is that sound',
@@ -2816,7 +2816,7 @@ DECKS.agree = {
   panels:[
 
 { src:['te','ag'], h:`<p><strong>AGREEMENT.</strong> Some words do not merely sit near others; they <strong>agree</strong> with them. The older name is <span class="lat">concordantia</span>.</p>
-<p>An adjective agrees with its noun in <strong>gender</strong>, <strong>number</strong>, and <strong>case</strong>. English says <em>a good sailor</em>, and the form of <em>good</em> does not change. Latin <em>bonus nauta</em>, the good sailor, must match. <em>bona nauta</em> fails in gender; <em>boni nauta</em> fails in number; <em>bonum nauta</em>, if <em>nauta</em> is the subject, fails in case.</p>
+<p>An adjective agrees with its noun in <strong>gender</strong>, <strong>number</strong>, and <strong>case</strong>. English says <em>a good sailor</em>, and the form of <em>good</em> does not change. Latin <em>bonus nauta</em>, the good sailor, must match. <em>bona nauta</em> is incorrect in gender; <em>boni nauta</em> is incorrect in number; <em>bonum nauta</em>, if <em>nauta</em> is the subject, fails in case.</p>
 <p>Thomas of Erfurt gives the reason. The adjective signifies by adhering to another, so it requires in that other the mode of standing by itself, and the accidents they share (gender, number, case) must conform. Agreement therefore follows from what the adjective is, and is not a mere custom.</p>`,
   q:{ prompt:`An adjective agrees with its noun in…`,
       options:['Tense only','Gender, number, and case','Person and mood','Nothing, since adjectives do not inflect'],
@@ -2910,7 +2910,7 @@ in the arrangement of words.</p>
       options:['Barbarism: a fault in one word','Solecism: the words do not fit',
                'No fault, because the meaning is clear','A trope, since a word is used out of place'],
       correct:1,
-      explain:`<em>Boys</em> and <em>runs</em> are both English words, but they do not agree, and that is solecism. Barbarism would be a single word wrongly formed, such as <em>runned</em> or <em>childs</em>.` } },
+      explain:`<em>Boys</em> and <em>runs</em> are both English words, but they do not agree, and that is solecism. Barbarism would be a single word not correctly formed, such as <em>runned</em> or <em>childs</em>.` } },
 
 { src:['appown'], h:`<p>Which is correct: “childs” or “children”? “The boys runs” or “The boys run”? We already hear both faults. The first is a fault in a single word, a barbarism. The second is a fault in joining words, a solecism.</p>` },
 
@@ -6798,7 +6798,7 @@ const VICE_ITEMS = [
   {id:'vc6', lang:'en', src:['donatus'], q:'Donatus’s division: barbarism is to a single word as solecism is to…',
    a:'The arrangement of words',
    ds:['The letter, the least part of sound','Truth, the agreement of speech with things','Rhetoric, the art of moving a hearer'],
-   why:'Barbarism is one word wrongly made; solecism is good words wrongly arranged. The same departures, when a poet is allowed them, are metaplasm and figure.'},
+   why:'Barbarism is one word formed wrongly; solecism is good words incorrectly arranged. The same departures, when a poet is allowed them, are metaplasm and figure.'},
   {id:'vc7', lang:'en', src:['donatus'], s:'She <b>goed</b> to the harbor at dawn.',
    q:'What kind of fault?',
    a:'Barbarism: the past of <em>go</em> is <em>went</em>',
@@ -6810,12 +6810,12 @@ const VICE_ITEMS = [
    ds:['Barbarism: <em>are</em> is not an English word','Barbarism: <em>heavy</em> is a foreign word','No fault: the sentence is sound as it stands'],
    why:'Every word is English, but the verb does not fit its subject. Congruity has failed in the arrangement.'},
   {id:'vc9', lang:'la', src:['donatus','verg_pd'], s:'pars in frusta <b>secant</b> (Aeneid I.212)',
-   q:'Donatus counts this as a solecism. In which accident does it fail?',
+   q:'Donatus counts this as a solecism. In which of the accidents is it incorrect?',
    a:'Number: <em>secant</em>, not <em>secat</em>',
    ds:['Case: <em>frusta</em> for <em>frustis</em>','Gender: <em>pars</em> is masculine','Tense: <em>secant</em> for <em>secuerunt</em>'],
    why:'Donatus gives this as a solecism by number: <span class="lat">pars in frusta secant pro secat</span>. <em>Pars</em> is singular, and the verb is plural, because the sense is “some of them.” In a poet the same thing is allowed as a figure.'},
   {id:'vc10', lang:'la', src:['donatus','verg_pd'], s:'<b>urbem</b> quam statuo vestra est (Aeneid I.573)',
-   q:'Donatus counts this as a solecism. In which accident does it fail?',
+   q:'Donatus counts this as a solecism. In which of the accidents is it incorrect?',
    a:'Case: <em>urbem</em> for <em>urbs</em>',
    ds:['Number: <em>statuo</em> for <em>statuimus</em>','Gender: <em>vestra</em> for <em>vester</em>','Mood: <em>est</em> for <em>sit</em>'],
    why:'Donatus: <span class="lat">per casus, sicut urbem quam statuo vestra est pro urbs quam statuo</span>. <em>Urbem</em> is the subject of <em>est</em> and should be nominative; it has been drawn into the case of the relative <em>quam</em>.'},
@@ -6850,7 +6850,7 @@ EX.vices = {
         {s:`The book on the table <b>are</b> heavy.`, w:`Every word is English, but the verb does not fit its subject.`, kind:'s'},
         {s:`Between you and <b>I</b>, they left.`, w:`<em>I</em> is English, but after <em>between</em> the object form is required.`, kind:'s'},
         {s:`The ${n}s <b>is</b> ready.`, w:`A plural subject has a singular verb, and so the construction has failed.`, kind:'s'},
-        {s:`Him <b>go</b> store yesterday.`, w:`The pieces are good but badly arranged: case and verb-form both fail.`, kind:'s'}
+        {s:`Him <b>go</b> store yesterday.`, w:`The pieces are good but badly arranged: case and verb-form both are incorrect.`, kind:'s'}
       ]);
       const it = rand([barb, sol]);
       const a = it.kind === 'b'
@@ -7107,7 +7107,7 @@ const FIG_ITEMS = [
    why:'The noun signifies its thing as a settled thing one may talk about, and so <em>whiteness</em> is rightly a noun. But whiteness exists only in something white; the mind may signify an accident in the manner of a substance without making it one. The argument reads the mode of signifying as a mode of being.'},
   {id:'fg9', lang:'en', src:['arist_se'], q:'“No one can be cutting a thing and have cut it at the same moment; seeing is said like cutting; so no one can be seeing and have seen at the same moment.” Aristotle answers that…',
    a:'Seeing is not a doing, though it is said in the same form',
-   ds:['The premise about cutting is false, and so the argument fails','Seeing and cutting are both actions, and the conclusion stands','The argument is a solecism, since <em>seen</em> is wrongly formed'],
+   ds:['The premise about cutting is false, and so the argument fails','Seeing and cutting are both actions, and the conclusion stands','The argument is a solecism, since <em>seen</em> is incorrectly formed'],
    why:'In <em>Sophistical Refutations</em> 22 Aristotle says the one who has granted that one cannot do and have done at once is not refuted about seeing, since <em>to see</em> is not to do something but to undergo; the hearer supplies the likeness from the form of the words.'},
   {id:'fg10', lang:'en', src:['arist_se','appown'], q:'“<em>To suffer</em> is a verb with an active ending, like <em>to strike</em>; therefore suffering is something we do.” What has gone wrong?',
    a:'Undergoing is taken for doing, from the form',
@@ -10757,7 +10757,7 @@ function fltItem(o){
 }
 const EN_FAULT = [
   fltItem({id:'eu1', dmin:1, s:'Because the gate was shut.', a:'A sentence fragment',
-    why:'The <em>because</em>-clause depends, and nothing is written for it to depend on. The parts are ordinary words, and the sentence is not complete. A fragment fails the demand for a complete sense.'}),
+    why:'The <em>because</em>-clause depends, and nothing is written for it to depend on. The parts are ordinary words, and the sentence is not complete. A fragment does not make a complete thought.'}),
   fltItem({id:'eu2', dmin:1, s:'The king arrived the queen departed.', a:'A run-on sentence',
     why:'Two independent clauses are fused, with no mark and no conjunction. Each word may be a possible word. The fault is in the arrangement, which is a solecism, and a modern class calls this fusion a run-on.'}),
   fltItem({id:'eu3', dmin:1, s:'The king arrived, the queen departed.', a:'A comma splice',
