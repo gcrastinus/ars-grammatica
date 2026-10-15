@@ -4332,12 +4332,12 @@ window.GERMAN = {
   }
  },
  "cards": {
-  "title": "German beside Latin",
-  "description": "What modern German has, and where it differs from Latin.",
+  "title": "The Accidents of German Compared to Latin",
+  "description": "The accidents of modern German: what it has, and where it differs from Latin.",
   "cards": [
    {
     "heading": "Modern German",
-    "text": "We set modern German beside Latin. The forms here are the forms of standard written German, the German of the school grammar and of the Duden. We do not use an older stage of the language, and we do not use a regional dialect."
+    "text": "We compare modern German to Latin. The forms here are the forms of standard written German, the German of the school grammar and of the Duden. We do not use an older stage of the language, and we do not use a regional dialect."
    },
    {
     "heading": "The article",
