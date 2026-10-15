@@ -7238,7 +7238,9 @@ EX.vices = {
         }
       };
     }
-    const pool = d <= 1 ? VICE_ITEMS.filter(x => ['vc1','vc2','vc6','vc7','vc8'].indexOf(x.id) >= 0) : d === 2 ? VICE_ITEMS.filter(x => ['vc9','vc10','vc11','vc12'].indexOf(x.id) < 0) : VICE_ITEMS;
+    /* The Latin items are asked in the Latin group (latfaults). */
+    const gen = VICE_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0);
+    const pool = d <= 1 ? gen.filter(x => ['vc1','vc2','vc6','vc7','vc8'].indexOf(x.id) >= 0) : gen;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
 };
@@ -7316,9 +7318,92 @@ EX.figures = {
   desc:'Fault or license, the kinds of metaplasm, figures of words, the tropes, and what a trope signifies.',
   instr:'Name the fault, license, figure, or trope.',
   gen(d){
-    const easy = ['fd1','fd4','fd6','fd7','fd11','fd13','fd15','fd16'];
-    const pool = d <= 1 ? FIGDON_ITEMS.filter(x => easy.indexOf(x.id) >= 0) : FIGDON_ITEMS;
+    /* The Latin examples are asked in the Latin group (latfaults, latfigs). */
+    const gen = FIGDON_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0 && LATFIG_IDS.indexOf(x.id) < 0);
+    const easy = ['fd8','fd9','fd11','fd15','fd16'];
+    const pool = d <= 1 ? gen.filter(x => easy.indexOf(x.id) >= 0) : gen;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
+  }
+};
+
+
+/* ============================================================
+   The Latin group of Faults, License, and Figures: Donatus's own Latin examples, split from the general sets, and
+   a few more of his Virgilian examples of figures and tropes.
+   ============================================================ */
+const FIGLAT_MORE = [
+  {id:'fl1', lang:'la', src:['donatus','verg_pd'], q:'<em>torrere parant flammis et frangere saxo</em> (Aeneid I.179), where the grain is parched before it is ground, Donatus calls…', a:'Hysterologia: what comes later is said first',
+   ds:['Polysyndeton: more conjunctions than needed','Metaphor: a word carried over','Apocope: a letter taken from the end'],
+   why:'The grain is ground after it is parched, but Virgil names the parching first. Donatus gives this line for hysterologia.'},
+  {id:'fl2', lang:'la', src:['donatus','verg_pd'], q:'<em>et iam prima novo spargebat lumine terras / Tithoni croceum linquens Aurora cubile</em> (Aeneid IV.584–585), for “it was dawn,” is…', a:'Periphrasis: many words for one thing',
+   ds:['Hyperbole: more than the truth','Antonomasia: a name put for a name','Ellipsis: a word left out'],
+   why:'Two lines say “day was breaking.” Donatus gives these lines for periphrasis, a circumlocution for ornament.'},
+  {id:'fl3', lang:'la', src:['donatus','verg_pd'], q:'<em>clangorque tubarum</em> (Aeneid II.313), a word that sounds like what it names, is…', a:'Onomatopoeia: a name made from the sound',
+   ds:['Metonymy: the maker for the thing made','Synecdoche: the part for the whole','Irony: the contrary of what is said'],
+   why:'<em>Clangor</em> imitates the blare of the trumpets. Donatus lists it under onomatopoeia.'},
+  {id:'fl4', lang:'la', src:['donatus'], q:'<em>saxo cere comminuit brum</em> (Ennius), where <em>cerebrum</em> is cut in two by another word, is…', a:'Tmesis: one word cut by another',
+   ds:['Syncope: a letter taken from the middle','Diaeresis: one syllable made two','Metathesis: a letter moved'],
+   why:'The word <em>cerebrum</em> is split, and <em>comminuit</em> set between its parts. Donatus quotes Ennius for tmesis.'}
+];
+const LATFAULT_IDS = ['vc3','vc4','vc9','vc10','vc11','vc12','fd1','fd2','fd3','fd4','fd5','fd6','fd7','fd19','fd20','fd21'];
+const LATFIG_IDS = ['fd12','fd13','fd14'];
+DECKS.latfaults = {
+  title:'Latin Barbarism, Solecism, and Metaplasm',
+  sub:'Donatus’s faults, and the same departures allowed to the poets, in his Latin examples',
+  panels:[
+
+{ src:['donatus'], h:`<p><strong>IN LATIN.</strong> We already hear that <em>puella bonus est</em> is wrong: <em>bonus</em> is a good Latin word, but it does not fit <em>puella</em>. Donatus calls a fault in one word a <strong>barbarism</strong> (<em>amavis</em> for <em>amavisti</em> would be one), and a fault in the joining of words a <strong>solecism</strong>.</p>
+<p>He finds solecisms even in Virgil, by the accidents: in number, <em>pars in frusta secant</em> (Aeneid I.212), a singular subject with a plural verb; in case, <em>urbem quam statuo vestra est</em> (I.573), where <em>urbem</em> takes the case of the relative. In a poet he calls them figures, not faults.</p>`,
+  q:{ prompt:'In <em>pars in frusta secant</em>, the mismatch is in…',
+      options:['Number','Case','Gender','Tense'],
+      correct:0,
+      explain:'<em>Pars</em> is singular and <em>secant</em> plural; the sense, “some of them,” is plural. In a poet Donatus allows it as a figure.' } },
+
+{ src:['donatus'], h:`<p><strong>METAPLASM.</strong> The barbarism a poet is allowed, for the meter or for ornament, Donatus calls a metaplasm, and he names its kinds from what is done to the word: a letter added at the front (<em>gnato</em> for <em>nato</em>, prosthesis), in the middle (<em>relliquias</em>, epenthesis), or at the end (<em>potestur</em>, paragoge); taken from the front (<em>temno</em> for <em>contemno</em>, aphaeresis), the middle (<em>commorat</em>, syncope), or the end (<em>Achilli</em>, apocope); one letter for another (<em>olli</em> for <em>illi</em>, antithesis); a letter moved (<em>Euandre</em>, metathesis); one syllable made two (<em>Albai longai</em>, diaeresis).</p>
+<p>The same <em>temno</em> written by a schoolboy in plain prose is a barbarism: the license belongs to verse.</p>`,
+  q:{ prompt:'<em>commorat</em> for <em>commoverat</em> is…',
+      options:['Syncope: taken from the middle','Apocope: taken from the end','Prosthesis: added at the front','Metathesis: a letter moved'],
+      correct:0,
+      explain:'The syllable <em>-ve-</em> is taken out of the middle of the word.' } }
+  ]
+};
+DECKS.latfigs = {
+  title:'Latin Figures and Tropes',
+  sub:'Donatus’s figures of words and tropes, in his examples from Virgil and Ennius',
+  panels:[
+
+{ src:['donatus','verg_pd'], h:`<p><strong>FIGURES OF WORDS.</strong> A figure arranges plain words in an unusual way. Donatus’s examples are Latin, many of them from Virgil: <em>Acamasque Thoasque Pelidesque Neoptolemusque</em>, with more conjunctions than are needed (polysyndeton); <em>torrere parant flammis et frangere saxo</em>, the later thing said first (hysterologia); <em>saxo cere comminuit brum</em>, a word cut by another (tmesis, from Ennius).</p>`,
+  q:{ prompt:'The repeated <em>-que</em> in <em>Acamasque Thoasque Pelidesque Neoptolemusque</em> is…',
+      options:['Polysyndeton','Tmesis','Ellipsis','Metaphor'],
+      correct:0,
+      explain:'More conjunctions than the list needs, for weight.' } },
+
+{ src:['donatus','servius','verg_pd'], h:`<p><strong>TROPES.</strong> A trope carries a word from its proper signification to another. Donatus’s Latin examples: <em>Ceres</em> for bread, in <em>sine Cerere et Libero friget Venus</em> (metonymy); <em>Anchisiades</em> for Aeneas (antonomasia); two lines of Virgil on Aurora leaving Tithonus’s bed for “it was dawn” (periphrasis); <em>clangor tubarum</em>, a name made from the sound (onomatopoeia).</p>
+<p>Servius, commenting on Virgil line by line, names the same figures and tropes where they occur, and so a reader of the <i>Aeneid</i> in the schools learned Donatus’s list on Virgil’s lines.</p>`,
+  q:{ prompt:'<em>Ceres</em> put for bread is…',
+      options:['Metonymy: the discoverer’s name for the thing','Synecdoche: the part for the whole','Irony','Onomatopoeia'],
+      correct:0,
+      explain:'Ceres gave grain to men, and her name stands for what she gave.' } }
+  ]
+};
+EX.latfaults = {
+  id:'latfaults', src:['donatus','verg_pd'], act:'VI', title:'Latin Barbarism, Solecism, and Metaplasm',
+  desc:'Donatus’s Latin examples: name the fault, say in which accident a solecism fails, or name the kind of metaplasm.',
+  instr:'Name the fault or the license.',
+  gen(d){
+    const all = VICE_ITEMS.concat(FIGDON_ITEMS).filter(x => LATFAULT_IDS.indexOf(x.id) >= 0);
+    const easy = ['vc3','vc4','fd1','fd4','fd6','fd7'];
+    const pool = d <= 1 ? all.filter(x => easy.indexOf(x.id) >= 0) : all;
+    return Object.assign(makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4), {lang:'la'});
+  }
+};
+EX.latfigs = {
+  id:'latfigs', src:['donatus','verg_pd'], act:'VI', title:'Latin Figures and Tropes',
+  desc:'Donatus’s figures and tropes in Latin lines of Virgil and Ennius: name the figure or the trope.',
+  instr:'Name the figure or the trope.',
+  gen(d){
+    const pool = FIGDON_ITEMS.filter(x => LATFIG_IDS.indexOf(x.id) >= 0).concat(FIGLAT_MORE);
+    return Object.assign(makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4), {lang:'la'});
   }
 };
 
@@ -17622,7 +17707,11 @@ const ACTS = [
      {kind:'row', deck:'enfault', tag:'STUDY · ENGLISH GRAMMAR', title:'Common Faults in English',
       desc:'Fragment, run-on, comma splice, and the dangling or misplaced modifier, set beside barbarism and solecism.', ex:['enfault']},
      {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
-      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
+      desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']},
+     {kind:'row', deck:'latfaults', tag:'STUDY', title:'Latin Barbarism, Solecism, and Metaplasm',
+      desc:'Donatus’s faults in his Latin examples, and Virgil’s solecisms allowed as figures; the kinds of metaplasm, from <em>gnato</em> to <em>Albai longai</em>.', ex:['latfaults']},
+     {kind:'row', deck:'latfigs', tag:'STUDY', title:'Latin Figures and Tropes',
+      desc:'Polysyndeton, hysterologia, tmesis; metonymy, antonomasia, periphrasis, onomatopoeia: Donatus’s figures and tropes in lines of Virgil and Ennius, as Servius reads them.', ex:['latfigs']}
    ]},
   {key:'VI', roman:'VI', name:'The Reasons for the Parts', latin:'Modi Significandi',
    gloss:'Why the parts and accidents are these: Priscian’s facts, the modists’ reasons, and the objections.',
@@ -17736,7 +17825,7 @@ function goHome(){
 }
 const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', cmp:'Greek, French, and German', other:'Other languages'};
 /* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
-const LATIN_ROWS = ['syllable','latpos','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
+const LATIN_ROWS = ['syllable','latpos','latfaults','latfigs','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
 /* Brief notes on a language in a section that has no sets of that language: the parts of speech are broadly the same
    across these languages, and only the differences are named. */
 const SEC_LANG_NOTE = {};
