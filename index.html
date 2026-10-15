@@ -173,6 +173,10 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .intro-note strong{color:var(--ink)}
 
 .diff-row{display:flex; justify-content:center; gap:14px; flex-wrap:wrap}
+.art-row{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:14px}
+.art-btn{font:inherit; font-size:14px; padding:7px 14px; border:1px solid var(--rule, #ccc); background:transparent; color:var(--ink-soft); border-radius:4px; cursor:pointer}
+.art-btn.sel{color:var(--ink); border-color:var(--ink); font-weight:600}
+.art-note{font-size:14px; color:var(--ink-soft); border-left:2px solid var(--rule, #ccc); padding:6px 12px; margin:0 0 14px}
 .diff-btn{
   font-family:'Cinzel',serif; font-size:17px; width:54px; height:44px; cursor:pointer;
   border:1px solid var(--line); background:var(--card); color:var(--ink-soft);
@@ -746,6 +750,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     <div class="section-label">Difficulty</div>
     <div class="diff-row" id="diff-row"></div>
     <div class="diff-desc" id="diff-desc"></div>
+    <div class="art-row" id="art-row"></div>
 
     <div class="rule"></div>
 
@@ -1434,7 +1439,8 @@ const store = {
   dark:null, diff:1, modes:{},
   langs:{},           /* exId -> 'la', 'grc', 'fr', or 'de', the partner language chosen for that exercise */
   langPick:null,      /* no longer used: the language is chosen in each section */
-  secLang:{}          /* section key -> 'grc', 'de', or 'fr', the other language chosen in that section of the home page */
+  secLang:{},         /* section key -> 'grc', 'de', or 'fr', the other language chosen in that section of the home page */
+  art:false           /* true: The Art of Grammar alone; false: The Art of Grammar + Three Languages (the full course) */
 };
 
 function save(){
@@ -1443,7 +1449,7 @@ function save(){
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
       mistakes: store.mistakes.slice(-60), dark: state.dark, diff: state.diff,
       modes: store.modes,
-      langs: store.langs, secLang: store.secLang,
+      langs: store.langs, secLang: store.secLang, art: store.art,
       speakRate: state.speakRate
     }));
   }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
@@ -1460,6 +1466,7 @@ function load(){
     store.modes = o.modes || {};
     store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
     store.secLang = (o.secLang && typeof o.secLang === 'object') ? o.secLang : {};
+    store.art = o.art === true;
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
     if(o.speakRate) state.speakRate = o.speakRate;
@@ -7198,7 +7205,7 @@ EX.vices = {
       };
     }
     /* The Latin items are asked in the Latin group (latfaults). */
-    const gen = VICE_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0);
+    const gen = store.art ? VICE_ITEMS : VICE_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0);
     const pool = d <= 1 ? gen.filter(x => ['vc1','vc2','vc6','vc7','vc8'].indexOf(x.id) >= 0) : gen;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
   }
@@ -7278,7 +7285,7 @@ EX.figures = {
   instr:'Name the fault, license, figure, or trope.',
   gen(d){
     /* The Latin examples are asked in the Latin group (latfaults, latfigs). */
-    const gen = FIGDON_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0 && LATFIG_IDS.indexOf(x.id) < 0);
+    const gen = store.art ? FIGDON_ITEMS.concat(FIGLAT_MORE) : FIGDON_ITEMS.filter(x => LATFAULT_IDS.indexOf(x.id) < 0 && LATFIG_IDS.indexOf(x.id) < 0);
     const easy = ['fd8','fd9','fd11','fd15','fd16'];
     const pool = d <= 1 ? gen.filter(x => easy.indexOf(x.id) >= 0) : gen;
     return makeMC(pickSeen(pool, x => x.id), d <= 1 ? 3 : 4);
@@ -17293,7 +17300,7 @@ const PL = {
 const deStrict = v => partnerLc(v).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 /* The third language chosen on the home page, or null. */
 /* The other language chosen in the section of the home page from which the study or exercise was opened, or null. */
-function thirdLang(){ const a = state.curSec ? ACTS.find(x => x.key === state.curSec) : null; if(!a || a.noLangChoice) return null; const k = secLangOf(a); return PL[k] && PL[k].data ? k : null; }
+function thirdLang(){ if(store.art) return null; const a = state.curSec ? ACTS.find(x => x.key === state.curSec) : null; if(!a || a.noLangChoice) return null; const k = secLangOf(a); return PL[k] && PL[k].data ? k : null; }
 const plSpan = (L, s) => `<span lang="${L.key}">${s}</span>`;
 /* One blank in a frame, or a form named by its English line; tiles at the first two levels, typed above. */
 function partnerSentQ(L, it, d, sidPrefix){
@@ -17463,7 +17470,12 @@ if(DEU){
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers compared to Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
+/* English for the made-up Latin, Greek, French, and German sentences of the general exercises, shown on request.
+   For a sentence that is wrong on purpose, the English gives the intended sense and names the fault. */
+const SENT_EN = {"Heu, puer cadit.": "Alas, the boy falls.","Heu, fortis miles pugnat.": "Alas, the brave soldier fights.","apud amicum eo": "Intended sense: “I am going to my friend’s” (but <em>apud</em>, “at,” is put where motion toward needs <em>ad</em>).","pars in frusta secant (Aeneid I.212)": "Some cut it into pieces.","torvumque repente clamat (Aeneid VII.399)": "And suddenly she cries out fiercely.","Puer patrem amavis.": "Intended sense: “The boy loved his father” (but <em>amavis</em> is not a Latin form).","urbem quam statuo vestra est (Aeneid I.573)": "The city which I am founding is yours.", "Die Frau kommt.": "The woman comes.", "Ich sehe das Buch.": "I see the book.", "Der König gibt dem Mann das Buch.": "The king gives the man the book.", "Der König sieht den Mann.": "The king sees the man.", "Der König sieht den Menschen.": "The king sees the human being.", "Der König sieht das Buch.": "The king sees the book.", "Das Buch des Freundes ist gut.": "The friend’s book is good.", "Das Buch des Mannes ist gut.": "The man’s book is good.", "Das Buch der Frau ist gut.": "The woman’s book is good.", "Der König spricht mit den Königen.": "The king speaks with the kings.", "Le roi le vend.": "The king sells it.", "La femme leur parle.": "The woman speaks to them.", "Elle finit le livre.": "She finishes the book.", "La femme les finit.": "The woman finishes them.", "C’est toi.": "It is you.", "Le roi vient avec eux.": "The king comes with them.", "Je parle au roi.": "I speak to the king.", "ὁ κριτὴς τὸν βασιλέᾱ παιδεύει": "The judge teaches the king.", "ἄνθρωπε, ὁ κριτὴς γράφει": "Sir (O man), the judge is writing.", "ὁ τοῦ βασιλέως ἵππος ἀγαθός ἐστι": "The king’s horse is good.", "ὁ φύλαξ τὸ δῶρον πέμπει": "The guard sends the gift.", "βασιλεῦ, ὁ φύλαξ τὸ δῶρον πέμπει": "O king, the guard sends the gift.", "ὁ ἄνθρωπος τὸν ἵππον λίθῳ παύει": "The man stops the horse with a stone.", "κριτὰ, ἡ νῑ́κη ἀγαθή ἐστι": "O judge, the victory is good.", "Canis currunt.": "Intended sense: “The dog runs” (but the verb is plural).", "Milites pugnat.": "Intended sense: “The soldiers fight” (but the verb is singular).", "Pueri currit.": "Intended sense: “The boys run” (but the verb is singular).", "Me currit.": "Intended sense: “I run” (but <em>me</em> is accusative).", "Ego sumus.": "Intended sense: “I am” (but the verb is plural).", "Puellae cantat.": "Intended sense: “The girls sing” (but the verb is singular).", "Tu sum.": "Intended sense: “You are” (but the verb is first person).", "Puella bonus est.": "Intended sense: “The girl is good” (but the adjective is masculine).", "Homo est mortalis.": "Man is mortal.", "Nix alba est.": "Snow is white.", "Homo equus est.": "A man is a horse.", "Nos est laeti.": "Intended sense: “We are happy” (but the verb is singular).", "Piscis in caelo volat.": "A fish flies in the sky.", "Plumbum in aqua natat.": "Lead floats in water.", "Marmor liquidum est.": "Marble is liquid.", "Totum maius est sua parte.": "The whole is greater than its part.", "Ignis frigidus est.": "Fire is cold.", "Roma caput Lusitaniae est.": "Rome is the capital of Lusitania.", "Terra rotunda est.": "The earth is round.", "Sol est lucidus.": "The sun is bright.", "Duo et duo sunt quinque.": "Two and two are five.", "Sol in occidente oritur.": "The sun rises in the west.", "Terra est luna.": "The earth is the moon.", "Luna ex caseo constat.": "The moon is made of cheese.", "Duo et duo sunt quattuor.": "Two and two are four.", "Libri magnus est.": "Intended sense: “The book is big” (but <em>libri</em> is not nominative singular).", "Septem est numerus primus.": "Seven is a prime number.", "Ignis calidus est.": "Fire is hot.", "Nix nigra est.": "Snow is black.", "Aqua est humida.": "Water is wet.", "Homo animal est.": "Man is an animal.", "Omnis numerus par est.": "Every number is even.", "Triangulum tria latera habet.": "A triangle has three sides.", "Roma urbs est.": "Rome is a city.", "Der König spricht.": "The king speaks.", "Die Frau hat das Buch gesehen.": "The woman has seen the book.", "der gute König": "the good king", "Das Frau sieht das Buch.": "Intended sense: “The woman sees the book” (but <em>das</em> is neuter).", "Die Pferde sind gekommen.": "The horses have come.", "eine kleine Frau": "a small woman", "Der König sprechen.": "Intended sense: “The king speaks” (but the verb is plural or infinitive).", "Der König hat dem Mann das Buch gegeben.": "The king has given the man the book.", "das Buch des Mannes": "the man’s book", "Le roi parle.": "The king speaks.", "Le roi parlent.": "Intended sense: “The king speaks” (but the verb is plural).", "Les chevaux sont venus.": "The horses have come.", "La belle ville": "the beautiful city", "Nous avons vendu le cheval.": "We have sold the horse.", "Une femme heureuse": "a happy woman", "Le femme parle.": "Intended sense: “The woman speaks” (but <em>le</em> is masculine).", "Le bon roi": "the good king", "La femme a fini le livre.": "The woman has finished the book.", "ὁ ἄνθρωπος τὸν ἵππον λῡ́ει": "The man frees the horse.", "ἡ νῑ́κη ἀγαθή ἐστι": "The victory is good.", "πέμπει τὸν ἵππος": "Intended sense: “He sends the horse” (but <em>ἵππος</em> is nominative).", "ὁ ἄνθρωπος ἐν τῇ χώρᾳ γράφει": "The man writes in the country.", "οἱ κριταὶ λῡ́ει τὸν ἵππον": "Intended sense: “The judges free the horse” (but the verb is singular).", "ἄνθρωπε": "O man!", "ὁ ἀγαθὸς ἄνθρωπος": "the good man", "ὁ θάλαττα ἀγαθή ἐστι": "Intended sense: “The sea is good” (but <em>ὁ</em> is masculine).", "ἐν τῇ χώρᾳ": "in the country", "Puella bona cantat.": "The good girl sings.", "Avis parva volat.": "The small bird flies.", "Rex sapiens regnat.": "The wise king rules.", "Puer fortis currit.": "The brave boy runs.", "Puer fortis.": "the brave boy", "Rex sapiens.": "the wise king", "Amicus fidus.": "the faithful friend", "Rex leges dat.": "The king gives laws.", "Poeta clarus.": "the famous poet", "Aqua frigida.": "cold water", "Homo albus currit bene.": "The white man runs well.", "Puella carmina cantat.": "The girl sings songs.", "Navis magna.": "the large ship", "Urbs antiqua.": "the ancient city", "Hortus parvus.": "the small garden", "homo est albus": "the man is white", "Miles validus.": "the strong soldier", "homo albus": "the white man", "Liber novus.": "the new book", "Puer aquam bibit.": "The boy drinks water.", "Libri est magnus.": "Intended sense: “The book is big” (but <em>libri</em> is not nominative singular).", "Via longa.": "the long road", "Mater filium amat.": "The mother loves her son.", "Miles validus pugnat.": "The strong soldier fights.", "Puella bona.": "the good girl", "Nos est laetus.": "Intended sense: “We are happy” (but the verb and adjective are singular).", "Nauta fessus dormit.": "The tired sailor sleeps.", "Servus bonus laborat.": "The good servant works.", "Nauta navem ducit.": "The sailor steers the ship.", "Der König und die Frau sprechen.": "The king and the woman speak.", "Der König sieht mich.": "The king sees me.", "Die Frau sieht das Buch.": "The woman sees the book.", "Ach, der König kommt.": "Ah, the king is coming.", "Die Frau sieht ein gutes Buch.": "The woman sees a good book.", "Der gute König spricht.": "The good king speaks.", "Der König spricht oft.": "The king speaks often.", "Der König spricht, aber die Frau kommt.": "The king speaks, but the woman comes.", "Die Frau kommt gern.": "The woman comes gladly.", "Elle parle avec le roi.": "She speaks with the king.", "Le roi parle, mais la femme finit.": "The king speaks, but the woman finishes.", "Le roi vend le cheval.": "The king sells the horse.", "Je parle.": "I speak.", "La femme finit le livre.": "The woman finishes the book.", "Le roi et la femme parlent.": "The king and the woman speak.", "Il vient souvent.": "He comes often.", "Le roi parle bien.": "The king speaks well.", "Hélas, le roi vient.": "Alas, the king is coming.", "ὁ ἄνθρωπος σοφῶς γράφει": "The man writes wisely.", "φεῦ τοῦ ἀνθρώπου": "Alas for the man!", "ἐγὼ τὸν ἵππον λῡ́ω": "I free the horse.", "ὁ βασιλεὺς κακῶς ἄρχει τῶν ἀνθρώπων": "The king rules the people badly.", "ὁ γὰρ ἄνθρωπος τὸν ἵππον λῡ́ει": "For the man frees the horse.", "ὁ ἀγαθὸς ἄνθρωπος τὸν ἵππον λῡ́ει": "The good man frees the horse.", "ὁ ἄνθρωπος καὶ ὁ κριτὴς λῡ́ουσι τὸν ἵππον": "The man and the judge free the horse.", "ἡ ἀληθὴς ὁδὸς μακρά ἐστι": "The true road is long.", "Cras puer venit.": "Tomorrow the boy comes.", "Liber apertus est.": "The book is open.", "Rex cum militibus venit.": "The king comes with the soldiers.", "Miles in castra venit.": "The soldier comes into the camp.", "Ego sum.": "I am.", "Aqua frigida est.": "The water is cold.", "Puer currit.": "The boy runs.", "Si puer currit, mater gaudet.": "If the boy runs, the mother rejoices.", "Puer ad portam currit.": "The boy runs to the gate.", "Nauta dormit.": "The sailor sleeps.", "Rex bene regnat.": "The king rules well.", "Rex regnat, sed populus tacet.": "The king rules, but the people are silent.", "Nos sumus.": "We are.", "Tu es.": "You are.", "Ille venit.": "He comes.", "Puer cito currit.": "The boy runs quickly.", "Puer et puella cantant.": "The boy and the girl sing.", "Puella saepe cantat.": "The girl often sings.", "Der König kommt in die Stadt.": "The king comes into the city.", "Die Frau kommt mit dem König.": "The woman comes with the king.", "Das Buch ist für den König.": "The book is for the king.", "Der König kommt statt des Freundes.": "The king comes instead of the friend.", "Der König kommt ohne den Freund.": "The king comes without the friend.", "Der König ist in der Stadt.": "The king is in the city.", "Der König kommt wegen des Mannes.": "The king comes because of the man.", "Der König spricht gegen den Freund.": "The king speaks against the friend.", "Il va dans la ville.": "He goes into the city.", "Il l’a.": "He has it.", "Le roi lui parle.": "The king speaks to him (or her).", "Elle parle avec moi.": "She speaks with me.", "Le livre est pour toi.": "The book is for you.", "La femme leur vend le livre.": "The woman sells them the book.", "Il vient sans elle.": "He comes without her.", "La femme le finit.": "The woman finishes it.", "ὁ φύλαξ ἐκ τῆς πόλεως πέμπει τὸ δῶρον": "The guard sends the gift out of the city.", "πέμπει τὸν ἵππον εἰς τὴν χώρᾱν": "He sends the horse into the country.", "ὁ κριτὴς ἐμοὶ πιστεύει": "The judge trusts me.", "γράφει ἐν τῇ χώρᾳ": "He writes in the country.", "ὁ βασιλεὺς ἄρχει τῶν ἀνθρώπων": "The king rules the people.", "ὁ ἄνθρωπος ἀπὸ τῆς θαλάττης πέμπει τὸ δῶρον": "The man sends the gift from the sea.", "ὁ ἄνθρωπος σὺν τῷ κριτῇ γράφει": "The man writes with the judge.", "ὁ ἵππος λῡ́εται ὑπὸ τοῦ ἀνθρώπου": "The horse is freed by the man.", "πέμπει τὸν ἵππον πρὸς τὴν πόλιν": "He sends the horse toward the city.", "Avis volat.": "The bird flies.", "Puella cantat.": "The girl sings.", "Rex regnat.": "The king rules.", "Miles pugnat.": "The soldier fights.", "Homo currit.": "A man runs.", "Homo est species.": "Man is a species.", "Color est accidens.": "Color is an accident.", "Roma est urbs.": "Rome is a city.", "Homo est disyllabum.": "“Homo” is a word of two syllables.", "Albedo est qualitas.": "Whiteness is a quality.", "Puer est disyllabum.": "“Puer” is a word of two syllables.", "Servus laborat.": "The servant works.", "Figura est accidens.": "Shape is an accident.", "Nauta navigat.": "The sailor sails.", "Nauta est disyllabum.": "“Nauta” is a word of two syllables.", "Avis est disyllabum.": "“Avis” is a word of two syllables.", "Piscis natat.": "The fish swims.", "Alexander vincit.": "Alexander conquers.", "Canis latrat.": "The dog barks.", "Equus est species.": "Horse is a species.", "Socrates currit.": "Socrates runs.", "Animal est genus.": "Animal is a genus.", "Caesar vincit.": "Caesar conquers.", "Cicero scribit.": "Cicero writes.", "Lex est monosyllabum.": "“Lex” is a word of one syllable.", "Plato docet.": "Plato teaches.", "Canis est disyllabum.": "“Canis” is a word of two syllables.", "Aristoteles docet.": "Aristotle teaches.", "Numerus est species.": "Number is a species.", "Rex est monosyllabum.": "“Rex” is a word of one syllable.", "Hannibal pugnat.": "Hannibal fights.", "Miles est disyllabum.": "“Miles” is a word of two syllables.", "Canis est species.": "Dog is a species.", "Equus currit.": "The horse runs.", "Imperator capit consilium vehementer.": "The general forms a plan vigorously.", "Miles validus non pugnat hodie.": "The strong soldier does not fight today.", "Cicero semper graviter orat.": "Cicero always speaks with gravity.", "Miles intrat castra libenter.": "The soldier gladly enters the camp.", "Puer cito non currit.": "The boy does not run quickly.", "Filius audit patrem libenter.": "The son gladly listens to his father.", "Mater amat filium libenter.": "The mother gladly loves her son.", "Nos videmus Romam hodie.": "We see Rome today.", "Puella saepe cantat libenter.": "The girl often sings gladly.", "Servus validus bene laborat libenter.": "The strong servant works well and gladly.", "Nauta validus saepe navigat libenter.": "The strong sailor often sails gladly.", "Miles fortis saepe pugnat libenter.": "The brave soldier often fights gladly.", "Populus validus non tacet libenter.": "The strong people are not gladly silent.", "Nauta fessus non dormit hodie.": "The tired sailor does not sleep today.", "Nos appellamus Socratem libenter.": "We gladly call on Socrates.", "Puella parva saepe cantat libenter.": "The small girl often sings gladly.", "Puer intrat portam libenter.": "The boy gladly enters the gate.", "Rex fortis saepe regnat libenter.": "The brave king often rules gladly.", "Rex non dat legem hodie.": "The king does not give a law today.", "Puer parvus cito currit libenter.": "The small boy runs quickly and gladly.", "Puella bona non cantat libenter.": "The good girl does not sing gladly.", "Avis parva non volat bene.": "The small bird does not fly well.", "Rex sapiens non regnat hodie.": "The wise king does not rule today.", "Nauta videt amicum libenter.": "The sailor gladly sees his friend.", "Filius portat librum libenter.": "The son gladly carries the book.", "Nauta bene hodie navigat.": "The sailor sails well today.", "Ego percutio Socratem vehementer.": "I strike Socrates hard.", "Mater non manet libenter.": "The mother does not gladly stay.", "Mater non dat donum hodie.": "The mother does not give a gift today.", "Puer videt urbem hodie.": "The boy sees the city today.", "Puer fortis non ruit.": "The brave boy does not fall.", "Puella vocat matrem libenter.": "The girl gladly calls her mother."};
 function partnerOf(ex){
+  /* The Art of Grammar alone has no choice of language: each question draws Greek, French, or German in turn. */
+  if(store.art) return partnerKeys(ex).indexOf(state.artLang) >= 0 ? state.artLang : 'la';
   const t = thirdLang();
   if(!t || partnerKeys(ex).indexOf(t) < 0) return 'la';
   return t;
@@ -17814,6 +17826,18 @@ function buildDiffRow(){
   }
   const df = DIFF[state.diff];
   $('diff-desc').textContent = `${df.label} · +${df.gain} / −${df.loss}`;
+  /* The two courses: the general art alone, or the art with English, Latin, Greek, French, and German. */
+  const ar = $('art-row');
+  if(ar){
+    ar.innerHTML = '';
+    [[true, 'The Art of Grammar'], [false, 'The Art of Grammar + Three Languages']].forEach(([v, label]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'art-btn' + (store.art === v ? ' sel' : ''); b.textContent = label;
+      b.setAttribute('aria-pressed', store.art === v ? 'true' : 'false');
+      b.onclick = () => { if(store.art === v) return; store.art = v; save(); buildDiffRow(); buildHome(); };
+      ar.appendChild(b);
+    });
+  }
 }
 
 /* The home card last opened (its place among the home cards). Returning from that study, exercise, or workshop
@@ -17831,7 +17855,17 @@ const LATIN_ROWS = ['syllable','latpos','latfaults','latfigs','latnoun','latverb
 /* Brief notes on a language in a section that has no sets of that language: the parts of speech are broadly the same
    across these languages, and only the differences are named. */
 const SEC_LANG_NOTE = {};
+/* In The Art of Grammar alone, these existing studies (with their exercises) stand among the general rows, since they
+   carry doctrine that the general rows assume: the syllable, the sentence, clause, and period, voice and mood in
+   construction, meter, and the accidents of the eight parts. In the full course they stay where they are. */
+const ART_GENERAL = ['syllable','latpos','ensent','encl','clauses','period','latvoice','latsubj','meter'];
+/* Studies that, in The Art of Grammar alone, open with a note on their examples. */
+const ART_NOTE = ART_GENERAL.concat(['vox','letter','pos','decline','casework','agree','govern','cong','congtruth','workshop','markup','vices','figures']);
+const ART_NOTE_TEXT = 'This set draws its examples from English, Latin, Greek, French, and German. The detailed studies and exercises in each language are found under The Art of Grammar + Three Languages.';
+/* The general cards of Meter and Scansion: verse and meter, quantity, elision, the hexameter, scansion, and English meter. */
+const ART_METER_PANELS = [0, 1, 2, 3, 4, 9, 10, 11];
 function homeGroup(item){
+  if(store.art && ART_GENERAL.indexOf(item.deck) >= 0) return 'gen';
   if(item.group) return item.group;
   if(item.lang) return 'other';
   if(/ENGLISH/.test(item.tag || '')) return 'en';
@@ -17896,6 +17930,8 @@ function buildHome(){
   host.innerHTML = '';
   let cardN = 0;
   ACTS.forEach(act => {
+    /* A section with no general rows has no heading in The Art of Grammar alone. */
+    if(store.art && !act.items.some(it => homeGroup(it) === 'gen')) return;
     if(act.roman){
       const h = document.createElement('div');
       h.className = 'act-label';
@@ -17952,7 +17988,9 @@ function buildHome(){
        is written for each group only when the section has more than one. */
     const groups = {gen:[], en:[], la:[], cmp:[], other:[]};
     act.items.forEach(item => groups[homeGroup(item)].push(item));
-    const offers = act.noLangChoice ? [] : sectionLangs(act);
+    /* The Art of Grammar alone: only the general rows, and no choice of language. */
+    if(store.art){ groups.en = []; groups.la = []; groups.cmp = []; groups.other = []; }
+    const offers = act.noLangChoice || store.art ? [] : sectionLangs(act);
     const used = ['gen','en','la','cmp'].filter(g => groups[g].length).length + (offers.length ? 1 : 0);
     const chosen = secLangOf(act);
     ['gen','en','la','cmp','other'].forEach(g => {
@@ -18021,6 +18059,13 @@ function exGreekNote(q){
 }
 function openDeck(key){
   if(DECKS[key].passages){ openPassages(DECKS[key].passages, 'walk'); return; }
+  if(store.art && key === 'meter'){
+    if(!DECKS.meterArt){
+      DECKS.meterArt = Object.assign({}, DECKS.meter, {panels: ART_METER_PANELS.map(i => DECKS.meter.panels[i])});
+      if(DECK_CITE.meter) DECK_CITE.meterArt = ART_METER_PANELS.map(i => DECK_CITE.meter[i]);
+    }
+    key = 'meterArt';
+  }
   deck = DECKS[key]; deckKey = key; deckI = 0;
   $('deck-title').textContent = deck.title;
   $('deck-sub').textContent = deck.sub;
@@ -18033,7 +18078,8 @@ function renderDeck(){
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
-  body.innerHTML = `<div class="panel">${p.h}${p.ladder ? ladderSvg() : ''}${deckCite(deckKey, deckI)}${deckGreekNote('text')}</div>`;
+  const artNote = store.art && deckI === 0 && (ART_NOTE.indexOf(deckKey) >= 0 || deckKey === 'meterArt') ? `<p class="art-note">${ART_NOTE_TEXT}</p>` : '';
+  body.innerHTML = `<div class="panel">${artNote}${p.h}${p.ladder ? ladderSvg() : ''}${deckCite(deckKey, deckI)}${deckGreekNote('text')}</div>`;
   if(p.q){
     const box = document.createElement('div');
     box.className = 'panel';
@@ -18233,6 +18279,7 @@ function stagedInstr(e){
 function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
+  if(store.art) state.artLang = rand(['grc','de','fr']);
   const want = nextLang(state.ex);
   state.wantLang = want;
   const onlyWant = modeOf(state.ex) === 'en' || modeOf(state.ex) === 'la';
@@ -18336,6 +18383,10 @@ function renderQ(){
   if(q.specimen) html += `<div class="q-specimen">${q.specimen}</div>`;
   if(q.passage) html += `<div class="q-passage">${q.passage}</div>`;
   if(q.source) html += `<div class="q-source">${q.source}</div>`;
+  if(!q.orig && !q.gloss && q.lang && q.lang !== 'en' && q.sentence){
+    const t = SENT_EN[q.sentence.replace(/<[^>]+>/g, '').trim()];
+    if(t){ q.orig = t; q.olang = 'English'; }
+  }
   if(q.orig) html += `<button type="button" class="orig-toggle" id="orig-btn">Show the ${q.olang || 'original'}</button>
     <div class="q-original" id="q-orig" hidden><span class="olang">${q.olang || 'Original'}</span>${q.orig}</div>`;
   if(q.kind === 'pick') html += `<div class="pick-line" id="pick-line"></div>`;
