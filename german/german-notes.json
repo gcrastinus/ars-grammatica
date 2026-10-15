@@ -1,0 +1,213 @@
+{
+ "decks": {
+  "govern": {
+   "0": {
+    "text": [
+     {
+      "entry": 1,
+      "note": "German keeps four cases, and German verbs and prepositions govern them as Latin ones do: helfen and danken take the dative, sehen the accusative, and wegen the genitive."
+     }
+    ]
+   },
+   "1": {
+    "text": [
+     {
+      "entry": 2,
+      "note": "German in, like Latin in, takes two cases: the dative for the place where, as in in der Stadt, and the accusative for the place to which, as in in die Stadt. The question wo? (where?) asks for the dative, and wohin? (where to?) for the accusative."
+     }
+    ]
+   }
+  },
+  "agree": {
+   "0": {
+    "text": [
+     {
+      "entry": 3,
+      "note": "A German adjective before its noun agrees in gender, number, and case, and its ending also depends on the word before it: der gute Mann, ein guter Mann. After sein the adjective takes no ending: der Mann ist gut."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 4,
+      "note": "A German verb agrees with its subject in person and number, as a Latin verb does. The German relative pronoun takes its gender and number from its noun and its case from its own clause, as the Latin relative does."
+     }
+    ]
+   }
+  },
+  "casework": {
+   "0": {
+    "text": [
+     {
+      "entry": 5,
+      "note": "German has four of the Latin cases: the nominative, the accusative, the dative, and the genitive. Where Latin uses the ablative, German uses a preposition."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 6,
+      "note": "The German genitive, like the Latin, can name the possessor or the object of a feeling: die Liebe des Vaters can mean the father’s love or love for the father."
+     }
+    ]
+   },
+   "3": {
+    "text": [
+     {
+      "entry": 7,
+      "note": "German also has a double accusative after a few verbs, such as lehren: er lehrt den Jungen die Sprache, he teaches the boy the language."
+     }
+    ]
+   }
+  },
+  "decline": {
+   "0": {
+    "text": [
+     {
+      "entry": 8,
+      "note": "German nouns, articles, adjectives, and pronouns are declinable, as in Latin, and the German verb is conjugated. The German article carries much of the case, because the noun itself changes less often than a Latin noun."
+     }
+    ]
+   }
+  },
+  "latvoice": {
+   "0": {
+    "text": [
+     {
+      "entry": 9,
+      "note": "The German passive is werden with the past participle, and the doer is introduced by von with the dative: das Buch wird von dem König gelesen."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 10,
+      "note": "A German modal verb takes the infinitive without zu, as Latin possum takes the infinitive: ich kann kommen. Most other German verbs take zu: er beginnt zu schreiben."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 11,
+      "note": "The German Perfekt and passive are made with an auxiliary and the participle, as the Latin perfect passive is: er hat gesprochen, das Buch wird gelesen. In German the participle does not agree with the subject."
+     }
+    ]
+   },
+   "5": {
+    "text": [
+     {
+      "entry": 12,
+      "note": "German has no deponent verbs, but some German verbs are always reflexive, such as sich freuen, be glad, and a reflexive verb can have a sense close to the Greek middle."
+     }
+    ]
+   }
+  },
+  "latsubj": {
+   "0": {
+    "text": [
+     {
+      "entry": 13,
+      "note": "German has two subjunctive moods. The Konjunktiv II gives what is imagined or not real, and the Konjunktiv I is used chiefly in written reported speech: er sagt, er sei krank."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 14,
+      "note": "German purpose with the same subject is um ... zu with the infinitive, and with another subject damit with the indicative. German result is so ... dass with the indicative."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 15,
+      "note": "The German imperative has a singular, a plural, and a formal form: komm!, kommt!, kommen Sie! A prohibition is the negative imperative: komm nicht!"
+     }
+    ]
+   }
+  },
+  "latbuild": {
+   "1": {
+    "text": [
+     {
+      "entry": 16,
+      "note": "German word order is freer than English but not free as Latin is: the finite verb of a main clause stands second, and the article shows the case, so the object can stand first, as in den König sieht die Frau."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 17,
+      "note": "German, unlike Latin, writes the subject pronoun: wir loben den Dichter. The personal pronoun has four cases: ich, mich, mir, meiner."
+     }
+    ]
+   },
+   "3": {
+    "text": [
+     {
+      "entry": 18,
+      "note": "Where Latin uses the dative, German uses the dative: der Junge gibt dem Mädchen ein Geschenk. Where Latin uses the genitive of the possessor, German uses the genitive or von with the dative: das Buch des Königs."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 19,
+      "note": "German und joins words in the same case, as Latin et does. Place where is in with the dative, and motion into a place is in with the accusative."
+     }
+    ]
+   },
+   "5": {
+    "text": [
+     {
+      "entry": 20,
+      "note": "German has a definite and an indefinite article. Some prepositions and the article run together into one word, such as im and zum, and German modal particles such as doch and ja stand where Latin might use a particle such as enim."
+     }
+    ]
+   }
+  },
+  "clauses": {
+   "1": {
+    "text": [
+     {
+      "entry": 21,
+      "note": "German purpose is um ... zu with the infinitive, or damit with a finite verb; German result is so ... dass. In both kinds of clause after a conjunction the finite verb goes to the end."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 22,
+      "note": "German reports a statement with dass and the indicative, or, in written German, without dass and with the Konjunktiv I: er sagt, er sei krank. A reported question begins with ob or a question word."
+     }
+    ]
+   },
+   "3": {
+    "text": [
+     {
+      "entry": 23,
+      "note": "German als and wenn (when), weil (because), obwohl (although), and wenn (if) put the finite verb at the end of their clause. A condition that is not real takes the Konjunktiv II."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 24,
+      "note": "The German relative pronoun has the forms of the article, except in the genitive and the dative plural: dessen, deren, denen. Its verb goes to the end of the relative clause."
+     }
+    ]
+   }
+  }
+ },
+ "exercises": {}
+}

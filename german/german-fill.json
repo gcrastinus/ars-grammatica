@@ -1,0 +1,558 @@
+{
+ "title": "The German Sentence",
+ "desc": "One word is missing from a German sentence: an article in its case, an adjective with its ending, a verb in its person, a past form, or a word in its place in the order of the sentence. The word is chosen from tiles at the first levels and written at the higher ones.",
+ "intro": [
+  {
+   "h": "<strong>The article.</strong> The article shows the gender, the number, and the case of its noun.",
+   "eg": [
+    "<span lang=\"de\">der Mann, den Mann, dem Mann, des Mannes; ein Pferd, einen Mann, einem Freund</span>"
+   ]
+  },
+  {
+   "h": "<strong>The adjective.</strong> After der, die, or das the adjective takes a weak ending; after ein, or with no article, it shows the gender and the case itself. After sein it takes no ending.",
+   "eg": [
+    "<span lang=\"de\">der gute Mann, ein guter Mann, guter Wein; der König ist gut</span>"
+   ]
+  },
+  {
+   "h": "<strong>Person.</strong> The ending of the verb shows the person and the number of its subject, and some strong verbs change their vowel in the second and third persons singular.",
+   "eg": [
+    "<span lang=\"de\">ich spreche, du sprichst, er spricht</span>"
+   ]
+  },
+  {
+   "h": "<strong>The past.</strong> The Perfekt is haben or sein with the past participle; verbs of motion or change of state take sein.",
+   "eg": [
+    "<span lang=\"de\">er hat das Bett gemacht; sie ist gekommen</span>"
+   ]
+  },
+  {
+   "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after dass or weil the finite verb goes to the end.",
+   "eg": [
+    "<span lang=\"de\">heute gibt der König der Frau ein Buch; der Zug kommt um acht an; dass er heute kommt</span>"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "defill1",
+   "k": "article",
+   "en": "The king sees the man.",
+   "fr": "Der König sieht ______ Mann.",
+   "a": "den",
+   "ds": [
+    "der",
+    "dem",
+    "des"
+   ],
+   "why": "Mann is the object of sieht, so it is in the accusative, and the masculine accusative is den."
+  },
+  {
+   "id": "defill2",
+   "k": "article",
+   "en": "The woman gives the king a book.",
+   "fr": "Die Frau gibt ______ König ein Buch.",
+   "a": "dem",
+   "ds": [
+    "den",
+    "der",
+    "des"
+   ],
+   "why": "The one who receives is in the dative, and the masculine dative is dem."
+  },
+  {
+   "id": "defill3",
+   "k": "article",
+   "en": "The horse is large.",
+   "fr": "______ Pferd ist groß.",
+   "a": "Das",
+   "ds": [
+    "Der",
+    "Die",
+    "Den"
+   ],
+   "why": "Pferd is neuter, and the neuter nominative of the article is das."
+  },
+  {
+   "id": "defill4",
+   "k": "article",
+   "en": "I have a horse.",
+   "fr": "Ich habe ______ Pferd.",
+   "a": "ein",
+   "ds": [
+    "einen",
+    "einem",
+    "eine"
+   ],
+   "why": "Pferd is neuter and the object, and the neuter accusative of the indefinite article is ein."
+  },
+  {
+   "id": "defill5",
+   "k": "article",
+   "en": "I see a man.",
+   "fr": "Ich sehe ______ Mann.",
+   "a": "einen",
+   "ds": [
+    "ein",
+    "einem",
+    "eines"
+   ],
+   "why": "Mann is masculine and the object, so the indefinite article is einen."
+  },
+  {
+   "id": "defill6",
+   "k": "article",
+   "en": "He goes with a friend.",
+   "fr": "Er geht mit ______ Freund.",
+   "a": "einem",
+   "ds": [
+    "einen",
+    "ein",
+    "eines"
+   ],
+   "why": "Mit takes the dative, and the masculine dative of the indefinite article is einem."
+  },
+  {
+   "id": "defill7",
+   "k": "article",
+   "en": "The woman’s book is good.",
+   "fr": "Das Buch ______ Frau ist gut.",
+   "a": "der",
+   "ds": [
+    "die",
+    "des",
+    "den"
+   ],
+   "why": "The possessor is in the genitive, and the feminine genitive of the article is der."
+  },
+  {
+   "id": "defill8",
+   "k": "article",
+   "en": "The men see the city.",
+   "fr": "Die Männer sehen ______ Stadt.",
+   "a": "die",
+   "ds": [
+    "der",
+    "den",
+    "dem"
+   ],
+   "why": "Stadt is feminine and the object, and the feminine accusative is die."
+  },
+  {
+   "id": "defill9",
+   "k": "adjective",
+   "en": "the good man",
+   "fr": "der ______ Mann",
+   "a": "gute",
+   "ds": [
+    "guter",
+    "guten",
+    "gutes"
+   ],
+   "why": "After der the adjective in the nominative singular takes the weak ending -e."
+  },
+  {
+   "id": "defill10",
+   "k": "adjective",
+   "en": "a good man",
+   "fr": "ein ______ Mann",
+   "a": "guter",
+   "ds": [
+    "gute",
+    "guten",
+    "gutes"
+   ],
+   "why": "After ein the adjective shows the gender itself, so the masculine nominative is guter."
+  },
+  {
+   "id": "defill11",
+   "k": "adjective",
+   "en": "I see the good man.",
+   "fr": "Ich sehe den ______ Mann.",
+   "a": "guten",
+   "ds": [
+    "gute",
+    "guter",
+    "gutem"
+   ],
+   "why": "After den the adjective takes -en."
+  },
+  {
+   "id": "defill12",
+   "k": "adjective",
+   "en": "with good friends",
+   "fr": "mit ______ Freunden",
+   "a": "guten",
+   "ds": [
+    "gute",
+    "guter",
+    "gutem"
+   ],
+   "why": "Without an article the adjective takes the strong ending, and the dative plural is -en: mit guten Freunden."
+  },
+  {
+   "id": "defill13",
+   "k": "adjective",
+   "en": "a small house",
+   "fr": "ein ______ Haus",
+   "a": "kleines",
+   "ds": [
+    "kleine",
+    "kleiner",
+    "kleinen"
+   ],
+   "why": "After ein the neuter adjective shows the gender itself: ein kleines Haus."
+  },
+  {
+   "id": "defill14",
+   "k": "adjective",
+   "en": "good wine",
+   "fr": "______ Wein",
+   "a": "guter",
+   "ds": [
+    "gute",
+    "gutes",
+    "guten"
+   ],
+   "why": "Without an article the adjective takes the strong ending, and the masculine nominative is -er."
+  },
+  {
+   "id": "defill15",
+   "k": "adjective",
+   "en": "the large cities",
+   "fr": "die ______ Städte",
+   "a": "großen",
+   "ds": [
+    "große",
+    "großer",
+    "großes"
+   ],
+   "why": "After die in the plural the adjective takes -en."
+  },
+  {
+   "id": "defill16",
+   "k": "adjective",
+   "en": "The king is good.",
+   "fr": "Der König ist ______.",
+   "a": "gut",
+   "ds": [
+    "guter",
+    "gute",
+    "guten"
+   ],
+   "why": "An adjective that is the predicate, after sein, takes no ending."
+  },
+  {
+   "id": "defill17",
+   "k": "person",
+   "en": "I speak.",
+   "fr": "Ich ______.",
+   "a": "spreche",
+   "ds": [
+    "sprichst",
+    "spricht",
+    "sprechen"
+   ],
+   "why": "Ich takes the ending -e, without the change of vowel: ich spreche."
+  },
+  {
+   "id": "defill18",
+   "k": "person",
+   "en": "You (one friend) speak.",
+   "fr": "Du ______.",
+   "a": "sprichst",
+   "ds": [
+    "spricht",
+    "sprecht",
+    "sprechen"
+   ],
+   "why": "Du takes -st, and sprechen changes e to i: du sprichst."
+  },
+  {
+   "id": "defill19",
+   "k": "person",
+   "en": "He gives.",
+   "fr": "Er ______.",
+   "a": "gibt",
+   "ds": [
+    "gebt",
+    "gibst",
+    "geben"
+   ],
+   "why": "Er takes -t, and geben changes e to i: er gibt."
+  },
+  {
+   "id": "defill20",
+   "k": "person",
+   "en": "We are here.",
+   "fr": "Wir ______ hier.",
+   "a": "sind",
+   "ds": [
+    "seid",
+    "ist",
+    "bin"
+   ],
+   "why": "The first person plural of sein is sind."
+  },
+  {
+   "id": "defill21",
+   "k": "person",
+   "en": "You (several friends) have time.",
+   "fr": "Ihr ______ Zeit.",
+   "a": "habt",
+   "ds": [
+    "hat",
+    "haben",
+    "hast"
+   ],
+   "why": "The second person plural of haben is habt."
+  },
+  {
+   "id": "defill22",
+   "k": "person",
+   "en": "She becomes queen.",
+   "fr": "Sie ______ Königin.",
+   "a": "wird",
+   "ds": [
+    "werdet",
+    "wirst",
+    "werden"
+   ],
+   "why": "The third person singular of werden is wird."
+  },
+  {
+   "id": "defill23",
+   "k": "person",
+   "en": "They see the sea.",
+   "fr": "Sie ______ das Meer.",
+   "a": "sehen",
+   "ds": [
+    "sieht",
+    "seht",
+    "siehst"
+   ],
+   "why": "Sie, they, is the third person plural, and its verb ends in -en."
+  },
+  {
+   "id": "defill24",
+   "k": "person",
+   "en": "You (one friend) are good.",
+   "fr": "Du ______ gut.",
+   "a": "bist",
+   "ds": [
+    "bin",
+    "ist",
+    "seid"
+   ],
+   "why": "The second person singular of sein is bist."
+  },
+  {
+   "id": "defill25",
+   "k": "perfect",
+   "en": "He has made the bed.",
+   "fr": "Er ______ das Bett gemacht.",
+   "a": "hat",
+   "ds": [
+    "ist",
+    "habe",
+    "hast"
+   ],
+   "why": "Machen forms the Perfekt with haben, and er takes hat."
+  },
+  {
+   "id": "defill26",
+   "k": "perfect",
+   "en": "She has come.",
+   "fr": "Sie ______ gekommen.",
+   "a": "ist",
+   "ds": [
+    "hat",
+    "bin",
+    "seid"
+   ],
+   "why": "Kommen is a verb of motion and forms the Perfekt with sein: sie ist gekommen."
+  },
+  {
+   "id": "defill27",
+   "k": "perfect",
+   "en": "We have spoken.",
+   "fr": "Wir haben ______.",
+   "a": "gesprochen",
+   "ds": [
+    "sprachen",
+    "sprechen",
+    "gesprochene"
+   ],
+   "why": "The past participle of sprechen is gesprochen, and it stands at the end."
+  },
+  {
+   "id": "defill28",
+   "k": "perfect",
+   "en": "I have seen the king.",
+   "fr": "Ich habe den König ______.",
+   "a": "gesehen",
+   "ds": [
+    "sah",
+    "sehen",
+    "gesehene"
+   ],
+   "why": "The past participle of sehen is gesehen."
+  },
+  {
+   "id": "defill29",
+   "k": "perfect",
+   "en": "He has become king.",
+   "fr": "Er ist König ______.",
+   "a": "geworden",
+   "ds": [
+    "worden",
+    "werden",
+    "wurde"
+   ],
+   "why": "The full verb werden has the participle geworden. Worden is used only in the passive."
+  },
+  {
+   "id": "defill30",
+   "k": "perfect",
+   "en": "They have given the book.",
+   "fr": "Sie haben das Buch ______.",
+   "a": "gegeben",
+   "ds": [
+    "gaben",
+    "geben",
+    "gibt"
+   ],
+   "why": "The past participle of geben is gegeben."
+  },
+  {
+   "id": "defill31",
+   "k": "perfect",
+   "en": "I was in the city.",
+   "fr": "Ich ______ in der Stadt.",
+   "a": "war",
+   "ds": [
+    "wäre",
+    "bin",
+    "wurde"
+   ],
+   "why": "The Präteritum of sein in the first person singular is war. Wäre is the Konjunktiv II."
+  },
+  {
+   "id": "defill32",
+   "k": "perfect",
+   "en": "He had a horse.",
+   "fr": "Er ______ ein Pferd.",
+   "a": "hatte",
+   "ds": [
+    "hätte",
+    "hat",
+    "habe"
+   ],
+   "why": "The Präteritum of haben is hatte. Hätte is the Konjunktiv II."
+  },
+  {
+   "id": "defill33",
+   "k": "order",
+   "en": "Today the king gives the woman a book.",
+   "fr": "Heute ______ König der Frau ein Buch.",
+   "a": "gibt der",
+   "ds": [
+    "der gibt",
+    "geben der",
+    "der geben"
+   ],
+   "why": "In a main clause the finite verb stands second. Heute fills the first place, so the verb comes next and the subject follows it: heute gibt der König."
+  },
+  {
+   "id": "defill34",
+   "k": "order",
+   "en": "I know that the king gives the woman a book.",
+   "fr": "Ich weiß, dass der König ______.",
+   "a": "der Frau ein Buch gibt",
+   "ds": [
+    "gibt der Frau ein Buch",
+    "der Frau gibt ein Buch",
+    "gibt ein Buch der Frau"
+   ],
+   "why": "After dass the finite verb goes to the end of the clause."
+  },
+  {
+   "id": "defill35",
+   "k": "order",
+   "en": "The king has given the woman a book.",
+   "fr": "Der König hat der Frau ein Buch ______.",
+   "a": "gegeben",
+   "ds": [
+    "gibt",
+    "gab",
+    "geben"
+   ],
+   "why": "The past participle goes to the end of the clause, and hat stands second."
+  },
+  {
+   "id": "defill36",
+   "k": "order",
+   "en": "Does the king give the woman a book?",
+   "fr": "______ der König der Frau ein Buch?",
+   "a": "Gibt",
+   "ds": [
+    "Gebt",
+    "Geben",
+    "Gibst"
+   ],
+   "why": "A question without a question word puts the finite verb first, and der König takes gibt."
+  },
+  {
+   "id": "defill37",
+   "k": "order",
+   "en": "The train arrives at eight.",
+   "fr": "Der Zug kommt um acht ______.",
+   "a": "an",
+   "ds": [
+    "auf",
+    "ab",
+    "mit"
+   ],
+   "why": "Ankommen has a separable prefix, and in a main clause the prefix goes to the end: der Zug kommt um acht an."
+  },
+  {
+   "id": "defill38",
+   "k": "order",
+   "en": "He wants to read the book.",
+   "fr": "Er will das Buch ______.",
+   "a": "lesen",
+   "ds": [
+    "liest",
+    "gelesen",
+    "zu lesen"
+   ],
+   "why": "After a modal verb the infinitive goes to the end without zu."
+  },
+  {
+   "id": "defill39",
+   "k": "order",
+   "en": "Because the king is ill, he stays at home.",
+   "fr": "Weil der König krank ist, ______ er zu Hause.",
+   "a": "bleibt",
+   "ds": [
+    "bleiben",
+    "bleibst",
+    "bleibe"
+   ],
+   "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: bleibt er."
+  },
+  {
+   "id": "defill40",
+   "k": "order",
+   "en": "I believe that he is coming today.",
+   "fr": "Ich glaube, dass er heute ______.",
+   "a": "kommt",
+   "ds": [
+    "kommen",
+    "komme",
+    "kommst"
+   ],
+   "why": "After dass the verb goes to the end, and er takes kommt."
+  }
+ ]
+}

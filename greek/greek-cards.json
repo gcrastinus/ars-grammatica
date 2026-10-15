@@ -101,6 +101,30 @@
     {
       "heading": "The macron",
       "text": "A macron over α, ι, or υ marks the vowel as long. Smyth prints it so that the quantity is visible, and these paradigms keep his marks. The macron is a teaching mark, and ancient writing did not use it. The accent and the breathing belong to the traditional text. They were not written in classical Attic."
+    },
+    {
+      "heading": "Aspect",
+      "text": "Greek shows not only the time of an action but also how the action is presented, and this is called aspect. The present stem presents an action as going on or repeated, the aorist stem presents it simply as an event, and the perfect stem presents it as complete, with its result still at hand. Outside the indicative the difference between the present and the aorist is one of aspect only, not of time: παιδεύειν and παιδεῦσαι both mean “to educate,” but the first presents the educating as going on, and the second as a single act. Latin marks aspect less fully, and its perfect serves both for the Greek aorist and for the Greek perfect."
+    },
+    {
+      "heading": "Word order",
+      "text": "The ending of a Greek word shows its use, so the order of the words does not decide which noun is the subject, as it does in English. The order still shows emphasis, and the first place in a clause is a place of emphasis. The article and its noun, however, keep a fixed order. An adjective between the article and the noun, as in ὁ ἀγαθὸς ἄνθρωπος, or after a repeated article, as in ὁ ἄνθρωπος ὁ ἀγαθός, describes the noun: the good man. An adjective outside that position is the predicate: ὁ ἄνθρωπος ἀγαθός means the man is good. Some particles, such as γάρ, δέ, and οὖν, never stand first in their clause."
+    },
+    {
+      "heading": "Forms of several words",
+      "text": "Most Greek tenses are single words, but some forms are made with a participle and a form of εἰμί. The third person plural of the perfect middle and passive of a verb whose stem ends in a consonant is made in this way, as in γεγραμμένοι εἰσί, they have been written. The perfect subjunctive and optative of most verbs are also made with the perfect participle and the subjunctive or optative of εἰμί: λελυκὼς ὦ. Latin makes its whole perfect passive in this way, as in laudātus est, but the Greek perfect passive of a vowel verb is one word: λέλυται."
+    },
+    {
+      "heading": "Enclitics and proclitics",
+      "text": "Some short words have no accent of their own. An enclitic is pronounced with the word before it, and it may give that word a second accent, as in ἄνθρωπός ἐστι. The enclitics include the indefinite pronoun τις, the short pronouns με, μοι, σε, and σοι, the present indicative of εἰμί and of φημί except the second person singular, and the particles τε and γε. A proclitic is pronounced with the word after it. The proclitics include the article forms ὁ, ἡ, οἱ, and αἱ, the prepositions ἐν, εἰς, and ἐκ, and the negative οὐ. Latin has enclitics too, such as -que, -ne, and -ve."
+    },
+    {
+      "heading": "The optative and the imperative",
+      "text": "Greek has four moods of the finite verb: the indicative, the subjunctive, the optative, and the imperative. The optative expresses a wish, as in εἴθε λῡ́οι, may he loose, and with ἄν it says what would happen, as in λῡ́οι ἄν, he would loose. After a past tense it may also stand in a purpose clause or in reported speech. The imperative gives a command: λῦε means loose, said to one person, and λῡέτω means let him loose. Latin has no optative, and it uses the subjunctive both for a wish and for what would happen."
+    },
+    {
+      "heading": "Word formation",
+      "text": "Greek forms new words by adding a suffix to a stem and by joining two words. From the stem of παιδεύω come παίδευσις, the act of educating, and παιδευτής, the one who educates. The suffix -σις names an action, and -της names the one who acts. A verb joined to a preposition is a compound verb, and the augment stands between the preposition and the verb: ἀπολῡ́ω, I set free, has the aorist ἀπέλῡσα. Latin makes its compound verbs in the same way, but it has no augment."
     }
   ]
 }

@@ -1,0 +1,233 @@
+{
+ "deck": {
+  "title": "Greek Syllable, Quantity, and Accent",
+  "sub": "How a Greek syllable is measured, and where the accent may stand",
+  "panels": [
+   {
+    "h": "<p><strong>The Greek syllable.</strong> A Greek syllable, like a Latin one, has one vowel or diphthong at its center. ἄν-θρω-πος has three syllables, and παι-δεύ-ω has three, because αι and ευ are diphthongs, two vowels pronounced as one.</p><p>A syllable is long by nature when its vowel is long or a diphthong. η and ω are always long, and ε and ο are always short. α, ι, and υ may be long or short, and the macron in this course’s paradigms marks a long one, as in χώρᾱ. A syllable is long by position when a short vowel is followed by two consonants or by a double consonant, ζ, ξ, or ψ.</p>",
+    "q": {
+     "prompt": "Which of these vowels is always long?",
+     "options": [
+      "η",
+      "ε",
+      "ο",
+      "α"
+     ],
+     "correct": 0,
+     "explain": "η and ω are always long, and ε and ο are always short. α may be long or short, and the dictionary or the macron shows which."
+    }
+   },
+   {
+    "h": "<p><strong>The accents.</strong> Greek keeps quantity and adds a written accent on one of the last three syllables. The marks are the <strong>acute</strong> (´); the <strong>grave</strong> (`), which is written for an acute on the last syllable when another word follows; and the <strong>circumflex</strong> (ˆ), which stands only on a long vowel or a diphthong.</p><p>The law of limitation says that the accent cannot stand further back than the third syllable from the end, and that if the last syllable is long, it cannot stand on the antepenult. Verbs are usually <strong>recessive</strong>, that is, the accent goes as far back as that law allows: παιδεύω has its acute on the penult because the last syllable, ω, is long.</p>",
+    "q": {
+     "prompt": "A circumflex can stand only on…",
+     "options": [
+      "A long vowel or a diphthong",
+      "Any vowel, long or short",
+      "The last syllable of a word, and no other",
+      "A short vowel that carries the stress"
+     ],
+     "correct": 0,
+     "explain": "The circumflex is a rise and fall of pitch on one long sound, and so a short vowel cannot bear it."
+    }
+   },
+   {
+    "h": "<p><strong>The accent of nouns.</strong> The accent of a noun or an adjective is persistent, that is, it stays on the syllable where it stands in the nominative, as far as the law of limitation allows. ἄνθρωπος has its accent on the antepenult, but in the genitive ἀνθρώπου the last syllable is long, so the accent moves to the penult.</p><p>A long penult with the accent takes the circumflex when the last syllable is short, as in δῶρον, and the acute when the last syllable is long, as in δώρου. For the accent, final αι and οι count as short, except in the optative: ἄνθρωποι keeps its accent on the antepenult.</p>",
+    "q": {
+     "prompt": "Why does ἄνθρωπος become ἀνθρώπου in the genitive?",
+     "options": [
+      "The last syllable is now long, so the accent cannot stay on the antepenult",
+      "The genitive is always accented on the penult",
+      "The accent of a noun is recessive, as in verbs",
+      "The circumflex cannot stand on ω"
+     ],
+     "correct": 0,
+     "explain": "The accent of a noun stays where it is in the nominative as far as the law allows. The ending -ου is long, and a long last syllable keeps the accent off the antepenult."
+    }
+   },
+   {
+    "h": "<p><strong>The breathings.</strong> A word that begins with a vowel or a diphthong takes a breathing, written over the vowel, or over the second vowel of a diphthong. The rough breathing (῾) is the sound of h, as in ὁ, and the smooth breathing (᾿) marks that the word does not begin with h, as in ἐστί. A word that begins with ρ takes the rough breathing: ῥήτωρ. A breathing is not a syllable and does not change the quantity.</p>",
+    "q": {
+     "prompt": "What does the rough breathing in ὁ mark?",
+     "options": [
+      "That the word begins with the sound h",
+      "That the vowel is long",
+      "That the syllable carries the accent",
+      "That the word is enclitic"
+     ],
+     "correct": 0,
+     "explain": "The rough breathing is the sound h at the beginning of the word. The smooth breathing marks that there is no h. Neither one is an accent or a mark of length."
+    }
+   }
+  ]
+ },
+ "exercise": {
+  "title": "Greek Syllable, Quantity, and Accent",
+  "desc": "A short set on the Greek syllable: its quantity, the three accents, the law of limitation, the accent of nouns and verbs, and the breathings.",
+  "instr": "Choose the answer.",
+  "items": [
+   {
+    "id": "gsy1",
+    "q": "How many syllables does this word have?",
+    "form": "ἄνθρωπος",
+    "a": "Three",
+    "ds": [
+     "Two",
+     "Four",
+     "One"
+    ],
+    "why": "ἄν-θρω-πος has three vowels, and so three syllables."
+   },
+   {
+    "id": "gsy2",
+    "q": "How many syllables does this word have?",
+    "form": "παιδεύω",
+    "a": "Three",
+    "ds": [
+     "Five",
+     "Four",
+     "Two"
+    ],
+    "why": "αι and ευ are diphthongs, each one sound, so the word is παι-δεύ-ω, three syllables."
+   },
+   {
+    "id": "gsy3",
+    "q": "Which vowels are always long?",
+    "a": "η and ω",
+    "ds": [
+     "ε and ο",
+     "α and ι",
+     "ι and υ"
+    ],
+    "why": "η and ω are always long, and ε and ο are always short. α, ι, and υ may be either."
+   },
+   {
+    "id": "gsy4",
+    "q": "Which letters count as double consonants and make a short vowel before them long by position?",
+    "a": "ζ, ξ, and ψ",
+    "ds": [
+     "θ, φ, and χ",
+     "λ, μ, and ν",
+     "β, γ, and δ"
+    ],
+    "why": "ζ, ξ, and ψ each stand for two consonants, so a short vowel before one of them makes a syllable long by position."
+   },
+   {
+    "id": "gsy5",
+    "q": "The three Greek accent marks are…",
+    "a": "Acute, grave, and circumflex",
+    "ds": [
+     "Long, short, and common",
+     "Rough, smooth, and middle breathing",
+     "Diaeresis, macron, and breve"
+    ],
+    "why": "The marks show the pitch of a syllable. A circumflex stands only on a long vowel or a diphthong. The breathings are not accents."
+   },
+   {
+    "id": "gsy6",
+    "q": "In Greek, if the last syllable is long, the accent cannot stand on…",
+    "a": "The antepenult",
+    "ds": [
+     "The penult",
+     "The last syllable",
+     "Any long vowel"
+    ],
+    "why": "By the law of limitation, a long last syllable keeps the accent off the antepenult. Verbs still go as far back as the law allows."
+   },
+   {
+    "id": "gsy7",
+    "q": "Why does παιδεύω have its accent on the penult?",
+    "form": "παιδεύω",
+    "a": "The accent of a verb is recessive, and the long last syllable stops it at the penult",
+    "ds": [
+     "The penult is always accented in Greek",
+     "The diphthong ευ must carry the accent",
+     "The last syllable is short"
+    ],
+    "why": "A verb's accent goes as far back as the law allows. The last syllable, ω, is long, so the accent cannot reach the antepenult and stands on the penult."
+   },
+   {
+    "id": "gsy8",
+    "q": "Why does δῶρον have a circumflex and not an acute?",
+    "form": "δῶρον",
+    "a": "The accented penult is long and the last syllable is short",
+    "ds": [
+     "Every noun in -ον takes the circumflex",
+     "The last syllable is long",
+     "The circumflex marks the rough breathing"
+    ],
+    "why": "A long penult that carries the accent takes the circumflex when the last syllable is short. In the genitive δώρου the last syllable is long, and the acute is written."
+   },
+   {
+    "id": "gsy9",
+    "q": "What happens to the accent of ἄνθρωπος in the genitive singular?",
+    "form": "ἀνθρώπου",
+    "a": "It moves to the penult, because the ending -ου is long",
+    "ds": [
+     "It stays on the antepenult, because the accent of a noun never moves",
+     "It moves to the last syllable",
+     "It becomes a circumflex on the antepenult"
+    ],
+    "why": "The accent of a noun stays where it is in the nominative as far as the law allows. A long last syllable keeps it off the antepenult, so it moves to the penult."
+   },
+   {
+    "id": "gsy10",
+    "q": "For the accent, how is final -οι of ἄνθρωποι counted?",
+    "form": "ἄνθρωποι",
+    "a": "As short, so the accent may stay on the antepenult",
+    "ds": [
+     "As long, because οι is a diphthong",
+     "As two syllables",
+     "As long, so the accent must move"
+    ],
+    "why": "Final αι and οι count as short for the accent, except in the optative, so ἄνθρωποι keeps the accent on the antepenult."
+   },
+   {
+    "id": "gsy11",
+    "q": "What does the rough breathing mark?",
+    "a": "That the word begins with the sound h",
+    "ds": [
+     "That the vowel is long",
+     "That the syllable is accented",
+     "That the word is enclitic"
+    ],
+    "why": "The rough breathing is the sound h at the beginning of the word, as in ὁ. The smooth breathing marks that there is no h."
+   },
+   {
+    "id": "gsy12",
+    "q": "Which breathing does a word beginning with ρ take?",
+    "form": "ῥήτωρ",
+    "a": "The rough breathing",
+    "ds": [
+     "The smooth breathing",
+     "No breathing",
+     "The circumflex"
+    ],
+    "why": "A word that begins with ρ takes the rough breathing, as in ῥήτωρ."
+   },
+   {
+    "id": "gsy13",
+    "q": "When is the grave accent written?",
+    "a": "For an acute on the last syllable when another word follows",
+    "ds": [
+     "On any short vowel",
+     "On the antepenult of a verb",
+     "On a word that begins with a vowel"
+    ],
+    "why": "An acute on the last syllable becomes a grave when another word follows without a pause, as in τὸν ἄνθρωπον."
+   },
+   {
+    "id": "gsy14",
+    "q": "Why may ἄνθρωπός ἐστι have two accents on ἄνθρωπος?",
+    "form": "ἄνθρωπός ἐστι",
+    "a": "ἐστι is an enclitic, and it gives the word before it a second accent",
+    "ds": [
+     "Every noun before a verb takes two accents",
+     "The second accent marks the genitive",
+     "ἄνθρωπος always has two accents"
+    ],
+    "why": "An enclitic has no accent of its own and is pronounced with the word before it. A word accented on the antepenult then takes a second accent on its last syllable."
+   }
+  ]
+ }
+}

@@ -224,6 +224,8 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 /* Studies with no exercise of their own, such as the three language decks, stand side by side. */
 .set-beside{grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
 .set-pair-ex > .set-card{flex:1}
+/* Under a Latin row that also has material in a third language, when none is chosen. */
+.also-in{grid-column:1 / -1; margin:-8px 0 4px; text-align:center; font-style:italic; font-size:14.5px; color:var(--ink-soft); opacity:.7}
 @media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
   border:1px solid var(--line); background:var(--card); border-radius:14px; padding:20px 22px;
@@ -715,23 +717,23 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     </header>
 
     <div class="intro-note">
-      <strong>Grammar is the art of speaking and writing correctly.</strong> It is the first of the liberal arts, especially of the first of the trivium, the three arts of language (grammar, logic, and rhetoric). It is first because logic works on statements and rhetoric brings statements together for a purpose; but grammar is the art that governs how words can be combined to form statements correctly and thus grammar is presupposed by the other arts. This course builds from the voice to the sentence, gives the traditional names in the appropriate places, and considers the more general question of why the parts of speech are the way they are. The course also considers English grammar itself in some detail, as well as the chief grammars of other great traditions of learning, and finally this course engages with modern linguistics on universal grammar and syntax.
+      <strong>Grammar is the art of speaking and writing correctly.</strong> It is the first of the liberal arts, especially of the first of the trivium, the three arts of language (grammar, logic, and rhetoric). It is first because logic works on statements and rhetoric brings statements together for a purpose; but grammar is the art that governs how words can be combined to form statements correctly and thus grammar is presupposed by the other arts. This course builds from the voice to the sentence, gives the traditional names in the appropriate places, and considers the more general question of why the parts of speech are the way they are. The course also considers English grammar itself in some detail, as well as the chief grammars of other great traditions of learning, and finally this course engages with modern linguistics on universal grammar and syntax. The course is also available with Greek, German, or French as a third language, which can be chosen below.
     </div>
 
     <div class="rule"></div>
 
-    <div class="section-label partner-soon" id="partner-label">The Partner Language</div>
-    <div class="lang-box partner-soon" id="partner-box">
-      <div class="lang-fixed">English and <strong>Latin</strong> are the primary languages used in every part of the course.
-        Latin is the tradition’s own language, and every technical term here is a Latin term.
-        <span id="partner-text">Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.</span></div>
-      <div class="soon-flag" id="partner-flag">Coming soon</div>
-      <div class="lang-row" id="partner-row" hidden></div>
-    </div>
-
     <div class="section-label">Difficulty</div>
     <div class="diff-row" id="diff-row"></div>
     <div class="diff-desc" id="diff-desc"></div>
+
+    <div class="section-label partner-soon" id="partner-label">A Third Language (optional)</div>
+    <div class="lang-box partner-soon" id="partner-box">
+      <div class="lang-fixed">English and <strong>Latin</strong> are the languages that the course uses and studies, and a student may add a third.
+        Latin is the tradition’s own language, and every technical term here is a Latin term.
+        <span id="partner-text"></span></div>
+      <div class="soon-flag" id="partner-flag">Coming soon</div>
+      <div class="lang-row" id="partner-row" hidden></div>
+    </div>
 
     <div class="rule"></div>
 
@@ -2419,7 +2421,7 @@ mit-tō</em>.</p>
       correct:1,
       explain:`One consonant between vowels goes with the following vowel, as in <em>pa-ter</em>. <em>Pat-er</em> would be the split used when two consonants stand together.` } },
 
-{ src:['ag'], h:`<p><strong>Quantity.</strong> A Latin (or Greek) syllable is <strong>long</strong> or <strong>short</strong>. English stress is a different fact, and we must not put it in the place of quantity. The first syllable of English <em>teacher</em> is the loud one, and that loudness is not Latin length.</p>
+{ src:['ag'], h:`<p><strong>Quantity.</strong> A Latin syllable is <strong>long</strong> or <strong>short</strong>. English stress is a different fact, and we must not put it in the place of quantity. The first syllable of English <em>teacher</em> is the loud one, and that loudness is not Latin length.</p>
 <p>A syllable is <strong>long by nature</strong> when its vowel is long (marked with a macron in this course), or when its sound is a diphthong, such as <em>ae, oe, au</em>. So <em>mī</em> in <em>amīcus</em> is long by nature, and so is <em>cau</em> in <em>causa</em>.</p>
 <p>A syllable is <strong>long by position</strong> when a short vowel is followed by two consonants, or by <em>x</em> or <em>z</em>. In <em>magister</em>, <em>gis</em> is long because <em>s</em> and <em>t</em> follow. Mute + liquid often does <em>not</em> make position, so that in <em>pa-tris</em> the <em>a</em> may stay short.</p>
 <p>A vowel before another vowel is usually short: the <em>u</em> of
@@ -2446,42 +2448,9 @@ stood last before it was added: <em>virúmque</em>.</p>`,
       correct:1,
       explain:`<em>do-mi-nus</em> has three syllables, and the penult <em>mi</em> is short, so the stress falls on the antepenult. In <em>amīcus</em> the penult is long, and the stress stays there.` } },
 
-{ src:['smyth'], h:`<p><strong>Greek accent.</strong> Greek keeps quantity and adds a written accent
-on one of the last three syllables.</p>
-<p>The marks are the <strong>acute</strong> (´); the <strong>grave</strong> (\`), which is an acute on the last syllable when another word follows; and the <strong>circumflex</strong> (ˆ), which stands only on a long vowel or diphthong.</p>
-<p>The law of limitation says that the accent cannot sit further back than the third syllable from the end, and that if the last syllable is long, it cannot sit on the antepenult. Verbs are usually <strong>recessive</strong>, that is, the accent goes as far back as that law allows.</p>
-<p>Breathings, rough and smooth, belong to an initial vowel; they are not a syllable.</p>`,
-  q:{ prompt:`A circumflex can stand only on…`,
-      options:['Any vowel, long or short',
-               'A long vowel or diphthong',
-               'The last syllable of a word, and no other',
-               'A short vowel that carries the stress'],
-      correct:1,
-      explain:`The circumflex is a rise and fall on one long sound, and so a short vowel cannot bear it.` } },
-
-{ src:['appown'], h:`<p><strong>German stress.</strong> German does not use the penultimate law; stress falls on the first syllable of the <em>stem</em> (the main part of the word, without a prefix).</p>
-<p><em>sprechen</em>: SPRE-chen.<br> <em>gesprochen</em>: ge-SPRO-chen. The prefix <em>ge-</em> of the participle is not the stem; the stress stays on the stem, here <em>sproch-</em>.</p>
-<p>Inseparable prefixes <em>be-, ge-, er-, ver-, zer-</em> are unstressed: <em>verstehen</em>: ver-STE-hen.</p>
-<p>Separable prefixes take the stress: <em>ankommen</em>: AN-kommen.</p>`,
-  q:{ prompt:`Where is the stress in <em>gesprochen</em>?`,
-      options:['On <em>ge-</em>, the first syllable of the word','On <em>sproch</em>, the stem','On the last syllable, as in French','On the penult, because it is long, as in Latin'],
-      correct:1,
-      explain:`The stem of the participle is <em>sproch-</em> (from <em>sprechen</em>). <em>Ge-</em> is an unstressed prefix. German finds the stem, whereas Latin measures the penult.` } },
-
-{ src:['appown'], h:`<p><strong>French stress.</strong> French does not pick a fixed syllable of the word as Latin does. The beat falls on the last <em>sounded</em> syllable of the rhythmic group, which is often the end of a phrase rather than of each word.</p>
-<p>A mute <em>e</em> (<em>e caduc</em>) is not counted, so that <em>table</em> is one syllable in speech. <em>Parler</em>, said alone, is stressed on <em>-ler</em>.</p>
-<p>There is therefore no long penult to look for, because there is none to measure.</p>`,
-  q:{ prompt:`French ordinary stress falls…`,
-      options:['On the first syllable of the stem',
-               'On the penult if it is long',
-               'On the last sounded syllable of the phrase',
-               'On the stem, wherever it falls'],
-      correct:2,
-      explain:`The group, not the word, takes the beat. Latin measures the penult, German finds the stem, and French puts the beat at the end of the phrase.` } },
-
 { src:['appown'], h:`<p><strong>English, by contrast.</strong> English uses stress, not quantity: a stressed syllable is a matter of emphasis, made by loudness, pitch, and length together. Latin <em>amīcus</em> takes the stress on the long penult, by the law already given. The place of the English stress can change the word: <em>REcord</em> (noun), <em>reCORD</em> (verb).</p>
 <p>Unstressed vowels often become a schwa (a weak, neutral vowel). Division still follows vowel sounds: <em>tea-cher, to-ge-ther, beau-ti-ful</em>.</p>
-<p>The exercises ask for dividing, measuring, and placing the accent, in Latin as the main skill, and in the other languages so that the Latin law is not mistaken for a law of speech as such.</p>`,
+<p>The exercises ask for dividing, measuring, and placing the accent, in Latin as the main skill, and in English so that the Latin law is not mistaken for a law of speech as such.</p>`,
   q:{ prompt:`English <em>record</em> (noun) against <em>record</em> (verb) shows that…`,
       options:['That English follows the Latin law of the penult','English stress can move, and is not quantity',
                'That English words are not divided into syllables','That every English verb is stressed on the last syllable'],
@@ -4960,7 +4929,7 @@ const POS_GROUP = [
 
 EX.pos = {
   id:'pos', src:['donatus','ag','appown'], act:'II', title:'The Parts of Speech',
-  desc:'A word, a phrase, or a clause is marked, and the question is how it is used here, in English and Latin, and in Greek, German, or French when chosen. A set is complete at 100 points.',
+  desc:'A word, a phrase, or a clause is marked, and the question is how it is used here, in English and Latin. A set is complete at 100 points.',
   instr:'Say how the marked word, phrase, or clause is used.',
   introInstr:'The exercise begins with two notes. A set ends at 100 points; a right answer adds points and a wrong answer takes some away, and the amount depends on the difficulty chosen on the home screen.',
   intro:[
@@ -6115,7 +6084,7 @@ EX.syllable = {
   desc:'Divide the word, say how many syllables it has, tell whether the penult is long, and place the accent. Latin is the main skill, and English is always asked. English has stress, not quantity: the English questions ask for the number of syllables and the stressed one.',
   instr:'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required.',
   gen(d){
-    /* Greek words and the Greek rules are added when Greek is chosen for this exercise. */
+    /* This exercise is English and Latin only, so partnerOf gives 'la' and L is null; Greek has its own exercise (grcsyl). */
     const L = partnerOf(EX.syllable) === 'grc' ? 'grc' : null;
     const lat = ACCENT_WORDS.filter(w => (w.dmin || 1) <= d);
     const roll = Math.random();
@@ -8862,7 +8831,25 @@ DECKS.enpos = {
                'The endings a word can take',
                'True statements about the world'],
       correct:1,
-      explain:'A part of speech is decided by how a word is used. The same sound can name in one sentence and assert in the next, so the eight parts are named by how a word is used.' } }
+      explain:'A part of speech is decided by how a word is used. The same sound can name in one sentence and assert in the next, so the eight parts are named by how a word is used.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>The article.</strong> English has two articles: the definite article “the,” and the indefinite article “a” (written “an” before a vowel sound). A modern class often counts them as adjectives or as determiners, since they stand with a noun. “The king” points to a king already known, and “a king” to any one king. Latin has no article, and Greek has only the definite one.</p>`,
+  q:{ prompt:'Which sentence speaks of a particular book already known to the hearer?',
+      options:['“I read the book.”','“I read a book.”','“I read books.”','“I read some book.”'],
+      correct:0,
+      explain:'The definite article “the” points to a book already known. “A book” and “some book” leave it open which book, and “books” speaks of more than one.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Particles and phrasal verbs.</strong> Many English verbs are joined to a short word, such as “up,” “out,” “off,” or “down,” and the two together have one meaning: “give up” means to stop trying, and “put off” means to delay. These small words are often called particles. They look like prepositions, but they belong to the verb and do not govern a noun, and they can often follow the object: “she put the meeting off.” The verb and its particle together are called a phrasal verb.</p>`,
+  q:{ prompt:'In “He gave up the plan,” what is “up”?',
+      options:['A particle belonging to the verb, since “gave up” means abandoned','A preposition governing “the plan”','An adverb of place, telling where he gave','A noun used as the object'],
+      correct:0,
+      explain:'“Gave up” has one meaning, “abandoned,” and “up” can follow the object: “he gave the plan up.” A preposition could not stand after its object in that way.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Word formation.</strong> English makes new words by adding prefixes and suffixes and by joining two words. The suffix “-ness” makes a noun from an adjective (“kind,” “kindness”), “-ly” makes an adverb (“quick,” “quickly”), and the prefix “un-” makes the opposite (“happy,” “unhappy”). Two words joined make a compound, such as “bookcase” or “sunrise,” and the second word usually decides what kind of thing the compound names. Many English words were also formed in Latin and borrowed whole, such as “education” from <em>ēducātiō</em>.</p>`,
+  q:{ prompt:'What does the suffix “-ness” make in “kindness”?',
+      options:['A noun from an adjective','An adverb from an adjective','A verb from a noun','An adjective from a verb'],
+      correct:0,
+      explain:'“Kind” is an adjective, and “-ness” makes from it the noun “kindness,” the quality of being kind.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -8926,6 +8913,12 @@ DECKS.ensent = {
                'S-V-IO-DO, because there are two objects of different kinds','S-LV-PN, because <em>and</em> links'],
       correct:1,
       explain:'There is one verb and one receiving. <em>And</em> joins the two nouns inside that one object. An indirect object would be a different office, the one to whom, and there is none here.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Word order.</strong> An English noun does not change for case, so the order of the words shows which noun is the subject and which is the object. The ordinary order is subject, verb, object: “the dog bit the man” and “the man bit the dog” say different things. A question usually puts a helping verb before the subject: “did the dog bite the man?” Latin can change the order freely because its endings show the case; English cannot.</p>`,
+  q:{ prompt:'Why do “the dog bit the man” and “the man bit the dog” mean different things?',
+      options:['Because in English the place of a noun shows whether it is the subject or the object','Because “dog” and “man” change their endings in the two sentences','Because the verb agrees with the nearer noun','Because English always puts the more important noun first'],
+      correct:0,
+      explain:'The nouns have the same form in both sentences, so only the order tells which one does the biting. In Latin the ending would show it.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -9078,6 +9071,25 @@ DECKS.enform = {
                'Treat <em>death</em> as the subject, since it agrees with the singular verb <em>is</em>'],
       correct:1,
       explain:'The subject is <em>wages</em>. The verb the translators wrote is <em>is</em>. We can notice that a modern rule would choose differently, and we still do not emend the text in order to parse it.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Aspect.</strong> Besides time, an English verb shows whether an action is presented as going on or as complete. The progressive, made with a form of “be” and the participle in “-ing,” presents it as going on: “she is reading,” “she was reading.” The perfect, made with “have” and the past participle, presents it as complete with a result at the time spoken of: “she has read the book.” So “she read the book” and “she was reading the book” differ in aspect, not in time, since both speak of the past.</p>`,
+  q:{ prompt:'Which sentence presents the action as going on in the past?',
+      options:['“She was reading.”','“She read.”','“She has read.”','“She had read.”'],
+      correct:0,
+      explain:'“Was reading” is the past progressive, which presents the reading as going on at a past time. “Read” is the simple past, and “has read” and “had read” are perfects.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Tenses and voices of several words.</strong> Most English tenses are made of more than one word, with a helping verb (an auxiliary) and a form of the main verb. The future uses “will”: “she will write.” The perfects use “have”: “she has written,” “she had written.” The passive uses a form of “be” and the past participle: “the letter was written.” Latin builds most of these in the ending of one word, as in <em>scrībet</em>, “she will write.”</p>
+<p>English has no middle voice in form, but some active verbs have a sense close to the Greek middle, since the subject is the thing acted on: “the book sells well,” “the door opened.”</p>`,
+  q:{ prompt:'In “the letter had been written,” which words are helping verbs?',
+      options:['“had” and “been”','Only “had”','Only “been”','“written” alone'],
+      correct:0,
+      explain:'“Had” makes the past perfect and “been” makes the passive, and “written,” the past participle, carries the meaning of the verb.' } },
+
+{ src:['engclass','appown'], h:`<p><strong>Contractions.</strong> Some short English words can be shortened and attached to the word before them, in speech and in informal writing. “Is” and “has” become “’s” (“she’s here”), “will” becomes “’ll,” “not” becomes “n’t” (“isn’t,” “can’t”), and “have” becomes “’ve.” A word that is pronounced as part of its neighbor in this way is called a clitic. The possessive “’s,” as in “the king’s horse,” also attaches to the end of a whole phrase: “the king of Spain’s horse.”</p>`,
+  q:{ prompt:'In “the king of Spain’s horse,” whose horse is meant?',
+      options:['The king’s, because “’s” attaches to the whole phrase “the king of Spain”','Spain’s, because “’s” is written on “Spain”','No one’s, because the sentence is incongruous','The horse belongs to both the king and Spain'],
+      correct:0,
+      explain:'The possessive “’s” attaches to the end of the whole phrase “the king of Spain,” so the horse is the king’s.' } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -14553,7 +14565,7 @@ function scanEnQ(d){
 }
 EX.meter = {
   id:'meter', src:['ag','engclass','hypo'], act:'I', title:'Meter and Scansion',
-  desc:'Mark the long and short syllables of lines of Virgil and Ovid (and, with Greek chosen, lines of Homer), and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
+  desc:'Mark the long and short syllables of lines of Virgil and Ovid, and the beats of lines of English verse. At the higher levels, write the feet of a hexameter and name the meter of an English line.',
   instr:'Mark the syllables, write the feet, or name the meter.',
   intro:[
     {h:'<strong>How the exercise is assessed.</strong> A Latin line is shown, and each syllable is marked long or short. At the higher levels the feet are written as letters, D for a dactyl and S for a spondee. An English line is shown, and each syllable is marked as a beat or an offbeat. At the higher levels the meter of an English line is named. Where a syllable can be marked either way, the exercise accepts either mark.'}
@@ -15028,7 +15040,14 @@ DECKS.latnoun = {
   q:{ prompt:`Given alone, without a sentence, what is <em>dominō</em>?`,
       options:['The dative or the ablative singular, since both are correct','Only the dative singular','Only the ablative singular','The nominative plural'],
       correct:0,
-      explain:`The second declension has <em>-ō</em> in both the dative and the ablative singular. Without a sentence nothing decides between them, so either analysis is correct and either is accepted.` } }
+      explain:`The second declension has <em>-ō</em> in both the dative and the ablative singular. Without a sentence nothing decides between them, so either analysis is correct and either is accepted.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Word formation.</strong> Latin makes new nouns and adjectives from a stem by adding a suffix, and new verbs by joining a preposition to a verb. From the stem of <em>laudō</em> (praise) come <em>laudātor</em>, the one who praises, and <em>laudātiō</em>, the act of praising; the suffix <em>-tor</em> names the doer, and <em>-tiō</em> names the action. From <em>glōria</em> (glory) comes the adjective <em>glōriōsus</em>, “full of glory,” since <em>-ōsus</em> means “full of.” A preposition joined to a verb adds to its meaning: <em>ferō</em> means “carry,” and <em>afferō</em> (from <em>ad</em> and <em>ferō</em>) means “carry to.”</p>
+<p>So a word that we have not met can often be read from its parts, and a noun in <em>-tor</em> or <em>-tiō</em> belongs to the third declension, whatever the verb it comes from.</p>`,
+  q:{ prompt:`What does <em>laudātor</em> name?`,
+      options:['The one who praises','The act of praising','The thing praised','The place of praise'],
+      correct:0,
+      explain:`The suffix <em>-tor</em> names the doer of the action, so <em>laudātor</em> is the one who praises. The act of praising is <em>laudātiō</em>.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15107,7 +15126,14 @@ DECKS.latverb = {
   q:{ prompt:`Given alone, what is <em>regam</em>?`,
       options:['The future indicative or the present subjunctive, first person singular active','Only the present subjunctive, first person singular active','Only the future indicative, first person singular active','The present indicative, first person singular active'],
       correct:0,
-      explain:`In the third conjugation the future indicative has <em>-am</em> in the first person singular, and so does the present subjunctive. Either analysis is therefore correct, and either is accepted; the present indicative, by contrast, is <em>regō</em>.` } }
+      explain:`In the third conjugation the future indicative has <em>-am</em> in the first person singular, and so does the present subjunctive. Either analysis is therefore correct, and either is accepted; the present indicative, by contrast, is <em>regō</em>.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Aspect.</strong> A Latin verb shows not only the time of an action but also whether the action is presented as going on or as complete. The present stem gives the forms of an action not yet complete (the present, the imperfect, and the future), and the perfect stem gives the forms of an action complete (the perfect, the pluperfect, and the future perfect). This difference is called aspect.</p>
+<p>So in the past, for example, <em>laudābat</em> (imperfect) means “he was praising” or “he used to praise,” and presents the praising as going on; <em>laudāvit</em> (perfect) means “he praised” or “he has praised,” and presents it as complete. Greek distinguishes three aspects, and its aorist and perfect are two tenses; the Latin perfect serves for both.</p>`,
+  q:{ prompt:`In a story, which form says that the soldiers <em>were fighting</em> when the king arrived?`,
+      options:['<em>pugnābant</em>, the imperfect','<em>pugnāvērunt</em>, the perfect','<em>pugnant</em>, the present','<em>pugnāverant</em>, the pluperfect'],
+      correct:0,
+      explain:`The imperfect, built on the present stem, presents the fighting as going on at that time. The perfect would present it as a completed act, and the pluperfect as complete before the arrival.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15178,7 +15204,21 @@ DECKS.latvoice = {
   q:{ prompt:`<em>Rēx rēgīnam ______ videt</em> (the king sees the praised queen). Which form of the participle fills the blank?`,
       options:['<em>laudātam</em>','<em>laudātae</em>','<em>laudātus</em>','<em>laudātum</em>'],
       correct:0,
-      explain:`<em>Rēgīnam</em> is feminine, singular, and accusative, so the participle is <em>laudātam</em>. <em>Laudātae</em> is feminine but in another case or number, <em>laudātus</em> is masculine and nominative, and <em>laudātum</em> is masculine or neuter.` } }
+      explain:`<em>Rēgīnam</em> is feminine, singular, and accusative, so the participle is <em>laudātam</em>. <em>Laudātae</em> is feminine but in another case or number, <em>laudātus</em> is masculine and nominative, and <em>laudātum</em> is masculine or neuter.` } },
+
+{ src:['ag','appown'], h:`<p><strong>The perfect passive.</strong> The present, the imperfect, and the future passive are single words with passive endings, but the perfect, the pluperfect, and the future perfect passive are made of two words: the perfect passive participle and a form of <em>sum</em>. <em>Laudātus est</em> means “he was praised” or “he has been praised,” <em>laudātus erat</em> means “he had been praised,” and <em>laudātus erit</em> means “he will have been praised.”</p>
+<p>The participle agrees with the subject in gender, number, and case, so it changes with the subject: <em>puella laudāta est</em>, “the girl was praised,” and <em>puerī laudātī sunt</em>, “the boys were praised.”</p>`,
+  q:{ prompt:`<em>Rēgīnae ā cīvibus ______ sunt</em> (the queens were praised by the citizens). Which form fills the blank?`,
+      options:['<em>laudātae</em>','<em>laudātī</em>','<em>laudāta</em>','<em>laudātus</em>'],
+      correct:0,
+      explain:`The subject <em>rēgīnae</em> is feminine and plural, and the participle agrees with it, so the form is <em>laudātae</em>. <em>Laudātī</em> is masculine plural, and <em>laudāta</em> and <em>laudātus</em> are singular.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Deponent verbs.</strong> Some Latin verbs are passive in form but active in meaning. They are called deponent verbs, as though they had laid aside (<em>dēpōnere</em>) their active forms. <em>Hortor</em> means “I encourage,” <em>sequor</em> means “I follow,” and <em>loquor</em> means “I speak”; their infinitives, <em>hortārī</em>, <em>sequī</em>, and <em>loquī</em>, are passive in form as well.</p>
+<p>Latin has no middle voice of its own, as Greek has, but a few verbs use the passive form with a reflexive sense, close to the Greek middle: <em>lavor</em> can mean “I wash myself.” So a passive ending does not always mean that the subject receives the action, and the dictionary shows which verbs are deponent by giving their principal parts in the passive: <em>hortor, hortārī, hortātus sum</em>.</p>`,
+  q:{ prompt:`What does <em>mīlitēs ducem sequuntur</em> mean?`,
+      options:['The soldiers follow the general','The soldiers are followed by the general','The general follows the soldiers','The soldiers are followed, and the general is not'],
+      correct:0,
+      explain:`<em>Sequor</em> is deponent, so the passive form <em>sequuntur</em> has an active meaning, and <em>ducem</em>, in the accusative, is its object.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15242,7 +15282,14 @@ DECKS.latsubj = {
   q:{ prompt:`<em>Magister puerōs monuit ut verba ______</em> (the teacher warned the boys so that they would hear the words). Which form of <em>audiō</em> fills the blank?`,
       options:['<em>audīrent</em>','<em>audiant</em>','<em>audiunt</em>','<em>audīret</em>'],
       correct:0,
-      explain:`<em>Monuit</em> is past, so the purpose clause has the imperfect subjunctive, and its subject, the boys, is plural: <em>audīrent</em>. <em>Audiant</em> is present, <em>audiunt</em> is indicative, and <em>audīret</em> is singular.` } }
+      explain:`<em>Monuit</em> is past, so the purpose clause has the imperfect subjunctive, and its subject, the boys, is plural: <em>audīrent</em>. <em>Audiant</em> is present, <em>audiunt</em> is indicative, and <em>audīret</em> is singular.` } },
+
+{ src:['ag','appown'], h:`<p><strong>The imperative.</strong> Beside the indicative and the subjunctive, Latin has a third mood, the imperative, which gives a command. The present imperative has a singular and a plural: <em>laudā</em> and <em>laudāte</em>, “praise”; <em>monē</em> and <em>monēte</em>, “warn”; <em>rege</em> and <em>regite</em>, “rule”; <em>audī</em> and <em>audīte</em>, “hear.” Four verbs have a short singular: <em>dīc</em>, <em>dūc</em>, <em>fac</em>, and <em>fer</em>.</p>
+<p>A command not to do something is usually given with <em>nōlī</em> or <em>nōlīte</em> and the infinitive: <em>nōlī timēre</em>, “do not be afraid.” A command to a third person, or a command that includes the speaker, is given with the subjunctive: <em>laudēmus</em>, “let us praise.”</p>`,
+  q:{ prompt:`How is “Do not fear, boys!” said in Latin?`,
+      options:['<em>Nōlīte timēre, puerī!</em>','<em>Nōlī timēre, puerī!</em>','<em>Timēte, puerī!</em>','<em>Nōlīte timent, puerī!</em>'],
+      correct:0,
+      explain:`A prohibition takes <em>nōlī</em> or <em>nōlīte</em> with the infinitive, and the plural <em>nōlīte</em> is needed because the command is given to more than one boy.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15309,7 +15356,15 @@ DECKS.latbuild = {
   q:{ prompt:`Which phrase means “in the city,” as the place where something happens?`,
       options:['<em>in urbe</em>','<em>in urbem</em>','<em>in urbs</em>','<em>in urbis</em>'],
       correct:0,
-      explain:`Place where takes <em>in</em> with the ablative, and the ablative singular of <em>urbs</em> is <em>urbe</em>. <em>In urbem</em> means “into the city,” and <em>urbs</em> and <em>urbis</em> are the nominative and the genitive.` } }
+      explain:`Place where takes <em>in</em> with the ablative, and the ablative singular of <em>urbs</em> is <em>urbe</em>. <em>In urbem</em> means “into the city,” and <em>urbs</em> and <em>urbis</em> are the nominative and the genitive.` } },
+
+{ src:['ag','appown'], h:`<p><strong>No article, enclitics, and particles.</strong> Latin has no article, so <em>rēx</em> may mean “the king” or “a king,” and the sentence decides which is meant.</p>
+<p>Three short words are enclitics, that is, they are written as part of the word before them and pronounced with it. <em>-que</em> means “and” and joins its word to what precedes it: <em>senātus populusque</em>, “the senate and the people.” <em>-ve</em> means “or.” <em>-ne</em> marks a question to which the answer is not assumed: <em>vidēsne rēgem?</em>, “do you see the king?” A question that expects the answer yes begins with <em>nōnne</em>, and one that expects no begins with <em>num</em>.</p>
+<p>Some particles do not stand first in their clause. <em>Enim</em> (for), <em>autem</em> (however), and usually <em>igitur</em> (therefore) stand second: <em>rēx autem nōn vēnit</em>, “the king, however, did not come.”</p>`,
+  q:{ prompt:`In <em>puerī puellaeque cantant</em>, what does <em>-que</em> do?`,
+      options:['It joins <em>puellae</em> to <em>puerī</em>, meaning “and”','It marks the sentence as a question','It means “or,” offering two subjects','It marks <em>puellae</em> as the object'],
+      correct:0,
+      explain:`<em>-que</em> is an enclitic meaning “and,” and it joins its own word to the word before it: “the boys and the girls sing.” The question enclitic is <em>-ne</em>, and “or” is <em>-ve</em>.` } }
 ]};
 
 /* -------------------------------------------------------------- */
@@ -15412,7 +15467,7 @@ const FRA = (typeof window !== 'undefined' && window.FRENCH && window.FRENCH.car
 const DEU = (typeof window !== 'undefined' && window.GERMAN && window.GERMAN.cards) ? window.GERMAN : null;
 /* The partner languages, in the order of the home screen, and the label of each on an exercise's choice. */
 const PARTNER_KEYS = ['grc','de','fr'];
-const PARTNER_ROW = {grc:'English and Greek', de:'English and German', fr:'English and French'};
+const PARTNER_ROW = {grc:'English, Latin, and Greek', de:'English, Latin, and German', fr:'English, Latin, and French'};
 /* An exercise offers Greek beside English by listing 'grc' in ex.langs. Its partner language is then
    Latin or Greek, as chosen for that exercise; every other exercise keeps Latin. */
 /* Greek beside Latin: the study deck, one panel for each card of greek-cards.json, heading and text as written there. */
@@ -15690,9 +15745,9 @@ if(GRK && GRK.sentence){
   };
 }
 /* Greek in the shared exercises. An exercise with a Greek pool of at least eight items in GREEK.shared offers
-   "English and Greek". With Greek chosen, its own generator still supplies the English questions, and Greek
-   items take the place of the Latin ones, so that no Latin item is shown. With Latin chosen, the generator
-   runs exactly as before. */
+   "English, Latin, and Greek". With Greek chosen, the Greek items are added beside the English and Latin ones:
+   the generator gives a Greek item when the question loop asks for Greek (state.wantLang), and its own question
+   otherwise. With Latin alone, the generator runs exactly as before. */
 function addGreek(id, makeQ, share){ addPartner('grc', GRK, id, makeQ, share); }
 /* The same for any partner language: key is its code, and data.shared[id] is its pool for the exercise. */
 function addPartner(key, data, id, makeQ, share){
@@ -15703,12 +15758,9 @@ function addPartner(key, data, id, makeQ, share){
   ex.langs = (ex.langs || []).concat(key);
   ex.gen = function(d){
     if(partnerOf(ex) !== key) return base.call(this, d);
-    if(share >= 1 || Math.random() < share) return makeQ(pickSeen(pool, x => x.id), d);
-    for(let i = 0; i < 20; i++){
-      const q = base.call(this, d);
-      if(q && q.lang !== 'la') return q;
-    }
-    return makeQ(pickSeen(pool, x => x.id), d);
+    const want = state.wantLang;
+    if(want === key || (!want && Math.random() < share)) return makeQ(pickSeen(pool, x => x.id), d);
+    return base.call(this, d);
   };
 }
 /* pos: the marked-word question of The Parts of Speech, for a single marked word. */
@@ -15969,12 +16021,184 @@ function deuMatch(val, it){
 const DEU_HINT = 'The umlaut is optional, and ä, ö, ü, and ß may also be written ae, oe, ue, and ss.';
 const DEU_HINT_KEEP = 'Ä, ö, ü, and ß may also be written ae, oe, ue, and ss. The umlaut is required, because the same spelling without it is another form of this word.';
 addPartner('de', DEU, 'produce', it => partnerProduceQ(DEU, it, deuMatch, 'Type the German form', deuRefused(it).length ? DEU_HINT_KEEP : DEU_HINT), 0.4);
+/* ====================================================================
+   THE THIRD LANGUAGE: Greek, German, and French at the same level
+   --------------------------------------------------------------------
+   Each language has a study deck of cards, a deck of paradigms, a fill-in exercise, four sentence exercises
+   (building the sentence, voice, kinds of clause, mood), notes on the study panels, and a deck and an exercise on
+   syllable, quantity, and accent. Greek keeps its own builders above; French and German use the ones below, with
+   their content in FRENCH and GERMAN (french.js, german.js). Nothing here is shown unless that language is chosen
+   on the home page.
+   ==================================================================== */
+const PL = {
+  grc:{key:'grc', data:GRK, name:'Greek', src:['smyth','appown'], placeholder:'Type the Greek form', hint:() => GRK_HINT,
+       match:(val, it) => { const g = normGrk(val); return !!g && g === normGrk(it.a); }},
+  /* In the French and German sentence exercises a typed answer must keep its accents, because many forms differ only
+     by an accent (parle, parlé). Case, the apostrophe, and spacing do not matter, and German may write ae, oe, ue, and ss. */
+  fr:{key:'fr', data:FRA, name:'French', src:['lawless','larousse','leconjugueur'], placeholder:'Type the French word',
+      hint:() => 'Type the accents and the cedilla as they are written (é, è, ê, à, ç, and so on).',
+      match:(val, it) => { const got = partnerLc(val); return !!got && got === partnerLc(it.a); }},
+  de:{key:'de', data:DEU, name:'German', src:['duden'], placeholder:'Type the German word',
+      hint:() => 'Ä, ö, ü, and ß may also be written ae, oe, ue, and ss.',
+      match:(val, it) => { const got = deStrict(val); return !!got && got === deStrict(it.a); }}
+};
+const deStrict = v => partnerLc(v).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+/* The third language chosen on the home page, or null. */
+function thirdLang(){ return PL[store.langPick] && PL[store.langPick].data ? store.langPick : null; }
+const plSpan = (L, s) => `<span lang="${L.key}">${s}</span>`;
+/* One blank in a frame, or a form named by its English line; tiles at the first two levels, typed above. */
+function partnerSentQ(L, it, d, sidPrefix){
+  const bare = it.fr.trim() === '______';
+  const frame = bare ? '' : plSpan(L, nfEsc(it.fr).replace('______', '<span class="target">______</span>'));
+  const note = it.why;
+  const what = L.name;
+  if(d >= 3){
+    return {
+      kind:'text', lang:L.key, src:L.src, sid:sidPrefix + it.id, _answer:it.a,
+      prompt: bare ? `Write the ${what} form named.` : `Write the missing ${what} word.`,
+      sentence:frame, gloss:nfEsc(it.en), placeholder:L.placeholder, hint:L.hint(it),
+      check(val){
+        if(L.match(val, it)) return {right:true, note};
+        const wrote = String(val || '').trim();
+        const right = `The answer is <strong lang="${L.key}">${nfEsc(it.a)}</strong>.`;
+        return {right:false, note, also: wrote ? `${right} The answer written was <em>${nfEsc(wrote)}</em>.` : `${right} Nothing was written.`};
+      }
+    };
+  }
+  const n = d <= 1 ? 2 : 3;
+  const options = shuffle([it.a].concat(sample(it.ds, Math.min(n, it.ds.length))));
+  const correct = options.indexOf(it.a);
+  return {
+    kind:'mc', lang:L.key, src:L.src, sid:sidPrefix + it.id, _answer:correct,
+    prompt: bare ? `Choose the ${what} form named.` : `Choose the missing ${what} word.`,
+    sentence:frame, gloss:nfEsc(it.en), options, correct,
+    check(i){
+      if(i === correct) return {right:true, note};
+      return {right:false, note, also:`The answer chosen was <em>${nfEsc(options[i])}</em>.`};
+    }
+  };
+}
+/* The exercises of French and German built from their data: the fill-in set and the four sentence exercises. */
+['fr','de'].forEach(k => {
+  const L = PL[k], D = L.data;
+  if(!D) return;
+  const make = (id, part, sid) => {
+    if(!part || !Array.isArray(part.items) || !part.items.length) return;
+    EX[id] = {
+      id, src:L.src, title:part.title, desc:part.desc,
+      instr:part.instr || `Supply the missing ${L.name} word.`, introInstr:'',
+      intro:(part.intro || []).map(x => ({h:x.h, eg:x.eg || []})),
+      modes:[k], langs:[k],
+      gen(d){ return partnerSentQ(L, pickSeen(part.items, x => x.id), d, sid); }
+    };
+  };
+  if(D.fill) make(k + 'more', D.fill, k + 'm:');
+  if(D.sentence){
+    make(k + 'sent', D.sentence.more, k + 's:');
+    make(k + 'voice', D.sentence.voice, k + 's:');
+    make(k + 'clause', D.sentence.clause, k + 's:');
+    make(k + 'mood', D.sentence.mood, k + 's:');
+  }
+});
+/* Syllable, quantity, and accent in each third language: a short deck and a short exercise from data.syllable. */
+Object.keys(PL).forEach(k => {
+  const L = PL[k], S = L.data && L.data.syllable;
+  if(!S) return;
+  DECKS[k + 'syl'] = {
+    title:S.deck.title, sub:S.deck.sub,
+    panels:S.deck.panels.map(p => ({src:p.src || L.src, h:p.h, q:p.q}))
+  };
+  EX[k + 'syl'] = {
+    id:k + 'syl', src:L.src, title:S.exercise.title, desc:S.exercise.desc, instr:S.exercise.instr,
+    modes:[k], langs:[k],
+    gen(d){
+      const it = pickSeen(S.exercise.items, x => x.id);
+      const q = makeMC(Object.assign({src:L.src, lang:k}, it), d <= 1 ? 3 : 4);
+      if(it.form) q.specimen = plSpan(L, nfEsc(it.form));
+      return q;
+    }
+  };
+});
+/* The French and German paradigms: one panel for each table of the paradigms file. The cells are the stored forms;
+   nothing is generated. */
+const PL_LBL = {
+  m_sg:'Masculine singular', f_sg:'Feminine singular', m_pl:'Masculine plural', f_pl:'Feminine plural', pl:'Plural', sg:'Singular',
+  vowel:'Before a vowel', m_sg_vowel:'Masculine singular before a vowel',
+  '1s':'1st singular', '2s':'2nd singular', '3s':'3rd singular', '1p':'1st plural', '2p':'2nd plural', '3p':'3rd plural',
+  '3s_m':'3rd singular, masculine', '3s_f':'3rd singular, feminine', '3s_n':'3rd singular, neuter', '3s_indef':'3rd singular, indefinite',
+  '3s_vowel':'3rd singular, before a vowel', '3p_m':'3rd plural, masculine', '3p_f':'3rd plural, feminine', '2_formal':'2nd, formal',
+  nom:'Nominative', acc:'Accusative', dat:'Dative', gen:'Genitive', m:'Masculine', f:'Feminine', n:'Neuter',
+  definite:'Definite', indefinite:'Indefinite', partitive:'Partitive',
+  subject:'Subject', direct_object:'Direct object', indirect_object:'Indirect object', stressed:'Stressed', reflexive:'Reflexive',
+  present:'Present', passe_compose:'Passé composé', imparfait:'Imparfait', futur:'Futur', subjonctif:'Subjonctif présent',
+  praeteritum:'Präteritum', perfekt:'Perfekt', konjunktiv_ii:'Konjunktiv II',
+  strong:'Strong endings (no article)', weak:'Weak endings (after der, die, das)', mixed:'Mixed endings (after ein, kein, mein)'
+};
+const plLbl = k => PL_LBL[k] || nfEsc(k);
+const plCell = v => v == null ? '' : Array.isArray(v) ? v.map(nfEsc).join(' or ') : nfEsc(v);
+const plHead = (t, extra) => `<p><strong>${nfEsc(t.lemma)}</strong>${t.gloss ? ` (${nfEsc(t.gloss)})` : ''}${extra || ''}</p>`;
+/* A table of rows by columns, where obj[col][row] is a cell. */
+function plGrid(obj, cols, rows){
+  return grkTable([`<tr><th></th>${cols.map(c => `<th>${plLbl(c)}</th>`).join('')}</tr>`]
+    .concat(rows.map(r => `<tr><td>${plLbl(r)}</td>${cols.map(c => `<td class="f">${plCell(obj[c] && obj[c][r])}</td>`).join('')}</tr>`)));
+}
+const plKeys = (obj, cols) => cols.reduce((a, c) => a.concat(Object.keys(obj[c] || {}).filter(r => a.indexOf(r) < 0)), []);
+/* German case tables: the singular by gender and the plural, rows by case. */
+function deCaseTable(block){
+  const cases = ['nom','acc','dat','gen'];
+  const cols = ['m','f','n'].filter(g => block.sg && block.sg[g]);
+  const obj = {};
+  cols.forEach(g => { obj[g] = block.sg[g]; });
+  if(block.pl) obj.pl = block.pl;
+  return plGrid(obj, cols.concat(block.pl ? ['pl'] : []), cases);
+}
+const PERSONS6 = ['1s','2s','3s','1p','2p','3p'];
+if(FRA){
+  const P = FRA.paradigms;
+  const A = P.article.forms;
+  const panels = [
+    {h: plHead(P.article) + plGrid(A, ['definite','indefinite','partitive'], ['m_sg','f_sg','vowel','pl'])
+      + `<p>Contractions of the preposition and the article:</p>`
+      + grkTable(Object.keys(A.contraction).map(c => `<tr><td class="f">${nfEsc(c)}</td><td>${nfEsc(A.contraction[c])}</td></tr>`))},
+    {h:`<p><strong>Nouns</strong>, singular and plural</p>` + grkTable([`<tr><th></th><th>Singular</th><th>Plural</th></tr>`]
+      .concat(P.nouns.map(n => `<tr><td>${nfEsc(n.lemma)}</td><td class="f">${plCell(n.forms.sg)}${n.forms.f_sg ? ' (feminine ' + plCell(n.forms.f_sg) + ')' : ''}</td><td class="f">${plCell(n.forms.pl)}${n.forms.f_pl ? ' (feminine ' + plCell(n.forms.f_pl) + ')' : ''}</td></tr>`)))},
+    {h:`<p><strong>Adjectives</strong>, by gender and number</p>` + grkTable([`<tr><th></th><th>${plLbl('m_sg')}</th><th>${plLbl('f_sg')}</th><th>${plLbl('m_pl')}</th><th>${plLbl('f_pl')}</th></tr>`]
+      .concat(P.adjectives.map(a => `<tr><td>${nfEsc(a.lemma)}</td>${['m_sg','f_sg','m_pl','f_pl'].map(c => `<td class="f">${plCell(a.forms[c])}${c === 'm_sg' && a.forms.m_sg_vowel ? ' (' + plCell(a.forms.m_sg_vowel) + ' before a vowel)' : ''}</td>`).join('')}</tr>`)))},
+    {h:`<p><strong>Personal pronouns</strong></p>` + plGrid(P.pronouns, ['subject','direct_object','indirect_object','stressed','reflexive'],
+      plKeys(P.pronouns, ['subject','direct_object','indirect_object','stressed','reflexive']))}
+  ].concat(P.verbs.map(v => {
+    const tenses = ['present','passe_compose','imparfait','futur','subjonctif'].filter(t => v[t]);
+    const pp = v.participe_passe && typeof v.participe_passe === 'object' ? [...new Set(Object.values(v.participe_passe))].join(', ') : v.participe_passe;
+    return {h: plHead(v, v.kind ? `, ${nfEsc(v.kind)}` : '') + plGrid(v, tenses, PERSONS6)
+      + `<p>Present participle <em lang="fr">${plCell(v.participe_present)}</em>; past participle <em lang="fr">${plCell(pp)}</em>.</p>`};
+  }));
+  DECKS.frpar = {title:'French Paradigms', sub:'The article, the noun, the adjective, the pronoun, and eight verbs',
+    panels: panels.map(p => ({src:['lawless','larousse','leconjugueur'], h:p.h}))};
+}
+if(DEU){
+  const P = DEU.paradigms;
+  const panels = [
+    {h: plHead(P.article) + `<p><em>${plLbl('definite')}</em></p>` + deCaseTable(P.article.definite)
+      + `<p><em>${plLbl('indefinite')}</em> (no plural)</p>` + deCaseTable(P.article.indefinite)}
+  ].concat(P.nouns.map(n => ({h: plHead(n) + plGrid(n.forms, ['sg','pl'], ['nom','acc','dat','gen'])})),
+    P.adjectives.map(a => ({h: plHead(a) + ['strong','weak','mixed'].filter(s => a[s]).map(s => `<p><em>${plLbl(s)}</em></p>` + deCaseTable(a[s])).join('')})),
+    [{h:`<p><strong>Personal pronouns</strong></p>` + grkTable([`<tr><th></th>${['nom','acc','dat','gen'].map(c => `<th>${plLbl(c)}</th>`).join('')}</tr>`]
+      .concat(Object.keys(P.pronouns.forms).map(p => `<tr><td>${plLbl(p)}</td>${['nom','acc','dat','gen'].map(c => `<td class="f">${plCell(P.pronouns.forms[p][c])}</td>`).join('')}</tr>`)))}],
+    P.verbs.map(v => ({h: plHead(v, v.kind ? `, ${nfEsc(v.kind)}` : '') + plGrid(v, ['present','praeteritum','perfekt','konjunktiv_ii'].filter(t => v[t]), PERSONS6)
+      + `<p>Past participle <em lang="de">${plCell(v.partizip)}</em>.</p>`})),
+    [{h:`<p><strong>Prepositions</strong> and the case each requires</p>` + grkTable([`<tr><th>Case</th><th>Prepositions</th></tr>`]
+      .concat(['accusative','dative','genitive'].map(c => `<tr><td>${c[0].toUpperCase() + c.slice(1)}</td><td class="f">${P.prepositions[c].map(x => `${nfEsc(x.lemma)} (${nfEsc(x.gloss)})`).join(', ')}</td></tr>`),
+        P.prepositions.two_way.map(x => `<tr><td>Dative or accusative</td><td class="f">${nfEsc(x.lemma)} (${nfEsc(x.gloss)}): dative for the ${nfEsc(x.dative)}, accusative for the ${nfEsc(x.accusative)}</td></tr>`)))}]);
+  DECKS.depar = {title:'German Paradigms', sub:'The article, the noun, the adjective, the pronoun, eight verbs, and the prepositions',
+    panels: panels.map(p => ({src:['duden'], h:p.h}))};
+}
+
 function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('grc') >= 0); }
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
 function partnerOf(ex){
   const k = ex ? store.langs[ex.id] : null;
-  return partnerKeys(ex).indexOf(k) >= 0 ? k : 'la';
+  return partnerKeys(ex).indexOf(k) >= 0 && k === thirdLang() ? k : 'la';
 }
 function rowChoice(ex){
   const mode = modeOf(ex);
@@ -15993,17 +16217,23 @@ function modeOf(ex){
   if(m[0] === 'orig') return null;
   return m[0];
 }
+/* A third language is added to Latin and does not take Latin's place: Latin keeps the share it has without it, and the
+   third language has about three questions in ten, taken from the English share. */
+const THIRD_SHARE = 0.3;
 function nextLang(ex){
   const mode = modeOf(ex);
+  const p = partnerOf(ex);
+  const nP = state.nP || 0;
   if(mode === 'en') return 'en';
-  if(mode === 'la') return partnerOf(ex);
+  if(mode === 'la') return p !== 'la' && nP < (state.nLa + nP) * THIRD_SHARE + 1 ? p : 'la';
   if(mode !== 'both') return null;
   const a = state.langAvail;
   /* About fifteen questions make a run; a Latin share above la/15 would repeat Latin items. */
   const laShare = a ? Math.min(0.40, a.la / 15) : 0.40;
-  const n = state.nEn + state.nLa;
+  const n = state.nEn + state.nLa + nP;
   if(n < 2) return 'en';
-  return (state.nLa / n) < laShare ? partnerOf(ex) : 'en';
+  if(p !== 'la' && nP / n < THIRD_SHARE) return p;
+  return (state.nLa / n) < laShare ? 'la' : 'en';
 }
 function ensureLang(ex, q){
   if(!q) return q;
@@ -16019,7 +16249,9 @@ function renderModeRow(){
   const ex = state.ex;
   if(!row) return;
   const allowed = ex && ex.modes;
-  if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !partnerKeys(ex).length)){
+  /* Only the third language chosen on the home page is offered. */
+  const partners = partnerKeys(ex).filter(k => k === thirdLang());
+  if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !partners.length)){
     row.hidden = true;
     row.textContent = '';
     return;
@@ -16027,7 +16259,6 @@ function renderModeRow(){
   row.hidden = false;
   row.textContent = '';
   const cur = rowChoice(ex);
-  const partners = partnerKeys(ex);
   const greek = partners.length > 0;
   /* An exercise that offers a partner language shows its row even when it has no English questions, and then leaves out "English only". */
   const noEn = greek && state.langAvail && state.langAvail.en === 0;
@@ -16045,6 +16276,7 @@ function renderModeRow(){
       state.sessionSeen = [];
       state.nEn = 0;
       state.nLa = 0;
+      state.nP = 0;
       state.locked = false;
       renderModeRow();
       nextQ();
@@ -16067,8 +16299,14 @@ const ACTS = [
       desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.', ex:['vox']},
      {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
-     {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
-      desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']}
+     {kind:'row', deck:'syllable', alsoL:['grc','de','fr'], tag:'STUDY', title:'Syllable, Quantity and Accent',
+      desc:'Long and short by nature and by position; the Latin penultimate law; English stress, which is not quantity.', ex:['syllable']},
+     {kind:'row', lang:'grc', deck:'grcsyl', tag:'STUDY · GREEK', title:'Greek Syllable, Quantity, and Accent',
+      desc:'The Greek syllable and its quantity, the three accents and the law of limitation, and the breathings.', ex:['grcsyl']},
+     {kind:'row', lang:'de', deck:'desyl', tag:'STUDY · GERMAN', title:'German Syllable, Length, and Stress',
+      desc:'The German syllable, long and short vowels, and the stress on the first syllable of the stem, with the prefixes that take it and the ones that do not.', ex:['desyl']},
+     {kind:'row', lang:'fr', deck:'frsyl', tag:'STUDY · FRENCH', title:'French Syllable and Stress',
+      desc:'The French syllable, the mute e, liaison and elision, and the stress on the last sounded syllable of the group.', ex:['frsyl']}
    ]},
   {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
    gloss:'How a word is used, as a noun, a verb, and the rest; the eight parts in Latin, and then in English.',
@@ -16083,24 +16321,26 @@ const ACTS = [
    items:[
      {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
       desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']},
-     {kind:'row', deck:'latnoun', tag:'STUDY', title:'The Latin Noun',
+     {kind:'row', deck:'latnoun', alsoL:['grc','de','fr'], tag:'STUDY', title:'The Latin Noun',
       desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
-     {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
+     {kind:'row', deck:'latverb', alsoL:['grc','de','fr'], tag:'STUDY', title:'The Latin Verb',
       desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
      {kind:'row', deck:'casework', tag:'STUDY', title:'Case',
       desc:'What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
      {kind:'row', deck:'produce', tag:'STUDY', title:'Producing the Form',
       desc:'The inverse of parsing: given the lemma and the accidents, write the form.', ex:['produce']}
    ].concat(GRK ? [
-     {kind:'row', deck:'grccards', tag:'STUDY', title:GRK.cards.title, desc:GRK.cards.description, ex:[], beside:true}
+     {kind:'row', lang:'grc', deck:'grccards', tag:'STUDY · GREEK', title:GRK.cards.title, desc:GRK.cards.description, ex:['grcmore']},
+     {kind:'row', lang:'grc', deck:'grcpar', tag:'STUDY · GREEK', title:'Greek Paradigms',
+      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.', ex:[]}
    ] : [], DEU ? [
-     {kind:'row', deck:'decards', tag:'STUDY', title:DEU.cards.title, desc:DEU.cards.description, ex:[], beside:true}
+     {kind:'row', lang:'de', deck:'decards', tag:'STUDY · GERMAN', title:DEU.cards.title, desc:DEU.cards.description, ex:['demore']},
+     {kind:'row', lang:'de', deck:'depar', tag:'STUDY · GERMAN', title:'German Paradigms',
+      desc:'The tables of the article, eleven nouns, the adjective with its three sets of endings, the personal pronoun, eight verbs, and the prepositions with their cases.', ex:[]}
    ] : [], FRA ? [
-     {kind:'row', deck:'frcards', tag:'STUDY', title:FRA.cards.title, desc:FRA.cards.description, ex:[], beside:true}
-   ] : [], GRK ? [
-     {kind:'row', deck:'grcpar', tag:'STUDY', title:'Greek Paradigms',
-      desc:'The tables of the article, fifteen nouns, six adjectives, and two verbs, as Smyth prints them, each with its section number.',
-      ex:['grcmore'].concat(GRK && GRK.sentence ? ['grcsent', 'grcvoice', 'grcclause', 'grcmood'] : [])}
+     {kind:'row', lang:'fr', deck:'frcards', tag:'STUDY · FRENCH', title:FRA.cards.title, desc:FRA.cards.description, ex:['frmore']},
+     {kind:'row', lang:'fr', deck:'frpar', tag:'STUDY · FRENCH', title:'French Paradigms',
+      desc:'The tables of the article, fifteen nouns, six adjectives, the personal pronouns, and eight verbs.', ex:[]}
    ] : [])},
   {key:'IV', roman:'IV', name:'The Sentence', latin:'Oratio',
    gloss:'To judge an arrangement of words, then a period, and then the meter of a verse.',
@@ -16124,15 +16364,19 @@ const ACTS = [
      {kind:'row', deck:'govern', tag:'STUDY', title:'Government',
       desc:'The verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.', ex:['govern']},
      {kind:'row', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
-      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite']},
+      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite'],
+      exL:{grc:['grcsent'], de:['desent'], fr:['frsent']}},
      {kind:'row', deck:'latvoice', tag:'STUDY', title:'The Passive, the Infinitive, and the Participle',
-      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice']},
+      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice'],
+      exL:{grc:['grcvoice'], de:['devoice'], fr:['frvoice']}},
      {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
-      desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
+      desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj'],
+      exL:{grc:['grcmood'], de:['demood'], fr:['frmood']}},
      {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong', 'congtruth']},
      {kind:'row', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
-      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause']},
+      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause'],
+      exL:{grc:['grcclause'], de:['declause'], fr:['frclause']}},
      {kind:'row', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
       desc:'Thomas of Erfurt’s account of construction: which word depends, which terminates, and why the verb depends on its subject.', ex:['workshop']},
      {kind:'row', deck:'markup', tag:'STUDY', title:'Marking the Sentence',
@@ -16199,14 +16443,27 @@ const ACTS = [
    ]}
 ];
 /* The items of an act with each row opened into its study and its exercises, in order. */
+/* A row marked with a language (lang) is shown only when that language is the third language chosen, and a row's
+   exercises in a third language (exL) are added to it then. */
+function rowShown(it){ return !it.lang || it.lang === thirdLang(); }
+function rowEx(it){ const k = thirdLang(); return it.ex.concat(k && it.exL && it.exL[k] ? it.exL[k] : []); }
 function actItems(act){
   const out = [];
   act.items.forEach(it => {
     if(it.kind !== 'row'){ out.push(it); return; }
+    if(!rowShown(it)) return;
     out.push({kind:'deck', deck:it.deck, tag:it.tag, title:it.title, desc:it.desc});
-    it.ex.forEach(ex => out.push({kind:'ex', ex}));
+    rowEx(it).forEach(ex => out.push({kind:'ex', ex}));
   });
   return out;
+}
+/* The third languages in which a Latin row also has material: its own list (alsoL), its exercises in a third language,
+   and the third languages its shared exercises offer. */
+function rowAlso(it){
+  const ks = new Set(it.alsoL || []);
+  Object.keys(it.exL || {}).forEach(k => ks.add(k));
+  it.ex.forEach(id => partnerKeys(EX[id]).forEach(k => ks.add(k)));
+  return PARTNER_KEYS.filter(k => ks.has(k) && PL[k].data);
 }
 /* An exercise may be listed in two acts (congtruth); lists of exercises name it once, where it first appears. */
 function actExercises(act, seen){
@@ -16253,6 +16510,7 @@ function setPartnerAll(key){
   store.langPick = key;
   save();
   buildPartnerRow();
+  buildHome();
 }
 function buildPartnerRow(){
   const row = $('partner-row');
@@ -16262,7 +16520,7 @@ function buildPartnerRow(){
   $('partner-box').classList.remove('partner-soon');
   const names = [['grc','Ancient Greek','Greek'],['de','German','German'],['fr','French','French']].filter(n => has[n[0]]);
   const list = (a, word) => a.length < 3 ? a.join(` ${word} `) : `${a.slice(0, -1).join(', ')}, ${word} ${a[a.length - 1]}`;
-  $('partner-text').textContent = `${list(names.map(n => n[1]), 'and')} ${names.length === 1 ? 'is' : 'are'} offered as ${names.length === 1 ? 'a partner language' : 'partner languages'}. Choosing one here sets every exercise that offers it, and each exercise can still be changed on its own. Choosing it again returns the course to English and Latin alone.`;
+  $('partner-text').textContent = `${list(names.map(n => n[1]), 'or')} may be chosen. With one chosen, that language’s studies and exercises appear beside the Latin ones, and its questions are added to the Latin questions of the shared exercises. With none chosen, the course uses English and Latin alone, and choosing the same language again returns it to them.`;
   $('partner-flag').style.display = 'none';
   row.hidden = false;
   row.innerHTML = '';
@@ -16368,14 +16626,24 @@ function buildHome(){
       }
       beside = null;
       if(item.kind !== 'row'){ grid.appendChild(makeCard(item, false)); return; }
+      if(!rowShown(item) || !DECKS[item.deck]) return;
+      const exs = rowEx(item).filter(id => EX[id]);
       const row = document.createElement('div');
-      row.className = 'set-pair' + (item.ex.filter(id => EX[id]).length > 1 ? ' multi' : '');
+      row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '');
       row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
       const right = document.createElement('div');
       right.className = 'set-pair-ex';
-      item.ex.filter(id => EX[id]).forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true)));
+      exs.forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true)));
       row.appendChild(right);
       grid.appendChild(row);
+      const also = thirdLang() ? [] : rowAlso(item);
+      if(also.length){
+        const a = document.createElement('div');
+        a.className = 'also-in';
+        const names = also.map(k => PL[k].name);
+        a.textContent = 'Also available in ' + (names.length < 3 ? names.join(' and ') : names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1]);
+        grid.appendChild(a);
+      }
     });
     host.appendChild(grid);
   });
@@ -16385,19 +16653,22 @@ function buildHome(){
 let deck = null, deckKey = null, deckI = 0, deckAnswered = false;
 
 
-/* The approved Greek notes (GREEK.notes). With Greek chosen in the partner-language shortcut on the home screen,
-   a deck panel, a deck explanation or an item explanation that has a note shows it after the existing text,
-   in a block labeled Greek. Otherwise nothing is added. */
+/* The notes of the chosen third language (GREEK.notes, FRENCH.notes, GERMAN.notes): a deck panel, a deck explanation, or
+   an item explanation that has a note shows it after the existing text, in a block labeled with the language. */
+function thirdNotes(){ const k = thirdLang(); return k && PL[k].data.notes ? PL[k].data.notes : null; }
 function greekNote(list){
-  if(store.langPick !== 'grc' || !Array.isArray(list) || !list.length) return '';
-  return `<div class="greek-note"><span class="greek-label">Greek</span>${list.map(n => `<p>${nfEsc(n.note)}</p>`).join('')}</div>`;
+  const k = thirdLang();
+  if(!k || !Array.isArray(list) || !list.length) return '';
+  return `<div class="greek-note"><span class="greek-label">${PL[k].name}</span>${list.map(n => `<p>${nfEsc(n.note)}</p>`).join('')}</div>`;
 }
 function deckGreekNote(part){
-  const notes = GRK && GRK.notes ? GRK.notes.decks[Object.keys(DECKS).find(k => DECKS[k] === deck)] : null;
+  const N = thirdNotes();
+  const notes = N ? N.decks[Object.keys(DECKS).find(k => DECKS[k] === deck)] : null;
   return greekNote(notes && notes[deckI] && notes[deckI][part]);
 }
 function exGreekNote(q){
-  const notes = GRK && GRK.notes && state.ex ? GRK.notes.exercises[state.ex.id] : null;
+  const N = thirdNotes();
+  const notes = N && N.exercises && state.ex ? N.exercises[state.ex.id] : null;
   return greekNote(notes && q && q.sid ? notes[q.sid] : null);
 }
 function openDeck(key){
@@ -16485,7 +16756,7 @@ function startEx(e){
   state.score = 0; state.answered = 0; state.correct = 0; state.streak = 0;
   state.sessionSeen = []; state.pendingComplete = false; state.runBest = 0;
   state.stageI = 0; state.stageStreak = 0; state.stageJustAdvanced = false;
-  state.nEn = 0; state.nLa = 0;
+  state.nEn = 0; state.nLa = 0; state.nP = 0;
   state.langAvail = probeLangs(e, state.diff);
   $('ex-title').textContent = e.title;
   $('ex-instr').textContent = stagedInstr(e);
@@ -16518,6 +16789,7 @@ function nextQ(){
   if(window.__arsStopSpeak) window.__arsStopSpeak();
   if(state.pendingComplete){ state.pendingComplete = false; showComplete(); return; }
   const want = nextLang(state.ex);
+  state.wantLang = want;
   const onlyWant = modeOf(state.ex) === 'en' || modeOf(state.ex) === 'la';
   let freshWant = null, freshOther = null, repWant = null, repOther = null;
   const rejected = [];
@@ -16546,6 +16818,7 @@ function nextQ(){
   }
   /* The student always gets a question: an unused one in the language asked for, then an unused one
      in the other language (not in a one-language mode), then a repeat. */
+  state.wantLang = null;
   let q = freshWant || (onlyWant ? null : freshOther) || repWant || (onlyWant ? null : repOther);
   if(!q && want === 'en' && modeOf(state.ex) === 'en')
     q = {kind:'note', lang:'en', prompt:'This exercise has no English questions yet.'};
@@ -16557,7 +16830,8 @@ function nextQ(){
   });
   if(q && q.kind !== 'note'){
     if(q.sid && state.sessionSeen.indexOf(q.sid) < 0) state.sessionSeen.push(q.sid);
-    if(partnerSide(q.lang)) state.nLa++;
+    if(q.lang === 'la') state.nLa++;
+    else if(partnerSide(q.lang)) state.nP = (state.nP || 0) + 1;
     else if(q.lang === 'en') state.nEn++;
   }
   state.q = q;
@@ -17027,7 +17301,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
     if(intro) add(intro.innerText || intro.textContent);
 
     const langLabel = Array.from(home.querySelectorAll(':scope > .section-label'))
-      .find(el => /partner language/i.test(el.textContent || ''));
+      .find(el => /third language/i.test(el.textContent || ''));
     if(langLabel) add(langLabel.textContent);
     const langBox = home.querySelector('.lang-box');
     if(langBox){

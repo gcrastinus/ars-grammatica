@@ -93,6 +93,38 @@
     {
       "heading": "Stem and ending",
       "text": "The form in the sentence is a stem and an ending. In spricht the vowel of the stem has changed, and -t marks the third person singular. In Königen the ending -en marks the dative plural, on the plural stem König-. In guten the ending -en is the weak ending of the adjective, and the article beside it has already marked gender and case. The ending and the article together mark the gender, the number, and the case of a noun phrase, and the ending of the verb marks the person and the number a second time, beside the subject pronoun."
+    },
+    {
+      "heading": "Aspect",
+      "text": "German has no grammatical aspect of the kind that Greek has, and its tenses do not by themselves present an action as going on or as complete. Er las means he read or he was reading, and the sentence or a word such as gerade, just then, shows which is meant. The Präteritum and the Perfekt differ chiefly in use: the Präteritum is the tense of written narrative, and the Perfekt the ordinary past of speech. Latin and Greek mark aspect in the verb itself."
+    },
+    {
+      "heading": "Word order",
+      "text": "The finite verb of a German main clause stands in the second place: der König gibt der Frau das Buch, and heute gibt der König der Frau das Buch. In a question without a question word, and in a command, it stands first: gibt der König das Buch? In a clause after dass, weil, or wenn it stands last: weil der König der Frau das Buch gibt. An infinitive, a past participle, or a separable prefix goes to the end of the clause. Because the article shows the case, the object can stand first: den König sieht die Frau, the woman sees the king."
+    },
+    {
+      "heading": "Compound tenses and the passive",
+      "text": "The Perfekt and the Plusquamperfekt are made with haben or sein and the past participle: er hat gesprochen, er hatte gesprochen, er ist gekommen. Verbs of motion or change of state take sein. The future is werden with the infinitive: er wird sprechen. The passive is werden with the past participle: das Buch wird gelesen, the book is read. The doer is named with von and the dative, and in the Perfekt of the passive the participle of werden is worden: das Buch ist gelesen worden."
+    },
+    {
+      "heading": "Reflexive verbs",
+      "text": "A reflexive verb is used with a reflexive pronoun: ich wasche mich, er wäscht sich. Some verbs are always reflexive, such as sich freuen, be glad. A reflexive verb can also have a sense close to the passive or to the Greek middle: das Buch liest sich leicht, the book reads easily. German forms the Perfekt of reflexive verbs with haben: er hat sich gewaschen."
+    },
+    {
+      "heading": "Preposition and article together",
+      "text": "Some prepositions and the definite article run together into one word: in dem becomes im, an dem becomes am, zu dem becomes zum, zu der becomes zur, von dem becomes vom, bei dem becomes beim, and in das becomes ins. The contracted form is the usual one when the article is not stressed. Words that lean on their neighbor in this way are called clitics, and the unstressed pronoun es is often shortened in speech in the same way, as in wie geht’s."
+    },
+    {
+      "heading": "The Konjunktiv I and the imperative",
+      "text": "Beside the Konjunktiv II, German has the Konjunktiv I, made from the stem of the infinitive: er sei, er habe, er komme. Its chief use is reported speech in written German: er sagt, er sei krank, he says that he is ill. The imperative gives a command: komm!, kommt!, kommen Sie! A strong verb that changes e to i or ie in the present also changes it in the imperative singular: gib!, sprich!, lies!"
+    },
+    {
+      "heading": "Separable prefixes and particles",
+      "text": "Many German verbs have a separable prefix that is also a word of its own, such as an, auf, ab, or mit. In a main clause the prefix goes to the end: ankommen, der Zug kommt um acht an. In the participle ge- stands between the prefix and the stem: angekommen. German also has modal particles, such as doch, ja, mal, and eben, small words that do not change what the sentence states but show how the speaker takes it: komm doch!, do come!; das weißt du ja, you know that, after all."
+    },
+    {
+      "heading": "Word formation",
+      "text": "German forms new nouns freely by compounding. The last part of a compound decides its gender, and the first part narrows its sense: das Haus and die Tür make die Haustür, the front door. A linking -s- or -n- often joins the parts: die Arbeit and der Tag make der Arbeitstag. Suffixes make nouns from other words: -ung from verbs, as in die Lesung, a reading, and -heit and -keit from adjectives, as in die Freiheit and die Möglichkeit. Nouns in -ung, -heit, and -keit are feminine."
     }
   ]
 }

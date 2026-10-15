@@ -15,6 +15,7 @@ const here = __dirname;
 const out = path.join(here, '..', 'german.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(here, 'german-' + name + '.json'), 'utf8'));
 const vocab = read('vocab'), paradigms = read('paradigms'), cards = read('cards'), items = read('items');
+const sentence = read('sentence'), fill = read('fill'), notes = read('notes'), syllable = read('syllable');
 
 /* Left out because GERMAN-STEP1-REPORT.md, section 5, lists the point each one rests on as unsure. The report
    names no item whose key rests on one of those points. */
@@ -41,6 +42,7 @@ Object.keys(items).filter(k => Array.isArray(items[k])).forEach(k => {
 });
 const GERMAN = {
   vocab, paradigms,
+  sentence, fill, notes, syllable,
   cards: Object.assign({}, cards, { cards: cards.cards.filter(c => !LEFT_OUT.cards[c.heading]) }),
   shared
 };
@@ -114,6 +116,38 @@ const typed = new Map(), refused = [];
   forms.filter(f => lc(f) !== lc(it.a) && spellings.indexOf(lc(f)) >= 0).forEach(f => refused.push(it.id + ': ' + f));
 });
 
+const typedForm = s => String(s || '').normalize('NFC').toLowerCase().replace(/[’']/g, '’').replace(/\s+/g, ' ').trim().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+/* The sentence exercises, the fill-in set, the notes, and the syllable deck and exercise. Each item has one key, one
+   blank in its frame, an id used once, and no wrong option equal to the key as typed (case, apostrophe, and spacing
+   aside). Each note is plain text with an entry number, and each panel question has its key among its options. */
+(function(){
+  const seen = new Set();
+  const item = (at, it) => {
+    if(seen.has(it.id)) problems.push(at + ': the id ' + it.id + ' is repeated');
+    seen.add(it.id);
+    if(typeof it.a !== 'string' || !it.a.trim()) problems.push(at + ': there is not exactly one key');
+    const ds = it.ds || [];
+    if(ds.length < 2 || new Set(ds).size !== ds.length) problems.push(at + ': the wrong options are too few or repeated');
+    ds.forEach(w => { if(typedForm(w) === typedForm(it.a)) problems.push(at + ': the wrong option ' + w + ' matches the key'); });
+  };
+  const pool = (at, part) => {
+    if(!part || !Array.isArray(part.items) || !part.items.length) { problems.push(at + ' is missing'); return; }
+    if(!part.title || !part.desc) problems.push(at + ': the title or the description is missing');
+    part.items.forEach(it => {
+      item(at + '.' + it.id, it);
+      if((it.fr.match(/______/g) || []).length !== 1) problems.push(at + '.' + it.id + ': the frame has no single blank');
+      if(!it.en || !it.why) problems.push(at + '.' + it.id + ': the English or the explanation is missing');
+    });
+  };
+  ['more', 'voice', 'clause', 'mood'].forEach(k => pool('sentence.' + k, GERMAN.sentence[k]));
+  pool('fill', GERMAN.fill);
+  Object.keys(GERMAN.notes.decks).forEach(d => Object.keys(GERMAN.notes.decks[d]).forEach(i => (GERMAN.notes.decks[d][i].text || []).forEach(n => {
+    if(typeof n.entry !== 'number' || !n.note || /[<>&]/.test(n.note)) problems.push('notes.' + d + '.' + i + ': a note lacks its entry or contains markup');
+  })));
+  (GERMAN.syllable.deck.panels || []).forEach((p, i) => { if(p.q && !(p.q.correct >= 0 && p.q.correct < p.q.options.length)) problems.push('syllable.deck.' + i + ': the key is not among the options'); });
+  (GERMAN.syllable.exercise.items || []).forEach(it => item('syllable.' + it.id, it));
+})();
+
 if(problems.length){
   console.error(problems.join('\n'));
   process.exit(1);
@@ -125,4 +159,5 @@ console.log('Shared items: ' + Object.keys(shared).map(k => k + ' ' + shared[k].
 console.log('Left out: ' + (Object.keys(LEFT_OUT.items).join(', ') || 'no items') + '; cards: ' + Object.keys(LEFT_OUT.cards).join(', ') + '.');
 console.log('Cards: ' + GERMAN.cards.cards.length + '.');
 console.log('Produce: the typed keys are distinct. Stored forms refused although they are a spelling of a key without its umlaut: ' + (refused.length ? [...new Set(refused)].join('; ') : 'none') + '.');
+console.log('Sentence items: ' + ['more','voice','clause','mood'].map(k => k + ' ' + GERMAN.sentence[k].items.length).join(', ') + '; fill-in ' + GERMAN.fill.items.length + '; syllable ' + GERMAN.syllable.exercise.items.length + '; notes in ' + Object.keys(GERMAN.notes.decks).length + ' decks.');
 console.log('Wrote ' + out);

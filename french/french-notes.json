@@ -1,0 +1,205 @@
+{
+ "decks": {
+  "govern": {
+   "0": {
+    "text": [
+     {
+      "entry": 1,
+      "note": "A French noun has no case, so French shows government with prepositions and with the place of the word: the object follows the verb, the person who receives is introduced by à, and the possessor by de."
+     }
+    ]
+   },
+   "1": {
+    "text": [
+     {
+      "entry": 2,
+      "note": "French dans with the article means inside a place, and à means at or to a place, so French does not need a change of case to tell place where from motion toward: il est dans la maison, il va à la maison."
+     }
+    ]
+   }
+  },
+  "agree": {
+   "0": {
+    "text": [
+     {
+      "entry": 3,
+      "note": "A French adjective agrees with its noun in gender and number, but not in case, because the French noun has no case: un petit jardin, une petite maison, des petites maisons."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 4,
+      "note": "A French verb agrees with its subject in person and number, and French writes the subject pronoun because several endings sound alike: il parle, ils parlent. The French relative qui takes the person of its antecedent: c’est moi qui parle."
+     }
+    ]
+   }
+  },
+  "casework": {
+   "0": {
+    "text": [
+     {
+      "entry": 5,
+      "note": "French nouns have lost their cases, but the personal pronouns keep a difference of case: il and le, elle and la, ils and les, with lui and leur for the indirect object."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 6,
+      "note": "Where Latin uses the genitive for both the possessor and the object of a feeling, French uses de for both: l’amour du père can mean the father’s love or love for the father."
+     }
+    ]
+   }
+  },
+  "decline": {
+   "0": {
+    "text": [
+     {
+      "entry": 7,
+      "note": "In French the noun changes only for number, and the adjective for gender and number. The verb keeps the fullest set of endings, for person, number, tense, and mood."
+     }
+    ]
+   }
+  },
+  "latvoice": {
+   "0": {
+    "text": [
+     {
+      "entry": 8,
+      "note": "The French passive is être with the past participle, and the doer is introduced by par: le poète est loué par la jeune fille."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 9,
+      "note": "Some French verbs take the infinitive directly, as Latin possum does: je peux venir. Others take à or de before it: il commence à écrire, elle essaie de comprendre."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 10,
+      "note": "French makes its passé composé with an auxiliary and the participle, as Latin makes its perfect passive: il a parlé, elle est venue. With être the participle agrees with the subject, as the Latin participle does: la reine est venue."
+     }
+    ]
+   },
+   "5": {
+    "text": [
+     {
+      "entry": 11,
+      "note": "French has no deponent verbs, but its pronominal verbs often stand where Latin has a deponent: se souvenir, to remember, for Latin reminīscor."
+     }
+    ]
+   }
+  },
+  "latsubj": {
+   "0": {
+    "text": [
+     {
+      "entry": 12,
+      "note": "The French subjunctive is used chiefly after que: after il faut que, after verbs of wanting and of feeling, and after pour que, bien que, and avant que. French has kept the present subjunctive in ordinary use, but the imperfect subjunctive is now found only in formal writing."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 13,
+      "note": "A French purpose clause takes pour que with the subjunctive. A result clause, after si or tellement, takes que with the indicative: il parle si bien que tout le monde l’écoute."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 14,
+      "note": "The French imperative has no subject pronoun and three forms: parle, parlons, parlez. A prohibition is the negative imperative, ne parle pas, where Latin uses nōlī with the infinitive."
+     }
+    ]
+   }
+  },
+  "latbuild": {
+   "1": {
+    "text": [
+     {
+      "entry": 15,
+      "note": "French, like English, shows the subject and the object by their place, because the French noun has no case: le roi voit la reine does not mean la reine voit le roi."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 16,
+      "note": "French, unlike Latin, writes the subject pronoun: nous louons le poète. The object pronouns stand before the verb: le roi la voit."
+     }
+    ]
+   },
+   "3": {
+    "text": [
+     {
+      "entry": 17,
+      "note": "Where Latin uses the dative, French uses à: le garçon donne un cadeau à la fille. Where Latin uses the genitive of the possessor, French uses de: le livre du roi."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 18,
+      "note": "French dans means in, and à is used before the name of a city: à Rome. French en is used before a feminine country: en Italie."
+     }
+    ]
+   },
+   "5": {
+    "text": [
+     {
+      "entry": 19,
+      "note": "French has both a definite and an indefinite article, and an object pronoun, y, or en is a clitic that stands next to the verb, as Latin -que stands next to its word. French ne ... pas, like Latin nōn, negates the verb."
+     }
+    ]
+   }
+  },
+  "clauses": {
+   "1": {
+    "text": [
+     {
+      "entry": 20,
+      "note": "French purpose takes pour que or afin que with the subjunctive; French result takes si ... que or tellement ... que with the indicative."
+     }
+    ]
+   },
+   "2": {
+    "text": [
+     {
+      "entry": 21,
+      "note": "French reports a statement with que and the indicative after a verb of saying: il dit que le roi est malade. A reported question keeps its question word, or begins with si: je ne sais pas s’il vient."
+     }
+    ]
+   },
+   "3": {
+    "text": [
+     {
+      "entry": 22,
+      "note": "French quand (when) and parce que (because) take the indicative, bien que (although) takes the subjunctive, and si (if) takes the indicative, the present for a real condition and the imparfait for one that is not real."
+     }
+    ]
+   },
+   "4": {
+    "text": [
+     {
+      "entry": 23,
+      "note": "The French relative qui is the subject and que the object of its clause, so the case of the Latin relative is shown in French by the choice of word."
+     }
+    ]
+   }
+  }
+ },
+ "exercises": {}
+}

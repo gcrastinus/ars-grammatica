@@ -1,0 +1,558 @@
+{
+ "title": "The French Sentence",
+ "desc": "One word is missing from a French sentence: an article, an adjective in agreement, a verb in its person, a past form, or an object pronoun. The word is chosen from tiles at the first levels and written at the higher ones.",
+ "intro": [
+  {
+   "h": "<strong>The article.</strong> The article agrees with its noun in gender and number, and le and la become l’ before a vowel or a mute h. An amount that is not counted takes the partitive: du, de la, de l’.",
+   "eg": [
+    "<span lang=\"fr\">le roi, la reine, l’homme, les chevaux; du pain, de l’eau</span>"
+   ]
+  },
+  {
+   "h": "<strong>Agreement.</strong> An adjective agrees with its noun in gender and number.",
+   "eg": [
+    "<span lang=\"fr\">un petit jardin, une belle maison, les femmes sont vieilles</span>"
+   ]
+  },
+  {
+   "h": "<strong>Person.</strong> French writes the subject pronoun, and the verb agrees with it in person and number.",
+   "eg": [
+    "<span lang=\"fr\">je parle, nous parlons, ils parlent</span>"
+   ]
+  },
+  {
+   "h": "<strong>The past.</strong> The passé composé is avoir or être with the past participle, and it presents an action as complete; the imparfait presents it as going on or repeated.",
+   "eg": [
+    "<span lang=\"fr\">il a parlé, elle est venue; la reine parlait quand le roi est entré</span>"
+   ]
+  },
+  {
+   "h": "<strong>The object pronoun.</strong> An object pronoun stands before the verb: le, la, les for the direct object, lui and leur for the indirect object, and y and en for a place and a quantity.",
+   "eg": [
+    "<span lang=\"fr\">le roi le voit; je lui donne le livre; il y va; j’en ai deux</span>"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "frfill1",
+   "k": "article",
+   "en": "The king speaks.",
+   "fr": "______ roi parle.",
+   "a": "Le",
+   "ds": [
+    "La",
+    "Les",
+    "L’"
+   ],
+   "why": "Roi is masculine and singular and begins with a consonant, so the article is le."
+  },
+  {
+   "id": "frfill2",
+   "k": "article",
+   "en": "The woman reads.",
+   "fr": "______ femme lit.",
+   "a": "La",
+   "ds": [
+    "Le",
+    "Les",
+    "L’"
+   ],
+   "why": "Femme is feminine and singular, so the article is la."
+  },
+  {
+   "id": "frfill3",
+   "k": "article",
+   "en": "The man sings.",
+   "fr": "______ homme chante.",
+   "a": "L’",
+   "ds": [
+    "Le",
+    "La",
+    "Les"
+   ],
+   "why": "Homme begins with a mute h, so le loses its vowel: l’homme."
+  },
+  {
+   "id": "frfill4",
+   "k": "article",
+   "en": "The horses run.",
+   "fr": "______ chevaux courent.",
+   "a": "Les",
+   "ds": [
+    "Le",
+    "La",
+    "L’"
+   ],
+   "why": "Chevaux is plural, and the plural definite article is les for both genders."
+  },
+  {
+   "id": "frfill5",
+   "k": "article",
+   "en": "A king speaks.",
+   "fr": "______ roi parle.",
+   "a": "Un",
+   "ds": [
+    "Une",
+    "Des",
+    "Du"
+   ],
+   "why": "The indefinite article before a masculine singular noun is un."
+  },
+  {
+   "id": "frfill6",
+   "k": "article",
+   "en": "He eats some bread.",
+   "fr": "Il mange ______ pain.",
+   "a": "du",
+   "ds": [
+    "de la",
+    "des",
+    "de l’"
+   ],
+   "why": "An amount of something that is not counted takes the partitive article, and pain is masculine: du pain."
+  },
+  {
+   "id": "frfill7",
+   "k": "article",
+   "en": "She drinks some water.",
+   "fr": "Elle boit ______ eau.",
+   "a": "de l’",
+   "ds": [
+    "du",
+    "de la",
+    "des"
+   ],
+   "why": "Eau begins with a vowel, so the partitive is de l’: de l’eau."
+  },
+  {
+   "id": "frfill8",
+   "k": "article",
+   "en": "He has no book.",
+   "fr": "Il n’a pas ______ livre.",
+   "a": "de",
+   "ds": [
+    "un",
+    "du",
+    "des"
+   ],
+   "why": "After a negative, the indefinite and partitive articles become de: il n’a pas de livre."
+  },
+  {
+   "id": "frfill9",
+   "k": "agreement",
+   "en": "The queen is happy.",
+   "fr": "La reine est ______.",
+   "a": "heureuse",
+   "ds": [
+    "heureux",
+    "heureuses",
+    "heureusement"
+   ],
+   "why": "The adjective agrees with reine, feminine and singular: heureuse. Heureusement is an adverb."
+  },
+  {
+   "id": "frfill10",
+   "k": "agreement",
+   "en": "The houses are large.",
+   "fr": "Les maisons sont ______.",
+   "a": "grandes",
+   "ds": [
+    "grand",
+    "grande",
+    "grands"
+   ],
+   "why": "Maisons is feminine and plural, so grandes."
+  },
+  {
+   "id": "frfill11",
+   "k": "agreement",
+   "en": "A small garden.",
+   "fr": "Un ______ jardin.",
+   "a": "petit",
+   "ds": [
+    "petite",
+    "petits",
+    "petites"
+   ],
+   "why": "Jardin is masculine and singular, so petit. Petit stands before its noun."
+  },
+  {
+   "id": "frfill12",
+   "k": "agreement",
+   "en": "A handsome friend.",
+   "fr": "Un ______ ami.",
+   "a": "bel",
+   "ds": [
+    "beau",
+    "belle",
+    "beaux"
+   ],
+   "why": "Before a masculine singular noun that begins with a vowel, beau becomes bel: un bel ami."
+  },
+  {
+   "id": "frfill13",
+   "k": "agreement",
+   "en": "The women are old.",
+   "fr": "Les femmes sont ______.",
+   "a": "vieilles",
+   "ds": [
+    "vieux",
+    "vieille",
+    "vieil"
+   ],
+   "why": "Femmes is feminine and plural, so vieilles."
+  },
+  {
+   "id": "frfill14",
+   "k": "agreement",
+   "en": "The good books.",
+   "fr": "Les ______ livres.",
+   "a": "bons",
+   "ds": [
+    "bon",
+    "bonne",
+    "bonnes"
+   ],
+   "why": "Livres is masculine and plural, so bons."
+  },
+  {
+   "id": "frfill15",
+   "k": "agreement",
+   "en": "A beautiful house.",
+   "fr": "Une ______ maison.",
+   "a": "belle",
+   "ds": [
+    "beau",
+    "bel",
+    "beaux"
+   ],
+   "why": "Maison is feminine, so belle."
+  },
+  {
+   "id": "frfill16",
+   "k": "agreement",
+   "en": "The friends (women) are content.",
+   "fr": "Les amies sont ______.",
+   "a": "contentes",
+   "ds": [
+    "content",
+    "contents",
+    "contente"
+   ],
+   "why": "Amies is feminine and plural, so contentes."
+  },
+  {
+   "id": "frfill17",
+   "k": "person",
+   "en": "I speak French.",
+   "fr": "Je ______ français.",
+   "a": "parle",
+   "ds": [
+    "parles",
+    "parlons",
+    "parlent"
+   ],
+   "why": "Je takes the ending -e in a verb in -er: je parle."
+  },
+  {
+   "id": "frfill18",
+   "k": "person",
+   "en": "You (one friend) finish.",
+   "fr": "Tu ______.",
+   "a": "finis",
+   "ds": [
+    "finit",
+    "finissez",
+    "finissons"
+   ],
+   "why": "Tu takes the ending -s: tu finis."
+  },
+  {
+   "id": "frfill19",
+   "k": "person",
+   "en": "He sells the house.",
+   "fr": "Il ______ la maison.",
+   "a": "vend",
+   "ds": [
+    "vends",
+    "vendons",
+    "vendent"
+   ],
+   "why": "Vendre has no ending in the third person singular: il vend."
+  },
+  {
+   "id": "frfill20",
+   "k": "person",
+   "en": "We are friends.",
+   "fr": "Nous ______ amis.",
+   "a": "sommes",
+   "ds": [
+    "êtes",
+    "sont",
+    "suis"
+   ],
+   "why": "The first person plural of être is sommes."
+  },
+  {
+   "id": "frfill21",
+   "k": "person",
+   "en": "You (several) have a horse.",
+   "fr": "Vous ______ un cheval.",
+   "a": "avez",
+   "ds": [
+    "avons",
+    "ont",
+    "as"
+   ],
+   "why": "The second person plural of avoir is avez."
+  },
+  {
+   "id": "frfill22",
+   "k": "person",
+   "en": "They (women) go to Paris.",
+   "fr": "Elles ______ à Paris.",
+   "a": "vont",
+   "ds": [
+    "va",
+    "allons",
+    "allez"
+   ],
+   "why": "The third person plural of aller is vont."
+  },
+  {
+   "id": "frfill23",
+   "k": "person",
+   "en": "I do the work.",
+   "fr": "Je ______ le travail.",
+   "a": "fais",
+   "ds": [
+    "fait",
+    "faisons",
+    "font"
+   ],
+   "why": "The first person singular of faire is fais."
+  },
+  {
+   "id": "frfill24",
+   "k": "person",
+   "en": "They come.",
+   "fr": "Ils ______.",
+   "a": "viennent",
+   "ds": [
+    "vient",
+    "venons",
+    "venez"
+   ],
+   "why": "The third person plural of venir is viennent."
+  },
+  {
+   "id": "frfill25",
+   "k": "past",
+   "en": "He spoke to the king.",
+   "fr": "Il ______ parlé au roi.",
+   "a": "a",
+   "ds": [
+    "est",
+    "as",
+    "ont"
+   ],
+   "why": "Parler forms the passé composé with avoir, and il takes a."
+  },
+  {
+   "id": "frfill26",
+   "k": "past",
+   "en": "She came yesterday.",
+   "fr": "Elle ______ venue hier.",
+   "a": "est",
+   "ds": [
+    "a",
+    "es",
+    "sont"
+   ],
+   "why": "Venir forms the passé composé with être, and elle takes est."
+  },
+  {
+   "id": "frfill27",
+   "k": "past",
+   "en": "We finished the letter.",
+   "fr": "Nous avons ______ la lettre.",
+   "a": "fini",
+   "ds": [
+    "finissons",
+    "finir",
+    "finis"
+   ],
+   "why": "The passé composé is avoir with the past participle, and the participle of finir is fini."
+  },
+  {
+   "id": "frfill28",
+   "k": "past",
+   "en": "They went to the city.",
+   "fr": "Ils sont ______ à la ville.",
+   "a": "allés",
+   "ds": [
+    "allé",
+    "allée",
+    "allées"
+   ],
+   "why": "Aller takes être, and the participle agrees with ils, masculine plural: allés."
+  },
+  {
+   "id": "frfill29",
+   "k": "past",
+   "en": "I sold the horse.",
+   "fr": "J’ai ______ le cheval.",
+   "a": "vendu",
+   "ds": [
+    "vendre",
+    "vends",
+    "vendue"
+   ],
+   "why": "With avoir the participle does not agree with the subject, and the object comes after it, so vendu."
+  },
+  {
+   "id": "frfill30",
+   "k": "past",
+   "en": "The queen was speaking when the king came in.",
+   "fr": "La reine ______ quand le roi est entré.",
+   "a": "parlait",
+   "ds": [
+    "a parlé",
+    "parle",
+    "parlera"
+   ],
+   "why": "The imparfait presents the speaking as going on when the other action happened: elle parlait. A parlé would present it as a complete act."
+  },
+  {
+   "id": "frfill31",
+   "k": "past",
+   "en": "He used to do the work every day.",
+   "fr": "Il ______ le travail chaque jour.",
+   "a": "faisait",
+   "ds": [
+    "a fait",
+    "fait",
+    "fera"
+   ],
+   "why": "A habit in the past is given by the imparfait: il faisait."
+  },
+  {
+   "id": "frfill32",
+   "k": "past",
+   "en": "The women arrived.",
+   "fr": "Les femmes sont ______.",
+   "a": "arrivées",
+   "ds": [
+    "arrivé",
+    "arrivés",
+    "arrivée"
+   ],
+   "why": "Arriver takes être, and the participle agrees with les femmes, feminine plural: arrivées."
+  },
+  {
+   "id": "frfill33",
+   "k": "pronoun",
+   "en": "The king sees him.",
+   "fr": "Le roi ______ voit.",
+   "a": "le",
+   "ds": [
+    "lui",
+    "il",
+    "la"
+   ],
+   "why": "The direct object pronoun for a masculine singular person is le, before the verb."
+  },
+  {
+   "id": "frfill34",
+   "k": "pronoun",
+   "en": "I give her the book.",
+   "fr": "Je ______ donne le livre.",
+   "a": "lui",
+   "ds": [
+    "la",
+    "elle",
+    "leur"
+   ],
+   "why": "She receives the book, so she is the indirect object, and the pronoun is lui."
+  },
+  {
+   "id": "frfill35",
+   "k": "pronoun",
+   "en": "She speaks to them.",
+   "fr": "Elle ______ parle.",
+   "a": "leur",
+   "ds": [
+    "les",
+    "lui",
+    "eux"
+   ],
+   "why": "Parler à takes an indirect object, and the plural indirect pronoun is leur."
+  },
+  {
+   "id": "frfill36",
+   "k": "pronoun",
+   "en": "He goes there.",
+   "fr": "Il ______ va.",
+   "a": "y",
+   "ds": [
+    "en",
+    "le",
+    "lui"
+   ],
+   "why": "Y stands for a place to which or in which: il y va."
+  },
+  {
+   "id": "frfill37",
+   "k": "pronoun",
+   "en": "I have two of them.",
+   "fr": "J’______ ai deux.",
+   "a": "en",
+   "ds": [
+    "y",
+    "les",
+    "l’"
+   ],
+   "why": "En stands for a quantity of something already named: j’en ai deux."
+  },
+  {
+   "id": "frfill38",
+   "k": "pronoun",
+   "en": "He gives it (the book) to me.",
+   "fr": "Il me ______ donne.",
+   "a": "le",
+   "ds": [
+    "lui",
+    "leur",
+    "y"
+   ],
+   "why": "The book is the direct object, masculine, so le, and me comes before le."
+  },
+  {
+   "id": "frfill39",
+   "k": "pronoun",
+   "en": "This is for you (one friend).",
+   "fr": "C’est pour ______.",
+   "a": "toi",
+   "ds": [
+    "te",
+    "tu",
+    "ton"
+   ],
+   "why": "After a preposition French uses the stressed pronoun: pour toi."
+  },
+  {
+   "id": "frfill40",
+   "k": "pronoun",
+   "en": "We see you (several).",
+   "fr": "Nous ______ voyons.",
+   "a": "vous",
+   "ds": [
+    "votre",
+    "vos",
+    "leur"
+   ],
+   "why": "The object pronoun of the second person plural is vous, before the verb."
+  }
+ ]
+}

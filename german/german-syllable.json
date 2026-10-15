@@ -1,0 +1,238 @@
+{
+ "deck": {
+  "title": "German Syllable, Length, and Stress",
+  "sub": "How a German word is divided, which vowels are long, and where the stress falls",
+  "panels": [
+   {
+    "h": "<p><strong>The German syllable and vowel length.</strong> A German syllable has one vowel or diphthong, and <span lang=\"de\">ei</span>, <span lang=\"de\">au</span>, <span lang=\"de\">eu</span>, and <span lang=\"de\">äu</span> are diphthongs: <span lang=\"de\">Bau-er</span> has two syllables. A German vowel is long or short, and the spelling usually shows which. A vowel is long when it is doubled, as in <span lang=\"de\">See</span>, when it is followed by a silent h, as in <span lang=\"de\">Sohn</span>, when it is written ie, as in <span lang=\"de\">Liebe</span>, and usually when one consonant follows it, as in <span lang=\"de\">Tag</span>. A vowel before a doubled consonant is short, as in <span lang=\"de\">Mann</span> and <span lang=\"de\">Bett</span>.</p>",
+    "q": {
+     "prompt": "Is the vowel of <span lang=\"de\">Mann</span> long or short?",
+     "options": [
+      "Short, because a doubled consonant follows",
+      "Long, because it is stressed",
+      "Long, because the word has one syllable",
+      "Short, because it is a noun"
+     ],
+     "correct": 0,
+     "explain": "A doubled consonant after a vowel shows that the vowel is short. Compare <span lang=\"de\">Sohn</span>, where the silent h shows a long vowel."
+    }
+   },
+   {
+    "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where ge- is not part of the stem. The inseparable prefixes be-, ge-, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
+    "q": {
+     "prompt": "Where is the stress in <span lang=\"de\">gesprochen</span>?",
+     "options": [
+      "On <span lang=\"de\">-spro-</span>, the stem",
+      "On <span lang=\"de\">ge-</span>, the first syllable",
+      "On the last syllable",
+      "On the penult because it is long"
+     ],
+     "correct": 0,
+     "explain": "The stem of the participle is <span lang=\"de\">-sproch-</span>, and <span lang=\"de\">ge-</span> is an unstressed prefix."
+    }
+   },
+   {
+    "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in -ieren are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in -ität and -ei on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
+    "q": {
+     "prompt": "Where is the stress in <span lang=\"de\">studieren</span>?",
+     "options": [
+      "On <span lang=\"de\">-die-</span>",
+      "On <span lang=\"de\">stu-</span>",
+      "On <span lang=\"de\">-ren</span>",
+      "On no syllable"
+     ],
+     "correct": 0,
+     "explain": "Verbs in <span lang=\"de\">-ieren</span> are stressed on <span lang=\"de\">-ie-</span>."
+    }
+   },
+   {
+    "h": "<p><strong>Final devoicing.</strong> At the end of a word or a syllable, b, d, and g are pronounced as p, t, and k, although the spelling keeps b, d, and g: <span lang=\"de\">Tag</span> ends with the sound k, and <span lang=\"de\">Hund</span> with t. The spelling shows the sound of the other forms, where a vowel follows: <span lang=\"de\">Tage</span>, <span lang=\"de\">Hunde</span>.</p>",
+    "q": {
+     "prompt": "How is the final d of <span lang=\"de\">Hund</span> pronounced?",
+     "options": [
+      "As t",
+      "As d",
+      "It is silent",
+      "As th"
+     ],
+     "correct": 0,
+     "explain": "At the end of a word, d is pronounced as t. In <span lang=\"de\">Hunde</span>, where a vowel follows, it is a d."
+    }
+   }
+  ]
+ },
+ "exercise": {
+  "title": "German Syllable, Length, and Stress",
+  "desc": "A short set on the German syllable: counting syllables, long and short vowels, the stress on the stem, prefixes, compounds, borrowed words, and final devoicing.",
+  "instr": "Choose the answer.",
+  "items": [
+   {
+    "id": "dsy1",
+    "q": "How many syllables does this word have?",
+    "form": "Bauer",
+    "a": "Two",
+    "ds": [
+     "One",
+     "Three",
+     "Four"
+    ],
+    "why": "Au is a diphthong, one sound, so the word is Bau-er."
+   },
+   {
+    "id": "dsy2",
+    "q": "How many syllables does this word have?",
+    "form": "Universität",
+    "a": "Five",
+    "ds": [
+     "Four",
+     "Six",
+     "Three"
+    ],
+    "why": "The word is U-ni-ver-si-tät."
+   },
+   {
+    "id": "dsy3",
+    "q": "Is the vowel of this word long or short?",
+    "form": "See",
+    "a": "Long, because it is doubled",
+    "ds": [
+     "Short, because one syllable is short",
+     "Short, because it is final",
+     "Long, because a consonant follows"
+    ],
+    "why": "A doubled vowel is long."
+   },
+   {
+    "id": "dsy4",
+    "q": "Is the vowel of this word long or short?",
+    "form": "Bett",
+    "a": "Short, because a doubled consonant follows",
+    "ds": [
+     "Long, because it is stressed",
+     "Long, because the word is short",
+     "Short, because it is an e"
+    ],
+    "why": "A doubled consonant after a vowel shows that the vowel is short."
+   },
+   {
+    "id": "dsy5",
+    "q": "What does the h in this word show?",
+    "form": "Sohn",
+    "a": "That the vowel before it is long",
+    "ds": [
+     "That the word begins with h",
+     "That the vowel is short",
+     "That the syllable is stressed"
+    ],
+    "why": "A silent h after a vowel shows that the vowel is long."
+   },
+   {
+    "id": "dsy6",
+    "q": "Which syllable of this word is stressed?",
+    "form": "sprechen",
+    "a": "spre-",
+    "ds": [
+     "-chen",
+     "Both equally",
+     "Neither"
+    ],
+    "why": "German stresses the first syllable of the stem."
+   },
+   {
+    "id": "dsy7",
+    "q": "Which syllable of this word is stressed?",
+    "form": "verstehen",
+    "a": "-ste-",
+    "ds": [
+     "ver-",
+     "-hen",
+     "All three equally"
+    ],
+    "why": "Ver- is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
+   },
+   {
+    "id": "dsy8",
+    "q": "Which syllable of this word is stressed?",
+    "form": "ankommen",
+    "a": "an-",
+    "ds": [
+     "-kom-",
+     "-men",
+     "None"
+    ],
+    "why": "A separable prefix takes the stress."
+   },
+   {
+    "id": "dsy9",
+    "q": "Which part of this compound is stressed?",
+    "form": "Haustür",
+    "a": "The first part, Haus-",
+    "ds": [
+     "The second part, -tür",
+     "Both equally",
+     "Neither"
+    ],
+    "why": "A compound is usually stressed on its first part."
+   },
+   {
+    "id": "dsy10",
+    "q": "Which syllable of this word is stressed?",
+    "form": "studieren",
+    "a": "-die-",
+    "ds": [
+     "stu-",
+     "-ren",
+     "All three equally"
+    ],
+    "why": "Verbs in -ieren are stressed on -ie-."
+   },
+   {
+    "id": "dsy11",
+    "q": "Which syllable of this word is stressed?",
+    "form": "Bäckerei",
+    "a": "The last, -rei",
+    "ds": [
+     "The first, Bä-",
+     "The second, -cke-",
+     "None"
+    ],
+    "why": "Nouns in -ei are stressed on the last syllable."
+   },
+   {
+    "id": "dsy12",
+    "q": "How is the final g of this word pronounced?",
+    "form": "Tag",
+    "a": "As k",
+    "ds": [
+     "As g",
+     "It is silent",
+     "As ch in every region"
+    ],
+    "why": "At the end of a word, g is pronounced as k in the standard pronunciation, although the spelling keeps g."
+   },
+   {
+    "id": "dsy13",
+    "q": "Which syllable of this participle is stressed?",
+    "form": "gesprochen",
+    "a": "-spro-",
+    "ds": [
+     "ge-",
+     "-chen",
+     "All three equally"
+    ],
+    "why": "Ge- is an unstressed prefix, and the stress falls on the stem."
+   },
+   {
+    "id": "dsy14",
+    "q": "Does German use the Latin law of the penult?",
+    "a": "No; the stress falls on the first syllable of the stem",
+    "ds": [
+     "Yes, in every word",
+     "Yes, but only in verbs",
+     "No; the stress falls on the last syllable"
+    ],
+    "why": "German finds the stem, whereas Latin measures the penult."
+   }
+  ]
+ }
+}

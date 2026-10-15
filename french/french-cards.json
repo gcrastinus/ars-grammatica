@@ -81,6 +81,38 @@
     {
       "heading": "Elision",
       "text": "A small set of words drops a final vowel before another vowel or a mute h, and the spelling marks the loss with an apostrophe. Je, me, te, le, la, ne, de, and que do this, so the written forms are j’ai, l’ami, and d’un roi. Si drops its vowel only before il and ils. The elided spelling is the same word, not a new one. L’ami is le or la with the vowel dropped, and the gender is still the gender of the noun."
+    },
+    {
+      "heading": "Aspect",
+      "text": "French marks a difference of aspect in the past, that is, a difference in how the action is presented. The passé composé, and the passé simple of written narrative, present an action as complete, and the imparfait presents it as going on or repeated. Il a lu le livre means he read the book, and the reading is complete. Il lisait le livre means he was reading the book. A sentence often sets the two side by side: il lisait quand le roi est entré, he was reading when the king came in. Latin makes the same distinction with the imperfect and the perfect."
+    },
+    {
+      "heading": "Word order",
+      "text": "A French noun has no case, so French shows the subject and the object mainly by their place. The ordinary order is subject, verb, object: le roi voit la reine, the king sees the queen, and la reine voit le roi says the reverse. An object pronoun stands before the verb: le roi la voit. A question can put the subject pronoun after the verb: voit-il la reine? Latin can change its order freely because its endings show the case."
+    },
+    {
+      "heading": "Compound tenses and the passive",
+      "text": "Many French tenses are made with an auxiliary and the past participle. The passé composé, the plus-que-parfait, and the futur antérieur use avoir or être: il a parlé, il avait parlé, il aura parlé. Most verbs take avoir. A small set of verbs of motion or change of state, such as aller, venir, arriver, partir, and naître, take être, and then the participle agrees with the subject: elle est venue. The passive is être with the past participle: la lettre est écrite par le roi. The near future is aller with the infinitive: il va parler."
+    },
+    {
+      "heading": "Pronominal verbs",
+      "text": "A pronominal verb is used with a reflexive pronoun of the same person as the subject: je me lave, I wash myself. Some pronominal verbs have a reflexive sense, some a reciprocal sense, as in ils se parlent, they speak to each other, and some a sense close to the Greek middle or to a passive, as in le livre se vend bien, the book sells well. Pronominal verbs take être in the compound tenses: elle s’est lavée. Latin has no middle voice in form, and Greek has one."
+    },
+    {
+      "heading": "Object pronouns, y, and en",
+      "text": "The object pronouns me, te, le, la, lui, nous, vous, leur, and the pronouns y and en have no stress of their own and stand next to the verb, before it except in the affirmative imperative. Words of this kind are called clitics. Y stands for a place, or for à with a thing: j’y vais, I am going there. En stands for de with a noun, or for a quantity: j’en ai deux, I have two of them. When two stand together, their order is fixed: il me le donne, il le lui donne."
+    },
+    {
+      "heading": "The conditional and the imperative",
+      "text": "Beside the indicative and the subjunctive, French has the conditional and the imperative. The conditional is made from the stem of the future and the endings of the imparfait: je parlerais, I would speak. It gives the result of a condition that is not real, after si with the imparfait, as in si j’avais le temps, je parlerais au roi, and it softens a request, as in je voudrais un livre. The imperative has three forms and no subject pronoun: parle, parlons, parlez. A verb in -er has no s in the second person singular of the imperative."
+    },
+    {
+      "heading": "Negation",
+      "text": "French negates a verb with two words, ne before the verb and pas after it: il ne parle pas. Other words can take the place of pas: ne ... jamais, never; ne ... plus, no longer; ne ... rien, nothing; ne ... personne, no one. In a compound tense pas stands before the participle: il n’a pas parlé. In speech ne is often left out, but the written language keeps it. Latin negates the verb with one word, nōn."
+    },
+    {
+      "heading": "Word formation",
+      "text": "French forms words with suffixes and prefixes, most of them inherited from Latin. The suffix -ment makes an adverb from the feminine of an adjective: heureuse, heureusement. The suffix -eur names the one who acts: vendre, vendeur. The prefix re- marks repetition: faire, refaire. Many French words came from Latin by regular change of sound, and others were later borrowed again from Latin in their learned form, so French has pairs such as frêle and fragile, both from Latin fragilis."
     }
   ]
 }

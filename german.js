@@ -1367,6 +1367,2970 @@ window.GERMAN = {
    ]
   }
  },
+ "sentence": {
+  "more": {
+   "title": "More of the German Sentence",
+   "desc": "One word is missing from a German sentence: a verb in another person, a personal pronoun in its case, a noun or article in the dative or the genitive, a word joined by und, or a word of place. The word is chosen from tiles at the first levels and written at the higher ones.",
+   "intro": [
+    {
+     "h": "<strong>Persons.</strong> German writes the subject pronoun, and the verb agrees with it in person and number.",
+     "eg": [
+      "<span lang=\"de\">wir lesen das Buch; du liest das Buch</span>"
+     ]
+    },
+    {
+     "h": "<strong>The pronoun.</strong> The personal pronoun has four cases, as the article does.",
+     "eg": [
+      "<span lang=\"de\">der König sieht mich; der König gibt mir das Buch; ich danke dir</span>"
+     ]
+    },
+    {
+     "h": "<strong>The dative and the genitive.</strong> The one who receives is in the dative, and the possessor in the genitive. The dative plural of a noun adds -n.",
+     "eg": [
+      "<span lang=\"de\">der Mann gibt dem König das Buch; den Freunden; das Pferd des Königs</span>"
+     ]
+    },
+    {
+     "h": "<strong>Und.</strong> Two subjects joined by und take a plural verb, and two nouns joined by und share the case of their use.",
+     "eg": [
+      "<span lang=\"de\">der König und die Frau lesen das Buch; ich helfe dem Mann und der Frau</span>"
+     ]
+    },
+    {
+     "h": "<strong>Place.</strong> In takes the dative for the place where and the accusative for the place to which; aus takes the dative; nach stands before a city or a country.",
+     "eg": [
+      "<span lang=\"de\">in der Stadt, in die Stadt; im Haus, ins Haus; aus dem Haus; nach Berlin</span>"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "id": "demore1",
+     "k": 1,
+     "en": "We read the book.",
+     "fr": "Wir ______ das Buch.",
+     "a": "lesen",
+     "ds": [
+      "liest",
+      "lest",
+      "lese"
+     ],
+     "why": "Wir is the first person plural, and its verb ends in -en: wir lesen. Liest is the second or third person singular, lest the second person plural, and lese the first person singular."
+    },
+    {
+     "id": "demore2",
+     "k": 1,
+     "en": "You (one friend) read the book.",
+     "fr": "Du ______ das Buch.",
+     "a": "liest",
+     "ds": [
+      "lest",
+      "lesen",
+      "lese"
+     ],
+     "why": "Du is the second person singular, and lesen changes e to ie in that person and the next: du liest, er liest. Lest is the second person plural."
+    },
+    {
+     "id": "demore3",
+     "k": 1,
+     "en": "He speaks with the king.",
+     "fr": "Er ______ mit dem König.",
+     "a": "spricht",
+     "ds": [
+      "sprecht",
+      "sprechen",
+      "spreche"
+     ],
+     "why": "Er is the third person singular, and sprechen changes e to i in the second and third persons singular: er spricht. Sprecht is the second person plural."
+    },
+    {
+     "id": "demore4",
+     "k": 1,
+     "en": "I give the woman the book.",
+     "fr": "Ich ______ der Frau das Buch.",
+     "a": "gebe",
+     "ds": [
+      "gibt",
+      "gibst",
+      "geben"
+     ],
+     "why": "Ich is the first person singular, and its verb ends in -e without a change of vowel: ich gebe. Gibst and gibt are the second and third persons singular."
+    },
+    {
+     "id": "demore5",
+     "k": 1,
+     "en": "You (several friends) are in the garden.",
+     "fr": "Ihr ______ im Garten.",
+     "a": "seid",
+     "ds": [
+      "sind",
+      "bist",
+      "ist"
+     ],
+     "why": "Ihr is the second person plural, and the form of sein for that person is seid. Sind is the first or third person plural."
+    },
+    {
+     "id": "demore6",
+     "k": 1,
+     "en": "The king has a horse.",
+     "fr": "Der König ______ ein Pferd.",
+     "a": "hat",
+     "ds": [
+      "habt",
+      "hast",
+      "haben"
+     ],
+     "why": "Der König is a third person singular subject, and the form of haben for that person is hat. Hast is the second person singular, and habt the second person plural."
+    },
+    {
+     "id": "demore7",
+     "k": 1,
+     "en": "They come from the city.",
+     "fr": "Sie ______ aus der Stadt.",
+     "a": "kommen",
+     "ds": [
+      "kommt",
+      "kommst",
+      "komme"
+     ],
+     "why": "Sie here is the third person plural, they, and its verb ends in -en: sie kommen. Kommt is the third person singular or the second person plural."
+    },
+    {
+     "id": "demore8",
+     "k": 1,
+     "en": "The friend sees the sea.",
+     "fr": "Der Freund ______ das Meer.",
+     "a": "sieht",
+     "ds": [
+      "seht",
+      "sehen",
+      "siehst"
+     ],
+     "why": "Der Freund is a third person singular subject, and sehen changes e to ie in that person: er sieht. Siehst is the second person singular."
+    },
+    {
+     "id": "demore9",
+     "k": 2,
+     "en": "The king sees me.",
+     "fr": "Der König sieht ______.",
+     "a": "mich",
+     "ds": [
+      "mir",
+      "ich",
+      "mein"
+     ],
+     "why": "Sehen takes a direct object in the accusative, and the accusative of ich is mich. Mir is the dative, and mein the possessive."
+    },
+    {
+     "id": "demore10",
+     "k": 2,
+     "en": "The king gives me the book.",
+     "fr": "Der König gibt ______ das Buch.",
+     "a": "mir",
+     "ds": [
+      "mich",
+      "ich",
+      "mein"
+     ],
+     "why": "The one who receives is in the dative, and the dative of ich is mir. Mich is the accusative."
+    },
+    {
+     "id": "demore11",
+     "k": 2,
+     "en": "The woman sees him.",
+     "fr": "Die Frau sieht ______.",
+     "a": "ihn",
+     "ds": [
+      "ihm",
+      "er",
+      "sein"
+     ],
+     "why": "The direct object is in the accusative, and the accusative of er is ihn. Ihm is the dative."
+    },
+    {
+     "id": "demore12",
+     "k": 2,
+     "en": "The woman gives him the book.",
+     "fr": "Die Frau gibt ______ das Buch.",
+     "a": "ihm",
+     "ds": [
+      "ihn",
+      "er",
+      "sein"
+     ],
+     "why": "The one who receives is in the dative, and the dative of er is ihm. Ihn is the accusative."
+    },
+    {
+     "id": "demore13",
+     "k": 2,
+     "en": "The king helps her.",
+     "fr": "Der König hilft ______.",
+     "a": "ihr",
+     "ds": [
+      "sie",
+      "ihn",
+      "ihnen"
+     ],
+     "why": "Helfen takes the dative, and the dative of sie, she, is ihr. Sie would be the accusative, and ihnen is plural."
+    },
+    {
+     "id": "demore14",
+     "k": 2,
+     "en": "I thank you (one friend).",
+     "fr": "Ich danke ______.",
+     "a": "dir",
+     "ds": [
+      "dich",
+      "du",
+      "dein"
+     ],
+     "why": "Danken takes the dative, and the dative of du is dir. Dich is the accusative."
+    },
+    {
+     "id": "demore15",
+     "k": 2,
+     "en": "The book is for us.",
+     "fr": "Das Buch ist für ______.",
+     "a": "uns",
+     "ds": [
+      "wir",
+      "unser",
+      "euch"
+     ],
+     "why": "Für takes the accusative, and the accusative of wir is uns. Unser is the genitive, and euch belongs to ihr."
+    },
+    {
+     "id": "demore16",
+     "k": 2,
+     "en": "We speak with them.",
+     "fr": "Wir sprechen mit ______.",
+     "a": "ihnen",
+     "ds": [
+      "sie",
+      "ihr",
+      "ihrer"
+     ],
+     "why": "Mit takes the dative, and the dative of sie, they, is ihnen. Sie is the accusative."
+    },
+    {
+     "id": "demore17",
+     "k": 3,
+     "en": "The man gives the king the book.",
+     "fr": "Der Mann gibt ______ König das Buch.",
+     "a": "dem",
+     "ds": [
+      "den",
+      "der",
+      "des"
+     ],
+     "why": "The king receives the book, so he is in the dative, and the dative of der is dem. Den is the accusative, and des the genitive."
+    },
+    {
+     "id": "demore18",
+     "k": 3,
+     "en": "The man gives the woman the book.",
+     "fr": "Der Mann gibt ______ Frau das Buch.",
+     "a": "der",
+     "ds": [
+      "die",
+      "dem",
+      "den"
+     ],
+     "why": "Frau is feminine, and the feminine dative of the article is der. Die is the nominative or accusative."
+    },
+    {
+     "id": "demore19",
+     "k": 3,
+     "en": "The king gives the friends a horse.",
+     "fr": "Der König gibt den ______ ein Pferd.",
+     "a": "Freunden",
+     "ds": [
+      "Freunde",
+      "Freund",
+      "Freundes"
+     ],
+     "why": "The dative plural of a noun adds -n unless the plural already ends in -n or -s: den Freunden."
+    },
+    {
+     "id": "demore20",
+     "k": 3,
+     "en": "The king answers the woman.",
+     "fr": "Der König antwortet ______ Frau.",
+     "a": "der",
+     "ds": [
+      "die",
+      "den",
+      "dem"
+     ],
+     "why": "Antworten takes the dative of the person answered, and the feminine dative is der."
+    },
+    {
+     "id": "demore21",
+     "k": 3,
+     "en": "She sends the man a book.",
+     "fr": "Sie schickt dem ______ ein Buch.",
+     "a": "Mann",
+     "ds": [
+      "Mannes",
+      "Männer",
+      "Männern"
+     ],
+     "why": "The dative singular of Mann has no ending today: dem Mann. Mannes is the genitive, and Männern the dative plural."
+    },
+    {
+     "id": "demore22",
+     "k": 3,
+     "en": "We show the friend the garden.",
+     "fr": "Wir zeigen ______ Freund den Garten.",
+     "a": "dem",
+     "ds": [
+      "den",
+      "der",
+      "des"
+     ],
+     "why": "The friend is the one shown, in the dative, so dem Freund. Den Garten, the thing shown, is the accusative."
+    },
+    {
+     "id": "demore23",
+     "k": 3,
+     "en": "The woman gives the men the books.",
+     "fr": "Die Frau gibt ______ Männern die Bücher.",
+     "a": "den",
+     "ds": [
+      "die",
+      "der",
+      "dem"
+     ],
+     "why": "The dative plural of the article is den for every gender, and the noun adds -n: den Männern."
+    },
+    {
+     "id": "demore24",
+     "k": 3,
+     "en": "The king helps the friend.",
+     "fr": "Der König hilft ______ Freund.",
+     "a": "dem",
+     "ds": [
+      "den",
+      "der",
+      "des"
+     ],
+     "why": "Helfen takes the dative, so dem Freund. Den would be the accusative."
+    },
+    {
+     "id": "demore25",
+     "k": 4,
+     "en": "The king’s horse is large.",
+     "fr": "Das Pferd ______ Königs ist groß.",
+     "a": "des",
+     "ds": [
+      "dem",
+      "den",
+      "der"
+     ],
+     "why": "The possessor is in the genitive, and the masculine genitive of the article is des, with -s on the noun: des Königs."
+    },
+    {
+     "id": "demore26",
+     "k": 4,
+     "en": "The woman’s house is small.",
+     "fr": "Das Haus ______ Frau ist klein.",
+     "a": "der",
+     "ds": [
+      "die",
+      "des",
+      "dem"
+     ],
+     "why": "The feminine genitive of the article is der, and a feminine noun adds no ending: der Frau."
+    },
+    {
+     "id": "demore27",
+     "k": 4,
+     "en": "The man’s book is good.",
+     "fr": "Das Buch des ______ ist gut.",
+     "a": "Mannes",
+     "ds": [
+      "Mann",
+      "Männer",
+      "Männern"
+     ],
+     "why": "A strong masculine noun adds -es or -s in the genitive singular: des Mannes."
+    },
+    {
+     "id": "demore28",
+     "k": 4,
+     "en": "The garden of the house is large.",
+     "fr": "Der Garten des ______ ist groß.",
+     "a": "Hauses",
+     "ds": [
+      "Haus",
+      "Häuser",
+      "Häusern"
+     ],
+     "why": "Haus is neuter, and a strong neuter noun adds -es in the genitive singular: des Hauses."
+    },
+    {
+     "id": "demore29",
+     "k": 4,
+     "en": "The friends’ house is old.",
+     "fr": "Das Haus ______ Freunde ist alt.",
+     "a": "der",
+     "ds": [
+      "den",
+      "die",
+      "des"
+     ],
+     "why": "The genitive plural of the article is der for every gender: der Freunde."
+    },
+    {
+     "id": "demore30",
+     "k": 4,
+     "en": "Because of the king she stays.",
+     "fr": "Wegen ______ Königs bleibt sie.",
+     "a": "des",
+     "ds": [
+      "dem",
+      "den",
+      "der"
+     ],
+     "why": "Wegen takes the genitive in written German, so des Königs."
+    },
+    {
+     "id": "demore31",
+     "k": 4,
+     "en": "During the day he works.",
+     "fr": "Während ______ Tages arbeitet er.",
+     "a": "des",
+     "ds": [
+      "dem",
+      "den",
+      "der"
+     ],
+     "why": "Während takes the genitive, and Tag is masculine: des Tages."
+    },
+    {
+     "id": "demore32",
+     "k": 4,
+     "en": "The man’s son is here.",
+     "fr": "Der Sohn ______ Mannes ist hier.",
+     "a": "des",
+     "ds": [
+      "dem",
+      "der",
+      "den"
+     ],
+     "why": "The possessor is in the genitive, and the masculine genitive of the article is des."
+    },
+    {
+     "id": "demore33",
+     "k": 5,
+     "en": "The king and the woman read the book.",
+     "fr": "Der König und die Frau ______ das Buch.",
+     "a": "lesen",
+     "ds": [
+      "liest",
+      "lest",
+      "lese"
+     ],
+     "why": "Two subjects joined by und make a plural subject of the third person, so lesen."
+    },
+    {
+     "id": "demore34",
+     "k": 5,
+     "en": "The man and the woman are good.",
+     "fr": "Der Mann und die Frau sind ______.",
+     "a": "gut",
+     "ds": [
+      "gute",
+      "guter",
+      "gutes"
+     ],
+     "why": "An adjective that is the predicate, after sein, takes no ending: sie sind gut."
+    },
+    {
+     "id": "demore35",
+     "k": 5,
+     "en": "I see the king and the woman.",
+     "fr": "Ich sehe den König und ______ Frau.",
+     "a": "die",
+     "ds": [
+      "der",
+      "den",
+      "dem"
+     ],
+     "why": "Both nouns are the object of sehe, so both are in the accusative, and the feminine accusative is die."
+    },
+    {
+     "id": "demore36",
+     "k": 5,
+     "en": "I help the man and the woman.",
+     "fr": "Ich helfe dem Mann und ______ Frau.",
+     "a": "der",
+     "ds": [
+      "die",
+      "den",
+      "dem"
+     ],
+     "why": "Helfen takes the dative, and both nouns joined by und are in that case, so der Frau."
+    },
+    {
+     "id": "demore37",
+     "k": 5,
+     "en": "You and I, we are friends.",
+     "fr": "Du und ich, wir ______ Freunde.",
+     "a": "sind",
+     "ds": [
+      "seid",
+      "ist",
+      "bin"
+     ],
+     "why": "A subject that includes the speaker is of the first person plural, so wir sind."
+    },
+    {
+     "id": "demore38",
+     "k": 5,
+     "en": "My friend and I go into the city.",
+     "fr": "Mein Freund und ich ______ in die Stadt.",
+     "a": "gehen",
+     "ds": [
+      "geht",
+      "gehe",
+      "gehst"
+     ],
+     "why": "Mein Freund und ich includes the speaker, so the verb is in the first person plural: gehen."
+    },
+    {
+     "id": "demore39",
+     "k": 5,
+     "en": "The book and the house belong to the king.",
+     "fr": "Das Buch und das Haus ______ dem König.",
+     "a": "gehören",
+     "ds": [
+      "gehört",
+      "gehörst",
+      "gehöre"
+     ],
+     "why": "Two subjects joined by und take a plural verb: sie gehören."
+    },
+    {
+     "id": "demore40",
+     "k": 5,
+     "en": "He gives the man and the friend a horse.",
+     "fr": "Er gibt dem Mann und ______ Freund ein Pferd.",
+     "a": "dem",
+     "ds": [
+      "den",
+      "der",
+      "des"
+     ],
+     "why": "Both receive the horse, so both are in the dative: dem Mann und dem Freund."
+    },
+    {
+     "id": "demore41",
+     "k": 6,
+     "en": "The king is in the city.",
+     "fr": "Der König ist in ______ Stadt.",
+     "a": "der",
+     "ds": [
+      "die",
+      "den",
+      "dem"
+     ],
+     "why": "In takes the dative for the place where, and the feminine dative is der."
+    },
+    {
+     "id": "demore42",
+     "k": 6,
+     "en": "The king goes into the city.",
+     "fr": "Der König geht in ______ Stadt.",
+     "a": "die",
+     "ds": [
+      "der",
+      "den",
+      "dem"
+     ],
+     "why": "In takes the accusative for the place to which, and the feminine accusative is die."
+    },
+    {
+     "id": "demore43",
+     "k": 6,
+     "en": "The book is in the house.",
+     "fr": "Das Buch ist ______ Haus.",
+     "a": "im",
+     "ds": [
+      "ins",
+      "in den",
+      "am"
+     ],
+     "why": "The place where takes in with the dative, and in dem contracts to im."
+    },
+    {
+     "id": "demore44",
+     "k": 6,
+     "en": "He goes into the house.",
+     "fr": "Er geht ______ Haus.",
+     "a": "ins",
+     "ds": [
+      "im",
+      "in dem",
+      "am"
+     ],
+     "why": "The place to which takes in with the accusative, and in das contracts to ins."
+    },
+    {
+     "id": "demore45",
+     "k": 6,
+     "en": "The woman comes out of the house.",
+     "fr": "Die Frau kommt aus ______ Haus.",
+     "a": "dem",
+     "ds": [
+      "das",
+      "den",
+      "des"
+     ],
+     "why": "Aus always takes the dative, so aus dem Haus."
+    },
+    {
+     "id": "demore46",
+     "k": 6,
+     "en": "He travels to Berlin.",
+     "fr": "Er fährt ______ Berlin.",
+     "a": "nach",
+     "ds": [
+      "zu",
+      "bei",
+      "an"
+     ],
+     "why": "Before the name of a city or a country without an article, motion toward is shown by nach."
+    },
+    {
+     "id": "demore47",
+     "k": 6,
+     "en": "She goes to the friend.",
+     "fr": "Sie geht ______ Freund.",
+     "a": "zum",
+     "ds": [
+      "zur",
+      "im",
+      "ins"
+     ],
+     "why": "Motion toward a person is shown by zu with the dative, and zu dem contracts to zum. Zur is zu der, for a feminine noun."
+    },
+    {
+     "id": "demore48",
+     "k": 6,
+     "en": "The horse stands in the garden.",
+     "fr": "Das Pferd steht im ______.",
+     "a": "Garten",
+     "ds": [
+      "Gärten",
+      "Gartens"
+     ],
+     "why": "Im is in with the dative, and the dative singular of Garten has no ending. Gärten is the plural, and Gartens the genitive."
+    }
+   ]
+  },
+  "voice": {
+   "title": "The Passive, the Infinitive, and the Participle in German",
+   "desc": "One word is missing from a German sentence: the passive auxiliary or participle, the doer with von, a reflexive pronoun, an infinitive with or without zu, or a participle with its ending.",
+   "intro": [
+    {
+     "h": "<strong>The passive.</strong> The passive is werden with the past participle, and the doer is introduced by von. In the Perfekt of the passive the participle of werden is worden.",
+     "eg": [
+      "<span lang=\"de\">das Buch wird von dem König gelesen; das Haus ist verkauft worden</span>"
+     ]
+    },
+    {
+     "h": "<strong>The infinitive.</strong> A modal verb takes the infinitive without zu; most other verbs take zu; and um ... zu gives a purpose.",
+     "eg": [
+      "<span lang=\"de\">ich will lesen; sie versucht, das Buch zu verstehen; um ein Haus zu kaufen</span>"
+     ]
+    },
+    {
+     "h": "<strong>The participle.</strong> The past participle stands at the end of the clause in the Perfekt, and a participle before a noun takes the adjective endings.",
+     "eg": [
+      "<span lang=\"de\">der König hat gesprochen; das gelesene Buch; mit dem gekauften Pferd</span>"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "id": "devoice1",
+     "k": 1,
+     "en": "The book is read by the king.",
+     "fr": "Das Buch wird von dem König ______.",
+     "a": "gelesen",
+     "ds": [
+      "lesen",
+      "las",
+      "liest"
+     ],
+     "why": "The passive is werden with the past participle, and the participle stands at the end of the clause: wird gelesen."
+    },
+    {
+     "id": "devoice2",
+     "k": 1,
+     "en": "The books are read.",
+     "fr": "Die Bücher ______ gelesen.",
+     "a": "werden",
+     "ds": [
+      "wird",
+      "wirst",
+      "werdet"
+     ],
+     "why": "The passive auxiliary agrees with the subject, die Bücher, which is plural: werden."
+    },
+    {
+     "id": "devoice3",
+     "k": 1,
+     "en": "The horse is sold by the man.",
+     "fr": "Das Pferd wird ______ dem Mann verkauft.",
+     "a": "von",
+     "ds": [
+      "mit",
+      "bei",
+      "aus"
+     ],
+     "why": "The doer in a German passive is introduced by von with the dative."
+    },
+    {
+     "id": "devoice4",
+     "k": 1,
+     "en": "The letter was written by the woman.",
+     "fr": "Der Brief ______ von der Frau geschrieben.",
+     "a": "wurde",
+     "ds": [
+      "wird",
+      "würde",
+      "werden"
+     ],
+     "why": "The past passive uses the Präteritum of werden, wurde. Wird is the present, and würde the Konjunktiv II."
+    },
+    {
+     "id": "devoice5",
+     "k": 1,
+     "en": "The house has been sold.",
+     "fr": "Das Haus ist verkauft ______.",
+     "a": "worden",
+     "ds": [
+      "geworden",
+      "werden",
+      "wurde"
+     ],
+     "why": "In the Perfekt of the passive the participle of werden is worden, not geworden."
+    },
+    {
+     "id": "devoice6",
+     "k": 1,
+     "en": "He is being helped.",
+     "fr": "Ihm ______ geholfen.",
+     "a": "wird",
+     "ds": [
+      "werden",
+      "wirst",
+      "wurden"
+     ],
+     "why": "Helfen takes the dative, so the passive has no subject in the nominative, and the verb stands in the third person singular: ihm wird geholfen."
+    },
+    {
+     "id": "devoice7",
+     "k": 1,
+     "en": "The man washes himself.",
+     "fr": "Der Mann wäscht ______.",
+     "a": "sich",
+     "ds": [
+      "ihn",
+      "ihm",
+      "er"
+     ],
+     "why": "The reflexive pronoun of the third person is sich. Ihn would be another man."
+    },
+    {
+     "id": "devoice8",
+     "k": 1,
+     "en": "The book reads easily.",
+     "fr": "Das Buch liest ______ leicht.",
+     "a": "sich",
+     "ds": [
+      "es",
+      "ihm",
+      "ihn"
+     ],
+     "why": "A reflexive verb can have a sense close to the passive: das Buch liest sich leicht."
+    },
+    {
+     "id": "devoice9",
+     "k": 2,
+     "en": "I want to read the book.",
+     "fr": "Ich will das Buch ______.",
+     "a": "lesen",
+     "ds": [
+      "zu lesen",
+      "liest",
+      "gelesen"
+     ],
+     "why": "A modal verb such as wollen takes the infinitive without zu, at the end of the clause."
+    },
+    {
+     "id": "devoice10",
+     "k": 2,
+     "en": "He can come tomorrow.",
+     "fr": "Er kann morgen ______.",
+     "a": "kommen",
+     "ds": [
+      "zu kommen",
+      "kommt",
+      "gekommen"
+     ],
+     "why": "Können takes the infinitive without zu: er kann kommen."
+    },
+    {
+     "id": "devoice11",
+     "k": 2,
+     "en": "She tries to understand the book.",
+     "fr": "Sie versucht, das Buch zu ______.",
+     "a": "verstehen",
+     "ds": [
+      "versteht",
+      "verstanden",
+      "verstehe"
+     ],
+     "why": "After versuchen the infinitive takes zu, and it stands at the end of its clause: zu verstehen."
+    },
+    {
+     "id": "devoice12",
+     "k": 2,
+     "en": "He works in order to buy a house.",
+     "fr": "Er arbeitet, ______ ein Haus zu kaufen.",
+     "a": "um",
+     "ds": [
+      "für",
+      "damit",
+      "weil"
+     ],
+     "why": "Purpose with the same subject is given by um with zu and the infinitive: um ein Haus zu kaufen."
+    },
+    {
+     "id": "devoice13",
+     "k": 2,
+     "en": "It is easy to read the book.",
+     "fr": "Es ist leicht, das Buch ______ lesen.",
+     "a": "zu",
+     "ds": [
+      "um",
+      "für",
+      "an"
+     ],
+     "why": "After an adjective such as leicht the infinitive takes zu: das Buch zu lesen."
+    },
+    {
+     "id": "devoice14",
+     "k": 2,
+     "en": "I hear the king sing.",
+     "fr": "Ich höre den König ______.",
+     "a": "singen",
+     "ds": [
+      "zu singen",
+      "singt",
+      "gesungen"
+     ],
+     "why": "Hören and sehen take the infinitive without zu: ich höre den König singen."
+    },
+    {
+     "id": "devoice15",
+     "k": 2,
+     "en": "We must go home.",
+     "fr": "Wir müssen nach Hause ______.",
+     "a": "gehen",
+     "ds": [
+      "zu gehen",
+      "geht",
+      "gegangen"
+     ],
+     "why": "Müssen is a modal verb and takes the infinitive without zu."
+    },
+    {
+     "id": "devoice16",
+     "k": 2,
+     "en": "He begins to write.",
+     "fr": "Er beginnt ______ schreiben.",
+     "a": "zu",
+     "ds": [
+      "um",
+      "an",
+      "für"
+     ],
+     "why": "Beginnen takes the infinitive with zu: er beginnt zu schreiben."
+    },
+    {
+     "id": "devoice17",
+     "k": 3,
+     "en": "The king has spoken.",
+     "fr": "Der König hat ______.",
+     "a": "gesprochen",
+     "ds": [
+      "sprechen",
+      "spricht",
+      "sprach"
+     ],
+     "why": "The Perfekt is haben with the past participle, and the participle of the strong verb sprechen is gesprochen."
+    },
+    {
+     "id": "devoice18",
+     "k": 3,
+     "en": "The woman has come.",
+     "fr": "Die Frau ist ______.",
+     "a": "gekommen",
+     "ds": [
+      "kommen",
+      "kam",
+      "kommt"
+     ],
+     "why": "Kommen forms the Perfekt with sein, and its participle is gekommen."
+    },
+    {
+     "id": "devoice19",
+     "k": 3,
+     "en": "We have made the bed.",
+     "fr": "Wir haben das Bett ______.",
+     "a": "gemacht",
+     "ds": [
+      "machten",
+      "machen",
+      "gemachte"
+     ],
+     "why": "Machen is a weak verb, and its participle is ge- with the stem and -t: gemacht."
+    },
+    {
+     "id": "devoice20",
+     "k": 3,
+     "en": "the book that has been read",
+     "fr": "das ______ Buch",
+     "a": "gelesene",
+     "ds": [
+      "gelesen",
+      "gelesenes",
+      "gelesenen"
+     ],
+     "why": "A participle used as an adjective before its noun takes the adjective endings, and after das the ending is -e: das gelesene Buch."
+    },
+    {
+     "id": "devoice21",
+     "k": 3,
+     "en": "with the bought horse",
+     "fr": "mit dem ______ Pferd",
+     "a": "gekauften",
+     "ds": [
+      "gekaufte",
+      "gekauftes",
+      "gekauft"
+     ],
+     "why": "Mit takes the dative, and after dem the adjective ending is -en: mit dem gekauften Pferd."
+    },
+    {
+     "id": "devoice22",
+     "k": 3,
+     "en": "the singing woman",
+     "fr": "die ______ Frau",
+     "a": "singende",
+     "ds": [
+      "singend",
+      "singenden",
+      "singender"
+     ],
+     "why": "The present participle used as an adjective takes the adjective endings, and after die in the nominative singular the ending is -e."
+    },
+    {
+     "id": "devoice23",
+     "k": 3,
+     "en": "He has gone into the city.",
+     "fr": "Er ist in die Stadt ______.",
+     "a": "gegangen",
+     "ds": [
+      "gehen",
+      "ging",
+      "geht"
+     ],
+     "why": "Gehen forms the Perfekt with sein, and its participle is gegangen."
+    },
+    {
+     "id": "devoice24",
+     "k": 3,
+     "en": "The man has arrived.",
+     "fr": "Der Mann ist ______.",
+     "a": "angekommen",
+     "ds": [
+      "geankommen",
+      "ankommen",
+      "ankam"
+     ],
+     "why": "In the participle of a verb with a separable prefix, ge- stands between the prefix and the stem: angekommen."
+    }
+   ]
+  },
+  "clause": {
+   "title": "Clauses and the Order of Words in German",
+   "desc": "One word is missing from a German sentence: a relative pronoun in its case, a word in a clause of cause, a word in a condition with wenn, a word in a reported statement or question, or a word in an infinitive or participial phrase.",
+   "intro": [
+    {
+     "h": "<strong>The relative.</strong> The relative pronoun takes its gender and number from its noun and its case from its own clause, and the verb of the relative clause goes to the end.",
+     "eg": [
+      "<span lang=\"de\">der Mann, der spricht; der Mann, den ich sehe; der Mann, dem ich helfe; die Frau, deren Haus groß ist</span>"
+     ]
+    },
+    {
+     "h": "<strong>Cause.</strong> After weil and da the finite verb goes to the end; after denn it stays in the second place.",
+     "eg": [
+      "<span lang=\"de\">weil er krank ist; denn er ist müde</span>"
+     ]
+    },
+    {
+     "h": "<strong>Condition.</strong> A real condition takes the indicative; a condition that is not real takes the Konjunktiv II, and its result is usually würde with the infinitive.",
+     "eg": [
+      "<span lang=\"de\">wenn es regnet, bleiben wir zu Hause; wenn ich Zeit hätte, würde ich kommen</span>"
+     ]
+    },
+    {
+     "h": "<strong>Reported speech.</strong> A reported statement can begin with dass, a reported yes-or-no question with ob; written German often reports speech in the Konjunktiv I.",
+     "eg": [
+      "<span lang=\"de\">er sagt, dass der König krank ist; ich weiß nicht, ob er kommt; er sagt, er sei krank</span>"
+     ]
+    },
+    {
+     "h": "<strong>Phrases.</strong> Um, ohne, and statt take zu with the infinitive, and a participle with its own phrase can stand before a noun.",
+     "eg": [
+      "<span lang=\"de\">ohne ein Wort zu sagen; das auf dem Tisch liegende Buch</span>"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "id": "decls1",
+     "k": 1,
+     "en": "The man who speaks is my friend.",
+     "fr": "Der Mann, ______ spricht, ist mein Freund.",
+     "a": "der",
+     "ds": [
+      "den",
+      "dem",
+      "die"
+     ],
+     "why": "The relative pronoun takes its gender and number from der Mann and its case from its own clause, where it is the subject: der."
+    },
+    {
+     "id": "decls2",
+     "k": 1,
+     "en": "The man whom I see is the king.",
+     "fr": "Der Mann, ______ ich sehe, ist der König.",
+     "a": "den",
+     "ds": [
+      "der",
+      "dem",
+      "dessen"
+     ],
+     "why": "The relative is the object of sehe, so it is in the accusative: den."
+    },
+    {
+     "id": "decls3",
+     "k": 1,
+     "en": "The man whom I help is my friend.",
+     "fr": "Der Mann, ______ ich helfe, ist mein Freund.",
+     "a": "dem",
+     "ds": [
+      "den",
+      "der",
+      "dessen"
+     ],
+     "why": "Helfen takes the dative, so the relative is dem."
+    },
+    {
+     "id": "decls4",
+     "k": 1,
+     "en": "The woman whose house is large is here.",
+     "fr": "Die Frau, ______ Haus groß ist, ist hier.",
+     "a": "deren",
+     "ds": [
+      "dessen",
+      "der",
+      "die"
+     ],
+     "why": "The relative that shows the possessor is in the genitive, and for a feminine antecedent it is deren."
+    },
+    {
+     "id": "decls5",
+     "k": 1,
+     "en": "The man whose horse is old is here.",
+     "fr": "Der Mann, ______ Pferd alt ist, ist hier.",
+     "a": "dessen",
+     "ds": [
+      "deren",
+      "dem",
+      "der"
+     ],
+     "why": "For a masculine antecedent, the genitive relative is dessen."
+    },
+    {
+     "id": "decls6",
+     "k": 1,
+     "en": "The book that I read is long.",
+     "fr": "Das Buch, ______ ich lese, ist lang.",
+     "a": "das",
+     "ds": [
+      "dass",
+      "den",
+      "der"
+     ],
+     "why": "The relative of a neuter noun in the accusative is das, with one s. Dass is the conjunction that."
+    },
+    {
+     "id": "decls7",
+     "k": 1,
+     "en": "The women who come are friends.",
+     "fr": "Die Frauen, ______ kommen, sind Freundinnen.",
+     "a": "die",
+     "ds": [
+      "der",
+      "denen",
+      "deren"
+     ],
+     "why": "The relative of a plural noun in the nominative is die."
+    },
+    {
+     "id": "decls8",
+     "k": 1,
+     "en": "The men with whom I speak are here.",
+     "fr": "Die Männer, mit ______ ich spreche, sind hier.",
+     "a": "denen",
+     "ds": [
+      "den",
+      "die",
+      "deren"
+     ],
+     "why": "Mit takes the dative, and the dative plural of the relative is denen."
+    },
+    {
+     "id": "decls9",
+     "k": 2,
+     "en": "He stays at home because he is ill.",
+     "fr": "Er bleibt zu Hause, weil er krank ______.",
+     "a": "ist",
+     "ds": [
+      "sein",
+      "sei",
+      "seid"
+     ],
+     "why": "After weil the finite verb goes to the end of the clause, and the clause states a fact, so the indicative: weil er krank ist."
+    },
+    {
+     "id": "decls10",
+     "k": 2,
+     "en": "She reads because she has time.",
+     "fr": "Sie liest, weil sie Zeit ______.",
+     "a": "hat",
+     "ds": [
+      "habe",
+      "haben",
+      "hätte"
+     ],
+     "why": "After weil the verb stands last, in the indicative: weil sie Zeit hat."
+    },
+    {
+     "id": "decls11",
+     "k": 2,
+     "en": "We stay because it is raining.",
+     "fr": "Wir bleiben, weil es ______.",
+     "a": "regnet",
+     "ds": [
+      "regnen",
+      "geregnet",
+      "regne"
+     ],
+     "why": "After weil the verb stands last: weil es regnet."
+    },
+    {
+     "id": "decls12",
+     "k": 2,
+     "en": "He stays because he is tired.",
+     "fr": "Er bleibt, ______ er müde ist.",
+     "a": "weil",
+     "ds": [
+      "denn",
+      "dass",
+      "ob"
+     ],
+     "why": "The verb stands at the end, so the clause is subordinate, and weil gives the reason. Denn would keep the order of a main clause: denn er ist müde."
+    },
+    {
+     "id": "decls13",
+     "k": 2,
+     "en": "He stays, for he is tired.",
+     "fr": "Er bleibt, ______ er ist müde.",
+     "a": "denn",
+     "ds": [
+      "weil",
+      "dass",
+      "ob"
+     ],
+     "why": "The verb stands second, as in a main clause, so the joining word is the coordinating denn. After weil the verb would go to the end."
+    },
+    {
+     "id": "decls14",
+     "k": 2,
+     "en": "I know that he is coming tomorrow.",
+     "fr": "Ich weiß, dass er morgen ______.",
+     "a": "kommt",
+     "ds": [
+      "kommen",
+      "komme",
+      "käme"
+     ],
+     "why": "After dass the finite verb goes to the end: dass er morgen kommt."
+    },
+    {
+     "id": "decls15",
+     "k": 2,
+     "en": "Since the king is ill, the queen speaks.",
+     "fr": "Da der König krank ist, ______ die Königin.",
+     "a": "spricht",
+     "ds": [
+      "sprecht",
+      "sprechen",
+      "spreche"
+     ],
+     "why": "When a subordinate clause stands first, it fills the first place, and the verb of the main clause follows it at once: spricht die Königin."
+    },
+    {
+     "id": "decls16",
+     "k": 3,
+     "en": "If I had time, I would come.",
+     "fr": "Wenn ich Zeit ______, würde ich kommen.",
+     "a": "hätte",
+     "ds": [
+      "habe",
+      "hatte",
+      "haben"
+     ],
+     "why": "A condition that is not real takes the Konjunktiv II: wenn ich Zeit hätte. Hatte is the Präteritum."
+    },
+    {
+     "id": "decls17",
+     "k": 3,
+     "en": "If I had time, I would come.",
+     "fr": "Wenn ich Zeit hätte, ______ ich kommen.",
+     "a": "würde",
+     "ds": [
+      "werde",
+      "wurde",
+      "wird"
+     ],
+     "why": "The result of a condition that is not real is given by würde with the infinitive. Wurde is the Präteritum."
+    },
+    {
+     "id": "decls18",
+     "k": 3,
+     "en": "If he were king, he would be happy.",
+     "fr": "Wenn er König ______, wäre er glücklich.",
+     "a": "wäre",
+     "ds": [
+      "war",
+      "ist",
+      "sei"
+     ],
+     "why": "A condition that is not real takes the Konjunktiv II: wenn er König wäre. War is the Präteritum."
+    },
+    {
+     "id": "decls19",
+     "k": 3,
+     "en": "If it rains, we stay at home.",
+     "fr": "Wenn es ______, bleiben wir zu Hause.",
+     "a": "regnet",
+     "ds": [
+      "regne",
+      "regnen",
+      "geregnet"
+     ],
+     "why": "A real condition takes the indicative, and after wenn the verb goes to the end: wenn es regnet."
+    },
+    {
+     "id": "decls20",
+     "k": 3,
+     "en": "If you come, I am glad.",
+     "fr": "Wenn du ______, freue ich mich.",
+     "a": "kommst",
+     "ds": [
+      "kommt",
+      "komme",
+      "kommen"
+     ],
+     "why": "Du takes the ending -st, and after wenn the verb goes to the end: wenn du kommst."
+    },
+    {
+     "id": "decls21",
+     "k": 3,
+     "en": "If you come, I am glad.",
+     "fr": "Wenn du kommst, ______ ich mich.",
+     "a": "freue",
+     "ds": [
+      "freut",
+      "freust",
+      "freuen"
+     ],
+     "why": "The main clause follows the subordinate clause, so its verb stands first, and ich takes -e: freue ich mich."
+    },
+    {
+     "id": "decls22",
+     "k": 3,
+     "en": "If we had the book, we would read it.",
+     "fr": "Wenn wir das Buch hätten, ______ wir es lesen.",
+     "a": "würden",
+     "ds": [
+      "werden",
+      "wurden",
+      "würdet"
+     ],
+     "why": "The result is würde with the infinitive, in the first person plural: würden wir es lesen."
+    },
+    {
+     "id": "decls23",
+     "k": 4,
+     "en": "He says that the king is ill.",
+     "fr": "Er sagt, ______ der König krank ist.",
+     "a": "dass",
+     "ds": [
+      "das",
+      "ob",
+      "weil"
+     ],
+     "why": "A reported statement can be introduced by dass, with two s, and its verb goes to the end. Das is the article or the relative."
+    },
+    {
+     "id": "decls24",
+     "k": 4,
+     "en": "I do not know whether he is coming.",
+     "fr": "Ich weiß nicht, ______ er kommt.",
+     "a": "ob",
+     "ds": [
+      "wenn",
+      "dass",
+      "weil"
+     ],
+     "why": "A reported yes-or-no question is introduced by ob."
+    },
+    {
+     "id": "decls25",
+     "k": 4,
+     "en": "He asks where the king is.",
+     "fr": "Er fragt, wo der König ______.",
+     "a": "ist",
+     "ds": [
+      "sein",
+      "bist",
+      "seid"
+     ],
+     "why": "A reported question keeps its question word, and its verb goes to the end: wo der König ist."
+    },
+    {
+     "id": "decls26",
+     "k": 4,
+     "en": "She asks what he wants.",
+     "fr": "Sie fragt, ______ er will.",
+     "a": "was",
+     "ds": [
+      "wer",
+      "wo",
+      "ob"
+     ],
+     "why": "The question is about the thing wanted, so was. Wer asks about a person."
+    },
+    {
+     "id": "decls27",
+     "k": 4,
+     "en": "I believe that she is right.",
+     "fr": "Ich glaube, dass sie recht ______.",
+     "a": "hat",
+     "ds": [
+      "haben",
+      "hast",
+      "habt"
+     ],
+     "why": "After dass the verb goes to the end, and sie, she, takes hat."
+    },
+    {
+     "id": "decls28",
+     "k": 4,
+     "en": "He says that he is ill.",
+     "fr": "Er sagt, er ______ krank.",
+     "a": "sei",
+     "ds": [
+      "seien",
+      "seid",
+      "sein"
+     ],
+     "why": "Written German reports speech in the Konjunktiv I, and the third person singular of sein is sei. Without dass the reported clause keeps the order of a main clause."
+    },
+    {
+     "id": "decls29",
+     "k": 4,
+     "en": "She says that she has no time.",
+     "fr": "Sie sagt, sie ______ keine Zeit.",
+     "a": "habe",
+     "ds": [
+      "haben",
+      "habest",
+      "habt"
+     ],
+     "why": "The Konjunktiv I of haben in the third person singular is habe, the form of reported speech."
+    },
+    {
+     "id": "decls30",
+     "k": 4,
+     "en": "He says that he is coming tomorrow.",
+     "fr": "Er sagt, er ______ morgen.",
+     "a": "komme",
+     "ds": [
+      "kommen",
+      "kommest",
+      "kommet"
+     ],
+     "why": "The Konjunktiv I of kommen in the third person singular is komme."
+    },
+    {
+     "id": "decls31",
+     "k": 5,
+     "en": "He left without saying a word.",
+     "fr": "Er ging, ______ ein Wort zu sagen.",
+     "a": "ohne",
+     "ds": [
+      "um",
+      "damit",
+      "für"
+     ],
+     "why": "Ohne with zu and the infinitive says that something did not happen: ohne ein Wort zu sagen."
+    },
+    {
+     "id": "decls32",
+     "k": 5,
+     "en": "Instead of working, he sleeps.",
+     "fr": "______ zu arbeiten, schläft er.",
+     "a": "Statt",
+     "ds": [
+      "Ohne",
+      "Um",
+      "Damit"
+     ],
+     "why": "Statt with zu and the infinitive gives what is done in place of something else."
+    },
+    {
+     "id": "decls33",
+     "k": 5,
+     "en": "He came in order to see the king.",
+     "fr": "Er kam, um den König zu ______.",
+     "a": "sehen",
+     "ds": [
+      "sieht",
+      "gesehen",
+      "sah"
+     ],
+     "why": "Um ... zu takes the infinitive at the end: um den König zu sehen."
+    },
+    {
+     "id": "decls34",
+     "k": 5,
+     "en": "He speaks loudly so that the king hears him.",
+     "fr": "Er spricht laut, ______ der König ihn hört.",
+     "a": "damit",
+     "ds": [
+      "um",
+      "ohne",
+      "ob"
+     ],
+     "why": "When the subject of the purpose clause is not the subject of the main clause, German uses damit with a finite verb. Um ... zu needs the same subject."
+    },
+    {
+     "id": "decls35",
+     "k": 5,
+     "en": "the book lying on the table",
+     "fr": "das auf dem Tisch ______ Buch",
+     "a": "liegende",
+     "ds": [
+      "liegend",
+      "liegenden",
+      "liegender"
+     ],
+     "why": "A participle with its own phrase can stand before the noun, and it takes the adjective ending: das auf dem Tisch liegende Buch."
+    },
+    {
+     "id": "decls36",
+     "k": 5,
+     "en": "the man who has arrived in the city",
+     "fr": "der in der Stadt ______ Mann",
+     "a": "angekommene",
+     "ds": [
+      "angekommen",
+      "angekommenen",
+      "angekommener"
+     ],
+     "why": "The participle stands before the noun with its phrase and takes the ending -e after der: der in der Stadt angekommene Mann."
+    }
+   ]
+  },
+  "mood": {
+   "title": "The Konjunktiv and the Imperative",
+   "desc": "One word is missing from a German sentence, or one form of a verb is asked for: the Konjunktiv II and its uses, the Konjunktiv I of reported speech, or the imperative.",
+   "intro": [
+    {
+     "h": "<strong>The Konjunktiv II.</strong> The Konjunktiv II of a strong verb is made from the Präteritum, with the umlaut and -e; with other verbs German usually uses würde with the infinitive.",
+     "eg": [
+      "<span lang=\"de\">wäre, hätte, würde, käme; ich würde bleiben</span>"
+     ]
+    },
+    {
+     "h": "<strong>Its uses.</strong> The Konjunktiv II gives what is imagined or not real: a condition, its result, a wish, or a polite request.",
+     "eg": [
+      "<span lang=\"de\">wenn ich nur Zeit hätte!; das wäre gut; würden Sie das Fenster öffnen?</span>"
+     ]
+    },
+    {
+     "h": "<strong>The Konjunktiv I.</strong> The Konjunktiv I is made from the stem of the infinitive with -e, and its chief use is reported speech in written German.",
+     "eg": [
+      "<span lang=\"de\">er sei, er habe, er komme; er sagt, er sei krank</span>"
+     ]
+    },
+    {
+     "h": "<strong>The imperative.</strong> The imperative singular has no ending or -e, and verbs that change e to i or ie in the present change it here too. The plural is the ihr form, and the formal imperative keeps Sie.",
+     "eg": [
+      "<span lang=\"de\">komm!, lies!, gib!; kommt!; sprechen Sie!</span>"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "id": "demood1",
+     "k": 1,
+     "en": "Konjunktiv II, first person singular, of “sein.”",
+     "fr": "______",
+     "a": "wäre",
+     "ds": [
+      "war",
+      "sei",
+      "bin"
+     ],
+     "why": "The Konjunktiv II of sein is made from the Präteritum war with the umlaut and -e: ich wäre."
+    },
+    {
+     "id": "demood2",
+     "k": 1,
+     "en": "Konjunktiv II, third person singular, of “haben.”",
+     "fr": "______",
+     "a": "hätte",
+     "ds": [
+      "hatte",
+      "habe",
+      "hat"
+     ],
+     "why": "The Konjunktiv II of haben is hätte, from hatte with the umlaut."
+    },
+    {
+     "id": "demood3",
+     "k": 1,
+     "en": "Konjunktiv II, third person singular, of “werden.”",
+     "fr": "______",
+     "a": "würde",
+     "ds": [
+      "wurde",
+      "werde",
+      "wird"
+     ],
+     "why": "The Konjunktiv II of werden is würde, from wurde with the umlaut."
+    },
+    {
+     "id": "demood4",
+     "k": 1,
+     "en": "Konjunktiv II, first person singular, of “können.”",
+     "fr": "______",
+     "a": "könnte",
+     "ds": [
+      "konnte",
+      "kann",
+      "könne"
+     ],
+     "why": "The Konjunktiv II of können is könnte. Konnte is the Präteritum, and könne the Konjunktiv I."
+    },
+    {
+     "id": "demood5",
+     "k": 1,
+     "en": "Konjunktiv II, third person singular, of “kommen.”",
+     "fr": "______",
+     "a": "käme",
+     "ds": [
+      "kam",
+      "komme",
+      "kommt"
+     ],
+     "why": "A strong verb makes its Konjunktiv II from the Präteritum, with the umlaut and -e: kam, käme."
+    },
+    {
+     "id": "demood6",
+     "k": 1,
+     "en": "Konjunktiv II, first person plural, of “sein.”",
+     "fr": "______",
+     "a": "wären",
+     "ds": [
+      "waren",
+      "seien",
+      "sind"
+     ],
+     "why": "The first person plural of the Konjunktiv II of sein is wären. Waren is the Präteritum."
+    },
+    {
+     "id": "demood7",
+     "k": 1,
+     "en": "Konjunktiv II, third person singular, of “müssen.”",
+     "fr": "______",
+     "a": "müsste",
+     "ds": [
+      "musste",
+      "muss",
+      "müsse"
+     ],
+     "why": "The Konjunktiv II of müssen is müsste. Musste is the Präteritum."
+    },
+    {
+     "id": "demood8",
+     "k": 1,
+     "en": "Konjunktiv II, first person singular, of “wissen.”",
+     "fr": "______",
+     "a": "wüsste",
+     "ds": [
+      "wusste",
+      "weiß",
+      "wisse"
+     ],
+     "why": "The Konjunktiv II of wissen is wüsste. Wusste is the Präteritum."
+    },
+    {
+     "id": "demood9",
+     "k": 2,
+     "en": "If only I had time!",
+     "fr": "Wenn ich nur Zeit ______!",
+     "a": "hätte",
+     "ds": [
+      "habe",
+      "hatte",
+      "hat"
+     ],
+     "why": "A wish that is not fulfilled takes the Konjunktiv II: wenn ich nur Zeit hätte!"
+    },
+    {
+     "id": "demood10",
+     "k": 2,
+     "en": "Would you open the window?",
+     "fr": "______ Sie das Fenster öffnen?",
+     "a": "Würden",
+     "ds": [
+      "Wurden",
+      "Wären",
+      "Hätten"
+     ],
+     "why": "Würde with the infinitive makes a polite request: würden Sie das Fenster öffnen?"
+    },
+    {
+     "id": "demood11",
+     "k": 2,
+     "en": "In your place I would stay.",
+     "fr": "An deiner Stelle ______ ich bleiben.",
+     "a": "würde",
+     "ds": [
+      "werde",
+      "wurde",
+      "hätte"
+     ],
+     "why": "Würde with the infinitive says what would happen: ich würde bleiben."
+    },
+    {
+     "id": "demood12",
+     "k": 2,
+     "en": "He acts as if he were the king.",
+     "fr": "Er tut so, als ______ er der König.",
+     "a": "wäre",
+     "ds": [
+      "ist",
+      "war",
+      "sein"
+     ],
+     "why": "After als in the sense of as if, the verb follows at once and stands in the Konjunktiv II: als wäre er der König."
+    },
+    {
+     "id": "demood13",
+     "k": 2,
+     "en": "If I were rich, I would buy a house.",
+     "fr": "Wenn ich reich wäre, ______ ich ein Haus kaufen.",
+     "a": "würde",
+     "ds": [
+      "werde",
+      "wurde",
+      "wäre"
+     ],
+     "why": "The result of a condition that is not real is würde with the infinitive."
+    },
+    {
+     "id": "demood14",
+     "k": 2,
+     "en": "I wish that he would come.",
+     "fr": "Ich wünschte, er ______.",
+     "a": "käme",
+     "ds": [
+      "kommt",
+      "kam",
+      "komme"
+     ],
+     "why": "A wish takes the Konjunktiv II, and the Konjunktiv II of kommen is käme."
+    },
+    {
+     "id": "demood15",
+     "k": 2,
+     "en": "That would be good.",
+     "fr": "Das ______ gut.",
+     "a": "wäre",
+     "ds": [
+      "war",
+      "sei",
+      "sind"
+     ],
+     "why": "What would be so is said with the Konjunktiv II: das wäre gut."
+    },
+    {
+     "id": "demood16",
+     "k": 2,
+     "en": "I would have read the book if I had had time.",
+     "fr": "Ich ______ das Buch gelesen, wenn ich Zeit gehabt hätte.",
+     "a": "hätte",
+     "ds": [
+      "habe",
+      "hatte",
+      "wäre"
+     ],
+     "why": "A past condition that was not fulfilled takes the Konjunktiv II of the auxiliary with the participle: ich hätte gelesen. Lesen forms its Perfekt with haben."
+    },
+    {
+     "id": "demood17",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “sein.”",
+     "fr": "______",
+     "a": "sei",
+     "ds": [
+      "ist",
+      "wäre",
+      "seist"
+     ],
+     "why": "The Konjunktiv I of sein in the third person singular is sei, the form of reported speech."
+    },
+    {
+     "id": "demood18",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “haben.”",
+     "fr": "______",
+     "a": "habe",
+     "ds": [
+      "hat",
+      "hätte",
+      "habest"
+     ],
+     "why": "The Konjunktiv I is made from the stem of the infinitive with -e: er habe."
+    },
+    {
+     "id": "demood19",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “kommen.”",
+     "fr": "______",
+     "a": "komme",
+     "ds": [
+      "kommt",
+      "käme",
+      "kommest"
+     ],
+     "why": "The Konjunktiv I takes the stem of the infinitive and -e: er komme."
+    },
+    {
+     "id": "demood20",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “werden.”",
+     "fr": "______",
+     "a": "werde",
+     "ds": [
+      "wird",
+      "würde",
+      "werdest"
+     ],
+     "why": "The Konjunktiv I of werden is er werde. Wird is the indicative, and würde the Konjunktiv II."
+    },
+    {
+     "id": "demood21",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “können.”",
+     "fr": "______",
+     "a": "könne",
+     "ds": [
+      "kann",
+      "könnte",
+      "können"
+     ],
+     "why": "The Konjunktiv I is made from the stem of the infinitive, so it keeps the umlaut of können: er könne."
+    },
+    {
+     "id": "demood22",
+     "k": 3,
+     "en": "Konjunktiv I, third person plural, of “sein.”",
+     "fr": "______",
+     "a": "seien",
+     "ds": [
+      "sind",
+      "wären",
+      "seiest"
+     ],
+     "why": "The Konjunktiv I of sein in the third person plural is seien."
+    },
+    {
+     "id": "demood23",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “sprechen.”",
+     "fr": "______",
+     "a": "spreche",
+     "ds": [
+      "spricht",
+      "spräche",
+      "sprechest"
+     ],
+     "why": "The Konjunktiv I keeps the vowel of the infinitive, without the change to i: er spreche."
+    },
+    {
+     "id": "demood24",
+     "k": 3,
+     "en": "Konjunktiv I, third person singular, of “geben.”",
+     "fr": "______",
+     "a": "gebe",
+     "ds": [
+      "gibt",
+      "gäbe",
+      "gebest"
+     ],
+     "why": "The Konjunktiv I keeps the vowel of the infinitive: er gebe. Gibt is the indicative, and gäbe the Konjunktiv II."
+    },
+    {
+     "id": "demood25",
+     "k": 4,
+     "en": "(To one friend) Read the book!",
+     "fr": "______ das Buch!",
+     "a": "Lies",
+     "ds": [
+      "Lest",
+      "Lesen",
+      "Liest"
+     ],
+     "why": "A strong verb that changes e to ie in the present also changes it in the imperative singular, and the imperative has no -st: lies!"
+    },
+    {
+     "id": "demood26",
+     "k": 4,
+     "en": "(To one friend) Give me the book!",
+     "fr": "______ mir das Buch!",
+     "a": "Gib",
+     "ds": [
+      "Gebt",
+      "Gibst",
+      "Geben"
+     ],
+     "why": "The imperative singular of geben is gib, with the change of e to i."
+    },
+    {
+     "id": "demood27",
+     "k": 4,
+     "en": "(To several friends) Come here!",
+     "fr": "______ her!",
+     "a": "Kommt",
+     "ds": [
+      "Komm",
+      "Kommen",
+      "Kommst"
+     ],
+     "why": "The imperative addressed to several friends is the ihr form without the pronoun: kommt!"
+    },
+    {
+     "id": "demood28",
+     "k": 4,
+     "en": "(Formal) Speak slowly, please!",
+     "fr": "Sprechen ______ bitte langsam!",
+     "a": "Sie",
+     "ds": [
+      "du",
+      "ihr",
+      "wir"
+     ],
+     "why": "The formal imperative keeps the pronoun Sie after the verb: sprechen Sie!"
+    },
+    {
+     "id": "demood29",
+     "k": 4,
+     "en": "(To one friend) Speak louder!",
+     "fr": "______ lauter!",
+     "a": "Sprich",
+     "ds": [
+      "Sprecht",
+      "Spricht",
+      "Sprechen"
+     ],
+     "why": "The imperative singular of sprechen is sprich, with the change of e to i."
+    },
+    {
+     "id": "demood30",
+     "k": 4,
+     "en": "(To one friend) Be quiet!",
+     "fr": "______ ruhig!",
+     "a": "Sei",
+     "ds": [
+      "Bist",
+      "Seid",
+      "Ist"
+     ],
+     "why": "The imperative singular of sein is sei. Seid is the plural."
+    },
+    {
+     "id": "demood31",
+     "k": 4,
+     "en": "(To one friend) Come here!",
+     "fr": "______ her!",
+     "a": "Komm",
+     "ds": [
+      "Kommt",
+      "Kommst",
+      "Kommen"
+     ],
+     "why": "The imperative singular of kommen is komm, and the ending -e is usually left off."
+    },
+    {
+     "id": "demood32",
+     "k": 4,
+     "en": "Let us go!",
+     "fr": "______ wir!",
+     "a": "Gehen",
+     "ds": [
+      "Geht",
+      "Gehe",
+      "Gehst"
+     ],
+     "why": "An imperative that includes the speaker puts the verb first with wir: gehen wir!"
+    }
+   ]
+  }
+ },
+ "fill": {
+  "title": "The German Sentence",
+  "desc": "One word is missing from a German sentence: an article in its case, an adjective with its ending, a verb in its person, a past form, or a word in its place in the order of the sentence. The word is chosen from tiles at the first levels and written at the higher ones.",
+  "intro": [
+   {
+    "h": "<strong>The article.</strong> The article shows the gender, the number, and the case of its noun.",
+    "eg": [
+     "<span lang=\"de\">der Mann, den Mann, dem Mann, des Mannes; ein Pferd, einen Mann, einem Freund</span>"
+    ]
+   },
+   {
+    "h": "<strong>The adjective.</strong> After der, die, or das the adjective takes a weak ending; after ein, or with no article, it shows the gender and the case itself. After sein it takes no ending.",
+    "eg": [
+     "<span lang=\"de\">der gute Mann, ein guter Mann, guter Wein; der König ist gut</span>"
+    ]
+   },
+   {
+    "h": "<strong>Person.</strong> The ending of the verb shows the person and the number of its subject, and some strong verbs change their vowel in the second and third persons singular.",
+    "eg": [
+     "<span lang=\"de\">ich spreche, du sprichst, er spricht</span>"
+    ]
+   },
+   {
+    "h": "<strong>The past.</strong> The Perfekt is haben or sein with the past participle; verbs of motion or change of state take sein.",
+    "eg": [
+     "<span lang=\"de\">er hat das Bett gemacht; sie ist gekommen</span>"
+    ]
+   },
+   {
+    "h": "<strong>The order of words.</strong> In a main clause the finite verb stands second, and a participle, an infinitive, or a separable prefix goes to the end. In a clause after dass or weil the finite verb goes to the end.",
+    "eg": [
+     "<span lang=\"de\">heute gibt der König der Frau ein Buch; der Zug kommt um acht an; dass er heute kommt</span>"
+    ]
+   }
+  ],
+  "items": [
+   {
+    "id": "defill1",
+    "k": "article",
+    "en": "The king sees the man.",
+    "fr": "Der König sieht ______ Mann.",
+    "a": "den",
+    "ds": [
+     "der",
+     "dem",
+     "des"
+    ],
+    "why": "Mann is the object of sieht, so it is in the accusative, and the masculine accusative is den."
+   },
+   {
+    "id": "defill2",
+    "k": "article",
+    "en": "The woman gives the king a book.",
+    "fr": "Die Frau gibt ______ König ein Buch.",
+    "a": "dem",
+    "ds": [
+     "den",
+     "der",
+     "des"
+    ],
+    "why": "The one who receives is in the dative, and the masculine dative is dem."
+   },
+   {
+    "id": "defill3",
+    "k": "article",
+    "en": "The horse is large.",
+    "fr": "______ Pferd ist groß.",
+    "a": "Das",
+    "ds": [
+     "Der",
+     "Die",
+     "Den"
+    ],
+    "why": "Pferd is neuter, and the neuter nominative of the article is das."
+   },
+   {
+    "id": "defill4",
+    "k": "article",
+    "en": "I have a horse.",
+    "fr": "Ich habe ______ Pferd.",
+    "a": "ein",
+    "ds": [
+     "einen",
+     "einem",
+     "eine"
+    ],
+    "why": "Pferd is neuter and the object, and the neuter accusative of the indefinite article is ein."
+   },
+   {
+    "id": "defill5",
+    "k": "article",
+    "en": "I see a man.",
+    "fr": "Ich sehe ______ Mann.",
+    "a": "einen",
+    "ds": [
+     "ein",
+     "einem",
+     "eines"
+    ],
+    "why": "Mann is masculine and the object, so the indefinite article is einen."
+   },
+   {
+    "id": "defill6",
+    "k": "article",
+    "en": "He goes with a friend.",
+    "fr": "Er geht mit ______ Freund.",
+    "a": "einem",
+    "ds": [
+     "einen",
+     "ein",
+     "eines"
+    ],
+    "why": "Mit takes the dative, and the masculine dative of the indefinite article is einem."
+   },
+   {
+    "id": "defill7",
+    "k": "article",
+    "en": "The woman’s book is good.",
+    "fr": "Das Buch ______ Frau ist gut.",
+    "a": "der",
+    "ds": [
+     "die",
+     "des",
+     "den"
+    ],
+    "why": "The possessor is in the genitive, and the feminine genitive of the article is der."
+   },
+   {
+    "id": "defill8",
+    "k": "article",
+    "en": "The men see the city.",
+    "fr": "Die Männer sehen ______ Stadt.",
+    "a": "die",
+    "ds": [
+     "der",
+     "den",
+     "dem"
+    ],
+    "why": "Stadt is feminine and the object, and the feminine accusative is die."
+   },
+   {
+    "id": "defill9",
+    "k": "adjective",
+    "en": "the good man",
+    "fr": "der ______ Mann",
+    "a": "gute",
+    "ds": [
+     "guter",
+     "guten",
+     "gutes"
+    ],
+    "why": "After der the adjective in the nominative singular takes the weak ending -e."
+   },
+   {
+    "id": "defill10",
+    "k": "adjective",
+    "en": "a good man",
+    "fr": "ein ______ Mann",
+    "a": "guter",
+    "ds": [
+     "gute",
+     "guten",
+     "gutes"
+    ],
+    "why": "After ein the adjective shows the gender itself, so the masculine nominative is guter."
+   },
+   {
+    "id": "defill11",
+    "k": "adjective",
+    "en": "I see the good man.",
+    "fr": "Ich sehe den ______ Mann.",
+    "a": "guten",
+    "ds": [
+     "gute",
+     "guter",
+     "gutem"
+    ],
+    "why": "After den the adjective takes -en."
+   },
+   {
+    "id": "defill12",
+    "k": "adjective",
+    "en": "with good friends",
+    "fr": "mit ______ Freunden",
+    "a": "guten",
+    "ds": [
+     "gute",
+     "guter",
+     "gutem"
+    ],
+    "why": "Without an article the adjective takes the strong ending, and the dative plural is -en: mit guten Freunden."
+   },
+   {
+    "id": "defill13",
+    "k": "adjective",
+    "en": "a small house",
+    "fr": "ein ______ Haus",
+    "a": "kleines",
+    "ds": [
+     "kleine",
+     "kleiner",
+     "kleinen"
+    ],
+    "why": "After ein the neuter adjective shows the gender itself: ein kleines Haus."
+   },
+   {
+    "id": "defill14",
+    "k": "adjective",
+    "en": "good wine",
+    "fr": "______ Wein",
+    "a": "guter",
+    "ds": [
+     "gute",
+     "gutes",
+     "guten"
+    ],
+    "why": "Without an article the adjective takes the strong ending, and the masculine nominative is -er."
+   },
+   {
+    "id": "defill15",
+    "k": "adjective",
+    "en": "the large cities",
+    "fr": "die ______ Städte",
+    "a": "großen",
+    "ds": [
+     "große",
+     "großer",
+     "großes"
+    ],
+    "why": "After die in the plural the adjective takes -en."
+   },
+   {
+    "id": "defill16",
+    "k": "adjective",
+    "en": "The king is good.",
+    "fr": "Der König ist ______.",
+    "a": "gut",
+    "ds": [
+     "guter",
+     "gute",
+     "guten"
+    ],
+    "why": "An adjective that is the predicate, after sein, takes no ending."
+   },
+   {
+    "id": "defill17",
+    "k": "person",
+    "en": "I speak.",
+    "fr": "Ich ______.",
+    "a": "spreche",
+    "ds": [
+     "sprichst",
+     "spricht",
+     "sprechen"
+    ],
+    "why": "Ich takes the ending -e, without the change of vowel: ich spreche."
+   },
+   {
+    "id": "defill18",
+    "k": "person",
+    "en": "You (one friend) speak.",
+    "fr": "Du ______.",
+    "a": "sprichst",
+    "ds": [
+     "spricht",
+     "sprecht",
+     "sprechen"
+    ],
+    "why": "Du takes -st, and sprechen changes e to i: du sprichst."
+   },
+   {
+    "id": "defill19",
+    "k": "person",
+    "en": "He gives.",
+    "fr": "Er ______.",
+    "a": "gibt",
+    "ds": [
+     "gebt",
+     "gibst",
+     "geben"
+    ],
+    "why": "Er takes -t, and geben changes e to i: er gibt."
+   },
+   {
+    "id": "defill20",
+    "k": "person",
+    "en": "We are here.",
+    "fr": "Wir ______ hier.",
+    "a": "sind",
+    "ds": [
+     "seid",
+     "ist",
+     "bin"
+    ],
+    "why": "The first person plural of sein is sind."
+   },
+   {
+    "id": "defill21",
+    "k": "person",
+    "en": "You (several friends) have time.",
+    "fr": "Ihr ______ Zeit.",
+    "a": "habt",
+    "ds": [
+     "hat",
+     "haben",
+     "hast"
+    ],
+    "why": "The second person plural of haben is habt."
+   },
+   {
+    "id": "defill22",
+    "k": "person",
+    "en": "She becomes queen.",
+    "fr": "Sie ______ Königin.",
+    "a": "wird",
+    "ds": [
+     "werdet",
+     "wirst",
+     "werden"
+    ],
+    "why": "The third person singular of werden is wird."
+   },
+   {
+    "id": "defill23",
+    "k": "person",
+    "en": "They see the sea.",
+    "fr": "Sie ______ das Meer.",
+    "a": "sehen",
+    "ds": [
+     "sieht",
+     "seht",
+     "siehst"
+    ],
+    "why": "Sie, they, is the third person plural, and its verb ends in -en."
+   },
+   {
+    "id": "defill24",
+    "k": "person",
+    "en": "You (one friend) are good.",
+    "fr": "Du ______ gut.",
+    "a": "bist",
+    "ds": [
+     "bin",
+     "ist",
+     "seid"
+    ],
+    "why": "The second person singular of sein is bist."
+   },
+   {
+    "id": "defill25",
+    "k": "perfect",
+    "en": "He has made the bed.",
+    "fr": "Er ______ das Bett gemacht.",
+    "a": "hat",
+    "ds": [
+     "ist",
+     "habe",
+     "hast"
+    ],
+    "why": "Machen forms the Perfekt with haben, and er takes hat."
+   },
+   {
+    "id": "defill26",
+    "k": "perfect",
+    "en": "She has come.",
+    "fr": "Sie ______ gekommen.",
+    "a": "ist",
+    "ds": [
+     "hat",
+     "bin",
+     "seid"
+    ],
+    "why": "Kommen is a verb of motion and forms the Perfekt with sein: sie ist gekommen."
+   },
+   {
+    "id": "defill27",
+    "k": "perfect",
+    "en": "We have spoken.",
+    "fr": "Wir haben ______.",
+    "a": "gesprochen",
+    "ds": [
+     "sprachen",
+     "sprechen",
+     "gesprochene"
+    ],
+    "why": "The past participle of sprechen is gesprochen, and it stands at the end."
+   },
+   {
+    "id": "defill28",
+    "k": "perfect",
+    "en": "I have seen the king.",
+    "fr": "Ich habe den König ______.",
+    "a": "gesehen",
+    "ds": [
+     "sah",
+     "sehen",
+     "gesehene"
+    ],
+    "why": "The past participle of sehen is gesehen."
+   },
+   {
+    "id": "defill29",
+    "k": "perfect",
+    "en": "He has become king.",
+    "fr": "Er ist König ______.",
+    "a": "geworden",
+    "ds": [
+     "worden",
+     "werden",
+     "wurde"
+    ],
+    "why": "The full verb werden has the participle geworden. Worden is used only in the passive."
+   },
+   {
+    "id": "defill30",
+    "k": "perfect",
+    "en": "They have given the book.",
+    "fr": "Sie haben das Buch ______.",
+    "a": "gegeben",
+    "ds": [
+     "gaben",
+     "geben",
+     "gibt"
+    ],
+    "why": "The past participle of geben is gegeben."
+   },
+   {
+    "id": "defill31",
+    "k": "perfect",
+    "en": "I was in the city.",
+    "fr": "Ich ______ in der Stadt.",
+    "a": "war",
+    "ds": [
+     "wäre",
+     "bin",
+     "wurde"
+    ],
+    "why": "The Präteritum of sein in the first person singular is war. Wäre is the Konjunktiv II."
+   },
+   {
+    "id": "defill32",
+    "k": "perfect",
+    "en": "He had a horse.",
+    "fr": "Er ______ ein Pferd.",
+    "a": "hatte",
+    "ds": [
+     "hätte",
+     "hat",
+     "habe"
+    ],
+    "why": "The Präteritum of haben is hatte. Hätte is the Konjunktiv II."
+   },
+   {
+    "id": "defill33",
+    "k": "order",
+    "en": "Today the king gives the woman a book.",
+    "fr": "Heute ______ König der Frau ein Buch.",
+    "a": "gibt der",
+    "ds": [
+     "der gibt",
+     "geben der",
+     "der geben"
+    ],
+    "why": "In a main clause the finite verb stands second. Heute fills the first place, so the verb comes next and the subject follows it: heute gibt der König."
+   },
+   {
+    "id": "defill34",
+    "k": "order",
+    "en": "I know that the king gives the woman a book.",
+    "fr": "Ich weiß, dass der König ______.",
+    "a": "der Frau ein Buch gibt",
+    "ds": [
+     "gibt der Frau ein Buch",
+     "der Frau gibt ein Buch",
+     "gibt ein Buch der Frau"
+    ],
+    "why": "After dass the finite verb goes to the end of the clause."
+   },
+   {
+    "id": "defill35",
+    "k": "order",
+    "en": "The king has given the woman a book.",
+    "fr": "Der König hat der Frau ein Buch ______.",
+    "a": "gegeben",
+    "ds": [
+     "gibt",
+     "gab",
+     "geben"
+    ],
+    "why": "The past participle goes to the end of the clause, and hat stands second."
+   },
+   {
+    "id": "defill36",
+    "k": "order",
+    "en": "Does the king give the woman a book?",
+    "fr": "______ der König der Frau ein Buch?",
+    "a": "Gibt",
+    "ds": [
+     "Gebt",
+     "Geben",
+     "Gibst"
+    ],
+    "why": "A question without a question word puts the finite verb first, and der König takes gibt."
+   },
+   {
+    "id": "defill37",
+    "k": "order",
+    "en": "The train arrives at eight.",
+    "fr": "Der Zug kommt um acht ______.",
+    "a": "an",
+    "ds": [
+     "auf",
+     "ab",
+     "mit"
+    ],
+    "why": "Ankommen has a separable prefix, and in a main clause the prefix goes to the end: der Zug kommt um acht an."
+   },
+   {
+    "id": "defill38",
+    "k": "order",
+    "en": "He wants to read the book.",
+    "fr": "Er will das Buch ______.",
+    "a": "lesen",
+    "ds": [
+     "liest",
+     "gelesen",
+     "zu lesen"
+    ],
+    "why": "After a modal verb the infinitive goes to the end without zu."
+   },
+   {
+    "id": "defill39",
+    "k": "order",
+    "en": "Because the king is ill, he stays at home.",
+    "fr": "Weil der König krank ist, ______ er zu Hause.",
+    "a": "bleibt",
+    "ds": [
+     "bleiben",
+     "bleibst",
+     "bleibe"
+    ],
+    "why": "The subordinate clause fills the first place, so the verb of the main clause follows at once: bleibt er."
+   },
+   {
+    "id": "defill40",
+    "k": "order",
+    "en": "I believe that he is coming today.",
+    "fr": "Ich glaube, dass er heute ______.",
+    "a": "kommt",
+    "ds": [
+     "kommen",
+     "komme",
+     "kommst"
+    ],
+    "why": "After dass the verb goes to the end, and er takes kommt."
+   }
+  ]
+ },
+ "notes": {
+  "decks": {
+   "govern": {
+    "0": {
+     "text": [
+      {
+       "entry": 1,
+       "note": "German keeps four cases, and German verbs and prepositions govern them as Latin ones do: helfen and danken take the dative, sehen the accusative, and wegen the genitive."
+      }
+     ]
+    },
+    "1": {
+     "text": [
+      {
+       "entry": 2,
+       "note": "German in, like Latin in, takes two cases: the dative for the place where, as in in der Stadt, and the accusative for the place to which, as in in die Stadt. The question wo? (where?) asks for the dative, and wohin? (where to?) for the accusative."
+      }
+     ]
+    }
+   },
+   "agree": {
+    "0": {
+     "text": [
+      {
+       "entry": 3,
+       "note": "A German adjective before its noun agrees in gender, number, and case, and its ending also depends on the word before it: der gute Mann, ein guter Mann. After sein the adjective takes no ending: der Mann ist gut."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 4,
+       "note": "A German verb agrees with its subject in person and number, as a Latin verb does. The German relative pronoun takes its gender and number from its noun and its case from its own clause, as the Latin relative does."
+      }
+     ]
+    }
+   },
+   "casework": {
+    "0": {
+     "text": [
+      {
+       "entry": 5,
+       "note": "German has four of the Latin cases: the nominative, the accusative, the dative, and the genitive. Where Latin uses the ablative, German uses a preposition."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 6,
+       "note": "The German genitive, like the Latin, can name the possessor or the object of a feeling: die Liebe des Vaters can mean the father’s love or love for the father."
+      }
+     ]
+    },
+    "3": {
+     "text": [
+      {
+       "entry": 7,
+       "note": "German also has a double accusative after a few verbs, such as lehren: er lehrt den Jungen die Sprache, he teaches the boy the language."
+      }
+     ]
+    }
+   },
+   "decline": {
+    "0": {
+     "text": [
+      {
+       "entry": 8,
+       "note": "German nouns, articles, adjectives, and pronouns are declinable, as in Latin, and the German verb is conjugated. The German article carries much of the case, because the noun itself changes less often than a Latin noun."
+      }
+     ]
+    }
+   },
+   "latvoice": {
+    "0": {
+     "text": [
+      {
+       "entry": 9,
+       "note": "The German passive is werden with the past participle, and the doer is introduced by von with the dative: das Buch wird von dem König gelesen."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 10,
+       "note": "A German modal verb takes the infinitive without zu, as Latin possum takes the infinitive: ich kann kommen. Most other German verbs take zu: er beginnt zu schreiben."
+      }
+     ]
+    },
+    "4": {
+     "text": [
+      {
+       "entry": 11,
+       "note": "The German Perfekt and passive are made with an auxiliary and the participle, as the Latin perfect passive is: er hat gesprochen, das Buch wird gelesen. In German the participle does not agree with the subject."
+      }
+     ]
+    },
+    "5": {
+     "text": [
+      {
+       "entry": 12,
+       "note": "German has no deponent verbs, but some German verbs are always reflexive, such as sich freuen, be glad, and a reflexive verb can have a sense close to the Greek middle."
+      }
+     ]
+    }
+   },
+   "latsubj": {
+    "0": {
+     "text": [
+      {
+       "entry": 13,
+       "note": "German has two subjunctive moods. The Konjunktiv II gives what is imagined or not real, and the Konjunktiv I is used chiefly in written reported speech: er sagt, er sei krank."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 14,
+       "note": "German purpose with the same subject is um ... zu with the infinitive, and with another subject damit with the indicative. German result is so ... dass with the indicative."
+      }
+     ]
+    },
+    "4": {
+     "text": [
+      {
+       "entry": 15,
+       "note": "The German imperative has a singular, a plural, and a formal form: komm!, kommt!, kommen Sie! A prohibition is the negative imperative: komm nicht!"
+      }
+     ]
+    }
+   },
+   "latbuild": {
+    "1": {
+     "text": [
+      {
+       "entry": 16,
+       "note": "German word order is freer than English but not free as Latin is: the finite verb of a main clause stands second, and the article shows the case, so the object can stand first, as in den König sieht die Frau."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 17,
+       "note": "German, unlike Latin, writes the subject pronoun: wir loben den Dichter. The personal pronoun has four cases: ich, mich, mir, meiner."
+      }
+     ]
+    },
+    "3": {
+     "text": [
+      {
+       "entry": 18,
+       "note": "Where Latin uses the dative, German uses the dative: der Junge gibt dem Mädchen ein Geschenk. Where Latin uses the genitive of the possessor, German uses the genitive or von with the dative: das Buch des Königs."
+      }
+     ]
+    },
+    "4": {
+     "text": [
+      {
+       "entry": 19,
+       "note": "German und joins words in the same case, as Latin et does. Place where is in with the dative, and motion into a place is in with the accusative."
+      }
+     ]
+    },
+    "5": {
+     "text": [
+      {
+       "entry": 20,
+       "note": "German has a definite and an indefinite article. Some prepositions and the article run together into one word, such as im and zum, and German modal particles such as doch and ja stand where Latin might use a particle such as enim."
+      }
+     ]
+    }
+   },
+   "clauses": {
+    "1": {
+     "text": [
+      {
+       "entry": 21,
+       "note": "German purpose is um ... zu with the infinitive, or damit with a finite verb; German result is so ... dass. In both kinds of clause after a conjunction the finite verb goes to the end."
+      }
+     ]
+    },
+    "2": {
+     "text": [
+      {
+       "entry": 22,
+       "note": "German reports a statement with dass and the indicative, or, in written German, without dass and with the Konjunktiv I: er sagt, er sei krank. A reported question begins with ob or a question word."
+      }
+     ]
+    },
+    "3": {
+     "text": [
+      {
+       "entry": 23,
+       "note": "German als and wenn (when), weil (because), obwohl (although), and wenn (if) put the finite verb at the end of their clause. A condition that is not real takes the Konjunktiv II."
+      }
+     ]
+    },
+    "4": {
+     "text": [
+      {
+       "entry": 24,
+       "note": "The German relative pronoun has the forms of the article, except in the genitive and the dative plural: dessen, deren, denen. Its verb goes to the end of the relative clause."
+      }
+     ]
+    }
+   }
+  },
+  "exercises": {}
+ },
+ "syllable": {
+  "deck": {
+   "title": "German Syllable, Length, and Stress",
+   "sub": "How a German word is divided, which vowels are long, and where the stress falls",
+   "panels": [
+    {
+     "h": "<p><strong>The German syllable and vowel length.</strong> A German syllable has one vowel or diphthong, and <span lang=\"de\">ei</span>, <span lang=\"de\">au</span>, <span lang=\"de\">eu</span>, and <span lang=\"de\">äu</span> are diphthongs: <span lang=\"de\">Bau-er</span> has two syllables. A German vowel is long or short, and the spelling usually shows which. A vowel is long when it is doubled, as in <span lang=\"de\">See</span>, when it is followed by a silent h, as in <span lang=\"de\">Sohn</span>, when it is written ie, as in <span lang=\"de\">Liebe</span>, and usually when one consonant follows it, as in <span lang=\"de\">Tag</span>. A vowel before a doubled consonant is short, as in <span lang=\"de\">Mann</span> and <span lang=\"de\">Bett</span>.</p>",
+     "q": {
+      "prompt": "Is the vowel of <span lang=\"de\">Mann</span> long or short?",
+      "options": [
+       "Short, because a doubled consonant follows",
+       "Long, because it is stressed",
+       "Long, because the word has one syllable",
+       "Short, because it is a noun"
+      ],
+      "correct": 0,
+      "explain": "A doubled consonant after a vowel shows that the vowel is short. Compare <span lang=\"de\">Sohn</span>, where the silent h shows a long vowel."
+     }
+    },
+    {
+     "h": "<p><strong>German stress.</strong> German does not use the Latin law of the penult. The stress falls on the first syllable of the stem, the main part of the word without a prefix: <span lang=\"de\">SPRE-chen</span>, and in the participle <span lang=\"de\">ge-SPRO-chen</span>, where ge- is not part of the stem. The inseparable prefixes be-, ge-, er-, ver-, and zer- are never stressed: <span lang=\"de\">ver-STE-hen</span>. A separable prefix takes the stress: <span lang=\"de\">AN-kommen</span>.</p>",
+     "q": {
+      "prompt": "Where is the stress in <span lang=\"de\">gesprochen</span>?",
+      "options": [
+       "On <span lang=\"de\">-spro-</span>, the stem",
+       "On <span lang=\"de\">ge-</span>, the first syllable",
+       "On the last syllable",
+       "On the penult because it is long"
+      ],
+      "correct": 0,
+      "explain": "The stem of the participle is <span lang=\"de\">-sproch-</span>, and <span lang=\"de\">ge-</span> is an unstressed prefix."
+     }
+    },
+    {
+     "h": "<p><strong>Compounds and borrowed words.</strong> A compound is usually stressed on its first part: <span lang=\"de\">HAUS-tür</span>, <span lang=\"de\">BAHN-hof</span>. Many borrowed words keep a stress of their own: verbs in -ieren are stressed on that ending, as in <span lang=\"de\">stu-DIE-ren</span>, and nouns in -ität and -ei on the last syllable, as in <span lang=\"de\">U-ni-ver-si-TÄT</span> and <span lang=\"de\">Bä-cke-REI</span>.</p>",
+     "q": {
+      "prompt": "Where is the stress in <span lang=\"de\">studieren</span>?",
+      "options": [
+       "On <span lang=\"de\">-die-</span>",
+       "On <span lang=\"de\">stu-</span>",
+       "On <span lang=\"de\">-ren</span>",
+       "On no syllable"
+      ],
+      "correct": 0,
+      "explain": "Verbs in <span lang=\"de\">-ieren</span> are stressed on <span lang=\"de\">-ie-</span>."
+     }
+    },
+    {
+     "h": "<p><strong>Final devoicing.</strong> At the end of a word or a syllable, b, d, and g are pronounced as p, t, and k, although the spelling keeps b, d, and g: <span lang=\"de\">Tag</span> ends with the sound k, and <span lang=\"de\">Hund</span> with t. The spelling shows the sound of the other forms, where a vowel follows: <span lang=\"de\">Tage</span>, <span lang=\"de\">Hunde</span>.</p>",
+     "q": {
+      "prompt": "How is the final d of <span lang=\"de\">Hund</span> pronounced?",
+      "options": [
+       "As t",
+       "As d",
+       "It is silent",
+       "As th"
+      ],
+      "correct": 0,
+      "explain": "At the end of a word, d is pronounced as t. In <span lang=\"de\">Hunde</span>, where a vowel follows, it is a d."
+     }
+    }
+   ]
+  },
+  "exercise": {
+   "title": "German Syllable, Length, and Stress",
+   "desc": "A short set on the German syllable: counting syllables, long and short vowels, the stress on the stem, prefixes, compounds, borrowed words, and final devoicing.",
+   "instr": "Choose the answer.",
+   "items": [
+    {
+     "id": "dsy1",
+     "q": "How many syllables does this word have?",
+     "form": "Bauer",
+     "a": "Two",
+     "ds": [
+      "One",
+      "Three",
+      "Four"
+     ],
+     "why": "Au is a diphthong, one sound, so the word is Bau-er."
+    },
+    {
+     "id": "dsy2",
+     "q": "How many syllables does this word have?",
+     "form": "Universität",
+     "a": "Five",
+     "ds": [
+      "Four",
+      "Six",
+      "Three"
+     ],
+     "why": "The word is U-ni-ver-si-tät."
+    },
+    {
+     "id": "dsy3",
+     "q": "Is the vowel of this word long or short?",
+     "form": "See",
+     "a": "Long, because it is doubled",
+     "ds": [
+      "Short, because one syllable is short",
+      "Short, because it is final",
+      "Long, because a consonant follows"
+     ],
+     "why": "A doubled vowel is long."
+    },
+    {
+     "id": "dsy4",
+     "q": "Is the vowel of this word long or short?",
+     "form": "Bett",
+     "a": "Short, because a doubled consonant follows",
+     "ds": [
+      "Long, because it is stressed",
+      "Long, because the word is short",
+      "Short, because it is an e"
+     ],
+     "why": "A doubled consonant after a vowel shows that the vowel is short."
+    },
+    {
+     "id": "dsy5",
+     "q": "What does the h in this word show?",
+     "form": "Sohn",
+     "a": "That the vowel before it is long",
+     "ds": [
+      "That the word begins with h",
+      "That the vowel is short",
+      "That the syllable is stressed"
+     ],
+     "why": "A silent h after a vowel shows that the vowel is long."
+    },
+    {
+     "id": "dsy6",
+     "q": "Which syllable of this word is stressed?",
+     "form": "sprechen",
+     "a": "spre-",
+     "ds": [
+      "-chen",
+      "Both equally",
+      "Neither"
+     ],
+     "why": "German stresses the first syllable of the stem."
+    },
+    {
+     "id": "dsy7",
+     "q": "Which syllable of this word is stressed?",
+     "form": "verstehen",
+     "a": "-ste-",
+     "ds": [
+      "ver-",
+      "-hen",
+      "All three equally"
+     ],
+     "why": "Ver- is an inseparable prefix and is never stressed; the stress falls on the first syllable of the stem."
+    },
+    {
+     "id": "dsy8",
+     "q": "Which syllable of this word is stressed?",
+     "form": "ankommen",
+     "a": "an-",
+     "ds": [
+      "-kom-",
+      "-men",
+      "None"
+     ],
+     "why": "A separable prefix takes the stress."
+    },
+    {
+     "id": "dsy9",
+     "q": "Which part of this compound is stressed?",
+     "form": "Haustür",
+     "a": "The first part, Haus-",
+     "ds": [
+      "The second part, -tür",
+      "Both equally",
+      "Neither"
+     ],
+     "why": "A compound is usually stressed on its first part."
+    },
+    {
+     "id": "dsy10",
+     "q": "Which syllable of this word is stressed?",
+     "form": "studieren",
+     "a": "-die-",
+     "ds": [
+      "stu-",
+      "-ren",
+      "All three equally"
+     ],
+     "why": "Verbs in -ieren are stressed on -ie-."
+    },
+    {
+     "id": "dsy11",
+     "q": "Which syllable of this word is stressed?",
+     "form": "Bäckerei",
+     "a": "The last, -rei",
+     "ds": [
+      "The first, Bä-",
+      "The second, -cke-",
+      "None"
+     ],
+     "why": "Nouns in -ei are stressed on the last syllable."
+    },
+    {
+     "id": "dsy12",
+     "q": "How is the final g of this word pronounced?",
+     "form": "Tag",
+     "a": "As k",
+     "ds": [
+      "As g",
+      "It is silent",
+      "As ch in every region"
+     ],
+     "why": "At the end of a word, g is pronounced as k in the standard pronunciation, although the spelling keeps g."
+    },
+    {
+     "id": "dsy13",
+     "q": "Which syllable of this participle is stressed?",
+     "form": "gesprochen",
+     "a": "-spro-",
+     "ds": [
+      "ge-",
+      "-chen",
+      "All three equally"
+     ],
+     "why": "Ge- is an unstressed prefix, and the stress falls on the stem."
+    },
+    {
+     "id": "dsy14",
+     "q": "Does German use the Latin law of the penult?",
+     "a": "No; the stress falls on the first syllable of the stem",
+     "ds": [
+      "Yes, in every word",
+      "Yes, but only in verbs",
+      "No; the stress falls on the last syllable"
+     ],
+     "why": "German finds the stem, whereas Latin measures the penult."
+    }
+   ]
+  }
+ },
  "cards": {
   "title": "German beside Latin",
   "description": "What modern German has, and where it differs from Latin.",
@@ -1450,6 +4414,38 @@ window.GERMAN = {
    {
     "heading": "Stem and ending",
     "text": "The form in the sentence is a stem and an ending. In spricht the vowel of the stem has changed, and -t marks the third person singular. In Königen the ending -en marks the dative plural, on the plural stem König-. In guten the ending -en is the weak ending of the adjective, and the article beside it has already marked gender and case. The ending and the article together mark the gender, the number, and the case of a noun phrase, and the ending of the verb marks the person and the number a second time, beside the subject pronoun."
+   },
+   {
+    "heading": "Aspect",
+    "text": "German has no grammatical aspect of the kind that Greek has, and its tenses do not by themselves present an action as going on or as complete. Er las means he read or he was reading, and the sentence or a word such as gerade, just then, shows which is meant. The Präteritum and the Perfekt differ chiefly in use: the Präteritum is the tense of written narrative, and the Perfekt the ordinary past of speech. Latin and Greek mark aspect in the verb itself."
+   },
+   {
+    "heading": "Word order",
+    "text": "The finite verb of a German main clause stands in the second place: der König gibt der Frau das Buch, and heute gibt der König der Frau das Buch. In a question without a question word, and in a command, it stands first: gibt der König das Buch? In a clause after dass, weil, or wenn it stands last: weil der König der Frau das Buch gibt. An infinitive, a past participle, or a separable prefix goes to the end of the clause. Because the article shows the case, the object can stand first: den König sieht die Frau, the woman sees the king."
+   },
+   {
+    "heading": "Compound tenses and the passive",
+    "text": "The Perfekt and the Plusquamperfekt are made with haben or sein and the past participle: er hat gesprochen, er hatte gesprochen, er ist gekommen. Verbs of motion or change of state take sein. The future is werden with the infinitive: er wird sprechen. The passive is werden with the past participle: das Buch wird gelesen, the book is read. The doer is named with von and the dative, and in the Perfekt of the passive the participle of werden is worden: das Buch ist gelesen worden."
+   },
+   {
+    "heading": "Reflexive verbs",
+    "text": "A reflexive verb is used with a reflexive pronoun: ich wasche mich, er wäscht sich. Some verbs are always reflexive, such as sich freuen, be glad. A reflexive verb can also have a sense close to the passive or to the Greek middle: das Buch liest sich leicht, the book reads easily. German forms the Perfekt of reflexive verbs with haben: er hat sich gewaschen."
+   },
+   {
+    "heading": "Preposition and article together",
+    "text": "Some prepositions and the definite article run together into one word: in dem becomes im, an dem becomes am, zu dem becomes zum, zu der becomes zur, von dem becomes vom, bei dem becomes beim, and in das becomes ins. The contracted form is the usual one when the article is not stressed. Words that lean on their neighbor in this way are called clitics, and the unstressed pronoun es is often shortened in speech in the same way, as in wie geht’s."
+   },
+   {
+    "heading": "The Konjunktiv I and the imperative",
+    "text": "Beside the Konjunktiv II, German has the Konjunktiv I, made from the stem of the infinitive: er sei, er habe, er komme. Its chief use is reported speech in written German: er sagt, er sei krank, he says that he is ill. The imperative gives a command: komm!, kommt!, kommen Sie! A strong verb that changes e to i or ie in the present also changes it in the imperative singular: gib!, sprich!, lies!"
+   },
+   {
+    "heading": "Separable prefixes and particles",
+    "text": "Many German verbs have a separable prefix that is also a word of its own, such as an, auf, ab, or mit. In a main clause the prefix goes to the end: ankommen, der Zug kommt um acht an. In the participle ge- stands between the prefix and the stem: angekommen. German also has modal particles, such as doch, ja, mal, and eben, small words that do not change what the sentence states but show how the speaker takes it: komm doch!, do come!; das weißt du ja, you know that, after all."
+   },
+   {
+    "heading": "Word formation",
+    "text": "German forms new nouns freely by compounding. The last part of a compound decides its gender, and the first part narrows its sense: das Haus and die Tür make die Haustür, the front door. A linking -s- or -n- often joins the parts: die Arbeit and der Tag make der Arbeitstag. Suffixes make nouns from other words: -ung from verbs, as in die Lesung, a reading, and -heit and -keit from adjectives, as in die Freiheit and die Möglichkeit. Nouns in -ung, -heit, and -keit are feminine."
    }
   ]
  },

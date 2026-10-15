@@ -6,7 +6,7 @@
  * (more, voice) and greek-sentence-b.json (clause, mood). GREEK.notes holds the approved Greek notes of
  * greek-notes.json: notes.decks[deck][panel index, from 0].text or .explain, and notes.exercises[exercise][item id].
  * Each note keeps its entry number in GREEK-NOTES-PROPOSED.md. GREEK.meter holds the hexameter lines of greek-meter.json
- * for Meter and Scansion. Run from the repository root:
+ * for Meter and Scansion. GREEK.syllable holds the deck and the exercise of greek-syllable.json. Run from the repository root:
  *   node greek/build_greek.js
  */
 'use strict';
@@ -17,7 +17,8 @@ const here = __dirname;
 const out = path.join(here, '..', 'greek.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(here, 'greek-' + name + '.json'), 'utf8'));
 const GREEK = { vocab: read('vocab'), paradigms: read('paradigms'), cards: read('cards'), items: read('items'), shared: read('shared'),
-  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')), notes: read('notes'), meter: read('meter') };
+  sentence: Object.assign({}, read('sentence-a'), read('sentence-b')), notes: read('notes'), meter: read('meter'),
+  syllable: read('syllable') };
 
 /* Every string must already be in Unicode NFC. Nothing here normalizes or rewrites a form. */
 const problems = [];
@@ -159,6 +160,18 @@ const meterIds = new Set();
   });
 });
 
+/* The syllable deck and exercise: each panel question has its key among its options, and each exercise item has one
+   key, an id used once, and no wrong option equal to the key. */
+(function(){
+  const S = GREEK.syllable, seen = new Set();
+  (S.deck.panels || []).forEach((p, i) => { if(p.q && !(p.q.correct >= 0 && p.q.correct < p.q.options.length)) problems.push('syllable.deck.' + i + ': the key is not among the options'); });
+  (S.exercise.items || []).forEach(it => {
+    if(seen.has(it.id)) problems.push('syllable.' + it.id + ': the id is repeated');
+    seen.add(it.id);
+    if(!it.a || (it.ds || []).indexOf(it.a) >= 0 || new Set(it.ds).size !== it.ds.length) problems.push('syllable.' + it.id + ': the key or the wrong options are not distinct');
+  });
+})();
+
 if(problems.length){
   console.error(problems.join('\n'));
   process.exit(1);
@@ -171,4 +184,5 @@ console.log('Shared items: ' + Object.keys(GREEK.shared).filter(k => Array.isArr
 console.log('Sentence items: ' + SENTENCE_POOLS.map(k => k + ' ' + GREEK.sentence[k].length).join(', ') + '; each has one key and one blank, and no wrong option matches its key.');
 console.log('Notes: ' + noteLists.reduce((t, l) => t + l[1].length, 0) + ' notes in ' + noteLists.length + ' places.');
 console.log('Meter: ' + GREEK.meter.lines.length + ' hexameter lines; each makes its feet, and each syllable meets its rule.');
+console.log('Syllable: ' + GREEK.syllable.deck.panels.length + ' panels and ' + GREEK.syllable.exercise.items.length + ' exercise items.');
 console.log('Wrote ' + out);

@@ -1,0 +1,237 @@
+{
+ "deck": {
+  "title": "French Syllable and Stress",
+  "sub": "How a French word is divided and where the beat falls",
+  "panels": [
+   {
+    "h": "<p><strong>The French syllable.</strong> A French syllable has one sounded vowel. Several written letters often make one vowel sound: <span lang=\"fr\">eau</span>, <span lang=\"fr\">ou</span>, and <span lang=\"fr\">ai</span> are each one vowel, so <span lang=\"fr\">beau</span> is one syllable and <span lang=\"fr\">maison</span> is two, <span lang=\"fr\">mai-son</span>. A final e that is not sounded, the mute e (<span lang=\"fr\">e muet</span>), does not make a syllable in ordinary speech, so <span lang=\"fr\">table</span> is one syllable when it is spoken. In verse the mute e is counted before a consonant and not before a vowel.</p>",
+    "q": {
+     "prompt": "How many syllables does <span lang=\"fr\">maison</span> have?",
+     "options": [
+      "Two",
+      "One",
+      "Three",
+      "Four"
+     ],
+     "correct": 0,
+     "explain": "<span lang=\"fr\">Ai</span> is one vowel sound and <span lang=\"fr\">on</span> another, so the word is <span lang=\"fr\">mai-son</span>, two syllables."
+    }
+   },
+   {
+    "h": "<p><strong>Elision and liaison.</strong> A few short words drop their final vowel before a word that begins with a vowel or a mute h, and the spelling shows the loss: <span lang=\"fr\">l’homme</span>, <span lang=\"fr\">j’ai</span>, <span lang=\"fr\">qu’il</span>. This is elision. A final consonant that is silent before a pause is often sounded before a vowel and joined to it: in <span lang=\"fr\">les amis</span> the s is sounded as z. This is liaison. A word that begins with an aspirated h, such as <span lang=\"fr\">héros</span>, allows neither: <span lang=\"fr\">le héros</span>, <span lang=\"fr\">les héros</span> with no z.</p>",
+    "q": {
+     "prompt": "Why is <span lang=\"fr\">le homme</span> written <span lang=\"fr\">l’homme</span>?",
+     "options": [
+      "The e of le is elided before the mute h",
+      "The h is sounded, and so the article changes",
+      "Homme is feminine",
+      "The article is plural"
+     ],
+     "correct": 0,
+     "explain": "The h of <span lang=\"fr\">homme</span> is mute, so the word begins with a vowel sound, and <span lang=\"fr\">le</span> loses its e: <span lang=\"fr\">l’homme</span>."
+    }
+   },
+   {
+    "h": "<p><strong>French stress.</strong> French does not stress a fixed syllable of the word, as Latin does. The beat falls on the last sounded syllable of the rhythmic group, which is often the end of a phrase rather than of each word. <span lang=\"fr\">Parler</span>, said alone, is stressed on <span lang=\"fr\">-ler</span>, but in <span lang=\"fr\">parler au roi</span> the beat falls on <span lang=\"fr\">roi</span>. So there is no penult to measure, as there is in Latin.</p>",
+    "q": {
+     "prompt": "French ordinary stress falls…",
+     "options": [
+      "On the last sounded syllable of the group",
+      "On the first syllable of the stem",
+      "On the penult if it is long",
+      "On the syllable with an accent mark"
+     ],
+     "correct": 0,
+     "explain": "The group, not the word, takes the beat. Latin measures the penult, German stresses the stem, and French puts the beat at the end of the group."
+    }
+   },
+   {
+    "h": "<p><strong>The accent marks are not stress.</strong> The written accents of French do not mark the beat. The acute in <span lang=\"fr\">été</span> marks a closed e, and the grave in <span lang=\"fr\">mère</span> an open one; the grave on <span lang=\"fr\">à</span> and <span lang=\"fr\">où</span> tells these words from <span lang=\"fr\">a</span> and <span lang=\"fr\">ou</span>. The circumflex often stands where an s was once written, as in <span lang=\"fr\">forêt</span> beside English “forest.”</p>",
+    "q": {
+     "prompt": "What does the acute accent in <span lang=\"fr\">été</span> show?",
+     "options": [
+      "The quality of the vowel, a closed e",
+      "The place of the stress",
+      "That the vowel is long",
+      "That a letter has been lost"
+     ],
+     "correct": 0,
+     "explain": "French accent marks show the quality of a vowel or tell words apart, and they do not mark the stress."
+    }
+   }
+  ]
+ },
+ "exercise": {
+  "title": "French Syllable and Stress",
+  "desc": "A short set on the French syllable: counting syllables, the mute e, elision and liaison, the stress of the group, and the accent marks.",
+  "instr": "Choose the answer.",
+  "items": [
+   {
+    "id": "fsy1",
+    "q": "How many syllables does this word have?",
+    "form": "maison",
+    "a": "Two",
+    "ds": [
+     "One",
+     "Three",
+     "Four"
+    ],
+    "why": "Ai is one vowel sound and on another: mai-son."
+   },
+   {
+    "id": "fsy2",
+    "q": "How many syllables does this word have?",
+    "form": "beau",
+    "a": "One",
+    "ds": [
+     "Two",
+     "Three",
+     "Four"
+    ],
+    "why": "Eau is one vowel sound, so beau is one syllable."
+   },
+   {
+    "id": "fsy3",
+    "q": "How many syllables does this word have in ordinary speech?",
+    "form": "table",
+    "a": "One",
+    "ds": [
+     "Two",
+     "Three",
+     "None"
+    ],
+    "why": "The final mute e is not sounded in ordinary speech, so table is one syllable."
+   },
+   {
+    "id": "fsy4",
+    "q": "How many syllables does this word have?",
+    "form": "université",
+    "a": "Five",
+    "ds": [
+     "Four",
+     "Six",
+     "Three"
+    ],
+    "why": "The word is u-ni-ver-si-té, with five sounded vowels."
+   },
+   {
+    "id": "fsy5",
+    "q": "How many syllables does this word have?",
+    "form": "parlons",
+    "a": "Two",
+    "ds": [
+     "One",
+     "Three",
+     "Four"
+    ],
+    "why": "The word is par-lons, and the final s is not sounded."
+   },
+   {
+    "id": "fsy6",
+    "q": "Where does the stress fall in this word, said alone?",
+    "form": "université",
+    "a": "On the last syllable, -té",
+    "ds": [
+     "On the first syllable, u-",
+     "On the penult, -si-",
+     "On the second syllable, -ni-"
+    ],
+    "why": "French stresses the last sounded syllable of the group, and a word said alone is a group by itself."
+   },
+   {
+    "id": "fsy7",
+    "q": "In this group, which word carries the beat?",
+    "form": "le petit garçon",
+    "a": "garçon, on its last syllable",
+    "ds": [
+     "le",
+     "petit, on its last syllable",
+     "petit, on its first syllable"
+    ],
+    "why": "The beat falls at the end of the rhythmic group, here on the last syllable of garçon."
+   },
+   {
+    "id": "fsy8",
+    "q": "What is elision?",
+    "a": "A final vowel dropped before a vowel, and marked with an apostrophe",
+    "ds": [
+     "A final consonant sounded before a vowel",
+     "The stress at the end of a group",
+     "A vowel lengthened before r"
+    ],
+    "why": "In l’homme and j’ai the final vowel of le and je is dropped, and the apostrophe marks its place."
+   },
+   {
+    "id": "fsy9",
+    "q": "In les amis, how is the s of les pronounced?",
+    "form": "les amis",
+    "a": "As z, joined to amis",
+    "ds": [
+     "It is silent",
+     "As s",
+     "As t"
+    ],
+    "why": "This is liaison: the final consonant, silent before a pause, is sounded before a vowel, and an s is sounded as z."
+   },
+   {
+    "id": "fsy10",
+    "q": "Why do we write le héros and not l’héros?",
+    "form": "le héros",
+    "a": "The h of héros is aspirated, and it allows no elision",
+    "ds": [
+     "Héros is feminine",
+     "The h of héros is mute",
+     "Le never elides"
+    ],
+    "why": "An aspirated h, though it is not pronounced, blocks both elision and liaison: le héros, les héros."
+   },
+   {
+    "id": "fsy11",
+    "q": "How many syllables does this word have in ordinary speech?",
+    "form": "samedi",
+    "a": "Two",
+    "ds": [
+     "Three",
+     "One",
+     "Four"
+    ],
+    "why": "The middle e is mute and usually not sounded in ordinary speech: sam-di."
+   },
+   {
+    "id": "fsy12",
+    "q": "What does the circumflex in forêt often mark?",
+    "form": "forêt",
+    "a": "An s that was once written after the vowel",
+    "ds": [
+     "The stress of the word",
+     "A short vowel",
+     "The plural"
+    ],
+    "why": "Compare English forest: the circumflex often stands where an older s has dropped out."
+   },
+   {
+    "id": "fsy13",
+    "q": "What does the grave accent on à show?",
+    "form": "à",
+    "a": "That it is the preposition, not a, the form of avoir",
+    "ds": [
+     "That it is stressed",
+     "That it is long",
+     "That it is plural"
+    ],
+    "why": "The grave on à and où tells these words apart from a and ou. It does not mark stress."
+   },
+   {
+    "id": "fsy14",
+    "q": "In verse, when is a mute e at the end of a word counted as a syllable?",
+    "a": "Before a word that begins with a consonant",
+    "ds": [
+     "Before a word that begins with a vowel",
+     "Never",
+     "Only at the end of the line"
+    ],
+    "why": "In French verse the mute e is counted before a consonant and elided before a vowel; at the end of the line it is not counted."
+   }
+  ]
+ }
+}

@@ -366,8 +366,10 @@ function actItems(act) {
   const out = [];
   for (const it of act.items || []) {
     if (it.kind !== 'row') { out.push(it); continue; }
+    // Every row is printed, including the rows of a third language and a row's exercises in each third language (exL).
     out.push({ kind: 'deck', deck: it.deck, tag: it.tag, title: it.title, desc: it.desc });
     for (const ex of it.ex || []) out.push({ kind: 'ex', ex });
+    for (const k of ['grc', 'de', 'fr']) for (const ex of (it.exL && it.exL[k]) || []) out.push({ kind: 'ex', ex });
   }
   return out;
 }
@@ -513,11 +515,15 @@ function emitPartner(key, ex, app, code, data, name) {
   const pool = data && data.shared && data.shared[key];
   if (!Array.isArray(pool) || !ex.langs || ex.langs.indexOf(code) < 0) return '';
   const { store, state } = app;
-  const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key];
+  const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key], pick = store.langPick;
   Math.random = seededRandom(7);
   store.modes[key] = 'both';
   store.langs[key] = code;
-  const lines = [`#### ${name}`, '', `With English and ${name} chosen, these ${name} items take the place of the Latin ones. Every ${name} item is printed: ${pool.length} items.`, ''];
+  // The course offers a language's items only when it is the third language chosen, and gives one when the question
+  // loop asks for that language.
+  store.langPick = code;
+  state.wantLang = code;
+  const lines = [`#### ${name}`, '', `With ${name} chosen as the third language, these ${name} items are added beside the English and Latin ones. Every ${name} item is printed: ${pool.length} items.`, ''];
   pool.forEach((it, i) => {
     let q = null;
     for (let t = 0; t < 400 && !q; t++) {
@@ -533,17 +539,36 @@ function emitPartner(key, ex, app, code, data, name) {
   state.sessionSeen = seen;
   if (mode === undefined) delete store.modes[key]; else store.modes[key] = mode;
   if (lang === undefined) delete store.langs[key]; else store.langs[key] = lang;
+  store.langPick = pick;
+  state.wantLang = null;
   return lines.join('\n');
 }
 
 /** The four Greek sentence exercises and their pools in GREEK.sentence. */
 const GREEK_SENTENCE = { grcsent: 'more', grcvoice: 'voice', grcclause: 'clause', grcmood: 'mood' };
+// French and German: the four sentence exercises and the fill-in set are printed in full in the same way.
+['fr', 'de'].forEach(k => {
+  GREEK_SENTENCE[k + 'sent'] = 'more'; GREEK_SENTENCE[k + 'voice'] = 'voice'; GREEK_SENTENCE[k + 'clause'] = 'clause';
+  GREEK_SENTENCE[k + 'mood'] = 'mood'; GREEK_SENTENCE[k + 'more'] = 'fill';
+});
+function sentencePool(key, app) {
+  const k = key.slice(0, 2);
+  if (k === 'fr' || k === 'de') {
+    const D = app.PARTNERS && app.PARTNERS[k];
+    if (!D) return null;
+    return GREEK_SENTENCE[key] === 'fill'
+      ? { pool: D.fill && D.fill.items, sid: k + 'm:' }
+      : { pool: D.sentence && D.sentence[GREEK_SENTENCE[key]] && D.sentence[GREEK_SENTENCE[key]].items, sid: k + 's:' };
+  }
+  return { pool: app.GRK && app.GRK.sentence && app.GRK.sentence[GREEK_SENTENCE[key]], sid: 'gs:' };
+}
 
 /** A Greek sentence exercise: its introduction, then every item, kind by kind, drawn as the app draws it with
  *  tiles (level 2). A separate random stream is used, and the app's state is restored, so that the samples
  *  printed for every other exercise stay the same. */
 function emitGreekSentence(key, ex, app) {
-  const pool = app.GRK && app.GRK.sentence && app.GRK.sentence[GREEK_SENTENCE[key]];
+  const found = sentencePool(key, app);
+  const pool = found && found.pool;
   if (!Array.isArray(pool)) return '';
   const { state } = app;
   const lines = [`@exercise ${key}`, `Title: ${ex.title || key}`, ''];
@@ -576,7 +601,7 @@ function emitGreekSentence(key, ex, app) {
         state.sessionSeen = pool.filter(x => x.id !== it.id).map(x => x.id);
         let c;
         try { c = ex.gen(2); } catch (e) { c = null; }
-        if (c && c.sid === 'gs:' + it.id) q = c;
+        if (c && c.sid === found.sid + it.id) q = c;
       }
       n++;
       lines.push(q ? formatExample(q, n, 2) : `@example ${n}\nid: ${it.id}\n(not drawn)\n`);
@@ -630,7 +655,7 @@ function buildText({ DECKS, EX, ACTS, SRC, deckSources, deckCite, GRK, store, st
         if (ex.desc) parts.push(htmlToMarkup(ex.desc).replace(/\n+/g, ' ').trim());
         parts.push('-'.repeat(72));
         parts.push('');
-        parts.push(GREEK_SENTENCE[it.ex] ? emitGreekSentence(it.ex, ex, { GRK, state }) : emitExercise(it.ex, ex, rand, SRC));
+        parts.push(GREEK_SENTENCE[it.ex] ? emitGreekSentence(it.ex, ex, { GRK, state, PARTNERS }) : emitExercise(it.ex, ex, rand, SRC));
         const greek = emitGreek(it.ex, ex, { GRK, store, state });
         if (greek) parts.push(greek);
         [['de', 'German'], ['fr', 'French']].forEach(([code, name]) => {
