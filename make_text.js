@@ -186,7 +186,7 @@ function loadApp(htmlPath) {
   const partnerCode = ['french.js', 'german.js'].map(f => path.join(path.dirname(htmlPath), f))
     .map(p => fs.existsSync(p) ? fs.readFileSync(p, 'utf8') + '\n;\n' : '').join('');
   const dataCode = greekCode + partnerCode + all.slice(0, cut)
-    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, deckSources, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
+    + `\n; this.__EXPORT = { DECKS, EX, ACTS, SRC, deckSources, deckCite, GRK: typeof GRK === 'undefined' ? null : GRK, store, state,
       PARTNERS: { fr: typeof FRA === 'undefined' ? null : FRA, de: typeof DEU === 'undefined' ? null : DEU } };\n`;
   const sandbox = {
     console, Math, Date, Array, Object, String, Number, Boolean, JSON, RegExp, Error, Map, Set,
@@ -403,7 +403,7 @@ function actBanner(act) {
   return lines.join('\n');
 }
 
-function emitDeck(key, deck, SRC, GRK, deckSources) {
+function emitDeck(key, deck, SRC, GRK, deckSources, deckCite) {
   const greek = GRK && GRK.notes ? GRK.notes.decks[key] : null;
   const lines = [];
   lines.push('-'.repeat(72));
@@ -419,6 +419,8 @@ function emitDeck(key, deck, SRC, GRK, deckSources) {
   lines.push('');
   (deck.panels || []).forEach((p, i) => {
     lines.push(formatPanel(p, i + 1, SRC, greek && greek[i]));
+    const cite = deckCite ? deckSourcesLine(i, k => deckCite(key, k)).replace(/^Sources: /, 'Quoted from: ') : '';
+    if (cite) lines.push(cite);
     lines.push('');
   });
   return lines.join('\n');
@@ -586,7 +588,7 @@ function emitGreekSentence(key, ex, app) {
   return lines.join('\n');
 }
 
-function buildText({ DECKS, EX, ACTS, SRC, deckSources, GRK, store, state, PARTNERS }, htmlPath) {
+function buildText({ DECKS, EX, ACTS, SRC, deckSources, deckCite, GRK, store, state, PARTNERS }, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Seed Math.random for reproducible exercise samples
   const rand = seededRandom(20261005);
@@ -611,7 +613,7 @@ function buildText({ DECKS, EX, ACTS, SRC, deckSources, GRK, store, state, PARTN
       if (it.kind === 'deck') {
         const deck = DECKS[it.deck];
         if (!deck) continue;
-        parts.push(emitDeck(it.deck, deck, SRC, GRK, deckSources));
+        parts.push(emitDeck(it.deck, deck, SRC, GRK, deckSources, deckCite));
         parts.push('');
       } else if (it.kind === 'ex') {
         const ex = EX[it.ex];
