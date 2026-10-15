@@ -5174,6 +5174,73 @@ EX.pos = {
   }
 };
 
+/* Section II: one study of the parts of speech compared across Greek, French, and German, measured against Donatus and
+   Priscian. The accidents of each language are taken up in section III. */
+DECKS.poscompare = {
+  title:'The Parts of Speech Compared',
+  sub:'Greek, French, and German measured against Donatus and Priscian',
+  panels:[
+
+{ src:['priscian','boethiusd','smyth'], h:`<p><strong>ONE ART, SEVERAL TONGUES.</strong> Boethius of Dacia holds that grammar is in substance the same in all languages, and differs in its accidents, the sounds and marks that each tongue uses. The parts of speech bear him out: Greek, French, and German have the eight that Donatus counts, with one large difference, the <strong>article</strong>.</p>
+<p>Priscian, writing in Latin from Greek models, notes that Latin has no article, and that the Greeks count it as a part. The Greek list of Dionysius Thrax runs: noun, verb, participle, article, pronoun, preposition, adverb, conjunction. It has the article and no interjection, which the Greeks file under the adverb. The Latin list drops the article and adds the interjection, so that both count eight.</p>`,
+  q:{ prompt:'How do the Greek and Latin lists both come to eight?',
+      options:['Greek has the article and no interjection; Latin has the interjection and no article',
+               'Both have the same eight parts, in a different order',
+               'Greek counts the adjective apart; Latin counts the participle with the verb',
+               'Latin has the article, but writes it as a pronoun'],
+      correct:0,
+      explain:'Each list adds one part the other lacks. Priscian remarks that Latin has no article.' } },
+
+{ src:['smyth','priscian'], h:`<p><strong>THE ARTICLE.</strong> Greek has a definite article, <em>ὁ, ἡ, τό</em>, and no indefinite one: <em>ὁ ἄνθρωπος</em> is “the man,” and <em>ἄνθρωπος</em> alone “a man” or “man.” The article grew from a demonstrative pronoun, as it did in the Romance languages and in German, and in Homer it is often still a pronoun.</p>
+<p>The Greek article can also turn almost anything into a noun: <em>τὸ καλόν</em>, “the beautiful”; <em>οἱ τότε</em>, “the men of that time”; <em>τὸ φιλοσοφεῖν</em>, “philosophizing.” Latin, without an article, must use a noun, a relative clause, or the bare adjective.</p>`,
+  q:{ prompt:'In Greek, <em>τὸ φιλοσοφεῖν</em> is…',
+      options:['An infinitive made a noun by the article: “philosophizing”','A finite verb: “he philosophizes”','An adjective: “philosophical”','A participle: “philosophizing” said of a man'],
+      correct:0,
+      explain:'The neuter article makes the infinitive a noun, which Latin cannot do with an article it does not have.' } },
+
+{ src:['lawless','larousse'], h:`<p><strong>FRENCH.</strong> French has the definite article (<em>le, la, les</em>), the indefinite (<em>un, une, des</em>), and the <strong>partitive</strong> (<em>du, de la, des</em>), for an unmeasured amount: <em>du pain</em>, “some bread,” or simply “bread.” A French noun almost never stands without one of them, where Latin says only <em>panem</em>.</p>
+<p>The article runs into the prepositions <em>à</em> and <em>de</em>: <em>au</em> for <em>à le</em>, <em>aux</em> for <em>à les</em>, <em>du</em> for <em>de le</em>, <em>des</em> for <em>de les</em>. And French has pronouns that Latin lacks as separate words, <em>en</em> and <em>y</em>, which stand for a phrase with <em>de</em> or <em>à</em>: <em>j’en veux</em>, “I want some.”</p>`,
+  q:{ prompt:'In <em>Je mange du pain</em>, <em>du</em> is…',
+      options:['The partitive article: some bread','The genitive case: of the bread','A preposition alone','The definite article: the bread'],
+      correct:0,
+      explain:'It marks an unmeasured amount. Its form comes from <em>de</em> and <em>le</em>, but here it is an article, not “of the.”' } },
+
+{ src:['duden'], h:`<p><strong>GERMAN.</strong> German has the definite article (<em>der, die, das</em>) and the indefinite (<em>ein, eine</em>), and the article carries most of the case and gender of the noun: <em>der Mann, des Mannes, dem Mann, den Mann</em>. Every noun, and every word used as a noun, is written with a capital letter: <em>das Gute</em>, “the good”; <em>das Lesen</em>, “reading.”</p>
+<p>German also has <strong>separable prefixes</strong>, which belong to the verb but stand at the end of a main clause: <em>Ich rufe dich an</em>, from <em>anrufen</em>. And it has many small <strong>particles</strong> (<em>doch, ja, mal, wohl</em>) that color a sentence without changing its content; Greek has a similar store (<em>δή, γε, μέν, δέ</em>). Donatus would count them as adverbs or conjunctions.</p>`,
+  q:{ prompt:'In <em>Ich rufe dich an</em>, <em>an</em> is…',
+      options:['The separated prefix of the verb <em>anrufen</em>','A preposition governing <em>dich</em>','An article','A particle of emphasis'],
+      correct:0,
+      explain:'In a main clause the prefix of a separable verb goes to the end.' } },
+
+{ src:['donatus','priscian','smyth'], h:`<p><strong>THE PARTICIPLE AND THE ADJECTIVE.</strong> Donatus and Priscian count the participle as a part of its own, because it shares in the noun and the verb. Greek uses the participle far more than Latin, with tenses Latin lacks (an aorist active participle, <em>λύσας</em>, “having loosed”). French and German use it less, and modern grammars of both file it under the verb.</p>
+<p>Donatus files the adjective under the noun, and all three languages bear out his reason: the adjective takes the noun’s gender, number, and case. German shows it most plainly, for its adjective changes its ending with the article before it (<em>der gute Mann, ein guter Mann</em>); French adds <em>-e</em> and <em>-s</em>; Greek declines it like a noun.</p>`,
+  q:{ prompt:'Why do these languages bear out Donatus’s filing of the adjective under the noun?',
+      options:['The adjective takes the gender, number, and case of its noun','The adjective has tenses','The adjective never changes its form','The adjective always stands alone'],
+      correct:0,
+      explain:'It is declined with the noun it depends on, as a name that cannot stand alone.' } }
+  ]
+};
+const POSCMP_ITEMS = [
+  {id:'pc1', src:['priscian'], q:'Which part do the Greeks count that Latin lacks?', a:'The article', ds:['The interjection','The participle','The preposition'], why:'Priscian notes that Latin has no article.'},
+  {id:'pc2', src:['smyth'], q:'Where do the Greek grammarians put the interjection?', a:'Under the adverb', ds:['Under the noun','Under the article','It is a part of its own'], why:'Their list has the article instead, and still counts eight.'},
+  {id:'pc3', src:['smyth'], q:'<em>ἄνθρωπος</em> without the article means…', a:'“a man” or “man”', ds:['“the man”','“the men”','“of a man”'], why:'Greek has no indefinite article; the bare noun is indefinite.'},
+  {id:'pc4', src:['smyth'], q:'<em>τὸ καλόν</em> means…', a:'“the beautiful”', ds:['“a beautiful man”','“beautifully”','“the beautiful women”'], why:'The neuter article makes the adjective a noun.'},
+  {id:'pc5', src:['lawless'], q:'<em>au</em> stands for…', a:'<em>à le</em>', ds:['<em>à la</em>','<em>de le</em>','<em>à les</em>'], why:'<em>À</em> and <em>le</em> contract; <em>à les</em> becomes <em>aux</em>.'},
+  {id:'pc6', src:['lawless'], q:'In <em>Il boit de l’eau</em>, <em>de l’</em> is…', a:'The partitive article', ds:['The definite article','A genitive','A preposition of origin'], why:'Some water, an unmeasured amount.'},
+  {id:'pc7', src:['lawless'], q:'In <em>J’en veux</em>, <em>en</em> stands for…', a:'A phrase with <em>de</em>: “some of it”', ds:['A phrase with <em>à</em>: “to it”','The subject','A preposition: “in”'], why:'<em>En</em> replaces <em>de</em> with its noun; <em>y</em> replaces <em>à</em> with its noun.'},
+  {id:'pc8', src:['duden'], q:'Why is <em>Lesen</em> capitalized in <em>Das Lesen macht Freude</em>?', a:'It is an infinitive used as a noun, and German capitalizes nouns', ds:['It begins a clause','It is a proper name','German capitalizes every verb'], why:'<em>Das Lesen</em>, “reading,” is a noun.'},
+  {id:'pc9', src:['duden'], q:'In <em>den Mann</em>, what shows the accusative?', a:'The article <em>den</em>', ds:['The ending of <em>Mann</em>','The capital letter','The word order alone'], why:'German nouns keep few endings; the article carries the case.'},
+  {id:'pc10', src:['duden'], q:'<em>ein guter Mann</em>, but <em>der gute Mann</em>: why the different endings?', a:'The adjective’s ending depends on the article before it', ds:['<em>Gut</em> is irregular','One is plural','One is a noun'], why:'After <em>der</em> the weak ending <em>-e</em>; after <em>ein</em>, which shows no gender here, the strong ending <em>-er</em>.'},
+  {id:'pc11', src:['donatus','smyth'], q:'<em>λύσας</em>, “having loosed,” is…', a:'An aorist active participle, a form Latin lacks', ds:['A finite verb','A noun','A perfect passive participle, as in Latin'], why:'Latin has no active participle of the past in most verbs; Greek has the aorist.'},
+  {id:'pc12', src:['boethiusd'], q:'Boethius of Dacia holds that grammar in different languages…', a:'Is the same in substance and differs in accidents', ds:['Is wholly different in each','Exists only in Latin','Is the same down to the sounds'], why:'The parts of speech bear him out: one large difference, the article, and the rest the same.'}
+];
+EX.poscompare = {
+  id:'poscompare', src:['priscian','smyth','lawless','duden'], act:'II', title:'The Parts of Speech Compared',
+  desc:'Greek, French, and German against Donatus and Priscian: the article, the partitive and contractions, capital letters and the article’s cases, particles, and the participle.',
+  instr:'Choose the answer.',
+  gen(d){ return makeMC(pickSeen(POSCMP_ITEMS, x => x.id), d <= 1 ? 3 : 4); }
+};
+
 /* The Latin group of section II: Donatus's eight, asked only of Latin sentences. The items are POS_LAT, the same
    Latin items that the shared exercise above draws on now and then; here they are asked alone. */
 const LATPOS_OPTS = ['noun','pronoun','verb','adverb','participle','conjunction','preposition','interjection','adjective'];
@@ -17096,7 +17163,7 @@ const PL = {
 const deStrict = v => partnerLc(v).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 /* The third language chosen on the home page, or null. */
 /* The other language chosen in the section of the home page from which the study or exercise was opened, or null. */
-function thirdLang(){ const k = state.curSec ? store.secLang[state.curSec] : null; return PL[k] && PL[k].data ? k : null; }
+function thirdLang(){ const a = state.curSec ? ACTS.find(x => x.key === state.curSec) : null; if(a && a.noLangChoice) return null; const k = state.curSec ? store.secLang[state.curSec] : null; return PL[k] && PL[k].data ? k : null; }
 const plSpan = (L, s) => `<span lang="${L.key}">${s}</span>`;
 /* One blank in a frame, or a form named by its English line; tiles at the first two levels, typed above. */
 function partnerSentQ(L, it, d, sidPrefix){
@@ -17363,7 +17430,7 @@ const ACTS = [
      {kind:'row', lang:'fr', deck:'frsyl', tag:'STUDY · FRENCH', title:'French Syllable and Stress',
       desc:'The French syllable, the mute e, liaison and elision, and the stress on the last sounded syllable of the group.', ex:['frsyl']}
    ]},
-  {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio',
+  {key:'II', roman:'II', name:'The Parts of Speech', latin:'Dictio', noLangChoice:true,
    gloss:'How a word is used, as a noun, a verb, and the rest; the eight parts in Latin, and then in English.',
    items:[
      {kind:'row', deck:'pos', tag:'STUDY', title:'The Parts of Speech',
@@ -17371,7 +17438,9 @@ const ACTS = [
      {kind:'row', deck:'enpos', tag:'STUDY · ENGLISH GRAMMAR', title:'The Eight in English',
       desc:'Noun, pronoun, adjective, verb, adverb, preposition, conjunction, and interjection, with Donatus’s eight set beside them, and a table of the two lists.', ex:['enpos']},
      {kind:'row', deck:'latpos', tag:'STUDY', title:'The Eight in Latin',
-      desc:'Donatus’s eight in Latin sentences: the noun and the adjective filed under it, the pronoun, the verb, the participle as a part of its own, and the four indeclinable parts; Latin has no article.', ex:['latpos']}
+      desc:'Donatus’s eight in Latin sentences: the noun and the adjective filed under it, the pronoun, the verb, the participle as a part of its own, and the four indeclinable parts; Latin has no article.', ex:['latpos']},
+     {kind:'row', deck:'poscompare', full:true, group:'cmp', tag:'STUDY', title:'The Parts of Speech Compared',
+      desc:'Greek, French, and German measured against Donatus and Priscian: the article and why Latin lacks it, the French partitive and contractions, German capitals and the article that carries case, particles, the participle, and the adjective under the noun.', ex:['poscompare']}
    ]},
   {key:'III', roman:'III', name:'The Accidents of the Word', latin:'Accidentia',
    gloss:'To mark the accidents a word takes while remaining the same word.',
@@ -17595,19 +17664,14 @@ function goHome(){
   const card = homeAnchor == null ? null : document.querySelectorAll('#home-acts .set-card')[homeAnchor];
   if(card) (card.closest('.set-pair') || card).scrollIntoView({block:'start'});
 }
-const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', other:'Other languages'};
+const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', cmp:'Greek, French, and German', other:'Other languages'};
 /* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
 const LATIN_ROWS = ['syllable','latpos','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','latprose','meter','latpoetry'];
 /* Brief notes on a language in a section that has no sets of that language: the parts of speech are broadly the same
    across these languages, and only the differences are named. */
-const SEC_LANG_NOTE = {
-  II:{
-    grc:'Greek counts eight parts, as Latin does, but it has the article (<em>ὁ, ἡ, τό</em>) and counts it as a part; it has no separate interjection, which it files with the adverb.',
-    de:'German has the eight, with the article (<em>der, die, das; ein</em>) beside them, and every noun is written with a capital letter, which marks the noun on the page.',
-    fr:'French has the eight, with the article (<em>le, la, les; un, une; du, des</em>), which it uses far more than English does, before almost every noun.'
-  }
-};
+const SEC_LANG_NOTE = {};
 function homeGroup(item){
+  if(item.group) return item.group;
   if(item.lang) return 'other';
   if(/ENGLISH/.test(item.tag || '')) return 'en';
   if(LATIN_ROWS.indexOf(item.deck) >= 0) return 'la';
@@ -17716,12 +17780,12 @@ function buildHome(){
 
     /* The rows of a section run in four groups: general doctrine, English, Latin, and other languages. A heading
        is written for each group only when the section has more than one. */
-    const groups = {gen:[], en:[], la:[], other:[]};
+    const groups = {gen:[], en:[], la:[], cmp:[], other:[]};
     act.items.forEach(item => groups[homeGroup(item)].push(item));
-    const offers = sectionLangs(act);
-    const used = ['gen','en','la'].filter(g => groups[g].length).length + (offers.length ? 1 : 0);
+    const offers = act.noLangChoice ? [] : sectionLangs(act);
+    const used = ['gen','en','la','cmp'].filter(g => groups[g].length).length + (offers.length ? 1 : 0);
     const chosen = offers.indexOf(store.secLang[act.key]) >= 0 ? store.secLang[act.key] : null;
-    ['gen','en','la','other'].forEach(g => {
+    ['gen','en','la','cmp','other'].forEach(g => {
       if(g === 'other' ? !offers.length : !groups[g].length) return;
       if(used > 1){
         const h = document.createElement('div');
