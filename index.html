@@ -231,7 +231,8 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 /* The groups of a section on the home page, and the choice of another language in a section. */
 .grp-label{grid-column:1 / -1; margin:14px 0 2px; font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
 .grp-choice{grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:2px 0 6px; font-style:italic; color:var(--ink-soft); font-size:15px}
-.grp-choice .lang-btn{font-style:normal}
+.grp-choice .lang-btn{font-style:normal; margin:0}
+.grp-choice-label{margin-right:4px}
 .also-in{grid-column:1 / -1; margin:-8px 0 4px; text-align:center; font-style:italic; font-size:14.5px; color:var(--ink-soft); opacity:.7}
 @media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
@@ -17458,9 +17459,11 @@ function langChoice(act, offers, chosen){
   const box = document.createElement('div');
   box.className = 'grp-choice';
   const t = document.createElement('span');
-  t.textContent = chosen ? 'Worked through in this section beside Latin:' : 'A language to work through in this section beside Latin:';
+  /* The wording stays the same whatever is chosen, so the buttons never move; the choice shows on the buttons. */
+  t.className = 'grp-choice-label';
+  t.textContent = 'A language to work through in this section beside Latin:';
   box.appendChild(t);
-  offers.concat([null]).forEach(k => {
+  [null].concat(offers).forEach(k => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'lang-btn' + (chosen === k ? ' sel' : '');
