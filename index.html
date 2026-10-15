@@ -2816,7 +2816,7 @@ DECKS.agree = {
   panels:[
 
 { src:['te','ag'], h:`<p><strong>AGREEMENT.</strong> Some words do not merely sit near others; they <strong>agree</strong> with them. The older name is <span class="lat">concordantia</span>.</p>
-<p>An adjective agrees with its noun in <strong>gender</strong>, <strong>number</strong>, and <strong>case</strong>. English says <em>a good sailor</em>, and the form of <em>good</em> does not change. Latin <em>bonus nauta</em>, the good sailor, must match. <em>bona nauta</em> is incorrect in gender; <em>boni nauta</em> is incorrect in number; <em>bonum nauta</em>, if <em>nauta</em> is the subject, fails in case.</p>
+<p>An adjective agrees with its noun in <strong>gender</strong>, <strong>number</strong>, and <strong>case</strong>. English says <em>a good sailor</em>, and the form of <em>good</em> does not change. Latin <em>bonus nauta</em>, the good sailor, must match. <em>bona nauta</em> disagrees in gender; <em>boni nauta</em> disagrees in number; <em>bonum nauta</em>, if <em>nauta</em> is the subject, disagrees in case.</p>
 <p>Thomas of Erfurt gives the reason. The adjective signifies by adhering to another, so it requires in that other the mode of standing by itself, and the accidents they share (gender, number, case) must conform. Agreement therefore follows from what the adjective is, and is not a mere custom.</p>`,
   q:{ prompt:`An adjective agrees with its noun in…`,
       options:['Tense only','Gender, number, and case','Person and mood','Nothing, since adjectives do not inflect'],
@@ -6810,12 +6810,12 @@ const VICE_ITEMS = [
    ds:['Barbarism: <em>are</em> is not an English word','Barbarism: <em>heavy</em> is a foreign word','No fault: the sentence is sound as it stands'],
    why:'Every word is English, but the verb does not fit its subject. Congruity has failed in the arrangement.'},
   {id:'vc9', lang:'la', src:['donatus','verg_pd'], s:'pars in frusta <b>secant</b> (Aeneid I.212)',
-   q:'Donatus counts this as a solecism. In which of the accidents is it incorrect?',
+   q:'Donatus counts this as a solecism. In which of the accidents is the mismatch?',
    a:'Number: <em>secant</em>, not <em>secat</em>',
    ds:['Case: <em>frusta</em> for <em>frustis</em>','Gender: <em>pars</em> is masculine','Tense: <em>secant</em> for <em>secuerunt</em>'],
    why:'Donatus gives this as a solecism by number: <span class="lat">pars in frusta secant pro secat</span>. <em>Pars</em> is singular, and the verb is plural, because the sense is “some of them.” In a poet the same thing is allowed as a figure.'},
   {id:'vc10', lang:'la', src:['donatus','verg_pd'], s:'<b>urbem</b> quam statuo vestra est (Aeneid I.573)',
-   q:'Donatus counts this as a solecism. In which of the accidents is it incorrect?',
+   q:'Donatus counts this as a solecism. In which of the accidents is the mismatch?',
    a:'Case: <em>urbem</em> for <em>urbs</em>',
    ds:['Number: <em>statuo</em> for <em>statuimus</em>','Gender: <em>vestra</em> for <em>vester</em>','Mood: <em>est</em> for <em>sit</em>'],
    why:'Donatus: <span class="lat">per casus, sicut urbem quam statuo vestra est pro urbs quam statuo</span>. <em>Urbem</em> is the subject of <em>est</em> and should be nominative; it has been drawn into the case of the relative <em>quam</em>.'},
