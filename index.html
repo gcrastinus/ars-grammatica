@@ -1429,9 +1429,9 @@ function load(){
     if(!raw) return;
     const o = JSON.parse(raw);
     store.totals = o.totals || {};
-    /* The four exercises now joined in Basic Elements of Language: their counts carry over to it once. */
+    /* The three exercises now joined in Basic Material of Language: their counts carry over to it once. */
     if(!store.totals.basics){
-      const ks = ['vox','letter','decline','vices'].filter(k => store.totals[k]);
+      const ks = ['vox','letter','decline'].filter(k => store.totals[k]);
       if(ks.length){
         store.totals.basics = ks.reduce((a, k) => { const t = store.totals[k]; return {seen:a.seen + (t.seen || 0), right:a.right + (t.right || 0), best:Math.max(a.best, t.best || 0)}; }, {seen:0, right:0, best:0});
         ks.forEach(k => { delete store.totals[k]; });
@@ -3252,14 +3252,13 @@ signification stop at a concept with no further reach.</p>
 ]};
 
 /* -------------------------------------------------------------- */
-/* Basic Elements of Language: the cards of four short decks, in course order.
+/* Basic Material of Language: the cards of three short decks, in course order.
    The four decks stay defined (the quiz maker and the exercises still name them), but only this one is listed. */
 const BASICS_SECTIONS = [
-  ['vox','Voice Articulate and Inarticulate'], ['letter','Letter and Sound'], ['decline','Declinable and Indeclinable'],
-  ['vices','Barbarism and Solecism']
+  ['vox','Voice Articulate and Inarticulate'], ['letter','Letter and Sound'], ['decline','Declinable and Indeclinable']
 ];
 DECKS.basics = {
-  title:'Basic Elements of Language',
+  title:'Basic Material of Language',
   sub:'Voice and letter, declinable and indeclinable, and the two faults',
   panels:[]
 };
@@ -15588,22 +15587,22 @@ AUCTORES.forEach(a => {
   (a.items || []).forEach(it => { it.lang = 'la'; });
 });
 
-/* Basic Elements of Language: one mastery exercise drawn from the four former exercises (vox, letter, decline,
-   vices), whose generators keep their own handling of the difficulty and their hands-on drills. The set is
-   finished when each section has its quota of correct answers (two, three, or four, by difficulty) and every
+/* Basic Material of Language: one mastery exercise drawn from the three former exercises (vox, letter, and
+   decline), whose generators keep their own handling of the difficulty and their hands-on drills. The set is
+   finished when each section has its quota of correct answers (three, four, or five, by difficulty) and every
    missed question has come back and been answered correctly. */
-const BASICS_EX = ['vox','letter','decline','vices'];
-const BASICS_TITLES = {vox:'Voice', letter:'Letter and Sound', decline:'Declinable and Indeclinable', vices:'Barbarism and Solecism'};
-function basicsNeed(d){ return d <= 1 ? 2 : d <= 3 ? 3 : 4; }
+const BASICS_EX = ['vox','letter','decline'];
+const BASICS_TITLES = {vox:'Voice', letter:'Letter and Sound', decline:'Declinable and Indeclinable'};
+function basicsNeed(d){ return d <= 1 ? 3 : d <= 3 ? 4 : 5; }
 EX.basics = {
-  id:'basics', act:'I', title:'Basic Elements of Language', mastery:true,
+  id:'basics', act:'I', title:'Basic Material of Language', mastery:true,
   masteryParts: BASICS_EX, masteryTitles: BASICS_TITLES, masteryNeed: basicsNeed,
   src:['donatus','priscian','arist_int','arist_anima'],
-  desc:'A review of the whole deck (voice, letter and sound, declinable and indeclinable, barbarism and solecism) that ends only when each part has been mastered.',
+  desc:'A review of the whole deck (voice, letter and sound, and declinable and indeclinable) that ends only when each part has been mastered.',
   instr:'Each section needs its number of correct answers, and every missed question returns until it is answered correctly.',
   intro:[
-    {h:`<strong>One exercise for the whole deck.</strong> The questions come from the four sections in turn, and the drills on sounds and letters are kept, so that we classify sounds and letters as well as recall the doctrine.`},
-    {h:`<strong>The set is finished by mastery, not by points.</strong> Each section needs two correct answers at the first difficulty, three at the second and third, and four at the fourth and fifth. A missed question comes back a few questions later, and the set is not finished until every missed question has been answered correctly.`}
+    {h:`<strong>One exercise for the whole deck.</strong> The questions come from the three sections in turn, and the drills on sounds and letters are kept, so that we classify sounds and letters as well as recall the doctrine.`},
+    {h:`<strong>The set is finished by mastery, not by points.</strong> Each section needs three correct answers at the first difficulty, four at the second and third, and five at the fourth and fifth. A missed question comes back a few questions later, and the set is not finished until every missed question has been answered correctly.`}
   ],
   introInstr:'The exercise begins with two notes.',
   gen(d){
@@ -16253,7 +16252,7 @@ EX.meter.mastery = true;
 EX.meter.masteryNeed = d => d <= 1 ? 4 : d <= 3 ? 5 : 6;
 EX.meter.instr = 'Mark the syllables, write the feet, or name the meter. A missed line returns until it is scanned correctly.';
 EX.meter.introInstr = 'The exercise begins with a note. The set is finished by mastery: four correct answers at the first difficulty, five at the second and third, and six at the fourth and fifth, and every missed line or question must come back and be answered correctly.';
-/* Basic Elements of Language offers every partner language that one of its sections offers. */
+/* Basic Material of Language offers every partner language that one of its sections offers. */
 EX.basics.langs = BASICS_EX.reduce((a, k) => a.concat(((EX[k] && EX[k].langs) || []).filter(x => a.indexOf(x) < 0)), []);
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
 function partnerOf(ex){
@@ -16347,8 +16346,8 @@ const ACTS = [
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'The matter of speech before meaning: voice, then letter, then syllable.',
    items:[
-     {kind:'row', deck:'basics', tag:'STUDY', title:'Basic Elements of Language',
-      desc:'Voice articulate and inarticulate; letter and sound; declinable and indeclinable; barbarism and solecism. One exercise at the end reviews all of them until each item is mastered.', ex:['basics']},
+     {kind:'row', deck:'basics', tag:'STUDY', title:'Basic Material of Language',
+      desc:'Voice articulate and inarticulate; letter and sound; and declinable and indeclinable. One exercise at the end reviews all of them until each item is mastered.', ex:['basics']},
      {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; Greek accent; German stem-stress; the French phrase-final beat.', ex:['syllable']},
      {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
@@ -16443,6 +16442,8 @@ const ACTS = [
   {key:'VI', roman:'VI', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
    gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
    items:[
+     {kind:'row', deck:'vices', tag:'STUDY', title:'Barbarism and Solecism',
+      desc:'A fault in a single word, and a fault in the arrangement.', ex:['vices']},
      {kind:'row', deck:'figures', tag:'STUDY', title:'License, Figures, and Tropes',
       desc:'Donatus’s third book: metaplasm, figures of words, the tropes, and the other faults, and what a trope signifies.', ex:['figures']}
    ]},
