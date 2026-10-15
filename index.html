@@ -15097,6 +15097,116 @@ DECKS.meter = {
 ]};
 
 /* -------------------------------------------------------------- */
+DECKS.latnoun = {
+  title:'The Latin Noun',
+  sub:'The five declensions, and how to read an ending',
+  panels:[
+
+{ src:['ag','appown'], h:`<p><strong>DECLENSION.</strong> A declension is a class of nouns that share one set of endings. Latin has five declensions, and the declension of a noun is known from its genitive singular, which the dictionary gives after the nominative: <em>puella, puellae</em>; <em>dominus, dominī</em>; <em>rēx, rēgis</em>; <em>manus, manūs</em>; <em>rēs, reī</em>.</p>
+<p>The genitive singular also gives the stem, that is, the part of the word to which the endings are added. Without its ending <em>-is</em>, <em>rēgis</em> leaves the stem <em>rēg-</em>, and so the other cases are <em>rēgī, rēgem, rēge</em>. The nominative singular often does not show the stem, especially in the third declension, and so a noun is learned with both forms.</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Declension</th> <th>Genitive singular</th> <th>Examples</th></tr>
+<tr><td>First</td> <td class="f">-ae</td> <td class="f">puella, puellae</td></tr>
+<tr><td>Second</td> <td class="f">-ī</td> <td class="f">dominus, dominī; bellum, bellī</td></tr>
+<tr><td>Third</td> <td class="f">-is</td> <td class="f">rēx, rēgis; corpus, corporis</td></tr>
+<tr><td>Fourth</td> <td class="f">-ūs</td> <td class="f">manus, manūs; cornū, cornūs</td></tr>
+<tr><td>Fifth</td> <td class="f">-ēī or -eī</td> <td class="f">diēs, diēī; rēs, reī</td></tr>
+</table></div>`,
+  q:{ prompt:`Which form of a Latin noun shows its declension and its stem?`,
+      options:['The genitive singular','The nominative singular','The accusative plural','The vocative singular'],
+      correct:0,
+      explain:`Each declension has its own ending in the genitive singular, and the stem is what remains when that ending is removed. The nominative <em>rēx</em> does not show the stem <em>rēg-</em>, but the genitive <em>rēgis</em> does.` } },
+
+{ src:['ag'], h:`<p><strong>The first and second declensions.</strong> The first declension has stems in <em>a</em>, and most of its nouns are feminine; but a few that name men, such as <em>nauta</em> (sailor) and <em>poēta</em> (poet), are masculine. The second declension has stems in <em>o</em>; its nouns in <em>-us</em> and <em>-er</em> are mostly masculine, and its nouns in <em>-um</em> are neuter.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>puella (girl)</th> <th>dominus (master)</th> <th>puer (boy)</th> <th>bellum (war)</th></tr>
+<tr><th colspan="5">Singular</th></tr>
+<tr><td>Nominative</td> <td class="f">puella</td> <td class="f">dominus</td> <td class="f">puer</td> <td class="f">bellum</td></tr>
+<tr><td>Genitive</td> <td class="f">puellae</td> <td class="f">dominī</td> <td class="f">puerī</td> <td class="f">bellī</td></tr>
+<tr><td>Dative</td> <td class="f">puellae</td> <td class="f">dominō</td> <td class="f">puerō</td> <td class="f">bellō</td></tr>
+<tr><td>Accusative</td> <td class="f">puellam</td> <td class="f">dominum</td> <td class="f">puerum</td> <td class="f">bellum</td></tr>
+<tr><td>Ablative</td> <td class="f">puellā</td> <td class="f">dominō</td> <td class="f">puerō</td> <td class="f">bellō</td></tr>
+<tr><td>Vocative</td> <td class="f">puella</td> <td class="f">domine</td> <td class="f">puer</td> <td class="f">bellum</td></tr>
+<tr><th colspan="5">Plural</th></tr>
+<tr><td>Nominative</td> <td class="f">puellae</td> <td class="f">dominī</td> <td class="f">puerī</td> <td class="f">bella</td></tr>
+<tr><td>Genitive</td> <td class="f">puellārum</td> <td class="f">dominōrum</td> <td class="f">puerōrum</td> <td class="f">bellōrum</td></tr>
+<tr><td>Dative</td> <td class="f">puellīs</td> <td class="f">dominīs</td> <td class="f">puerīs</td> <td class="f">bellīs</td></tr>
+<tr><td>Accusative</td> <td class="f">puellās</td> <td class="f">dominōs</td> <td class="f">puerōs</td> <td class="f">bella</td></tr>
+<tr><td>Ablative</td> <td class="f">puellīs</td> <td class="f">dominīs</td> <td class="f">puerīs</td> <td class="f">bellīs</td></tr>
+<tr><td>Vocative</td> <td class="f">puellae</td> <td class="f">dominī</td> <td class="f">puerī</td> <td class="f">bella</td></tr>
+</table></div>
+<p>Some nouns in <em>-er</em> lose the <em>e</em> outside the nominative and vocative singular, as <em>ager, agrī</em> (field) and <em>magister, magistrī</em> (teacher), while <em>puer, puerī</em> keeps it. A noun in <em>-ius</em> has its vocative singular in <em>-ī</em>, so the vocative of <em>fīlius</em> (son) is <em>fīlī</em>. A neuter noun has one form for the nominative, accusative, and vocative, and in the plural that form ends in <em>-a</em>.</p>`,
+  q:{ prompt:`What is the accusative plural of <em>bellum</em>?`,
+      options:['<em>bella</em>','<em>bellōs</em>','<em>bellum</em>','<em>bellīs</em>'],
+      correct:0,
+      explain:`<em>Bellum</em> is neuter, so its accusative is the same as its nominative, and in the plural both end in <em>-a</em>. <em>Bellōs</em> has the ending of a masculine noun such as <em>dominōs</em>.` } },
+
+{ src:['ag'], h:`<p><strong>The third declension.</strong> The third declension has two kinds of stem. The first, a <strong>consonant stem</strong>, ends in a consonant, as <em>rēx, rēgis</em> (king) and the neuter <em>corpus, corporis</em> (body); the second, an <strong>i-stem</strong>, has an <em>i</em> in some of its endings, chiefly the genitive plural in <em>-ium</em>, as <em>cīvis, cīvis</em> (citizen). A neuter i-stem, such as <em>mare, maris</em> (sea), also has the ablative singular in <em>-ī</em> and the nominative and accusative plural in <em>-ia</em>.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>rēx (king)</th> <th>corpus (body)</th> <th>cīvis (citizen)</th> <th>mare (sea)</th></tr>
+<tr><th colspan="5">Singular</th></tr>
+<tr><td>Nominative</td> <td class="f">rēx</td> <td class="f">corpus</td> <td class="f">cīvis</td> <td class="f">mare</td></tr>
+<tr><td>Genitive</td> <td class="f">rēgis</td> <td class="f">corporis</td> <td class="f">cīvis</td> <td class="f">maris</td></tr>
+<tr><td>Dative</td> <td class="f">rēgī</td> <td class="f">corporī</td> <td class="f">cīvī</td> <td class="f">marī</td></tr>
+<tr><td>Accusative</td> <td class="f">rēgem</td> <td class="f">corpus</td> <td class="f">cīvem</td> <td class="f">mare</td></tr>
+<tr><td>Ablative</td> <td class="f">rēge</td> <td class="f">corpore</td> <td class="f">cīve</td> <td class="f">marī</td></tr>
+<tr><td>Vocative</td> <td class="f">rēx</td> <td class="f">corpus</td> <td class="f">cīvis</td> <td class="f">mare</td></tr>
+<tr><th colspan="5">Plural</th></tr>
+<tr><td>Nominative</td> <td class="f">rēgēs</td> <td class="f">corpora</td> <td class="f">cīvēs</td> <td class="f">maria</td></tr>
+<tr><td>Genitive</td> <td class="f">rēgum</td> <td class="f">corporum</td> <td class="f">cīvium</td> <td class="f">marium</td></tr>
+<tr><td>Dative</td> <td class="f">rēgibus</td> <td class="f">corporibus</td> <td class="f">cīvibus</td> <td class="f">maribus</td></tr>
+<tr><td>Accusative</td> <td class="f">rēgēs</td> <td class="f">corpora</td> <td class="f">cīvēs</td> <td class="f">maria</td></tr>
+<tr><td>Ablative</td> <td class="f">rēgibus</td> <td class="f">corporibus</td> <td class="f">cīvibus</td> <td class="f">maribus</td></tr>
+<tr><td>Vocative</td> <td class="f">rēgēs</td> <td class="f">corpora</td> <td class="f">cīvēs</td> <td class="f">maria</td></tr>
+</table></div>
+<p>The nominative singular of this declension takes many shapes (<em>homō, hominis</em>; <em>virtūs, virtūtis</em>; <em>nōmen, nōminis</em>), and so it is learned with the genitive. Allen and Greenough also give, for some i-stems such as <em>cīvis</em>, an ablative singular in <em>-ī</em> and an accusative plural in <em>-īs</em>; this course uses the forms in <em>-e</em> and <em>-ēs</em>.</p>`,
+  q:{ prompt:`Which form shows that <em>cīvis</em> is an i-stem?`,
+      options:['<em>cīvium</em>','<em>cīvis</em>','<em>cīvem</em>','<em>cīvibus</em>'],
+      correct:0,
+      explain:`The genitive plural in <em>-ium</em> marks the i-stem, while a consonant stem has <em>-um</em>, as <em>rēgum</em>. <em>Cīvis</em>, <em>cīvem</em>, and <em>cīvibus</em> have the same endings as <em>rēgis</em>, <em>rēgem</em>, and <em>rēgibus</em>.` } },
+
+{ src:['ag'], h:`<p><strong>The fourth and fifth declensions.</strong> The fourth declension has stems in <em>u</em>; its nouns in <em>-us</em> are mostly masculine, though <em>manus</em> (hand) is feminine, and its nouns in <em>-ū</em>, such as <em>cornū</em> (horn), are neuter. The fifth declension has stems in <em>ē</em>; most of its nouns are feminine, but <em>diēs</em> (day) is usually masculine.</p>
+<div class="para-wrap"><table class="para">
+<tr><th></th><th>manus (hand)</th> <th>cornū (horn)</th> <th>rēs (thing)</th> <th>diēs (day)</th></tr>
+<tr><th colspan="5">Singular</th></tr>
+<tr><td>Nominative</td> <td class="f">manus</td> <td class="f">cornū</td> <td class="f">rēs</td> <td class="f">diēs</td></tr>
+<tr><td>Genitive</td> <td class="f">manūs</td> <td class="f">cornūs</td> <td class="f">reī</td> <td class="f">diēī</td></tr>
+<tr><td>Dative</td> <td class="f">manuī</td> <td class="f">cornū</td> <td class="f">reī</td> <td class="f">diēī</td></tr>
+<tr><td>Accusative</td> <td class="f">manum</td> <td class="f">cornū</td> <td class="f">rem</td> <td class="f">diem</td></tr>
+<tr><td>Ablative</td> <td class="f">manū</td> <td class="f">cornū</td> <td class="f">rē</td> <td class="f">diē</td></tr>
+<tr><td>Vocative</td> <td class="f">manus</td> <td class="f">cornū</td> <td class="f">rēs</td> <td class="f">diēs</td></tr>
+<tr><th colspan="5">Plural</th></tr>
+<tr><td>Nominative</td> <td class="f">manūs</td> <td class="f">cornua</td> <td class="f">rēs</td> <td class="f">diēs</td></tr>
+<tr><td>Genitive</td> <td class="f">manuum</td> <td class="f">cornuum</td> <td class="f">rērum</td> <td class="f">diērum</td></tr>
+<tr><td>Dative</td> <td class="f">manibus</td> <td class="f">cornibus</td> <td class="f">rēbus</td> <td class="f">diēbus</td></tr>
+<tr><td>Accusative</td> <td class="f">manūs</td> <td class="f">cornua</td> <td class="f">rēs</td> <td class="f">diēs</td></tr>
+<tr><td>Ablative</td> <td class="f">manibus</td> <td class="f">cornibus</td> <td class="f">rēbus</td> <td class="f">diēbus</td></tr>
+<tr><td>Vocative</td> <td class="f">manūs</td> <td class="f">cornua</td> <td class="f">rēs</td> <td class="f">diēs</td></tr>
+</table></div>
+<p>The genitive and dative singular of the fifth declension end in <em>-ēī</em> after a vowel, as <em>diēī</em>, and in <em>-eī</em> after a consonant, as <em>reī</em>.</p>`,
+  q:{ prompt:`Which form is the genitive singular of <em>rēs</em>?`,
+      options:['<em>reī</em>','<em>rērum</em>','<em>rem</em>','<em>rē</em>'],
+      correct:0,
+      explain:`The fifth declension has <em>-eī</em> in the genitive singular after a consonant, so the genitive of <em>rēs</em> is <em>reī</em>. <em>Rērum</em> is the genitive plural, <em>rem</em> the accusative singular, and <em>rē</em> the ablative singular.` } },
+
+{ src:['ag','appown'], h:`<p><strong>Reading an ending.</strong> To parse a noun is to give its case and number. We take the stem and the declension from the dictionary form, and then find the ending in the table of that declension. In <em>rēgibus</em>, for example, the stem is <em>rēg-</em>, and <em>-ibus</em> in the third declension is the dative or ablative plural.</p>
+<p>Many endings belong to more than one case, as the tables show:</p>
+<div class="para-wrap"><table class="para">
+<tr><th>Form</th> <th>Every analysis</th></tr>
+<tr><td class="f">puellae</td> <td>genitive singular, dative singular, nominative plural, vocative plural</td></tr>
+<tr><td class="f">dominō</td> <td>dative singular, ablative singular</td></tr>
+<tr><td class="f">bella</td> <td>nominative plural, accusative plural, vocative plural</td></tr>
+<tr><td class="f">manūs</td> <td>genitive singular, nominative plural, accusative plural, vocative plural</td></tr>
+<tr><td class="f">rēs</td> <td>nominative singular, vocative singular, nominative plural, accusative plural, vocative plural</td></tr>
+</table></div>
+<p>Only the rest of the sentence can decide which analysis is meant. When a form is given alone, therefore, the exercise accepts any correct analysis, and the explanation names the others.</p>`,
+  q:{ prompt:`Given alone, without a sentence, what is <em>dominō</em>?`,
+      options:['The dative or the ablative singular, since both are correct','Only the dative singular','Only the ablative singular','The nominative plural'],
+      correct:0,
+      explain:`The second declension has <em>-ō</em> in both the dative and the ablative singular. Without a sentence nothing decides between them, so either analysis is correct and either is accepted.` } }
+]};
+
+/* -------------------------------------------------------------- */
 DECKS.latbuild = {
   title:'Building the Latin Sentence',
   sub:'From the meaning to the forms',
