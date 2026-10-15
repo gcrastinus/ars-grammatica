@@ -16247,6 +16247,12 @@ EX.syllable.mastery = true;
 EX.syllable.masteryNeed = d => d <= 1 ? 6 : d <= 3 ? 8 : 10;
 EX.syllable.instr = 'Divide, measure, and place the stress. Hyphens are allowed; macrons are not required. A missed question returns until it is answered correctly.';
 EX.syllable.introInstr = 'The exercise begins with two notes. The set is finished by mastery: six correct answers at the first difficulty, eight at the second and third, and ten at the fourth and fifth, and every missed question must come back and be answered correctly.';
+/* Meter and Scansion finishes by mastery in the same way: four, five, or six lines or questions correct by
+   difficulty, and every missed line scanned again correctly on its return. */
+EX.meter.mastery = true;
+EX.meter.masteryNeed = d => d <= 1 ? 4 : d <= 3 ? 5 : 6;
+EX.meter.instr = 'Mark the syllables, write the feet, or name the meter. A missed line returns until it is scanned correctly.';
+EX.meter.introInstr = 'The exercise begins with a note. The set is finished by mastery: four correct answers at the first difficulty, five at the second and third, and six at the fourth and fifth, and every missed line or question must come back and be answered correctly.';
 /* Basic Elements of Language offers every partner language that one of its sections offers. */
 EX.basics.langs = BASICS_EX.reduce((a, k) => a.concat(((EX[k] && EX[k].langs) || []).filter(x => a.indexOf(x) < 0)), []);
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
@@ -17105,7 +17111,7 @@ function submit(ansMC){
     if(res.right){
       if(!q._review && k) m.got[k] = (m.got[k] || 0) + 1;
       if(q._review) extra = `<span class="also">This question was missed before and is now answered correctly.</span>`;
-    }else if(['mc','chips','text','pick'].indexOf(q.kind) >= 0){
+    }else if(['mc','chips','text','pick','widget'].indexOf(q.kind) >= 0){
       m.review.push({q, due: m.n + 3});
       extra = `<span class="also">This question will come back for review a few questions from now.</span>`;
     }
