@@ -17931,7 +17931,8 @@ function buildHome(){
   const host = $('home-acts');
   host.innerHTML = '';
   let cardN = 0;
-  ACTS.forEach(act => {
+  ACTS.forEach(act => { try { buildAct(act); } catch(e){ console.error('home section ' + act.key, e); } });
+  function buildAct(act){
     /* A section with no general rows has no heading in The Art of Grammar alone. */
     if(store.art && !act.items.some(it => homeGroup(it) === 'gen')) return;
     if(act.roman){
@@ -18035,7 +18036,7 @@ function buildHome(){
       });
     });
     host.appendChild(grid);
-  });
+  }
 }
 
 /* ---------- study decks ---------- */
