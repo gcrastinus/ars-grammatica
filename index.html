@@ -1769,7 +1769,8 @@ const DECK_TOP = {
   xiaoxue:['shuowen','qieyun','erya'], nahw:['sibawayh','jumal'], quaestiones:['aq_ph','boethiusd','priscian'],
   enpos:['donatus','priscian'], ensent:[], enphr:[], encl:[], enform:[], enfault:['donatus'], endiag:['engclass'],
   making:[], meter:['ag'], latnoun:['ag'], latverb:['ag'], latvoice:['ag'], latsubj:['ag'], latbuild:['ag'],
-  markup:['te'], grccards:['smyth'], decards:['duden'], frcards:['lawless','larousse','leconjugueur'], grcpar:['smyth']
+  markup:['te'], grccards:['smyth'], decards:['duden'], frcards:['lawless','larousse','leconjugueur'], grcpar:['smyth'],
+  grcsyl:['smyth'], desyl:['duden'], frsyl:['lawless'], frpar:['lawless','larousse','leconjugueur'], depar:['duden']
 };
 const DECK_CITE = {
   prelim:{2:['isidore'], 11:['quint']},
@@ -16362,7 +16363,7 @@ const ACTS = [
      {kind:'row', deck:'agree', tag:'STUDY', title:'Agreement',
       desc:'The adjective with its noun in gender, number, and case; the verb with its subject; the relative with its antecedent.', ex:['agree']},
      {kind:'row', deck:'govern', tag:'STUDY', title:'Government',
-      desc:'The verb governing its object’s case, the preposition its complement’s. Latin <em>in</em> and German’s two-way prepositions.', ex:['govern']},
+      desc:'The verb governing its object’s case, and the preposition its complement’s. Latin <em>in</em> takes two cases, for place where and for place to which.', ex:['govern']},
      {kind:'row', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
       desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite'],
       exL:{grc:['grcsent'], de:['desent'], fr:['frsent']}},
@@ -16446,7 +16447,7 @@ const ACTS = [
 /* A row marked with a language (lang) is shown only when that language is the third language chosen, and a row's
    exercises in a third language (exL) are added to it then. */
 function rowShown(it){ return !it.lang || it.lang === thirdLang(); }
-function rowEx(it){ const k = thirdLang(); return it.ex.concat(k && it.exL && it.exL[k] ? it.exL[k] : []); }
+function rowEx(it){ const k = thirdLang(); return (it.ex || []).concat(k && it.exL && it.exL[k] ? it.exL[k] : []); }
 function actItems(act){
   const out = [];
   act.items.forEach(it => {
