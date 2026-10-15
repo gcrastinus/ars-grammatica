@@ -1,6 +1,6 @@
 /* The prose and poetry passages of English, Greek, French, and German, read in the passage view (section IV).
-   index.html merges them into PASSAGES; make_text.js loads this file in the same way. Each draft keeps its own note
-   of the texts it follows. The Latin passages are in index.html. */
+   index.html merges them into PASSAGES, and make_text.js loads this file in the same way. Each block below begins
+   with a note of the texts it follows. The Latin passages are in index.html. */
 window.MORE_PASSAGES = {};
 (function(PASSAGES){
 
