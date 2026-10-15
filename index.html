@@ -225,6 +225,10 @@ h1{font-family:'Cinzel', serif; font-size:44px; font-weight:600; letter-spacing:
 .set-beside{grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
 .set-pair-ex > .set-card{flex:1}
 /* Under a Latin row that also has material in a third language, when none is chosen. */
+/* The groups of a section on the home page, and the choice of another language in a section. */
+.grp-label{grid-column:1 / -1; margin:14px 0 2px; font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
+.grp-choice{grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:2px 0 6px; font-style:italic; color:var(--ink-soft); font-size:15px}
+.grp-choice .lang-btn{font-style:normal}
 .also-in{grid-column:1 / -1; margin:-8px 0 4px; text-align:center; font-style:italic; font-size:14.5px; color:var(--ink-soft); opacity:.7}
 @media (max-width:700px){ .set-pair{grid-template-columns:1fr} .set-pair-ex:empty{display:none} }
 .set-card{
@@ -717,7 +721,7 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     </header>
 
     <div class="intro-note">
-      <strong>Grammar is the art of speaking and writing correctly.</strong> It is the first of the liberal arts, especially of the first of the trivium, the three arts of language (grammar, logic, and rhetoric). It is first because logic works on statements and rhetoric brings statements together for a purpose; but grammar is the art that governs how words can be combined to form statements correctly and thus grammar is presupposed by the other arts. This course builds from the voice to the sentence, gives the traditional names in the appropriate places, and considers the more general question of why the parts of speech are the way they are. The course also considers English grammar itself in some detail, as well as the chief grammars of other great traditions of learning, and finally this course engages with modern linguistics on universal grammar and syntax. The course is also available with Greek, German, or French as a third language, which can be chosen below.
+      <strong>Grammar is the art of speaking and writing correctly.</strong> It is the first of the liberal arts, especially of the first of the trivium, the three arts of language (grammar, logic, and rhetoric). It is first because logic works on statements and rhetoric brings statements together for a purpose; but grammar is the art that governs how words can be combined to form statements correctly and thus grammar is presupposed by the other arts. This course builds from the voice to the sentence, gives the traditional names in the appropriate places, and considers the more general question of why the parts of speech are the way they are. The course also considers English grammar itself in some detail, as well as the chief grammars of other great traditions of learning, and finally this course engages with modern linguistics on universal grammar and syntax.
     </div>
 
     <div class="rule"></div>
@@ -725,15 +729,6 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     <div class="section-label">Difficulty</div>
     <div class="diff-row" id="diff-row"></div>
     <div class="diff-desc" id="diff-desc"></div>
-
-    <div class="section-label partner-soon" id="partner-label">A Third Language (optional)</div>
-    <div class="lang-box partner-soon" id="partner-box">
-      <div class="lang-fixed">English and <strong>Latin</strong> are the languages that the course uses and studies, and a student may add a third.
-        Latin is the tradition’s own language, and every technical term here is a Latin term.
-        <span id="partner-text"></span></div>
-      <div class="soon-flag" id="partner-flag">Coming soon</div>
-      <div class="lang-row" id="partner-row" hidden></div>
-    </div>
 
     <div class="rule"></div>
 
@@ -1403,7 +1398,8 @@ const store = {
   mistakes:[],
   dark:null, diff:1, modes:{},
   langs:{},           /* exId -> 'la', 'grc', 'fr', or 'de', the partner language chosen for that exercise */
-  langPick:null       /* the last language chosen with the shortcut on the home screen */
+  langPick:null,      /* no longer used: the language is chosen in each section */
+  secLang:{}          /* section key -> 'grc', 'de', or 'fr', the other language chosen in that section of the home page */
 };
 
 function save(){
@@ -1412,7 +1408,7 @@ function save(){
       totals: store.totals, score: store.score, bestStreak: store.bestStreak,
       mistakes: store.mistakes.slice(-60), dark: state.dark, diff: state.diff,
       modes: store.modes,
-      langs: store.langs, langPick: store.langPick,
+      langs: store.langs, secLang: store.secLang,
       speakRate: state.speakRate
     }));
   }catch(e){ /* private browsing, a file:// sandbox — the app works without it */ }
@@ -1428,7 +1424,7 @@ function load(){
     store.mistakes = o.mistakes || [];
     store.modes = o.modes || {};
     store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
-    store.langPick = ['la','grc','fr','de'].indexOf(o.langPick) >= 0 ? o.langPick : null;
+    store.secLang = (o.secLang && typeof o.secLang === 'object') ? o.secLang : {};
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
     if(o.speakRate) state.speakRate = o.speakRate;
@@ -2712,18 +2708,18 @@ DECKS.govern = {
       correct:1,
       explain:`Government is a requirement one word lays on another: the verb stays in its own form, and the complement takes the case the verb demands. Not every verb demands the accusative.` } },
 
-{ src:['ag'], h:`<p><strong><em>In</em>, and the two-way prepositions.</strong> English <em>in the city</em> is place where, and <em>into the city</em> is motion toward. Latin
+{ src:['ag'], h:`<p><strong><em>In</em> with two cases.</strong> English <em>in the city</em> is place where, and <em>into the city</em> is motion toward. Latin
 <span class="lat">in</span> takes the ablative for place where, and the accusative
 for motion toward.</p>
 <p><em>in urbe</em>: in the city (he is there).<br> <em>in urbem</em>: into the city (he is going there).</p>
-<p>German keeps the same distinction, and more clearly, on a set of two-way prepositions: <em>an, auf, in, über, vor</em>, and the rest. If the question is <em>wo?</em> (where?), the answer takes the dative; if it is <em>wohin?</em> (where to?), the accusative: <em>in der Stadt</em> against <em>in die Stadt</em>.</p>
+
 <p>The distinction is the same in both languages; they mark it with different
 cases.</p>`,
   q:{ prompt:`<em>They walked into the city.</em> In Latin, <em>city</em> after <em>in</em> is…`,
       options:['Ablative, because a city is a place','Accusative, because there is motion toward it',
-               'Nominative, because <em>city</em> is a noun','Dative, as German would have it after <em>in</em>'],
+               'Nominative, because <em>city</em> is a noun','Dative, because the city receives the motion'],
       correct:1,
-      explain:`Motion toward takes the accusative after <em>in</em>, and place where takes the ablative. German would put the same contrast on dative against accusative.` } },
+      explain:`Motion toward takes the accusative after <em>in</em>, and place where takes the ablative.` } },
 
 { src:['appown'], h:`<p>We already know that “Give it to him” fits, and “Give it to he” does not. That is government, because one word requires a particular form of the word that completes it.</p>` },
 
@@ -5720,7 +5716,7 @@ const CLAUSE_CORPUS = [
 
 EX.clauses = {
   id:'clauses', src:['ag','appown'], act:'IV', title:'Clauses in the Authors',
-  desc:'A short passage from Plato, the tragedians, the historians, or Augustine, in an older public-domain translation, with one clause marked; say how it is used. The Greek or the Latin is there to be shown. The store is finite, since these are the authors and not a generator.',
+  desc:'A short passage from Plato, the tragedians, the historians, or Augustine, in an older public-domain translation, with one clause marked; say how it is used. The Latin original is there to be shown. The store is finite, since these are the authors and not a generator.',
   instr:'What kind of clause is the marked construction?',
   gen(d){
     const pool = CLAUSE_CORPUS.filter(x => (x.dmin || 1) <= d);
@@ -5740,7 +5736,7 @@ EX.clauses = {
     return {
       kind:'mc', src: it.src, sid: it.id, lang:'en',
       prompt:'What kind of clause is the marked construction?',
-      passage: it.passage, orig: it.orig, olang: it.olang, source: it.source,
+      passage: it.passage, orig: it.olang === 'Greek' && thirdLang() !== 'grc' ? null : it.orig, olang: it.olang, source: it.source,
       options, correct: options.indexOf(want),
       check(i){
         if(i === options.indexOf(want)) return {right:true, note:`<strong>${want}.</strong> ${it.why}`};
@@ -6451,7 +6447,7 @@ const GOVERN_ITEMS = [
 
 EX.govern = {
   id:'govern', src:['ag','appown'], act:'IV', title:'Government',
-  desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> and the German two-way prepositions are the clearest teaching cases, since the same small word takes two cases with two meanings. In English, government shows only in pronouns, and the questions ask why a pronoun takes the form it has.',
+  desc:'A verb or a preposition requires a case of the word that completes it. Latin <em>in</em> is the clearest teaching case, since the same small word takes two cases with two meanings. In English, government shows only in pronouns, and the questions ask why a pronoun takes the form it has.',
   instr:'Name the case the word requires, or write the form it requires.',
   gen(d){
     if(Math.random() < 0.5){
@@ -8260,7 +8256,7 @@ const SET_NOTE = 'A set ends at 100 points; a right answer adds points and a wro
     ],
     govern:[
       {h:`<strong>Some words require a case of the word that completes them.</strong> That requirement is government.`},
-      {h:`<strong>The same small word, two cases, two meanings.</strong> Latin <em>in urbem</em> (into the city, accusative) stands against <em>in urbe</em> (in the city, ablative), and German two-way prepositions make the same cut.`,
+      {h:`<strong>The same small word, two cases, two meanings.</strong> Latin <em>in urbem</em> (into the city, accusative) stands against <em>in urbe</em> (in the city, ablative).`,
        eg:['Most verbs take the accusative of the object. <em>Ūtor</em>, however, takes the ablative, and <em>meminī</em> often the genitive.']}
     ],
     cong:[
@@ -16045,7 +16041,8 @@ const PL = {
 };
 const deStrict = v => partnerLc(v).replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 /* The third language chosen on the home page, or null. */
-function thirdLang(){ return PL[store.langPick] && PL[store.langPick].data ? store.langPick : null; }
+/* The other language chosen in the section of the home page from which the study or exercise was opened, or null. */
+function thirdLang(){ const k = state.curSec ? store.secLang[state.curSec] : null; return PL[k] && PL[k].data ? k : null; }
 const plSpan = (L, s) => `<span lang="${L.key}">${s}</span>`;
 /* One blank in a frame, or a form named by its English line; tiles at the first two levels, typed above. */
 function partnerSentQ(L, it, d, sidPrefix){
@@ -16198,8 +16195,9 @@ function offersGreek(ex){ return !!(GRK && ex && ex.langs && ex.langs.indexOf('g
 /* The partner languages an exercise offers beside Latin, from ex.langs. */
 function partnerKeys(ex){ return PARTNER_KEYS.filter(k => !!(ex && ex.langs && ex.langs.indexOf(k) >= 0)); }
 function partnerOf(ex){
-  const k = ex ? store.langs[ex.id] : null;
-  return partnerKeys(ex).indexOf(k) >= 0 && k === thirdLang() ? k : 'la';
+  const t = thirdLang();
+  if(!t || partnerKeys(ex).indexOf(t) < 0) return 'la';
+  return ex && store.langs[ex.id] === 'la' ? 'la' : t;
 }
 function rowChoice(ex){
   const mode = modeOf(ex);
@@ -16250,7 +16248,7 @@ function renderModeRow(){
   const ex = state.ex;
   if(!row) return;
   const allowed = ex && ex.modes;
-  /* Only the third language chosen on the home page is offered. */
+  /* Only the other language chosen in this section of the home page is offered. */
   const partners = partnerKeys(ex).filter(k => k === thirdLang());
   if(!allowed || allowed.indexOf('both') < 0 || (!bothLangs() && !partners.length)){
     row.hidden = true;
@@ -16300,7 +16298,7 @@ const ACTS = [
       desc:'Living sound, before the letter: Donatus’s two kinds of voice and Priscian’s four. A groan is a voice, but not a word.', ex:['vox']},
      {kind:'row', deck:'letter', tag:'STUDY', title:'Letter and Sound',
       desc:'The letter as the least part of a written sound; its name, shape, and power; vowel and consonant. Meaning does not begin here.', ex:['letter']},
-     {kind:'row', deck:'syllable', alsoL:['grc','de','fr'], tag:'STUDY', title:'Syllable, Quantity and Accent',
+     {kind:'row', deck:'syllable', tag:'STUDY', title:'Syllable, Quantity and Accent',
       desc:'Long and short by nature and by position; the Latin penultimate law; English stress, which is not quantity.', ex:['syllable']},
      {kind:'row', lang:'grc', deck:'grcsyl', tag:'STUDY · GREEK', title:'Greek Syllable, Quantity, and Accent',
       desc:'The Greek syllable and its quantity, the three accents and the law of limitation, and the breathings.', ex:['grcsyl']},
@@ -16322,9 +16320,9 @@ const ACTS = [
    items:[
      {kind:'row', deck:'decline', tag:'STUDY', title:'Declinable and Indeclinable',
       desc:'The first distinction through the eight parts, and the ground of the accidents: what takes endings, and what keeps one form.', ex:['decline']},
-     {kind:'row', deck:'latnoun', alsoL:['grc','de','fr'], tag:'STUDY', title:'The Latin Noun',
+     {kind:'row', deck:'latnoun', tag:'STUDY', title:'The Latin Noun',
       desc:'What a declension is; the five declensions, each with a model noun; how to read an ending, and the endings that admit more than one analysis.', ex:['latnoun']},
-     {kind:'row', deck:'latverb', alsoL:['grc','de','fr'], tag:'STUDY', title:'The Latin Verb',
+     {kind:'row', deck:'latverb', tag:'STUDY', title:'The Latin Verb',
       desc:'Principal parts and the three stems; the four conjugations and the personal endings; the signs of tense, mood, and voice.', ex:['latverb']},
      {kind:'row', deck:'casework', tag:'STUDY', title:'Case',
       desc:'What a case is: a falling, and the upright nominative. One case has several uses, such as the kinds of genitive and the two accusatives; the case comes before the meaning.', ex:['cases']},
@@ -16365,19 +16363,15 @@ const ACTS = [
      {kind:'row', deck:'govern', tag:'STUDY', title:'Government',
       desc:'The verb governing its object’s case, and the preposition its complement’s. Latin <em>in</em> takes two cases, for place where and for place to which.', ex:['govern']},
      {kind:'row', deck:'latbuild', tag:'STUDY', title:'Building the Latin Sentence',
-      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite'],
-      exL:{grc:['grcsent'], de:['desent'], fr:['frsent']}},
+      desc:'From the meaning to the forms: the case of each noun by how it is used, the verb in agreement with its subject, and free word order.', ex:['latbuild', 'latmore', 'freewrite']},
      {kind:'row', deck:'latvoice', tag:'STUDY', title:'The Passive, the Infinitive, and the Participle',
-      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice'],
-      exL:{grc:['grcvoice'], de:['devoice'], fr:['frvoice']}},
+      desc:'The passive personal endings, and the doer in the ablative with <em>ā</em> or <em>ab</em>; the present infinitive, active and passive, completing another verb; the perfect passive participle agreeing with its noun.', ex:['latvoice']},
      {kind:'row', deck:'latsubj', tag:'STUDY', title:'The Subjunctive',
-      desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj'],
-      exL:{grc:['grcmood'], de:['demood'], fr:['frmood']}},
+      desc:'The present and imperfect subjunctive, and of <em>sum</em>; purpose, result, <em>cum</em> clauses, and the indirect question; the sequence of tenses.', ex:['latsubj']},
      {kind:'row', deck:'cong', tag:'STUDY', title:'Congruity and Completeness',
       desc:'Priscian’s two tests, as the modists name them: <em>Percutio album</em> is incongruous when <em>album</em> is an adjective with no noun; <em>homo albus</em> is congruous but incomplete; <em>homo est albus</em> is complete.', ex:['cong', 'congtruth']},
      {kind:'row', deck:'clauses', tag:'STUDY', title:'The Kinds of Clause',
-      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause'],
-      exL:{grc:['grcclause'], de:['declause'], fr:['frclause']}},
+      desc:'Independent and subordinate clauses; purpose against result; indirect speech and the indirect question; time, cause, condition, and concession; the relative. Then the same kinds in the authors.', ex:['clauses', 'latclause']},
      {kind:'row', deck:'workshop', tag:'STUDY', title:'The Sentence Workshop',
       desc:'Thomas of Erfurt’s account of construction: which word depends, which terminates, and why the verb depends on its subject.', ex:['workshop']},
      {kind:'row', deck:'markup', tag:'STUDY', title:'Marking the Sentence',
@@ -16387,7 +16381,10 @@ const ACTS = [
      {kind:'row', deck:'period', tag:'STUDY', title:'The Period: how clauses stand',
       desc:'A sentence, often of several clauses; parataxis and hypotaxis as two ways of connecting clauses; poetic order that is still well formed. Latin comes first.', ex:['period', 'servius4', 'livyperiod']},
      {kind:'row', deck:'meter', tag:'STUDY', title:'Meter and Scansion',
-      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']}
+      desc:'The dactylic hexameter, long and short syllables, and elision; the feet and beats of English verse.', ex:['meter']},
+     {kind:'exset', lang:'grc', ex:['grcsent','grcvoice','grcclause','grcmood']},
+     {kind:'exset', lang:'de', ex:['desent','devoice','declause','demood']},
+     {kind:'exset', lang:'fr', ex:['frsent','frvoice','frclause','frmood']}
    ]},
   {key:'V', roman:'V', name:'Faults, License, and Figures', latin:'Vitia et Virtutes Orationis',
    gloss:'The last part of the art: the faults of speech, and the same departures when they are allowed.',
@@ -16443,28 +16440,19 @@ const ACTS = [
       desc:'Gathered from the four arts: the letter that has a meaning; voice or writing first; where meaning begins; how many parts; case and time not marked on their parts; completeness without a verb; government from outside.', ex:[]}
    ]}
 ];
-/* The items of an act with each row opened into its study and its exercises, in order. */
-/* A row marked with a language (lang) is shown only when that language is the third language chosen, and a row's
-   exercises in a third language (exL) are added to it then. */
-function rowShown(it){ return !it.lang || it.lang === thirdLang(); }
-function rowEx(it){ const k = thirdLang(); return (it.ex || []).concat(k && it.exL && it.exL[k] ? it.exL[k] : []); }
+/* The items of an act with each row opened into its study and its exercises, in order. The rows and exercises of
+   another language are included only when that language is chosen in the section. */
 function actItems(act){
+  const k = store.secLang[act.key];
   const out = [];
   act.items.forEach(it => {
+    if(it.lang && it.lang !== k) return;
+    if(it.kind === 'exset'){ it.ex.forEach(ex => out.push({kind:'ex', ex})); return; }
     if(it.kind !== 'row'){ out.push(it); return; }
-    if(!rowShown(it)) return;
     out.push({kind:'deck', deck:it.deck, tag:it.tag, title:it.title, desc:it.desc});
-    rowEx(it).forEach(ex => out.push({kind:'ex', ex}));
+    (it.ex || []).forEach(ex => out.push({kind:'ex', ex}));
   });
   return out;
-}
-/* The third languages in which a Latin row also has material: its own list (alsoL), its exercises in a third language,
-   and the third languages its shared exercises offer. */
-function rowAlso(it){
-  const ks = new Set(it.alsoL || []);
-  Object.keys(it.exL || {}).forEach(k => ks.add(k));
-  it.ex.forEach(id => partnerKeys(EX[id]).forEach(k => ks.add(k)));
-  return PARTNER_KEYS.filter(k => ks.has(k) && PL[k].data);
 }
 /* An exercise may be listed in two acts (congtruth); lists of exercises name it once, where it first appears. */
 function actExercises(act, seen){
@@ -16496,46 +16484,6 @@ function ladderSvg(){
 }
 
 /* ---------- home ---------- */
-/* The partner-language shortcut on the home screen. It sets every exercise that offers the language
-   chosen; an exercise without that language keeps its own setting, and each exercise can still be
-   changed on its own afterward. */
-function setPartnerAll(key){
-  Object.keys(EX).forEach(id => {
-    const ex = EX[id];
-    if(!ex || !ex.modes || ex.modes.indexOf('both') < 0) return;
-    const partners = partnerKeys(ex);
-    if(key !== 'la' && partners.indexOf(key) < 0) return;
-    store.modes[id] = 'both';
-    if(partners.length) store.langs[id] = key;
-  });
-  store.langPick = key;
-  save();
-  buildPartnerRow();
-  buildHome();
-}
-function buildPartnerRow(){
-  const row = $('partner-row');
-  const has = {la:true, grc:!!GRK, de:!!DEU, fr:!!FRA};
-  if(!(GRK || FRA || DEU) || !row) return;
-  $('partner-label').classList.remove('partner-soon');
-  $('partner-box').classList.remove('partner-soon');
-  const names = [['grc','Ancient Greek','Greek'],['de','German','German'],['fr','French','French']].filter(n => has[n[0]]);
-  const list = (a, word) => a.length < 3 ? a.join(` ${word} `) : `${a.slice(0, -1).join(', ')}, ${word} ${a[a.length - 1]}`;
-  $('partner-text').textContent = `${list(names.map(n => n[1]), 'or')} may be chosen. With one chosen, that language’s studies and exercises appear beside the Latin ones, and its questions are added to the Latin questions of the shared exercises. With none chosen, the course uses English and Latin alone, and choosing the same language again returns it to them.`;
-  $('partner-flag').style.display = 'none';
-  row.hidden = false;
-  row.innerHTML = '';
-  [['grc','Greek'],['de', has.de ? 'German' : 'German (coming soon)'],['fr', has.fr ? 'French' : 'French (coming soon)']].forEach(pair => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'lang-btn' + (store.langPick === pair[0] ? ' sel' : '');
-    b.textContent = pair[1];
-    if(has[pair[0]]) b.onclick = () => setPartnerAll(store.langPick === pair[0] ? 'la' : pair[0]);
-    else b.disabled = true;
-    row.appendChild(b);
-  });
-}
-
 function buildDiffRow(){
   const row = $('diff-row');
   row.innerHTML = '';
@@ -16558,6 +16506,57 @@ function goHome(){
   buildHome();
   const card = homeAnchor == null ? null : document.querySelectorAll('#home-acts .set-card')[homeAnchor];
   if(card) (card.closest('.set-pair') || card).scrollIntoView({block:'start'});
+}
+const GROUP_LABEL = {gen:'General', en:'English', la:'Latin', other:'Other languages'};
+/* The Latin studies of a section; the English ones carry "ENGLISH GRAMMAR" in their tag, and the rest are general. */
+const LATIN_ROWS = ['syllable','latnoun','latverb','produce','latbuild','latvoice','latsubj','clauses','period','meter'];
+function homeGroup(item){
+  if(item.lang) return 'other';
+  if(/ENGLISH/.test(item.tag || '')) return 'en';
+  if(LATIN_ROWS.indexOf(item.deck) >= 0) return 'la';
+  return 'gen';
+}
+/* The other languages a section offers: those with studies or exercises of their own there, and those that the
+   section's shared exercises can ask. */
+function itemExIds(it){ return Array.isArray(it.ex) ? it.ex : it.ex ? [it.ex] : []; }
+function sectionLangs(act){
+  const ks = new Set();
+  act.items.forEach(it => {
+    if(it.lang) ks.add(it.lang);
+    itemExIds(it).forEach(id => { if(EX[id]) partnerKeys(EX[id]).forEach(k => ks.add(k)); });
+  });
+  return PARTNER_KEYS.filter(k => ks.has(k) && PL[k] && PL[k].data);
+}
+function langChoice(act, offers, chosen){
+  const box = document.createElement('div');
+  box.className = 'grp-choice';
+  const t = document.createElement('span');
+  t.textContent = chosen ? 'Worked through in this section beside Latin:' : 'A language to work through in this section beside Latin:';
+  box.appendChild(t);
+  offers.concat([null]).forEach(k => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lang-btn' + (chosen === k ? ' sel' : '');
+    b.textContent = k ? PL[k].name : 'None';
+    b.onclick = () => setSectionLang(act, k);
+    box.appendChild(b);
+  });
+  return box;
+}
+/* Choosing a language in a section sets the shared exercises of that section to ask it beside English and Latin;
+   a student can still choose "English and Latin" or "English only" on an exercise. */
+function setSectionLang(act, k){
+  if(k) store.secLang[act.key] = k; else delete store.secLang[act.key];
+  act.items.forEach(it => itemExIds(it).forEach(id => {
+    const e = EX[id];
+    if(!e) return;
+    delete store.langs[id];
+    if(k && partnerKeys(e).indexOf(k) >= 0 && e.modes && e.modes.indexOf('both') >= 0) store.modes[id] = 'both';
+  }));
+  save();
+  const y = window.scrollY;
+  buildHome();
+  window.scrollTo(0, y);
 }
 function buildHome(){
   const host = $('home-acts');
@@ -16586,7 +16585,7 @@ function buildHome(){
     const grid = document.createElement('div');
     grid.className = 'set-grid';
 
-    function makeCard(item, paired){
+    function makeCard(item, paired, act){
       const c = document.createElement('div');
       if(item.kind === 'deck'){
         c.className = 'set-card' + (paired ? '' : ' wide');
@@ -16612,39 +16611,43 @@ function buildHome(){
           <p>${item.desc}</p><span class="soon-flag">IN PREPARATION</span>`;
       }
       const n = cardN++, open = c.onclick;
-      if(open) c.onclick = () => { homeAnchor = n; open(); };
+      if(open) c.onclick = () => { homeAnchor = n; state.curSec = act ? act.key : null; open(); };
       return c;
     }
 
-    /* A row puts the study on the left and its exercises, stacked, on the right; the right cell is
-       left empty when the study has no exercise. */
-    let beside = null;
-    act.items.forEach(item => {
-      if(item.kind === 'row' && item.beside){
-        if(!beside){ beside = document.createElement('div'); beside.className = 'set-beside'; grid.appendChild(beside); }
-        beside.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
-        return;
+    /* The rows of a section run in four groups: general doctrine, English, Latin, and other languages. A heading
+       is written for each group only when the section has more than one. */
+    const groups = {gen:[], en:[], la:[], other:[]};
+    act.items.forEach(item => groups[homeGroup(item)].push(item));
+    const offers = sectionLangs(act);
+    const used = ['gen','en','la'].filter(g => groups[g].length).length + (offers.length ? 1 : 0);
+    const chosen = offers.indexOf(store.secLang[act.key]) >= 0 ? store.secLang[act.key] : null;
+    ['gen','en','la','other'].forEach(g => {
+      if(g === 'other' ? !offers.length : !groups[g].length) return;
+      if(used > 1){
+        const h = document.createElement('div');
+        h.className = 'grp-label'; h.textContent = GROUP_LABEL[g];
+        grid.appendChild(h);
       }
-      beside = null;
-      if(item.kind !== 'row'){ grid.appendChild(makeCard(item, false)); return; }
-      if(!rowShown(item) || !DECKS[item.deck]) return;
-      const exs = rowEx(item).filter(id => EX[id]);
-      const row = document.createElement('div');
-      row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '');
-      row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true));
-      const right = document.createElement('div');
-      right.className = 'set-pair-ex';
-      exs.forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true)));
-      row.appendChild(right);
-      grid.appendChild(row);
-      const also = thirdLang() ? [] : rowAlso(item);
-      if(also.length){
-        const a = document.createElement('div');
-        a.className = 'also-in';
-        const names = also.map(k => PL[k].name);
-        a.textContent = 'Also available in ' + (names.length < 3 ? names.join(' and ') : names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1]);
-        grid.appendChild(a);
-      }
+      if(g === 'other') grid.appendChild(langChoice(act, offers, chosen));
+      groups[g].forEach(item => {
+        if(g === 'other' && item.lang !== chosen) return;
+        if(item.kind === 'exset'){
+          item.ex.filter(id => EX[id]).forEach(id => grid.appendChild(makeCard({kind:'ex', ex:id}, false, act)));
+          return;
+        }
+        if(item.kind !== 'row'){ grid.appendChild(makeCard(item, false, act)); return; }
+        if(!DECKS[item.deck]) return;
+        const exs = (item.ex || []).filter(id => EX[id]);
+        const row = document.createElement('div');
+        row.className = 'set-pair' + (exs.length > 1 ? ' multi' : '');
+        row.appendChild(makeCard({kind:'deck', deck:item.deck, tag:item.tag, title:item.title, desc:item.desc}, true, act));
+        const right = document.createElement('div');
+        right.className = 'set-pair-ex';
+        exs.forEach(id => right.appendChild(makeCard({kind:'ex', ex:id}, true, act)));
+        row.appendChild(right);
+        grid.appendChild(row);
+      });
     });
     host.appendChild(grid);
   });
@@ -17914,7 +17917,6 @@ $('qz-gen').onclick = () => {
 load();
 setDark(state.dark);
 
-buildPartnerRow();
 buildDiffRow();
 buildHome();
 if(location.hash === '#maker') openMaker();

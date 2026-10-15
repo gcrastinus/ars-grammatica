@@ -354,10 +354,6 @@ The first art of the trivium
 
 **Grammar is the art of speaking and writing correctly.** It is the first of the liberal arts, especially of the first of the trivium, the three arts of language (grammar, logic, and rhetoric). It is first because logic works on statements and rhetoric brings statements together for a purpose; but grammar is the art that governs how words can be combined to form statements correctly and thus grammar is presupposed by the other arts. This course builds from the voice to the sentence, gives the traditional names in the appropriate places, and considers the more general question of why the parts of speech are the way they are. The course also considers English grammar itself in some detail, as well as the chief grammars of other great traditions of learning, and finally this course engages with modern linguistics on universal grammar and syntax.
 
-The partner language
-English and **Latin** are the primary languages used in every part of the course.
-Latin is the tradition’s own language, and every technical term here is a Latin term.
-Partner language: coming soon. A later version will teach the grammar of a third language and some of the art of using it.
 `;
 }
 
@@ -365,11 +361,11 @@ Partner language: coming soon. A later version will teach the grammar of a third
 function actItems(act) {
   const out = [];
   for (const it of act.items || []) {
+    if (it.kind === 'exset') { for (const ex of it.ex || []) out.push({ kind: 'ex', ex }); continue; }
     if (it.kind !== 'row') { out.push(it); continue; }
-    // Every row is printed, including the rows of a third language and a row's exercises in each third language (exL).
+    // Every row is printed, including the rows and exercises of the other languages of each section.
     out.push({ kind: 'deck', deck: it.deck, tag: it.tag, title: it.title, desc: it.desc });
     for (const ex of it.ex || []) out.push({ kind: 'ex', ex });
-    for (const k of ['grc', 'de', 'fr']) for (const ex of (it.exL && it.exL[k]) || []) out.push({ kind: 'ex', ex });
   }
   return out;
 }
@@ -515,15 +511,17 @@ function emitPartner(key, ex, app, code, data, name) {
   const pool = data && data.shared && data.shared[key];
   if (!Array.isArray(pool) || !ex.langs || ex.langs.indexOf(code) < 0) return '';
   const { store, state } = app;
-  const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key], pick = store.langPick;
+  const mainRandom = Math.random, seen = state.sessionSeen, mode = store.modes[key], lang = store.langs[key], sec = state.curSec;
   Math.random = seededRandom(7);
   store.modes[key] = 'both';
   store.langs[key] = code;
-  // The course offers a language's items only when it is the third language chosen, and gives one when the question
+  // The course offers a language's items only when it is chosen in the section, and gives one when the question
   // loop asks for that language.
-  store.langPick = code;
+  state.curSec = '__text';
+  store.secLang = store.secLang || {};
+  store.secLang.__text = code;
   state.wantLang = code;
-  const lines = [`#### ${name}`, '', `With ${name} chosen as the third language, these ${name} items are added beside the English and Latin ones. Every ${name} item is printed: ${pool.length} items.`, ''];
+  const lines = [`#### ${name}`, '', `With ${name} chosen in the section, these ${name} items are added beside the English and Latin ones. Every ${name} item is printed: ${pool.length} items.`, ''];
   pool.forEach((it, i) => {
     let q = null;
     for (let t = 0; t < 400 && !q; t++) {
@@ -539,7 +537,8 @@ function emitPartner(key, ex, app, code, data, name) {
   state.sessionSeen = seen;
   if (mode === undefined) delete store.modes[key]; else store.modes[key] = mode;
   if (lang === undefined) delete store.langs[key]; else store.langs[key] = lang;
-  store.langPick = pick;
+  state.curSec = sec;
+  delete store.secLang.__text;
   state.wantLang = null;
   return lines.join('\n');
 }
