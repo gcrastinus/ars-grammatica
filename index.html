@@ -16451,18 +16451,16 @@ function buildPartnerRow(){
   $('partner-box').classList.remove('partner-soon');
   const names = [['grc','Ancient Greek','Greek'],['de','German','German'],['fr','French','French']].filter(n => has[n[0]]);
   const list = (a, word) => a.length < 3 ? a.join(` ${word} `) : `${a.slice(0, -1).join(', ')}, ${word} ${a[a.length - 1]}`;
-  $('partner-text').textContent = names.length === 1 && has.grc
-    ? 'Ancient Greek is offered as a partner language. Choosing Latin or Greek here sets every exercise that offers that language, and each exercise can still be changed on its own.'
-    : `${list(names.map(n => n[1]), 'and')} are offered as partner languages. Choosing ${list(['Latin'].concat(names.map(n => n[2])), 'or')} here sets every exercise that offers that language, and each exercise can still be changed on its own.`;
+  $('partner-text').textContent = `${list(names.map(n => n[1]), 'and')} ${names.length === 1 ? 'is' : 'are'} offered as ${names.length === 1 ? 'a partner language' : 'partner languages'}. Choosing one here sets every exercise that offers it, and each exercise can still be changed on its own. Choosing it again returns the course to English and Latin alone.`;
   $('partner-flag').style.display = 'none';
   row.hidden = false;
   row.innerHTML = '';
-  [['la','Latin'],['grc','Greek'],['de', has.de ? 'German' : 'German (coming soon)'],['fr', has.fr ? 'French' : 'French (coming soon)']].forEach(pair => {
+  [['grc','Greek'],['de', has.de ? 'German' : 'German (coming soon)'],['fr', has.fr ? 'French' : 'French (coming soon)']].forEach(pair => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'lang-btn' + (store.langPick === pair[0] ? ' sel' : '');
     b.textContent = pair[1];
-    if(has[pair[0]]) b.onclick = () => setPartnerAll(pair[0]);
+    if(has[pair[0]]) b.onclick = () => setPartnerAll(store.langPick === pair[0] ? 'la' : pair[0]);
     else b.disabled = true;
     row.appendChild(b);
   });
