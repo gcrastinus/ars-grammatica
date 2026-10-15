@@ -323,7 +323,6 @@ Object.assign(PASSAGES, {
    {t:'A host', q:'“A host of dancing Daffodills” stands…', a:'In apposition to “a crowd”', ds:['As the subject of “saw”','As a second main clause','As a noun of address'], why:'It renames the crowd that he saw.'}]}
 });
 
-
 /* ===== en2 ===== */
 /* Five more English poems, for the poetry drill. Texts: Shelley in Hutchinson's edition; Blake's engraved
    Songs of Experience (1794); Pope's first edition (1711); Donne in Grierson's edition, spelling modernized; Tennyson in
@@ -405,7 +404,6 @@ Object.assign(PASSAGES, {
    {t:'Made weak', q:'“Made weak by time and fate” describes…', a:'“One equal temper of heroic hearts”', ds:['“earth and heaven”','“old days”','“will”'], why:'The participle phrase follows the noun phrase it describes.'},
    {t:'To strive', q:'The infinitives “To strive, to seek, to find” complete…', a:'“will”', ds:['“weak”','“fate”','“hearts”'], why:'Strong in will to strive: they say what the will is for.'}]}
 });
-
 
 /* ===== grc ===== */
 /* Greek prose and poetry. Greek as printed by the Perseus Digital Library (canonical-greekLit), and for the Gospels
@@ -737,7 +735,6 @@ Object.assign(PASSAGES, {
    {t:'πειθόμενοι', q:'<em>πειθόμενοι</em> agrees with…', a:'The subject of <em>κείμεθα</em>, “we”', ds:['<em>Λακεδαιμονίοις</em>','<em>ξεῖνε</em>','<em>ῥήμασι</em>'], why:'It is nominative plural, describing those who lie there.'}]}
 });
 
-
 /* ===== grc2 ===== */
 /* Five more Greek poems, for the poetry drill. Greek of Sappho from Smyth's Greek Melic Poets (1900, Wikisource); of
    Euripides, Aeschylus, and the two epigrams (Anth. Pal. 7.80 and 7.670) from the Perseus Digital Library.
@@ -819,7 +816,6 @@ Object.assign(PASSAGES, {
    {t:'ζωοῖσιν', q:'<em>ζωοῖσιν</em> is…', a:'An epic dative plural: among the living', ds:['An accusative','A verb','A genitive singular'], why:'Epic <em>-οισι(ν)</em> for Attic <em>-οις</em>.'},
    {t:'θανὼν', q:'<em>θανών</em> is…', a:'An aorist participle: having died', ds:['A present participle','A future','An infinitive'], why:'From the aorist <em>ἔθανον</em> of <em>θνῄσκω</em>.'}]}
 });
-
 
 /* ===== fr ===== */
 /* French prose and poetry. French as printed by Project Gutenberg and Wikisource (spelling of the editions, with
@@ -1030,20 +1026,20 @@ Object.assign(PASSAGES, {
    {t:'se fermaient', q:'<em>se fermaient</em> is in the imperfect because…', a:'It tells what used to happen, again and again', ds:['It is a single event','It depends on <em>si</em>','It is a wish'], why:'The imperfect gives habit: my eyes would close.'},
    {t:'si vite que', q:'<em>si vite que je n’avais pas le temps</em> gives…', a:'A result', ds:['A comparison','A cause','A purpose'], why:'<em>Si</em> with an adverb and then <em>que</em>: so quickly that.'}]},
 
-'fr-emile': {lang:'fr', author:'Rousseau', work:'Émile', locus:'I', ed:'Rousseau, <i>Émile, ou de l’éducation</i> (1762), the opening of book I. English: Barbara Foxley (1911), Project Gutenberg eBook 5427.',
-  lat:'Tout est bien, sortant des mains de l’Auteur des choses ; tout dégénère entre les mains de l’homme.',
-  eng:'God makes all things good; man meddles with them and they become evil.\n— Barbara Foxley',
-  ctx:'Rousseau’s treatise on education opens with a sentence of two halves set against each other. The translator turns the participle into a clause with God as subject.',
+'fr-contrat': {lang:'fr', author:'Rousseau', work:'Du contrat social', locus:'I.4', ed:'Rousseau, <i>Du contrat social</i> (1762), I.4, the first sentence, as quoted in the edition of Georges Beaulavon (1903), Wikisource. English: G. D. H. Cole (1913), Project Gutenberg eBook 46333.',
+  lat:'Puisque aucun homme n’a une autorité naturelle sur son semblable, et puisque la force ne produit aucun droit, restent donc les conventions pour base de toute autorité légitime parmi les hommes.',
+  eng:'Since no man has a natural authority over his fellow, and force creates no right, we must conclude that conventions form the basis of all legitimate authority among men.\n— G. D. H. Cole',
+  ctx:'Rousseau has set aside the father’s power and the right of the strongest. Two causal clauses come first; then the main clause, with its verb before its subject.',
   parts:[
-   {t:'Tout est bien', h:'Tout as a pronoun', n:'<em>Tout</em>, “everything,” is the subject, and <em>bien</em>, “good,” is the predicate.'},
-   {t:'sortant des mains de l’Auteur des choses', h:'The present participle', n:'<em>Sortant</em>, “coming out,” is a present participle describing <em>tout</em>: as it comes from the hands of the Author of things. <em>Des</em> is <em>de les</em>.'},
-   {t:'tout dégénère entre les mains de l’homme', h:'The contrast', n:'The second half repeats <em>tout</em> and <em>les mains</em>, and sets man against the Author. No conjunction joins the halves.'}],
+   {t:'Puisque aucun homme n’a une autorité naturelle sur son semblable', h:'The first reason', n:'<em>Puisque</em>, “since,” gives a reason taken as known. <em>Aucun … ne</em> makes the subject negative: no man has.'},
+   {t:'et puisque la force ne produit aucun droit', h:'The second reason', n:'<em>Puisque</em> is repeated. <em>Ne … aucun</em> again: force produces no right.'},
+   {t:'restent donc les conventions pour base de toute autorité légitime parmi les hommes', h:'Verb before subject', n:'The verb <em>restent</em> comes before its subject <em>les conventions</em>: there remain, then, the conventions. It is plural to agree with them. <em>Pour base</em>, “as the basis.”'}],
   qs:[
-   {t:'sortant', q:'<em>sortant</em> is…', a:'A present participle describing <em>tout</em>', ds:['A finite verb','A gerund with <em>en</em>','A noun'], why:'The form in <em>-ant</em> without <em>en</em> is the participle; it says when everything is good.'},
-   {t:'des mains', q:'<em>des</em> in <em>des mains</em> is…', a:'<em>de</em> with <em>les</em>: from the hands', ds:['The plural indefinite article: some hands','A possessive','<em>de</em> alone'], why:'After <em>sortir</em>, <em>de</em> gives the place out of which; with <em>les</em> it becomes <em>des</em>.'},
-   {t:'dégénère', q:'How are the two halves joined?', a:'By no conjunction: they are set side by side', ds:['By <em>mais</em>','By <em>et</em>','By a relative pronoun'], why:'The contrast is made by the repeated words and the order alone.'}]},
+   {t:'Puisque', q:'<em>puisque</em> introduces…', a:'A reason', ds:['A time','A condition','A purpose'], why:'“Since,” giving a cause already granted.'},
+   {t:'aucun homme n’a', q:'<em>aucun homme n’a</em> means…', a:'No man has', ds:['Every man has','Some man has','No man had'], why:'<em>Aucun</em> with <em>ne</em> negates the subject.'},
+   {t:'restent', q:'<em>restent</em> is plural because…', a:'Its subject, <em>les conventions</em>, follows it', ds:['It agrees with <em>hommes</em>','It is impersonal','It agrees with <em>droit</em>'], why:'The subject stands after the verb, but the verb still agrees with it.'},
+   {t:'pour base', q:'<em>pour base</em> means…', a:'As the basis', ds:['In order to found','Instead of a basis','Against the basis'], why:'<em>Pour</em> with a bare noun can mean “as, by way of.”'}]},
 
-/* ---------- French poetry ---------- */
 'fr-phedre': {lang:'fr', author:'Racine', work:'Phèdre', locus:'I.1.1–4', meter:'Alexandrine', ed:'Racine, <i>Phèdre</i> (1677), I.1.1–4. English: Robert Bruce Boswell (1890), Project Gutenberg eBook 1977.',
   lat:'Le dessein en est pris : je pars, cher Théramène,\nEt quitte le séjour de l’aimable Trézène.\nDans le doute mortel dont je suis agité,\nJe commence à rougir de mon oisiveté.',
   eng:'My mind is settled, dear Theramenes,\nAnd I can stay no more in lovely Troezen.\nIn doubt that racks my soul with mortal anguish,\nI grow ashamed of such long idleness.\n— Robert Bruce Boswell',
@@ -1059,21 +1055,6 @@ Object.assign(PASSAGES, {
    {t:'cher Théramène', q:'<em>cher Théramène</em> is…', a:'The person addressed', ds:['The subject of <em>pars</em>','The object of <em>pars</em>','In apposition to <em>dessein</em>'], why:'Hippolytus speaks to his tutor by name.'},
    {t:'dont', q:'<em>dont</em> here means…', a:'By which, standing for <em>de</em> with the relative', ds:['Whose, of a person','Where','Than which'], why:'<em>Être agité de</em>: to be shaken by. <em>Dont</em> takes the place of <em>duquel</em>.'},
    {t:'à rougir', q:'<em>à</em> in <em>commence à rougir</em>…', a:'Links <em>commencer</em> to its infinitive', ds:['Gives a place','Gives a purpose','Marks the indirect object'], why:'<em>Commencer à</em> with the infinitive: to begin to.'}]},
-
-'fr-cigale': {lang:'fr', author:'La Fontaine', work:'Fables', locus:'I.1.1–6', meter:'Lines of seven and three syllables', ed:'La Fontaine, <i>Fables</i> I.1, “La Cigale et la Fourmi” (1668), lines 1–6. English: Elizur Wright (1841), Project Gutenberg eBook 7241.',
-  lat:'La Cigale, ayant chanté\nTout l’été,\nSe trouva fort dépourvue\nQuand la bise fut venue :\nPas un seul petit morceau\nDe mouche ou de vermisseau.',
-  eng:'A Grasshopper gay\nSang the summer away,\nAnd found herself poor\nBy the winter’s first roar.\nOf meat or of bread,\nNot a morsel she had!\n— Elizur Wright',
-  ctx:'The first fable of La Fontaine’s first book. The cicada, a “Grasshopper” in the English, sang all summer and has nothing when winter comes. Most lines have seven syllables, and one has three.',
-  parts:[
-   {t:'La Cigale, ayant chanté\nTout l’été', h:'The compound participle', n:'<em>Ayant chanté</em>, “having sung,” is the compound participle: it puts the singing before the main verb. <em>Tout l’été</em> gives the length of time.'},
-   {t:'Se trouva fort dépourvue', h:'The passé simple and the predicate', n:'<em>Se trouva</em>, passé simple, “found herself.” <em>Dépourvue</em>, “unprovided,” agrees with <em>la Cigale</em>, and <em>fort</em> means “very.”'},
-   {t:'Quand la bise fut venue', h:'The past anterior', n:'<em>Fut venue</em> is the past anterior: <em>venir</em> takes <em>être</em>, here in the passé simple. It gives an event just before the main one.'},
-   {t:'Pas un seul petit morceau\nDe mouche ou de vermisseau.', h:'A sentence without a verb', n:'The line stands without a verb: not a single little piece. <em>De</em> gives what it would be a piece of.'}],
-  qs:[
-   {t:'ayant chanté', q:'<em>ayant chanté</em> is…', a:'A compound participle: having sung', ds:['A passé composé','A present participle: singing','An infinitive'], why:'<em>Ayant</em> with the past participle puts the action before the main verb.'},
-   {t:'dépourvue', q:'<em>dépourvue</em> agrees with…', a:'<em>la Cigale</em>', ds:['<em>l’été</em>','<em>la bise</em>','<em>se</em> as a separate object'], why:'It is feminine singular, describing the cicada.'},
-   {t:'fut venue', q:'<em>fut venue</em> is…', a:'The past anterior of <em>venir</em>', ds:['A passive','The imperfect','The pluperfect of a reflexive verb'], why:'<em>Venir</em> takes <em>être</em>; with <em>fut</em>, the passé simple of <em>être</em>, it makes the past anterior, used after <em>quand</em>.'},
-   {t:'Pas un seul petit morceau', q:'The last two lines…', a:'Make a sentence with no verb: not a single piece', ds:['Are the object of <em>trouva</em>','Are the subject of <em>fut venue</em>','Depend on <em>ayant chanté</em>'], why:'La Fontaine sets the phrase down alone, and the sense is supplied: she had not a single piece.'}]},
 
 'fr-mignonne': {lang:'fr', author:'Ronsard', work:'Odes', locus:'“Mignonne, allons voir si la rose” 1–6', meter:'Octosyllable', ed:'Ronsard, “Mignonne, allons voir si la rose” (1553), stanza 1. English: Andrew Lang, <i>Ballads and Lyrics of Old France</i> (1872), Project Gutenberg eBook 795.',
   lat:'Mignonne, allons voir si la rose\nQui ce matin avait déclose\nSa robe de pourpre au soleil,\nA point perdu cette vesprée\nLes plis de sa robe pourprée,\nEt son teint au vôtre pareil.',
@@ -1106,20 +1087,82 @@ Object.assign(PASSAGES, {
    {t:'Qui pénètre', q:'<em>Qui</em> in <em>Qui pénètre mon cœur</em> is…', a:'The subject of <em>pénètre</em>, standing for <em>langueur</em>', ds:['The object of <em>pénètre</em>','A question: who?','The poet'], why:'<em>Qui</em> as a relative is the subject; <em>mon cœur</em> is the object.'},
    {t:'s’ennuie', q:'<em>s’ennuie</em> is…', a:'A reflexive verb: grieves, is weary', ds:['A passive','An impersonal verb','The object of <em>pour</em>'], why:'<em>S’ennuyer</em> is used with the reflexive pronoun.'}]},
 
-'fr-recueil': {lang:'fr', author:'Baudelaire', work:'Les Fleurs du mal', locus:'“Recueillement” 1–4', meter:'Alexandrine', ed:'Baudelaire, “Recueillement,” in <i>Les Fleurs du mal</i> (1868), lines 1–4, Project Gutenberg eBook 6099. English: Cyril Scott (1909), Project Gutenberg eBook 36098.',
-  lat:'Sois sage, ô ma Douleur, et tiens-toi plus tranquille.\nTu réclamais le Soir ; il descend ; le voici :\nUne atmosphère obscure enveloppe la ville,\nAux uns portant la paix, aux autres le souci.',
-  eng:'Be wise, O my Woe, seek your grievance to drown;\nYou did call for the night, and behold it is here.\nAn atmosphere somber envelops the town,\nTo some bringing peace and to others a care.\n— Cyril Scott',
-  ctx:'Baudelaire speaks to his own grief as to a child, and tells it that the evening it asked for has come. The poem is a sonnet in alexandrines.',
+'fr-orleans': {lang:'fr', author:'Charles d’Orléans', work:'Rondeaux', locus:'“Le temps a laissié son manteau” 1–4', meter:'Octosyllable', ed:'Charles d’Orléans, rondeau LXIII, in his <i>Poésies complètes</i>, ed. Charles d’Héricault (Flammarion, 1915), p. 115, as printed by Wikisource. English: Andrew Lang, <i>Ballads and Lyrics of Old France</i> (1872), Project Gutenberg eBook 795.',
+  lat:'Le temps a laissié son manteau\nDe vent, de froidure et de pluye,\nEt s’est vestu de brouderie,\nDe soleil luyant, cler et beau.',
+  eng:'The year has changed his mantle cold\nOf wind, of rain, of bitter air;\nAnd he goes clad in cloth of gold,\nOf laughing suns and season fair;\n— Andrew Lang',
+  ctx:'A rondeau of the fifteenth century, in the spelling of its time: <em>laissié</em> for <em>laissé</em>, <em>pluye</em> for <em>pluie</em>, <em>vestu</em> for <em>vêtu</em>, <em>luyant</em> for <em>luisant</em>, <em>cler</em> for <em>clair</em>. The line is the octosyllable, eight syllables.',
   parts:[
-   {t:'Sois sage, ô ma Douleur', h:'The imperative of être', n:'<em>Sois</em> is the imperative of <em>être</em>, singular: be good. <em>Ô ma Douleur</em> is the address; the poet speaks to his grief with <em>tu</em>.'},
-   {t:'et tiens-toi plus tranquille', h:'The reflexive imperative', n:'<em>Tiens-toi</em>, “hold yourself,” is the imperative of <em>se tenir</em>; in the affirmative imperative the pronoun follows, and <em>te</em> becomes <em>toi</em>.'},
-   {t:'Tu réclamais le Soir ; il descend ; le voici', h:'Three short clauses', n:'<em>Réclamais</em>, imperfect, “you kept asking for.” <em>Il</em> is the evening. <em>Le voici</em>, “here it is”: <em>voici</em> takes an object pronoun before it.'},
-   {t:'Aux uns portant la paix, aux autres le souci', h:'Les uns … les autres', n:'<em>Aux uns … aux autres</em>, “to some … to others,” divides the city. <em>Portant</em>, present participle, describes the atmosphere.'}],
+   {t:'Le temps a laissié son manteau', h:'Subject, verb, object', n:'<em>Le temps</em>, “the season” or “the weather,” is the subject. <em>A laissié</em> is the passé composé of <em>laisser</em>, “has left off,” and <em>son manteau</em> its object.'},
+   {t:'De vent, de froidure et de pluye', h:'What the cloak is made of', n:'Three phrases with <em>de</em> tell what the cloak is made of: wind, cold, and rain.'},
+   {t:'Et s’est vestu de brouderie', h:'A reflexive verb', n:'<em>S’est vestu</em>, “has clothed himself,” is the passé composé of the reflexive <em>se vêtir</em>, and so it takes <em>être</em>. <em>De brouderie</em>, “with embroidery,” tells what he wears.'},
+   {t:'De soleil luyant, cler et beau', h:'The embroidery named', n:'<em>Luyant</em>, “shining,” is a present participle used as an adjective. <em>Cler et beau</em>, “clear and fair,” also describe the sun.'}],
   qs:[
-   {t:'Sois', q:'<em>Sois</em> is…', a:'The imperative of <em>être</em>', ds:['The present subjunctive used as a wish','The present indicative','An infinitive'], why:'The imperative singular of <em>être</em> is <em>sois</em>, borrowed from the subjunctive form.'},
-   {t:'tiens-toi', q:'Why <em>toi</em> and not <em>te</em>?', a:'In the affirmative imperative the pronoun follows the verb, and <em>te</em> becomes <em>toi</em>', ds:['<em>Toi</em> is the subject','<em>Te</em> cannot stand before a consonant','<em>Toi</em> is the plural'], why:'<em>Tiens-toi</em>, <em>assieds-toi</em>: after the verb, <em>me</em> and <em>te</em> become <em>moi</em> and <em>toi</em>.'},
-   {t:'réclamais', q:'<em>réclamais</em> is…', a:'The imperfect: you were asking for, kept asking for', ds:['The passé simple','The present','The conditional'], why:'The ending <em>-ais</em> on the stem <em>réclam-</em> is the imperfect.'},
-   {t:'portant', q:'<em>portant</em> describes…', a:'<em>Une atmosphère obscure</em>', ds:['<em>la ville</em>','<em>la paix</em>','<em>le Soir</em> alone'], why:'The atmosphere wraps the city, bringing peace to some and care to others.'}]},
+   {t:'Le temps', q:'The subject of <em>a laissié</em> is…', a:'<em>Le temps</em>', ds:['<em>son manteau</em>','<em>vent</em>','<em>pluye</em>'], why:'The season has left off its cloak.'},
+   {t:'laissié', q:'<em>a laissié</em> is…', a:'The passé composé: has left off', ds:['The future: will leave','The imperfect: was leaving','The present: leaves'], why:'<em>Avoir</em> with the past participle; <em>laissié</em> is the old spelling of <em>laissé</em>.'},
+   {t:'De vent', q:'The <em>de</em> phrases tell…', a:'What the cloak is made of', ds:['Where the season goes','Whose cloak it is','When it was left off'], why:'A cloak of wind, of cold, and of rain.'},
+   {t:'s’est vestu', q:'Why <em>s’est vestu</em> and not <em>a vestu</em>?', a:'A reflexive verb takes <em>être</em> in compound tenses', ds:['<em>Vêtir</em> always takes <em>être</em>','It is passive','The old language had no <em>avoir</em>'], why:'<em>Se vêtir</em>, “to clothe oneself,” is reflexive, and reflexives take <em>être</em>.'},
+   {t:'luyant', q:'<em>luyant</em> is…', a:'A present participle used as an adjective: shining', ds:['A past participle','A finite verb','A noun'], why:'The old spelling of <em>luisant</em>, from <em>luire</em>.'}]},
+
+'fr-rage': {lang:'fr', author:'Corneille', work:'Le Cid', locus:'I.4.1–4', meter:'Alexandrine', ed:'Corneille, <i>Le Cid</i> (1637), I.4, lines 1–4, in the text of Colbert Searles (Ginn, 1912), as printed by Wikisource. English: Roscoe Mongan (1896), Project Gutenberg eBook 14954; the translator’s bracketed literal notes are left out.',
+  lat:'Ô rage ! ô désespoir ! ô vieillesse ennemie !\nN’ai-je donc tant vécu que pour cette infamie ?\nEt ne suis-je blanchi dans les travaux guerriers\nQue pour voir en un jour flétrir tant de lauriers ?',
+  eng:'O rage! O despair! O inimical old age! Have I then lived so long only for this disgrace? And have I grown gray in warlike toils, only to see in one day so many of my laurels wither?\n— Roscoe Mongan',
+  ctx:'Don Diègue, too old to avenge the slap he has just received, laments alone. The alexandrine has twelve syllables, with a pause after the sixth.',
+  parts:[
+   {t:'Ô rage ! ô désespoir ! ô vieillesse ennemie !', h:'Three exclamations', n:'Three nouns called on with <em>ô</em>. <em>Ennemie</em> is an adjective here, “hostile,” agreeing with <em>vieillesse</em>.'},
+   {t:'N’ai-je donc tant vécu que pour cette infamie ?', h:'Ne … que, and inversion', n:'<em>Ne … que</em> means “only”: have I lived so long only for this disgrace? The subject <em>je</em> follows the verb because it is a question.'},
+   {t:'Et ne suis-je blanchi dans les travaux guerriers', h:'Être with a participle', n:'<em>Suis-je blanchi</em>, “have I grown white,” uses <em>être</em> with the participle of <em>blanchir</em>, describing a state.'},
+   {t:'Que pour voir en un jour flétrir tant de lauriers ?', h:'The second ne … que, and an infinitive after voir', n:'<em>Que pour voir</em> completes <em>ne … que</em> from the line above. After <em>voir</em> the infinitive <em>flétrir</em> comes before its subject <em>tant de lauriers</em>: to see so many laurels wither.'}],
+  qs:[
+   {t:'ennemie', q:'<em>ennemie</em> is feminine because…', a:'It agrees with <em>vieillesse</em>', ds:['It agrees with <em>rage</em>','The speaker is a woman','It is a noun of address'], why:'<em>Vieillesse</em> is feminine, and <em>ennemie</em> describes it.'},
+   {t:'N’ai-je donc tant vécu que', q:'<em>ne … que</em> means…', a:'Only', ds:['Never','Not at all','No longer'], why:'Have I lived so long only for this?'},
+   {t:'ai-je', q:'Why <em>ai-je</em> and not <em>j’ai</em>?', a:'The subject follows the verb in a question', ds:['<em>Je</em> is the object','It is a subjunctive','The meter alone requires it'], why:'Inversion of subject and verb marks the question.'},
+   {t:'blanchi', q:'<em>blanchi</em> is…', a:'A past participle: grown white', ds:['An adjective of color only','A present participle','A finite verb'], why:'From <em>blanchir</em>, “to whiten.”'},
+   {t:'flétrir tant de lauriers', q:'In <em>voir … flétrir tant de lauriers</em>, <em>tant de lauriers</em> is…', a:'The subject of <em>flétrir</em>', ds:['The object of <em>flétrir</em>','The subject of <em>voir</em>','A phrase of time'], why:'He sees the laurels wither: they do the withering.'}]},
+
+'fr-bellay': {lang:'fr', author:'Du Bellay', work:'Divers jeux rustiques', locus:'“D’un vanneur de blé aux vents” 1–6', meter:'Lines of six syllables', ed:'Joachim du Bellay, “D’un vanneur de blé aux vents,” in <i>Divers jeux rustiques</i> (1558), lines 1–6, as printed by Wikisource (<i>Anciens poètes français</i>). English: Andrew Lang, “Hymn to the Winds,” <i>Ballads and Lyrics of Old France</i> (1872), Project Gutenberg eBook 795.',
+  lat:'À vous, troupe légère,\nQui d’aile passagère\nPar le monde volez,\nEt d’un sifflant murmure\nL’ombrageuse verdure\nDoucement ébranlez,',
+  eng:'To you, troop so fleet,\nThat with winged wandering feet,\nThrough the wide world pass,\nAnd with soft murmuring\nToss the green shades of spring\nIn woods and grass,\n— Andrew Lang',
+  ctx:'A winnower of grain calls on the winds. The sentence begins with its indirect object, <em>à vous</em>, and the verb, “I offer,” does not come until the seventh line, after the passage ends.',
+  parts:[
+   {t:'À vous, troupe légère', h:'The indirect object first', n:'<em>À vous</em>, “to you,” is the indirect object of a verb still to come. <em>Troupe légère</em>, “light band,” is in apposition to <em>vous</em>: the winds.'},
+   {t:'Qui d’aile passagère\nPar le monde volez', h:'A relative clause', n:'<em>Qui</em> takes up <em>vous</em>, and so its verb is second person plural, <em>volez</em>. <em>D’aile passagère</em>, “with passing wing,” tells how they fly.'},
+   {t:'Et d’un sifflant murmure\nL’ombrageuse verdure\nDoucement ébranlez', h:'A second verb, the object before it', n:'<em>Et</em> adds a second verb to the same <em>qui</em>: <em>ébranlez</em>, “you shake.” Its object, <em>l’ombrageuse verdure</em>, “the shady green,” comes before it, and <em>d’un sifflant murmure</em> tells how.'}],
+  qs:[
+   {t:'À vous', q:'<em>À vous</em> is…', a:'The indirect object of a verb still to come', ds:['The subject','A direct object','A phrase of place'], why:'To you I offer these flowers: the verb comes later.'},
+   {t:'troupe légère', q:'<em>troupe légère</em> is…', a:'In apposition to <em>vous</em>', ds:['The subject of <em>volez</em>','The object of <em>volez</em>','A phrase of time'], why:'It names who “you” are, the band of winds.'},
+   {t:'volez', q:'Why is <em>volez</em> second person plural?', a:'<em>Qui</em> takes up <em>vous</em>', ds:['<em>Troupe</em> is plural','It is an imperative','It agrees with <em>aile</em>'], why:'The relative keeps the person of its antecedent, <em>vous</em>.'},
+   {t:'L’ombrageuse verdure', q:'<em>l’ombrageuse verdure</em> is…', a:'The object of <em>ébranlez</em>', ds:['The subject of <em>ébranlez</em>','The object of <em>volez</em>','In apposition to <em>murmure</em>'], why:'You shake the shady green.'}]},
+
+'fr-phedrevis': {lang:'fr', author:'Racine', work:'Phèdre', locus:'I.3.273–276', meter:'Alexandrine', ed:'Racine, <i>Phèdre</i> (1677), I.3, lines 273–276, in <i>Œuvres de Jean Racine</i> (Firmin-Didot, 1854), as printed by Wikisource. English: Robert Bruce Boswell (1890), Project Gutenberg eBook 1977.',
+  lat:'Je le vis, je rougis, je pâlis à sa vue ;\nUn trouble s’éleva dans mon âme éperdue ;\nMes yeux ne voyaient plus, je ne pouvais parler ;\nJe sentis tout mon corps et transir et brûler :',
+  eng:'I looked, alternately turned pale and blushed\nTo see him, and my soul grew all distraught;\nA mist obscured my vision, and my voice\nFaltered, my blood ran cold, then burned like fire;\n— Robert Bruce Boswell',
+  ctx:'Phèdre tells Œnone how she first saw Hippolyte. The passé simple gives each event once and complete; the imperfect gives the states that lasted.',
+  parts:[
+   {t:'Je le vis, je rougis, je pâlis à sa vue', h:'Three verbs in the passé simple', n:'<em>Vis</em>, <em>rougis</em>, <em>pâlis</em>: three passé simple forms, each a single completed event, one after another. <em>Le</em> is the object of <em>vis</em>, placed before the verb.'},
+   {t:'Un trouble s’éleva dans mon âme éperdue', h:'A reflexive verb', n:'<em>S’éleva</em>, “arose,” is the passé simple of the reflexive <em>s’élever</em>. <em>Éperdue</em> is feminine to agree with <em>âme</em>.'},
+   {t:'Mes yeux ne voyaient plus, je ne pouvais parler', h:'The imperfect for a state', n:'<em>Voyaient</em> and <em>pouvais</em> are imperfects: states that lasted, not single events. <em>Ne … plus</em> means “no longer”; with <em>pouvoir</em> the <em>pas</em> may be left out in literary French.'},
+   {t:'Je sentis tout mon corps et transir et brûler', h:'Sentir with an infinitive', n:'After <em>sentis</em> the infinitives <em>transir</em> and <em>brûler</em> have <em>tout mon corps</em> as their subject: I felt my whole body both freeze and burn. <em>Et … et</em> means “both … and.”'}],
+  qs:[
+   {t:'le vis', q:'<em>le</em> in <em>Je le vis</em> is…', a:'The object of <em>vis</em>, placed before the verb', ds:['An article','The subject','A reflexive pronoun'], why:'Object pronouns stand before the verb in French.'},
+   {t:'rougis', q:'<em>rougis</em> is…', a:'Passé simple: I blushed', ds:['Present: I blush','Imperfect: I was blushing','Past participle'], why:'The passé simple of <em>rougir</em>, a single completed event.'},
+   {t:'éperdue', q:'<em>éperdue</em> is feminine because…', a:'It agrees with <em>âme</em>', ds:['It agrees with <em>trouble</em>','Phèdre is speaking','It is an adverb'], why:'<em>Âme</em> is feminine.'},
+   {t:'voyaient', q:'Why the imperfect <em>voyaient</em> and not the passé simple?', a:'It describes a state that lasted', ds:['It is a single completed event','It is a future in the past','It is a subjunctive'], why:'The imperfect gives the condition; the passé simple gives the events.'},
+   {t:'tout mon corps', q:'<em>tout mon corps</em> is…', a:'The subject of <em>transir</em> and <em>brûler</em>', ds:['The object of <em>brûler</em>','The subject of <em>sentis</em>','A phrase of place'], why:'She felt her body freeze and burn: the body does both.'}]},
+
+'fr-reve': {lang:'fr', author:'Verlaine', work:'Poèmes saturniens', locus:'“Mon rêve familier” 1–4', meter:'Alexandrine', ed:'Verlaine, “Mon rêve familier,” in <i>Poèmes saturniens</i> (1866), lines 1–4, in his <i>Œuvres complètes</i>, vol. 1, Project Gutenberg eBook 15112. English: Gertrude Hall, <i>Poems of Paul Verlaine</i> (1895), Project Gutenberg eBook 8426.',
+  lat:'Je fais souvent ce rêve étrange et pénétrant\nD’une femme inconnue, et que j’aime, et qui m’aime,\nEt qui n’est, chaque fois, ni tout à fait la même\nNi tout à fait une autre, et m’aime et me comprend.',
+  eng:'Oft do I dream this strange and penetrating dream:\nAn unknown woman, whom I love, who loves me well,\nWho does not every time quite change, nor yet quite dwell\nThe same—and loves me well, and knows me as I am.\n— Gertrude Hall',
+  ctx:'The opening of a sonnet. One sentence of four lines: a woman is named, and then a string of relative clauses joined by <em>et</em> tells what she is.',
+  parts:[
+   {t:'Je fais souvent ce rêve étrange et pénétrant', h:'The main clause', n:'<em>Faire un rêve</em> is French for “to have a dream.” <em>Étrange et pénétrant</em> follow the noun they describe.'},
+   {t:'D’une femme inconnue, et que j’aime, et qui m’aime', h:'Two relatives, object and subject', n:'<em>D’une femme</em> says what the dream is of. <em>Que</em> is the object relative (whom I love), <em>qui</em> the subject relative (who loves me).'},
+   {t:'Et qui n’est, chaque fois, ni tout à fait la même\nNi tout à fait une autre', h:'Ni … ni', n:'<em>Ne … ni … ni</em> denies both: she is neither quite the same nor quite another.'},
+   {t:'et m’aime et me comprend', h:'Two more verbs on qui', n:'<em>M’aime</em> and <em>me comprend</em> still have <em>qui</em> as subject, the object pronoun before each verb.'}],
+  qs:[
+   {t:'fais', q:'<em>Je fais … ce rêve</em> means…', a:'I have this dream', ds:['I make this dream come true','I tell this dream','I fear this dream'], why:'<em>Faire un rêve</em> is the French idiom for dreaming.'},
+   {t:'que j’aime', q:'<em>que</em> in <em>que j’aime</em> is…', a:'The object relative: whom I love', ds:['The subject relative','A conjunction, “that”','A comparison, “than”'], why:'<em>J’</em> is the subject; <em>que</em> stands for the woman, the object.'},
+   {t:'qui m’aime', q:'<em>qui</em> in <em>qui m’aime</em> is…', a:'The subject relative: who loves me', ds:['The object relative','An interrogative, “who?”','A possessive'], why:'The woman does the loving.'},
+   {t:'ni tout à fait la même', q:'<em>ne … ni … ni</em> means…', a:'Neither … nor', ds:['Either … or','Both … and','Not only … but also'], why:'Both members are denied.'}]},
 
 'fr-cid': {lang:'fr', author:'Corneille', work:'Le Cid', locus:'I.5', meter:'Alexandrine', ed:'Corneille, <i>Le Cid</i> (1637), I.5. English: Roscoe Mongan (1896), Project Gutenberg eBook 14954; the translator’s bracketed literal notes are left out.',
   lat:'Rodrigue, as-tu du cœur ?\n— Tout autre que mon père\nL’éprouverait sur l’heure.',
@@ -1134,21 +1177,6 @@ Object.assign(PASSAGES, {
    {t:'du cœur', q:'<em>du cœur</em> is…', a:'The partitive: some heart, courage', ds:['A genitive: of the heart','The object of a preposition','The subject'], why:'<em>Du</em> before a noun of quantity not counted gives the partitive sense.'},
    {t:'Tout autre', q:'<em>Tout autre que mon père</em> is…', a:'The subject of <em>éprouverait</em>', ds:['The object of <em>éprouverait</em>','An address to the father','The predicate of <em>as</em>'], why:'Anyone other than my father would find it out: the phrase is the subject.'},
    {t:'éprouverait', q:'<em>éprouverait</em> is…', a:'The conditional: would find out', ds:['The future: will find out','The imperfect: was finding out','The subjunctive'], why:'The ending <em>-rait</em> on the infinitive stem is the conditional; the condition is understood.'}]},
-
-'fr-corbeau': {lang:'fr', author:'La Fontaine', work:'Fables', locus:'I.2.1–4', meter:'Lines of ten and eight syllables', ed:'La Fontaine, <i>Fables</i> I.2, “Le Corbeau et le Renard” (1668), lines 1–4. English: Elizur Wright (1841), Project Gutenberg eBook 7241.',
-  lat:'Maître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l’odeur alléché,\nLui tint à peu près ce langage :',
-  eng:'Perched on a lofty oak,\nSir Raven held a lunch of cheese;\nSir Fox, who smelled it in the breeze,\nThus to the holder spoke:\n— Elizur Wright',
-  ctx:'The second fable: the fox flatters the crow until he opens his beak and drops the cheese. The lines differ in length, as La Fontaine’s lines often do.',
-  parts:[
-   {t:'Maître Corbeau, sur un arbre perché', h:'The participle after the subject', n:'<em>Perché</em>, “perched,” agrees with <em>Maître Corbeau</em> and describes him. <em>Maître</em> is a mock title.'},
-   {t:'Tenait en son bec un fromage', h:'The imperfect', n:'<em>Tenait</em>, imperfect: the state of things when the story begins.'},
-   {t:'Maître Renard, par l’odeur alléché', h:'The agent with par', n:'<em>Alléché</em>, “lured,” agrees with <em>Maître Renard</em>, and <em>par l’odeur</em> gives what lured him.'},
-   {t:'Lui tint à peu près ce langage', h:'The passé simple and the indirect object', n:'<em>Tint</em>, passé simple of <em>tenir</em>, is the event. <em>Lui</em>, “to him,” is the indirect object.'}],
-  qs:[
-   {t:'perché', q:'<em>perché</em> agrees with…', a:'<em>Maître Corbeau</em>', ds:['<em>un arbre</em>','<em>son bec</em>','<em>un fromage</em>'], why:'The participle describes the crow: perched on a tree.'},
-   {t:'Tenait', q:'<em>Tenait</em> is in the imperfect because…', a:'It describes the scene when the story begins', ds:['It is a single completed event','It is a condition','It is a habit of every day'], why:'The imperfect sets the scene; <em>tint</em> in line 4 is the event.'},
-   {t:'par l’odeur', q:'<em>par l’odeur</em> gives…', a:'What lured the fox: the agent of <em>alléché</em>', ds:['The place of the fox','The time','The object of <em>tint</em>'], why:'With a participle of passive sense, <em>par</em> gives the agent.'},
-   {t:'Lui', q:'<em>Lui</em> is…', a:'The indirect object: to him, the crow', ds:['The subject: he','The direct object: him','A stressed pronoun after a preposition'], why:'<em>Tenir un langage à quelqu’un</em>: <em>lui</em> stands for <em>à Maître Corbeau</em>.'}]},
 
 'fr-vieille': {lang:'fr', author:'Ronsard', work:'Sonnets pour Hélène', locus:'II.24.1–4', meter:'Alexandrine', ed:'Ronsard, <i>Sonnets pour Hélène</i> II.24 (1578), lines 1–4. English: Andrew Lang, <i>Ballads and Lyrics of Old France</i> (1872), Project Gutenberg eBook 795.',
   lat:'Quand vous serez bien vieille, au soir, à la chandelle,\nAssise auprès du feu, dévidant et filant,\nDirez, chantant mes vers, en vous émerveillant :\nRonsard me célébrait du temps que j’étais belle.',
@@ -1165,37 +1193,7 @@ Object.assign(PASSAGES, {
    {t:'Direz', q:'What is the subject of <em>Direz</em>?', a:'<em>vous</em>, left unexpressed', ds:['<em>Ronsard</em>','<em>mes vers</em>','<em>le feu</em>'], why:'The ending <em>-ez</em> shows the person; the older language could omit the pronoun.'},
    {t:'en vous émerveillant', q:'<em>en vous émerveillant</em> is…', a:'A gerund: while marveling', ds:['A preposition with a noun','An infinitive','A present indicative'], why:'<em>En</em> with the participle in <em>-ant</em> is the gerund, saying how or while.'}]},
 
-'fr-automne': {lang:'fr', author:'Verlaine', work:'Poèmes saturniens', locus:'“Chanson d’automne” 1–6', meter:'Lines of four and three syllables', ed:'Verlaine, “Chanson d’automne,” in <i>Poèmes saturniens</i> (1866), stanza 1, Project Gutenberg eBook 15112. English: Gertrude Hall (1895), Project Gutenberg eBook 8426.',
-  lat:'Les sanglots longs\nDes violons\nDe l’automne\nBlessent mon cœur\nD’une langueur\nMonotone.',
-  eng:'Leaf-strewing gales\nUtter low wails\nLike violins,\nTill on my soul\nTheir creeping dole\nStealthily wins.\n— Gertrude Hall',
-  ctx:'One of the best known poems in French. The lines are very short, of four and three syllables. The translator keeps the sound more than the words: “violins” is her only word taken from the stanza.',
-  parts:[
-   {t:'Les sanglots longs', h:'The adjective after the noun', n:'<em>Longs</em> follows <em>sanglots</em> and agrees with it, masculine plural.'},
-   {t:'Des violons\nDe l’automne', h:'Two phrases with de', n:'<em>Des violons</em> depends on <em>sanglots</em>, and <em>de l’automne</em> on <em>violons</em>.'},
-   {t:'Blessent mon cœur', h:'The verb', n:'<em>Blessent</em> is plural, agreeing with <em>les sanglots</em>.'},
-   {t:'D’une langueur\nMonotone.', h:'De of means', n:'<em>De</em> gives the means: they wound my heart with a monotonous languor.'}],
-  qs:[
-   {t:'longs', q:'<em>longs</em> agrees with…', a:'<em>sanglots</em>', ds:['<em>violons</em>','<em>automne</em>','<em>cœur</em>'], why:'It is masculine plural and follows the noun it describes.'},
-   {t:'Blessent', q:'What is the subject of <em>Blessent</em>?', a:'<em>Les sanglots</em>', ds:['<em>Des violons</em>','<em>l’automne</em>','<em>mon cœur</em>'], why:'The two phrases with <em>de</em> depend on <em>sanglots</em>; the verb is plural to agree with it.'},
-   {t:'mon cœur', q:'<em>mon cœur</em> is…', a:'The object of <em>blessent</em>', ds:['The subject','An indirect object','An address'], why:'The sobs wound my heart.'},
-   {t:'D’une langueur', q:'<em>d’une langueur monotone</em> gives…', a:'The means: with a monotonous languor', ds:['Possession: of a languor','The place','The agent of a passive'], why:'<em>De</em> after a verb of acting can give the means or manner.'}]},
-
-'fr-ennemi': {lang:'fr', author:'Baudelaire', work:'Les Fleurs du mal', locus:'“L’Ennemi” 1–4', meter:'Alexandrine', ed:'Baudelaire, “L’Ennemi,” in <i>Les Fleurs du mal</i> (1857), lines 1–4, Project Gutenberg eBook 6099. English: Cyril Scott (1909), Project Gutenberg eBook 36098.',
-  lat:'Ma jeunesse ne fut qu’un ténébreux orage,\nTraversé çà et là par de brillants soleils ;\nLe tonnerre et la pluie ont fait un tel ravage\nQu’il reste en mon jardin bien peu de fruits vermeils.',
-  eng:'My childhood was naught but a ravaging storm,\nEnlivened at times by a brilliant sun;\nThe rain and the winds wrought such havoc and harm\nThat of buds on my plot there remains hardly one.\n— Cyril Scott',
-  ctx:'The poet looks back on his youth as a storm that has left his garden nearly bare. The poem is a sonnet in alexandrines.',
-  parts:[
-   {t:'Ma jeunesse ne fut qu’un ténébreux orage', h:'Ne … que and the passé simple', n:'<em>Ne fut que</em>, “was only,” limits. <em>Fut</em> is the passé simple of <em>être</em>: the youth is over.'},
-   {t:'Traversé çà et là par de brillants soleils', h:'A participle and the agent', n:'<em>Traversé</em> agrees with <em>orage</em>, masculine. <em>Par</em> gives the agent. <em>De</em> replaces <em>des</em> before an adjective that precedes its noun: <em>de brillants soleils</em>.'},
-   {t:'Le tonnerre et la pluie ont fait un tel ravage', h:'Tel … que', n:'<em>Un tel ravage</em>, “such havoc,” looks ahead to the clause of result with <em>que</em>.'},
-   {t:'Qu’il reste en mon jardin bien peu de fruits vermeils', h:'Impersonal il reste', n:'<em>Il reste</em>, “there remain,” is impersonal: the verb is singular though <em>fruits</em> is plural. <em>Bien peu de</em>: very few.'}],
-  qs:[
-   {t:'ne fut qu’', q:'<em>ne fut qu’un … orage</em> means…', a:'Was only a storm', ds:['Was not a storm','Was no longer a storm','Was never a storm'], why:'<em>Ne … que</em> means “only.”'},
-   {t:'de brillants soleils', q:'Why <em>de</em> and not <em>des</em> in <em>de brillants soleils</em>?', a:'The adjective comes before the noun', ds:['<em>Soleils</em> is masculine','After <em>par</em> the article is dropped','It is a genitive'], why:'In careful French the plural indefinite article <em>des</em> becomes <em>de</em> before an adjective that precedes its noun.'},
-   {t:'un tel ravage', q:'<em>un tel ravage … qu’il reste</em> gives…', a:'A result', ds:['A comparison','A purpose','A concession'], why:'<em>Tel … que</em>: such havoc that few fruits remain.'},
-   {t:'il reste', q:'<em>il reste</em> is singular because…', a:'It is impersonal: “there remain”', ds:['Its subject is <em>jardin</em>','<em>Fruits</em> is singular','It agrees with <em>ravage</em>'], why:'With impersonal <em>il</em>, the verb stays singular, and <em>fruits</em> is the logical subject placed after it.'}]}
 });
-
 
 /* ===== de ===== */
 /* German prose and poetry. German as printed by Wikisource and Project Gutenberg, in modern spelling (dass for daß,
