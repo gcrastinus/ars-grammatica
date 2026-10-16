@@ -758,7 +758,6 @@ textarea.fw-in{resize:vertical; min-height:84px; line-height:1.45}
     <div class="section-label">Difficulty</div>
     <div class="diff-row" id="diff-row"></div>
     <div class="diff-desc" id="diff-desc"></div>
-    <div class="art-row" id="art-row" role="group" aria-label="Choose the course"></div>
 
     <div class="rule"></div>
 
@@ -1474,7 +1473,7 @@ function load(){
     store.modes = o.modes || {};
     store.langs = (o.langs && typeof o.langs === 'object') ? o.langs : {};
     store.secLang = (o.secLang && typeof o.secLang === 'object') ? o.secLang : {};
-    store.art = o.art === true;
+    store.art = true; /* the home shows only the general sets */
     if(o.dark !== undefined && o.dark !== null) state.dark = o.dark;
     if(o.diff) state.diff = o.diff;
     if(o.speakRate) state.speakRate = o.speakRate;
@@ -17935,15 +17934,48 @@ function setSectionLang(act, k){
   buildHome();
   window.scrollTo(0, y);
 }
+/* The home page: the general sets alone, in the order of the outline. Each entry names a row of ACTS by its deck
+   (with the exercises kept beside it), or the Free Workshop; titles and descriptions are taken from ACTS unchanged. */
+const HOME_OUTLINE = [
+  {head:'Preliminary — What Grammar Is', rows:[['prelim']]},
+  {head:'I · Sign and Word', rows:[['vox']]},
+  {head:'II · Matter of Speech', rows:[['letter']]},
+  {head:'III · Analogy and Anomaly: the Parts of Speech', rows:[['pos'],['decline'],['casework',[]]]},
+  {head:'V · Construction', rows:[['oratio'],['agree'],['govern'],['cong'],['congtruth'],['clauses',[]],['period',[]]]},
+  {head:'VI · Correctness and Faults', rows:[['vices']]},
+  {head:'VII · Figures and Tropes', rows:[['figures'],['figura']]},
+  {head:'VIII · Signification and Supposition', rows:[['suppos'],['modes'],['objections'],['service']]},
+  {head:'IX · Analysis of Sentences and Passages', rows:[['workshop'],['tool'],['markup']]},
+  {head:'XI · Other Traditions and Modern Grammar', rows:[['scribal'],['vyakarana'],['xiaoxue'],['nahw'],['quaestiones'],['traditions'],['typo'],['ug']]}
+];
+function homeActs(){
+  const find = deck => { for(const a of ACTS) for(const it of a.items) if(deck === 'tool' ? it.kind === 'tool' : it.kind === 'row' && it.deck === deck) return {a, it}; return null; };
+  return HOME_OUTLINE.map((sec, i) => {
+    let key = null;
+    const items = sec.rows.map(([deck, ex]) => {
+      const f = find(deck);
+      if(!f) return null;
+      if(!key) key = f.a.key;
+      const it = Object.assign({}, f.it, {srcKey:f.a.key});
+      if(ex) it.ex = ex;
+      return it;
+    }).filter(Boolean);
+    return {key:key, home:true, roman:'', name:sec.head, gloss:'', noLangChoice:true, items};
+  });
+}
 function buildHome(){
   const host = $('home-acts');
   host.innerHTML = '';
   let cardN = 0;
-  ACTS.forEach(act => { try { buildAct(act); } catch(e){ console.error('home section ' + act.key, e); } });
+  homeActs().forEach(act => { try { buildAct(act); } catch(e){ console.error('home section ' + act.name, e); } });
   function buildAct(act){
     /* A section with no general rows has no heading in The Art of Grammar alone. */
     if(store.art && !act.items.some(it => homeGroup(it) === 'gen')) return;
-    if(act.roman){
+    if(act.home){
+      const h = document.createElement('div');
+      h.className = 'act-label'; h.textContent = act.name;
+      host.appendChild(h);
+    }else if(act.roman){
       const h = document.createElement('div');
       h.className = 'act-label';
       h.textContent = act.latin ? `${act.roman} · ${act.latin}` : `${act.roman} · ${act.name}`;
@@ -17958,9 +17990,11 @@ function buildHome(){
       h.className = 'section-label'; h.textContent = act.name;
       host.appendChild(h);
     }
-    const g = document.createElement('div');
-    g.className = 'act-gloss'; g.innerHTML = act.gloss;
-    host.appendChild(g);
+    if(act.gloss){
+      const g = document.createElement('div');
+      g.className = 'act-gloss'; g.innerHTML = act.gloss;
+      host.appendChild(g);
+    }
 
     const grid = document.createElement('div');
     grid.className = 'set-grid';
@@ -18090,7 +18124,7 @@ function renderDeck(){
   const p = deck.panels[deckI];
   deckAnswered = !p.q;
   const body = $('deck-body');
-  const artNote = store.art && deckI === 0 && (ART_NOTE.indexOf(deckKey) >= 0 || deckKey === 'meterArt') ? `<p class="art-note">${ART_NOTE_TEXT}</p>` : '';
+  const artNote = '';
   body.innerHTML = `<div class="panel">${artNote}${p.h}${p.ladder ? ladderSvg() : ''}${deckCite(deckKey, deckI)}${deckGreekNote('text')}</div>`;
   if(p.q){
     const box = document.createElement('div');
