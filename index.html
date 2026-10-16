@@ -1722,6 +1722,21 @@ const SRC = {
        full:'Joseph H. Greenberg, ed., <i>Universals of Language</i> (1963), and the implicational universals later numbered from that program — used here only for the typological facts asked toward the end of the course.',
        note:''},
 
+  diomedes:{kind:'primary', short:'Diomedes, <i>Ars grammatica</i>, citing Varro',
+       full:'Diomedes, <i>Ars grammatica</i>, in H. Keil, <i>Grammatici Latini</i> I, p. 426, where Varro’s four duties (<i>officia</i>) of grammar are reported. Given in paraphrase; no published English translation.',
+       note:'The four tasks of the grammarian.'},
+  thrax:{kind:'primary', short:'Dionysius Thrax, <i>Technē</i> 1',
+       full:'Dionysius Thrax, <i>Technē grammatikē</i> 1: the six parts of grammar. Given in paraphrase.',
+       note:''},
+  martianus:{kind:'primary', short:'Martianus Capella, <i>De nuptiis</i> III',
+       full:'Martianus Capella, <i>De nuptiis Philologiae et Mercurii</i> (<i>The Marriage of Philology and Mercury</i>) III, where Grammar appears with her knife and file.',
+       note:''},
+  varro_ll:{kind:'primary', short:'Varro, <i>De lingua Latina</i> VIII–X',
+       full:'Varro, <i>De lingua Latina</i> VIII–X, on analogy and anomaly (esp. IX.3). Given in paraphrase.',
+       note:''},
+  walshe:{kind:'study', short:'Walshe, <i>Commentary on Aristotle’s Categories</i>',
+       full:'Walshe, <i>Commentary on Aristotle’s Categories</i>, “What is Logic About?”',
+       note:''},
   quint:{kind:'primary', short:'Quintilian, <i>Institutio oratoria</i> I.4–9',
        full:'Quintilian, <i>Institutio oratoria</i> I.4–9 (ed. Winterbottom; English from Butler’s Loeb, public domain). Grammar is treated as the science of speaking correctly and the interpretation of the poets. Later school lists name the same offices <i>lectio, emendatio, enarratio, iudicium</i>. I.4.2 divides the profession <i>in duas partis</i>, <i>recte loquendi scientiam et poetarum enarrationem</i>; Butler renders this “the art of speaking correctly and the interpretation of the poets.”',
        note:'Why an auctor belongs in a grammar course, and not only in rhetoric.'},
@@ -1819,7 +1834,7 @@ const DECK_SRC = {
   arist_anima: 'Aristotle, <i>De anima</i> II.8',
   arist_int2: 'Aristotle, <i>De interpretatione</i> 2',
   boeth_int: 'Boethius, <i>In Peri hermeneias</i>',
-  quint: 'Quintilian, <i>Institutio oratoria</i> I.4',
+  quint: k => k === 'prelim_criteria' ? 'Quintilian, <i>Institutio oratoria</i> I.5–6' : k.indexOf('prelim_') === 0 ? undefined : 'Quintilian, <i>Institutio oratoria</i> I.4',
   chomsky: 'Chomsky',
   blackgt: 'Black',
   lawless: 'Lawless',
@@ -1837,7 +1852,8 @@ const DECK_TOP = {
   latprose:['ag'], latpoetry:['ag'],
   enprose:['engclass'], enpoetry:['engclass'], enmeter:['engclass'], grcprose:['smyth'], grcpoetry:['smyth','hypo'], grcmeter:['smyth','hypo'],
   frprose:['lawless'], frpoetry:['lawless'], frmeter:['larousse'], deprose:['duden'], depoetry:['duden'], demeter:['duden'],
-  prelim:['priscian','donatus','boethiusd','te'], modes:['te','aq_ph','priscian','boethiusd'],
+  prelim_definition:['quint', 'isidore', 'donatus', 'priscian'], prelim_offices:['quint', 'diomedes', 'thrax'],
+  prelim_methodice:['quint'], prelim_criteria:['quint', 'varro_ll', 'donatus'], modes:['te','aq_ph','priscian','boethiusd'],
   traditions:['bh','saussure','boethiusd','jst'], clauses:['ag'], vox:['arist_int2','boeth_int','donatus','arist_anima'],
   period:['priscian','ag','quint','te'], letter:['priscian','donatus'], syllable:['priscian','ag'], ensyl:['mw'],
   pos:['donatus','priscian','te','arist_int'], decline:['donatus','priscian','te','ag'], casework:['ag','nieto'],
@@ -1853,7 +1869,8 @@ const DECK_TOP = {
   grcsyl:['smyth'], desyl:['duden'], frsyl:['lawless'], frpar:['lawless','larousse','leconjugueur'], depar:['duden']
 };
 const DECK_CITE = {
-  prelim:{2:['isidore'], 11:['quint']},
+  prelim_definition:{0:['martianus'], 3:['aq_st57'], 7:['walshe'], 8:['te'], 9:['boethiusd']},
+  prelim_methodice:{5:['donatus', 'priscian', 'servius']},
   modes:{0:['aq_sent']},
   traditions:{5:['deely'], 6:['deely'], 7:['deely']},
   service:{2:['aq_st13']},
@@ -1898,124 +1915,260 @@ function il(o){
 const DECKS = {};
 
 /* -------------------------------------------------------------- */
-DECKS.prelim = {
-  title:'What Grammar Is',
-  sub:'The name, definition, matter, parts, end, and offices of the art',
+/* From the mockup deck prelim.definition (gcrastinus/ars-grammatica-mockup). */
+DECKS.prelim_definition = {
+  title:"The Definition of Grammar",
+  sub:"The definition of grammar, its material and its ends, and its place as the first art of the trivium",
   panels:[
+{ src:["quint", "isidore", "donatus", "priscian", "martianus"], h:`<p><strong>Why did the ancients put grammar first?</strong> Quintilian, who taught rhetoric at Rome in the first century, sends the boy to the <i>grammaticus</i>, the grammarian, before he comes to the teacher of rhetoric. He warns that grammar is far more than its humble look suggests. It is the foundation of the whole building, and anyone who passes over it will find the higher studies falling in on themselves (<i>Institutio oratoria</i> I.4.5).</p>
+<p>The later Roman handbooks keep the same order. In Martianus Capella’s <i>Marriage of Philology and Mercury</i> (fifth century), the seven arts are presented as bridesmaids to Lady Philology, who is the personification of the study of literature and the disciplines of learning. Grammar comes first, carrying a knife and a file for cutting away errors in the use of language. Cassiodorus and Isidore, medieval scholars writing after the fall of Rome, likewise begin their accounts of the liberal arts with grammar. This is how the medieval schools came to call grammar the gate of the arts, the first of the trivium.</p>
+<p>These are the historical reasons. The classical tradition of philosophy also gives more general ones. Grammar, logic, and rhetoric are the arts of speech: grammar is the art of speaking and writing correctly, logic the art of reasoning correctly, and rhetoric the art of persuading well. Logic considers statements, and a statement is made of words. So the words must be correctly joined before anything can be asserted or denied and before anything can follow from them or be communicated. Rhetoric directs a speech to an audience, but there is nothing to direct until something has been said. Students can find these reasons set out in detail in the <a href="https://studiuminstitute.org/trivium/" target="_blank" rel="noopener">Introduction to the Trivium</a>.</p>` },
 
-{ src:['appown'], h:`<p><strong>THE FIRST ART.</strong> Grammar, logic, and rhetoric are commonly called today the arts of language; the older and more proper name is the arts of speech (Latin: <span class="lat">artes sermocinales</span>). Together they make up the trivium, that is, the three arts of speech; the Latin word <span class="lat">trivium</span> means literally the place where three roads meet. <strong>Grammar</strong> is the art of speaking and writing correctly; <strong>logic</strong> is the art of reasoning rightly; and <strong>rhetoric</strong> is the art of persuading well.</p>
-<p>They come in that order because logic works on statements, and a statement is made of words; so, if we do not know what a word is doing in a sentence, we cannot say what the sentence asserts. This course therefore builds from the beginning: the English term comes first, and the Latin name is given beside it where it helps.</p>` },
+{ src:["quint", "isidore", "donatus", "priscian"], h:`<p><strong>Why is the art called grammar?</strong> The name comes from the Greek word for a letter, <i>gramma</i> (plural <i>grammata</i>): Isidore of Seville says that grammar “takes its name from letters, for the Greeks call letters <i>grammata</i>” (<i>Etymologiae</i> I.5.1). The art nevertheless begins with the voice, because a letter is a sound written down; if there were no voice, there would be nothing for the letter to mark.</p>
+<p>The art is named from writing because correct speech reaches its fullest and most lasting form in written works, especially in the poets, the historians, and the philosophers. Without writing, the authors of the past would not be there for us to read and to imitate, so the advanced study of connected speech depends on written texts.</p>` },
 
-{ src:['isidore','appown'], h:`<p><strong>Why it is named grammar.</strong> The name comes from the word for <strong>letter</strong>, that is, a mark of a sound that can be written. The art nevertheless begins in the voice, because a letter is a sound written down; if there were no voice, there would be nothing for the letter to mark.</p>
-<p>It is named from writing for a reason, and not only because of its history. Congruous speech (speech whose words fit together correctly) reaches its highest and most lasting forms in writings, especially in the works of the poets and the philosophers. Without writing, the study and imitation of great works could not reach as far, since the authors of the past would not be there for us to consider; advanced study of connected speech therefore depends on texts.</p>
-<p>So the name looks to the mark, but the material of the art is first the sound; for that reason this course treats voice before the letter.</p>`,
-  q:{ prompt:`Why do we treat voice before the letter, if the art is named from the letter?`,
-      options:['Because letters were invented later than speech, and the course follows history','Because a letter is the mark of a sound, and voice is that sound',
-               'Because the tradition holds that writing is no part of grammar','Because letters are not counted among the parts of speech'],
+{ src:["quint", "isidore", "donatus", "priscian"], h:`<p><strong>What is the definition of grammar?</strong> Grammar is the art of speaking and writing correctly. Isidore gives the definition in this form: “Grammar is the knowledge of speaking correctly, and is the origin and foundation of liberal letters” (<i>Etymologiae</i> I.5.1). Quintilian divides the profession of the grammarian into two parts: “the art of speaking correctly and the interpretation of the poets” (<i>Institutio oratoria</i> I.4.2).</p>
+<p>The word “correctly” is the center of the definition. Grammar does not ask whether a sentence is true, which is what logic asks, or whether it persuades, which is what rhetoric asks. It asks whether the words are correctly formed and correctly arranged with one another.</p>`,
+  qv:[
+    { prompt:`Which of these is the traditional definition of grammar?`,
+      options:[`The natural science of how the throat and the tongue produce sounds`, `The art of speaking and writing correctly`, `The part of logic that judges whether statements are true`, `A list of rules for spelling`],
       correct:1,
-      explain:`The name looks to the mark, but the mark is the mark of a sound, and so the art starts from voice. The order is one of nature, not of history: a letter presupposes the sound it marks.` } },
-
-{ src:['isidore','quint','appown'], h:`<p><strong>Definition.</strong> Grammar is the art of speaking and writing correctly. Isidore says that grammar “is the knowledge of speaking correctly, and is the origin and foundation of liberal letters.” It is the first of the three arts of speech, before logic and rhetoric, because they work on sentences, and grammar is the art that puts sentences together.</p>
-<p>It studies speech as speech. How the throat and tongue make sounds belongs to natural philosophy, and whether a sentence is true belongs to logic.</p>`,
-  q:{ prompt:`What kind of thing is grammar?`,
-      options:['The natural science of how the throat and tongue make sounds','The art of speaking and writing correctly',
-               'The part of logic that judges whether statements are true','A collection of rules for spelling and pronunciation'],
-      correct:1,
-      explain:`Grammar is the art of speaking and writing correctly, and it is the first of the arts of speech; logic and rhetoric come after it. How the voice is produced belongs to natural philosophy, and truth to logic.` } },
-
-{ src:['boethiusd','aq_st57','nieto','appown'], h:`<p><strong>An art, and its reasons.</strong> Grammar is first an <em>art</em>, that is, a skill acquired by practice whose end is a well-made thing, in this case a well-formed sentence. We learn it so that we can say exactly what we mean and hear what another has said. That is why it is a <strong>liberal</strong> art: its work, a fitting speech, belongs to reason itself, and so it frees us to express reason with precision and ease. St Thomas says that even in speculative matters there is a kind of work, such as making a syllogism or a fitting speech; the habits ordered to such works are called arts, and liberal arts, because they belong to the soul, which is free.</p>
-<p>The same art also seeks <em>science</em>, that is, sure knowledge of <em>why</em> sentences are formed as they are, and why the parts of speech are these parts. The skill is the art close to speaking; the reasons are the same art at a distance from any particular sentence, and the tradition calls that part speculative grammar. It is one art, not two. This course teaches the art from the start, and the reasons in their place, after the parts of speech are in hand.</p>
-<p>What the art is about is <strong>connected speech well arranged</strong>: not the history of a word, not whether a sentence is true, and not whether it persuades, since those belong to other studies.</p>`,
-  q:{ prompt:`What is grammar about?`,
-      options:['Whether a sentence is true or false','Connected speech well arranged',
-               'The history and origins of individual words','Whether a speech moves its hearers'],
-      correct:1,
-      explain:`Grammar asks whether the words are arranged so that they make a sentence. Truth belongs to logic and persuasion to rhetoric, while the history of words is a different study.` } },
-
-{ src:['isidore','appown','arist_int'], h:`<p><strong>The material.</strong> Grammar works on speech, that is, on voice that can be written and arranged into words and sentences; it does not study things in themselves, or thoughts in themselves. Isidore says that speech (<span class="lat">oratio</span>) is made of three things: sense, voice, and letters. A groan or a single letter therefore enters the art only so far as it bears on speech.</p>`,
-  q:{ prompt:`What does grammar work on?`,
-      options:['The things in the world that words are about','Thoughts in the mind, taken by themselves','Vocal sounds as they enter speech','The truth or falsity of propositions'],
+      explain:`Grammar is the art of speaking and writing correctly. How the voice is produced belongs to natural philosophy, and whether a statement is true belongs to logic. Spelling is only one part of the art.` },
+    { prompt:`Which of these questions belongs to grammar?`,
+      options:[`Is it true that he went to town?`, `Will the hearer be persuaded to go to town?`, `Is “He go to town” correctly formed?`, `How does the tongue form the sound of the letter “g”?`],
       correct:2,
-      explain:`The material is vocal sound as it becomes speech. Things belong to the world; thoughts as thoughts belong to the mind; truth belongs to logic.` } },
+      explain:`Grammar asks whether the words are correctly formed and arranged; “He go to town” is not, because the verb does not agree with its subject. Truth belongs to logic, persuasion to rhetoric, and the production of sounds to natural philosophy.` },
+    { prompt:`Into what two parts does Quintilian divide the profession of the grammarian?`,
+      options:[`Reasoning and persuading`, `Spelling and pronunciation`, `History and philosophy`, `The art of speaking correctly and the interpretation of the poets`],
+      correct:3,
+      explain:`Quintilian divides the profession into the art of speaking correctly and the interpretation of the poets (I.4.2). Reasoning belongs to logic and persuading to rhetoric.` }
+  ] },
 
-{ src:['helias','priscian','donatus'], h:`<p><strong>From voice to the sentence.</strong> Speech is built in steps, each larger than the last:</p>
-<p>the <strong>voice</strong>: living sound<br> the <strong>letter</strong>: the least part of that sound that can be written<br> the <strong>syllable</strong>: sound uttered in one impulse<br> the <strong>word</strong>: the least thing that means<br> the <strong>sentence</strong> (what the old grammarians called a complete saying, <span class="lat">oratio perfecta</span>): words arranged so that they say one thing</p>
-<p>Meaning does not begin at the voice, the letter, or the syllable; it begins at the word, and truth and falsity begin only at the sentence. Voice, letter, and syllable are therefore the material of speech.</p>
-<p>But why not go on to the paragraph, or to the whole speech? A sentence is finished when something is named and something is said of it: <em>The sailor waits.</em> Several clauses may still make <em>one</em> complete meaning; that is a period (a sentence of several clauses that together make one complete meaning), and grammar does treat it, because it is still one sentence. A speech or a book, by contrast, is many sentences in a row, ordered to prove a point or to persuade, and that order belongs to logic or to rhetoric. Grammar’s proper end is therefore the sentence, including the period.</p>`,
-  q:{ prompt:`Where does meaning first appear?`,
-      options:['At the voice','At the letter','At the word','At the sentence'],
+{ src:["quint", "isidore", "donatus", "priscian", "aq_st57"], h:`<p><strong>Why is grammar an art? And what makes it a liberal art?</strong> Grammar is first an <strong>art</strong>, that is, a habit of making something well, acquired by practice and directed by rules. The work that grammar makes is a correctly formed sentence. St. Thomas explains that even in matters of reason there are works to be made, such as an argument or a well-constructed paragraph, and that the habits directed to such works are called arts; they are called <strong>liberal</strong> arts to distinguish them from the arts whose products are made through bodily labor, which are in a way subordinate, “inasmuch as the body is subordinate to the soul, whereas an individual man, as regards his soul, is free,” which is <i>liber</i> in Latin.</p>
+<p>Grammar also seeks knowledge of <em>why</em> sentences are formed as they are and why the parts of speech are what they are. The tradition calls this part of the art speculative grammar. It is one art, not two, because the same art that makes correct sentences also asks for the reasons of what it makes.</p>` },
+
+{ src:["quint", "isidore", "donatus", "priscian"], h:`<p><strong>What is the material of grammar?</strong> The material of grammar is speech, that is, the voice as words signifying thoughts in the mind and as it is arranged into phrases and sentences. Grammar does not study things in themselves, which are the subject of the other sciences, or thoughts in themselves, which belong to the study of the mind. Isidore says that speech (<i>oratio</i>) is made up of three things: sense, voice, and letters.</p>
+<p>A sound enters grammar only in so far as it belongs to speech. So a sound that signifies nothing, or that signifies only by nature and not by the will of those who use it, is not part of the material of grammar. A groan, for example, shows pain by nature, as a cry does in an animal, and so it is not a word; but “Water!” or Latin <i>Aqua!</i> is speech, because it signifies something by the agreement of those who use it.</p>` },
+
+{ src:["quint", "isidore", "donatus", "priscian"], h:`<p><strong>How is speech built up from the voice to the sentence?</strong> Speech is built in steps, each larger than the one before it:</p>
+<p>the <strong>voice</strong>, that is, the motion of air perceptible to hearing;<br>the <strong>letter</strong>, the least part of the voice that can be written;<br>the <strong>syllable</strong>, a sound pronounced in one utterance;<br>the <strong>word</strong>, the least part of an expression that signifies;<br>the <strong>sentence</strong>, words arranged so that they express a complete thought.</p>
+<p>Meaning does not begin at the voice, the letter, or the syllable; it begins at the word. Truth and falsity begin only at the sentence, because only a sentence says something about something. The syllable “pa” in “paper” signifies nothing by itself; the word “paper” signifies; and the sentence “The paper is white” is true or false.</p>`,
+  qv:[
+    { prompt:`At which step does meaning first appear?`,
+      options:[`The voice`, `The letter`, `The syllable`, `The word`],
+      correct:3,
+      explain:`The word is the least part of an expression that signifies. The voice, the letter, and the syllable are the material of speech, but they do not signify by themselves.` },
+    { prompt:`Does the syllable <span class="lat">mu</span> in Latin <span class="lat">murus</span> (“wall”) signify anything by itself?`,
+      options:[`No; it is only a part of a word that signifies`, `Yes; it signifies a wall`, `Yes; it signifies a part of a wall`, `Yes; every sound signifies something`],
+      correct:0,
+      explain:`The syllable <span class="lat">mu</span> is a part of the word <span class="lat">murus</span>, but it signifies nothing by itself. Meaning begins at the word, and a part of a word does not signify a part of the thing.` },
+    { prompt:`At which step do truth and falsity first appear?`,
+      options:[`The syllable`, `The sentence`, `The word`, `The letter`],
+      correct:1,
+      explain:`A word signifies, but it asserts nothing, so it is neither true nor false. Truth and falsity begin at the sentence, because a sentence says something about something, as in “The sun is shining.”` }
+  ] },
+
+{ src:["quint", "isidore", "donatus", "priscian"], h:`<p><strong>Why does grammar end at the sentence?</strong> Grammar studies speech as far as the sentence. A sentence is complete when something is named and something is said of it, as in “The sailor waits.” Several clauses may still express one complete thought; such a sentence is called a <strong>period</strong> (a sentence of several clauses that together express one complete thought), and grammar considers it because it is still one sentence. An example is “Let us hear the conclusion of the whole matter: Fear God, and keep his commandments: for this is the whole duty of man” (Ecclesiastes 12:13, King James Version).</p>
+<p>A speech or a book is many sentences in a row, ordered to prove a point or to persuade. The order of those sentences belongs to logic and to rhetoric. So the proper end of grammar is the sentence, including the period.</p>` },
+
+{ src:["quint", "isidore", "donatus", "priscian", "walshe"], h:`<p><strong>Is a correctly formed sentence also true?</strong> Grammar asks whether a sentence is correctly formed; logic asks whether what it says is true or whether the sentence follows from other things we know. Either may hold without the other. Walshe, in his <i>Commentary on Aristotle’s Categories</i>, gives a pair of examples: the grammarian judges “man is stone” correct and “man are animal” incorrect, while the logician judges the first false and the second true, though badly expressed.</p>
+<p>So grammar cannot tell us what is true. But logic cannot begin without grammar, because until a sentence is correctly formed there is nothing definite for logic to judge.</p>`,
+  qv:[
+    { prompt:`“Him go store yesterday.” How does grammar judge this sentence?`,
+      options:[`It is incorrectly formed, and therefore false`, `It is correctly formed, because its meaning is understood`, `It is incorrectly formed, though what it means may be true`, `It is neither correctly formed nor able to signify anything`],
       correct:2,
-      explain:`The word is the least thing that means; voice, letter, and syllable are material only. Truth and falsity begin at the sentence, which comes later than meaning.`,
-      wrong:`A groan is a voice, and it does not mean as a word does. The sentence is where truth begins, which is later than where meaning begins.` } },
-
-{ src:['appown','quint'], h:`<p><strong>The parts of the art.</strong> Grammar goes from voice, to letter, to syllable, to word, and to the sentence. Later it treats faults in a word and faults in a construction, that is, in words arranged with one another. Figures of speech, taken as means of persuasion, belong to rhetoric; so a figure is taken up here only as a fact about how the words are arranged.</p>
-<p>Authors appear in this course because grammar’s proper subject is connected speech, and the poets and the philosophers give the most perfect examples of words and sentences arranged to powerful and beautiful effect. We study them as connected speech, that is, for how the words are arranged, and not as a lesson in persuasion.</p>` },
-
-{ src:['quint','appown'], h:`<p><strong>What the grammarian does.</strong> There are four offices, here given ordinary names:</p>
-<p><strong>Reading</strong> (<span class="lat">lectio</span>): reading the text aloud, and rightly<br> <strong>Correcting</strong> (<span class="lat">emendatio</span>): mending what is corrupt or wrongly formed<br> <strong>Explaining</strong> (<span class="lat">enarratio</span>): showing what the construction is, especially in the poets<br> <strong>Judging</strong> (<span class="lat">iudicium</span>): weighing what is read, that is, whether a line is genuine and how well it is made</p>
-<p>Speaking correctly and explaining the poets both belong to this art; that is why an author appears in this course under the sentence, and not as a visit to another faculty.</p>`,
-  q:{ prompt:`Why does a grammar course read Virgil at all?`,
-      options:['To learn how the poet moves the reader','Because explaining the poets is part of the art of grammar',
-               'Because Virgil’s Latin is easier than a made example','Because the first office is to judge whether the story is true'],
+      explain:`The construction is incorrect, and that is the whole judgment of grammar. Whether the man went to the store is a different question, which belongs to logic. A sentence that is understood is not therefore correctly formed.` },
+    { prompt:`“The moon is made of green cheese.” How does grammar judge this sentence?`,
+      options:[`It is correctly formed, though what it says is false`, `It is incorrectly formed, because it is false`, `It is incorrectly formed, because the moon is not cheese`, `It cannot be judged until we know whether it is true`],
+      correct:0,
+      explain:`The words are correctly formed and correctly arranged, so grammar judges the sentence correct. That it is false is the judgment of logic, and it does not make the sentence incorrect.` },
+    { prompt:`Latin <span class="lat">Homo est lapis</span> (“A man is a stone”). Which judgment belongs to grammar?`,
+      options:[`The sentence is false`, `The sentence is correctly formed`, `The sentence would not persuade a hearer`, `The sentence is incorrectly formed, because it is false`],
       correct:1,
-      explain:`The grammarian interprets the poets as connected speech; how the passage moves the hearer is not yet the question.` } },
+      explain:`Grammar judges only that the sentence is correctly formed: the singular subject <span class="lat">homo</span> agrees with the singular verb <span class="lat">est</span>. That it is false is the judgment of logic, and whether it persuades is the question of rhetoric.` }
+  ] },
 
-{ src:['appown'], h:`<p><strong>The tools, and the one who uses them.</strong> This course uses definition, example, parsing, comparison of languages, and the authors. They are tools because each does a work the art needs:</p>
-<p>A <strong>definition</strong> says what the thing is, so that we are not guessing at names.<br> An <strong>example</strong> shows the definition at work in a real sentence.<br> <strong>Parsing</strong> names the accidents of a form (its properties, such as case, number, or tense), so that we can see what work it is doing.<br> <strong>Comparison</strong> keeps us from taking one language’s habits for laws of speech as such.<br> The <strong>authors</strong> show the construction at its best, in connected speech that is worth explaining.</p>
-<p>The one who uses these tools is first the teacher of the art, and then the student, once he can make a construction and judge one without being told each time.</p>` },
+{ src:["quint", "isidore", "donatus", "priscian", "te"], h:`<p><strong>What is grammar for?</strong> The ends of grammar, that is the purposes and results of the art of grammar, can be set out in an order. The first is a correctly formed sentence. The second is the habit that the student acquires of forming such sentences and of judging them. The third is that the sentence express a complete thought in the mind of the hearer; Thomas of Erfurt names this as the remote end (<i>finis remotus</i>) of the arrangement of words into a sentence, which is called a grammatical construction (<i>Grammatica speculativa</i> §223). The fourth is that it makes a student ready for logic and rhetoric, which begin only when words have been arranged into a definite sentence.</p>
+<p>Grammar is therefore a ministerial art, that is, an art that serves other arts and sciences. Grammar does not produce an ornament of style for its own sake. It gives us clarity about what words and sentences signify and serves the understanding of connected speech, and when we understand connected speech we can understand its highest form, in the writings of great thinkers; so, grammar culminates in the interpretation of the authors.</p>` },
 
-{ src:['te','nieto','appown'], h:`<p><strong>What the art is for.</strong> Its ends can be set out in order:</p>
-<p>First, a well-arranged sentence, that is, speech whose parts fit.<br> Second, in the student, the habit of making such speech and of judging it.<br> Third, to generate a complete sense in the mind of the hearer; that is Thomas of Erfurt’s phrase for the end of a construction.<br> Fourth, readiness for logic and rhetoric, which begin only when words have been arranged into a definite sentence.</p>
-<p>Grammar is therefore a ministerial art, that is, an art that serves others. It makes the instrument that logic, rhetoric, and poetry use, as the violin-maker makes the violin, and it knows how its work is ordered to their ends, as the violin-maker knows what a violin is for without himself knowing how to play. The higher sciences in turn come back to it, to ask what a tense or a pronoun is doing in a sentence that matters to them; Act VII shows some of these.</p>
-<p>It is not a polish of style for its own sake, nor a mark of social standing; it is for understanding connected speech, for interpreting its highest forms in the poets, and for keeping clear what words and sentences actually signify.</p>
-`,
-  q:{ prompt:`What is grammar for, first of all?`,
-      options:['To persuade the hearer to act','A well-arranged sentence','To know the highest causes of things','To trace the history of words'],
+{ src:["quint", "isidore", "donatus", "priscian", "boethiusd"], h:`<p><strong>Why does grammar come first?</strong> Boethius of Dacia calls grammar an introductory science: it is not a part of philosophy in the way that natural philosophy and mathematics are, but it is needed in order to learn them. Grammar is therefore studied before logic. Quintilian makes the same point about the study of oratory: “Unless the foundations of oratory are well and truly laid by the teaching of literature, the superstructure will collapse” (<i>Institutio oratoria</i> I.4.5). Here we use “literature” and “the teacher of literature” to translate Quintilian’s terms for grammar and the grammarian (<i>grammatica</i>, <i>grammaticus</i>).</p>
+<p>The study of grammar therefore begins with its smallest parts, the voice and the letter, and proceeds to the word and the sentence.</p>` },
+
+]};
+
+/* -------------------------------------------------------------- */
+/* From the mockup deck prelim.offices (gcrastinus/ars-grammatica-mockup). */
+DECKS.prelim_offices = {
+  title:"The Tasks of the Grammarian",
+  sub:"Reading, explaining, correcting, and judging",
+  panels:[
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>The Two Parts of the Grammarian’s Profession.</strong> Quintilian describes the work of the grammarian (Latin <i>grammaticus</i>, here rendered “the teacher of literature”) in this way: “This profession may be most briefly considered under two heads, the art of speaking correctly and the interpretation of the poets; but there is more beneath the surface than meets the eye” (<i>Institutio oratoria</i> I.4.2).</p>
+<p>He then explains what lies beneath the surface: “For the art of writing is combined with that of speaking, and correct reading precedes interpretation, while in each of these cases criticism has its own work to perform” (I.4.3). So the two parts of the profession contain several distinct tasks: writing as well as speaking, reading before interpretation, and in each case the work of criticism, that is, of judging.</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>The Four Tasks of the Grammarian.</strong> We just saw that the tradition recognizes two broad parts of the grammarian’s profession, the evaluation and correction of speaking and the evaluation and correction of writing. Since writing and reading presume and depend on the spoken language and correctness in speaking, the first task of the grammarian is to direct our speaking and writing toward clarity and correctness. But the second part of the profession of the grammarian is the evaluation and correction of writing. This is the higher part because language reaches its most elaborate and powerful forms in writing; and, therefore, written speech requires the most detailed and thorough study and criticism. What this second part of the profession of the grammarian studies is literature, taken in a general sense to include everything thought to be especially well written.</p>
+<p>Concerning grammar in this second way as the study of literature, Varro, as Diomedes reports (<i>Ars grammatica</i>, in Keil, <i>Grammatici Latini</i> I, p. 426), names four duties (<i>officia</i>) of grammar:</p>
+<p><strong>reading</strong> (<i>lectio</i>): reading a text aloud correctly;<br><strong>explaining</strong> (<i>enarratio</i>): explaining the words, the construction, and the matter of a text;<br><strong>correcting</strong> (<i>emendatio</i>): correcting what is corrupt in a text or incorrect in speech;<br><strong>judging</strong> (<i>iudicium</i>): weighing the merit of a poem or other writing (and, Quintilian adds, whether it is genuine).</p>
+<p>The list begins with reading and ends with judging for a reason: a text must be read before it can be explained, and it must be understood before it can be judged.</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>Reading (<span class="lat">lectio</span>).</strong> Reading is the first task of the grammarian as teacher and critic of literature. Reading in this sense is the care that a reader should have for the text that he is reading out loud. (In our time, it is not customary to think of reading aloud as part of the study of literature but it clearly is, since if the text cannot be fluently read out loud then it will not be as easily understood.) Quintilian sets out what it requires: the reader must know “when the student should take breath, at what point he should introduce a pause into a line, where the sense ends or begins, when the voice should be raised or lowered.” He gives one rule for all of it: “to do all these things, one must understand what one reads” (<i>Institutio oratoria</i> I.8.1–2).</p>
+<p>So correct reading already requires grammatical knowledge. The reader must know the quantity and the accent of each word and see where each clause begins and ends. For example, Latin <i>malum</i> with a short <i>a</i> means “evil,” but <i>mālum</i> with a long <i>ā</i> means “apple,” and a reader who does not know the difference may say the wrong word. Again, in “The Lord is my shepherd; I shall not want” (Psalm 23:1, King James Version), the reader pauses at the semicolon, because two clauses meet there.</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>What does explaining (<span class="lat">enarratio</span>) cover?</strong> Explaining or exposition of the text is the second task of the grammarian as teacher and critic of literature. In Quintilian’s description, the teacher “will ask his class after analysing a verse to give him the parts of speech and the peculiar features of the feet which it contains” (<i>Institutio oratoria</i> I.8.13). The teacher also explains words that are not in common use (I.8.15) and the stories to which the poets refer (I.8.18).</p>
+<p>Explaining, therefore, covers the parts of speech, the meter, the meaning of rare words, and the matter of the text. In “Remember now thy Creator” (Ecclesiastes 12:1, King James Version), for example, “Remember” is a verb, “now” an adverb, “thy” a pronoun, and “Creator” a noun; and in “nor the years draw nigh,” the rare word “nigh” means “near.”</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>Correcting (<span class="lat">emendatio</span>).</strong> Correcting is the third task of the grammarian as teacher and critic of literature. It has two objects. The first is the text itself: copyists and printers and editors make errors, and the grammarian seeks to restore what the author originally wrote. The second is speech: Quintilian says that the teacher “will point out what words are barbarous, what words are improperly used, and what words are contrary to the laws of language” (<i>Institutio oratoria</i> I.8.13).</p>
+<p>An error in a single word is called a <strong>barbarism</strong>, and an error in the arrangement of words is called a <strong>solecism</strong>. For example, “brung” for “brought” and “drownded” for “drowned” are barbarisms. “Him and me went home” for “He and I went home,” and Latin <i>rosa rubrum</i> for <i>rosa rubra</i> (“the red rose”), in which the adjective does not agree with the noun, are solecisms. Both are treated fully in Section VI, Correctness and Errors.</p>`,
+  qv:[
+    { prompt:`A teacher explains that “nigh” in “nor the years draw nigh” means “near.” Which task of the grammarian is this?`,
+      options:[`Reading`, `Explaining`, `Correcting`, `Judging`],
       correct:1,
-      explain:`A well-arranged sentence is the first end, and from it a complete meaning can be put into another mind. Persuasion is rhetoric’s end, the highest causes are wisdom’s, and the history of words belongs to philology.` } },
+      explain:`Explaining a word that is not in common use belongs to explaining (<span class="lat">enarratio</span>), as Quintilian says (I.8.15). Reading is reading aloud correctly, and correcting restores what is incorrect.` },
+    { prompt:`A student decides where to pause in “The Lord is my shepherd; I shall not want.” Which task of the grammarian is this?`,
+      options:[`Explaining`, `Correcting`, `Reading`, `Judging`],
+      correct:2,
+      explain:`Deciding where to pause belongs to reading (<span class="lat">lectio</span>). Quintilian says that the reader must know “where the sense ends or begins” (I.8.1).` },
+    { prompt:`A teacher restores “from” where a copyist has written “form.” Which task of the grammarian is this?`,
+      options:[`Correcting`, `Reading`, `Explaining`, `Judging`],
+      correct:0,
+      explain:`Restoring what the author wrote belongs to correcting (<span class="lat">emendatio</span>), which mends what is corrupt in a text or incorrect in speech.` }
+  ] },
 
-{ src:['te','arist_int'], h:`<p><strong>Well formed, and true: two questions.</strong> Grammar asks whether the sentence is well formed; logic asks whether what it says is true. Either may hold without the other:</p>
-<p><em>The moon is made of green cheese</em>: well formed, and false.<br> <em>Him go store yesterday</em>: badly formed, and what it means may well be true.</p>
-<p>A name by itself is not yet true or false: in <em>Man. White.</em> nothing has yet been said. Truth and falsity begin when the mind joins or divides, that is, when something is said of something. So grammar cannot tell us what is true; but logic cannot begin without grammar, since until the sentence is well formed there is nothing definite for logic to judge.</p>`,
-  q:{ prompt:`<em>Him go store yesterday.</em> Judge it.`,
-      options:['Badly formed, and therefore false','Badly formed, though what it means may be true',
-               'Well formed, because the meaning still comes through','Neither well formed nor able to convey any meaning'],
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>Judging (<span class="lat">iudicium</span>), the highest task.</strong> Judging is the fourth task of the grammarian as teacher and critic of literature and it is the highest. Quintilian reports how far the earlier grammarians carried it: “The old school of teachers indeed carried their criticism so far that they were not content with removing lines from texts or rejecting books whose titles they regarded as not actually written by the author that tradition claims . . . but also drew up a canon of authors, from which many reputedly great texts were omitted altogether” (<i>Institutio oratoria</i> I.4.3).</p>
+<p>So judging includes three things: to decide whether a line is genuine, whether a work belongs to the author whose name it bears, and which authors are to be taken as models and why.</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>The Six Parts of Grammar in Dionysius Thrax.</strong> Dionysius Thrax, a Greek grammarian of the second century BC, divides the whole of grammar into six parts, which cover the same tasks: reading aloud with attention to the accents and quantities; explaining the figures of speech (tropes) in the poets; explaining rare words and the stories to which the poets refer; finding the origin of words (etymology); working out the regular patterns of forms (analogy); and, finally, the criticism of poems, which he calls the finest part of the art.</p>
+<p>The six parts and the four tasks describe the same work. Reading comes first in both, and criticism, that is, judging, is, in both, last and highest.</p>` },
+
+{ src:["quint", "diomedes", "thrax"], h:`<p><strong>Why do literary authors in general belong to grammar?</strong> Quintilian does not limit the grammarian to the poets, as Dionysius Thrax does: “Nor is it sufficient to have read the poets only; every kind of writer must be carefully studied, not merely for the subject matter, but for the vocabulary; for words often acquire authority from their use by a particular author” (<i>Institutio oratoria</i> I.4.4).</p>
+<p>So, literary authors belong to grammar for two reasons. First, interpreting them is one of the two parts of the grammarian’s profession. Second, in a more basic way, literary authors show how words are used correctly and their usages and styles and words often become the standard for writing and even speaking sometimes; so, these authors give authority to the forms and constructions that grammar teaches.</p>`,
+  qv:[
+    { prompt:`Why does the grammarian read the poets and the other authors?`,
+      options:[`Because grammar judges whether what the authors say is true`, `Because the interpretation of the authors is one of the two parts of the grammarian’s profession`, `Because the authors are easier to understand than the rules of grammar`, `Because grammar is chiefly the history of literature`],
       correct:1,
-      explain:`The construction is faulty, and that is grammar’s whole judgment; whether the man went to the store is another question. Being understood is not the same as being well formed.`,
-      wrong:`Badly formed does not mean false. Being understandable does not make a construction correct.` } },
+      explain:`Quintilian divides the profession into the art of speaking correctly and the interpretation of the poets (I.4.2). Whether what an author says is true belongs to logic, not to grammar.` },
+    { prompt:`According to Quintilian, why must every kind of writer be studied, and not the poets only?`,
+      options:[`Because only prose writers use correct grammar`, `Because poets are allowed no license in their language`, `Because the rules of grammar are found only in historians`, `Because words often acquire authority from their use by a particular author`],
+      correct:3,
+      explain:`Quintilian says that every kind of writer must be studied “not merely for the subject matter, but for the vocabulary; for words often acquire authority from their use by a particular author” (I.4.4).` },
+    { prompt:`Which task of the grammarian decides whether a line is genuine and which authors are to be taken as models?`,
+      options:[`Judging`, `Reading`, `Explaining`, `Correcting`],
+      correct:0,
+      explain:`Judging (<span class="lat">iudicium</span>) decides whether a line or a book is genuine and draws up the list of authors to be read (Quintilian I.4.3). It is the last and highest of the four tasks.` }
+  ] },
 
-{ src:['appown','isidore','quint','boethiusd'], h:`<p><strong>Master this first.</strong> Boethius of Dacia calls grammar an introductory science: it is not a part of philosophy as natural philosophy and mathematics are, but it is needed for learning them. It should therefore be mastered before logic, so that we see what it can do, namely, make connected speech signify.</p>
-<p>Quintilian divides the grammarian’s profession under two heads, which Butler translates as “the art of speaking correctly and the interpretation of the poets.” Both belong here, and both serve one end: a complete meaning, well arranged, in the hearer’s mind.</p>
-<p>The practice starts in the next tutorial, with the voice.</p>`,
-  q:{ prompt:`Why does grammar come before logic?`,
-      options:['Because logic was first written in Latin and needs Latin grammar','Words must be arranged before they can be true or false',
-               'Because the tradition forbids argument until the student is older','Because rhetoric must judge a sentence before logic may'],
+]};
+
+/* -------------------------------------------------------------- */
+/* From the mockup deck prelim.methodice (gcrastinus/ars-grammatica-mockup). */
+DECKS.prelim_methodice = {
+  title:"Methodice and Historice",
+  sub:"The two parts of grammar: the precepts of the art and the reading of the authors",
+  panels:[
+{ src:["quint"], h:`<p><strong>What are the two parts of grammar?</strong> We saw in the previous deck that Quintilian divides the profession of the grammarian into two parts, the art of speaking correctly and the interpretation of the poets (<i>Institutio oratoria</i> I.4.2). When he finishes treating these two parts, he names them again: “I have now finished with two of the departments, with which teachers of literature profess to deal, namely the art of speaking correctly and the interpretation of authors” (<i>Institutio oratoria</i> I.9.1). He adds the Greek names that the grammarians gave them. The Latin reads <i>ratio loquendi et enarratio auctorum, quarum illam methodicen, hanc historicen vocant</i>, that is, “the rules of speaking and the interpretation of authors, of which they call the first <i>methodice</i> and the second <i>historice</i>”.</p>
+<p>So the part of grammar that teaches the precepts of the art is called <i>methodice</i>, and the part that interprets the authors is called <i>historice</i>. The next two cards take each part in turn.</p>` },
+
+{ src:["quint"], h:`<p><strong>What is <span class="lat">methodice</span>?</strong> The first part of grammar, the precepts of the art, is called <i>methodice</i>. The name comes from the Greek <i>methodos</i>, an orderly way of proceeding; so <i>methodice</i> teaches grammar as an ordered body of precepts. A precept, in this sense, is a general rule of the art. It defines each thing that grammar treats, divides it into its kinds, and gives the rules that govern it. For example, it divides nouns into proper nouns, such as “London,” and common nouns, such as “city”; and it gives the rule that a Latin adjective agrees with its noun in gender, number, and case, as in <i>puella bona</i> (“a good girl”) and <i>puellae bonae</i> (“good girls”).</p>
+<p>The precepts are general because they hold for every sentence of their kind, and not only for the sentence in which they were first observed; and, for that reason, they can be learned once and applied to any text.</p>` },
+
+{ src:["quint"], h:`<p><strong>What is <span class="lat">historice</span>?</strong> The second part of grammar, the interpretation of the authors, is called <i>historice</i>. The name comes from the Greek <i>historia</i>, inquiry or account. (The name does not mean the study of history in our sense.) <i>Historice</i> is the reading and interpretation of the authors, that is, of particular texts. It explains the words, the constructions, and the matter of a particular text, such as a poem, a history, or a speech. For example, it explains that “score” in “Four score and seven years ago” (Lincoln, Gettysburg Address) means twenty.</p>
+<p>So, whereas the precepts of <i>methodice</i> are general, the work of <i>historice</i> is particular, because it explains this line or this sentence and not every line of its kind. For that reason <i>historice</i> is learned by reading many authors with a teacher.</p>`,
+  qv:[
+    { prompt:`The rule that a verb agrees with its subject in number and person belongs to which part of grammar?`,
+      options:[`<span class="lat">Methodice</span>`, `<span class="lat">Historice</span>`, `Neither; it belongs to logic`, `Neither; it belongs to rhetoric`],
+      correct:0,
+      explain:`The rule is a general precept of the art, which holds for every sentence of its kind, so it belongs to <span class="lat">methodice</span>. <span class="lat">Historice</span> explains particular texts.` },
+    { prompt:`Explaining what “score” means in “Four score and seven years ago” belongs to which part of grammar?`,
+      options:[`<span class="lat">Methodice</span>`, `Neither; it belongs to logic`, `<span class="lat">Historice</span>`, `Neither; it belongs to rhetoric`],
+      correct:2,
+      explain:`Explaining a word in a particular text is the work of <span class="lat">historice</span>, the interpretation of the authors. <span class="lat">Methodice</span> gives the general precepts of the art.` },
+    { prompt:`What does the Greek name <span class="lat">historice</span> refer to?`,
+      options:[`The history of the Greek language`, `The interpretation of the authors`, `The precepts of correct speech`, `The order in which the arts are studied`],
       correct:1,
-      explain:`Truth lies in joining and dividing, and words that have not been arranged are not yet true or false; logic would then have no object.` } },
+      explain:`Quintilian gives <span class="lat">historice</span> as the name of the interpretation of the authors and <span class="lat">methodice</span> as the name of the precepts of the art (I.9.1).` }
+  ] },
 
-{ src:['appown'], h:`<p><strong>The art, and the reasons.</strong> Anyone can be taught that there are nouns and verbs. The art is liberal because it frees us to say exactly what we mean and to hear what has been said, and that skill is worth having even if we never ask why the parts of speech are these parts.</p>
-<p>There is a further question: why are the parts of speech what they are, and
-not something else? Why should every language have something like a noun and
-something like a verb? It is convention that this sound means <em>horse</em>. Is
-it also convention that there is such a thing as a noun at all?</p>
-<p>Asking that question is not what makes the art liberal; it is the beginning of speculative grammar, the part of the one art that looks into the causes. This course teaches the art first, and the reasons come later, once the parts of speech are known.</p>` },
+{ src:["quint"], h:`<p><strong>How do the two parts depend on each other?</strong> We have now seen the two parts of grammar one at a time; but they are not separate studies, since each depends on the other. The precepts of <i>methodice</i> are drawn from the usage of the authors, and they are tested against the authors. In turn, the authors are read and explained by means of the precepts.</p>
+<p>So a student who knows the precepts without reading the authors knows rules that he has never seen used; and a student who reads the authors without the precepts cannot say why a sentence is correctly formed.</p>` },
 
-{ src:['appown','boethiusd','bh','sep_sem'], h:`<p><strong>Where this question has been argued.</strong> Donatus and Priscian described the parts of speech and their accidents, and Priscian treated construction (the arrangement of words into a sentence); but they seldom asked why the parts are these. The masters at Paris in the thirteenth century, called the modists, asked for the reasons within grammar itself, and held that the reasons hold for speech as such, not only for Latin. Boethius of Dacia puts it plainly: all languages have one grammar in substance, and differ only in their sounds. This was called <strong>speculative grammar</strong>. This course uses the modists where they give a reason that Priscian does not, and where the reason holds.</p>
-<p>Ockham argued that to say “a word has a mode of signifying” is only a manner of speaking: the sound has no further quality added to it, and different words simply signify in different ways. If that is all, the science of modes in the word has no real subject. The humanists, for their part, wanted elegant Latin from the authors rather than speculative reasons, and they dropped the question as useless for writing.</p>
-<p>In the seventeenth century the grammarians of Port-Royal took up a general
-grammar again. In the nineteenth, comparative philology turned to the history of
-languages and their descent from one another. Saussure turned from that history
-to the study of a language as a system at a given moment. Chomsky returned to a
-universal grammar, but grounded it in the mind rather than in the way things
-are.</p>
-<p>The question is still open, and both sides of it are still argued.</p>`,
-  q:{ prompt:`What did Ockham argue against the science of modes in the word?`,
-      options:['That the parts of speech differ from one language to the next','That “having a mode of signifying” is only a manner of speaking',
-               'That a word signifies by nature and not by imposition','That grammar should follow the usage of the best authors'],
+{ src:["quint"], h:`<p><strong>How do both parts work on one sentence?</strong> Since the two parts depend on each other, both are at work whenever one sentence is read with a teacher. Consider Ecclesiastes 12:1 in the King James Version reads: “Remember now thy Creator in the days of thy youth, while the evil days come not, nor the years draw nigh, when thou shalt say, I have no pleasure in them.”</p>
+<p>The precepts of the art (<i>methodice</i>) name the forms and constructions; for example, “Remember” is a verb in the imperative mood. The interpretation of the authors (<i>historice</i>) explains what the sentence means in its place in the book; for example, “the evil days” are the days of old age. No general precept tells us what “the evil days” refers to in this chapter, and so this second kind of explanation needs the reading of the particular text.</p>`,
+  qv:[
+    { prompt:`In “Remember now thy Creator,” naming “Remember” as a verb in the imperative mood is the work of which part of grammar?`,
+      options:[`<span class="lat">Historice</span>`, `<span class="lat">Methodice</span>`, `Both equally`, `Neither; it belongs to logic`],
       correct:1,
-      explain:`If the mode is not a real feature of the word but only a way we talk, then a science of modes in the word has nothing to be about. The humanists later dropped the question as useless for writing well.` } },
+      explain:`Naming the form of a word by the general precepts of the art is the work of <span class="lat">methodice</span>. <span class="lat">Historice</span> explains what this sentence means in its place in the book.` },
+    { prompt:`Explaining that “the evil days” in Ecclesiastes 12:1 are the days of old age is the work of which part of grammar?`,
+      options:[`<span class="lat">Methodice</span>`, `Neither; it belongs to logic`, `Neither; it belongs to rhetoric`, `<span class="lat">Historice</span>`],
+      correct:3,
+      explain:`Explaining the matter of a particular text belongs to <span class="lat">historice</span>, the interpretation of the authors. No general precept tells us what “the evil days” refers to in this chapter.` },
+    { prompt:`Why does the grammarian need both parts of grammar?`,
+      options:[`Because the precepts are drawn from the authors and tested against them, and the authors are explained by means of the precepts`, `Because <span class="lat">methodice</span> is for Latin and <span class="lat">historice</span> is for English`, `Because <span class="lat">historice</span> judges whether the authors are true`, `Because the precepts change with each author`],
+      correct:0,
+      explain:`The two parts depend on each other: the precepts come from the usage of the authors and are tested against it, and the authors are read by means of the precepts. Neither part is limited to one language, and neither judges whether an author is true.` }
+  ] },
 
-{ src:['appown'], h:`<p><strong>How to use this course.</strong> Each panel is read, its question answered, and the explanation read before going on. Some sets of exercises generate fresh questions each time, and some draw on a fixed body of examples and texts.</p>` },
+{ src:["quint", "donatus", "priscian", "servius"], h:`<p><strong>How were the two parts taught in the schools?</strong> The division of grammar into the precepts of the art (<i>methodice</i>) and the interpretation of the authors (<i>historice</i>) did not end with Quintilian; it continued in the schools after him. The precepts were learned from short grammars written for that purpose, such as Donatus’s <i>Ars minor</i>, and the authors were read with commentaries that explained them line by line, such as Servius’s commentary on Vergil.</p>` },
+
+]};
+
+/* -------------------------------------------------------------- */
+/* From the mockup deck prelim.criteria (gcrastinus/ars-grammatica-mockup). */
+DECKS.prelim_criteria = {
+  title:"The Criteria of Correctness",
+  sub:"Reason, antiquity, authority, and usage",
+  panels:[
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>What are the four criteria?</strong> In the previous deck we saw that the precepts of grammar are drawn from the usage of the authors and tested against them. But when a form or a construction is doubtful, the grammarian needs a standard by which to judge it. A criterion, in the sense used here, is such a standard. Quintilian names four: “Language is based on reason, antiquity, authority and usage” (<i>Institutio oratoria</i> I.6.1). The four criteria are:</p>
+<p><strong>reason</strong> (<i>ratio</i>): the comparison of a doubtful form with a certain one (analogy), and sometimes the origin of a word (etymology);<br><strong>antiquity</strong> (<i>vetustas</i>): the standard of older speech;<br><strong>authority</strong> (<i>auctoritas</i>): the standard of the best authors;<br><strong>usage</strong> (<i>consuetudo</i>, also translated “custom”): the standard of present speech, that is, the agreed practice of educated speakers.</p>
+<p>Each criterion answers the question “Is this correct?” in a different way, and so the grammarian must know how to weigh them against one another.</p>` },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>What is reason, and how do analogy and etymology support it?</strong> The first criterion is reason (<i>ratio</i>). Quintilian says: “Reason finds its chief support in analogy and sometimes in etymology” (I.6.1). <strong>Analogy</strong> is the comparison of a doubtful form with a certain one of the same kind, that is, one about which there is no doubt. Quintilian defines it as “the testing of all subjects of doubt by the application of some standard of comparison about which there is no question, the proof that is to say of the uncertain by reference to the certain” (I.6.4). So, because the plural of “cat” is “cats” and of “dog” is “dogs,” the plural of “zebra” is “zebras”; and Quintilian decides between <i>domuum</i> and <i>domorum</i> (“of houses”) by comparison with words of the same declension, such as <i>anus</i> (“old woman”) and <i>manus</i> (“hand”) (I.6.5).</p>
+<p><strong>Etymology</strong>, the study of the origin of words, supports reason less often, because the origin of a word does not always settle how it is used now.</p>`,
+  qv:[
+    { prompt:`A child says “goed” because the past tense of “walk” is “walked.” Which criterion is the child following?`,
+      options:[`Antiquity`, `Authority`, `Reason, by analogy`, `Etymology alone`],
+      correct:2,
+      explain:`The child compares a doubtful form with a certain one of the same kind, which is analogy, the chief support of reason. The form is nevertheless incorrect, because the agreed practice of educated speakers is “went.”` },
+    { prompt:`What is analogy, as Quintilian defines it?`,
+      options:[`The proof of the uncertain by reference to the certain`, `The use of words found in the oldest writers`, `The practice of the majority of speakers`, `The study of the origin of words`],
+      correct:0,
+      explain:`Quintilian defines analogy as “the testing of all subjects of doubt by the application of some standard of comparison about which there is no question, the proof that is to say of the uncertain by reference to the certain” (I.6.4). The origin of words is etymology.` },
+    { prompt:`Quintilian settles whether to say <span class="lat">domuum</span> or <span class="lat">domorum</span> by comparing <span class="lat">anus</span> and <span class="lat">manus</span>. Which criterion is he using?`,
+      options:[`Authority`, `Antiquity`, `Usage`, `Reason, by analogy`],
+      correct:3,
+      explain:`He compares the doubtful word with words of the same declension whose forms are certain. That is analogy, which Quintilian names as the chief support of reason (I.6.1).` }
+  ] },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>What is antiquity?</strong> The second criterion, antiquity (<i>vetustas</i>), is the standard of older speech. Quintilian says: “Archaic words not only enjoy the patronage of distinguished authors, but also give style a certain majesty and charm” (I.6.39). But he adds that “such words must be used sparingly and must not thrust themselves upon our notice” (I.6.40).</p>
+<p>Antiquity therefore makes a word acceptable in some kinds of speech, as “thou art” is still acceptable in the reading of Scripture and in prayer; but it does not by itself make an old word the ordinary form.</p>` },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>What is authority?</strong> The third criterion, authority (<i>auctoritas</i>), is the standard of the best authors. Quintilian says: “Authority as a rule we derive from orators and historians” (I.6.2). He gives poets less weight, because they are allowed some license for the sake of the meter.</p>
+<p>But authority has limits. Quintilian warns that “it is important to notice not merely what they said, but what words they succeeded in sanctioning” (I.6.42). A form used once by a good author does not become correct unless other speakers and writers have accepted it.</p>` },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>What is usage?</strong> The fourth criterion, usage (<i>consuetudo</i>), is the standard of present speech. Quintilian calls it the most reliable of the four: “Usage however is the surest pilot in speaking” (I.6.3). But usage does not mean whatever most people say. Quintilian defines it carefully: “I will therefore define usage in speech as the agreed practice of educated men, just as where our way of life is concerned I should define it as the agreed practice of all good men” (I.6.45).</p>
+<p>So a form is not correct merely because it is common. It is correct when it is the agreed practice of educated speakers and writers.</p>` },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>How are the criteria weighed against one another?</strong> We have now seen each criterion in turn. But the four criteria can disagree, and then the grammarian must judge between them. Quintilian says that “in all these cases we have need of a critical judgment” (I.6.3). When analogy and usage disagree, usage generally prevails: Quintilian quotes with approval the remark “that it is one thing to speak Latin and another to speak grammar” (I.6.27), that is, a form may follow the rules and still not be the form that speakers use.</p>
+<p>Antiquity and authority also yield to usage in ordinary speech, though they keep their place in some kinds of writing.</p>`,
+  qv:[
+    { prompt:`“Went” is correct and “goed” is not, although “goed” follows the pattern of “walked.” Which criterion decides?`,
+      options:[`Analogy`, `Usage`, `Antiquity`, `Etymology`],
+      correct:1,
+      explain:`Analogy would give “goed,” but the agreed practice of educated speakers is “went,” and usage prevails. This is what the remark “it is one thing to speak Latin and another to speak grammar” means (Quintilian I.6.27).` },
+    { prompt:`How does Quintilian define usage in speech?`,
+      options:[`The practice of the majority of speakers`, `The forms found in the oldest writers`, `The agreed practice of educated men`, `The forms that follow the rules of analogy`],
+      correct:2,
+      explain:`Quintilian defines usage as “the agreed practice of educated men” (I.6.45). He rejects the practice of the majority as a standard, because crowds often commit barbarisms.` },
+    { prompt:`Why is “thou art” not the ordinary form today, although it has the authority of the King James Version?`,
+      options:[`Because usage has changed, and in ordinary speech antiquity and authority yield to usage`, `Because “thou art” was never correct English`, `Because analogy forbids the form “art”`, `Because the King James Version has no authority in grammar`],
+      correct:0,
+      explain:`“Thou art” was correct and is still correct in the reading of Scripture and in prayer, where antiquity and authority keep their place. In ordinary speech, the agreed practice of educated speakers is now “you are,” and usage prevails.` }
+  ] },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>Does language follow analogy or anomaly?</strong> Reason, as we saw, finds its chief support in analogy. But the ancient grammarians disputed whether language follows regular patterns (<strong>analogy</strong>) or whether usage admits many irregular forms that no pattern explains (<strong>anomaly</strong>). Varro sets out the arguments on both sides in <i>De lingua Latina</i> VIII–X and concludes, in our paraphrase, that both must be admitted (IX.3): there are regular patterns, and there are irregular forms that usage has fixed. So English has regular forms such as “walk, walked” and “cat, cats,” and irregular forms such as “go, went” and “child, children”; Latin has <i>altus, altior, altissimus</i> (“high, higher, highest”) but <i>bonus, melior, optimus</i> (“good, better, best”).</p>
+<p>The grammarian therefore learns the regular patterns as precepts, and learns the irregular forms one by one as exceptions to them.</p>` },
+
+{ src:["quint", "varro_ll", "donatus"], h:`<p><strong>How do the criteria judge errors of speech?</strong> Finally, the criteria of correctness are also the standard by which errors are judged. An error in a single word is called a <strong>barbarism</strong>, and an error in the arrangement of words is called a <strong>solecism</strong>. “Irregardless” for “regardless” is a barbarism, and “The list of books are on the table” for “The list of books is on the table” is a solecism. A barbarism or a solecism is a departure from the forms that reason, antiquity, authority, and usage approve.</p>
+<p>Errors of speech are treated fully in Section VI, Correctness and Errors, where these criteria are applied to particular questions of usage and authority.</p>` },
 
 ]};
 
@@ -17576,8 +17729,14 @@ const ACTS = [
   {key:'prelim', roman:'', name:'Preliminary', latin:'',
    gloss:'Begin here: what the art is, and what it is for.',
    items:[
-     {kind:'row', deck:'prelim', full:true, tag:'STUDY · START HERE', title:'What Grammar Is',
-      desc:'The name of the art, its definition, its matter and parts, what it is for, and what the grammarian does. Well formed against true.', ex:[]}
+     {kind:'row', deck:'prelim_definition', full:true, tag:'STUDY · START HERE', title:'The Definition of Grammar',
+      desc:'What is grammar, what does it treat, and why is it the first art of the trivium?', ex:[]},
+     {kind:'row', deck:'prelim_offices', full:true, tag:'STUDY', title:'The Tasks of the Grammarian',
+      desc:'Reading, explaining, correcting, and judging (<i>lectio</i>, <i>enarratio</i>, <i>emendatio</i>, <i>iudicium</i>).', ex:[]},
+     {kind:'row', deck:'prelim_methodice', full:true, tag:'STUDY', title:'<i>Methodice</i> and <i>Historice</i>',
+      desc:'The two parts of grammar: the precepts of the art and the interpretation of the authors.', ex:[]},
+     {kind:'row', deck:'prelim_criteria', full:true, tag:'STUDY', title:'The Criteria of Correctness',
+      desc:'Reason, antiquity, authority, and usage as the standards of correct speech.', ex:[]}
    ]},
   {key:'I', roman:'I', name:'The Matter of Speech', latin:'Vox, Littera et Syllaba',
    gloss:'The matter of speech before meaning: voice, then letter, then syllable.',
@@ -17937,7 +18096,7 @@ function setSectionLang(act, k){
 /* The home page: the general sets alone, in the order of the outline. Each entry names a row of ACTS by its deck
    (with the exercises kept beside it), or the Free Workshop; titles and descriptions are taken from ACTS unchanged. */
 const HOME_OUTLINE = [
-  {head:'Preliminary — What Grammar Is', rows:[['prelim']]},
+  {head:'Preliminary — What Grammar Is', rows:[['prelim_definition'],['prelim_offices'],['prelim_methodice'],['prelim_criteria']]},
   {head:'I · Sign and Word', rows:[['vox']]},
   {head:'II · Matter of Speech', rows:[['letter']]},
   {head:'III · Analogy and Anomaly: the Parts of Speech', rows:[['pos'],['decline'],['casework',[]]]},
@@ -18113,6 +18272,8 @@ function openDeck(key){
     key = 'meterArt';
   }
   deck = DECKS[key]; deckKey = key; deckI = 0;
+  /* A panel with several variants (qv) gets one of them, chosen afresh each time the deck is opened. */
+  deck.panels.forEach(p => { if(p.qv){ p.qv.forEach(v => { delete v._ord; }); p.q = p.qv[Math.floor(Math.random() * p.qv.length)]; } });
   $('deck-title').textContent = deck.title;
   $('deck-sub').textContent = deck.sub;
   $('deck-src').innerHTML = deckSources(key);
@@ -19075,7 +19236,7 @@ $('dark-toggle').onclick = () => setDark(!state.dark);
 const QZ_DECK_FOR_EX = {
   latpos:['latpos','pos'], latnoun:['latnoun'], latverb:['latverb'], cases:['casework','govern','pos'],
   produce:['produce','pos'], latvoice:['latvoice'], latsubj:['latsubj'],
-  congtruth:['congtruth','cong','prelim'], servius4:['period'], livyperiod:['period']
+  congtruth:['congtruth','cong','prelim_definition'], servius4:['period'], livyperiod:['period']
 };
 function qzToday(){
   return new Date().toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
