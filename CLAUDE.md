@@ -1,3 +1,5 @@
+**New content for Ars Grammatica v2 is built first in gcrastinus/ars-grammatica-mockup: read NEXT-STEP.md there (the build brief) and STYLE-GUIDE-TIMOTHY.md (Timothy's general voice guide). Do not add or change sections in this live app until Timothy has approved them in the mockup.**
+
 All text written for this app must follow this guide. Read it before writing or revising any student-facing text.
 
 # Wording rules for this course (from Timothy's own edits)
@@ -67,5 +69,5 @@ Search your new text for these before you push
 
 ## Terminology: the two parts of grammar
 
-The two parts of grammar are "precepts" (the part concerned with precepts; Greek *methodice*) and "interpretation" (the interpretation of the authors; Greek *historice*). Never call the first part "principles," and gloss the Greek names wherever they appear. Ordinary uses of "principle," "rule," and "precept" may still vary. Full rule: REVISION-GUIDE.md A.11 in gcrastinus/ars-grammatica-mockup.
+The two parts of grammar are "precepts" (the part concerned with precepts; Greek *methodice*) and "interpretation" (the interpretation of the authors; Greek *historice*). Never call the first part "principles," and gloss the Greek names wherever they appear. Ordinary uses of "principle," "rule," and "precept" may still vary. Full rule: REVISION-GUIDE.md A.11 in gcrastinus/ars-grammatica-mockup. The build brief for the remaining sections is NEXT-STEP.md there, and Timothy's general voice guide is STYLE-GUIDE-TIMOTHY.md there.
 Never write "the previous deck" or "the next deck" in student text; refer back generally ("We have seen...") or by section of the course (REVISION-GUIDE.md A.12).
