@@ -68,3 +68,4 @@ Search your new text for these before you push
 ## Terminology: the two parts of grammar
 
 The two parts of grammar are "precepts" (the part concerned with precepts; Greek *methodice*) and "interpretation" (the interpretation of the authors; Greek *historice*). Never call the first part "principles," and gloss the Greek names wherever they appear. Ordinary uses of "principle," "rule," and "precept" may still vary. Full rule: REVISION-GUIDE.md A.11 in gcrastinus/ars-grammatica-mockup.
+Never write "the previous deck" or "the next deck" in student text; refer back generally ("We have seen...") or by section of the course (REVISION-GUIDE.md A.12).
